@@ -1,0 +1,396 @@
+PART 3/6
+
+===== extension/609-profile.js =====
+/* Exact60946132 profile. Capabilities require the pinned native transforms to compile. */
+(function(root){'use strict';const profile={"revision":"60946132","size":38933227,"hash":"81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945","statusCapacity":64,"importFunctions":38,"transplant":{"from":"102c8d92","outputBytes":39118811,"outputModuleHash":"1e43d233e69c7da4a8c664e3ba74c558084a5de18ab41c6f9f23825d29957dbb"},"wall":{"functionIndex":23209,"helper":23109,"onlineAddresses":[704993496,707422704,707407324]},"cars":{"functionIndex":23209,"helper":23109,"slotKind":23111,"onlineAddresses":[704993496,707422704,707407324],"onlineTraffic":false,"onlinePlayers":false,"onlineRaceCars":false,"onlineRivals":false,"onlinePlayerOutrun":false,"contactCounters":2,"base":13685184,"bytes":40,"magic":826491214,"primaryCounterScope":"aggregate-non-player-with-rivals"},"capabilities":{"legacy":true,"ai":true,"pace":true,"corner":true,"walls":true,"cars":true,"onlineTraffic":false,"onlinePlayers":false,"onlineRaceCars":false,"onlineRivals":false,"onlinePlayerOutrun":false,"dyno":false,"fullTuner":false,"tunerSecondGuestWindow":false,"tunerCurrentNativeClamp":false,"tunerCapturedNativePolicy":false,"nativeEcuScope":false,"nativeEcuOrderedReplay":false,"ecuRecipePrivatePreflight":false,"dragAI":true,"opponentDrag":true,"nativeDragInputHandoff":true,"ownedNativeNos":true,"nativeDriftPhysics":true,"nativeDriftRecovery":true,"nativeDriftPace":true,"driftDiagnostics":true,"nativeDragOverheat":true,"nativeRaceCapture":false,"travel":false,"nativeRouteProbe":false,"nativeForwardClamp":false,"nativeForwardGeometry":false,"nativePaceCacheFix":true,"nativePaceTargetConsumers":true,"nativeRails":true,"soloOnly":true,"nativeOnlineAI":false,"nativeCityCornerReduction":false,"nativeRailsForwardGeometry":false,"nativeForwardLease":false,"nativeTargetFeedback":false}};const freeze=value=>{if(value&&typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);}return value;};freeze(profile);root.__NFSU2_609_PROFILE__=profile;if(typeof module==='object'&&module.exports)module.exports=profile;})(globalThis);
+
+
+===== extension/native-online-609.js =====
+/* Exact 60946132 online AI adaptation, applied only after the pinned 0.42 transplant.
+ * The local owned AI car may use rails and skill-9 decisions online only with
+ * the current AI mailbox's explicit network permission (B+84 == 1). Native
+ * network flags and the site's three-cell network predicate are both checked.
+ * Existing identity, phase, heartbeat, sequence and manual handback guards stay.
+ * The 36 paired-boost network guards now admit native road-race Street X mode 10,
+ * after the unchanged permission check; Drag keeps its existing neutral pace.
+ * This is client-side capability, not evidence of live server acceptance.
+ */
+(function(root){'use strict';
+ if(root.__NFSU2_NATIVE_ONLINE_609__)return;
+ const PLAN=Object.freeze({"revision":"60946132","sourceModuleHash":"81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945","inputModuleHash":"1e43d233e69c7da4a8c664e3ba74c558084a5de18ab41c6f9f23825d29957dbb","outputModuleHash":"8efc4457e895e4992f56a0272f66718d3900901ff7fde95e760b7585fa6f9129","inputBytes":39118811,"outputBytes":39119311,"onlineAddresses":[704993496,707422704,707407324],"onlineCarCapabilities":[],"importFunctions":38,"changes":[{"index":23208,"inputHash":"63ad14fead835244121af344b226b95d38b1ef9f564a98ea6324e5c084c369b3","outputHash":"af261d21d0c317775ece7b7340f1673e818f2319196ea5681d07eb1b368c9050","inputBytes":872,"outputBytes":886,"edits":[{"offset":163,"needle":"QfiAlAQoAgBBiARxQZTUmQQoAgByQfTTmQQoAgBB6Z6nBC0AAHJyDQBB2LGV0AIoAgBBAEdB8NOp0QItAABBAEdxQdzbqNECKAIAQQBHcQ0A","replacement":"QfiAlAQoAgBBiARxQZTUmQQoAgByQfTTmQQoAgBB6Z6nBC0AAHJyQQBHQdixldACKAIAQQBHQfDTqdECLQAAQQBHcUHc26jRAigCAEEAR3FyQdSiwwYoAgBBAUdxDQA="}]},{"index":12864,"inputHash":"d6a0c7f7b197871ff4f32bf9e7fa2369f44001c1bf1b9a54c323632b103f74ea","outputHash":"8240c0918449ef053431e35dccb95e33cab8686052ac7c7532be5ceff6d61d6c","inputBytes":504,"outputBytes":558,"edits":[{"offset":317,"needle":"QfiAlAQoAgBBiARxQZTUmQQoAgByQfTTmQQoAgBB6Z6nBC0AAHJyDQA=","replacement":"QfiAlAQoAgBBiARxQZTUmQQoAgByQfTTmQQoAgBB6Z6nBC0AAHJyQQBHQdixldACKAIAQQBHQfDTqdECLQAAQQBHcUHc26jRAigCAEEAR3FyQdSiwwYoAgBBAUdxDQA="}]},{"index":3553,"inputHash":"c9bdbf301183e62f3f93b6ae418848359c9b3250e98674d8452815b8f0fff379","outputHash":"26565e8362f22d876c61d93f02ada7106488e6b69fd2048d75d0ab6c3139e8ef","inputBytes":35212,"outputBytes":35356,"edits":[{"offset":3134,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":6156,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":9422,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":12164,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":14907,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":17664,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":20711,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":23453,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":26196,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":28953,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":31780,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":34901,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="}]},{"index":4653,"inputHash":"c86d53efa40d4297a346f50d05c352be636d64d0024895f3520868923ee81b32","outputHash":"bbb69b8c7296ced48c57944e96bb8bd12dca424328e710d1e7f6c3980b70a41a","inputBytes":5305,"outputBytes":5317,"edits":[{"offset":4723,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="}]},{"index":6837,"inputHash":"50d2bea72b1218413d9a8f79a54dd5706e80aa90ac28c5e3c58f7c181c4c9101","outputHash":"034791891ba2144fd6676f3213b881a03591d4c2962a30535463c7a55a237dcb","inputBytes":15867,"outputBytes":15939,"edits":[{"offset":2686,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":5236,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":8065,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":10381,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":13364,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":15711,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="}]},{"index":7152,"inputHash":"3d74b326687ca37f7f0764b9f70dd8cf145259689b2d141622ec7f2571f1a288","outputHash":"37c46bd9a20b7431b2e1b6980cb0f0f77c69792210c8d6335a2e75494b126690","inputBytes":36527,"outputBytes":36647,"edits":[{"offset":9112,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":12137,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":15004,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":17631,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":20191,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":23836,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":26861,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":29728,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":32355,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":34915,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="}]},{"index":13653,"inputHash":"a576154a9342a8d2ba913a349c1f03b7661a597027bc61006407c8a629b4c433","outputHash":"1b21f00b0b7e404ee5035a6b97f3697268eddba4c48ffdb86574e10e87c058ad","inputBytes":22040,"outputBytes":22076,"edits":[{"offset":5779,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":13018,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":18123,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="}]},{"index":13962,"inputHash":"8b7e58008ed3b00f010de6a7daf75948b8b4b79cce2339e325c5dfbc78a16445","outputHash":"ba18fcfbc98f01ee74290fc4993d860ef4c59db65483c3c2732f4069f5e5dff6","inputBytes":20696,"outputBytes":20732,"edits":[{"offset":5941,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":11249,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="},{"offset":16404,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="}]},{"index":24646,"inputHash":"286dbc6ff2f44f2b17feb1fa80df66c2de1ced9e38c9c1bd88076ab310e1e5a5","outputHash":"443c53f29581b7d8ddabbdecebfbbb457931ac97bb07adc8ebe72b2589fb6edc","inputBytes":5495,"outputBytes":5507,"edits":[{"offset":2882,"needle":"QYiBlAQoAgBBCkc=","replacement":"QYiBlAQoAgBBCkdBsM+nBCgCAEEBRnI="}]}]});
+ const fail=message=>{throw Error('Native online 60946132: '+message);};
+ const sha=async b=>Array.from(new Uint8Array(await root.crypto.subtle.digest('SHA-256',b)),n=>n.toString(16).padStart(2,'0')).join('');
+ const bytes=s=>Uint8Array.from(root.atob(s),n=>n.charCodeAt(0));
+ const leb=n=>{const a=[];do{let b=n&127;n>>>=7;if(n)b|=128;a.push(b);}while(n);return Uint8Array.from(a);};
+ const read=(b,p)=>{let n=0,s=0,x;do{if(p>=b.length||s>28)fail('integer bounds');x=b[p++];n+=(x&127)*2**s;s+=7;}while(x&128);if(n>0xffffffff)fail('integer range');return{value:n,end:p};};
+ const cat=parts=>{const out=new Uint8Array(parts.reduce((n,p)=>n+p.length,0));let at=0;for(const p of parts){out.set(p,at);at+=p.length;}return out;};
+ const same=(a,b)=>a.length===b.length&&a.every((v,i)=>v===b[i]);
+ const supports=hash=>hash===PLAN.sourceModuleHash;
+ async function patchModule(input,{verifiedOriginalHash}={}){
+  if(!supports(verifiedOriginalHash))fail('unsupported source');
+  const b=input instanceof Uint8Array?input:new Uint8Array(input);
+  if(b.length!==PLAN.inputBytes||await sha(b)!==PLAN.inputModuleHash)fail('input pin');
+  const output=[b.subarray(0,8)],wanted=new Map(PLAN.changes.map(c=>[c.index,c]));let p=8,codeSeen=false;
+  while(p<b.length){const start=p,id=b[p++],size=read(b,p),payload=size.end,end=payload+size.value;if(end>b.length)fail('section bounds');p=end;
+   if(id!==10){output.push(b.subarray(start,end));continue;}if(codeSeen)fail('duplicate code');codeSeen=true;
+   const count=read(b,payload),chunks=[leb(count.value)];let cursor=count.end;
+   for(let i=0;i<count.value;i++){const len=read(b,cursor);cursor=len.end;const body=b.subarray(cursor,cursor+len.value);cursor+=len.value;if(cursor>end)fail('body bounds');const plan=wanted.get(i+PLAN.importFunctions);let next=body;
+    if(plan){if(body.length!==plan.inputBytes||await sha(body)!==plan.inputHash)fail('body pin '+plan.index);let at=0;const parts=[];for(const edit of plan.edits){const needle=bytes(edit.needle);if(edit.offset<at||!same(body.subarray(edit.offset,edit.offset+needle.length),needle))fail('guard pin '+plan.index);parts.push(body.subarray(at,edit.offset),bytes(edit.replacement));at=edit.offset+needle.length;}parts.push(body.subarray(at));next=cat(parts);if(next.length!==plan.outputBytes||await sha(next)!==plan.outputHash)fail('edited body pin '+plan.index);wanted.delete(plan.index);}
+    chunks.push(leb(next.length),next);
+   }if(cursor!==end)fail('code length');const code=cat(chunks);output.push(Uint8Array.of(10),leb(code.length),code);
+  }
+  if(!codeSeen||wanted.size)fail('missing functions');const result=cat(output);if(result.length!==PLAN.outputBytes||await sha(result)!==PLAN.outputModuleHash)fail('output pin');if(!root.WebAssembly.validate(result))fail('validation');return result;
+ }
+ const api=Object.freeze({supports,patchModule,revision:PLAN.revision,sourceModuleHash:PLAN.sourceModuleHash,inputModuleHash:PLAN.inputModuleHash,outputModuleHash:PLAN.outputModuleHash,onlineAddresses:Object.freeze(PLAN.onlineAddresses.slice()),onlineCarCapabilities:Object.freeze(PLAN.onlineCarCapabilities.slice())});
+ root.__NFSU2_NATIVE_ONLINE_609__=api;if(typeof module==='object'&&module.exports)module.exports=api;
+})(globalThis);
+
+
+===== extension/ai.js — lines 15–68 (verbatim excerpt) =====
+  const patchState={phase:'idle',reason:'Waiting for game module.'};
+  const CURRENT=root.__NFSU2_CURRENT_PROFILE__ || (typeof require==='function'?require('./current-profile.js'):null);
+  const LEGACY=Object.freeze({revision:'6f4f1e4e',size:SIZE,hash:HASH,capabilities:Object.freeze({legacy:true,ai:true,pace:true,corner:true,walls:true,dyno:true,dragAI:true})});
+  const LATEST=root.__NFSU2_LATEST_PROFILE__ || (typeof require==='function'?require('./latest-profile.js'):null);
+  const NEXT=root.__NFSU2_NEXT_PROFILE__ || (typeof require==='function'?require('./next-profile.js'):null);
+  const MODERN=root.__NFSU2_MODERN_PROFILE__ || (typeof require==='function'?require('./modern-profile.js'):null);
+  const D2FA=root.__NFSU2_D2FA_PROFILE__ || (typeof require==='function'?require('./d2fa-profile.js'):null);
+  const CD5=root.__NFSU2_CD5_PROFILE__ || (typeof require==='function'?require('./cd5-profile.js'):null);
+  const ABF=root.__NFSU2_ABF_PROFILE__ || (typeof require==='function'?require('./abf-profile.js'):null);
+  const CF=root.__NFSU2_CF_PROFILE__ || (typeof require==='function'?require('./cf-profile.js'):null);
+  const AA=root.__NFSU2_AA_PROFILE__ || (typeof require==='function'?require('./aa-profile.js'):null);
+  const FAMILY=root.__NFSU2_FAMILY_PROFILES__ || (typeof require==='function'?require('./family-profiles.js'):null);
+  const BDC=root.__NFSU2_BDC_PROFILE__ || (typeof require==='function'?require('./bdc-profile.js'):null);
+  const B1=root.__NFSU2_B1_PROFILE__ || (typeof require==='function'?require('./b1-profile.js'):null);
+  const ED8=root.__NFSU2_ED8_PROFILE__ || (typeof require==='function'?require('./ed8-profile.js'):null);
+  // 102c8d92: one pinned whole-module transform (native-transplant-102c.js) carries every native hook for this build.
+  const P102C=root.__NFSU2_102C_PROFILE__ || (typeof require==='function'?require('./102c-profile.js'):null);
+  const TRANSPLANT_102C=root.__NFSU2_NATIVE_TRANSPLANT_102C__ || (typeof require==='function'?require('./native-transplant-102c.js'):null);
+  const P609=root.__NFSU2_609_PROFILE__ || (typeof require==='function'?require('./609-profile.js'):null);
+  const TRANSPLANT_609=root.__NFSU2_NATIVE_TRANSPLANT_609__ || (typeof require==='function'?require('./native-transplant-609.js'):null);
+  const onlineAdapterFor=hash=>P609&&hash===P609.hash?root.__NFSU2_NATIVE_ONLINE_609__:root.__NFSU2_NATIVE_ONLINE_102C__;
+  // "RAIL": page opt-in word at BASE+104 for the Car::SetPhysicsMode guard; the guard counts its holds at BASE+108.
+  const RAILS_MAGIC=0x4c494152;
+  const ECU_PATCHER=root.__NFSU2_ECU_SCOPED_PATCHER__||(typeof require==='function'?require('./ecu-scoped-patcher.js'):null);
+  const ECU_CHAIN_INPUT='67b1e65ea18ed07b5cb2f778a0734bc632476a00e01c782e51c09f87655144ea';
+  const ECU_PATCHER_BDC=root.__NFSU2_ECU_SCOPED_PATCHER_BDC9__||(typeof require==='function'?require('./ecu-scoped-patcher-bdc9.js'):null);
+  const ECU_CHAIN_INPUT_BDC='8095faa65d4804d68cfbe7087109052120960a4f03b499afe6c210dfe6c4e35c';
+  const ECU_PATCHER_B1=root.__NFSU2_ECU_SCOPED_PATCHER_B1__||(typeof require==='function'?require('./ecu-scoped-patcher-b1.js'):null);
+  const ECU_CHAIN_INPUT_B1='7acc413ff09012803800faa5d68383c5a5cea8692cfd2e46afaceea554b0faa3';
+  const ECU_PATCHER_ED8=root.__NFSU2_ECU_SCOPED_PATCHER_ED8__||(typeof require==='function'?require('./ecu-scoped-patcher-ed8.js'):null);
+  const ECU_CHAIN_INPUT_ED8='5a920b0530eb8c4113f1adb9af4ca6e529d0b6df6484e73fa2a2399b21358214';
+  const FORWARD_CONFIG=root.__NFSU2_FORWARD_NATIVE_CONFIG__ || (typeof require==='function'?require('./forward-native-config.js'):null);
+  const profileForSize=size=>[LEGACY,CURRENT,LATEST,NEXT,MODERN,D2FA,CD5,ABF,CF,AA,...(FAMILY?.profiles||[]),BDC,B1,ED8,P102C,P609].find(p=>p&&p.size===size)||null;
+  function getSourceProfile(info) {
+    if(!info||info.game!==undefined&&info.game!=='ug2')return null;
+    const profile=profileForSize(info.size);
+    const sourceInterface=profile&&root.__NFSU2_SOURCE_INTERFACES__?.[profile.hash];
+    return profile&&profile.revision===info.rev&&sourceInterface?Object.freeze({...profile,sourceInterface}):null;
+  }
+  const patched=new WeakMap(),nativeEvaluators=new WeakMap(),nearMissAdapters=new WeakMap(),nearMissServices=new WeakMap();
+  function getNearMissBridge(module,memory,generation){
+    const prepared=nearMissAdapters.get(module);
+    if(!prepared)return null;
+    const usable=bridge=>{try{return bridge&&(typeof bridge.isCurrent!=='function'||bridge.isCurrent()===true)?bridge:null;}catch{return null;}};
+    if(memory===undefined)return usable(nearMissServices.get(module)?.bridge);
+    if(!(memory instanceof WebAssembly.Memory)||!Number.isInteger(generation)||generation<=0)return null;
+    const existing=nearMissServices.get(module);
+    if(existing?.memory===memory&&existing.generation===generation)return usable(existing.bridge);
+    try{
+      const bridge=prepared.adapter.createBridge(memory,{moduleIdentity:module,moduleHash:prepared.moduleHash,generation});
+      if(!bridge)return null;
+      nearMissServices.set(module,{memory,generation,bridge});return bridge;
+    }catch{return null;}
+  }
+
+
+===== extension/ai.js — lines 83–138 (verbatim excerpt) =====
+  async function patchBytes(input) {
+    const bytes=input instanceof Uint8Array ? input : new Uint8Array(input);
+    const profile=profileForSize(bytes.length);
+    if(!profile)throw Object.assign(Error('Game module size changed. Native AI disabled.'),{patchCode:'module-size'});
+    const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join('');
+    if(hash!==profile.hash)throw Object.assign(Error('Game module changed. Native AI disabled.'),{patchCode:'module-hash',moduleHash:hash});
+    if(profile.transplant){
+      // Fail closed. The exact original bytes were hashed just above; the transform pins its input and output again.
+      const transplant=profile===P102C?TRANSPLANT_102C:profile===P609?TRANSPLANT_609:null;
+      if(typeof transplant?.patchModule!=='function'||transplant.supports?.(hash)!==true||transplant.outputModuleHash!==profile.transplant.outputModuleHash)throw Error('Native patch set for this game build is unavailable.');
+      return transplant.patchModule(bytes,{verifiedOriginalHash:hash});
+    }
+    if(profile!==LEGACY){const changed=patchCurrent(bytes,profile);if(!profile.ecuScope)return changed;const ecuPatcher=profile.revision==='ed8d3359'?ECU_PATCHER_ED8:profile.revision==='b1efa173'?ECU_PATCHER_B1:profile.revision==='bdc9cbc2'?ECU_PATCHER_BDC:ECU_PATCHER,ecuInput=profile.revision==='ed8d3359'?ECU_CHAIN_INPUT_ED8:profile.revision==='b1efa173'?ECU_CHAIN_INPUT_B1:profile.revision==='bdc9cbc2'?ECU_CHAIN_INPUT_BDC:ECU_CHAIN_INPUT;if(!ecuPatcher?.transform)throw Error('Verified ECU native scope patcher unavailable');return ecuPatcher.transform(changed,{inputSha256:ecuInput,originalModuleSha256:profile.hash});}
+    const p={i:8};let output=null;
+    while(p.i<bytes.length){
+      const start=p.i,id=bytes[p.i++],size=read(bytes,p),bodyStart=p.i,end=bodyStart+size;
+      if(end>bytes.length)throw Error('Invalid module section');
+      if(id===10){
+        const n=read(bytes,p),pieces=[bytes.subarray(bodyStart,p.i)];let changed=0;
+        for(let i=0;i<n;i++){
+          const sizeAt=p.i,bodyLen=read(bytes,p),fnStart=p.i,fnEnd=fnStart+bodyLen;
+          if(fnEnd>end)throw Error('Invalid game function');
+          if(i===BRAKING.index-37){
+            const fn=patchBrakingBody(bytes.subarray(fnStart,fnEnd));pieces.push(leb(fn.length),fn);changed++;
+          }else if(i===CORNER.index-37){
+            const fn=patchCornerBody(bytes.subarray(fnStart,fnEnd));pieces.push(leb(fn.length),fn);changed++;
+          }else if(i===TARGET){
+            const old=bytes.subarray(fnStart,fnEnd),a=locals(old),b=locals(BRIDGE);
+            if(a.types.length!==31 || b.types.length!==64 || a.types.some((v,k)=>v!==b.types[k]) || old[old.length-1]!==11 || BRIDGE[BRIDGE.length-1]!==11)
+              throw Error('Native AI hook layout changed.');
+            const fn=join(BRIDGE.subarray(0,BRIDGE.length-1),old.subarray(a.end));
+            pieces.push(leb(fn.length),fn);changed++;
+          }else if(i===PACE_TARGET){
+            const old=bytes.subarray(fnStart,fnEnd);
+            if(locals(old).types.length!==1 || old[old.length-1]!==11 || PACE[PACE.length-1]!==11)
+              throw Error('Native AI pace hook layout changed.');
+            pieces.push(leb(PACE.length),PACE);changed++;
+          }else if(i===WALL_TARGET){
+            const old=bytes.subarray(fnStart,fnEnd),a=locals(old),b=locals(WALL);
+            if(a.types.length!==1 || a.types[0]!==127 || b.types.length!==19 || b.types[0]!==127 || old[old.length-1]!==11 || WALL[WALL.length-1]!==11)
+              throw Error('Wall contact hook layout changed.');
+            const fn=join(WALL.subarray(0,WALL.length-1),old.subarray(a.end));
+            pieces.push(leb(fn.length),fn);changed++;
+          }else pieces.push(bytes.subarray(sizeAt,fnEnd));
+          p.i=fnEnd;
+        }
+        if(changed!==5 || p.i!==end)throw Error('Native AI hooks were not found.');
+        const section=join(...pieces);
+        output=join(bytes.subarray(0,start),Uint8Array.of(10),leb(section.length),section,bytes.subarray(end));
+        break;
+      }
+      p.i=end;
+    }
+    if(!output)throw Error('Native AI hook was not found.');
+    return output;
+  }
+
+
+===== extension/ai.js — lines 219–448 (verbatim excerpt) =====
+  // Shared compiler: callers own their input source and unchanged-module fallback.
+  // Explicit loading does not install or replace any browser API.
+  async function prepareModule(readBytes,fallback,nativeCompile,options,loader) {
+      const generation=++loadGeneration,state={phase:'preparing',reason:'Preparing native AI bridge.',loader};
+      // Concurrent loads keep independent facts; only the newest observed load publishes diagnostics.
+      const publish=()=>{if(generation!==loadGeneration)return;for(const key of Object.keys(patchState))delete patchState[key];Object.assign(patchState,state);};
+      publish();
+      let stage='module-read';
+      try{
+        const bytes=await readBytes();
+        state.moduleBytes=bytes.byteLength;
+        const candidate=profileForSize(bytes.byteLength);
+        if(candidate)state.candidateRevision=candidate.revision;
+        // Read-only fingerprint coverage. It never grants compatibility or changes hooks.
+        const scanner=root.__NFSU2_SIGNATURES__,references=[root.__NFSU2_SIGNATURE_PROFILE__,root.__NFSU2_SIGNATURE_PROFILE_LATEST__,root.__NFSU2_SIGNATURE_PROFILE_NEXT__].filter(Boolean);
+        if(scanner?.scanAll&&references.length)try{
+          const result=await scanner.scanAll(bytes,references),summary=result.bestReference;
+          state.moduleHash=summary.moduleSha256;
+          Object.assign(state,{signatureReference:summary.referenceRevision,signatureExact:summary.referenceModuleMatches,signatureTotal:summary.anchors,signatureUnique:summary.unique,signatureAmbiguous:summary.ambiguous,signatureMissing:summary.missing});
+        }catch{state.signatureFailed=true;}
+        stage='module-layout';
+        let changed=await patchBytes(bytes);
+        let captureInstalled=false;
+        const capture=root.__NFSU2_RACE_CAPTURE__,captureProfile=profileForSize(bytes.byteLength);
+        if(capture&&captureProfile?.hash===capture.PIN){
+          try{const candidateBytes=await capture.patchModule(changed,captureProfile);if(!WebAssembly.validate(candidateBytes))throw Error('Capture module validation failed');changed=candidateBytes;captureInstalled=true;}
+          catch{state.captureUnavailable=true;}
+        }
+        stage='module-compile';
+        const profile=profileForSize(bytes.byteLength),forward=root.__NFSU2_FORWARD_NATIVE_PATCHER__;
+        let module,forwardInstalled=false,routeChoiceInstalled=false,rubberbandInstalled=false,nativeCornerInstalled=false,pacedCatchupInstalled=false,nativeOnlineInstalled=false,nativeCityInstalled=false,nativeTunerInstalled=false,nativeTunerPrepared=null,nativeTunerInput=changed,nativeForwardCurrentVerified=false,nativeTargetFeedbackInstalled=false,nativeNearMissInstalled=false,nativeNearMissAdapter=null;
+        const rubberband=root.__NFSU2_NATIVE_RUBBERBAND__;
+        const compileCandidate=async input=>{
+          try{
+            if(rubberband?.supports?.(profile.hash)===true){
+              const assisted=await rubberband.patchModule(Uint8Array.from(input),{verifiedOriginalHash:profile.hash});
+              if(!WebAssembly.validate(assisted))throw Error('Catch-up module validation failed.');
+              try{
+                const cornerTarget=root.__NFSU2_NATIVE_CORNER_TARGET__;
+                if(cornerTarget?.supports?.(profile.hash)===true){
+                  const cornerBytes=await cornerTarget.patchModule(Uint8Array.from(assisted),{verifiedOriginalHash:profile.hash});
+                  if(!WebAssembly.validate(cornerBytes))throw Error('Corner target module validation failed.');
+                  try{
+                    const paced=root.__NFSU2_PACED_CATCHUP__;
+                    if(paced?.supports?.(profile.hash)===true){
+                      const pacedBytes=await paced.patchModule(Uint8Array.from(cornerBytes),{verifiedOriginalHash:profile.hash});
+                      if(!WebAssembly.validate(pacedBytes))throw Error('Paced catch-up module validation failed.');
+                      let finalBytes=pacedBytes;
+                      const godly=root.__NFSU2_GODLY_CATCHUP__;
+                      if(godly?.supports?.(profile.hash)===true){try{const g=await godly.patchModule(Uint8Array.from(pacedBytes),{verifiedOriginalHash:profile.hash});if(WebAssembly.validate(g)){finalBytes=g;state.godlyCatchup=true;}}catch{state.godlyCatchupUnavailable=true;}}
+                      const compiled=await nativeCompile.call(WebAssembly,finalBytes,options);
+                      rubberbandInstalled=true;nativeCornerInstalled=true;pacedCatchupInstalled=true;return compiled;
+                    }
+                  }catch{state.pacedCatchupUnavailable=true;}
+                  const compiled=await nativeCompile.call(WebAssembly,cornerBytes,options);
+                  rubberbandInstalled=true;nativeCornerInstalled=true;return compiled;
+                }
+              }catch{state.nativeCornerUnavailable=true;}
+              const compiled=await nativeCompile.call(WebAssembly,assisted,options);
+              rubberbandInstalled=true;return compiled;
+            }
+          }catch{state.rubberbandUnavailable=true;}
+          return nativeCompile.call(WebAssembly,input,options);
+        };
+        const transplanted=!!profile.transplant;
+        const forwardSupported=transplanted||forward?.supports?.(profile.hash)===true;
+        if(transplanted){
+          // The pinned transform already holds the forward, route-choice, catch-up, corner-target, paced and skill hooks.
+          const online=onlineAdapterFor(profile.hash);
+          try{
+            if(online?.supports?.(profile.hash)===true){
+              const candidateBytes=await online.patchModule(Uint8Array.from(changed),{verifiedOriginalHash:profile.hash});
+              if(!WebAssembly.validate(candidateBytes))throw Error('Online native module validation failed.');
+              module=await nativeCompile.call(WebAssembly,candidateBytes,options);
+              nativeOnlineInstalled=true;nativeTunerInput=candidateBytes;
+              // Optional city correction cannot take away a working online driver.
+              const city=root.__NFSU2_NATIVE_CITY_CORNER_102C__;
+              try{
+                if(city?.supports?.(profile.hash)===true){
+                  const cityBytes=await city.patchModule(Uint8Array.from(candidateBytes),{verifiedOriginalHash:profile.hash});
+                  if(!WebAssembly.validate(cityBytes))throw Error('City corner module validation failed.');
+                  const cityModule=await nativeCompile.call(WebAssembly,cityBytes,options);
+                  module=cityModule;nativeCityInstalled=true;nativeTunerInput=cityBytes;
+                }
+              }catch(e){state.nativeCityUnavailable=true;state.nativeCityReason=String(e?.message||'City corner adapter could not be prepared.');}
+            }
+          }catch(e){state.nativeOnlineUnavailable=true;state.nativeOnlineReason=String(e?.message||'Online native adapter could not be prepared.');}
+          if(!module)module=await nativeCompile.call(WebAssembly,changed,options);
+          // Tuner support belongs to this compiled module only. Prepare the private
+          // evaluator first; any failure retains the already compiled driving module.
+          const tuner=root.__NFSU2_NATIVE_TUNER_102C__,evaluator=root.__NFSU2_DYNO_NATIVE__,tunerMeta=root.__NFSU2_DYNO_NATIVE_PROFILE_102C__;
+          try{
+            if(tuner?.supports?.(profile.hash)===true&&tuner.nativePolicyInitialization===true&&typeof evaluator?.build==='function'&&tunerMeta?.moduleHash===profile.hash&&tunerMeta.moduleSize===profile.size&&tunerMeta.revision===profile.revision){
+              const prepared=await evaluator.build(bytes,tunerMeta);
+              if(prepared?.meta!==tunerMeta||!prepared.module)throw Error('Current private tuner evaluator did not compile.');
+              const tunedBytes=await tuner.patchModule(Uint8Array.from(nativeTunerInput),{verifiedOriginalHash:profile.hash});
+              if(!WebAssembly.validate(tunedBytes))throw Error('Current native tuner module validation failed.');
+              const tunedModule=await nativeCompile.call(WebAssembly,tunedBytes,options);
+              module=tunedModule;nativeTunerPrepared=Promise.resolve(prepared);nativeTunerInstalled=true;
+              // The optional immutable lease adapter is required for current road
+              // geometry. Failure retains the compiled driving/tuner module.
+              if(profile.hash==='2ba0b075721d80e75fc3fb9a3b0e4d2acae835d21fcc406d009669b83f81858d'&&nativeOnlineInstalled&&nativeCityInstalled){
+                try{
+                  const lease=root.__NFSU2_NATIVE_FORWARD_LEASE_102C__;
+                  if(lease?.supports?.(profile.hash)!==true)throw Error('Current forward lease adapter unavailable.');
+                  const leaseBytes=await lease.patchModule(Uint8Array.from(tunedBytes),{verifiedOriginalHash:profile.hash});
+                  if(!WebAssembly.validate(leaseBytes))throw Error('Current forward lease module validation failed.');
+                  const leaseHash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',leaseBytes)),b=>b.toString(16).padStart(2,'0')).join('');
+                  if(leaseHash!=='842f84cdac800f39a292b0d82c3182f4e225a3e1663541473bdc76f10528aae2')throw Error('Current forward lease module fingerprint mismatch.');
+                  const leaseModule=await nativeCompile.call(WebAssembly,leaseBytes,options);
+                  module=leaseModule;nativeForwardCurrentVerified=true;
+                  // Read-only receipts are optional; any failure retains the
+                  // already compiled, verified driving/tuner/lease module.
+                  try{
+                    const feedback=root.__NFSU2_NATIVE_TARGET_FEEDBACK_102C__;
+                    if(feedback?.supports?.(profile.hash)!==true)throw Error('Native target feedback unavailable.');
+                    const observedBytes=await feedback.patchModule(Uint8Array.from(leaseBytes),{verifiedOriginalHash:profile.hash});
+                    if(!WebAssembly.validate(observedBytes))throw Error('Native target feedback validation failed.');
+                    const observedHash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',observedBytes)),b=>b.toString(16).padStart(2,'0')).join('');
+                    if(observedHash!=='6005ed0fe49b641542e9e2909cf38d10108959f2d2ed2ac74144866281ad8cfc')throw Error('Native target feedback output pin failed.');
+                    module=await nativeCompile.call(WebAssembly,observedBytes,options);nativeTargetFeedbackInstalled=true;
+                  }catch(e){state.nativeTargetFeedbackUnavailable=true;state.nativeTargetFeedbackError=String(e?.message||e).slice(0,200);}
+                }catch(e){state.nativeForwardLeaseUnavailable=true;state.nativeForwardLeaseReason=String(e?.message||'Current forward lease adapter could not be prepared.');}
+              }
+            }
+          }catch(e){state.nativeTunerUnavailable=true;state.nativeTunerReason=String(e?.message||'Current native tuner could not be prepared.');}
+          // The synthetic award adapter is optional and specific to the complete
+          // 609 online candidate. Compile/register it before granting capability.
+          const synthetic=root.__NFSU2_NATIVE_SYNTHETIC_NEAR_MISS_609__;
+          if(profile===P609&&nativeOnlineInstalled&&synthetic?.supports?.(profile.hash)===true){
+            try{
+              const awardBytes=await synthetic.patchModule(Uint8Array.from(nativeTunerInput),{verifiedOriginalHash:profile.hash});
+              if(!WebAssembly.validate(awardBytes))throw Error('Synthetic near-miss module validation failed.');
+              const outputHash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',awardBytes)),b=>b.toString(16).padStart(2,'0')).join('');
+              if(outputHash!==synthetic.outputModuleHash)throw Error('Synthetic near-miss output fingerprint mismatch.');
+              const awardModule=await nativeCompile.call(WebAssembly,awardBytes,options);
+              if(synthetic.registerInstalledModule(awardModule,{outputModuleHash:outputHash})!==true)throw Error('Synthetic near-miss module registration failed.');
+              module=awardModule;nativeNearMissInstalled=true;nativeNearMissAdapter=synthetic;
+            }catch(e){state.nativeSyntheticNearMissUnavailable=true;state.nativeSyntheticNearMissReason=String(e?.message||'Synthetic near-miss adapter could not be prepared.');}
+          }
+          forwardInstalled=routeChoiceInstalled=rubberbandInstalled=nativeCornerInstalled=pacedCatchupInstalled=true;
+          state.godlyCatchup=true;state.transplant=profile.transplant.from;
+        }else if(forwardSupported){
+          try{
+            const candidateBytes=await forward.patchModule(Uint8Array.from(changed),{verifiedOriginalHash:profile.hash});
+            if(!WebAssembly.validate(candidateBytes))throw Error('Forward native module validation failed.');
+            const shortcut=root.__NFSU2_SHORTCUT_POLICY__;
+            if(shortcut?.supports?.(profile.hash)===true||shortcut?.sourceModuleHash===profile.hash){
+              try{
+                const routeInput=Uint8Array.from(candidateBytes);
+                const routeBytes=await shortcut.patchModule(routeInput,{verifiedOriginalHash:profile.hash});
+                module=await compileCandidate(routeBytes);
+                routeChoiceInstalled=routeBytes!==routeInput;
+              }catch{state.routeChoiceUnavailable=true;}
+            }
+            // Retain the already verified forward adapter on optional failure.
+            if(!module)module=await compileCandidate(candidateBytes);
+            forwardInstalled=true;
+          }catch(e){state.forwardUnavailable=true;state.forwardReason=String(e?.message||'Forward native adapter could not be prepared.');}
+        }
+        if(!module)module=await nativeCompile.call(WebAssembly,changed,options);
+        const capabilities={...profile.capabilities};
+        capabilities.nativeSyntheticNearMiss=nativeNearMissInstalled;state.nativeSyntheticNearMiss=nativeNearMissInstalled;
+        capabilities.nativeRubberband=rubberbandInstalled;state.nativeRubberband=rubberbandInstalled;
+        capabilities.nativeCornerTarget=nativeCornerInstalled;state.nativeCornerTarget=nativeCornerInstalled;
+        capabilities.nativePacedCatchup=pacedCatchupInstalled;state.nativePacedCatchup=pacedCatchupInstalled;
+        capabilities.godlyModes=state.godlyCatchup===true;
+        capabilities.godlySkill=state.godlyCatchup===true;
+        // Online support is a fact about the compiled module, never just a profile flag.
+        capabilities.nativeOnlineAI=nativeOnlineInstalled;state.nativeOnlineAI=nativeOnlineInstalled;
+        capabilities.nativeCityCornerReduction=nativeCityInstalled;state.nativeCityCornerReduction=nativeCityInstalled;
+        const carCategories=['onlineTraffic','onlinePlayers','onlineRaceCars','onlineRivals','onlinePlayerOutrun'];
+        const onlineAdapter=onlineAdapterFor(profile.hash);
+        const onlineCarCapabilities=Array.isArray(onlineAdapter?.onlineCarCapabilities)?onlineAdapter.onlineCarCapabilities.filter(key=>carCategories.includes(key)):carCategories;
+        if(nativeOnlineInstalled){
+          capabilities.soloOnly=false;
+          for(const key of onlineCarCapabilities)capabilities[key]=true;
+        }
+        if(nativeTunerInstalled){
+          for(const key of ['dyno','fullTuner','tunerSecondGuestWindow','tunerCurrentNativeClamp','tunerCapturedNativePolicy','tunerNativePolicyInitialization'])capabilities[key]=true;
+        }
+        state.nativeTuner=nativeTunerInstalled;
+        capabilities.nativeTargetFeedback=nativeTargetFeedbackInstalled;state.nativeTargetFeedback=nativeTargetFeedbackInstalled;
+        if(captureInstalled)capabilities.nativeRaceCapture=true;
+        if(routeChoiceInstalled){capabilities.nativeRouteChoice=true;state.nativeRouteChoice=true;}
+        if(transplanted){state.nativeRails=capabilities.nativeRails===true;state.soloOnly=capabilities.soloOnly===true;}
+        if(profile.capabilities.nativePaceTargetConsumers){
+          capabilities.nativePaceTargetConsumers=forwardInstalled;
+          capabilities.pace=forwardInstalled;
+        }
+        if(forwardSupported){
+          // Current relocated geometry is proved only for the exact complete
+          // compiled image. Earlier profiles retain their existing capabilities.
+          capabilities.nativeForwardGeometry=forwardInstalled&&(!transplanted||nativeForwardCurrentVerified);
+          capabilities.nativeForwardClamp=forwardInstalled&&(!transplanted||nativeForwardCurrentVerified);
+          capabilities.nativeRailsForwardGeometry=transplanted&&nativeForwardCurrentVerified;
+          capabilities.nativeForwardLease=transplanted&&nativeForwardCurrentVerified;
+          state.nativeForwardLease=capabilities.nativeForwardLease;
+          state.nativeForwardGeometry=capabilities.nativeForwardGeometry;state.nativeForwardClamp=capabilities.nativeForwardClamp;
+        }
+        const cars=nativeOnlineInstalled?Object.freeze({...profile.cars,...Object.fromEntries(onlineCarCapabilities.map(key=>[key,true]))}):profile.cars;
+        patched.set(module,captureInstalled||forwardSupported?Object.freeze({...profile,cars,capabilities:Object.freeze(capabilities)}):profile);
+        if(nativeNearMissInstalled)nearMissAdapters.set(module,{adapter:nativeNearMissAdapter,moduleHash:profile.hash});
+        if(nativeTunerInstalled)nativeEvaluators.set(module,nativeTunerPrepared);
+        else if(profile.capabilities.fullTuner&&root.__NFSU2_DYNO_NATIVE__){const prepared=(async()=>{const recipeProfile=profile.revision==='ed8d3359'?root.__NFSU2_ECU_RECIPE_ED8_PROFILE__:profile.revision==='b1efa173'?root.__NFSU2_ECU_RECIPE_B1_PROFILE__:profile.revision==='bdc9cbc2'?root.__NFSU2_ECU_RECIPE_BDC_PROFILE__:root.__NFSU2_ECU_RECIPE_PROFILE__,baseMeta=profile.revision==='ed8d3359'?root.__NFSU2_DYNO_NATIVE_PROFILE_ED8__:profile.revision==='b1efa173'?root.__NFSU2_DYNO_NATIVE_PROFILE_B1__:profile.revision==='bdc9cbc2'?root.__NFSU2_DYNO_NATIVE_PROFILE_BDC9__:root.__NFSU2_DYNO_NATIVE_PROFILE_943__;const meta=profile.ecuScope?await recipeProfile?.compose(baseMeta):undefined;if(profile.ecuScope&&!meta)throw Error('Verified ECU native slider metadata unavailable');return root.__NFSU2_DYNO_NATIVE__.build(bytes,meta);})();prepared.catch(()=>{});nativeEvaluators.set(module,prepared);}
+        state.phase='ready';state.revision=profile.revision;state.reason='Verified game module · native AI bridge loaded.';
+        publish();return module;
+      }catch(e){
+        state.phase='unavailable';state.reason=String(e?.message || 'Native AI could not be prepared.');
+        state.patchCode=['module-size','module-hash'].includes(e?.patchCode)?e.patchCode:stage;
+        if(typeof e?.moduleHash==='string'&&/^[a-f0-9]{64}$/.test(e.moduleHash))state.moduleHash=e.moduleHash;
+        // Fail open to the unchanged game, closed to AI control. All memory-writing tools still require a verified module profile.
+        publish();return fallback();
+      }
+  }
+  function compileLocal(input,options) {
+    let source;
+    if(ArrayBuffer.isView(input))source=new Uint8Array(input.buffer,input.byteOffset,input.byteLength);
+    else {
+      let size;
+      try { size=Object.getOwnPropertyDescriptor(ArrayBuffer.prototype,'byteLength').get.call(input); }
+      catch { throw new TypeError('Explicit compilation requires an ArrayBuffer or typed buffer view.'); }
+      source=new Uint8Array(input,0,size);
+    }
+    // Use a fresh intrinsic buffer, including for cross-realm buffers and subclasses.
+    const copy=new Uint8Array(source.byteLength);copy.set(source);
+    const bytes=copy.buffer;
+    const nativeCompile=WebAssembly.compile;
+    return prepareModule(async()=>bytes.slice(0),()=>nativeCompile.call(WebAssembly,bytes,options),nativeCompile,options,'explicit');
+  }
+

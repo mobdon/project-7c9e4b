@@ -1,0 +1,30 @@
+FOCUSED REVIEW INDEX
+SOURCE COMMIT: 1b6b8b96ef8b4e23f1b6ae29d370b36d92895032
+
+PARTS
+PART 1/6 | 01-powergrip.txt | 28,762 bytes | Power / limiter / grip write paths and bindings
+PART 2/6 | 02-nosloop.txt | 60,575 bytes | NOS award loop, request control and native award service
+PART 3/6 | 03-build-60946132.txt | 42,320 bytes | 60946132 profile, native online binding and preparation gates
+PART 4/6 | 04-startup-log.txt | 1,438 bytes | Latest offline startup receipt and captured stdout/stderr
+PART 5/6 | 05-manifest-tree-1.txt | 83,970 bytes | Complete manifest and repository folder tree, first range
+PART 6/6 | 06-tree-2.txt | 30,512 bytes | Repository folder tree, final range
+
+SOURCE INVENTORY
+extension/core.js | original 32,462 bytes | delivered 13,599 bytes | parts 1 | [1, 183]; [404, 408]
+extension/page.js | original 235,111 bytes | delivered 14,518 bytes | parts 1 | [19, 61]; [83, 88]; [580, 590]; [615, 615]; [785, 798]; [951, 1003]; [1069, 1091]
+extension/near-miss-top-up.js | original 9,313 bytes | delivered 9,313 bytes | parts 2 | complete file
+extension/near-miss-control.js | original 7,451 bytes | delivered 7,451 bytes | parts 2 | complete file
+extension/native-synthetic-near-miss-609.js | original 43,655 bytes | delivered 43,655 bytes | parts 2 | complete file
+extension/609-profile.js | original 2,141 bytes | delivered 2,141 bytes | parts 3 | complete file
+extension/native-online-609.js | original 10,300 bytes | delivered 10,300 bytes | parts 3 | complete file
+extension/ai.js | original 102,293 bytes | delivered 29,582 bytes | parts 3 | [15, 68]; [83, 138]; [219, 448]
+test-environment/work-update-check-20261113/current-native-ordered-world-history-4c-v2/bounded-receipt.json | original 670 bytes | delivered 670 bytes | parts 4 | complete file
+extension/manifest.json | original 3,879 bytes | delivered 3,879 bytes | parts 5 | complete file
+review/FOLDER-TREE.txt | original 110,428 bytes | delivered 110,428 bytes | parts 5,6 | [0, 79987]; [79987, 110428]
+
+NOTES
+The core.js, page.js and ai.js selections are labeled verbatim review excerpts; they are not complete source files.
+All other selected source files and the startup receipt are complete. No handoff or unrelated source bodies are included.
+The full published repository folder tree continues from part 5 into part 6 at an exact line boundary.
+For exact reassembly, use body offsets and lengths in INVENTORY.json. Preserve original body bytes and line endings.
+All selected bodies were checked against the previously verified pinned repository snapshot. No game or harness code was executed.

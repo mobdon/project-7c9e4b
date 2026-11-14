@@ -1,0 +1,470 @@
+{
+  "repository": "mobdon/project-7c9e4b",
+  "sourceCommit": "1b6b8b96ef8b4e23f1b6ae29d370b36d92895032",
+  "maximumPartBytes": 92160,
+  "partCount": 6,
+  "sourceCount": 11,
+  "sources": [
+    {
+      "path": "extension/core.js",
+      "originalBytes": 32462,
+      "originalSha256": "6b469b5c0e754482f42f30b6513c8d0beb1b6c06965652f951504dadeef99e21",
+      "deliveredBytes": 13599,
+      "parts": [
+        1
+      ],
+      "selection": [
+        [
+          1,
+          183
+        ],
+        [
+          404,
+          408
+        ]
+      ]
+    },
+    {
+      "path": "extension/page.js",
+      "originalBytes": 235111,
+      "originalSha256": "d4a5494e3f0984ba94508bee320a1b42665fd8723f2c9c82d57103ef04b5a047",
+      "deliveredBytes": 14518,
+      "parts": [
+        1
+      ],
+      "selection": [
+        [
+          19,
+          61
+        ],
+        [
+          83,
+          88
+        ],
+        [
+          580,
+          590
+        ],
+        [
+          615,
+          615
+        ],
+        [
+          785,
+          798
+        ],
+        [
+          951,
+          1003
+        ],
+        [
+          1069,
+          1091
+        ]
+      ]
+    },
+    {
+      "path": "extension/near-miss-top-up.js",
+      "originalBytes": 9313,
+      "originalSha256": "26d3962daf61f581c7001ce9aa85d15fdc8483ea582fa966f93bfea9ac37fa0f",
+      "deliveredBytes": 9313,
+      "parts": [
+        2
+      ],
+      "selection": [
+        "complete-file"
+      ]
+    },
+    {
+      "path": "extension/near-miss-control.js",
+      "originalBytes": 7451,
+      "originalSha256": "776c57e7712a557dab477f933fddcad280e964c4cddecc908854de313027b4bc",
+      "deliveredBytes": 7451,
+      "parts": [
+        2
+      ],
+      "selection": [
+        "complete-file"
+      ]
+    },
+    {
+      "path": "extension/native-synthetic-near-miss-609.js",
+      "originalBytes": 43655,
+      "originalSha256": "6afe5ad7939d62c640ab7e81b89b9981db1ae63ad24998b5f0e8cf32c9d306a3",
+      "deliveredBytes": 43655,
+      "parts": [
+        2
+      ],
+      "selection": [
+        "complete-file"
+      ]
+    },
+    {
+      "path": "extension/609-profile.js",
+      "originalBytes": 2141,
+      "originalSha256": "0c4820f115d2389078f91deb95d034c62512a0cd8fe84b98c6113a42fa2ce941",
+      "deliveredBytes": 2141,
+      "parts": [
+        3
+      ],
+      "selection": [
+        "complete-file"
+      ]
+    },
+    {
+      "path": "extension/native-online-609.js",
+      "originalBytes": 10300,
+      "originalSha256": "156c6a86fb822d05d9ba0e1ab570f0262e6417007cc8913c54b587f8bf97b64f",
+      "deliveredBytes": 10300,
+      "parts": [
+        3
+      ],
+      "selection": [
+        "complete-file"
+      ]
+    },
+    {
+      "path": "extension/ai.js",
+      "originalBytes": 102293,
+      "originalSha256": "14c07f2e32ad5c0e5854f61c044e0827058d04a2e3215237b3b3d3e8126d2ea3",
+      "deliveredBytes": 29582,
+      "parts": [
+        3
+      ],
+      "selection": [
+        [
+          15,
+          68
+        ],
+        [
+          83,
+          138
+        ],
+        [
+          219,
+          448
+        ]
+      ]
+    },
+    {
+      "path": "test-environment/work-update-check-20261113/current-native-ordered-world-history-4c-v2/bounded-receipt.json",
+      "originalBytes": 670,
+      "originalSha256": "e507f80de54b7863c941480fa16f8d9c31502c120a39279d924596ee78e894ca",
+      "deliveredBytes": 670,
+      "parts": [
+        4
+      ],
+      "selection": [
+        "complete-file"
+      ]
+    },
+    {
+      "path": "extension/manifest.json",
+      "originalBytes": 3879,
+      "originalSha256": "5124ee09395795dafc5b4ee1975741b372c3978953ceae662e1df7db81ebca2e",
+      "deliveredBytes": 3879,
+      "parts": [
+        5
+      ],
+      "selection": [
+        "complete-file"
+      ]
+    },
+    {
+      "path": "review/FOLDER-TREE.txt",
+      "originalBytes": 110428,
+      "originalSha256": "4433bfa495b04d957c62be69ef1aa5546f82047359de232431d3dda9b5e6b842",
+      "deliveredBytes": 110428,
+      "parts": [
+        5,
+        6
+      ],
+      "selection": [
+        [
+          0,
+          79987
+        ],
+        [
+          79987,
+          110428
+        ]
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "number": 1,
+      "filename": "01-powergrip.txt",
+      "title": "Power / limiter / grip write paths and bindings",
+      "bytes": 28762,
+      "sha256": "8b70e5d55db595dc99c9b7edebd83aa27986ce408344be7e7b4fe3368081775e",
+      "spans": [
+        {
+          "path": "extension/core.js",
+          "kind": "verbatim-excerpt",
+          "lines": [
+            1,
+            183
+          ],
+          "offset": 77,
+          "bytes": 13311,
+          "sha256": "cfa7dac9196c7cfa92c19eb183b45858d8a5dc7e166267d4690d1a983164f2d1"
+        },
+        {
+          "path": "extension/core.js",
+          "kind": "verbatim-excerpt",
+          "lines": [
+            404,
+            408
+          ],
+          "offset": 13459,
+          "bytes": 288,
+          "sha256": "e0a282d302f47e16eaba95ab9118b819d8b3d2fcebc0cf16670055fa44845ac4"
+        },
+        {
+          "path": "extension/page.js",
+          "kind": "verbatim-excerpt",
+          "lines": [
+            19,
+            61
+          ],
+          "offset": 13816,
+          "bytes": 2607,
+          "sha256": "094bf9c82452fad2280c3d1b808d73cb598eb4532973720f1c643b005504ea22"
+        },
+        {
+          "path": "extension/page.js",
+          "kind": "verbatim-excerpt",
+          "lines": [
+            83,
+            88
+          ],
+          "offset": 16492,
+          "bytes": 676,
+          "sha256": "07494a94324cfbe1df4c442fa2a634b7f2c50e006bc4f9f8b337e733a95ee067"
+        },
+        {
+          "path": "extension/page.js",
+          "kind": "verbatim-excerpt",
+          "lines": [
+            580,
+            590
+          ],
+          "offset": 17239,
+          "bytes": 978,
+          "sha256": "4c0331d132179e38243aad7fa813410d9f34f0cfbb9c8d5b66a5ffd5ca1ca935"
+        },
+        {
+          "path": "extension/page.js",
+          "kind": "verbatim-excerpt",
+          "lines": [
+            615,
+            615
+          ],
+          "offset": 18288,
+          "bytes": 261,
+          "sha256": "0a400d181a71914269924a560b5e05306e85174e92444fc1e4217059f045d4f9"
+        },
+        {
+          "path": "extension/page.js",
+          "kind": "verbatim-excerpt",
+          "lines": [
+            785,
+            798
+          ],
+          "offset": 18620,
+          "bytes": 682,
+          "sha256": "40bf93568eaeef126330d7b5a20b4ecb19bf66aff0a8e04ebd3603a0e899c642"
+        },
+        {
+          "path": "extension/page.js",
+          "kind": "verbatim-excerpt",
+          "lines": [
+            951,
+            1003
+          ],
+          "offset": 19374,
+          "bytes": 7232,
+          "sha256": "26c311feb72c32a0c8a3f42b1f7dcdd2bd91cedc7b3c55938216dcbfc5153f90"
+        },
+        {
+          "path": "extension/page.js",
+          "kind": "verbatim-excerpt",
+          "lines": [
+            1069,
+            1091
+          ],
+          "offset": 26679,
+          "bytes": 2082,
+          "sha256": "7e5ed4a14430df8eefbd958f236ee7937c18c6dbe6a33295c2c1cf00be775eaa"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "filename": "02-nosloop.txt",
+      "title": "NOS award loop, request control and native award service",
+      "bytes": 60575,
+      "sha256": "d5213e9a75afedb50991c280284a56b69bbe7a06d3477b7db23678ca9417ca58",
+      "spans": [
+        {
+          "path": "extension/near-miss-top-up.js",
+          "kind": "complete-file",
+          "offset": 52,
+          "bytes": 9313,
+          "sha256": "26d3962daf61f581c7001ce9aa85d15fdc8483ea582fa966f93bfea9ac37fa0f"
+        },
+        {
+          "path": "extension/near-miss-control.js",
+          "kind": "complete-file",
+          "offset": 9410,
+          "bytes": 7451,
+          "sha256": "776c57e7712a557dab477f933fddcad280e964c4cddecc908854de313027b4bc"
+        },
+        {
+          "path": "extension/native-synthetic-near-miss-609.js",
+          "kind": "complete-file",
+          "offset": 16919,
+          "bytes": 43655,
+          "sha256": "6afe5ad7939d62c640ab7e81b89b9981db1ae63ad24998b5f0e8cf32c9d306a3"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "filename": "03-build-60946132.txt",
+      "title": "60946132 profile, native online binding and preparation gates",
+      "bytes": 42320,
+      "sha256": "fa53cee9111f6daf7806961c78c3ce38f32ba2a1438ffa759f6c5671bc56ce78",
+      "spans": [
+        {
+          "path": "extension/609-profile.js",
+          "kind": "complete-file",
+          "offset": 47,
+          "bytes": 2141,
+          "sha256": "0c4820f115d2389078f91deb95d034c62512a0cd8fe84b98c6113a42fa2ce941"
+        },
+        {
+          "path": "extension/native-online-609.js",
+          "kind": "complete-file",
+          "offset": 2233,
+          "bytes": 10300,
+          "sha256": "156c6a86fb822d05d9ba0e1ab570f0262e6417007cc8913c54b587f8bf97b64f"
+        },
+        {
+          "path": "extension/ai.js",
+          "kind": "verbatim-excerpt",
+          "lines": [
+            15,
+            68
+          ],
+          "offset": 12600,
+          "bytes": 5181,
+          "sha256": "2d9ec6733b71cab2d18a7c97a7239fdbfbf4ebfa0965de34acc65aaa9d337e81"
+        },
+        {
+          "path": "extension/ai.js",
+          "kind": "verbatim-excerpt",
+          "lines": [
+            83,
+            138
+          ],
+          "offset": 17849,
+          "bytes": 4275,
+          "sha256": "b8a2ccffd1c0b986df0349b1aaaab8e5c857fb079d429478f3c263b21acd60e9"
+        },
+        {
+          "path": "extension/ai.js",
+          "kind": "verbatim-excerpt",
+          "lines": [
+            219,
+            448
+          ],
+          "offset": 22193,
+          "bytes": 20126,
+          "sha256": "e3617c2be31d0fa10b1236144c49632b3de3a7af0a6e72af20df975f3d21f50b"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "filename": "04-startup-log.txt",
+      "title": "Latest offline startup receipt and captured stdout/stderr",
+      "bytes": 1438,
+      "sha256": "da80177e938fb6f548f510a4826ae89e8a5d9b58607245677716dd01c867ed1d",
+      "spans": [
+        {
+          "path": "test-environment/work-update-check-20261113/current-native-ordered-world-history-4c-v2/bounded-receipt.json",
+          "kind": "complete-file",
+          "offset": 130,
+          "bytes": 670,
+          "sha256": "e507f80de54b7863c941480fa16f8d9c31502c120a39279d924596ee78e894ca"
+        },
+        {
+          "path": "test-environment/work-update-check-20261113/current-native-ordered-world-history-4c-v2/bounded-receipt.json",
+          "kind": "captured-field",
+          "field": "stdout",
+          "offset": 942,
+          "bytes": 353,
+          "sha256": "ac1394e25213c2a996ebed4f73a309c4cc5aaeabbb3b513028a5ae3d2ab41f8a"
+        },
+        {
+          "path": "test-environment/work-update-check-20261113/current-native-ordered-world-history-4c-v2/bounded-receipt.json",
+          "kind": "captured-field",
+          "field": "stderr",
+          "offset": 1437,
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "filename": "05-manifest-tree-1.txt",
+      "title": "Complete manifest and repository folder tree, first range",
+      "bytes": 83970,
+      "sha256": "5c1853ed11c5305c213b095d3b8230bed9f00ca8d00625efb1a09c62ec69e38c",
+      "spans": [
+        {
+          "path": "extension/manifest.json",
+          "kind": "complete-file",
+          "offset": 46,
+          "bytes": 3879,
+          "sha256": "5124ee09395795dafc5b4ee1975741b372c3978953ceae662e1df7db81ebca2e"
+        },
+        {
+          "path": "review/FOLDER-TREE.txt",
+          "kind": "file-range",
+          "range": [
+            0,
+            79987
+          ],
+          "offset": 3982,
+          "bytes": 79987,
+          "sha256": "ddc604b8105ae493fb5bb420e7791e38099658c4a557837bcfcf9c29ca1a2817"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "filename": "06-tree-2.txt",
+      "title": "Repository folder tree, final range",
+      "bytes": 30512,
+      "sha256": "5e1fdecde6356484b1c6c503b7ff26ae39c662d43ae6f398b686062ee134b6f0",
+      "spans": [
+        {
+          "path": "review/FOLDER-TREE.txt",
+          "kind": "file-range",
+          "range": [
+            79987,
+            110428
+          ],
+          "offset": 70,
+          "bytes": 30441,
+          "sha256": "adcc70919f223d2148dc2dfe7d8acc9c4d23ff7f02cf8f54528d2e8892f14428"
+        }
+      ]
+    }
+  ],
+  "allBodySpansVerified": true
+}

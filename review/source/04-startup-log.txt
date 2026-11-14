@@ -1,0 +1,24 @@
+PART 4/6
+
+===== test-environment/work-update-check-20261113/current-native-ordered-world-history-4c-v2/bounded-receipt.json =====
+{
+  "kind": "BOUNDED-NATIVE-ORDERED-WORLD-HISTORY-ENROLLMENT",
+  "exitCode": 0,
+  "timedOut": false,
+  "elapsedMilliseconds": 1004,
+  "boundedMilliseconds": 8000,
+  "stdout": "{\"complete\":true,\"initialized\":true,\"lastStage\":\"native-history-node-and-list-read-only-verification\",\"admissionFailure\":null,\"reportAvailabilityReady\":true,\"allocatorReady\":true,\"legacyComplete\":true,\"legacyUnavailable\":null,\"legacyFailure\":null,\"historyComplete\":true,\"nativeMovementFrames\":0,\"typedMaximumGetterCalls\":0,\"fullStartupQualified\":false}\n",
+  "stderr": "",
+  "error": null,
+  "complete": true,
+  "pinnedInputsUnchanged": true,
+  "pinnedFiles": 665
+}
+
+
+===== test-environment/work-update-check-20261113/current-native-ordered-world-history-4c-v2/bounded-receipt.json — captured stdout =====
+{"complete":true,"initialized":true,"lastStage":"native-history-node-and-list-read-only-verification","admissionFailure":null,"reportAvailabilityReady":true,"allocatorReady":true,"legacyComplete":true,"legacyUnavailable":null,"legacyFailure":null,"historyComplete":true,"nativeMovementFrames":0,"typedMaximumGetterCalls":0,"fullStartupQualified":false}
+
+
+===== test-environment/work-update-check-20261113/current-native-ordered-world-history-4c-v2/bounded-receipt.json — captured stderr =====
+
