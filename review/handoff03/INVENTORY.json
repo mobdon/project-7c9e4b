@@ -1,0 +1,330 @@
+{
+  "kind": "HANDOFF03-VERBATIM-READS-NO-EXECUTION",
+  "sourceRepositoryCommit": "ed5018226b7bd5994fadbafbd12f15d4011fc4d5",
+  "requiredReadFiles": [
+    "work-online-v0427/extension-movement/HANDOFF.md",
+    "work-update-check-20261113/current-native-ordered-world-history-4c-v2/producer-hook-spec.json",
+    "work-update-check-20261113/current-native-ordered-world-history-4c-v2/producer-input-witness.cjs",
+    "work-update-check-20261113/current-native-ordered-world-history-4c-v2/run-bounded.cjs",
+    "work-update-check-20261113/OFFLINE-TEST-PROGRESS.md",
+    "work-update-check-20261113/freeze-codec-unit-condition.cjs",
+    "work-online-v0427/extension-update/top-up-loop/RESULTS.md",
+    "work-online-v0427/extension-update/top-up-loop/focused-test-receipt.json"
+  ],
+  "allRequestedFilesComplete": true,
+  "bodySpansVerified": true,
+  "sourceExecutionPerformed": false,
+  "originalSourceEditsPerformed": false,
+  "sources": [
+    {
+      "path": "work-online-v0427/extension-movement/HANDOFF.md",
+      "bytes": 97372,
+      "sha256": "ad07ed188746c67cbf45bfe6f78cf7abd0b6725a2e15f1de4d34c056da3b2eee",
+      "matchesPublishedStaging": true
+    },
+    {
+      "path": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/producer-hook-spec.json",
+      "bytes": 12057,
+      "sha256": "dd68e7bb17edd9562cea72bc821af68c2e7fcd50865ae698da838eae08cc7341",
+      "matchesPublishedStaging": true
+    },
+    {
+      "path": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/producer-input-witness.cjs",
+      "bytes": 9330,
+      "sha256": "9b14ed2394006c8f5276c847815013b4a86cc61f199f8f993e6a56b0fec51d1e",
+      "matchesPublishedStaging": true
+    },
+    {
+      "path": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/run-bounded.cjs",
+      "bytes": 2295,
+      "sha256": "e2c82f2de51ba5ef2384c1537afba26f75f5bed4cc494dd90cf259fec5c8f380",
+      "matchesPublishedStaging": true
+    },
+    {
+      "path": "work-update-check-20261113/OFFLINE-TEST-PROGRESS.md",
+      "bytes": 6540,
+      "sha256": "2d8416ee4abbe1efff3384ae19e342fd3c381460b6dee354b7c2b020c54ce2ae",
+      "matchesPublishedStaging": true
+    },
+    {
+      "path": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/bounded-receipt.json",
+      "bytes": 670,
+      "sha256": "e507f80de54b7863c941480fa16f8d9c31502c120a39279d924596ee78e894ca",
+      "matchesPublishedStaging": true
+    },
+    {
+      "path": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/probe-current-native-ai.cjs",
+      "bytes": 39153,
+      "sha256": "ea33bf8bccd7d0fe1374e549b73b7e49f96f8547635097afdde961d6ee848d3e",
+      "matchesPublishedStaging": true
+    },
+    {
+      "path": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/execution-source-contract.json",
+      "bytes": 110456,
+      "sha256": "9bc16ef1d29696c90a6a026a3a20adb0558e2da90051ffb3f078b55e1c1a620f",
+      "matchesPublishedStaging": true
+    },
+    {
+      "path": "work-update-check-20261113/native-ordered-world-history-output-4c-v2/frozen-output-manifest.json",
+      "bytes": 21060,
+      "sha256": "a6dfc058d52a34128f58e8bbd82dd7d95de551021278e1e08def15297814757b",
+      "matchesPublishedStaging": true
+    },
+    {
+      "path": "work-update-check-20261113/freeze-codec-unit-condition.cjs",
+      "bytes": 1407,
+      "sha256": "a6c48b4a985249ca5a5c03567dd4368b329198189d0dea54e01434bab3747e23",
+      "matchesPublishedStaging": true
+    },
+    {
+      "path": "work-online-v0427/extension-update/top-up-loop/RESULTS.md",
+      "bytes": 3799,
+      "sha256": "33c3ac168965eca4d9adc2ce29e5f05955dcbe96bc5d99271f84ef1c721d833d",
+      "matchesPublishedStaging": true
+    },
+    {
+      "path": "work-online-v0427/extension-update/top-up-loop/focused-test-receipt.json",
+      "bytes": 3910,
+      "sha256": "df518904008790297e352291c6a97348485bac9da6990409ffb748abb2a548b0",
+      "matchesPublishedStaging": true
+    },
+    {
+      "path": "work-online-v0427/near-miss-integration/production-synthetic-style-audit/cadence-native-bridge-receipt.json",
+      "bytes": 160165,
+      "sha256": "57a163714ca8fe99019b71744af3d2f71844e62fc7387e14300eee4ca0cc0c1b",
+      "matchesPublishedStaging": null
+    },
+    {
+      "path": "work-online-v0427/near-miss-integration/production-synthetic-style-audit/run-production-native-bridge.cjs",
+      "bytes": 15499,
+      "sha256": "55ae14230385fb61feca6af73fcbc44a1be498f625aebef690d679e1fb0ceebf",
+      "matchesPublishedStaging": null
+    }
+  ],
+  "parts": [
+    {
+      "filename": "01-TOR1-MOVEMENT-HANDOFF-A.txt",
+      "bytes": 50443,
+      "sha256": "e0b4ef23e7319d2d56db2a5e88607f56c894853f2ceeb0e8d62954edc9780bfe",
+      "spans": [
+        {
+          "path": "work-online-v0427/extension-movement/HANDOFF.md",
+          "selection": "file-range",
+          "range": [
+            0,
+            50344
+          ],
+          "offset": 98,
+          "bytes": 50344,
+          "sha256": "80c51487e150a0518eca17e8aa8ad3b140294f4f19b763ea63d88d41f4ba260c"
+        }
+      ]
+    },
+    {
+      "filename": "02-TOR1-MOVEMENT-HANDOFF-B.txt",
+      "bytes": 47131,
+      "sha256": "fc832cf65e42641d3d1dbbec4839812a7c278524fefd8601117bfbb191a5d3d3",
+      "spans": [
+        {
+          "path": "work-online-v0427/extension-movement/HANDOFF.md",
+          "selection": "file-range",
+          "range": [
+            50344,
+            97372
+          ],
+          "offset": 102,
+          "bytes": 47028,
+          "sha256": "52e917a37f7c88363d279d79c054e4af71d1dab713df43f6308e0985ec9e09e7"
+        }
+      ]
+    },
+    {
+      "filename": "03-TOR2-TOR3.txt",
+      "bytes": 30675,
+      "sha256": "65970065bb76ca159af3b694c1a33f592985afbb6229a7b4bc6150270134371a",
+      "spans": [
+        {
+          "path": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/producer-hook-spec.json",
+          "selection": "complete-file",
+          "label": null,
+          "offset": 124,
+          "bytes": 12057,
+          "sha256": "dd68e7bb17edd9562cea72bc821af68c2e7fcd50865ae698da838eae08cc7341"
+        },
+        {
+          "path": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/producer-input-witness.cjs",
+          "selection": "complete-file",
+          "label": null,
+          "offset": 12309,
+          "bytes": 9330,
+          "sha256": "9b14ed2394006c8f5276c847815013b4a86cc61f199f8f993e6a56b0fec51d1e"
+        },
+        {
+          "path": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/run-bounded.cjs",
+          "selection": "complete-file",
+          "label": null,
+          "offset": 21756,
+          "bytes": 2295,
+          "sha256": "e2c82f2de51ba5ef2384c1537afba26f75f5bed4cc494dd90cf259fec5c8f380"
+        },
+        {
+          "path": "work-update-check-20261113/OFFLINE-TEST-PROGRESS.md",
+          "selection": "complete-file",
+          "label": null,
+          "offset": 24134,
+          "bytes": 6540,
+          "sha256": "2d8416ee4abbe1efff3384ae19e342fd3c381460b6dee354b7c2b020c54ce2ae"
+        }
+      ]
+    },
+    {
+      "filename": "04-TOR4-TOR5-EVIDENCE.txt",
+      "bytes": 24924,
+      "sha256": "24aa4b3749872918da289eaba914f55fa02f86980f462a394135b403aa04004a",
+      "spans": [
+        {
+          "path": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/bounded-receipt.json",
+          "selection": "complete-file",
+          "label": "EXISTING RECEIPT; NO NEW EXECUTION",
+          "offset": 160,
+          "bytes": 670,
+          "sha256": "e507f80de54b7863c941480fa16f8d9c31502c120a39279d924596ee78e894ca"
+        },
+        {
+          "path": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/probe-current-native-ai.cjs",
+          "selection": "verbatim-excerpt",
+          "lines": [
+            1,
+            4
+          ],
+          "offset": 994,
+          "bytes": 328,
+          "sha256": "7be3558ef7376454bebed981115f2df1de18ad95fc73a063643e4f4b28fe821f"
+        },
+        {
+          "path": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/probe-current-native-ai.cjs",
+          "selection": "verbatim-excerpt",
+          "lines": [
+            168,
+            180
+          ],
+          "offset": 1490,
+          "bytes": 3685,
+          "sha256": "d7dd804a1c92b8f4c3073408a68f6744a839ca1fd3ec065585df47f9e0153364"
+        },
+        {
+          "path": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/execution-source-contract.json",
+          "selection": "verbatim-excerpt",
+          "lines": [
+            1,
+            10
+          ],
+          "offset": 5343,
+          "bytes": 531,
+          "sha256": "e2fe9463d3297a28c09463a483b79d726a4a0c30492ce331aabb0c42464e01bc"
+        },
+        {
+          "path": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/execution-source-contract.json",
+          "selection": "verbatim-excerpt",
+          "lines": [
+            468,
+            469
+          ],
+          "offset": 6045,
+          "bytes": 334,
+          "sha256": "fc1ed093d8cafe9e46260eb0567ef98056d618579bc46d0e6e1ca77a90d64a18"
+        },
+        {
+          "path": "work-update-check-20261113/native-ordered-world-history-output-4c-v2/frozen-output-manifest.json",
+          "selection": "verbatim-excerpt",
+          "lines": [
+            1,
+            8
+          ],
+          "offset": 6542,
+          "bytes": 435,
+          "sha256": "05afcebee4d4f0fa124bd56c2db7033aa766a6ce8eeba820b918e1cd51f8589c"
+        },
+        {
+          "path": "work-update-check-20261113/native-ordered-world-history-output-4c-v2/frozen-output-manifest.json",
+          "selection": "verbatim-excerpt",
+          "lines": [
+            116,
+            116
+          ],
+          "offset": 7144,
+          "bytes": 103,
+          "sha256": "28bbcc07cfd8a5b7dde70f2ffedfd2aa7119eec07fb1cbb5564b7b5b02c14328"
+        },
+        {
+          "path": "work-update-check-20261113/native-ordered-world-history-output-4c-v2/frozen-output-manifest.json",
+          "selection": "verbatim-excerpt",
+          "lines": [
+            136,
+            136
+          ],
+          "offset": 7414,
+          "bytes": 91,
+          "sha256": "cc746d1accb2b6a65ab47a94de7da480f7b581e5d8c0a8d005a331677cd4dd6d"
+        },
+        {
+          "path": "work-update-check-20261113/freeze-codec-unit-condition.cjs",
+          "selection": "complete-file",
+          "label": null,
+          "offset": 7595,
+          "bytes": 1407,
+          "sha256": "a6c48b4a985249ca5a5c03567dd4368b329198189d0dea54e01434bab3747e23"
+        },
+        {
+          "path": "work-online-v0427/extension-update/top-up-loop/RESULTS.md",
+          "selection": "complete-file",
+          "label": null,
+          "offset": 9091,
+          "bytes": 3799,
+          "sha256": "33c3ac168965eca4d9adc2ce29e5f05955dcbe96bc5d99271f84ef1c721d833d"
+        },
+        {
+          "path": "work-online-v0427/extension-update/top-up-loop/focused-test-receipt.json",
+          "selection": "complete-file",
+          "label": null,
+          "offset": 12994,
+          "bytes": 3910,
+          "sha256": "df518904008790297e352291c6a97348485bac9da6990409ffb748abb2a548b0"
+        },
+        {
+          "path": "work-online-v0427/near-miss-integration/production-synthetic-style-audit/cadence-native-bridge-receipt.json",
+          "selection": "verbatim-excerpt",
+          "lines": [
+            2536,
+            2629
+          ],
+          "offset": 17084,
+          "bytes": 2473,
+          "sha256": "4c076b4530ed578678927b82ccbedc73846d4b1fe62d22ed6088f68eb2e13285"
+        },
+        {
+          "path": "work-online-v0427/near-miss-integration/production-synthetic-style-audit/cadence-native-bridge-receipt.json",
+          "selection": "verbatim-excerpt",
+          "lines": [
+            3508,
+            3601
+          ],
+          "offset": 19737,
+          "bytes": 2461,
+          "sha256": "66d88902320631c808be0579cf2925e581cf57387820482c67e72c283a593460"
+        },
+        {
+          "path": "work-online-v0427/near-miss-integration/production-synthetic-style-audit/run-production-native-bridge.cjs",
+          "selection": "verbatim-excerpt",
+          "lines": [
+            65,
+            74
+          ],
+          "offset": 22372,
+          "bytes": 2551,
+          "sha256": "7d16e261a057a441dea68aeb5436c230898265dd9c8381a74b32e84144e83bc4"
+        }
+      ]
+    }
+  ]
+}

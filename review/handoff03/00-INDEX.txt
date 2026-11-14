@@ -1,0 +1,35 @@
+HANDOFF 03: VERBATIM READS
+
+01-TOR1-MOVEMENT-HANDOFF-A.txt | 50,443 bytes | SHA256 e0b4ef23e7319d2d56db2a5e88607f56c894853f2ceeb0e8d62954edc9780bfe
+02-TOR1-MOVEMENT-HANDOFF-B.txt | 47,131 bytes | SHA256 fc832cf65e42641d3d1dbbec4839812a7c278524fefd8601117bfbb191a5d3d3
+03-TOR2-TOR3.txt | 30,675 bytes | SHA256 65970065bb76ca159af3b694c1a33f592985afbb6229a7b4bc6150270134371a
+04-TOR4-TOR5-EVIDENCE.txt | 24,924 bytes | SHA256 24aa4b3749872918da289eaba914f55fa02f86980f462a394135b403aa04004a
+
+01 and 02 concatenate to the complete TOR-1 HANDOFF.md after removing their headers, using INVENTORY.json body offsets.
+03 contains the complete TOR-2 and TOR-3 files.
+04 contains the existing receipt, labeled pin/startup excerpts, complete freeze helper and TOR-5 requested files, plus labeled native outcome fixture excerpts.
+
+SOURCE INVENTORY
+work-online-v0427/extension-movement/HANDOFF.md | 97,372 bytes | SHA256 ad07ed188746c67cbf45bfe6f78cf7abd0b6725a2e15f1de4d34c056da3b2eee
+work-update-check-20261113/current-native-ordered-world-history-4c-v2/producer-hook-spec.json | 12,057 bytes | SHA256 dd68e7bb17edd9562cea72bc821af68c2e7fcd50865ae698da838eae08cc7341
+work-update-check-20261113/current-native-ordered-world-history-4c-v2/producer-input-witness.cjs | 9,330 bytes | SHA256 9b14ed2394006c8f5276c847815013b4a86cc61f199f8f993e6a56b0fec51d1e
+work-update-check-20261113/current-native-ordered-world-history-4c-v2/run-bounded.cjs | 2,295 bytes | SHA256 e2c82f2de51ba5ef2384c1537afba26f75f5bed4cc494dd90cf259fec5c8f380
+work-update-check-20261113/OFFLINE-TEST-PROGRESS.md | 6,540 bytes | SHA256 2d8416ee4abbe1efff3384ae19e342fd3c381460b6dee354b7c2b020c54ce2ae
+work-update-check-20261113/current-native-ordered-world-history-4c-v2/bounded-receipt.json | 670 bytes | SHA256 e507f80de54b7863c941480fa16f8d9c31502c120a39279d924596ee78e894ca
+work-update-check-20261113/current-native-ordered-world-history-4c-v2/probe-current-native-ai.cjs | 39,153 bytes | SHA256 ea33bf8bccd7d0fe1374e549b73b7e49f96f8547635097afdde961d6ee848d3e
+work-update-check-20261113/current-native-ordered-world-history-4c-v2/execution-source-contract.json | 110,456 bytes | SHA256 9bc16ef1d29696c90a6a026a3a20adb0558e2da90051ffb3f078b55e1c1a620f
+work-update-check-20261113/native-ordered-world-history-output-4c-v2/frozen-output-manifest.json | 21,060 bytes | SHA256 a6dfc058d52a34128f58e8bbd82dd7d95de551021278e1e08def15297814757b
+work-update-check-20261113/freeze-codec-unit-condition.cjs | 1,407 bytes | SHA256 a6c48b4a985249ca5a5c03567dd4368b329198189d0dea54e01434bab3747e23
+work-online-v0427/extension-update/top-up-loop/RESULTS.md | 3,799 bytes | SHA256 33c3ac168965eca4d9adc2ce29e5f05955dcbe96bc5d99271f84ef1c721d833d
+work-online-v0427/extension-update/top-up-loop/focused-test-receipt.json | 3,910 bytes | SHA256 df518904008790297e352291c6a97348485bac9da6990409ffb748abb2a548b0
+work-online-v0427/near-miss-integration/production-synthetic-style-audit/cadence-native-bridge-receipt.json | 160,165 bytes | SHA256 57a163714ca8fe99019b71744af3d2f71844e62fc7387e14300eee4ca0cc0c1b
+work-online-v0427/near-miss-integration/production-synthetic-style-audit/run-production-native-bridge.cjs | 15,499 bytes | SHA256 55ae14230385fb61feca6af73fcbc44a1be498f625aebef690d679e1fb0ceebf
+
+RUN STATUS
+No harness, native module, game, browser session, or tests were executed. No original source files were changed.
+TOR-4 cannot run as requested without changing frozen/pinned runner and probe sources. No producer-mode argument/environment selector exists.
+The current probe intentionally stops after history enrollment and hardcodes zero movement/getters and fullStartupQualified:false.
+The runner rejects all five existing output files. The frozen manifest sets neverEditAddOrRerun:true.
+Handoff03 requires stopping if a pinned file must change. A fresh independently reviewed condition is required before a new motion baseline.
+TOR-5 records native fixture results6/9, but no same-loop recovery sequence establishing them as transient. No policy reclassification or freeze fix was applied.
+TOR-6 user-driven live sessions and external reviewer diff decisions remain pending.

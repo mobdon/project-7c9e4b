@@ -1,0 +1,391 @@
+
+===== test-environment/work-update-check-20261113/current-native-ordered-world-history-4c-v2/bounded-receipt.json — EXISTING RECEIPT; NO NEW EXECUTION =====
+{
+  "kind": "BOUNDED-NATIVE-ORDERED-WORLD-HISTORY-ENROLLMENT",
+  "exitCode": 0,
+  "timedOut": false,
+  "elapsedMilliseconds": 1004,
+  "boundedMilliseconds": 8000,
+  "stdout": "{\"complete\":true,\"initialized\":true,\"lastStage\":\"native-history-node-and-list-read-only-verification\",\"admissionFailure\":null,\"reportAvailabilityReady\":true,\"allocatorReady\":true,\"legacyComplete\":true,\"legacyUnavailable\":null,\"legacyFailure\":null,\"historyComplete\":true,\"nativeMovementFrames\":0,\"typedMaximumGetterCalls\":0,\"fullStartupQualified\":false}\n",
+  "stderr": "",
+  "error": null,
+  "complete": true,
+  "pinnedInputsUnchanged": true,
+  "pinnedFiles": 665
+}
+
+
+===== test-environment/work-update-check-20261113/current-native-ordered-world-history-4c-v2/probe-current-native-ai.cjs — lines 1–4 (verbatim excerpt) =====
+'use strict';
+// SOURCE ONLY: ordered network startup before World, then legacy history/enrollment only; zero movement frames and no typed maximum getters.
+// No invocation is authorized until root reviews and pins a concrete execution contract.
+// Source-modeled caller subset; no trajectory or detector clearance is inferred.
+
+
+===== test-environment/work-update-check-20261113/current-native-ordered-world-history-4c-v2/probe-current-native-ai.cjs — lines 168–180 (verbatim excerpt) =====
+ let enrollment={completed:false,state:{selector:null,enrollment:null,player:null}};
+ if(initialized){enrollment=Enrollment.initialize({q,stage,abi,writeJson,Shared,nativeRecord,worldState,events:activationEvents});initialized=enrollment.completed;}
+
+ if(initialized)remoteApplicationObserver.bind({remoteCar:enrollment.state.enrollment.remote.car,remoteController:enrollment.state.enrollment.remote.remoteController});
+ let admission=null;if(initialized)admission=require('./remote-admission.cjs').run({q,stage,writeJson,enrollment,platform:offlinePlatform,directory:__dirname,sourceJournalSha256:"b373b27036e8acc45723b828cfb564e724ddbc4d34cfc68f9a64729e1248feec",sourceRawSha256:"159392b62098cd61e3245e0b4c23b260b35f7cba5104ea80096d3e130483fde7"});
+ let reportAvailabilityReady=false,allocatorReady=false;
+ if(initialized&&admission?.complete)reportAvailabilityReady=nativeLegacy.reportAvailability({q,stage,writeJson,enrollment,admission});
+ if(reportAvailabilityReady)allocatorReady=NativeSessionAllocator.initialize({q,stage,abi,writeJson,Shared,Critical,directory:__dirname});
+ let legacy=null;if(initialized&&admission?.complete&&reportAvailabilityReady&&allocatorReady)legacy=nativeLegacy.run({q,stage,abi,writeJson,enrollment,admission,beforeScheduler:()=>nativeRealtimeTiming.run({q,stage,writeJson})});
+ let historyResult=null;if(legacy?.complete)initialized=stage('native-history-node-and-list-read-only-verification',()=>{historyResult=historyWitness.finish({q,enrollment,legacy});return historyResult;});
+ const receipt={kind:'OFFLINE-ORDERED-WORLD-HISTORY-ENROLLMENT-UNIT',complete:initialized&&admission?.complete===true&&legacy?.complete===true&&historyResult?.complete===true,historyResult,reportAvailabilityReady,allocatorReady,legacy,initialized,pendingClient,enrollment:enrollment.state,admission,world:worldState,stages,clockCalls,trapped,observerRecording:observerRecorder.finalize(),requestedMovementFrames:0,nativeMovementFrames:0,typedMaximumGetterCalls:0,fullStartupQualified:false,knownUnresolvedPrerequisites:['CPP5349 global list sentinel','4722 default table and6000 manager backing','replay singleton755','event manager5582/4972 and queued message pool'],nativeOutputsAuthored:false};writeJson('remote-condition-receipt.json',receipt);if(!receipt.complete)process.exitCode=1;console.log(JSON.stringify({complete:receipt.complete,initialized,lastStage:stages.at(-1)?.name,admissionFailure:admission?.failure||null,reportAvailabilityReady,allocatorReady,legacyComplete:legacy?.complete||false,legacyUnavailable:legacy?.unavailable||null,legacyFailure:legacy?.failure||null,historyComplete:historyResult?.complete||false,nativeMovementFrames:0,typedMaximumGetterCalls:0,fullStartupQualified:false}));
+}
+try{main();}finally{if(f){writeJson('platform-performance-frequency-receipt.json',PerformanceFrequency.receipt(f));writeJson('platform-timing-poll-receipt.json',TimingPoll.receipt(f));writeJson('platform-frame-registration-receipt.json',FrameRegistration.receipt(f));writeJson('memory-query-receipt.json',MemoryQuery.receipt(f));writeJson('critical-section-receipt.json',Critical.receipt(f));writeJson('crt-module-lookup-receipt.json',CrtModule.receipt(f));writeJson('platform-registry-receipt.json',Platform.receipt(f));writeJson('shared-heap-receipt.json',Shared.receipt(f));}writeJson('native-legacy-observation-receipt.json',nativeLegacy.finalize());writeJson('native-realtime-timing-observation-receipt.json',nativeRealtimeTiming.finalize());namedObserver.finalize();replayDiagnostics.finalize();remoteApplicationObserver.finalize();offlinePlatform.finalize();writeJson('isolation-receipt.json',{attempts:isolation.attempts});isolation.restore();}
+
+
+===== test-environment/work-update-check-20261113/current-native-ordered-world-history-4c-v2/execution-source-contract.json — lines 1–10 (verbatim excerpt) =====
+{
+  "kind": "ROOT-REVIEWED-NATIVE-ORDERED-WORLD-HISTORY-POOL-UNIT",
+  "condition": "current-native-ordered-world-history-4c-v2",
+  "sourceHash": "6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23",
+  "rootApprovedForOneBoundedRun": true,
+  "unitOnly": true,
+  "boundedMilliseconds": 8000,
+  "nativeMovementFramesRequested": 0,
+  "sourcePins": {
+    "work-update-check-20261113/current-native-combined-observer-4c-v1/compact-observer-recorder.cjs": "2fbf558323a2c7a3c0e9ad92ed4f9459fff72d4f52d376ddb467dadb764c326b",
+
+
+===== test-environment/work-update-check-20261113/current-native-ordered-world-history-4c-v2/execution-source-contract.json — lines 468–469 (verbatim excerpt) =====
+    "work-update-check-20261113/current-native-ordered-world-history-4c-v2/probe-current-native-ai.cjs": "ea33bf8bccd7d0fe1374e549b73b7e49f96f8547635097afdde961d6ee848d3e",
+    "work-update-check-20261113/current-native-ordered-world-history-4c-v2/run-bounded.cjs": "e2c82f2de51ba5ef2384c1537afba26f75f5bed4cc494dd90cf259fec5c8f380",
+
+
+===== test-environment/work-update-check-20261113/native-ordered-world-history-output-4c-v2/frozen-output-manifest.json — lines 1–8 (verbatim excerpt) =====
+{
+  "kind": "FROZEN-CODEC-UNIT-CONDITION-FULL-INVENTORY",
+  "condition": "work-update-check-20261113/current-native-ordered-world-history-4c-v2",
+  "createdAt": "2026-11-14T04:05:01.664Z",
+  "note": "One native session-before-World history-pool unit, zero movement frames and no typed maximum getters. Preserve any outcome without repairs or rerun.",
+  "entireConditionFrozen": true,
+  "neverEditAddOrRerun": true,
+  "fileCount": 136,
+
+
+===== test-environment/work-update-check-20261113/native-ordered-world-history-output-4c-v2/frozen-output-manifest.json — lines 116–116 (verbatim excerpt) =====
+    "probe-current-native-ai.cjs": "ea33bf8bccd7d0fe1374e549b73b7e49f96f8547635097afdde961d6ee848d3e",
+
+
+===== test-environment/work-update-check-20261113/native-ordered-world-history-output-4c-v2/frozen-output-manifest.json — lines 136–136 (verbatim excerpt) =====
+    "run-bounded.cjs": "e2c82f2de51ba5ef2384c1537afba26f75f5bed4cc494dd90cf259fec5c8f380",
+
+
+===== test-environment/work-update-check-20261113/freeze-codec-unit-condition.cjs =====
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
+const ROOT=path.resolve(__dirname,'..');
+const [condition,analysis,note]=process.argv.slice(2);
+assert(condition&&analysis&&note);
+const source=path.resolve(ROOT,condition),target=path.resolve(ROOT,analysis);
+assert(source.startsWith(ROOT+path.sep)&&target.startsWith(ROOT+path.sep)&&source!==target);
+assert(!fs.existsSync(target),'Fresh external analysis directory required');
+const pins={},sizes={};
+function visit(dir){for(const item of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,item.name);if(item.isDirectory())visit(p);else {assert(item.isFile());const rel=path.relative(source,p),bytes=fs.readFileSync(p);pins[rel]=crypto.createHash('sha256').update(bytes).digest('hex');sizes[rel]=bytes.length;}}}
+visit(source);
+fs.mkdirSync(target);
+const result={kind:'FROZEN-CODEC-UNIT-CONDITION-FULL-INVENTORY',condition,createdAt:new Date().toISOString(),note,entireConditionFrozen:true,neverEditAddOrRerun:true,fileCount:Object.keys(pins).length,pins,sizes};
+const text=JSON.stringify(result,null,2)+'\n',dest=path.join(target,'frozen-output-manifest.json');
+fs.writeFileSync(dest,text,{flag:'wx'});
+console.log(JSON.stringify({manifest:path.relative(ROOT,dest),sha256:crypto.createHash('sha256').update(text).digest('hex'),files:result.fileCount}));
+
+
+===== test-environment/work-online-v0427/extension-update/top-up-loop/RESULTS.md =====
+# Synthetic NOS top-up source update
+
+Working extension version0.42.8 now provides a session-only **Keep NOS topped up** switch alongside **Award once**. Both use the same verified native synthetic STYLE_NEARMISS bridge; the direct `Engine.refill` API remains disabled. The loop has no speed threshold.
+
+Top-up starts off and is not restored by saved NOS/profile selections. It samples effective NOS before each request, waits at full or overfull and resumes when consumption drops below full. Active accounting credit is adjusted by the original clock domain's elapsed ticks; raw stored LEFT alone is not treated as the current level. Two read-only samples must agree on capacity, credit, activation timestamp and clock domain, with current owned car/race identity.
+
+The loop shares the manual controller's single outstanding slot. It waits at least250ms after observing a matching positive native NOS completion before another request. Focus/permission loss pauses and requests cancellation; F7/F9, car/session replacement, game exit, uncertain outcomes or confirmed style without positive observed NOS disarm it. A late receipt may settle an old request but never silently re-arms the loop.
+
+## Verification
+
+- **171/171 focused tests passed**, including16 scheduler cases and12 actual-page cases. This is a selected13-file run, not all repository tests. Its source hashes and full output are in `focused-test-receipt.json` and `focused-tests.tap`.
+- All **105 manifest scripts** parsed. The captured host check returned page mark0 at all six observed stages, with actual raw609 compilation, native capability installation and original configuration/report markers preserved. It uses controlled DOM/browser stand-ins and does not instantiate the full game.
+- A separate native cadence experiment executes the exact uninstrumented production helpers and original17146/5598 on one style object. Five requests at250ms intervals produce positive NOS deltas333,667,1000,1333,1667, taking stored credit1000→6000 with capacity5000. Five subsequent intervals without publication produce no native calls, points or credit. Present observation remains0. This native experiment does not execute the new page scheduler; scheduler/page gating is checked separately above. It does not model active NOS consumption.
+- The cadence run verified67 protected artifacts unchanged. Its receipt is `../../near-miss-integration/production-synthetic-style-audit/cadence-native-bridge-receipt.json`, SHA-256 `57a163714ca8fe99019b71744af3d2f71844e62fc7387e14300eee4ca0cc0c1b`.
+- Native bridge JS remains `6afe5ad7939d62c640ab7e81b89b9981db1ae63ad24998b5f0e8cf32c9d306a3`; compiled native candidate remains `c570e3e33dc59c4936346654f819feb94ff04e259a772ae0408f50ca6b5f3c4a`. No detector, threshold, report, encoder, transport or native award arithmetic changed.
+
+`working-source-freeze-v0428-loop.json` pins112 current files including the checksum inventory. All111 pre-loop files are preserved and verified against the earlier manual checkpoint under `input/extension/`. The new file is `near-miss-top-up.js`; the manual controller only exposes its existing outcome/result to the scheduler.
+
+## Scope
+
+Page sampling cannot guarantee NOS remains below full between publication and native consumption. An already claimed award may finish, and native overshoot remains visible. Tick NOS changes are aggregate observations rather than isolated event credit. Unknown completion never authorizes another automatic request.
+
+This is a source update only. No package, installation, Chrome reload, online session or account check occurred. The local tests do not establish server acceptance or clear the extension's movement. Actual extension-produced movement is being investigated separately under `../../extension-movement/`.
+
+
+===== test-environment/work-online-v0427/extension-update/top-up-loop/focused-test-receipt.json =====
+{
+  "checkedAtUtc": "2026-11-13T04:28:01.470Z",
+  "runtime": "v26.13.0",
+  "command": [
+    "node",
+    "--test",
+    "--test-reporter=tap",
+    "nfsu2-extension/tests/near-miss-control.test.cjs",
+    "nfsu2-extension/tests/near-miss-events.test.cjs",
+    "nfsu2-extension/tests/near-miss-page.test.cjs",
+    "nfsu2-extension/tests/near-miss-top-up.test.cjs",
+    "nfsu2-extension/tests/synthetic-near-miss-bridge.test.cjs",
+    "nfsu2-extension/tests/synthetic-near-miss-loader.test.cjs",
+    "nfsu2-extension/tests/startup-containment.test.cjs",
+    "nfsu2-extension/tests/worker-module-loader.test.cjs",
+    "nfsu2-extension/tests/worker-module-page.test.cjs",
+    "nfsu2-extension/tests/module-status.test.cjs",
+    "nfsu2-extension/tests/nos-clock.test.cjs",
+    "nfsu2-extension/tests/diagnostics-page.test.cjs",
+    "nfsu2-extension/tests/diagnostics-driving-history.test.cjs"
+  ],
+  "exitCode": 0,
+  "error": null,
+  "tests": 171,
+  "pass": 171,
+  "fail": 0,
+  "skipped": 0,
+  "cancelled": 0,
+  "todo": 0,
+  "sourceHashes": {
+    "nfsu2-extension/tests/near-miss-control.test.cjs": "2a7bacb4a4a4491e11f5bec8b3a509b2f82a2e84796b84e7642230cc93ce2c0a",
+    "nfsu2-extension/tests/near-miss-events.test.cjs": "13a3a752c3359be4595a16266f56a4114df8db7d6c56e5147d6f3b6a72097496",
+    "nfsu2-extension/tests/near-miss-page.test.cjs": "a020f682cb7d8500de88a9b9b0194aa3407a2665499d9095e10cea5ceafe8652",
+    "nfsu2-extension/tests/near-miss-top-up.test.cjs": "9a8dee25d88acf18e93ffef63449cac20d0256868e12997fabdec668ed2c7617",
+    "nfsu2-extension/tests/synthetic-near-miss-bridge.test.cjs": "2b094372a4d009cb3e434228bcf91b370aee3e9fb54e1ad95e33c82ffa623f02",
+    "nfsu2-extension/tests/synthetic-near-miss-loader.test.cjs": "114066c9a06407d65612d1f94ae31324b5219b8b1609bb0613e80dc465b1cc30",
+    "nfsu2-extension/tests/startup-containment.test.cjs": "ee86048fe0e2ba5de2b25c3db8e48f379dee5b1aa6c6c542c4f49beb2a3a4065",
+    "nfsu2-extension/tests/worker-module-loader.test.cjs": "1332f901777231d354d24b616232248ae248c9fbd3a0c517e89f6d452936ae55",
+    "nfsu2-extension/tests/worker-module-page.test.cjs": "db16d7f1a11d0a704dbc8a2d7ea33ed32331e0bf3559069b9fa657690dc224e9",
+    "nfsu2-extension/tests/module-status.test.cjs": "fafc80b50af68c8d842d595955c09c13ce831b2cfeb18b593e577c525b3eec67",
+    "nfsu2-extension/tests/nos-clock.test.cjs": "c71e0c7a687132d4a6f15a5a8fb75a743bd979c09dd6a91aa51f9f8319d9c883",
+    "nfsu2-extension/tests/diagnostics-page.test.cjs": "d3edd5b503df9391e34cfe7b89e80d093e8363ef9547f98fdbc83500b65722fd",
+    "nfsu2-extension/tests/diagnostics-driving-history.test.cjs": "2a824514ba4552e0e556e96a86ebda6a4bdceb948d0720d215b99a2b59dace05",
+    "nfsu2-extension/extension/near-miss-control.js": "776c57e7712a557dab477f933fddcad280e964c4cddecc908854de313027b4bc",
+    "nfsu2-extension/extension/near-miss-events.js": "a6773a8a13db6370cbe397dcfd3ccc4455034c4268f26f28b4f6ab651ef49059",
+    "nfsu2-extension/extension/near-miss-top-up.js": "26d3962daf61f581c7001ce9aa85d15fdc8483ea582fa966f93bfea9ac37fa0f",
+    "nfsu2-extension/extension/page.js": "d4a5494e3f0984ba94508bee320a1b42665fd8723f2c9c82d57103ef04b5a047",
+    "nfsu2-extension/extension/ai.js": "14c07f2e32ad5c0e5854f61c044e0827058d04a2e3215237b3b3d3e8126d2ea3",
+    "nfsu2-extension/extension/core.js": "6b469b5c0e754482f42f30b6513c8d0beb1b6c06965652f951504dadeef99e21",
+    "nfsu2-extension/extension/native-synthetic-near-miss-609.js": "6afe5ad7939d62c640ab7e81b89b9981db1ae63ad24998b5f0e8cf32c9d306a3"
+  },
+  "logSha256": "f9fb8dd211e8fd824987418934dbfde014ddd5ad94beafff95e2191305567a20",
+  "sourceOnly": true,
+  "gameSessionStarted": false,
+  "limitations": [
+    "These focused checks are not a full repository test run.",
+    "Controller/service tests include synthetic receipt fixtures; native execution is recorded in its separate receipt.",
+    "No Chrome session, account status or server acceptance was tested."
+  ]
+}
+
+
+===== test-environment/work-online-v0427/near-miss-integration/production-synthetic-style-audit/cadence-native-bridge-receipt.json — lines 2536–2629 (verbatim excerpt) =====
+        "id": "inactive-style-after-publication",
+        "before": {
+          "nos": {
+            "full": 5000,
+            "saved": 1000,
+            "left": 1000,
+            "since": 0
+          },
+          "styleTotal": 0,
+          "stylePending": 0,
+          "multiplier": 1,
+          "styleCount": 0,
+          "cachedNosPoints": 0,
+          "racerPreviousPoints": 0,
+          "eventState": 0,
+          "race": {
+            "sampledFrames": 0,
+            "changedFrames": 0,
+            "developerEvents": 0,
+            "observationFlags": 0
+          },
+          "freeRoam": {
+            "sampledFrames": 0,
+            "changedFrames": 0,
+            "developerEvents": 0,
+            "observationFlags": 0
+          }
+        },
+        "after": {
+          "nos": {
+            "full": 5000,
+            "saved": 1000,
+            "left": 1000,
+            "since": 0
+          },
+          "styleTotal": 0,
+          "stylePending": 0,
+          "multiplier": 1,
+          "styleCount": 0,
+          "cachedNosPoints": 0,
+          "racerPreviousPoints": 0,
+          "eventState": 0,
+          "race": {
+            "sampledFrames": 0,
+            "changedFrames": 0,
+            "developerEvents": 0,
+            "observationFlags": 0
+          },
+          "freeRoam": {
+            "sampledFrames": 0,
+            "changedFrames": 0,
+            "developerEvents": 0,
+            "observationFlags": 0
+          }
+        },
+        "points": 0,
+        "nos": 0,
+        "nativeCalls": 0,
+        "poll": {
+          "acknowledged": true,
+          "request": {
+            "id": 1,
+            "epoch": 1,
+            "token": 8,
+            "generation": 8,
+            "car": 2228224,
+            "race": 2359296,
+            "racer": 17104896,
+            "manager": 17039360,
+            "style": 17235968
+          },
+          "result": 6,
+          "points": 0,
+          "nos": 0,
+          "event": {
+            "status": "NATIVE_GATE",
+            "producerPendingPoints": 0,
+            "request": {
+              "id": 1,
+              "epoch": 1,
+              "target": {
+                "token": 8,
+                "generation": 8,
+                "car": 2228224,
+                "race": 2359296,
+                "racer": 17104896,
+                "manager": 17039360,
+                "style": 17235968
+              }
+            },
+            "tickDeltasAreEventSpecific": false
+          }
+        },
+        "state": 3,
+
+
+===== test-environment/work-online-v0427/near-miss-integration/production-synthetic-style-audit/cadence-native-bridge-receipt.json — lines 3508–3601 (verbatim excerpt) =====
+        "id": "zero-capacity",
+        "before": {
+          "nos": {
+            "full": 0,
+            "saved": 1000,
+            "left": 1000,
+            "since": 0
+          },
+          "styleTotal": 0,
+          "stylePending": 0,
+          "multiplier": 1,
+          "styleCount": 0,
+          "cachedNosPoints": 0,
+          "racerPreviousPoints": 0,
+          "eventState": 0,
+          "race": {
+            "sampledFrames": 0,
+            "changedFrames": 0,
+            "developerEvents": 0,
+            "observationFlags": 0
+          },
+          "freeRoam": {
+            "sampledFrames": 0,
+            "changedFrames": 0,
+            "developerEvents": 0,
+            "observationFlags": 0
+          }
+        },
+        "after": {
+          "nos": {
+            "full": 0,
+            "saved": 1000,
+            "left": 1000,
+            "since": 0
+          },
+          "styleTotal": 100,
+          "stylePending": 0,
+          "multiplier": 2,
+          "styleCount": 1,
+          "cachedNosPoints": 100,
+          "racerPreviousPoints": 100,
+          "eventState": 0,
+          "race": {
+            "sampledFrames": 0,
+            "changedFrames": 0,
+            "developerEvents": 0,
+            "observationFlags": 0
+          },
+          "freeRoam": {
+            "sampledFrames": 0,
+            "changedFrames": 0,
+            "developerEvents": 0,
+            "observationFlags": 0
+          }
+        },
+        "points": 100,
+        "nos": 0,
+        "nativeCalls": 1,
+        "poll": {
+          "acknowledged": true,
+          "request": {
+            "id": 1,
+            "epoch": 1,
+            "token": 15,
+            "generation": 15,
+            "car": 2228224,
+            "race": 2359296,
+            "racer": 17104896,
+            "manager": 17039360,
+            "style": 17235968
+          },
+          "result": 9,
+          "points": 100,
+          "nos": 0,
+          "event": {
+            "status": "VERIFIED",
+            "producerPendingPoints": 100,
+            "request": {
+              "id": 1,
+              "epoch": 1,
+              "target": {
+                "token": 15,
+                "generation": 15,
+                "car": 2228224,
+                "race": 2359296,
+                "racer": 17104896,
+                "manager": 17039360,
+                "style": 17235968
+              }
+            },
+            "tickDeltasAreEventSpecific": false
+          }
+        },
+        "state": 3,
+
+
+===== test-environment/work-online-v0427/near-miss-integration/production-synthetic-style-audit/run-production-native-bridge.cjs — lines 65–74 (verbatim excerpt) =====
+  ['wrong-car-owner',()=>f.put(D.car+28,0),11],['wrong-manager-owner',()=>f.put(P.manager,0),11],['inactive-style-after-publication',()=>f.u8(P.style+16,0),6],
+  ['guest-stack-outside-teb',()=>f.put(P.seh+8,D.stack),12],['guest-stack-uncommitted',()=>{const p=(D.stack-4096)>>>14,o=D.bitmap+(p>>>3);f.u8(o,f.view.getUint8(o)&~(1<<(p&7)));},12],
+  ['generation-changed-between-entry-and-seam',()=>word('GENERATION',generation+1),12]
+ ]){reset();publish();onBefore=()=>{onBefore=()=>{};change();};r=tick(id);assert.equal(r.nativeCalls,0);assert.equal(r.points,0);assert.equal(r.nos,0);assert.equal(word('RESULT'),expected);if(id.includes('generation')){word('GENERATION',generation);word('ACK_GENERATION',generation);word('CONSUMED_GENERATION',generation);r.fixtureCorruptGenerationRestoredAfterObservation=true;}}
+ reset();publish();onBefore=()=>{onBefore=()=>{};f.put(D.player+4,D.car+0x10000);};r=tick('local-car-swapped-before-seam',()=>f.put(D.player+4,D.car));r.fixtureContextRestoredBeforePresent=true;assert.equal(r.nativeCalls,0);assert.equal(word('RESULT'),11);f.put(D.player+4,D.car);assert.equal(service.cancel(request).requested,true);publish(2);r=tick('new-local-request-after-car-swap');assert.equal(r.nativeCalls,1);
+ reset();publish();const npc=0x1200000,npcCar=0x1210000;new Uint8Array(f.memory.buffer,npc,0x1000).set(new Uint8Array(f.memory.buffer,P.racer,0x1000));new Uint8Array(f.memory.buffer,npcCar,0xa00).set(new Uint8Array(f.memory.buffer,D.car,0xa00));f.put(npc,npcCar);f.put(npcCar+28,npc);commit(npc,0x1000);commit(npcCar,0xa00);q.call(5598,npc);assert.equal(word('STATE'),0);assert.equal(word('ACK'),0);assert.equal(word('CALLS'),0);r=tick('npc-before-player-keeps-request');assert.equal(r.nativeCalls,1);assert.equal(r.poll.result,1);r.npcTickBeforePlayer=true;
+ reset();publish();onBefore=cpu=>{onBefore=()=>{};f.put(P.seh+4,f.get(cpu+16));};r=tick('shallow-guest-frame-snapshot-stays-below-esp');assert.equal(r.nativeCalls,1);assert.equal(r.poll.result,1);assert.equal(r.points,100);assert.equal(r.nos,333);
+ for(const [id,options,result,points,nos]of[
+  ['zero-capacity',{full:0},9,100,0],['near-full-native-overshoot',{left:4999},1,100,333],['already-full-native-overshoot',{left:5000},1,100,333],['synthetic-helper-low-speed-native-style-award',{speed:1},1,100,333]
+ ]){reset(options);publish();r=tick(id);assert.equal(r.poll.result,result);assert.equal(r.points,points);assert.equal(r.nos,nos);assert.equal(r.present.monitor.observationFlags,0);if(id.includes('overshoot'))assert(r.after.nos.left>r.after.nos.full);}
+
