@@ -1,0 +1,157 @@
+[
+  {
+    "revision": "3bdd9959",
+    "moduleHash": "ed47e9bdd94a336d8d6bd52bebcc6f130b40ffb6d692f0fc728b8785db02178c",
+    "lookup": 678445312,
+    "guestEvaluatorAddresses": [
+      4247792,
+      4248448
+    ],
+    "tableSlots": [
+      388,
+      401
+    ],
+    "nativeEvaluatorFunctions": [
+      514,
+      2546
+    ],
+    "oldFoldedCells": [
+      678642880,
+      678645504
+    ],
+    "correctFoldedCells": [
+      678642880,
+      678645504
+    ],
+    "changed": false,
+    "onlyAuthoredSlotConstantsChanged": true,
+    "oldHelperSha256": "218a6bb45583a51a3566357af096e5d165f822dd4cb094e64d7f995d0678a3bc",
+    "newHelperSha256": "218a6bb45583a51a3566357af096e5d165f822dd4cb094e64d7f995d0678a3bc",
+    "nativeInstructionsUnchanged": true,
+    "liveVerified": false
+  },
+  {
+    "revision": "d2fa4f4c",
+    "moduleHash": "e41d71453cecba5ee2cd3cbf70af1c84180020644151f5f9bc2fa828fa5123bb",
+    "lookup": 678446464,
+    "guestEvaluatorAddresses": [
+      4247792,
+      4248448
+    ],
+    "tableSlots": [
+      388,
+      401
+    ],
+    "nativeEvaluatorFunctions": [
+      514,
+      2546
+    ],
+    "oldFoldedCells": [
+      678642880,
+      678645504
+    ],
+    "correctFoldedCells": [
+      678644032,
+      678646656
+    ],
+    "changed": true,
+    "onlyAuthoredSlotConstantsChanged": true,
+    "oldHelperSha256": "c62955c2693b1ebc61ab47ea76c17c2720d9da94afb3234bbeaa55203ddb103e",
+    "newHelperSha256": "f3b8b06ff08e8e66e8ff7f9e212471683833baea3e9e201c989b646c94bce1f0",
+    "nativeInstructionsUnchanged": true,
+    "liveVerified": false
+  },
+  {
+    "revision": "cd5b74d5",
+    "moduleHash": "32b09c8bfea0c23aff21e5edac8f3b99b4d3fe143e8b479b9bea506091ab2174",
+    "lookup": 678451008,
+    "guestEvaluatorAddresses": [
+      4247792,
+      4248448
+    ],
+    "tableSlots": [
+      388,
+      401
+    ],
+    "nativeEvaluatorFunctions": [
+      514,
+      2546
+    ],
+    "oldFoldedCells": [
+      678642880,
+      678645504
+    ],
+    "correctFoldedCells": [
+      678648576,
+      678651200
+    ],
+    "changed": true,
+    "onlyAuthoredSlotConstantsChanged": true,
+    "oldHelperSha256": "d1fb79149879872fd4cd4919a0e2a5a90b7b947277b71344698fd24f33145f2f",
+    "newHelperSha256": "7ef7c2a9bd0316755001a97ca6ccb8269acfa81b7487719d697ed3fe956fca0c",
+    "nativeInstructionsUnchanged": true,
+    "liveVerified": false
+  },
+  {
+    "revision": "8abf9be8",
+    "moduleHash": "14074507a84d43365610feae3a8fad80f4637b891e2ed03239460b104f986cbd",
+    "lookup": 678452096,
+    "guestEvaluatorAddresses": [
+      4247792,
+      4248448
+    ],
+    "tableSlots": [
+      388,
+      401
+    ],
+    "nativeEvaluatorFunctions": [
+      514,
+      2546
+    ],
+    "oldFoldedCells": [
+      678642880,
+      678645504
+    ],
+    "correctFoldedCells": [
+      678649664,
+      678652288
+    ],
+    "changed": true,
+    "onlyAuthoredSlotConstantsChanged": true,
+    "oldHelperSha256": "3f2438a96a15f25c14f6c28ed10f9672b7cbabf773ed94cb945fc83139fa4aa5",
+    "newHelperSha256": "52db2879cea7add89ce1f7779d873fc06c4c5c3a0233f0bc258f1233112f3aab",
+    "nativeInstructionsUnchanged": true,
+    "liveVerified": false
+  },
+  {
+    "revision": "93cfc6e9",
+    "moduleHash": "e03eca29aa8cba3ac4a96836ad3d86dd5eb8258704c0e6260ecc5ef955536a03",
+    "lookup": 678455168,
+    "guestEvaluatorAddresses": [
+      4247792,
+      4248448
+    ],
+    "tableSlots": [
+      388,
+      401
+    ],
+    "nativeEvaluatorFunctions": [
+      514,
+      2546
+    ],
+    "oldFoldedCells": [
+      678652736,
+      678655360
+    ],
+    "correctFoldedCells": [
+      678652736,
+      678655360
+    ],
+    "changed": false,
+    "onlyAuthoredSlotConstantsChanged": true,
+    "oldHelperSha256": "3d89138de12efc759b7d46a6919d33cc8c531c5af5ec55a1392db686a88c7bd7",
+    "newHelperSha256": "3d89138de12efc759b7d46a6919d33cc8c531c5af5ec55a1392db686a88c7bd7",
+    "nativeInstructionsUnchanged": true,
+    "liveVerified": false
+  }
+]

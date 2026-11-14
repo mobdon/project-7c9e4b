@@ -1,0 +1,22 @@
+[
+  "extension/CHANGELOG.md",
+  "extension/README.md",
+  "extension/diagnostics.js",
+  "extension/dyno-full.js",
+  "extension/manifest.json",
+  "extension/next-profile.js",
+  "extension/page.js",
+  "extension/popup.html",
+  "tools/build-full-tuner-bridge.cjs",
+  "tools/build-next-profile.cjs",
+  "tools/full-tuner-prefix.json",
+  "tools/package-release.py",
+  "tests/combined-profile-rebuild.test.cjs",
+  "tests/diagnostics-page.test.cjs",
+  "tests/diagnostics.test.cjs",
+  "tests/dyno-full-controller.test.cjs",
+  "tests/full-tuner-bridge.test.cjs",
+  "tests/full-tuner-bridge.wasm",
+  "tests/full-tuner-bridge.wat",
+  "tests/package-release.test.cjs"
+]

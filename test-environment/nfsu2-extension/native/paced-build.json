@@ -1,0 +1,72 @@
+{
+  "version": "0.38.12",
+  "passed": true,
+  "productSha256": "c6cf72afefa920259780401ae564ead775b69367fc6be022b9cd1642ad0f0f6c",
+  "modules": [
+    {
+      "revision": "aa2429fb",
+      "inputSha256": "e71b34af8fd926f58754df7536b44bd122b077e28af528200c24602b63b47a73",
+      "outputSha256": "c4b99d9e25f2c0999ccdbd86172a4a5ced8932eb85b972e5cf4f2918f1769863",
+      "modifiedFunctions": [
+        3553,
+        4497,
+        4653,
+        6837,
+        7152,
+        13653,
+        13962,
+        24259,
+        24268
+      ],
+      "appendedPrivateGlobals": 0,
+      "otherNonCodeSectionsPreserved": true,
+      "valid": true,
+      "compiled": true,
+      "liveVerified": false
+    },
+    {
+      "revision": "15e5958f",
+      "inputSha256": "2863cd57dc898efa1bee1dffd83bace6872cf72b355c2e8043d501a8d7ddf7d0",
+      "outputSha256": "cae9276ef7f8b9f07b6526bd7c889844d071e3d1ff5510052f311d52a5a7ddd4",
+      "modifiedFunctions": [
+        3553,
+        4497,
+        4653,
+        6837,
+        7152,
+        13653,
+        13962,
+        24259,
+        24268
+      ],
+      "appendedPrivateGlobals": 0,
+      "otherNonCodeSectionsPreserved": true,
+      "valid": true,
+      "compiled": true,
+      "liveVerified": false
+    },
+    {
+      "revision": "943ee537",
+      "inputSha256": "7d7b7854340965a964b255c01ff2750d12e82cd814144156bb2050137a931c3e",
+      "outputSha256": "fd55b4c12fa7e64fae8e60634e976af25da76f4a87498576756130813737c5dd",
+      "modifiedFunctions": [
+        3553,
+        4497,
+        4653,
+        6837,
+        7152,
+        13653,
+        13962,
+        24257,
+        24266
+      ],
+      "appendedPrivateGlobals": 0,
+      "otherNonCodeSectionsPreserved": true,
+      "valid": true,
+      "compiled": true,
+      "liveVerified": false
+    }
+  ],
+  "fullGameInstantiated": false,
+  "liveVerified": false
+}

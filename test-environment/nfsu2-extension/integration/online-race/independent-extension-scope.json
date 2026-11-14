@@ -1,0 +1,140 @@
+[
+  {
+    "file": "extension/CHANGELOG.md",
+    "baseline_sha256": "faef6ddbf34c0ccafd2d3f5d1eaf402c54d2d6c728a1873bdf12c2eaeba47d3e",
+    "candidate_sha256": "0e76f7fab79c6a0da44d576673a2af3de222db9041d6a2f8c5a9f61258a308be",
+    "unchanged": false
+  },
+  {
+    "file": "extension/README.md",
+    "baseline_sha256": "8bc266895aa46190d0efae3aa36d674ea0d191b8e55e5eb9e4ce5c924f727378",
+    "candidate_sha256": "870feade69971f26dad883cca8d0ce0aa63a6fd823f0318d57b3656aa898ad9c",
+    "unchanged": false
+  },
+  {
+    "file": "extension/ai.js",
+    "baseline_sha256": "879d5325d9753a256e0b507f7f3cdf10d5677d3846166936df0b98ecf7379987",
+    "candidate_sha256": "05bd6707f205d5db5c266508554c04b97399d04a084105e20e3eb64c63774ff9",
+    "unchanged": false
+  },
+  {
+    "file": "extension/cars.js",
+    "baseline_sha256": "94dd7ad5cd4b69cb1c6d5085ab3cc8d8d672193fd8d54b9ce0bb0e1838b89650",
+    "candidate_sha256": "94dd7ad5cd4b69cb1c6d5085ab3cc8d8d672193fd8d54b9ce0bb0e1838b89650",
+    "unchanged": true
+  },
+  {
+    "file": "extension/core.js",
+    "baseline_sha256": "2519ef62e8521a674cb13fdc91e9defa3d4a0521cc88e7d211aa134257deffb1",
+    "candidate_sha256": "2519ef62e8521a674cb13fdc91e9defa3d4a0521cc88e7d211aa134257deffb1",
+    "unchanged": true
+  },
+  {
+    "file": "extension/current-profile.js",
+    "baseline_sha256": "4249fc980c6281cd790121aef68dc25d6ff50b901a1eaeff8c77a4b1c05b836f",
+    "candidate_sha256": "4249fc980c6281cd790121aef68dc25d6ff50b901a1eaeff8c77a4b1c05b836f",
+    "unchanged": true
+  },
+  {
+    "file": "extension/diagnostics.js",
+    "baseline_sha256": "5bd7a7a5740ec14cc26ddab7bec1143de437cff4fcc086890b45bff31be2c657",
+    "candidate_sha256": "a7d7fcff81cb24ae6b2f1d86b57c26dce70ae50d250b8db34c14cabd634d6ada",
+    "unchanged": false
+  },
+  {
+    "file": "extension/dyno-core.js",
+    "baseline_sha256": "5c09f1c022866d39ee1e82f78eb5c771a656ba4a5770523df694cdf4f360acce",
+    "candidate_sha256": "5c09f1c022866d39ee1e82f78eb5c771a656ba4a5770523df694cdf4f360acce",
+    "unchanged": true
+  },
+  {
+    "file": "extension/dyno-evaluator.js",
+    "baseline_sha256": "7c13a568c3a20e1de51c9c7e0008c8ed1cdfe6e4d73271d85f2f4b6ec63994b2",
+    "candidate_sha256": "7c13a568c3a20e1de51c9c7e0008c8ed1cdfe6e4d73271d85f2f4b6ec63994b2",
+    "unchanged": true
+  },
+  {
+    "file": "extension/dyno-full.js",
+    "baseline_sha256": "47b28300bbd845aa19e8df0140b00396ef4009cabfdca08cf430081d3ec0fe6f",
+    "candidate_sha256": "47b28300bbd845aa19e8df0140b00396ef4009cabfdca08cf430081d3ec0fe6f",
+    "unchanged": true
+  },
+  {
+    "file": "extension/dyno-native-profile.js",
+    "baseline_sha256": "da9df4fe6d30b2a3115c7a2992526b39eaa9a110bf85fde8a03c49cb86bd9f4e",
+    "candidate_sha256": "da9df4fe6d30b2a3115c7a2992526b39eaa9a110bf85fde8a03c49cb86bd9f4e",
+    "unchanged": true
+  },
+  {
+    "file": "extension/dyno-native.js",
+    "baseline_sha256": "b7e7d3bbf322bdc7966715880786c03e157faa4a842a0dad96c336b20b96c442",
+    "candidate_sha256": "b7e7d3bbf322bdc7966715880786c03e157faa4a842a0dad96c336b20b96c442",
+    "unchanged": true
+  },
+  {
+    "file": "extension/dyno.js",
+    "baseline_sha256": "5fef7f5015f43066a3cfebaaea4452e94d4ea4e6e4f4f234876f5e4cf560a29f",
+    "candidate_sha256": "5fef7f5015f43066a3cfebaaea4452e94d4ea4e6e4f4f234876f5e4cf560a29f",
+    "unchanged": true
+  },
+  {
+    "file": "extension/latest-profile.js",
+    "baseline_sha256": "ee414fca6c4b7eb9887e195ab275b852ed778a4a17f26683fd23f2059b8db9cb",
+    "candidate_sha256": "ee414fca6c4b7eb9887e195ab275b852ed778a4a17f26683fd23f2059b8db9cb",
+    "unchanged": true
+  },
+  {
+    "file": "extension/manifest.json",
+    "baseline_sha256": "cfaf42f05b7ee3956471ceb9c973b2caecc2258fbd4ae1b75b171f17c4fc00ae",
+    "candidate_sha256": "813f3f3d06623d26a071dd904c035612b841e816b014851a1b08a9e07d831a88",
+    "unchanged": false
+  },
+  {
+    "file": "extension/next-profile.js",
+    "baseline_sha256": "445700078a49809f2b9685724ee2b63ab457763a2fcc7154530948132f30a2e5",
+    "candidate_sha256": "445700078a49809f2b9685724ee2b63ab457763a2fcc7154530948132f30a2e5",
+    "unchanged": true
+  },
+  {
+    "file": "extension/page.js",
+    "baseline_sha256": "6676417a7b2c252cdb38c42d3de8b7e88e3601d744726948bcbdd7b0488928ff",
+    "candidate_sha256": "1c1d2a7ef09fdedc59de28546745fb4e38205b2aa83aafee3e2daa645f1f24c2",
+    "unchanged": false
+  },
+  {
+    "file": "extension/popup.html",
+    "baseline_sha256": "593b889eb050b29498aad0f13cdb261862fb8c392828071e763d067288139c9d",
+    "candidate_sha256": "26f75cd9dca1abeb8e44094abcba283040115f3592f4c150cae6311988a42fdc",
+    "unchanged": false
+  },
+  {
+    "file": "extension/signature-profile-latest.js",
+    "baseline_sha256": "8f0e5f41110ea9198d31b75b7812fb9e897cfb44304de33734bd7a2fafbfeb5b",
+    "candidate_sha256": "8f0e5f41110ea9198d31b75b7812fb9e897cfb44304de33734bd7a2fafbfeb5b",
+    "unchanged": true
+  },
+  {
+    "file": "extension/signature-profile-next.js",
+    "baseline_sha256": "3d7efa9d5bfdb3821b35348ab30506cb26800d72b8ec6c239e843bde863a0036",
+    "candidate_sha256": "3d7efa9d5bfdb3821b35348ab30506cb26800d72b8ec6c239e843bde863a0036",
+    "unchanged": true
+  },
+  {
+    "file": "extension/signature-profile.js",
+    "baseline_sha256": "40bf9f2f0982511a9ea524851514069085ff1f35a8e935fa1a0ac82b0f545ddb",
+    "candidate_sha256": "40bf9f2f0982511a9ea524851514069085ff1f35a8e935fa1a0ac82b0f545ddb",
+    "unchanged": true
+  },
+  {
+    "file": "extension/signatures.js",
+    "baseline_sha256": "3077ad123d9b925b9506c13b79ce3ed742e979aeee4e5dc1ea9591701ccfb738",
+    "candidate_sha256": "3077ad123d9b925b9506c13b79ce3ed742e979aeee4e5dc1ea9591701ccfb738",
+    "unchanged": true
+  },
+  {
+    "file": "extension/walls.js",
+    "baseline_sha256": "80aea9873d7775ee7cbae22e548912ce24800f618beb1f4b385e82d2aac99ae2",
+    "candidate_sha256": "80aea9873d7775ee7cbae22e548912ce24800f618beb1f4b385e82d2aac99ae2",
+    "unchanged": true
+  }
+]

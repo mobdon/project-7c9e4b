@@ -1,0 +1,10 @@
+{
+  "name": "offline-report-lab",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local inspection of isolated client reporting helpers with controlled fixtures and no network transport.",
+  "scripts": {
+    "start": "node lab.cjs",
+    "test": "node --test --test-concurrency=1 test/*.test.cjs"
+  }
+}

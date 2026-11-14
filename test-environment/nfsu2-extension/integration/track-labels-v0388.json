@@ -1,0 +1,410 @@
+{
+  "schema": 1,
+  "source": "User-provided PS2 game image; factual English track names only",
+  "languagePath": "LANGUAGES\\ENGLISH.BIN",
+  "languageSha256": "9442aa6cc3a0b690d65531348f4798615637d1f254535dba842c4f4531076d8a",
+  "elfSha256": "a666f3e8869e63ad2f5eff90fc30c4953fcce41166ff006aaf1ed327d180d8ff",
+  "locations": [
+    {
+      "offset": 2027374592,
+      "bytes": 262904,
+      "key": "27771a63"
+    },
+    {
+      "offset": 1290244096,
+      "bytes": 262904,
+      "key": "27771a63"
+    }
+  ],
+  "count": 3849,
+  "table": 6172,
+  "strings": 36964,
+  "labels": {
+    "4000": {
+      "name": "4000"
+    },
+    "4001": {
+      "name": "Outer Ring",
+      "reverse": "Outer Ring Reverse"
+    },
+    "4002": {
+      "name": "Freeway West",
+      "reverse": "Freeway West Reverse"
+    },
+    "4003": {
+      "name": "Freeway East",
+      "reverse": "Freeway East Reverse"
+    },
+    "4004": {
+      "name": "Jackpot",
+      "reverse": "Jackpot Reverse"
+    },
+    "4005": {
+      "name": "Garibaldi Run",
+      "reverse": "Garibaldi Run Reverse"
+    },
+    "4006": {
+      "name": "Broad Street"
+    },
+    "4011": {
+      "name": "Freemont"
+    },
+    "4012": {
+      "name": "Providencia"
+    },
+    "4013": {
+      "name": "Scenic Ride"
+    },
+    "4014": {
+      "name": "Resort Loop"
+    },
+    "4015": {
+      "name": "Lower Eastside"
+    },
+    "4021": {
+      "name": "City Hall"
+    },
+    "4022": {
+      "name": "Switchback",
+      "reverse": "Switchback Reverse"
+    },
+    "4023": {
+      "name": "Shoreside",
+      "reverse": "Shoreside Reverse"
+    },
+    "4024": {
+      "name": "Park Drive",
+      "reverse": "Park Drive Reverse"
+    },
+    "4041": {
+      "name": "Dockside"
+    },
+    "4042": {
+      "name": "Boxcar"
+    },
+    "4043": {
+      "name": "Smokestack"
+    },
+    "4044": {
+      "name": "Bayview Concrete"
+    },
+    "4045": {
+      "name": "Phoenix Steel"
+    },
+    "4061": {
+      "name": "Observatory",
+      "reverse": "Observatory Reverse"
+    },
+    "4062": {
+      "name": "Bellavista",
+      "reverse": "Bellavista Reverse"
+    },
+    "4063": {
+      "name": "Bayview Summit"
+    },
+    "4081": {
+      "name": "Palm Highway",
+      "reverse": "Palm Highway Reverse"
+    },
+    "4082": {
+      "name": "Ambassador Ridge",
+      "reverse": "Ambassador Ridge Reverse"
+    },
+    "4083": {
+      "name": "University Hill",
+      "reverse": "University Hill Reverse"
+    },
+    "4084": {
+      "name": "Marine & 25th",
+      "reverse": "Marine & 25th Reverse"
+    },
+    "4085": {
+      "name": "Grandview Station"
+    },
+    "4086": {
+      "name": "Woodbine Park",
+      "reverse": "Woodbine Park Reverse"
+    },
+    "4087": {
+      "name": "12th & Arbutus",
+      "reverse": "12th & Arbutus Reverse"
+    },
+    "4088": {
+      "name": "Bayview International",
+      "reverse": "Bayview International Reverse"
+    },
+    "4090": {
+      "name": "Outrun"
+    },
+    "4091": {
+      "name": "Outrun"
+    },
+    "4092": {
+      "name": "Outrun"
+    },
+    "4093": {
+      "name": "Outrun"
+    },
+    "4094": {
+      "name": "Outrun"
+    },
+    "4095": {
+      "name": "Outrun"
+    },
+    "4096": {
+      "name": "Outrun"
+    },
+    "4097": {
+      "name": "Outrun"
+    },
+    "4098": {
+      "name": "Outrun"
+    },
+    "4099": {
+      "name": "Outrun"
+    },
+    "4101": {
+      "name": "Bayview Plaza"
+    },
+    "4102": {
+      "name": "Palomino & 16th",
+      "reverse": "Palomino & 16th Reverse"
+    },
+    "4103": {
+      "name": "South Junction",
+      "reverse": "South Junction Reverse"
+    },
+    "4104": {
+      "name": "Upper Deck",
+      "reverse": "Upper Deck Reverse"
+    },
+    "4105": {
+      "name": "Blackcomb Way"
+    },
+    "4106": {
+      "name": "Cypress Bowl",
+      "reverse": "Cypress Bowl Reverse"
+    },
+    "4107": {
+      "name": "Marathon",
+      "reverse": "Marathon Reverse"
+    },
+    "4121": {
+      "name": "Rockridge Cross"
+    },
+    "4122": {
+      "name": "Palm Hill"
+    },
+    "4123": {
+      "name": "Wall Center",
+      "reverse": "Wall Center Reverse"
+    },
+    "4124": {
+      "name": "Tailgate",
+      "reverse": "Tailgate Reverse"
+    },
+    "4125": {
+      "name": "Sentinel Hill",
+      "reverse": "Sentinel Hill Reverse"
+    },
+    "4126": {
+      "name": "Black Tusk"
+    },
+    "4127": {
+      "name": "2nd & Bellevue",
+      "reverse": "2nd & Bellevue Reverse"
+    },
+    "4141": {
+      "name": "Terminal & 2nd"
+    },
+    "4142": {
+      "name": "Port Authority"
+    },
+    "4143": {
+      "name": "Waste Management"
+    },
+    "4144": {
+      "name": "Domestic Arrivals"
+    },
+    "4145": {
+      "name": "Broadway & Granville"
+    },
+    "4161": {
+      "name": "Rollercoaster"
+    },
+    "4162": {
+      "name": "Eagleridge Estates",
+      "reverse": "Eagleridge Estates Reverse"
+    },
+    "4163": {
+      "name": "The Chief",
+      "reverse": "4163 Reverse"
+    },
+    "4164": {
+      "name": "Grouse Grind"
+    },
+    "4174": {
+      "name": "Capilano Heights"
+    },
+    "4175": {
+      "name": "Hillside Manor"
+    },
+    "4176": {
+      "name": "Powerline"
+    },
+    "4177": {
+      "name": "Hollyburn Ridge"
+    },
+    "4178": {
+      "name": "Lighthouse"
+    },
+    "4179": {
+      "name": "City Lights"
+    },
+    "4201": {
+      "name": "Bayview Bridge",
+      "reverse": "4201 Reverse"
+    },
+    "4211": {
+      "name": "Central Station",
+      "reverse": "Central Station Reverse"
+    },
+    "4212": {
+      "name": "Coastal Express",
+      "reverse": "Coastal Express Reverse"
+    },
+    "4213": {
+      "name": "Switching Yard",
+      "reverse": "Switching Yard Reverse"
+    },
+    "4221": {
+      "name": "South Runway",
+      "reverse": "South Runway Reverse"
+    },
+    "4222": {
+      "name": "Runway 15",
+      "reverse": "Runway 15 Reverse"
+    },
+    "4223": {
+      "name": "Runway 9",
+      "reverse": "Runway 9 Reverse"
+    },
+    "4301": {
+      "name": "Parkade Drift 1"
+    },
+    "4302": {
+      "name": "Parkade Drift 2"
+    },
+    "4303": {
+      "name": "Parkade Drift 3"
+    },
+    "4304": {
+      "name": "Parkade Drift 4"
+    },
+    "4305": {
+      "name": "Parkade Drift 5"
+    },
+    "4306": {
+      "name": "Parkade Drift 6"
+    },
+    "4311": {
+      "name": "Stadium Drift 1"
+    },
+    "4312": {
+      "name": "Stadium Drift 2"
+    },
+    "4313": {
+      "name": "Stadium Drift 3"
+    },
+    "4314": {
+      "name": "Stadium Drift 4"
+    },
+    "4315": {
+      "name": "Stadium Drift 5"
+    },
+    "4401": {
+      "name": "Tunnel Construction",
+      "reverse": "4401 Reverse"
+    },
+    "4402": {
+      "name": "North Freeway",
+      "reverse": "4402 Reverse"
+    },
+    "4404": {
+      "name": "Airport Freeway",
+      "reverse": "4404 Reverse"
+    },
+    "4601": {
+      "name": "Industrial Park Track 1",
+      "reverse": "Industrial Park Track 1 Reverse"
+    },
+    "4602": {
+      "name": "Industrial Park Track 2",
+      "reverse": "Industrial Park Track 2 Reverse"
+    },
+    "4603": {
+      "name": "Industrial Park Track 3",
+      "reverse": "Industrial Park Track 3 Reverse"
+    },
+    "4604": {
+      "name": "Industrial Park Track 4",
+      "reverse": "Industrial Park Track 4 Reverse"
+    },
+    "4605": {
+      "name": "Parkade Track 1",
+      "reverse": "Parkade Track 1 Reverse"
+    },
+    "4606": {
+      "name": "Parkade Track 2",
+      "reverse": "Parkade Track 2 Reverse"
+    },
+    "4607": {
+      "name": "Parkade Track 3",
+      "reverse": "Parkade Track 3 Reverse"
+    },
+    "4608": {
+      "name": "Parkade Track 4",
+      "reverse": "Parkade Track 4 Reverse"
+    },
+    "4701": {
+      "name": "Bayview Speedway Track 1"
+    },
+    "4702": {
+      "name": "Bayview Speedway Track 2",
+      "reverse": "Bayview Speedway Track 2 Reverse"
+    },
+    "4703": {
+      "name": "Bayview Speedway Track 3",
+      "reverse": "Bayview Speedway Track 3 Reverse"
+    },
+    "4704": {
+      "name": "Bayview Speedway Track 4",
+      "reverse": "Bayview Speedway Track 4 Reverse"
+    },
+    "4705": {
+      "name": "Bayview Speedway Track 5"
+    },
+    "4711": {
+      "name": "Airport Circuit Track 1"
+    },
+    "4712": {
+      "name": "Airport Circuit Track 2",
+      "reverse": "Airport Circuit Track 2 Reverse"
+    },
+    "4713": {
+      "name": "Airport Circuit Track 3",
+      "reverse": "Airport Circuit Track 3 Reverse"
+    },
+    "4714": {
+      "name": "Airport Circuit Track 4",
+      "reverse": "Airport Circuit Track 4 Reverse"
+    },
+    "4715": {
+      "name": "Airport Circuit Track 5",
+      "reverse": "Airport Circuit Track 5 Reverse"
+    },
+    "4716": {
+      "name": "Airport Circuit Track 6"
+    }
+  }
+}

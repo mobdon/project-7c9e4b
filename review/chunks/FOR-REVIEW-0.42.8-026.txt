@@ -1,0 +1,1760 @@
+VERBATIM REVIEW CHUNK 026
+Canonical bundle byte range [3000000, 3120000). Read chunks in numeric order.
+Only the payload below belongs to the canonical bundle; headers are generated.
+
+s[`f${id}.wasm`],
+      expectedSha256: entry.files[`f${id}.wasm`].sha256, label: `Actual isolated encoder f${id}` });
+    const imports = validateEncoderModuleImports(compiled.module, id);
+    loaded.set(id, { entry, module: compiled.module, imports });
+  }
+  return { loaded, manifest };
+}
+
+// Independent JavaScript calculation; the native encoder computes its own checksum.
+function crc32(bytes) {
+  let crc = 0xffffffff;
+  for (const byte of bytes) {
+    crc ^= byte;
+    for (let bit = 0; bit < 8; bit++) crc = (crc >>> 1) ^ ((crc & 1) ? 0xedb88320 : 0);
+  }
+  return (crc ^ 0xffffffff) >>> 0;
+}
+
+function checksum(frame) {
+  if (frame.length < 4) return { valid: false, stored: null, computed: null };
+  const stored = frame.readUInt32LE(frame.length - 4);
+  const computed = crc32(frame.subarray(0, frame.length - 4));
+  return { valid: stored === computed, stored, computed };
+}
+
+function selectInputs(sourceCases) {
+  if (!Array.isArray(sourceCases)) throw new TypeError('sourceCases must be the offline native scenario cases');
+  return [
+    ['native-race-capture', 'synthetic-race-envelope', 21, 'race'],
+    ['native-freeroam-capture', 'synthetic-free-roam-envelope', 22, 'freeroam'],
+  ].map(([id, channel, type, label]) => {
+    const candidates = sourceCases.filter(item => item.id === id);
+    if (candidates.length !== 1) throw new Error(`Missing or duplicate source native case: ${id}`);
+    const source = candidates[0];
+    if (source.kind !== 'native-fixture' || source.evidence?.originalModuleSha256 !== ORIGINAL_SHA256) {
+      throw new Error(`Source native provenance mismatch: ${id}`);
+    }
+    const captures = source.captures?.filter(item => item.stage === 'pre-encoding' && item.channel === channel);
+    if (captures?.length !== 1) throw new Error(`Missing unique pre-encoding source capture: ${id}`);
+    const capture = captures[0];
+    if (capture.bytes !== SOURCE_BYTES || typeof capture.hex !== 'string' ||
+        !new RegExp(`^[0-9a-f]{${SOURCE_BYTES * 2}}$`, 'i').test(capture.hex)) {
+      throw new Error(`Invalid bounded source capture: ${id}`);
+    }
+    const input = Buffer.from(capture.hex, 'hex');
+    if (input[1] !== type) throw new Error(`Unsupported source message type: ${id}`);
+    return { source, capture, input, type, label };
+  });
+}
+
+async function runEncoderScenarios({ sourceCases, fixtureDir } = {}) {
+  const inputs = selectInputs(sourceCases);
+  const directory = fixtureDir ? path.resolve(fixtureDir) : path.resolve(__dirname, '../fixtures/encoder');
+  const { loaded, manifest } = await loadEncoderFixtures(directory);
+  const memory = new WebAssembly.Memory({ initial: 11264, maximum: 65536, shared: true });
+  const bytes = new Uint8Array(memory.buffer);
+  const leaves = {};
+  for (const id of LEAVES) {
+    const instance = await WebAssembly.instantiate(loaded.get(id).module, { env: { memory } });
+    leaves[`f${id}`] = instance.exports[`f${id}`];
+  }
+  const instance = await WebAssembly.instantiate(loaded.get(ENCODER).module,
+    { env: { memory }, 'isolated.direct': leaves });
+  const encode = instance.exports.f22860;
+  const provenance = {
+    originalModuleSha256: ORIGINAL_SHA256, revision: '60946132', fixtureManifestSha256: MANIFEST_SHA256,
+    fixtureDirectory: directory,
+    functions: IDS.map(id => ({ id, originalBodySha256: loaded.get(id).entry.originalBodySha256,
+      isolatedWasmSha256: loaded.get(id).entry.files[`f${id}.wasm`].sha256 })),
+  };
+
+  function execute(input, capacity) {
+    bytes.set(input, INPUT);
+    bytes.fill(CANARY, OUTPUT - GUARD, OUTPUT + capacity + GUARD);
+    const encoderResult = encode(INPUT, OUTPUT, capacity);
+    const left = bytes.subarray(OUTPUT - GUARD, OUTPUT);
+    const right = bytes.subarray(OUTPUT + capacity, OUTPUT + capacity + GUARD);
+    const redZonesIntact = left.every(byte => byte === CANARY) && right.every(byte => byte === CANARY);
+    if (encoderResult > capacity) throw new Error('Native encoder returned a length larger than its supplied buffer');
+    const output = encoderResult > 0 ? Buffer.from(bytes.subarray(OUTPUT, OUTPUT + encoderResult)) : Buffer.alloc(0);
+    return { encoderResult, output, redZonesIntact,
+      inputUnchanged: Buffer.from(bytes.subarray(INPUT, INPUT + input.length)).equals(input) };
+  }
+
+  function makeCase(id, label, source, capacity, interpretation) {
+    const result = execute(source.input, capacity);
+    const crc = checksum(result.output);
+    let corruptedFrameRejectedByCrc = null;
+    if (result.output.length > 4) {
+      const corrupted = Buffer.from(result.output); corrupted[0] ^= 1;
+      corruptedFrameRejectedByCrc = !checksum(corrupted).valid;
+    }
+    const header = result.output.length >= 6 ? {
+      signature: result.output.subarray(0, 4).toString('ascii'),
+      version: result.output[4], type: result.output[5],
+    } : null;
+    return {
+      id, label, kind: 'native-fixture',
+      input: { sourceCaseId: source.source.id, sourceType: source.type, sourceCaptureBytes: source.input.length,
+        capacity, statistics: source.source.input?.sourceStatistics, context: 'synthetic and local only' },
+      observed: {
+        encoderResult: result.encoderResult, sourceType: source.type, sourceCaptureBytes: source.input.length,
+        encodedBytes: result.output.length, capacity, redZonesIntact: result.redZonesIntact,
+        inputUnchanged: result.inputUnchanged, crcValid: crc.valid,
+        crcStoredHex: crc.stored === null ? null : crc.stored.toString(16).padStart(8, '0'),
+        crcCalculatedHex: crc.computed === null ? null : crc.computed.toString(16).padStart(8, '0'),
+        corruptedFrameRejectedByCrc, decodedHeader: header,
+        sourceStatistics: source.source.input?.sourceStatistics,
+        wireSent: false, transportImports: 0,
+      },
+      captures: result.output.length ? [{ stage: 'encoded', channel: `${source.capture.channel}:encoded`,
+        bytes: result.output.length, hex: result.output.toString('hex'),
+        description: 'Actual original native encoder output from a synthetic offline envelope. Retained locally; no sender or live session exists.' }] : [],
+      interpretation, limitations: [...LIMITATIONS],
+      evidence: { ...provenance, sourceCaseId: source.source.id, sourceCaptureSha256: sha256(source.input) },
+    };
+  }
+
+  const cases = inputs.map(source => makeCase(`encoder-${source.label}`,
+    `Actual native encoder: synthetic ${source.label === 'race' ? 'race' : 'free-roam'} report`, source, 1200,
+    'The original encoder ran with seven original leaf helpers linked and produced this local binary frame; JavaScript independently checked its CRC.'));
+  const source = inputs[0];
+  const encodedLength = cases[0].observed.encodedBytes;
+  if (encodedLength < 1) throw new Error(`Known synthetic race input was rejected by the native encoder: ${cases[0].observed.encoderResult}`);
+  cases.push(makeCase('encoder-exact-capacity', 'Actual encoder: exactly sized output buffer', source, encodedLength,
+    'The output buffer exactly matches the successful native frame length. Red zones detect writes outside the permitted range.'));
+  cases.push(makeCase('encoder-short-buffer', 'Actual encoder: one byte less than the successful frame', source, encodedLength - 1,
+    'A failed call may write a prefix inside its supplied buffer. No successful frame is captured; red zones check the external boundary.'));
+  cases.push(makeCase('encoder-zero-capacity', 'Actual encoder: zero output capacity', source, 0,
+    'Zero output capacity tests the native failure path while preserving both adjacent red zones.'));
+
+  return { cases, evidence: [{ ...provenance, method: manifest.method,
+    actualEncoderExecuted: true, realLeafHelpers: LEAVES.length,
+    externalCapabilities: ['shared local fixture memory only'], senderImplementations: 0,
+    globalAPIsChanged: false, crcCheck: 'Independent JavaScript reflected CRC-32; altered-copy negative check.' }],
+  limitations: [...LIMITATIONS] };
+}
+
+module.exports = { runEncoderScenarios, validateEncoderModuleImports };
+
+
+===== offline-report-lab/lib/native-fixtures.cjs =====
+'use strict';
+
+const fs = require('node:fs/promises');
+const path = require('node:path');
+const crypto = require('node:crypto');
+const { compilePinnedLocalModule } = require('./local-loader.cjs');
+
+const MANIFEST_SHA256 = '6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99';
+const ORIGINAL_SHA256 = '81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945';
+const IDS = [21267, 21268, 21269, 21270, 21271, 21272, 22882, 22883];
+const DIRECT_IMPORTS = Object.freeze({
+  21267: [], 21268: [],
+  21269: ['f21265', 'f21266', 'f21270', 'f21774', 'f23875', 'f24525'],
+  21270: ['f21197', 'f24508'],
+  21271: [], 21272: [], 22882: ['f22860'], 22883: ['f22860'],
+});
+
+// Fixed addresses are required by the original isolated bodies. No game image is loaded.
+const FIXTURE = Object.freeze({
+  raceActive: 673985284, roamActive: 673985288, snapshotPointers: 673985296,
+  snapshotBytes: 673985328, developerMarker: 673985840,
+  raceStats: 673985844, roamStats: 673985860, diagnosticsActive: 672536788,
+  syntheticDescriptors: 671559008,
+  car: 131072, companion: 196608, changedOffset: 16,
+  output: 262144, client: 1048576, payload: 4194304,
+});
+
+const LIMITATIONS = Object.freeze([
+  'Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.',
+  'Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.',
+  'Envelope-builder cases stop before encoding: inputs are captured locally and the replacement returns zero. Optional encoder replay is a separate case.',
+  'Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.',
+  'These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline.',
+]);
+
+const sha256 = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
+
+function validateNativeModuleImports(module, id) {
+  const direct = DIRECT_IMPORTS[id];
+  if (!direct) throw new Error(`Unapproved native fixture ${id}`);
+  const expected = new Map([
+    ['env.memory', 'memory'], ...direct.map(name => [`isolated.direct.${name}`, 'function']),
+  ]);
+  const seen = new Set();
+  for (const entry of WebAssembly.Module.imports(module)) {
+    const key = `${entry.module}.${entry.name}`;
+    if (seen.has(key) || expected.get(key) !== entry.kind) {
+      throw new Error(`Denied native fixture import: ${key} (${entry.kind})`);
+    }
+    seen.add(key);
+  }
+  if (seen.size !== expected.size) throw new Error(`Missing expected imports in fixture ${id}`);
+  const exports = WebAssembly.Module.exports(module);
+  if (exports.length !== 1 || exports[0].name !== `f${id}` || exports[0].kind !== 'function') {
+    throw new Error(`Unexpected native fixture exports: ${id}`);
+  }
+  return [...seen];
+}
+
+async function loadFixtures(fixtureDir) {
+  const manifestBytes = await fs.readFile(path.join(fixtureDir, 'manifest.json'));
+  if (sha256(manifestBytes) !== MANIFEST_SHA256) throw new Error('Native fixture manifest hash mismatch');
+  const manifest = JSON.parse(manifestBytes);
+  if (manifest.originalModuleSha256 !== ORIGINAL_SHA256 || manifest.functions.length !== IDS.length) {
+    throw new Error('Native fixture provenance mismatch');
+  }
+  const modules = new Map();
+  for (const entry of manifest.functions) {
+    if (!IDS.includes(entry.id) || modules.has(entry.id)) throw new Error('Unexpected native fixture identity');
+    const verified = {};
+    for (const [filename, expected] of Object.entries(entry.files)) {
+      if (path.basename(filename) !== filename) throw new Error('Invalid fixture filename');
+      const bytes = await fs.readFile(path.join(fixtureDir, filename));
+      if (bytes.length !== expected.bytes || sha256(bytes) !== expected.sha256) {
+        throw new Error(`Native fixture hash mismatch: ${filename}`);
+      }
+      verified[filename] = bytes;
+    }
+    const { module } = await compilePinnedLocalModule({
+      bytes: verified[`f${entry.id}.wasm`],
+      expectedSha256: entry.files[`f${entry.id}.wasm`].sha256,
+      label: `Isolated f${entry.id}`,
+    });
+    const allowedImports = validateNativeModuleImports(module, entry.id);
+    modules.set(entry.id, { module, entry, allowedImports });
+  }
+  return { modules, manifest };
+}
+
+async function runNativeScenarios({ workspaceRoot, fixtureDir } = {}) {
+  const root = path.resolve(workspaceRoot || path.join(__dirname, '../..'));
+  const directory = fixtureDir ? path.resolve(root, fixtureDir) : path.resolve(__dirname, '../fixtures/native');
+  const { modules, manifest } = await loadFixtures(directory);
+  // Original memory import minimum: 11264 pages. Shared memory is sparse/lazily touched.
+  const memory = new WebAssembly.Memory({ initial: 11264, maximum: 65536, shared: true });
+  const bytes = new Uint8Array(memory.buffer);
+  const view = new DataView(memory.buffer);
+  const put32 = (at, value) => view.setUint32(at, value >>> 0, true);
+  const get32 = at => view.getUint32(at, true);
+  const exported = new Map();
+  const logged = [];
+  const captures = [];
+  let encoderCalls = 0;
+  let activeEnvelope = null;
+  let syntheticCarAvailable = true;
+
+  const imports = {
+    f21197: () => 42,
+    f24508: () => { logged.push('Native diagnostic logger invoked locally.'); return 0; },
+    f21265: () => syntheticCarAvailable ? FIXTURE.car : 0,
+    f21266: (_car, destination) => {
+      put32(destination, syntheticCarAvailable ? FIXTURE.car : 0);
+      put32(destination + 4, syntheticCarAvailable ? FIXTURE.companion : 0);
+      put32(destination + 8, 0); put32(destination + 12, 0);
+    },
+    f21774: () => {}, // Controlled developer-guard context; not the game's implementation.
+    f23875: (left, right, length) => {
+      if (length < 0 || left < 0 || right < 0 || left + length > bytes.length || right + length > bytes.length) {
+        throw new Error('Synthetic comparison outside fixture memory');
+      }
+      for (let i = 0; i < length; i++) if (bytes[left + i] !== bytes[right + i]) return 1;
+      return 0;
+    },
+    f24525: destination => { bytes[destination] = 0; return 0; },
+    f21270: (...args) => exported.get(21270)(...args),
+    f22860: (input, _output, _capacity) => {
+      if (!activeEnvelope) throw new Error('Unexpected native encoder call');
+      const snapshot = Buffer.from(bytes.subarray(input, input + 1640));
+      encoderCalls++;
+      captures.push({
+        stage: 'pre-encoding', channel: activeEnvelope,
+        bytes: snapshot.length, hex: snapshot.toString('hex'),
+        description: 'Actual native envelope-builder input to encoder; synthetic session/context. Encoder returned zero; no encoding or transport occurred.',
+      });
+      return 0; // Mandatory stop. Original helper exits before its indirect sender call.
+    },
+  };
+  for (const id of [21270, 21267, 21268, 21271, 21272, 21269, 22882, 22883]) {
+    const { module } = modules.get(id);
+    const direct = Object.fromEntries(DIRECT_IMPORTS[id].map(name => [name, imports[name]]));
+    const instance = await WebAssembly.instantiate(module, { env: { memory }, 'isolated.direct': direct });
+    exported.set(id, instance.exports[`f${id}`]);
+  }
+
+  const readStats = id => {
+    bytes.fill(0, FIXTURE.output, FIXTURE.output + 16);
+    exported.get(id)(FIXTURE.output);
+    return {
+      sampledFrames: get32(FIXTURE.output), changedFrames: get32(FIXTURE.output + 4),
+      developerEvents: get32(FIXTURE.output + 8), observationFlags: bytes[FIXTURE.output + 12],
+    };
+  };
+  const statistics = () => ({ race: readStats(21271), freeRoam: readStats(21272) });
+  const evidence = ids => ({
+    originalModuleSha256: ORIGINAL_SHA256, revision: '60946132',
+    fixtureManifestSha256: MANIFEST_SHA256,
+    functions: ids.map(id => ({ id, originalBodySha256: modules.get(id).entry.originalBodySha256,
+      isolatedWasmSha256: modules.get(id).entry.files[`f${id}.wasm`].sha256 })),
+    fixtureDirectory: directory,
+  });
+  function configure({ race, freeRoam, changed, developer, available = true }) {
+    bytes.fill(0, FIXTURE.raceStats, FIXTURE.roamStats + 16);
+    put32(FIXTURE.raceActive, race ? 1 : 0); put32(FIXTURE.roamActive, freeRoam ? 1 : 0);
+    put32(FIXTURE.diagnosticsActive, 0);
+    syntheticCarAvailable = available;
+    bytes.fill(0, FIXTURE.snapshotPointers, FIXTURE.snapshotPointers + 16);
+    if (available) {
+      put32(FIXTURE.snapshotPointers, FIXTURE.car);
+      put32(FIXTURE.snapshotPointers + 4, FIXTURE.companion);
+    }
+    // One artificial four-byte region; this deliberately does not reproduce the game's watch map.
+    bytes.fill(0, FIXTURE.syntheticDescriptors, FIXTURE.syntheticDescriptors + 96);
+    view.setUint16(FIXTURE.syntheticDescriptors + 2, FIXTURE.changedOffset, true);
+    view.setUint16(FIXTURE.syntheticDescriptors + 4, 4, true);
+    bytes[FIXTURE.syntheticDescriptors + 6] = 1;
+    const baseline = [17, 34, 51, 68];
+    bytes.set(baseline, FIXTURE.snapshotBytes);
+    bytes.set(changed ? [17, 34, 99, 68] : baseline, FIXTURE.car + FIXTURE.changedOffset);
+    bytes[FIXTURE.developerMarker] = 0;
+    if (developer) exported.get(21268)();
+  }
+  const cases = [];
+  const scenarios = [
+    ['native-clean', 'Clean synthetic race frame', { race: true, freeRoam: false, changed: false, developer: false }],
+    ['native-race-change', 'Changed synthetic race frame', { race: true, freeRoam: false, changed: true, developer: false }],
+    ['native-freeroam-change', 'Changed synthetic free-roam frame', { race: false, freeRoam: true, changed: true, developer: false }],
+    ['native-developer-event', 'Synthetic developer event in both accumulator contexts', { race: true, freeRoam: true, changed: false, developer: true }],
+    ['native-no-context', 'Changed frame with both accumulators inactive', { race: false, freeRoam: false, changed: true, developer: true }],
+    ['native-missing-snapshot', 'Developer marker without a matching synthetic snapshot', { race: true, freeRoam: true, changed: false, developer: true, available: false }],
+  ];
+  for (const [id, label, input] of scenarios) {
+    configure(input); exported.get(21269)();
+    cases.push({ id, label, kind: 'native-fixture', input: { ...input, watchedRegion: 'one artificial four-byte region' },
+      observed: { ...statistics(), developerMarkerConsumed: bytes[FIXTURE.developerMarker] === 0 },
+      captures: [], interpretation: 'Original native compare/accumulator/export helpers applied to controlled local fixture data.',
+      limitations: [...LIMITATIONS], evidence: evidence([21268, 21269, 21270, 21271, 21272]) });
+  }
+  configure({ race: true, freeRoam: true, changed: true, developer: true });
+  exported.get(21269)();
+  const beforeReset = statistics(); exported.get(21267)();
+  cases.push({ id: 'native-race-reset', label: 'Native race reset preserves the separate free-roam record', kind: 'native-fixture',
+    input: { contexts: 'both', changed: true, developer: true }, observed: { before: beforeReset, after: statistics() },
+    captures: [], interpretation: 'The original reset helper clears the race record; the separate free-roam record is retained.',
+    limitations: [...LIMITATIONS], evidence: evidence([21267, 21269, 21270, 21271, 21272]) });
+
+  async function envelopeCase(id, nativeId, label, ready) {
+    configure({ race: true, freeRoam: true, changed: true, developer: true }); exported.get(21269)();
+    const sourceStats = statistics();
+    bytes.fill(0, FIXTURE.client, FIXTURE.client + 1441568);
+    bytes.fill(0, FIXTURE.payload, FIXTURE.payload + 32);
+    put32(FIXTURE.client, 0x10203040); put32(FIXTURE.client + 96, ready ? 1 : 0);
+    view.setBigUint64(FIXTURE.client + 1441560, ready ? 1n : 0n, true);
+    put32(FIXTURE.client + 140, 1); // Nonzero slot, but the isolated table has no sender implementation.
+    const statId = nativeId === 22882 ? 21271 : 21272;
+    const statOffset = nativeId === 22882 ? 8 : 0;
+    if (statOffset) { put32(FIXTURE.payload, 0x55667788); put32(FIXTURE.payload + 4, 1); }
+    exported.get(statId)(FIXTURE.payload + statOffset);
+    const firstCapture = captures.length; const callsBefore = encoderCalls;
+    activeEnvelope = nativeId === 22882 ? 'synthetic-race-envelope' : 'synthetic-free-roam-envelope';
+    let returned;
+    try { returned = exported.get(nativeId)(FIXTURE.client, FIXTURE.payload); }
+    finally { activeEnvelope = null; }
+    cases.push({ id, label, kind: 'native-fixture', input: { ready, session: 'synthetic', sourceStatistics: sourceStats },
+      observed: { helperReturn: returned, encoderCalls: encoderCalls - callsBefore,
+        sentCount: get32(FIXTURE.client + 1441396), sentBytes: get32(FIXTURE.client + 1441400),
+        encoderResult: 0, wireEncodingPerformed: false, senderImplementationPresent: false },
+      captures: captures.slice(firstCapture), interpretation: ready
+        ? 'Original native helper constructed a pre-encoding envelope. Local interception returned zero, so native transport was not reached.'
+        : 'Original helper rejected the synthetic unready context before encoder interception.',
+      limitations: [...LIMITATIONS], evidence: evidence([nativeId, statId]) });
+  }
+  await envelopeCase('native-race-capture', 22882, 'Race helper: local pre-encoding capture', true);
+  await envelopeCase('native-freeroam-capture', 22883, 'Free-roam helper: local pre-encoding capture', true);
+  await envelopeCase('native-unready-envelope', 22883, 'Unready synthetic session: no capture', false);
+
+  return { cases, evidence: [{ ...evidence(IDS), method: manifest.method,
+    memory: { shared: true, minimumPages: 11264, touched: 'small fixture regions only' },
+    importPolicy: 'Exact pinned import sets only; no transport, network, process, filesystem or clock access is supplied to native imports.',
+    loggerInvocations: logged.length, encoderCalls }], limitations: [...LIMITATIONS] };
+}
+
+module.exports = { runNativeScenarios, validateNativeModuleImports };
+
+
+===== offline-report-lab/test/encoder-fixtures.test.cjs =====
+'use strict';
+
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs/promises');
+const os = require('node:os');
+const path = require('node:path');
+const { crc32 } = require('node:zlib');
+const { runNativeScenarios } = require('../lib/native-fixtures.cjs');
+const { runEncoderScenarios } = require('../lib/encoder-fixtures.cjs');
+const { installNetworkIsolation } = require('../lib/network-isolation.cjs');
+
+let source;
+let result;
+let isolation;
+test.before(async () => {
+  isolation = installNetworkIsolation();
+  source = await runNativeScenarios();
+  result = await runEncoderScenarios({ sourceCases: source.cases });
+});
+test.after(() => isolation?.restore());
+
+const scenario = id => {
+  const item = result.cases.find(row => row.id === id);
+  assert.ok(item, `Missing encoder scenario ${id}`);
+  return item;
+};
+
+test('actual native encoder produces complete local race and free-roam frames with independent valid CRCs', () => {
+  assert.equal(crc32(Buffer.from('123456789')), 0xcbf43926, 'Independent zlib oracle has the standard CRC-32 result');
+  for (const [id, type] of [['encoder-race', 21], ['encoder-freeroam', 22]]) {
+    const item = scenario(id);
+    const captures = item.captures.filter(capture => capture.stage === 'encoded');
+    assert.equal(captures.length, 1);
+    const capture = captures[0];
+    const frame = Buffer.from(capture.hex, 'hex');
+    assert.equal(capture.bytes, frame.length);
+    assert.equal(item.observed.encoderResult, frame.length);
+    assert.equal(item.observed.encodedBytes, frame.length);
+    assert.equal(item.observed.sourceCaptureBytes, 1640);
+    assert.ok(frame.length >= 20 && frame.length <= 1200);
+    assert.equal(frame.toString('ascii', 0, 4), 'N2FR');
+    assert.equal(frame[4], 1, 'Protocol byte observed in the pinned current encoder');
+    assert.equal(frame[5], type);
+    assert.equal(frame.readUInt16LE(6), frame.length, 'Header length includes the final checksum');
+    assert.equal(frame.readUInt32LE(frame.length - 4), crc32(frame.subarray(0, -4)));
+    assert.equal(item.observed.crcValid, true);
+    assert.equal(item.observed.sourceType, type);
+    assert.equal(item.observed.redZonesIntact, true);
+    assert.equal(item.observed.inputUnchanged, true);
+    assert.equal(item.observed.wireSent, false);
+    assert.equal(item.observed.transportImports, 0);
+    const sourceId = type === 21 ? 'native-race-capture' : 'native-freeroam-capture';
+    const sourceCase = source.cases.find(row => row.id === sourceId);
+    const expected = sourceCase.input.sourceStatistics[type === 21 ? 'race' : 'freeRoam'];
+    const statsOffset = type === 21 ? 24 : 16;
+    assert.equal(frame.readUInt32LE(statsOffset), expected.sampledFrames);
+    assert.equal(frame.readUInt32LE(statsOffset + 4), expected.changedFrames);
+    assert.equal(frame.readUInt16LE(statsOffset + 8), expected.developerEvents);
+    assert.equal(frame[statsOffset + 10], expected.observationFlags);
+
+    const corrupted = Buffer.from(frame);
+    corrupted[16] ^= 1;
+    assert.notEqual(corrupted.readUInt32LE(corrupted.length - 4), crc32(corrupted.subarray(0, -4)), 'A changed payload fails the independent checksum');
+  }
+});
+
+test('exact capacity succeeds and a short output buffer fails without touching surrounding memory', () => {
+  const exact = scenario('encoder-exact-capacity');
+  assert.ok(exact.observed.encoderResult > 0);
+  assert.equal(exact.observed.encoderResult, exact.observed.encodedBytes);
+  assert.equal(exact.observed.capacity, exact.observed.encodedBytes);
+  assert.equal(exact.observed.redZonesIntact, true);
+  assert.equal(exact.observed.inputUnchanged, true);
+  assert.equal(exact.captures.filter(capture => capture.stage === 'encoded').length, 1);
+  assert.equal(exact.captures[0].hex, scenario('encoder-race').captures[0].hex, 'Capacity does not change a valid frame');
+
+  const short = scenario('encoder-short-buffer');
+  assert.equal(short.observed.encoderResult, -1);
+  assert.equal(short.observed.encodedBytes, 0);
+  assert.equal(short.observed.redZonesIntact, true);
+  assert.equal(short.observed.inputUnchanged, true);
+  assert.equal(short.captures.filter(capture => capture.stage === 'encoded').length, 0);
+  // The native writer can leave a partial prefix inside the supplied capacity.
+  // The contract is failure plus intact red zones, not an unchanged whole buffer.
+  assert.equal(short.observed.wireSent, false);
+  const zero = scenario('encoder-zero-capacity');
+  assert.equal(zero.observed.encoderResult, -1);
+  assert.equal(zero.observed.encodedBytes, 0);
+  assert.equal(zero.observed.redZonesIntact, true);
+  assert.equal(zero.observed.inputUnchanged, true);
+  assert.equal(zero.captures.length, 0);
+});
+
+test('corrupted encoder binary and changed provenance are rejected', async () => {
+  const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'report-lab-encoder-'));
+  try {
+    await fs.cp(path.resolve(__dirname, '../fixtures/encoder'), temp, { recursive: true });
+    const file = path.join(temp, 'f22860.wasm');
+    const original = await fs.readFile(file);
+    const changed = Buffer.from(original);
+    changed[changed.length - 1] ^= 1;
+    await fs.writeFile(file, changed);
+    await assert.rejects(runEncoderScenarios({ sourceCases: source.cases, fixtureDir: temp }), /hash|integrity|pin/i);
+    await fs.writeFile(file, original);
+    await fs.appendFile(path.join(temp, 'manifest.json'), '\n');
+    await assert.rejects(runEncoderScenarios({ sourceCases: source.cases, fixtureDir: temp }), /hash|integrity|pin/i);
+  } finally {
+    await fs.rm(temp, { recursive: true, force: true });
+  }
+});
+
+test('encoder fixtures receive no network capability and every scenario remains offline', () => {
+  assert.deepEqual(isolation.attempts, []);
+  for (const item of result.cases) {
+    assert.equal(item.observed.wireSent, false);
+    assert.equal(item.observed.transportImports, 0);
+    assert.ok(item.limitations.some(text => /synthetic|controlled/i.test(text)));
+    assert.ok(item.limitations.some(text => /server|receipt|ban|sanction/i.test(text)));
+  }
+});
+
+
+===== offline-report-lab/fixtures/encoder/manifest.json =====
+{
+  "schema": 1,
+  "revision": "60946132",
+  "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+  "method": "Eight exact selected original native WAT bodies in separately compiled isolated contexts. Seven real leaf exports satisfy the original encoder direct calls. Memory is the only external capability. No game instance, data segment, socket or transport implementation is included.",
+  "functions": [
+    {
+      "id": 22860,
+      "files": {
+        "f22860.wasm": {
+          "sha256": "5867b53703e6d5e6c2847c47da5447e22eed15b606d75110fd9f3e9dc343f78d",
+          "bytes": 13601
+        },
+        "f22860.context.wat": {
+          "sha256": "0bee76759583d675dfd9d11aa0ea1ad5c771a9013159bfbb6b1e4fd71ad2f296",
+          "bytes": 406297
+        },
+        "f22860.body.wat": {
+          "sha256": "1c8ea112912b86dca97d048c4aad02dee5282773c009e8a62714a28d52fed098",
+          "bytes": 397833
+        }
+      },
+      "originalBodySha256": "1ca449e3823a0c93d6f3fc95191b025691a01dccc4f51b214ba469663b42bb01",
+      "originalBodyBytes": 12305,
+      "originalWatFirstLine": 14987223,
+      "originalWatLastLine": 14993411
+    },
+    {
+      "id": 22832,
+      "files": {
+        "f22832.wasm": {
+          "sha256": "dd49be9bcc4755ea7df5e3dd1ec0671249bbc66363f8e22a958ebece902611d5",
+          "bytes": 1335
+        },
+        "f22832.context.wat": {
+          "sha256": "d9ddabcd2f3240270f441679bd831aa586974ac4d9a501645db5f6865e792d76",
+          "bytes": 9205
+        },
+        "f22832.body.wat": {
+          "sha256": "2c41a7b851094f67358f1350a672a9de6795429c632accda97179c3373362c3e",
+          "bytes": 1188
+        }
+      },
+      "originalBodySha256": "e862790d6cea3929282b1a09a0e0ba62f46ce376753eaf40eee5bdc501a539c3",
+      "originalBodyBytes": 135,
+      "originalWatFirstLine": 14975981,
+      "originalWatLastLine": 14976047
+    },
+    {
+      "id": 22854,
+      "files": {
+        "f22854.wasm": {
+          "sha256": "019d0a0c93f5df43dff982a9de29d6b4384e9bdaccc8360458d4956c806f4c66",
+          "bytes": 4925
+        },
+        "f22854.context.wat": {
+          "sha256": "d0195ff6cda24be0e93b77b9854b33d21386552265e0bc7b5cd2b5cab3ae5e39",
+          "bytes": 44188
+        },
+        "f22854.body.wat": {
+          "sha256": "c327e23591357bd5ded81cfb5cbdae383ef465e004a92725183a42feb59c3a2d",
+          "bytes": 36171
+        }
+      },
+      "originalBodySha256": "5ece2b036e7b3c1147bfa38c5b383f0a492fd8e3e3b304ab94e76a3e5ba36a16",
+      "originalBodyBytes": 3725,
+      "originalWatFirstLine": 14982159,
+      "originalWatLastLine": 14983891
+    },
+    {
+      "id": 22855,
+      "files": {
+        "f22855.wasm": {
+          "sha256": "aaacc9ed99affd915b26f1c9ade455733f5a055493b8a40ca43517fb84867250",
+          "bytes": 4296
+        },
+        "f22855.context.wat": {
+          "sha256": "d6772e07869b3bb124f47f430b8067f00fa05b92c07ba9b7c9a8b315aeb279ad",
+          "bytes": 38458
+        },
+        "f22855.body.wat": {
+          "sha256": "5742fcf30a9a1b3d056b2c95e6e36c322c439ea31bbfe3f37dff1a35ca3a16be",
+          "bytes": 30441
+        }
+      },
+      "originalBodySha256": "8f118040db85f2acfc5fcab2da78b54f4d3d2353f8c1a0634a98e54dd246be5d",
+      "originalBodyBytes": 3096,
+      "originalWatFirstLine": 14983892,
+      "originalWatLastLine": 14985319
+    },
+    {
+      "id": 22861,
+      "files": {
+        "f22861.wasm": {
+          "sha256": "d55e27671587de3d2ab16b26451521a43c354dea67808c018b1fba94b08ed4de",
+          "bytes": 2093
+        },
+        "f22861.context.wat": {
+          "sha256": "f47693538370fea93a070e1ac1276baaf1229b961fb611682bae19e579e0b92a",
+          "bytes": 17406
+        },
+        "f22861.body.wat": {
+          "sha256": "8736fdaf1ef8ae7c4de976695933e54daee0c8714156647d6e8beb9ddffee130",
+          "bytes": 9389
+        }
+      },
+      "originalBodySha256": "29d58ce982a834fc53cc52ed63104346b4b376daf6b6a1d6a9931d2bbc4851ae",
+      "originalBodyBytes": 893,
+      "originalWatFirstLine": 14993412,
+      "originalWatLastLine": 14993846
+    },
+    {
+      "id": 22862,
+      "files": {
+        "f22862.wasm": {
+          "sha256": "16559398dcb31ecdb3a2d72d721a07287263430199855f2be068ca7a0f0d58b4",
+          "bytes": 1288
+        },
+        "f22862.context.wat": {
+          "sha256": "00f26bbd70595447989ba11b2f372634917ad87b4c0635a4dcf4c6719f3d540c",
+          "bytes": 8847
+        },
+        "f22862.body.wat": {
+          "sha256": "70af9cd2a839297eacc4667d0b5e361590e353ada873ffa5fdc736e4a2bad884",
+          "bytes": 830
+        }
+      },
+      "originalBodySha256": "0a8727a7480fd540f030a4aa084cd793ab32c80b83a2eb11a80ead81fb4ea8fe",
+      "originalBodyBytes": 90,
+      "originalWatFirstLine": 14993847,
+      "originalWatLastLine": 14993894
+    },
+    {
+      "id": 22863,
+      "files": {
+        "f22863.wasm": {
+          "sha256": "b82c0141f9da6508fb3445467ffbb8d9e99d9844f15e6c9aa0a3d1d318b07825",
+          "bytes": 1314
+        },
+        "f22863.context.wat": {
+          "sha256": "bc262f843694fbf8b4cae9804ede2ae6f6cfc189e1fa95e614cab3c855fcf237",
+          "bytes": 9079
+        },
+        "f22863.body.wat": {
+          "sha256": "6f529d386b1b50637ce47cf2358e4a4459b94689ae68e7c33c7f1674c8b552a7",
+          "bytes": 1062
+        }
+      },
+      "originalBodySha256": "d4963ae47a49e17d30997f44790e9095a8377b92e69b244882e622cfb018eefb",
+      "originalBodyBytes": 116,
+      "originalWatFirstLine": 14993895,
+      "originalWatLastLine": 14993956
+    },
+    {
+      "id": 24560,
+      "files": {
+        "f24560.wasm": {
+          "sha256": "821ad8ecf3190dc0435440a958f341f8c7395c49bfbae1c0b2428a20291c41d6",
+          "bytes": 1407
+        },
+        "f24560.context.wat": {
+          "sha256": "7da9a98fd861d19131b68aa052d3f38e920d73ef6392a9d8b76d0a8f8367ab52",
+          "bytes": 10189
+        },
+        "f24560.body.wat": {
+          "sha256": "9ab5cec6a0ff47edb67f8bd3c5511544439f18a6bf1259c3790661d8188eb327",
+          "bytes": 2172
+        }
+      },
+      "originalBodySha256": "4f63b82a4393813d7ea5fc5892a767864cde887745f40e84e4dc9a29ecde0889",
+      "originalBodyBytes": 207,
+      "originalWatFirstLine": 15597400,
+      "originalWatLastLine": 15597511
+    }
+  ],
+  "limitations": [
+    "Only the two known synthetic pre-encoding report structures are supported.",
+    "Encoded output remains local and is not a claim about server receipt or acceptance."
+  ]
+}
+
+
+===== offline-report-lab/fixtures/native/manifest.json =====
+{
+  "schema": 1,
+  "revision": "60946132",
+  "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+  "method": "Exact selected native function WAT bodies copied from pinned current build. Existing isolated WABT contexts replace direct dependencies with typed imports, retain original globals/types and shared-memory declaration, and contain no game data or live transport implementation.",
+  "limitations": [
+    "Synthetic context and descriptor fixtures, not real game state.",
+    "Only tiny isolated native helpers may be instantiated.",
+    "Envelope capture stops before encoding or transport; captured bytes are not wire reports."
+  ],
+  "functions": [
+    {
+      "id": 21267,
+      "files": {
+        "f21267.wasm": {
+          "sha256": "260998fe8b9a387fc5f4bad06cca2245491534c75350ad8a0911c02662f8ae58",
+          "bytes": 1228
+        },
+        "f21267.context.wat": {
+          "sha256": "2fd97459e1ec819821a504739a396bc2ca75235971f3e6f1bd94555798a6229d",
+          "bytes": 8166
+        },
+        "f21267.body.wat": {
+          "sha256": "1073270812bf7b9c7af07327038bbde657976480822ec864c4ad90acb722ca75",
+          "bytes": 149
+        }
+      },
+      "originalBodySha256": "343aa521713a377d695dc8745205fd065aa9f00767392951aa483a2fec367d1a",
+      "originalBodyBytes": 30,
+      "originalWatFirstLine": 14398976,
+      "originalWatLastLine": 14398979
+    },
+    {
+      "id": 21268,
+      "files": {
+        "f21268.wasm": {
+          "sha256": "0062f9172d09a7bfd81cad09075e64a2259eaa1430314935695b4775cf05a25e",
+          "bytes": 1211
+        },
+        "f21268.context.wat": {
+          "sha256": "5a83b0ab9efcd8a3352f801c839679f2aa56b4831a059e053e1e7bbecaeca112",
+          "bytes": 8109
+        },
+        "f21268.body.wat": {
+          "sha256": "12a25cc9e8a00432b477edbb9566ecbf52610af292b07517f4a9482965afef9c",
+          "bytes": 92
+        }
+      },
+      "originalBodySha256": "f6237bdf1ee78ded15124d5a053fcc7311a8520f0d504b26923ec3a42a39a1ef",
+      "originalBodyBytes": 13,
+      "originalWatFirstLine": 14398980,
+      "originalWatLastLine": 14398983
+    },
+    {
+      "id": 21269,
+      "files": {
+        "f21269.wasm": {
+          "sha256": "747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f",
+          "bytes": 1893
+        },
+        "f21269.context.wat": {
+          "sha256": "1c86f45644cbebdecfc34e8690059237ea1ff0c1bce8c16a912b369e69430c3a",
+          "bytes": 14123
+        },
+        "f21269.body.wat": {
+          "sha256": "ca812db725f80548b314a8bef14ccb45106a4715ebe184171a6372949fe0454a",
+          "bytes": 5722
+        }
+      },
+      "originalBodySha256": "8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8",
+      "originalBodyBytes": 586,
+      "originalWatFirstLine": 14398984,
+      "originalWatLastLine": 14399229
+    },
+    {
+      "id": 21270,
+      "files": {
+        "f21270.wasm": {
+          "sha256": "40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1",
+          "bytes": 2029
+        },
+        "f21270.context.wat": {
+          "sha256": "fdd051ee62f2b6c00073cea26e1087361c8023e07ba3c211039e12545cbf7784",
+          "bytes": 14729
+        },
+        "f21270.body.wat": {
+          "sha256": "5aa68b296cf18296b78506dd83b96c58f689fabbd0410d3836a05521756a4b34",
+          "bytes": 6585
+        }
+      },
+      "originalBodySha256": "995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b",
+      "originalBodyBytes": 823,
+      "originalWatFirstLine": 14399230,
+      "originalWatLastLine": 14399536
+    },
+    {
+      "id": 21271,
+      "files": {
+        "f21271.wasm": {
+          "sha256": "e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e",
+          "bytes": 1216
+        },
+        "f21271.context.wat": {
+          "sha256": "e864815b2dfc824a2292f2e6c72b2e7b620801a3ad589b172d051673b8a3f194",
+          "bytes": 8157
+        },
+        "f21271.body.wat": {
+          "sha256": "483174a5ebcb6f2354aee0d4fd619597164f3858b34aac943e85f028aa5ed116",
+          "bytes": 140
+        }
+      },
+      "originalBodySha256": "b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1",
+      "originalBodyBytes": 18,
+      "originalWatFirstLine": 14399537,
+      "originalWatLastLine": 14399541
+    },
+    {
+      "id": 21272,
+      "files": {
+        "f21272.wasm": {
+          "sha256": "4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8",
+          "bytes": 1216
+        },
+        "f21272.context.wat": {
+          "sha256": "14cc565a77308e444e33cfb8be9362e1216b8f18ed16be450b0ace02fb8dd6e5",
+          "bytes": 8157
+        },
+        "f21272.body.wat": {
+          "sha256": "7091c431e625ff34747aa0b5c4b22b177749104a8ea1d047f901c3c760753ebe",
+          "bytes": 140
+        }
+      },
+      "originalBodySha256": "1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50",
+      "originalBodyBytes": 18,
+      "originalWatFirstLine": 14399542,
+      "originalWatLastLine": 14399546
+    },
+    {
+      "id": 22882,
+      "files": {
+        "f22882.wasm": {
+          "sha256": "cf293903a085ac22f219ad1ebf996512f1d25175eaa37a908149c7c490800acf",
+          "bytes": 1485
+        },
+        "f22882.context.wat": {
+          "sha256": "2ea55770a1f6aaab684e42a55340771eaac6809e139030f33f06507ba03506fb",
+          "bytes": 10525
+        },
+        "f22882.body.wat": {
+          "sha256": "f431778547081a50282262e7163c88a9a85fbf82b6cc0592345cc968eb96812a",
+          "bytes": 2445
+        }
+      },
+      "originalBodySha256": "83754053553cd5b23f1a3b16ade2afd06ab1462316351d68872db77a56883f1d",
+      "originalBodyBytes": 284,
+      "originalWatFirstLine": 15008267,
+      "originalWatLastLine": 15008376
+    },
+    {
+      "id": 22883,
+      "files": {
+        "f22883.wasm": {
+          "sha256": "9448928e1e13d8688c81561eeeb1443feac020fd0b4cca96e73fc9e4cb9678b0",
+          "bytes": 1475
+        },
+        "f22883.context.wat": {
+          "sha256": "04fdd408cb150e45bad748159893cdf6a63076223fcf220c8e5043b1d3a169bb",
+          "bytes": 10419
+        },
+        "f22883.body.wat": {
+          "sha256": "0038c8b4182476c6b6656e38eed6410383a99349e8a57e4c0279007871a0850f",
+          "bytes": 2339
+        }
+      },
+      "originalBodySha256": "211ee8e34b921dd4d2397f3cff9ca2d8c90703d33496aee4813c45211e730c31",
+      "originalBodyBytes": 274,
+      "originalWatFirstLine": 15008377,
+      "originalWatLastLine": 15008482
+    }
+  ]
+}
+
+
+===== offline-report-lab/fixtures/host/provenance.json =====
+{
+  "schema": 1,
+  "fixtureId": "nfsu2-60946132-host-guard-extension-0.42.5",
+  "syntheticHarness": true,
+  "sourceGameRevision": "60946132",
+  "extensionVersion": "0.42.5",
+  "scope": "Exact host-guard and extension-startup sources plus a synthetic empty standalone WASM module. Offline architecture demonstration only; no game bytes, account/session records, or live data.",
+  "hostSource": {
+    "url": "https://nfsu2.xyz/main.js",
+    "savedSourcePath": "work-functions-20261112/host-review/main.js",
+    "sha256": "64700139309ee9d4f46a3f93d5b47c8f5d1b25434726d07e2f47923fdeef3510",
+    "excerptStartUTF16": 711354,
+    "excerptEndUTF16": 712252,
+    "guardName": "wO",
+    "predicateName": "yO",
+    "sourceLine": 679
+  },
+  "files": [
+    {
+      "file": "host-guard-source.js",
+      "bytes": 898,
+      "sha256": "be7b473848fa48ec7ca8c20dc3ad7e35906e2226e538f251a04ef70462ec399a",
+      "sourcePath": "work-functions-20261112/host-review/main.js"
+    },
+    {
+      "file": "extension-ai.js",
+      "bytes": 96640,
+      "sha256": "f407444e5e723ca9c0235cf981630354554e10aff01faa05fa19042f2f0122e6",
+      "sourcePath": "nfsu2-extension/extension/ai.js"
+    },
+    {
+      "file": "extension-current-profile.js",
+      "bytes": 32268,
+      "sha256": "4249fc980c6281cd790121aef68dc25d6ff50b901a1eaeff8c77a4b1c05b836f",
+      "sourcePath": "nfsu2-extension/extension/current-profile.js"
+    },
+    {
+      "file": "empty-standalone.wasm",
+      "bytes": 8,
+      "sha256": "93a44bbb96c751218e4c00d479e4c14358122a389acca16205b1e4d0dc5f9476",
+      "sourcePath": "synthetic:empty-wasm-v1-module",
+      "purpose": "Benign standalone empty module for direct native loader architecture demonstration; no game code, imports, exports, memory, or start function."
+    }
+  ],
+  "limitations": [
+    "Synthetic Node VM comparison, not browser-session or account evidence.",
+    "No native game module is included or executed.",
+    "No inference about an account ban, enforcement decision, or multiplayer safety.",
+    "Unrelated settings/module predicates stay false. Startup compiler positions use harmless native callable stand-ins; the direct-loader case exposes actual native compiler references but invokes them only outside the VM for the pinned empty module."
+  ]
+}
+
+
+===== offline-report-lab/README.txt =====
+OFFLINE REPORT LAB
+
+Run from this folder with Node.js (verified with v26.13.0):
+
+  node lab.cjs
+
+To also execute the original isolated encoder on the captured synthetic reports:
+
+  node lab.cjs --encode
+
+No package installation is needed. Open the index.html path printed by the command.
+Each run creates a new directory under runs, with report.json and captures/*.bin.
+The HTML and JSON label pre-encoding inputs and encoded outputs separately.
+To choose a new or empty output directory:
+
+  node lab.cjs --out runs/my-inspection --json
+
+Run verification:
+
+  node --test --test-concurrency=1 test/*.test.cjs
+
+WHAT EXECUTES
+
+The native cases instantiate eight small isolated helper bodies copied from the
+reviewed 60946132 module. Frame observations, the selected record descriptor,
+context pointers and session data are controlled fixtures. The complete game
+does not load or run. Original native envelope builders call a local recorder
+at their encoder-input boundary. This boundary returns zero, so the downstream
+sender never runs. Those captures are native input structures before encoding.
+
+With --encode, two captured synthetic inputs are separately replayed through
+the original isolated f22860 encoder, with its seven actual leaf helpers linked. The
+encoder has no transport implementation. Its returned bytes are saved locally;
+an independent checksum check and short-buffer cases inspect the result and
+capacity handling. This executes selected serialization paths, not every
+message schema, the full client or an actual online report exchange.
+
+The page-check cases use pinned source in an isolated VM. They compare clean
+APIs with the actual extension startup wrapper. A separate minimal-module case
+demonstrates explicit local loading without replacing browser APIs. That case
+does not establish compatibility of a full patched game.
+
+NETWORK BOUNDARY
+
+The CLI blocks common networking, subprocess and worker APIs in its own Node
+process. Native fixtures have exact import allowlists; the page-check VM has
+no network or process capability. The local HTML viewer has no scripts and a
+Content Security Policy that blocks connections and external assets. No HTTP
+server is needed. This is not an OS firewall or a general untrusted-code sandbox.
+
+Fixtures and provenance are bundled and hash-pinned. No official-site requests,
+accounts, browser sessions, external services or installed-extension changes
+are part of a run. Historical reports and private server decisions are absent.
+A clean controlled case does not prove multiplayer safety.
+
+CONTINUING THE OFFLINE WORK
+
+lib/local-loader.cjs is the shared entry point. It accepts local bytes and a
+complete expected SHA-256, checks the source, applies explicitly supplied patch
+steps, checks every step's expected input/output hash, then compiles directly.
+It does not fetch files, intercept browser APIs, supply imports, instantiate a
+game or start an entry point. Each caller must provide its own bounded imports
+and decide whether to instantiate its verified isolated module.
+
+To adapt an existing pure patcher, provide a transform record:
+
+  {
+    name: 'Reviewed offline patch',
+    inputSha256: VERIFIED_INPUT_HASH,
+    outputSha256: VERIFIED_OUTPUT_HASH,
+    apply: bytes => existingPatcher(bytes)
+  }
+
+The current native fixtures already use the shared loader. Future work can add
+one reviewed patch/controller integration at a time and compare its observations
+with the clean baseline, while retaining the reporting checks and local capture.
+This does not implement a complete playable offline client. Matching assets,
+host/worker ABIs, rendering, audio, input and saves still require integration.
+
+
+===== offline-report-lab/package.json =====
+{
+  "name": "offline-report-lab",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local inspection of isolated client reporting helpers with controlled fixtures and no network transport.",
+  "scripts": {
+    "start": "node lab.cjs",
+    "test": "node --test --test-concurrency=1 test/*.test.cjs"
+  }
+}
+
+
+===== offline-report-lab/lab.cjs =====
+#!/usr/bin/env node
+'use strict';
+
+const fs = require('node:fs');
+const path = require('node:path');
+const crypto = require('node:crypto');
+const { installNetworkIsolation } = require('./lib/network-isolation.cjs');
+const { renderReport } = require('./lib/render-report.cjs');
+
+function parseArgs(argv) {
+  const options = { json: false, help: false, encode: false, out: null };
+  for (let i = 0; i < argv.length; i++) {
+    if (argv[i] === '--json') options.json = true;
+    else if (argv[i] === '--encode') options.encode = true;
+    else if (argv[i] === '--help' || argv[i] === '-h') options.help = true;
+    else if (argv[i] === '--out') {
+      if (!argv[i + 1] || argv[i + 1].startsWith('--')) throw new Error('--out requires a directory.');
+      options.out = path.resolve(argv[++i]);
+    } else throw new Error(`Unknown argument: ${argv[i]}`);
+  }
+  return options;
+}
+
+function checkProviderOutput(result, provider) {
+  if (!result || !Array.isArray(result.cases) || result.cases.length === 0) {
+    throw new Error(`${provider} returned no cases.`);
+  }
+  for (const item of result.cases) {
+    if (!/^[a-z0-9][a-z0-9-]*$/.test(item.id || '')) throw new Error(`${provider} returned an invalid case ID.`);
+    if (!['native-fixture', 'host-guard'].includes(item.kind)) throw new Error(`Invalid case kind for ${item.id}.`);
+    if (!item.label || !item.input || !item.observed) throw new Error(`Incomplete case ${item.id}.`);
+    for (const capture of item.captures || []) {
+      if (!Number.isSafeInteger(capture.bytes) || capture.bytes < 0 || capture.bytes > 1024 * 1024) {
+        throw new Error(`Invalid capture size for ${item.id}.`);
+      }
+      if (typeof capture.hex !== 'string' || !/^(?:[0-9a-fA-F]{2})*$/.test(capture.hex) || capture.hex.length !== capture.bytes * 2) {
+        throw new Error(`Invalid capture bytes for ${item.id}.`);
+      }
+    }
+  }
+}
+
+async function run(options) {
+  const generatedAt = new Date().toISOString();
+  const id = generatedAt.replace(/[:.]/g, '-') + '-' + crypto.randomBytes(3).toString('hex');
+  const outputDir = options.out || path.join(__dirname, 'runs', id);
+  if (fs.existsSync(outputDir) && (!fs.statSync(outputDir).isDirectory() || fs.readdirSync(outputDir).length)) {
+    throw new Error(`Output directory must be new or empty: ${outputDir}`);
+  }
+
+  const isolation = installNetworkIsolation();
+  try {
+    // Loading providers after installing the guard also covers their startup.
+    const { runNativeScenarios } = require('./lib/native-fixtures.cjs');
+    const { runHostGuardScenarios } = require('./lib/host-guard.cjs');
+    const workspaceRoot = path.dirname(__dirname);
+    const native = await runNativeScenarios({ workspaceRoot });
+    const encoder = options.encode
+      ? await require('./lib/encoder-fixtures.cjs').runEncoderScenarios({ sourceCases: native.cases })
+      : { cases: [], evidence: [], limitations: [] };
+    const host = await runHostGuardScenarios({ workspaceRoot });
+    checkProviderOutput(native, 'Native fixtures');
+    if (options.encode) checkProviderOutput(encoder, 'Encoder fixtures');
+    checkProviderOutput(host, 'Host guard');
+    const cases = [...native.cases, ...encoder.cases, ...host.cases];
+    if (new Set(cases.map(item => item.id)).size !== cases.length) throw new Error('Duplicate case IDs.');
+    if (isolation.attempts.length) throw new Error('A provider attempted a network or process operation; run rejected.');
+
+    const report = {
+      schemaVersion: 1,
+      name: 'Offline Report Lab',
+      generatedAt,
+      sourceBuild: '60946132',
+      run: {
+        id,
+        node: process.version,
+        kind: 'controlled-offline-fixtures',
+        fullGameStarted: false,
+        accountQueried: false,
+        installedExtensionModified: false,
+        encoderExecuted: Boolean(options.encode),
+        inputs: 'Locally constructed scenarios, pinned isolated native helpers and pinned page/extension source.'
+      },
+      networkIsolation: {
+        activeDuringRun: true,
+        attemptCount: isolation.attempts.length,
+        attempts: isolation.attempts,
+        transport: options.encode
+          ? 'Envelope builders stop at the encoder boundary. Captured inputs are replayed through the isolated encoder with no sender present.'
+          : 'Native encoder boundary records locally and returns without sending.',
+        scope: 'Process-local API guard, deny-by-default fixture imports, and restricted VM contexts; no OS firewall changes.'
+      },
+      cases,
+      evidence: [...(native.evidence || []), ...(encoder.evidence || []), ...(host.evidence || [])],
+      limitations: [...new Set([
+        'Controlled fixture inputs are not observations of your gameplay or account.',
+        'Only selected helpers execute. This is not the complete client or all reporting paths.',
+        'Native envelope captures are before encoding. Optional encoded captures are separately labeled; no server-response equivalence is claimed.',
+        'A clean fixture result does not establish multiplayer safety or absence of enforcement.',
+        'Historical server reports and private ban rules are unavailable here.',
+        ...(native.limitations || []), ...(encoder.limitations || []), ...(host.limitations || [])
+      ])]
+    };
+
+    fs.mkdirSync(outputDir, { recursive: true });
+    for (const item of cases) {
+      for (const [index, capture] of (item.captures || []).entries()) {
+        const relative = `captures/${item.id}-${index + 1}.bin`;
+        fs.mkdirSync(path.join(outputDir, 'captures'), { recursive: true });
+        fs.writeFileSync(path.join(outputDir, relative), Buffer.from(capture.hex, 'hex'), { flag: 'wx' });
+        capture.file = relative;
+      }
+    }
+    const reportPath = path.join(outputDir, 'report.json');
+    const htmlPath = path.join(outputDir, 'index.html');
+    fs.writeFileSync(reportPath, JSON.stringify(report, null, 2) + '\n', { flag: 'wx' });
+    fs.writeFileSync(htmlPath, renderReport(report), { flag: 'wx' });
+    return {
+      status: 'complete', outputDir, reportPath, htmlPath,
+      caseCount: cases.length,
+      captureCount: cases.reduce((count, item) => count + (item.captures || []).length, 0),
+      encodedCaptureCount: cases.reduce((count, item) => count + (item.captures || []).filter(capture => capture.stage === 'encoded').length, 0),
+      networkAttempts: isolation.attempts.length,
+      simulatedInputs: true,
+      fullGameStarted: false
+    };
+  } finally {
+    isolation.restore();
+  }
+}
+
+async function main() {
+  const options = parseArgs(process.argv.slice(2));
+  if (options.help) {
+    process.stdout.write('Offline Report Lab\n\nUsage: node lab.cjs [--encode] [--out NEW_DIRECTORY] [--json]\n\nRuns pinned, isolated reporting helpers with controlled inputs.\nWrites report.json, a local HTML viewer, and pre-encoding binary captures.\n--encode also runs the isolated original encoder and saves its binary output.\nNo live game, account or network transport is started.\n');
+    return;
+  }
+  const summary = await run(options);
+  if (options.json) process.stdout.write(JSON.stringify(summary) + '\n');
+  else process.stdout.write(`Offline fixture run complete: ${summary.caseCount} cases, ${summary.captureCount} local captures (${summary.encodedCaptureCount} encoded).\nAttempted network/process calls: ${summary.networkAttempts}\nOpen: ${summary.htmlPath}\nJSON: ${summary.reportPath}\nThese are controlled inputs, not a gameplay or account recording.\n`);
+}
+
+if (require.main === module) main().catch(error => {
+  process.stderr.write(`Report Lab: ${error.message}\n`);
+  process.exitCode = 1;
+});
+
+module.exports = { parseArgs, checkProviderOutput, run };
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/run-bounded.cjs =====
+'use strict';
+// One root-reviewed invocation; no retry and no incoming/live network transport.
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict'),cp=require('node:child_process');
+const ROOT=path.resolve(__dirname,'../..'),read=p=>fs.readFileSync(path.resolve(ROOT,p)),sha=p=>crypto.createHash('sha256').update(read(p)).digest('hex');
+for(const n of['bounded-started.json','bounded-receipt.json','remote-condition-receipt.json','remote-admission-observations.jsonl','remote-admission-raw.bin'])assert(!fs.existsSync(path.join(__dirname,n)),n);
+const contract=JSON.parse(read(path.join(__dirname,'execution-source-contract.json')));assert.equal(contract.rootApprovedForOneBoundedRun,true);assert.equal(contract.unitOnly,true);assert.equal(contract.condition,'current-native-ordered-world-history-4c-v2');assert.equal(contract.boundedMilliseconds,8000);
+for(const[p,h]of Object.entries(contract.sourcePins))assert.equal(sha(p),h,p);const before=Object.fromEntries(Object.keys(contract.sourcePins).map(p=>[p,sha(p)])),started=Date.now();
+fs.writeFileSync(path.join(__dirname,'bounded-started.json'),JSON.stringify({executionContractSha256:sha(path.join(__dirname,'execution-source-contract.json')),boundedMilliseconds:8000,orderedWorldHistoryEnrollmentUnitOnly:true},null,2)+'\n',{flag:'wx'});
+const child=cp.spawnSync(process.execPath,[path.join(__dirname,'probe-current-native-ai.cjs')],{cwd:ROOT,encoding:'utf8',windowsHide:true,timeout:8000,maxBuffer:1024*1024}),elapsedMilliseconds=Date.now()-started;
+for(const[p,h]of Object.entries(before))assert.equal(sha(p),h,'Pinned input preserved '+p);const p=path.join(__dirname,'remote-condition-receipt.json'),actual=fs.existsSync(p)?JSON.parse(read(p)):null;
+const receipt={kind:'BOUNDED-NATIVE-ORDERED-WORLD-HISTORY-ENROLLMENT',exitCode:child.status,timedOut:child.error?.code==='ETIMEDOUT',elapsedMilliseconds,boundedMilliseconds:8000,stdout:child.stdout,stderr:child.stderr,error:child.error?.message||null,complete:child.status===0&&actual?.complete===true,pinnedInputsUnchanged:true,pinnedFiles:Object.keys(before).length};
+fs.writeFileSync(path.join(__dirname,'bounded-receipt.json'),JSON.stringify(receipt,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify(receipt));
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/probe-current-native-ai.cjs =====
+'use strict';
+// SOURCE ONLY: ordered network startup before World, then legacy history/enrollment only; zero movement frames and no typed maximum getters.
+// No invocation is authorized until root reviews and pins a concrete execution contract.
+// Source-modeled caller subset; no trajectory or detector clearance is inferred.
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const executionContractPath=path.join(__dirname,'execution-source-contract.json');assert(fs.existsSync(executionContractPath),'Root-reviewed concrete4c execution contract required before importing the harness');const executionContract=JSON.parse(fs.readFileSync(executionContractPath));assert.equal(executionContract.rootApprovedForOneBoundedRun,true);assert.equal(executionContract.sourceHash,'6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23');
+const H=require('./current-native-harness.cjs'),{ROOT,C,A,B}=H;
+const Retail=require(path.join(ROOT,'research/tuner-fixtures-93cf/retail-fixture.cjs'));
+
+const Profile=require(path.join(ROOT,'work-update-check-20261113/4c-private-composed-v2/extension/4c-profile.js'));
+const {installNetworkIsolation}=require(path.join(ROOT,'offline-report-lab/lib/network-isolation.cjs'));
+const Shared=require('./shared-heap-provider.cjs'),Platform=require('./platform-registry-provider.cjs'),Critical=require('./platform-critical-section-provider.cjs');
+const CrtModule=require('./platform-crt-module-provider.cjs');
+const RealAI=require('./real-ai-takeover-input.cjs');
+const DifficultyInput=require('./native-difficulty-input.cjs');
+const StartMarkerInput=require('./native-start-marker-input.cjs');
+const MemoryQuery=require('./platform-memory-query-provider.cjs');
+const World=require('./world-initializer-stages.cjs');
+const Enrollment=require('./two-car-enrollment.cjs'),Lifecycle=require('./native-pending-client-startup.cjs');
+const OfflinePlatform=require('./offline-vlan-platform.cjs'),SessionStart=require('./native-session-start-input.cjs'),RemoteApplication=require('./remote-application-observer.cjs'),NativeLegacy=require('./native-legacy-enrollment.cjs'),NativeSessionAllocator=require('./native-session-allocator-input.cjs'),NativeTiming=require('./native-realtime-timing-caller.cjs'),PerformanceFrequency=require('./platform-performance-frequency-provider.cjs'),TimingPoll=require('./platform-timing-poll-provider.cjs'),FrameRegistration=require('./platform-frame-registration-provider.cjs'),RemoteWorld=require('./remote-world-replay.cjs'),NamedObserver=require('./named-observer.cjs'),ReplayDiagnostics=require('./replay-context-diagnostics.cjs'),HistoryWitness=require('./history-pool-witness.cjs');
+
+const BranchWitness=require('./minimum-branch-witness.cjs');
+const ProducerWitness=require('./producer-input-witness.cjs');
+const ControlConsumerWitness=require('./control-consumer-witness.cjs');
+const {createObserverRecorder}=require('./compact-observer-recorder.cjs');
+
+const RaceContextInputReview=Object.freeze({"originalPath":"work-update-check-20261113/race-context-input-source-d396-v1/review.json","localFile":"race-context-input-source-review.json","sha256":"a0d702a9ccc059037ae1be2d77186d340ce3a8c268de35805f6ae98463333c23"});
+assert.equal(C.sha(fs.readFileSync(path.join(__dirname,RaceContextInputReview.localFile))),RaceContextInputReview.sha256,'Pinned public caller-input provenance');
+assert(!fs.existsSync(path.join(__dirname,'ai-setup-probe-receipt.json')),'Never rerun a completed native condition');
+const isolation=installNetworkIsolation(),trapped=[],clockCalls=[],stages=[],activationEvents=[],allocations=[],allocationStack=[];let fixedClockUs=10000000n;
+const observerRecorder=createObserverRecorder({directory:__dirname,fullThroughFrame:1});
+let q,f,activeStage='instantiate-current-native-fixture';const remoteApplicationObserver=RemoteApplication.create({directory:__dirname}),nativeLegacy=NativeLegacy.create({directory:__dirname}),nativeRealtimeTiming=NativeTiming.create({directory:__dirname,getClockMicroseconds:()=>fixedClockUs,setClockMicroseconds:value=>{assert.equal(typeof value,'bigint');assert(value>=fixedClockUs,'Monotonic disclosed platform clock only');fixedClockUs=value;}});
+const replayDiagnostics=ReplayDiagnostics.create({directory:__dirname}),historyWitness=HistoryWitness.create({directory:__dirname});let codecUnit=null;const namedObserver=NamedObserver.create({directory:__dirname,getClockMicroseconds:()=>fixedClockUs});
+const boundary={24635:()=>0,24789:()=>0,24792:()=>0,24800:()=>0,24557:(fixture,clock,out)=>{fixture.view.setBigInt64(out,fixedClockUs/1000000n,true);fixture.put(out+8,Number(fixedClockUs%1000000n)*1000);return 0;},21833:(fixture,cpu,target)=>{
+ const sp=fixture.get(cpu+16);
+ if(target===fixture.get(0x78311c)){assert.equal(target,0x7c80a417);const out=fixture.get(sp+4);fixture.view.setBigInt64(out,fixedClockUs,true);fixture.put(cpu,1);fixture.put(cpu+32,fixture.get(sp));fixture.put(cpu+16,sp+8);clockCalls.push({target,out,valueUs:String(fixedClockUs),returnAddress:fixture.get(sp)});return;}
+ assert(target>=0x401000&&target<=0x782af0,'Unhandled offline platform target 0x'+target.toString(16));
+ const nativeSlot=fixture.get(680545344+4*(target-0x401000));assert(nativeSlot>0,'Unavailable canonical native guest target 0x'+target.toString(16));
+ const alias=H.metadata.originalAliases.find(row=>row.name==='nativeOriginalDispatch');assert(alias);assert.equal(alias.sourceFunction,21833);assert.equal(alias.type,9);assert.equal(alias.sourceBodySha256,C.sha(H.sourceParsed.bodies.get(21833)));assert.equal(typeof fixture.exports.nativeOriginalDispatch,'function');assert.equal(cpu,A.cpu);
+ const row={eventFile:'native-gcall-events.jsonl',activeStage,target,targetHex:'0x'+target.toString(16),cpu,alias,invocation:'Whole original source dispatcher on the existing CPU/guest stack; no rawCall/reset or direct native target substitution',before:{ecx:fixture.get(cpu+4),esp:sp,returnAddress:fixture.get(sp),eax:fixture.get(cpu),cpuHex:fixture.bytes(cpu,344).toString('hex'),nativeGuestMapSlot:target>=0x401000&&target<=0x782af0?fixture.get(680545344+4*(target-0x401000)):null}};
+ try{fixture.exports.nativeOriginalDispatch(cpu,target);row.returned=true;row.after={ecx:fixture.get(cpu+4),esp:fixture.get(cpu+16),eip:fixture.get(cpu+32),eax:fixture.get(cpu),cpuHex:fixture.bytes(cpu,344).toString('hex')};}
+ catch(error){row.returned=false;row.error={message:String(error),stack:error.stack};trapped.push({...row.before,target,targetHex:row.targetHex,cpu,activeStage,error:row.error});throw error;}
+ finally{fs.appendFileSync(path.join(__dirname,'native-gcall-events.jsonl'),JSON.stringify(row)+'\n');}
+ return;
+}};
+const offlinePlatform=OfflinePlatform.create({directory:__dirname,getClockMicroseconds:()=>fixedClockUs,getContext:()=>({q,Lifecycle,activeStage})});
+const providerHost={A,boundary};Shared.install(providerHost);Platform.install(providerHost);CrtModule.install(providerHost);Critical.install(providerHost);MemoryQuery.install(providerHost);offlinePlatform.install(providerHost);PerformanceFrequency.install(providerHost,{directory:__dirname});FrameRegistration.install(providerHost,{directory:__dirname});TimingPoll.install(providerHost,{directory:__dirname,getClockMicroseconds:()=>fixedClockUs,setClockMicroseconds:value=>{assert.equal(typeof value,'bigint');assert(value>=fixedClockUs);fixedClockUs=value;}});
+const hooks=JSON.parse(fs.readFileSync(path.join(__dirname,'entry-hooks.json')));
+const hookMap=new Map(Object.entries(hooks.entryHooks).flatMap(([id,phases])=>Object.entries(phases).map(([phase,hook])=>[hook,{id:Number(id),phase}])));
+// These original typed helpers receive data arguments, not the translated CPU.
+// V5's observation injection forwards only native parameter0; its other three
+// recorder arguments are literal zeros and never expose later args or results.
+const directHelperAbis=new Map([
+ [22817,{signature:'(i32)->i32',entryFirstParameter:'native remote car pointer'}],
+ [22818,{signature:'(i32,i32,i32)->i32',entryFirstParameter:'native CPU pointer; later arguments not exposed'}],
+ [22822,{signature:'(i32,i32,i32,i32,i32,i32,i32)->void',entryFirstParameter:'native CPU pointer; later arguments not exposed'}],
+ [22828,{signature:'(i32)->void',entryFirstParameter:'native CPU pointer'}],
+ [23226,{signature:'(i32,i32)->i32',entryFirstParameter:'pool-name pointer'}],
+ [22266,{signature:'(i32,i32)->i32',entryFirstParameter:'pool-name pointer'}],
+ ...[1607,2229,7078,7547,13490,15992].map(id=>[id,{signature:'(i32,f64,f64,f64)->f64',entryFirstParameter:'FPU control word'}])
+]);
+for(const hook of hookMap.keys())boundary[hook]=(fixture,hookParameter0)=>{
+ const marker=hookMap.get(hook),directAbi=directHelperAbis.get(marker.id),cpu=A.cpu;
+ // Even a CPU-ABI parameter local can be reassigned inside its function:
+ // original23280 reuses local0 for logging after its whole constructor returns.
+ // All snapshots therefore use the known live outer CPU, never local0.
+ if(!directAbi&&marker.phase==='before')assert.equal(hookParameter0,cpu,'Expected native CPU parameter at entry; after/tail locals are only recorded');
+ const before=Buffer.from(fixture.bytes(cpu,344)),sp=fixture.get(cpu+16),stack=Buffer.from(fixture.bytes(sp,128)),shadow=fixture.exports.sp.value,shadowBytes=Buffer.from(fixture.bytes(shadow,128)),receiver=fixture.get(cpu+4),valid=receiver>=0x10000&&receiver+128<=0x28000000;
+ const frameMatch=/^genuine-whole-World22587-287-modeled-frame([1-9][0-9]*)$/.exec(activeStage),recording=observerRecorder.begin({marker,activeStage,frameId:frameMatch?Number(frameMatch[1]):null});
+ const row=recording.full?{event:recording.event,...marker,activeStage,cpu,cpuSnapshotSource:'Known live outer A.cpu for every marker; never dereference a forwarded mutable parameter local',observerAbi:directAbi?{kind:'typed-direct-helper',...directAbi,firstParameterLocalAtMarker:hookParameter0,markerExposesEntryParameter0:marker.phase==='before',otherParametersExposedByHook:false,helperReturnValueExposedByHook:false,guestEaxIsHelperReturnValue:false}:{kind:'translated-guest-CPU-at-entry',signature:'(i32)->void',nativeEntryParameter0IsCpu:true,firstParameterLocalAtMarker:hookParameter0,markerExposesEntryParameter0:marker.phase==='before',parameterLocal0MayBeReassigned:true},ecx:receiver,esp:sp,returnAddress:fixture.get(sp),eax:fixture.get(cpu),eip:fixture.get(cpu+32),stackWords:Array.from({length:12},(_,i)=>fixture.get(sp+4*i)),receiverHeaderHex:valid?fixture.bytes(receiver,128).toString('hex'):null,live:q?.liveReferences()||null}:{event:recording.event,...marker,activeStage,cpu};
+ if(recording.full&&[2397,13969,7636,17721,16781].includes(marker.id)){
+  row.formatDiagnostic={cpuHex:before.toString('hex'),guestStackHex:fixture.bytes(sp,256).toString('hex'),tls:A.tls,tlsHeaderHex:fixture.bytes(A.tls,64).toString('hex'),ringIndex8553748:fixture.get(8553748),stockPointer9051340:fixture.get(9051340)};
+  if(marker.id===2397&&marker.phase==='before'){
+   const descriptor=fixture.get(sp+4),source=fixture.get(sp+8),count=fixture.get(sp+12),counter=fixture.get(sp+16);
+   const readable=(p,n)=>Number.isInteger(p)&&p>=0&&p+n<=fixture.memory.buffer.byteLength;
+   row.formatDiagnostic.blockCopy={descriptor,source,count,counter,descriptorHex:readable(descriptor,32)?fixture.bytes(descriptor,32).toString('hex'):null,sourceHex:readable(source,128)?fixture.bytes(source,128).toString('hex'):null,destination:readable(descriptor,4)?fixture.get(descriptor):null};
+  }
+ }
+ if(marker.id===2243&&marker.phase==='before')allocationStack.push({event:row.event,activeStage,pool:fixture.get(sp+4),entryEsp:sp,returnAddress:fixture.get(sp),poolHeaderHex:fixture.bytes(fixture.get(sp+4),64).toString('hex')});
+ if(marker.id===2243&&marker.phase==='after'){const start=allocationStack.pop();assert(start,'Every observed allocator return must have an entry');assert.equal(fixture.get(cpu+32),start.returnAddress);assert.equal(sp,start.entryEsp+4);const allocation={...start,returnEvent:row.event,result:fixture.get(cpu),returnedEip:fixture.get(cpu+32),returnedEsp:sp,poolHeaderAfterHex:fixture.bytes(start.pool,64).toString('hex')};allocations.push(allocation);fs.appendFileSync(path.join(__dirname,'native-pool-allocations.jsonl'),JSON.stringify(allocation)+'\n');}
+ const remoteApplicationWitness=remoteApplicationObserver.observe({q,f:fixture,marker,hookParameter0,cpu,event:row.event,activeStage});if(remoteApplicationWitness)row.remoteApplicationWitness=remoteApplicationWitness;
+ const legacyWitness=nativeLegacy.observe({q,f:fixture,marker,hookParameter0,cpu,event:row.event,activeStage});if(legacyWitness)row.nativeLegacyWitness=legacyWitness;
+ const timingWitness=nativeRealtimeTiming.observe({f:fixture,marker,cpu,event:row.event,activeStage});if(timingWitness)row.nativeRealtimeTimingWitness=timingWitness;
+ const namedWitness=namedObserver.observe({q,f:fixture,marker,cpu,event:row.event,activeStage});if(namedWitness)row.namedObserverWitness=namedWitness;
+ const lifecycleWitness=Lifecycle.observe({q,f:fixture,marker,activeStage,event:row.event,cpu});if(lifecycleWitness)row.lifecycleWitness=lifecycleWitness;
+ const branchWitness=recording.full?BranchWitness.observe({q,f:fixture,marker,activeStage,event:row.event,cpu}):null;if(branchWitness)row.branchWitness=branchWitness;
+ const producerWitness=recording.full?ProducerWitness.observe({q,f:fixture,marker,activeStage,event:row.event,cpu}):null;if(producerWitness)row.producerWitness=producerWitness;
+ const controlConsumerWitness=recording.full?ControlConsumerWitness.observe({q,f:fixture,marker,activeStage,event:row.event,cpu}):null;if(controlConsumerWitness)row.controlConsumerWitness=controlConsumerWitness;
+ assert.deepEqual(fixture.bytes(cpu,344),before);assert.deepEqual(fixture.bytes(sp,128),stack);assert.equal(fixture.exports.sp.value,shadow);assert.deepEqual(fixture.bytes(shadow,128),shadowBytes);row.observerPreservedCpuAndStacks=true;
+ if(marker.id===4971)activationEvents.push({id:4971,event:recording.event,phase:marker.phase});observerRecorder.commitPreserved(recording,recording.full?row:null);return 0;
+};
+const writeJson=(name,value)=>fs.writeFileSync(path.join(__dirname,name),JSON.stringify(value,null,2)+'\n');
+function abi(bytes){assert.equal(f.get(A.cpu+16),A.stack+bytes);assert.equal(f.get(A.cpu+32),0x12345678);}
+function stage(name,fn){activeStage=name;Shared.phase(f.memory,name);const before=q.state();replayDiagnostics.snapshot({f,cpu:A.cpu,label:name+'-before',context:{stage:name,phase:'before'}});writeJson('constructor-progress-checkpoint.json',{activeStage:name,completedStages:stages.length,before,fixtureSha256:H.fixtureSha256,sourceHash:H.sourceHash});try{const result=fn();replayDiagnostics.snapshot({f,cpu:A.cpu,label:name+'-after',context:{stage:name,phase:'after'}});stages.push({name,completed:true,before,result,after:q.state()});return true;}catch(e){replayDiagnostics.snapshot({f,cpu:A.cpu,label:name+'-failed',context:{stage:name,phase:'failed'}});writeJson('native-failure-snapshot.json',{activeStage:name,error:{message:String(e),stack:e.stack},cpuHex:f.bytes(A.cpu,344).toString('hex'),cpuWords:Array.from({length:86},(_,i)=>f.get(A.cpu+4*i)),guestStackHex:f.bytes(f.get(A.cpu+16),512).toString('hex'),wasmShadowPointer:f.exports.sp.value,commitBitmapHex:f.bytes(697848352,5120).toString('hex'),heapExtentHeaders:Shared.bind(f,{cpu:A.cpu}).heap.calls.map(row=>({address:row.address,header:row.headerAddress,extentEnd:row.extentEnd,headerHex:f.bytes(row.headerAddress,16).toString('hex'),firstPageBit:f.view.getUint8(697848352+(row.headerAddress>>>17)),lastPageBit:f.view.getUint8(697848352+((row.extentEnd-1)>>>17))}))});stages.push({name,completed:false,before,after:q.state(),error:{message:String(e),stack:e.stack},latestGuestTrap:trapped.at(-1)||null});return false;}}
+function main(){
+ q=H.createHarness(boundary);f=q.f;replayDiagnostics.snapshot({f,cpu:A.cpu,label:'fresh-harness-before-inputs'});Shared.bind(f,{cpu:A.cpu});writeJson('passive-data-initialization-receipt.json',q.passiveDataInitialization);
+ const worldState={staticInitializers:[],world:null,requiredPool:null,render:null,allocation:null,dtCallerInput:null,queryManager:null},worldContext={q,stage,abi,writeJson,Shared,state:worldState,historyWitness};
+ const bytes=new Uint8Array(f.memory.buffer);
+ // Disclosed initial game/session fixture inputs. Driver, kind and every AI
+ // mailbox/ownership word stay zero until genuine native constructors write.
+ for(const[address,size]of[[A.race,0xc44],[A.record,2368*2],[B,0x300]]){q.commit(address,size);f.zero(address,size);}
+ for(const[address,size]of[[0xd00000,64],[0x850000,0x100],[0x865000,0x200],[0x890000,0x12000]])q.commit(address,size);
+ for(const[address,value]of[[0x8654a4,6],[0x890118,A.race],[A.record+4,1],[A.race,4],[A.race+20,1000],[0x7fc0a0,1],[0x890104,0],[0x890108,0],[0x89010c,0],[0x890114,0]])f.put(address,value);
+ for(const address of[0x89e7d8,0x89e7d9,0x89e7e3])f.u8(address,0);
+ // The whole constructor produces car slot, driver, behavior, physics and context.
+ // The record and pose are disclosed factory inputs, not user-car metadata.
+ f.u8(A.record+0x901,254); // Explicit dt caller input is deferred until after wholeWorld and scene/road setup.
+ for(const address of Profile.cars.onlineAddresses){assert(address>=0&&address+4<=bytes.length);assert.equal(f.get(address),0,'Fresh native online flag; no authoring');}
+ assert.equal(f.get(0x850078),0,'Fresh native GameMode before whole4454');
+ assert.equal(f.get(0xd00000),0);assert.equal(f.get(0xd00018),0);assert.equal(f.get(0xd00030),0);assert(f.bytes(B,0x300).every(v=>v===0));
+ const initialInputs={kind:'disclosed-fresh-current-4c-genuine-enrollment-and-Player-inputs',sourceHash:H.sourceHash,fixtureSha256:H.fixtureSha256,passiveDataInitialization:q.passiveDataInitialization,crtPlatformInput:CrtModule.inputScope,playerArraysOrCarLinksAuthored:false,callerOwnedCarOrPlayerObjectsConstructed:false,initialMailboxAllZero:true,gameTick:null,worldTickProducer:12930,worldExpectedTickAfterWholeReturn:4000,dtCallerInput:{address:8802644,value:1/60,afterWholeWorldOnly:true},worldInitialization:World.inputScope,stockFixture:{carType:0,authenticSavedSkyline:false,maxedHiddenParts:false,privateCurveBackingAddress:0x1600000,privateCurveBytes:64,curveBackingDisjointFromRideVisualInput:true},carRecord:{input:A.record,bytes:2368,kindAt4:1,nativeSkillAt901:254,remainingMetadata:'Same zero initialized disclosed metadata; complete initialized generic RideInfo copied at+16 before native roster copy. Grid selector is produced by whole23361.'},initialPose:{producer:9503,descriptorCount:6,descriptorBytes:32,explicitPoseOverride:false,source:'Entire native descriptors from genuine markers or original canonical-road fallback and native surface work; no authored XYZ, heading or Z.'},physicalScene:{authored:true,authenticStreetX:false,from:'trajectory-v29/flat-scene-input.cjs'},raceContext:{nativeRaceType:1,trackId:0,publicCallerInputOrder:'After whole507 returns, before5441 and World/track loading',publicCallerInputSourceReview:RaceContextInputReview,HUDModeInput:1,drag:false,drift:false,streetX:false,forcedSpecialModes:false,authenticStreetX4602:false,scope:'Same generic ordinary road-race fixture inputs; not full page/DOM/HUD status-buffer execution.'},roadAssets:{source:'generated-road-speed-input-4c-v1',canonicalInputOnly:true,authenticStreetX:false,diagnosticNativeSpeedValue:20,speedFieldOffsets:[45,50,51,52,53],physicalUnitsUnclaimed:true},difficultyAsset:DifficultyInput.inputScope,nativeFactories:{roster:[507,5441],physicsPools:3082,componentPools:18874,componentRegistry:4412,callbackPools:15445,callbackRegistry:16297,poseObjectRegistry:2380,crtStaticPrelocks:16584,crtOnexitTable:4385,staticQueryRegistry:4880,enrollment:16076,fullFactory:23278,wholeCar:23280,carConstructorCore:12949,playerSetup:23721,playerConstructor:17008,playerAttach:19662},startMarkers:StartMarkerInput.inputScope,enrollment:Enrollment.inputScope,scope:'Whole World/scene/roads followed by whole23361,16076 and23721 only. Native factories own actual car/Player allocations, list/slots/partitions, mode, driver, physics, activation and Player publication. No extra mode/activation/manualdriver/Controller calls or native movement frame.'};writeJson('disclosed-inputs.json',initialInputs);
+ const stock=Retail.seed(0,{curveCount:16}),range0=stock.ranges[0];
+ const curveInputBase=0x1600000,rideInput=stock.ranges[1],curveInput=stock.ranges[5],originalCurveInputBase=curveInput.address;
+ assert.equal(originalCurveInputBase,stock.ride+0x600);assert.equal(curveInput.data.length,64);assert(rideInput.data.subarray(1428,2104).every(value=>value===0),'Generic visual/customization input must start zero before any native producer');
+ const inputView=new DataView(rideInput.data.buffer,rideInput.data.byteOffset,rideInput.data.byteLength);assert.equal(inputView.getUint32(0x57c,true),originalCurveInputBase);inputView.setUint32(0x57c,curveInputBase,true);curveInput.address=curveInputBase;stock.fixtureScope.syntheticCurveAllocation=curveInputBase;
+ const inputRanges=stock.ranges.map(({address,data})=>({address,bytes:data.length,end:address+data.length}));for(const range of inputRanges.slice(0,-1))assert(curveInputBase+curveInput.data.length<=range.address||range.end<=curveInputBase);assert(curveInputBase+64<=A.tls||A.tls+0x4000<=curveInputBase);
+ writeJson('curve-input-allocation.json',{kind:'disclosed-private-curve-input-outside-full-RideInfo',beforeAnyNativeCall:true,oldAddress:originalCurveInputBase,address:curveInputBase,bytes:64,curveDescriptorPointerOffset:0x57c,curvePointCount:16,rideVisualRange:{start:1428,end:2104},inputRanges,tls:A.tls,postNativeOutputsEdited:false,nativeCodeOrInstructionsChanged:false});
+ for(const p of[0x8a1ccc,0x86b340,0x86b344,0x8383f8,0x8383fc,0x86b33c])bytes.set(range0.data.subarray(p-Retail.A.IMAGE,p-Retail.A.IMAGE+4),p);
+ bytes.set(range0.data.subarray(0x837b90-Retail.A.IMAGE,0x837b90-Retail.A.IMAGE+68*4),0x837b90);
+ for(const range of stock.ranges.slice(1)){q.commit(range.address,range.data.length);bytes.set(range.data,range.address);}
+ let initialized=DifficultyInput.loadDifficultyInput({q,stage,abi,writeJson});
+ if(initialized)initialized=stage('current-native-stock-physics-copy15439',()=>{const result=q.rawCall(15439,stock.tuned,[0,0]);abi(12);return{...result,tuned:stock.tuned};});
+ if(initialized)initialized=stage('current-native-stock-ride-rebuild10901',()=>{const result=q.rawCall(10901,stock.ride+16,[0,1,1]);abi(16);return{...result,ride:stock.ride,rawPhysics:stock.ride+0x40,mass:f.view.getFloat32(stock.ride+0x150,true)};});
+ const poolDefs=[[8827616,528,'RigidBody'],[8827620,160,'TwoWheelAckermanSteering'],[8827624,416,'Wheel'],[8827628,176,'Engine'],[8827632,244,'DriveTrain'],[8827636,64,'Aerodynamics'],[8827640,192,'Suspension'],[8827644,592,'Mellovator'],[8827648,96,'MellowMover'],[8827652,12,'NullMover']],pools=[];
+ let nativeRecord=0,crtPrelocks=null,crtOnexit=null,staticQueryRegistry=null;
+ if(initialized)initialized=stage('current-native-complete-CarRecord-input-and-roster507-5441',()=>{bytes.set(bytes.subarray(stock.ride,stock.ride+2284),A.record+16);bytes.set(bytes.subarray(A.record,A.record+2368),A.record+2368);f.u8(A.record+2368+1,1);f.u8(A.record+2368+2304,1);const input=Buffer.from(f.bytes(A.record,2368*2));fs.writeFileSync(path.join(__dirname,'authored-complete-CarRecord-input.bin'),input,{flag:'wx'});const beforeNative507={raceType:f.get(9037744),track:f.get(9037728)},rosterInitializer=q.rawCall(507,0);abi(4);const afterWholeNative507={raceType:f.get(9037744),track:f.get(9037728)};assert.equal(afterWholeNative507.raceType,0);assert.equal(afterWholeNative507.track,2000);f.put(9037744,1);f.put(9037728,0);const afterDeclaredCallerInputs={raceType:f.get(9037744),track:f.get(9037728)};assert.equal(afterDeclaredCallerInputs.raceType,1);assert.equal(afterDeclaredCallerInputs.track,0);writeJson('roster-race-context-caller-input-proof.json',{initializer:507,wholeNativeReturned:true,...rosterInitializer,beforeNative507,afterWholeNative507,declaredCallerInputs:[{address:9037744,field:'GRaceParameters.raceType',value:1},{address:9037728,field:'GRaceParameters.track',value:0}],afterDeclaredCallerInputs,sourceReview:RaceContextInputReview,placement:'After whole507 returns and before5441,World construction and track loading',existingDisclosedCallerInputValuesPreserved:true,nativeReadinessOwnershipModeActivationSelectorOrEligibilityOutputsAuthored:false});assert.equal(f.get(9037728+116),0);const buffer=f.get(9037728+112);assert.equal(buffer,8978784);const result=q.rawCall(5441,9037728,[A.record]);abi(8);q.rawCall(5441,9037728,[A.record+2368]);abi(8);assert.equal(f.get(9037728+116),2);nativeRecord=f.get(9037728+112);assert.equal(nativeRecord,buffer);assert.equal(f.get(nativeRecord+4),1);assert.equal(f.get(nativeRecord+16+16),0);return{...result,inputBytes:2368*2,inputRecordCount:2,inputSha256:C.sha(input),inputAddress:A.record,rosterConfig:9037728,nativeRecord,nativeRecordKind:f.get(nativeRecord+4),nativeCount:f.get(9037844),nativeRecordHex:f.bytes(nativeRecord,2368).toString('hex')};});
+ if(initialized)initialized=stage('current-native-owned-physics-pool-initializer3082',()=>{const countBefore=f.get(9037844),result=q.rawCall(3082,0);abi(4);for(const[global,size,name]of poolDefs){const pool=f.get(global);assert(pool>=0x10000&&pool+64<0x28000000);pools.push({global,size,name,pool,headerHex:f.bytes(pool,64).toString('hex')});}return{...result,nativeRosterCount:countBefore,pools,poolMetadataAuthored:false};});
+ if(initialized)initialized=stage('current-native-authentic-CRT-static-prelocks16584',()=>{
+  // Commit original resident PE storage/query inputs. Never seed lock pointers,
+  // section contents, native API caches or OS-detection outputs.
+  q.commit(8495936,36*8);q.commit(9143744,24*14);for(const query of CrtModule.QUERIES)q.commit(query.address,Buffer.byteLength(query.value)+1);
+  const descriptors=()=>Array.from({length:36},(_,index)=>({index,pointer:f.get(8495936+8*index),staticFlag:f.get(8495940+8*index)})),before={descriptors:descriptors(),nativeOptionalApiCache:f.get(9144464),nativeOsDetection:f.get(9143344)},result=q.rawCall(16584,0);abi(4);assert.equal(result.eax,1,'Whole original16584 must report its actual success');
+  const after=descriptors(),flagged=after.filter(row=>row.staticFlag===1),hostCritical=Critical.receipt(f),moduleLookups=CrtModule.receipt(f);assert.equal(flagged.length,14);for(const expected of Critical.PRELOCKS){assert.equal(after[expected.index].pointer,expected.key,'Native16584 must produce the original static lock pointer');assert.equal(after[expected.index].staticFlag,1);const lock=hostCritical?.locks.find(lock=>lock.key===expected.key);assert(lock,'Actual InitializeCriticalSection must initialize this native-produced key');assert.equal(lock.owner,0);assert.equal(lock.depth,0);}
+  assert.equal(moduleLookups.calls.length,2);assert.deepEqual(moduleLookups.calls.map(row=>row.name),['GetModuleHandleA','GetProcAddress']);assert.equal(moduleLookups.calls[0].result,0x400000);assert.equal(moduleLookups.calls[1].result,0);assert.equal(f.get(9144464),7783334,'Native18149 must select its original17993 fallback');assert.equal(hostCritical.calls.filter(row=>row.name==='InitializeCriticalSection'&&Critical.PRELOCKS.some(lock=>lock.key===row.key)).length,14);
+  crtPrelocks={initializer:16584,initializerReturned:true,...result,before,after,nativeLockOutputsAuthored:false,nativeOptionalApiCacheAfter:f.get(9144464),nativeOsDetectionAfter:f.get(9143344),expectedNativePrelocks:Critical.PRELOCKS,actualInitializedPrelocks:14,moduleLookups,hostCritical};writeJson('native-crt-prelock-proof.json',crtPrelocks);return crtPrelocks;
+ });
+ if(initialized)initialized=stage('current-native-authentic-CRT-onexit-table4385',()=>{
+  // Commit resident native globals without authoring their initial contents.
+  q.commit(9156072,8);const heap=Shared.bind(f,{cpu:A.cpu}).heap,before={end:f.get(9156072),base:f.get(9156076),crtHeapMode:f.get(9151656),crtHeapHandle:f.get(9151652)},firstAllocation=heap.calls.length;assert.equal(before.end,0);assert.equal(before.base,0);assert.notEqual(before.crtHeapMode,3,'Reviewed native non-small-block allocation path');
+  const result=q.rawCall(4385,0);abi(4);assert.equal(result.eax,0,'Whole original4385 must return its actual success');const base=f.get(9156076),end=f.get(9156072),newAllocations=heap.calls.slice(firstAllocation);assert.equal(newAllocations.length,1,'Original4385 must request one real allocation');const allocation=newAllocations[0];assert.equal(allocation.address,base);assert.equal(heap.owned.get(base),allocation);assert(allocation.live);assert.equal(allocation.bytes,128);assert.equal(end,base,'Original4385 must publish the native empty insertion pointer');assert.equal(f.get(base),0,'Original4385 must initialize its own first callback word');assert.equal(f.get(9151656),before.crtHeapMode);assert.equal(f.get(9151652),before.crtHeapHandle);
+  crtOnexit={initializer:4385,initializerReturned:true,...result,before,after:{base,end,firstWord:f.get(base)},allocation,nativeTableCapacityBytes:128,nativeOnexitGlobalsOrEntriesAuthored:false,fullCrtStartupClaimed:false,provenance:'Pinned15176 C initializer table first nonnull entry is genuine4385 before cleanup registration; this condition invokes only that reviewed prerequisite'};writeJson('native-crt-onexit-proof.json',crtOnexit);return crtOnexit;
+ });
+ if(initialized)initialized=SessionStart.construct({q,stage,abi,writeJson});
+ if(initialized)initialized=stage('current-native-component-pools18874-registry4412-callback-pools15445-registry16297-pose-registry2380',()=>{const results=[];for(const id of[18874,4412,15445,16297,2380]){results.push({id,...q.rawCall(id,0)});abi(4);}assert.equal(f.get(8828104),8828104);assert.equal(f.get(8972740),8972740);assert.equal(f.get(9055396),9055396);assert.equal(f.get(9055400),9055396);return{results,componentPool:f.get(8826208),componentIdAllocator:f.get(8827580),componentMap:f.get(8827544),callbackPools:[8928824,8928828].map(global=>({global,pool:f.get(global)})),poseObjectRegistry:9055396,nativeLinksOrCountsAuthored:false};});
+ if(initialized)initialized=World.initializePrefix(worldContext);
+ if(initialized)initialized=stage('current-native-authentic-static-query-registry4880',()=>{
+  // Commit resident native list storage without authoring sentinel links or assets.
+  q.commit(8828312,8);const heap=Shared.bind(f,{cpu:A.cpu}).heap,before={next:f.get(8828312),previous:f.get(8828316),onexitBase:f.get(9156076),onexitEnd:f.get(9156072)},sizeCallStart=heap.sizeCalls.length;assert.equal(before.next,0);assert.equal(before.previous,0);const tableAllocation=heap.owned.get(before.onexitBase);assert(tableAllocation?.live,'Original4385 must own the callback table');assert.equal(tableAllocation.bytes,128);assert(before.onexitEnd>=before.onexitBase&&before.onexitEnd+4<=before.onexitBase+tableAllocation.bytes,'Real callback table must have capacity for this original initializer');
+  const result=q.rawCall(4880,0);abi(4);assert.equal(result.eax,0,'Whole original4880 must report actual cleanup-registration success');const after={next:f.get(8828312),previous:f.get(8828316),onexitBase:f.get(9156076),onexitEnd:f.get(9156072),registeredCleanup:f.get(before.onexitEnd)};assert.equal(after.next,8828312);assert.equal(after.previous,8828312);assert.equal(after.onexitBase,before.onexitBase);assert.equal(after.onexitEnd,before.onexitEnd+4);assert.equal(after.registeredCleanup,0x782400,'Original4880 must register its real2697 cleanup');const sizes=heap.sizeCalls.slice(sizeCallStart);assert.equal(sizes.length,1);assert.equal(sizes[0].address,before.onexitBase);assert.equal(sizes[0].result,128);
+  staticQueryRegistry={initializer:4880,initializerReturned:true,...result,before,after,actualOwnedHeapSizeQueries:sizes,nativeLinksOrCleanupOutputAuthored:false,assetRecordsLoaded:false,worldConstructionClaimed:false,provenance:'Whole original4880 is actual15176 C++ initializer table entry0x7e8578→0x77df20; native1209/13399 own both sentinel links and4541 owns cleanup registration'};writeJson('native-static-query-registry-proof.json',staticQueryRegistry);return staticQueryRegistry;
+ });
+ if(initialized)initialized=World.initializeSuffix(worldContext);
+ const manager=8928880,inactive=8976200;
+ // Existing canonical PE/receiver storage is committed without authoring its fields.
+ // Whole15134 must run once before1690→1530 consumes its manager+16 sentinel.
+ if(initialized)for(const[address,size]of[[manager,25660],[inactive,8],[8976232,2096],[8972940,8]])q.commit(address,size);
+ if(initialized)initialized=stage('current-native-world-query-manager15134-before-whole-World',()=>{const before={head:f.get(manager),tail:f.get(manager+4),secondaryHead:f.get(manager+16),secondaryTail:f.get(manager+20)},result=q.rawCall(15134,manager);abi(4);assert.equal(f.get(manager),manager);assert.equal(f.get(manager+4),manager);assert.equal(f.get(manager+16),manager+16);assert.equal(f.get(manager+20),manager+16);worldState.queryManager={initializer:15134,wholeNativeReturned:true,...result,manager,before,after:{head:f.get(manager),tail:f.get(manager+4),secondaryHead:f.get(manager+16),secondaryTail:f.get(manager+20)},nativeManagerFieldsAuthored:false,rerunAfterWorld:false};writeJson('native-World-query-manager-proof.json',worldState.queryManager);return worldState.queryManager;});
+ let pendingClient=null;if(initialized)initialized=offlinePlatform.initializeLAN({q,stage,abi});if(initialized)initialized=SessionStart.requestStart({q,stage,abi,writeJson});if(initialized){pendingClient=Lifecycle.initialize({q,stage,abi,writeJson,expectedLocalIpv4Host:offlinePlatform.localVip});initialized=pendingClient.completed;}
+ if(initialized)initialized=World.constructWholeWorld(worldContext);
+ if(initialized)initialized=stage('current-native-inactive-query-list13399',()=>{const result=q.rawCall(13399,inactive);abi(4);assert.equal(f.get(inactive),inactive);return result;});
+ if(initialized)initialized=stage('current-native-geometry-lookup19506',()=>{const result=q.rawCall(19506,8976232);abi(4);return result;});
+ if(initialized)initialized=stage('current-native-cache-list13399-and-startup17475',()=>{q.rawCall(13399,8972940);abi(4);const result=q.rawCall(17475,8976232,[0]);abi(8);assert(f.get(8928656));return{...result,pool:f.get(8928656),head:f.get(8972940),tail:f.get(8972944)};});
+ if(initialized)initialized=stage('current-native-authored-scene-loaders1375-17792',()=>{const scene=require('./flat-scene-input.cjs').make(),meta=0x4000000,geometry=0x4010000;for(const[address,data]of[[meta,scene.metadata],[geometry,scene.geometry]]){q.commit(address,data.length);bytes.set(data,address);}fs.writeFileSync(path.join(__dirname,'authored-sector-input.bin'),scene.metadata);fs.writeFileSync(path.join(__dirname,'authored-geometry-input.bin'),scene.geometry);q.rawCall(1375,manager,[meta]);abi(8);assert.equal(f.get(A.cpu),1);q.rawCall(17792,8976232,[geometry]);abi(8);assert.equal(f.get(A.cpu),1);return{...scene.description,metadataAddress:meta,geometryAddress:geometry,nativeGeometry:f.get(8976232+12)};});
+ if(initialized)initialized=RealAI.loadCanonicalRoadInputs({q,stage,abi});
+ if(initialized)initialized=RealAI.initializeActionPools({q,stage,abi});
+ if(initialized)initialized=StartMarkerInput.loadStartMarkers({q,stage,abi,writeJson});
+ if(initialized)initialized=World.restoreExplicitDtInput(worldContext);
+ let enrollment={completed:false,state:{selector:null,enrollment:null,player:null}};
+ if(initialized){enrollment=Enrollment.initialize({q,stage,abi,writeJson,Shared,nativeRecord,worldState,events:activationEvents});initialized=enrollment.completed;}
+
+ if(initialized)remoteApplicationObserver.bind({remoteCar:enrollment.state.enrollment.remote.car,remoteController:enrollment.state.enrollment.remote.remoteController});
+ let admission=null;if(initialized)admission=require('./remote-admission.cjs').run({q,stage,writeJson,enrollment,platform:offlinePlatform,directory:__dirname,sourceJournalSha256:"b373b27036e8acc45723b828cfb564e724ddbc4d34cfc68f9a64729e1248feec",sourceRawSha256:"159392b62098cd61e3245e0b4c23b260b35f7cba5104ea80096d3e130483fde7"});
+ let reportAvailabilityReady=false,allocatorReady=false;
+ if(initialized&&admission?.complete)reportAvailabilityReady=nativeLegacy.reportAvailability({q,stage,writeJson,enrollment,admission});
+ if(reportAvailabilityReady)allocatorReady=NativeSessionAllocator.initialize({q,stage,abi,writeJson,Shared,Critical,directory:__dirname});
+ let legacy=null;if(initialized&&admission?.complete&&reportAvailabilityReady&&allocatorReady)legacy=nativeLegacy.run({q,stage,abi,writeJson,enrollment,admission,beforeScheduler:()=>nativeRealtimeTiming.run({q,stage,writeJson})});
+ let historyResult=null;if(legacy?.complete)initialized=stage('native-history-node-and-list-read-only-verification',()=>{historyResult=historyWitness.finish({q,enrollment,legacy});return historyResult;});
+ const receipt={kind:'OFFLINE-ORDERED-WORLD-HISTORY-ENROLLMENT-UNIT',complete:initialized&&admission?.complete===true&&legacy?.complete===true&&historyResult?.complete===true,historyResult,reportAvailabilityReady,allocatorReady,legacy,initialized,pendingClient,enrollment:enrollment.state,admission,world:worldState,stages,clockCalls,trapped,observerRecording:observerRecorder.finalize(),requestedMovementFrames:0,nativeMovementFrames:0,typedMaximumGetterCalls:0,fullStartupQualified:false,knownUnresolvedPrerequisites:['CPP5349 global list sentinel','4722 default table and6000 manager backing','replay singleton755','event manager5582/4972 and queued message pool'],nativeOutputsAuthored:false};writeJson('remote-condition-receipt.json',receipt);if(!receipt.complete)process.exitCode=1;console.log(JSON.stringify({complete:receipt.complete,initialized,lastStage:stages.at(-1)?.name,admissionFailure:admission?.failure||null,reportAvailabilityReady,allocatorReady,legacyComplete:legacy?.complete||false,legacyUnavailable:legacy?.unavailable||null,legacyFailure:legacy?.failure||null,historyComplete:historyResult?.complete||false,nativeMovementFrames:0,typedMaximumGetterCalls:0,fullStartupQualified:false}));
+}
+try{main();}finally{if(f){writeJson('platform-performance-frequency-receipt.json',PerformanceFrequency.receipt(f));writeJson('platform-timing-poll-receipt.json',TimingPoll.receipt(f));writeJson('platform-frame-registration-receipt.json',FrameRegistration.receipt(f));writeJson('memory-query-receipt.json',MemoryQuery.receipt(f));writeJson('critical-section-receipt.json',Critical.receipt(f));writeJson('crt-module-lookup-receipt.json',CrtModule.receipt(f));writeJson('platform-registry-receipt.json',Platform.receipt(f));writeJson('shared-heap-receipt.json',Shared.receipt(f));}writeJson('native-legacy-observation-receipt.json',nativeLegacy.finalize());writeJson('native-realtime-timing-observation-receipt.json',nativeRealtimeTiming.finalize());namedObserver.finalize();replayDiagnostics.finalize();remoteApplicationObserver.finalize();offlinePlatform.finalize();writeJson('isolation-receipt.json',{attempts:isolation.attempts});isolation.restore();}
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/world-initializer-stages.cjs =====
+'use strict';
+// SOURCE-PREPARED CONDITION ONLY. Importing this module runs no native code.
+// Every constructor below is invoked whole on the existing reviewed fixture.
+const assert=require('node:assert/strict');
+const PREFIX=Object.freeze([
+ {id:13479,storage:[8513552,37360],heads:[8515856]},
+ {id:16761,storage:[8551304,16],heads:[8551308]},
+ {id:11290,storage:[8554352,7384],heads:[]},
+ {id:4879,storage:[8607840,96],heads:[8607840,8607848]},
+ {id:5035,storage:[8607712,96],heads:[8607712,8607720]},
+ {id:5662,storage:[8588572,8],heads:[8588572]},
+ {id:6288,storage:[8575944,56],heads:[8575968]},
+ {id:7227,storage:[8607936,8],heads:[8607936]},
+ {id:8477,storage:[8588016,8],heads:[8588016]},
+ {id:13637,storage:[8796080,12],heads:[8796084]},
+ {id:17388,storage:[0xD00100,6*456],heads:Array.from({length:6},(_,i)=>0xD00100+456*i)},
+ {id:4568,storage:[8828048,8],heads:[8828048]},
+ {id:4724,storage:[8828320,8],heads:[8828320]}
+]);
+const SUFFIX=Object.freeze([
+ {id:6757,storage:[8828328,8],heads:[8828328]},
+ {id:6914,storage:[8828096,8],heads:[8828096]},
+ {id:11449,storage:[8978328,8],heads:[8978328]},
+ {id:11762,storage:[8974780,8],heads:[8974780]},
+ {id:12701,storage:[8976192,8],heads:[8976192]},
+ {id:16453,storage:[8974856,8],heads:[8974856]},
+ {id:976,storage:[9055056,8],heads:[9055056]},
+ {id:4102,storage:[9055080,308],heads:[9055080]}
+]);
+const WORLD_OWNED=Object.freeze([8978560,8827760,8827764,8827776,8826768,8928856,8928848,9051164,8928628,8978736,8928640]);
+const EARLIER_OWNED=Object.freeze([8826208,8827544,8827580,8928824,8928828,9055396,9055400]);
+const DT_ADDRESS=8802644,TICK_ADDRESS=8802700,WRAPPER_PRESERVED_TIME=8803672;
+const inputScope=Object.freeze({cppOrder:[13479,16761,11290,4879,5035,5662,6288,7227,8477,13637,17388,4568,4724,4880,6757,6914,11449,11762,12701,16453,976,4102],worldEntry:21991,worldCore:1690,worldAllocationBytes:5632,nativePoolProducer:11167,renderProducer:8715,excludedRenderPredecessors:[16486,4135],queryManagerBeforeWorld:15134,requestedMovementFrames:0,dtCallerInput:1/60,worldTickNotAuthored:true});
+const words=(f,addresses)=>addresses.map(address=>({address,value:f.get(address)}));
+function staticGroup(ctx,specs){
+ const{q,stage,abi,writeJson,Shared,state}=ctx,{f,A}=q;
+ for(const spec of specs){const okay=stage('current-native-World-static-CPP-initializer'+spec.id,()=>{
+  // PE virtual .data and the current relocated static port array are native static storage.
+  // Commit covered pages but let the whole native initializer own every field.
+  q.commit(...spec.storage);
+  const beforeNativeHeaderHex=f.bytes(spec.storage[0],Math.min(96,spec.storage[1])).toString('hex');
+  const beforeNativeArrayHeadWords=spec.id===17388?spec.heads.map(address=>({address,next:f.get(address),previous:f.get(address+4)})):undefined;
+  if(spec.id===11762)assert.equal(beforeNativeHeaderHex,'0000000000000000','Observe fresh native list storage before whole initializer; never repair it');
+  const heap=Shared.bind(f,{cpu:A.cpu}).heap,before={base:f.get(9156076),end:f.get(9156072)},table=heap.owned.get(before.base);
+  assert(table?.live,'Whole4385 must own the actual onexit table');assert(before.end>=before.base&&before.end+4<=before.base+table.bytes,'Native registration requires real table capacity');
+  const result=q.rawCall(spec.id,0);abi(4);assert.equal(result.eax,0,'Whole original C++ initializer must return actual cleanup-registration success');
+  const after={base:f.get(9156076),end:f.get(9156072),registeredCallback:f.get(before.end)};
+  assert.equal(after.base,before.base);assert.equal(after.end,before.end+4);assert(after.registeredCallback,'Original wrapper must register its real cleanup');
+  if(spec.id===16761)assert.equal(after.registeredCallback,0x781b60,'Whole16761 registers its genuine cleanup');
+  if(spec.id===17388)assert.equal(after.registeredCallback,0x782290,'Whole17388 registers its genuine six-port array cleanup');
+  if(spec.id===16453)assert.equal(after.registeredCallback,0x7825f0,'Whole16453 registers its genuine cleanup');
+  if(spec.id===976)assert.equal(after.registeredCallback,0x782840,'Whole976 registers its genuine cleanup');
+  if(spec.id===11449)assert.equal(after.registeredCallback,7874048,'Whole11449 registers genuine cleanup0x782600');
+  if(spec.id===11762)assert.equal(after.registeredCallback,0x782690,'Whole11762 registers its genuine list cleanup');
+  if(spec.id===4879)assert.equal(after.registeredCallback,7872128,'Whole4879 directly4541 registers genuine cleanup0x781e80');
+  if(spec.id===4724)assert.equal(after.registeredCallback,7873552,'Whole4724 registers genuine cleanup0x782410');
+  if(spec.id===4568)assert.equal(after.registeredCallback,7873520,'Whole4568 registers genuine cleanup0x7823f0');
+  if(spec.id===13637){assert.equal(f.get(8796080),7977232,'Whole11511 owns its genuine manager vtable');assert.equal(after.registeredCallback,7872464,'Whole13637 registers genuine cleanup0x781fd0');}
+  const heads=spec.heads.map(address=>{const next=f.get(address),previous=f.get(address+4);assert.equal(next,address);assert.equal(previous,address);return{address,next,previous};});
+  if(spec.id===6288)assert.deepEqual(Array.from({length:6},(_,i)=>f.get(8575944+4*i)),[128,0x494140,0x494190,0x48b410,0x48da00,0x494210]);
+  const proof={initializer:spec.id,beforeNativeHeaderHex,beforeNativeArrayHeadWords,wholeNativeReturned:true,...result,residentStorage:{address:spec.storage[0],bytes:spec.storage[1],dataAuthored:false},beforeOnexit:before,afterOnexit:after,heads,headerHex:f.bytes(spec.storage[0],Math.min(96,spec.storage[1])).toString('hex'),nativeFieldsOrCallbacksAuthored:false};
+  state.staticInitializers.push(proof);writeJson('native-World-static-CPP-proof.json',{selectedRelativeOrder:inputScope.cppOrder,completed:state.staticInitializers,existing4880InvokedSeparatelyOnce:true});return proof;
+ });if(!okay)return false;}
+ return true;
+}
+function initializePrefix(ctx){return staticGroup(ctx,PREFIX);}
+function initializeSuffix(ctx){return staticGroup(ctx,SUFFIX);}
+function constructWholeWorld(ctx){
+ const{q,stage,abi,writeJson,Shared,state}=ctx,{f,A}=q;
+ let okay=stage('current-native-World-required-pool-initializer11167',()=>{
+  q.commit(8575624,4);const before=f.get(8575624),heap=Shared.bind(f,{cpu:A.cpu}).heap,firstAllocation=heap.calls.length;
+  const result=q.rawCall(11167,0);abi(4);const pool=f.get(8575624);
+  assert(pool>=0x10000&&pool+64<f.memory.buffer.byteLength,'Genuine11167 must publish its actual pool');assert.equal(result.eax,pool);
+  const allocations=heap.calls.slice(firstAllocation);assert(allocations.length,'Whole11167 must retain the actual native pool allocation path');
+  state.requiredPool={initializer:11167,wholeNativeReturned:true,...result,before,pool,elementBytes:24,count:5000,nativePoolFactory:23287,poolHeaderHex:f.bytes(pool,64).toString('hex'),actualHeapAllocations:allocations,sourceEdge:'Whole1690→1530 reads8575624 and passes it to2243 when8928760 is empty; this dependency is separate from the render-only8715 closure.',poolOrFreeListAuthored:false};
+  writeJson('native-World-required-pool-proof.json',state.requiredPool);return state.requiredPool;
+ });
+ if(okay)okay=stage('current-native-World-minimal-render-initializer8715',()=>{
+  const heap=Shared.bind(f,{cpu:A.cpu}).heap,firstAllocation=heap.calls.length,before=[8597172,8597284].map(address=>({address,value:f.get(address)}));
+  const result=q.rawCall(8715,0);abi(4);
+  const outputs=[8597172,8597284].map(address=>{const pointer=f.get(address);assert(pointer>=0x10000&&pointer+20928<=f.memory.buffer.byteLength);const allocation=heap.owned.get(pointer);assert(allocation?.live,'Render record must refer to its actual native allocation');assert.equal(allocation.bytes,20928);return{address,pointer,allocation,headerHex:f.bytes(pointer,128).toString('hex')};});
+  state.render={initializer:8715,wholeNativeReturned:true,...result,before,outputs,actualHeapAllocations:heap.calls.slice(firstAllocation),preceding16486Or4135Called:false,renderFieldsOrAllocationResultsAuthored:false};writeJson('native-World-render-proof.json',state.render);return state.render;
+ });
+ if(okay)okay=stage('current-native-actual-5632-byte-World-allocation5867',()=>{
+  const heap=Shared.bind(f,{cpu:A.cpu}).heap,firstAllocation=heap.calls.length;
+  // Native5867 is cdecl: its one size argument remains caller-owned (ESP+4).
+  const result=q.rawCall(5867,0,[5632]);abi(4);const receiver=result.eax;assert(receiver,'Whole original5867 must return its actual nonnull World allocation');
+  const allocation=heap.owned.get(receiver);assert(allocation?.live);assert.equal(allocation.bytes,5632);assert(heap.calls.slice(firstAllocation).includes(allocation));
+  state.allocation={allocator:5867,wholeNativeReturned:true,...result,receiver,requestedBytes:5632,nativeCdeclArgumentBytes:4,nativeCalleeEspAdvance:4,allocation,receiverOrPayloadAuthored:false};writeJson('native-World-allocation-proof.json',state.allocation);return state.allocation;
+ });
+ if(okay)okay=stage('current-native-whole-World-constructor21991-1690',()=>{
+  assert(state.allocation?.receiver);const receiver=state.allocation.receiver,before={owned:words(f,WORLD_OWNED),earlierOwnership:words(f,EARLIER_OWNED),dtBits:f.get(DT_ADDRESS),tick:f.get(TICK_ADDRESS),wrapperPreservedTimeBits:f.get(WRAPPER_PRESERVED_TIME)};
+  // Never publish a substitute World pointer or inspect an early global as
+  // constructor completion. All assertions below occur after the whole return.
+  const historyBefore=ctx.historyWitness.beforeWorld({q});const result=q.rawCall(21991,receiver);abi(4);assert.equal(result.eax,receiver);assert.equal(f.get(8978560),receiver);const historyAfter=ctx.historyWitness.afterWorld({q,Shared,receiver});
+  const after={owned:words(f,WORLD_OWNED),earlierOwnership:words(f,EARLIER_OWNED),dtBits:f.get(DT_ADDRESS),tick:f.get(TICK_ADDRESS),wrapperPreservedTimeBits:f.get(WRAPPER_PRESERVED_TIME)};
+  assert.equal(after.tick,4000,'Whole1690/12930 must produce its actual4000 tick');assert.equal(after.dtBits,0,'Whole12930 owns its dt reset');assert.equal(after.wrapperPreservedTimeBits,before.wrapperPreservedTimeBits,'Whole21991 preserves the native time cell');
+  state.world={entry:21991,core:1690,historyBefore,historyPoolProof:historyAfter,wholeNativeReturned:true,...result,receiver,allocation:state.allocation,before,after,actualTailObject:f.get(receiver+5620),worldHeaderHex:f.bytes(receiver,128).toString('hex'),worldTailHex:f.bytes(receiver+5504,128).toString('hex'),worldGlobalValidatedAfterWholeReturn:true,worldOrMembershipOrTimingOutputsAuthored:false,subsystemAllocationSuccessNotInferredFromWorldPointer:true};writeJson('native-World-construction-proof.json',state.world);return state.world;
+ });
+ return okay;
+}
+function restoreExplicitDtInput(ctx){
+ const{q,stage,writeJson,state}=ctx,{f}=q;
+ return stage('current-native-explicit-dt-caller-input-after-World',()=>{
+  assert(state.world?.wholeNativeReturned,'Only a completed World constructor precedes the explicit dt caller input');
+  const before={dtBits:f.get(DT_ADDRESS),tick:f.get(TICK_ADDRESS),owned:words(f,WORLD_OWNED)};
+  assert.equal(before.tick,4000,'Do not replace the World-produced tick with the old fixture1000 input');f.f32(DT_ADDRESS,inputScope.dtCallerInput);
+  const after={dtBits:f.get(DT_ADDRESS),dt:f.view.getFloat32(DT_ADDRESS,true),tick:f.get(TICK_ADDRESS),owned:words(f,WORLD_OWNED)};assert.equal(after.tick,before.tick);assert.deepEqual(after.owned,before.owned);
+  state.dtCallerInput={address:DT_ADDRESS,value:inputScope.dtCallerInput,before,after,onlyExplicitDtCallerInputAuthored:true,worldTickOrOwnershipAuthored:false};writeJson('native-World-post-return-dt-input.json',state.dtCallerInput);return state.dtCallerInput;
+ });
+}
+module.exports={inputScope,initializePrefix,initializeSuffix,constructWholeWorld,restoreExplicitDtInput};
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/combined-observer-source-addendum.json =====
+{
+  "kind": "SOURCE-ONLY-NARROW-ORDERED-WORLD-HISTORY-UNIT",
+  "parent": "current-native-combined-observer-4c-v2",
+  "parentFrozenManifest": "work-update-check-20261113/native-combined-observer-output-4c-v2/frozen-output-manifest.json",
+  "condition": "current-native-ordered-world-history-4c-v2",
+  "scope": [
+    "Move the exact existing4454→10442→9490/17624 native LAN/request/pending-client block to before the existing wholeWorld construction, after existing CRT/session/runtime/platform prerequisites.",
+    "Preserve the exact original fixture/WASM, metadata, entry hooks, scene/road/roster inputs, native factories, names, native warmup schedule, serializer and10443 decoder.",
+    "Keep the original two setup22866 calls; omit legacy22873 getter and all World replay/final retained getters.",
+    "Read native historypool8978732/header64 at every diagnostic stage. Verify its genuine1690 publication, actual2243 node allocation, and native controller list links without writing those values."
+  ],
+  "branchDifference": "1690 network branch adds23287([128,50,8020800,0])→8978732 and12460 reciprocal setter8803672.10121, both RideInfo+20636 writes, both7321 calls,12794/4499 and tail allocation are shared with the frozen offline branch.",
+  "inputsAuthoredOrChanged": {
+    "networkStartupOrder": true,
+    "typedGetterExcluded": true,
+    "requestedMovementFrames": 0,
+    "fixtureOrHooks": false,
+    "clockValuesOrWarmup": false,
+    "packetBytesTimestamps": false,
+    "nativePoolFlagHeaderLinksOrNames": false
+  },
+  "unresolved": [
+    "Missing5349 sentinel initialization and4722/6000 backing remain as disclosed prior errors.",
+    "Replay755/event-manager5582 and queued-message pool prerequisites remain absent.",
+    "A history-unit pass cannot qualify full startup, prior192-frame baseline, movement, detector/client report or online acceptance."
+  ],
+  "nativeExecuted": false,
+  "rootExecutionApprovalPresent": false
+}
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/disclosed-inputs.json =====
+{
+  "kind": "disclosed-fresh-current-4c-genuine-enrollment-and-Player-inputs",
+  "sourceHash": "6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23",
+  "fixtureSha256": "05101cdedb8349ae63f9a3453d0f93614d18d57cf1819258ba1d6c7045ba4439",
+  "passiveDataInitialization": {
+    "originalInitializerCalled": false,
+    "individualCacheWordsAuthored": false,
+    "order": "Before PE image, commit bits, CPU/TLS and canonical guest-map setup",
+    "hydratedSegments": [
+      {
+        "index": 0,
+        "destination": 671088640,
+        "length": 1471308,
+        "sha256": "9edccbd104606332b588ab02334fcb0d728c939e2b739c05ac645bf41bebf766"
+      },
+      {
+        "index": 1,
+        "destination": 672559952,
+        "length": 1286524,
+        "sha256": "dacbfd99dd64dd882edc77ac0618a063406230db4d2c8fe6734844258e833f01"
+      }
+    ],
+    "unhydratedPassiveSegments": [
+      {
+        "index": 2,
+        "length": 18408,
+        "sha256": "9f033837bfb8d0df930e798e00f14483ce431f716168a58df5436a63c9f6354b",
+        "reason": "Original native TLS/global initializer preconditions remain outside this condition"
+      }
+    ]
+  },
+  "crtPlatformInput": {
+    "kind": "bounded-pinned-PE-import-map",
+    "sourceContract": "work-online-v0427\\extension-movement\\native\\guest-crt-startup-source-review-v1\\platform-resolution-review.json",
+    "sourceContractSha256": "25bb6ab0fc3d35df1185c0b82f96e6351ba5a8bd1137ee88898b948bd561e741",
+    "peSha256": "f9dd86c054878ce6276beb07c1fd61874f7a1e4bf1f241b084c65b73e24168a7",
+    "imports": 252,
+    "kernel32Imports": 152,
+    "serverImportTableIncluded": false,
+    "scopeLimit": "Production win32_init combines g_imp and g_srv_imp. This proof establishes complete PE-map absence, not absence from an unpinned server.dll import table. A bounded provider using this exact pinned PE inventory must disclose that scope.",
+    "exactQueries": [
+      {
+        "address": 8231036,
+        "value": "kernel32.dll"
+      },
+      {
+        "address": 8230996,
+        "value": "InitializeCriticalSectionAndSpinCount"
+      }
+    ],
+    "moduleHandle": 4194304,
+    "missingOptionalProcedure": "InitializeCriticalSectionAndSpinCount",
+    "guestCacheOrOsDetectionWrites": false
+  },
+  "playerArraysOrCarLinksAuthored": false,
+  "callerOwnedCarOrPlayerObjectsConstructed": false,
+  "initialMailboxAllZero": true,
+  "gameTick": null,
+  "worldTickProducer": 12930,
+  "worldExpectedTickAfterWholeReturn": 4000,
+  "dtCallerInput": {
+    "address": 8802644,
+    "value": 0.016666666666666666,
+    "afterWholeWorldOnly": true
+  },
+  "worldInitialization": {
+    "cppOrder": [
+      13479,
+      16761,
+      11290,
+      4879,
+      5035,
+      5662,
+      6288,
+      7227,
+      8477,
+      13637,
+      17388,
+      4568,
+      4724,
+      4880,
+      6757,
+      6914,
+      11449,
+      11762,
+      12701,
+      16453,
+      976,
+      4102
+    ],
+    "worldEntry": 21991,
+    "worldCore": 1690,
+    "worldAllocationBytes": 5632,
+    "nativePoolProducer": 11167,
+    "renderProducer": 8715,
+    "excludedRenderPredecessors": [
+      16486,
+      4135
+    ],
+    "queryManagerBeforeWorld": 15134,
+    "requestedMovementFrames": 0,
+    "dtCallerInput": 0.016666666666666666,
+    "worldTickNotAuthored": true
+  },
+  "stockFixture": {
+    "carType": 0,
+    "authenticSavedSkyline": false,
+    "maxedHiddenParts": false,
+    "privateCurveBackingAddress": 23068672,
+    "privateCurveBytes": 64,
+    "curveBackingDisjointFromRideVisualInput": true
+  },
+  "carRecord": {
+    "input": 2424832,
+    "bytes": 2368,
+    "kindAt4": 1,
+    "nativeSkillAt901": 254,
+    "remainingMetadata": "Same zero initialized disclosed metadata; complete initialized generic RideInfo copied at+16 before native roster copy. Grid selector is produced by whole23361."
+  },
+  "initialPose": {
+    "producer": 9503,
+    "descriptorCount": 6,
+    "descriptorBytes": 32,
+    "explicitPoseOverride": false,
+    "source": "Entire native descriptors from genuine markers or original canonical-road fallback and native surface work; no authored XYZ, heading or Z."
+  },
+  "physicalScene": {
+    "authored": true,
+    "authenticStreetX": false,
+    "from": "trajectory-v29/flat-scene-input.cjs"
+  },
+  "raceContext": {
+    "nativeRaceType": 1,
+    "trackId": 0,
+    "publicCallerInputOrder": "After whole507 returns, before5441 and World/track loading",
+    "publicCallerInputSourceReview": {
+      "originalPath": "work-update-check-20261113/race-context-input-source-d396-v1/review.json",
+      "localFile": "race-context-input-source-review.json",
+      "sha256": "a0d702a9ccc059037ae1be2d77186d340ce3a8c268de35805f6ae98463333c23"
+    },
+    "HUDModeInput": 1,
+    "drag": false,
+    "drift": false,
+    "streetX": false,
+    "forcedSpecialModes": false,
+    "authenticStreetX4602": false,
+    "scope": "Same generic ordinary road-race fixture inputs; not full page/DOM/HUD status-buffer execution."
+  },
+  "roadAssets": {
+    "source": "generated-road-speed-input-4c-v1",
+    "canonicalInputOnly": true,
+    "authenticStreetX": false,
+    "diagnosticNativeSpeedValue": 20,
+    "speedFieldOffsets": [
+      45,
+      50,
+      51,
+      52,
+      53
+    ],
+    "physicalUnitsUnclaimed": true
+  },
+  "difficultyAsset": {
+    "source": "exact-local-retail-GLOBALB-DifficultyInfo-34b00",
+    "chunkId": 215808,
+    "chunkBytes": 2792,
+    "assetReceiptSha256": "7d7695796b5bd491d88433859ce5ceb5d26eaf21b9ccdf2ea08a054f14b7a23b",
+    "nativeLoader": 14427,
+    "guestEntry": 4227584,
+    "inputAddress": 67371008,
+    "wholeChunkUnmodified": true,
+    "nativeProfilePointerAuthored": false,
+    "nativeTargetOrControlAuthored": false
+  },
+  "nativeFactories": {
+    "roster": [
+      507,
+      5441
+    ],
+    "physicsPools": 3082,
+    "componentPools": 18874,
+    "componentRegistry": 4412,
+    "callbackPools": 15445,
+    "callbackRegistry": 16297,
+    "poseObjectRegistry": 2380,
+    "crtStaticPrelocks": 16584,
+    "crtOnexitTable": 4385,
+    "staticQueryRegistry": 4880,
+    "enrollment": 16076,
+    "fullFactory": 23278,
+    "wholeCar": 23280,
+    "carConstructorCore": 12949,
+    "playerSetup": 23721,
+    "playerConstructor": 17008,
+    "playerAttach": 19662
+  },
+  "startMarkers": {
+    "kind": "disclosed-synthetic-interior-start-marker-grid",
+    "chunkId": 213318,
+    "nativeLoader": 17632,
+    "guestEntry": 6128752,
+    "inputAddress": 67436544,
+    "assetReceiptSha256": "39b6f68989e7c5dedd060be5094d5102b2ad5d2871c56cab159c78c8ca199c1a",
+    "expectedContextFilter": 0,
+    "nativePoseRouteDirectionOrControlAuthored": false
+  },
+  "enrollment": {
+    "kind": "two-native-roster-cars-local-and-remote",
+    "selector": 23361,
+    "enrollment": 16076,
+    "player": 23721,
+    "remoteOwnerInput": 1,
+    "remoteHeaderSlotInput": 1,
+    "nativeMovementFrames": 0
+  },
+  "scope": "Whole World/scene/roads followed by whole23361,16076 and23721 only. Native factories own actual car/Player allocations, list/slots/partitions, mode, driver, physics, activation and Player publication. No extra mode/activation/manualdriver/Controller calls or native movement frame."
+}
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/flat-scene-input.cjs =====
+'use strict';
+// Authored GEOMETRY INPUT only. Native loaders, queries and triangle/cache
+// builders produce all sector ownership, contacts, normals, planes and motion.
+const assert=require('node:assert/strict');
+function chunk(id,data){const b=Buffer.alloc(8+data.length);b.writeUInt32LE(id>>>0);b.writeUInt32LE(data.length,4);data.copy(b,8);return b;}
+function make(){
+ const directory=Buffer.alloc(4);directory.writeUInt32LE(10);
+ const sector=Buffer.alloc(36+4*8);sector.writeInt16LE(101,8);sector.writeInt16LE(4,10);[-128,-128,128,128].forEach((v,i)=>sector.writeFloatLE(v,12+i*4));
+ const points=[[-128,-128],[128,-128],[128,128],[-128,128]];points.forEach((p,i)=>p.forEach((v,j)=>sector.writeFloatLE(v,36+i*8+j*4)));
+ const metadata=chunk(0x80034150,Buffer.concat([chunk(0x34151,directory),chunk(0x34152,sector)]));
+ // With an aligned parent, the first child header is parent+8 and its
+ // payload parent+16, satisfying original17004's aligned34131 contract.
+ const header=Buffer.alloc(48);header.writeUInt16LE(111,0);header[2]=0;header[3]=0;header.writeUInt16LE(8,4);header.writeUInt16LE(8,6);header.writeFloatLE(-128,8);header.writeFloatLE(-128,12);[-128,-128,-1].forEach((v,i)=>header.writeFloatLE(v,16+i*4));[128,128,1].forEach((v,i)=>header.writeFloatLE(v,32+i*4));
+ const packed=Buffer.alloc(32);packed[0]=0;packed[1]=0x90;packed[2]=0;packed[3]=0x10;packed.writ

@@ -1,0 +1,90 @@
+(module (import "env" "memory" (memory 256 65536 shared)) (func (export "step") (param $cpu i32) (local $old1 i32) (local $old2 i32) (local $old3 i32) (local $old4 i32) (local $old5 i32) (local $old6 i32) (local $eligible i32) (local $seq i32) (local $sp i32) (local $caller i32) (local $car i32) (local $player i32) (local $driver i32) (local $route i32) (local $race i32) (local $percent i32) (local $braking i32) (local $slot i32) (local $pace f64) (local $native f64) (block $skip
+ (br_if $skip (i32.ne (i32.load (i32.const 13684992)) (i32.const 927547726)))
+ (br_if $skip (i32.ne (i32.load (i32.const 13685020)) (i32.const 927547726)))
+ (br_if $skip (i32.ne (i32.load (i32.const 13685248)) (i32.const 861032003)))
+ (br_if $skip (i32.eqz (i32.or (i32.eq (i32.load (i32.const 13685252)) (i32.const 2)) (i32.eq (i32.load (i32.const 13685252)) (i32.const 3)))))
+ (if (i32.eq (i32.load (i32.const 13685252)) (i32.const 3)) (then
+  (br_if $skip (i32.load8_u (i32.const 0x89e7e3)))
+  (br_if $skip (i32.load (i32.const 8978700)))
+  (br_if $skip (i32.and (i32.eq (i32.load (i32.const 8716424)) (i32.const 10)) (i32.ne (i32.or (i32.and (i32.load (i32.const 8716408)) (i32.const 520)) (i32.or (i32.load (i32.const 8808980)) (i32.or (i32.load (i32.const 8808948)) (i32.load8_u (i32.const 0x89cf69))))) (i32.const 0))))))
+ (local.set $seq (i32.load (i32.const 13684996)))
+ (br_if $skip (i32.and (local.get $seq) (i32.const 1)))
+ (br_if $skip (i32.ge_u (i32.load (i32.const 13685040)) (i32.const 180)))
+ (br_if $skip (i32.ne (i32.load (i32.const 13685000)) (i32.const 1)))
+ (br_if $skip (i32.ne (i32.load (i32.const 9037744)) (i32.const 1)))
+ (br_if $skip (i32.ne (i32.load (i32.const 13685044)) (i32.const 1)))
+ (br_if $skip (i32.ne (i32.load (i32.const 8803492)) (i32.const 6)))
+ (br_if $skip (i32.ne (i32.load (i32.const 13631536)) (i32.const 1)))
+ (br_if $skip (i32.load8_u (i32.const 0x89e7d8)))
+ (br_if $skip (i32.load8_u (i32.const 0x89e7d9)))
+ (br_if $skip (i32.load (i32.const 8978692))) (br_if $skip (i32.load (i32.const 8978696))) (br_if $skip (i32.load (i32.const 8978708)))
+ ;; Same owned local route in solo or explicitly opted-in network play.
+ ;; Native network state and all foreign-car / route guards stay unchanged.
+ (if (i32.ne (i32.load (i32.const 13685076)) (i32.const 1)) (then
+  (br_if $skip (i32.and (i32.load (i32.const 8716408)) (i32.const 520)))
+  (br_if $skip (i32.load (i32.const 8808980))) (br_if $skip (i32.load (i32.const 8808948)))
+  (br_if $skip (i32.load8_u (i32.const 0x89cf69)))))
+ (local.set $sp (i32.load offset=16 (local.get $cpu)))
+ (br_if $skip (i32.eqz (i32.and (i32.ge_u (local.get $sp) (i32.const 65536)) (i32.and (i32.le_u (local.get $sp) (i32.const 671088584)) (i64.le_u (i64.extend_i32_u (local.get $sp)) (i64.sub (i64.shl (i64.extend_i32_u (memory.size)) (i64.const 16)) (i64.const 56)))))))
+ (local.set $caller (i32.load (local.get $sp)))
+ (br_if $skip (i32.eqz (i32.or (i32.eq (local.get $caller) (i32.const 0x4227a1)) (i32.eq (local.get $caller) (i32.const 0x40a723)))))
+ (local.set $car (i32.load offset=4 (local.get $sp)))
+ (br_if $skip (i32.eqz (i32.and (i32.ge_u (local.get $car) (i32.const 65536)) (i32.and (i32.le_u (local.get $car) (i32.const 671084544)) (i64.le_u (i64.extend_i32_u (local.get $car)) (i64.sub (i64.shl (i64.extend_i32_u (memory.size)) (i64.const 16)) (i64.const 4096)))))))
+ (br_if $skip (i32.ne (local.get $car) (i32.load (i32.const 13685028))))
+ (br_if $skip (i32.ne (local.get $car) (i32.load (i32.const 13685008))))
+ (br_if $skip (i32.ne (i32.load offset=36 (local.get $car)) (i32.const 3)))
+ (if (i32.eq (local.get $caller) (i32.const 0x4227a1)) (then
+  (br_if $skip (i32.ne (i32.load offset=12 (local.get $cpu)) (local.get $car)))
+  (local.set $route (i32.load offset=24 (local.get $cpu)))) (else
+  ;; At getter entry, propagation's outer return is SP+40. Only backward
+  ;; direction0 from the corner planner is eligible; exit acceleration is native.
+  (br_if $skip (i32.ne (i32.load offset=40 (local.get $sp)) (i32.const 0x422b2e)))
+  (br_if $skip (i32.and (i32.load offset=12 (local.get $cpu)) (i32.const 255)))
+  (br_if $skip (i32.load offset=48 (local.get $sp)))
+  (br_if $skip (i32.ne (i32.load offset=52 (local.get $sp)) (local.get $car)))
+  (local.set $route (i32.load offset=20 (local.get $cpu)))))
+ (local.set $player (i32.load (i32.const 13631488)))
+ (br_if $skip (i32.eqz (i32.and (i32.ge_u (local.get $player) (i32.const 65536)) (i32.and (i32.le_u (local.get $player) (i32.const 671084544)) (i64.le_u (i64.extend_i32_u (local.get $player)) (i64.sub (i64.shl (i64.extend_i32_u (memory.size)) (i64.const 16)) (i64.const 4096)))))))
+ (br_if $skip (i32.ne (local.get $player) (i32.load (i32.const 13685024))))
+ (br_if $skip (i32.ne (local.get $player) (i32.load (i32.const 13685004))))
+ (br_if $skip (i32.ne (i32.load offset=4 (local.get $player)) (local.get $car)))
+ (br_if $skip (i32.load offset=16 (local.get $player)))
+ (local.set $driver (i32.load offset=44 (local.get $car)))
+ (br_if $skip (i32.eqz (i32.and (i32.ge_u (local.get $driver) (i32.const 65536)) (i32.and (i32.le_u (local.get $driver) (i32.const 671084544)) (i64.le_u (i64.extend_i32_u (local.get $driver)) (i64.sub (i64.shl (i64.extend_i32_u (memory.size)) (i64.const 16)) (i64.const 4096)))))))
+ (br_if $skip (i32.ne (i32.load offset=4 (local.get $driver)) (local.get $car)))
+ (br_if $skip (i32.ne (local.get $route) (i32.load offset=1768 (local.get $driver))))
+ (br_if $skip (i32.ne (local.get $route) (i32.add (local.get $driver) (i32.const 880))))
+ (local.set $race (i32.load (i32.const 8978712)))
+ (br_if $skip (i32.eqz (i32.and (i32.ge_u (local.get $race) (i32.const 65536)) (i32.and (i32.le_u (local.get $race) (i32.const 671084544)) (i64.le_u (i64.extend_i32_u (local.get $race)) (i64.sub (i64.shl (i64.extend_i32_u (memory.size)) (i64.const 16)) (i64.const 4096)))))))
+ (br_if $skip (i32.ne (local.get $race) (i32.load (i32.const 13685032))))
+ (br_if $skip (i32.ne (local.get $race) (i32.load (i32.const 13685012))))
+ (br_if $skip (i32.ne (i32.load (local.get $race)) (i32.const 4)))
+ (local.set $percent (i32.load (i32.const 13685296))) (local.set $braking (i32.load (i32.const 13685292)))
+ ;; Only adaptive command3 admits a bounded live reduction from the cached
+ ;; planning ceiling. Legacy command2 still requires exact equality.
+ (if (i32.eq (i32.load (i32.const 13685252)) (i32.const 3)) (then
+  (br_if $skip (i32.lt_u (i32.load (i32.const 13685052)) (i32.const 75)))
+  (br_if $skip (i32.gt_u (i32.load (i32.const 13685052)) (local.get $percent)))) (else
+  (br_if $skip (i32.ne (local.get $percent) (i32.load (i32.const 13685052))))))
+ (br_if $skip (i32.eqz (i32.and (i32.ge_u (local.get $percent) (i32.const 75)) (i32.le_u (local.get $percent) (i32.const 300)))))
+ (br_if $skip (i32.eqz (i32.and (i32.ge_u (local.get $braking) (i32.const 50)) (i32.le_u (local.get $braking) (i32.const 100)))))
+ (br_if $skip (i32.eqz (i32.and (i32.ge_u (i32.load (i32.const 13685256)) (i32.const 60)) (i32.le_u (i32.load (i32.const 13685256)) (i32.const 95)))))
+ (br_if $skip (i32.gt_u (i32.load (i32.const 13685284)) (i32.const 25)))
+ (if (i32.eq (i32.load (i32.const 13685252)) (i32.const 3)) (then
+  (br_if $skip (i32.lt_u (local.get $percent) (i32.const 100)))
+  (br_if $skip (i32.gt_u (local.get $percent) (i32.const 200)))))
+ (local.set $pace (f64.max (f64.const 1) (f64.div (f64.convert_i32_u (local.get $percent)) (f64.const 100))))
+ (br_if $skip (i32.ne (local.get $seq) (i32.load (i32.const 13684996))))
+ (local.set $eligible (i32.const 1)))
+;; ORIGINAL FUNCTION BODY RUNS HERE
+(block $skipAfter
+ (br_if $skipAfter (i32.eqz (local.get $eligible)))
+ (br_if $skipAfter (i32.ne (local.get $seq) (i32.load (i32.const 13684996))))
+ (br_if $skipAfter (i32.ne (i32.load offset=32 (local.get $cpu)) (local.get $caller)))
+ (br_if $skipAfter (i32.ne (i32.load offset=16 (local.get $cpu)) (i32.add (local.get $sp) (i32.const 4))))
+ (local.set $slot (i32.add (i32.add (local.get $cpu) (i32.const 72)) (i32.shl (i32.and (i32.load offset=136 (local.get $cpu)) (i32.const 7)) (i32.const 3))))
+ (local.set $native (f64.load (local.get $slot)))
+ (br_if $skipAfter (i32.eqz (i32.and (f64.gt (local.get $native) (f64.const 0)) (f64.le (local.get $native) (f64.const 50)))))
+ ;; Both the corner boundary and its backward envelope see the same assumption.
+ (f64.store (local.get $slot) (f64.mul (local.get $native) (f64.div (f64.div (f64.convert_i32_u (local.get $braking)) (f64.const 100)) (f64.mul (local.get $pace) (local.get $pace)))))
+ (i32.store (i32.const 13685308) (i32.add (i32.load (i32.const 13685308)) (i32.const 1))))))

@@ -1,0 +1,21 @@
+✔ all-mode diagnostics expose actual skill, action and current/requested input modes without writes (10.647262ms)
+✔ manual or foreign driver logs skill but cannot claim a native AI goal (0.586833ms)
+✔ missing and malformed navigation/config are distinguished without dereferencing them (0.367911ms)
+✔ changed native diagnostic graph is rejected: navigation (0.338598ms)
+✔ changed native diagnostic graph is rejected: config (0.27861ms)
+✔ changed native diagnostic graph is rejected: companion (0.296086ms)
+✔ changed native diagnostic graph is rejected: inputMode (0.243769ms)
+✔ changed native diagnostic graph is rejected: requestedMode (0.308944ms)
+✔ only recognized finite controls and input enums are exported (0.378037ms)
+✔ native logger keeps input and skill scalars but removes addresses and text (1.683598ms)
+✔ moving native controls sample at two seconds while skill and driver changes remain prompt (1.553006ms)
+✔ export identifies current logger even when startup record was cleared and rejects unsafe version text (0.409633ms)
+✔ actual native pace factor is bounded, read-only and absent for unverified drivers (9.307469ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 114.142236

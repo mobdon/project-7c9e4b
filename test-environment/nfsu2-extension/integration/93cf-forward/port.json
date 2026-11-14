@@ -1,0 +1,88 @@
+{
+  "original": {
+    "revision": "8abf9be8",
+    "hash": "14074507a84d43365610feae3a8fad80f4637b891e2ed03239460b104f986cbd",
+    "size": 38566252
+  },
+  "next": {
+    "revision": "93cfc6e9",
+    "hash": "e03eca29aa8cba3ac4a96836ad3d86dd5eb8258704c0e6260ecc5ef955536a03",
+    "size": 38615704
+  },
+  "oldBase": 24206,
+  "newBase": 24235,
+  "shippedConfigSha256": "3b7608175845d5b512547fdeb30b2436e20c63d204ed200a5909ebe536ca2896",
+  "roundTripExact": true,
+  "helperCount": 26,
+  "privateGlobals": 581,
+  "newTypes": 0,
+  "hookSites": [
+    {
+      "index": 1298,
+      "length": 1041,
+      "hash": "c283c1cffe3de675967f9f30592d199d477baf6247f2bc1449845ef46b0e8310",
+      "insertions": [
+        860
+      ]
+    },
+    {
+      "index": 13185,
+      "length": 4170,
+      "hash": "6837a3167447aaa00db7968ddfba803140cfb3427e0b9cd0f8cb55e3b296ddb4",
+      "insertions": [
+        2855,
+        3373,
+        4016,
+        4169
+      ]
+    },
+    {
+      "index": 6140,
+      "length": 151,
+      "hash": "dddfb2c77a00d29da2ed14ee2c6ca22e772045daa7d824875988d36093239e2b",
+      "insertions": [
+        150
+      ]
+    }
+  ],
+  "relocations": [
+    {
+      "from": 678452096,
+      "to": 678455168
+    },
+    {
+      "from": 678642880,
+      "to": 678652736
+    },
+    {
+      "from": 678645504,
+      "to": 678655360
+    },
+    {
+      "from": 695746176,
+      "to": 695751408
+    },
+    {
+      "from": 695778944,
+      "to": 695784176
+    },
+    {
+      "from": 695778948,
+      "to": 695784180
+    },
+    {
+      "from": 703620376,
+      "to": 702897808
+    },
+    {
+      "from": 706048544,
+      "to": 705325968
+    },
+    {
+      "from": 706033164,
+      "to": 705310588
+    }
+  ],
+  "nativeAbiExact": true,
+  "liveVerified": false
+}

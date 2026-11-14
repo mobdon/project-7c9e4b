@@ -1,0 +1,945 @@
+{
+  "kind": "STATIC-CURRENT4C-NATIVE-ONLINE-RANK-BUILDER-CONTEXT-CONTRACT",
+  "rawSha256": "40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8",
+  "peSha256": "f9dd86c054878ce6276beb07c1fd61874f7a1e4bf1f241b084c65b73e24168a7",
+  "gameCodeExecuted": false,
+  "gameCompiled": false,
+  "gameInstantiated": false,
+  "memoryCreated": false,
+  "productionOrFrozenConditionsModified": false,
+  "fullAsciiBuilder": {
+    "function": 893,
+    "guestAddress": "0x588b70",
+    "abi": {
+      "kind": "guest-thiscall",
+      "receiver": "ECX native session",
+      "stackArguments": 2,
+      "returnStackCleanupBytes": 8
+    },
+    "nativeSession": {
+      "accessor": 4177,
+      "singletonAddress": 8823688,
+      "constructor": 13557,
+      "readyByteOffset": 72,
+      "constructorReadyByte": 0
+    },
+    "gates": [
+      {
+        "condition": "session+72 is zero",
+        "nativeReturn": -1
+      },
+      {
+        "condition": "cached RESU string8821052 empty",
+        "nativeReturn": 0
+      }
+    ],
+    "bodyCapacityBytes": 2408,
+    "keyValueWriters": [
+      8915,
+      9384
+    ],
+    "fields": [
+      {
+        "name": "AUTH",
+        "sourceAddress": 8820872
+      },
+      {
+        "name": "WHEN",
+        "sourceAddress": 8820936,
+        "type": "integer"
+      },
+      {
+        "name": "REPT",
+        "sourceAddress": 8820940
+      },
+      {
+        "name": "RESU",
+        "sourceAddress": 8821052
+      },
+      {
+        "name": "VENUE",
+        "constant": "NFSUG2"
+      },
+      {
+        "name": "SKU",
+        "nativeProducer": 9801
+      },
+      {
+        "name": "NAME%d",
+        "sourceAddress": 8820956,
+        "slots": 6,
+        "stride": 16,
+        "termination": "Stop on first empty cached name or after six slots"
+      },
+      {
+        "name": "TEAM%d",
+        "constant": "NFSUG2"
+      },
+      {
+        "name": "ROOM%d",
+        "constant": ""
+      }
+    ],
+    "queue": {
+      "function": 14493,
+      "commandU32": 1918987883,
+      "commandText": "rank",
+      "guestCallSite": "0x588d20"
+    },
+    "ordinaryParent": {
+      "function": 14780,
+      "guestCallSite": "0x4d0270",
+      "sessionAccessor": 4177,
+      "requiresNativeStateMachineAndCallbackContext": true
+    }
+  },
+  "readyProducer": {
+    "function": 14808,
+    "guestAddress": "0x586b80",
+    "abi": "Guest cdecl/plainRET: caller owns argument cleanup",
+    "entryArguments": {
+      "argument2": "reply descriptor at entryESP+8",
+      "argument3": "native session object at entryESP+12"
+    },
+    "guards": [
+      "session+76 native pending request record must exist",
+      "pending request+8 command must equal0x636f6e6e (conn)",
+      "reply descriptor+12 status must equal0"
+    ],
+    "nativeOutput": "session+72 byte becomes1 on actual successful connection callback",
+    "mustNotAuthor": [
+      "session ready byte",
+      "pending connection record",
+      "connection result to force success"
+    ]
+  },
+  "nativeCacheProducer": {
+    "function": 14652,
+    "branchCommandU32": 1886151033,
+    "branchCommandText": "play",
+    "explicitCorrection": "The cache-populating branch is play, not game.",
+    "entryArguments": {
+      "argument2": "event descriptor: command+8 and ASCII body pointer+16",
+      "argument3": "native adapter state: GameInfo record associated with+28"
+    },
+    "parser": {
+      "function": 20008,
+      "outputBytesCleared": 1248
+    },
+    "resetFunction": 11523,
+    "cacheTransfers": [
+      {
+        "parsedOffset": 296,
+        "meaning": "AUTH",
+        "cacheAddress": 8820872
+      },
+      {
+        "parsedOffset": 292,
+        "meaning": "WHEN",
+        "cacheAddress": 8820936
+      },
+      {
+        "meaning": "Native-derived REPT",
+        "cacheAddress": 8820940
+      },
+      {
+        "parsedOffset": 452,
+        "parsedStride": 100,
+        "meaning": "Player names",
+        "cacheAddress": 8820956,
+        "cacheStride": 16
+      }
+    ],
+    "remainingPrerequisite": "Native adapter initialization, object ownership and ordinary parser/dispatch context are not yet closed."
+  },
+  "resuProducer": {
+    "function": 598,
+    "role": "Upstream native legacy result bitstream producer, not the full ASCII rank body builder",
+    "encoder": {
+      "function": 7769,
+      "encoding": "Base64",
+      "alphabetAddress": 7986528,
+      "paddingCharacter": "="
+    },
+    "cachePublisher": {
+      "function": 10737,
+      "boundedCopyFunction": 8807,
+      "authGateAddress": 8820872,
+      "destinationAddress": 8821052,
+      "limit": 1023,
+      "exactV128WordEvidence": [
+        {
+          "hex": "322358003c99860000000000ff030000",
+          "words": [
+            5776178,
+            8821052,
+            0,
+            1023
+          ]
+        }
+      ]
+    },
+    "remainingPrerequisite": "Genuine result input and parent context required by598 have not yet been closed. No synthetic RESU or report output may be written to make the builder proceed."
+  },
+  "annotationTransport": {
+    "nativeRuntimeSend": 24488,
+    "preSend": 22571,
+    "patchParser": 22572,
+    "rankAnnotationConsumer": 22409,
+    "postSend": 22573,
+    "guards": {
+      "socketKind": "stream",
+      "onlineEnabled": true,
+      "destination": "10.77.0.1:20922",
+      "genuineConnectionHandleRequired": true
+    },
+    "streamCloneBytes": 32,
+    "patchMode": 1,
+    "rankHeaderOffset": 4,
+    "queueToSendLimit": "Normal native queue processing between14493 and the guarded24488 path has not been exercised or fully source-closed by this narrow review."
+  },
+  "offlineSyntheticContextFeasibility": {
+    "status": "SOURCE-SUPPORTED-DIRECTION-NOT-AN-EXECUTABLE-PROPOSAL",
+    "possibleFutureScope": "A separate explicitly synthetic protocol-context API unit could use genuine constructors/parsers/connection callbacks and native598→893 output production after all prerequisite ownership and dispatch paths are closed.",
+    "notYetClosed": [
+      "Ordinary pending conn request creation and native readiness callback dispatch",
+      "Adapter initialization/ownership and normal play event parser dispatch",
+      "Genuine598 result input/parent context",
+      "Normal native queue processing to guarded pre-send annotation"
+    ],
+    "outputLabelRequired": "Native-built from disclosed synthetic fixture inputs; never captured real account/server report data.",
+    "notImplementedOrExecuted": true
+  },
+  "limits": [
+    "All findings are source-only and pinned to current raw4c. No native report/rank body was generated or sent.",
+    "The full ASCII rank builder893 is separate from the unavailable23139 hub producer in the minimal LAN fixture.",
+    "No writable readiness/cache/RESU/name/report-body output is proposed or supplied. Native producers and natural unavailable guards must remain intact.",
+    "Static whole-module scan decoded24863 of24865 bodies.24154 and24326 contain unsupported try_table opcode0x1f; caller absence is not claimed across these two bodies.",
+    "PE disassembly and WABT decompilation are derived evidence checked against pinned bytes; current raw WASM is authoritative.",
+    "This contract does not establish server acceptance, complete client-report coverage or detector/online clearance."
+  ],
+  "staticVerifiedBodies": [
+    {
+      "index": 598,
+      "rawBodySha256": "d3a4a3ef803d1a93159c35582e742b2d12c3f116a505266e858065fa536d6bfb",
+      "bodyBytes": 11329
+    },
+    {
+      "index": 893,
+      "rawBodySha256": "bafb9a0e15a035bc08150d544f6edbeb485f50e73d469aeed8cbd8f776b5b406",
+      "bodyBytes": 2438
+    },
+    {
+      "index": 2067,
+      "rawBodySha256": "102e56e0f84f41174cb7d569dbe62abac7cd30a8493b67688d2a70a5da552d5d",
+      "bodyBytes": 220
+    },
+    {
+      "index": 4177,
+      "rawBodySha256": "72f6c9afa3cfef8b0d096730b5513234d958320f3e3aea923591940fcd3d7223",
+      "bodyBytes": 340
+    },
+    {
+      "index": 5269,
+      "rawBodySha256": "42919fe01baaf14e0fd02c4395c43de5614aedee06d894180e4e7663d69b3c0c",
+      "bodyBytes": 989
+    },
+    {
+      "index": 5583,
+      "rawBodySha256": "a2a2952c174ae3d9c5220a75d703857050379f8e2962b9be03641292fd6b1542",
+      "bodyBytes": 800
+    },
+    {
+      "index": 7769,
+      "rawBodySha256": "7f2bb7d58a77412b54c29179ce897ac3da286d7c56c56a5b96ca27c4eeab8e51",
+      "bodyBytes": 1142
+    },
+    {
+      "index": 8496,
+      "rawBodySha256": "5b9a0253113831cb905c22e8da53212e4b2e970b7c2dc1c9bfa28438137c81d8",
+      "bodyBytes": 169
+    },
+    {
+      "index": 8651,
+      "rawBodySha256": "3be2a3b5d7e77abc0596022405f136e856ad8a4a9ed03d55c76004e610b62d86",
+      "bodyBytes": 271
+    },
+    {
+      "index": 8807,
+      "rawBodySha256": "fd03134768f9bed3245d76b6102f1f8e783ef5d48a1354acf285cd8a99eef6aa",
+      "bodyBytes": 317
+    },
+    {
+      "index": 8915,
+      "rawBodySha256": "dfaa2869f5641324646d36a97fb80da9b20645ed6c1847ec5a57b8144d6bddd7",
+      "bodyBytes": 1818
+    },
+    {
+      "index": 9384,
+      "rawBodySha256": "77f7d44a6571f604205a966fe9835d625a2694a4bae29e491eebd3efc4c95789",
+      "bodyBytes": 1377
+    },
+    {
+      "index": 10737,
+      "rawBodySha256": "aa796ffa026efac3397c8b909018adac0766f7afe6b940c996a1a6102d3c8160",
+      "bodyBytes": 206
+    },
+    {
+      "index": 11523,
+      "rawBodySha256": "aaf1ea36c240bdae36e96951e04d41a6080a34aafe97dcf8d3f6d5527addf698",
+      "bodyBytes": 183
+    },
+    {
+      "index": 13557,
+      "rawBodySha256": "2caa186a607de0a0141d26d25239cf7041f81c011b57ba8a664eb20d31e46723",
+      "bodyBytes": 616
+    },
+    {
+      "index": 14339,
+      "rawBodySha256": "adef997bfebed1b05d9d0857fad720ae6a97f2986aab7d002e015096523f3d45",
+      "bodyBytes": 545
+    },
+    {
+      "index": 14493,
+      "rawBodySha256": "40fb527d2bae1db754018a36674e74b6455b9579983ed30b724a87e5cef706d9",
+      "bodyBytes": 944
+    },
+    {
+      "index": 14652,
+      "rawBodySha256": "b07e1d0d3de7954666dd62464ddf44ac7626453d28dfe09cfa85dc8ae2856e3b",
+      "bodyBytes": 9751
+    },
+    {
+      "index": 14780,
+      "rawBodySha256": "69c62de4beae7ed91d32225b7199b9d5bd035a310d7d305243879bef85debfdf",
+      "bodyBytes": 5873
+    },
+    {
+      "index": 14808,
+      "rawBodySha256": "e77552c524d99d23ca52abf46421550625a904f77fae0706483cd28b8e93b4df",
+      "bodyBytes": 1017
+    },
+    {
+      "index": 20008,
+      "rawBodySha256": "3a23ae49aaaa8a8857a231670c5476eb232e304f99c61ad55c60f47f9a346823",
+      "bodyBytes": 8533
+    },
+    {
+      "index": 21272,
+      "rawBodySha256": "bcc33b5b06dbb7294d962b4e030c825d7dee61366831b0c049ca5ecb9ce67acb",
+      "bodyBytes": 18
+    },
+    {
+      "index": 22409,
+      "rawBodySha256": "8591ffa26442ea3391bc2e98fc3bc0b60a3d695f2d7c3e8182cace82d3f57235",
+      "bodyBytes": 1356
+    },
+    {
+      "index": 22415,
+      "rawBodySha256": "eae7d2c20b7f457ab0e79333d45977b632089f7327d435ea77db1428f692756d",
+      "bodyBytes": 11
+    },
+    {
+      "index": 22416,
+      "rawBodySha256": "3748c9022f707d8ac5ee277b239769a2460244aaeea3559ffe2d5c7a5aa2a65c",
+      "bodyBytes": 11
+    },
+    {
+      "index": 22445,
+      "rawBodySha256": "5890d3df8e3db90cd1598caa34d4888dee671ae4f07bbe7a7211791d65f36ddb",
+      "bodyBytes": 351
+    },
+    {
+      "index": 22449,
+      "rawBodySha256": "350a20a1feec0984c59d5be592c6b2d29bc26bc3b6580af5dd4a34743ec1c03d",
+      "bodyBytes": 786
+    },
+    {
+      "index": 22460,
+      "rawBodySha256": "e916c605e3bbce93d77f9de5b176ad774f3ebcf09172683724f8b19c6972b288",
+      "bodyBytes": 694
+    },
+    {
+      "index": 22478,
+      "rawBodySha256": "12020ffb05c5dda80ee5f597d1131bea88d0714bf676f05b520e54ee29d32821",
+      "bodyBytes": 1413
+    },
+    {
+      "index": 22571,
+      "rawBodySha256": "3e0f99030deb2b8f867587ddfb0272ea485199b567784355efb1a0d219b8dd54",
+      "bodyBytes": 156
+    },
+    {
+      "index": 22572,
+      "rawBodySha256": "59b7cf9b44343315f76c3313cd24fb25029304cb729f5e284dc21aa7a4500159",
+      "bodyBytes": 698
+    },
+    {
+      "index": 23139,
+      "rawBodySha256": "eb05739abd068da8dc33970100296d7b0701054b64d6440c8993ce6911130a7c",
+      "bodyBytes": 2633
+    },
+    {
+      "index": 24488,
+      "rawBodySha256": "c99f6c2a7f9b5d289a94b89164056b6ad359cadf365faac0d0176fca05cf2baf",
+      "bodyBytes": 2488
+    }
+  ],
+  "pins": [
+    {
+      "path": "nfsu2-extension/native/wasm-inspector-v0388.cjs",
+      "sha256": "32cc83a8cad4fa9b4805f44f06b1cc93c791d2c69d502c5d52033dcf2866965e",
+      "bytes": 2403
+    },
+    {
+      "path": "research/current-native-image/SPEED2.EXE",
+      "sha256": "f9dd86c054878ce6276beb07c1fd61874f7a1e4bf1f241b084c65b73e24168a7",
+      "bytes": 4800512
+    },
+    {
+      "path": "work-online-v0426/native-review/port-core.cjs",
+      "sha256": "381de0fcd29f2fd7bc257d0b04518b37f8f6575152e0a4d299bd6d832a8e454c",
+      "bytes": 4705
+    },
+    {
+      "path": "work-update-check-20261113/live-build-4c35f9f5/game.wasm",
+      "sha256": "40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8",
+      "bytes": 39330573
+    },
+    {
+      "path": "work-update-check-20261113/native-named-observer-report-source-4c-v1/application-source-extraction.json",
+      "sha256": "c73f1be05ae6ccfa9b258883597d3ef7a064aa33ce35588838c2fed271c7a2a7",
+      "bytes": 4506
+    },
+    {
+      "path": "work-update-check-20261113/native-named-observer-report-source-4c-v1/f22409.dcmp",
+      "sha256": "3830441f29cc67fafb0a6584cb9e11d230fc5a3eba2d700a15525efed88f101f",
+      "bytes": 7921
+    },
+    {
+      "path": "work-update-check-20261113/native-named-observer-report-source-4c-v1/f22571.dcmp",
+      "sha256": "0a4d8e6466f8ded304d754948a00cc9bcf05dbb8ccbbf2f82e4a00a476a79d57",
+      "bytes": 3780
+    },
+    {
+      "path": "work-update-check-20261113/native-named-observer-report-source-4c-v1/f22572.dcmp",
+      "sha256": "3040694880112384d705726dbc4d87280454579f3c855995911c14e2e2f05628",
+      "bytes": 5661
+    },
+    {
+      "path": "work-update-check-20261113/native-named-observer-report-source-4c-v1/f598.dcmp",
+      "sha256": "4fe46388b7a7d4a5594449d8bb47fd2468281404307e5d47130dda951df9a72c",
+      "bytes": 37669
+    },
+    {
+      "path": "work-update-check-20261113/native-named-observer-report-source-4c-v1/isolated-f22409.wasm",
+      "sha256": "9ad59d4ac7dbf68057764933e82c4a46146d2fb6f7864c5c121fdfe7b6183f3e",
+      "bytes": 4344
+    },
+    {
+      "path": "work-update-check-20261113/native-named-observer-report-source-4c-v1/isolated-f22571.wasm",
+      "sha256": "8e86d11a50d2c4a1a824139c9b8cf2f6fe0f5719aeee9fcaa58892508cc10da2",
+      "bytes": 3020
+    },
+    {
+      "path": "work-update-check-20261113/native-named-observer-report-source-4c-v1/isolated-f22572.wasm",
+      "sha256": "501c0954866c6085c005fe09ba51a208dd074295771f93f791ed27803e560c92",
+      "bytes": 3583
+    },
+    {
+      "path": "work-update-check-20261113/native-named-observer-report-source-4c-v1/isolated-f598.wasm",
+      "sha256": "3e1db3d073309a751cc8c99324d72813657648d5efc7ef2a21d0c0d71a6f8ce3",
+      "bytes": 14145
+    },
+    {
+      "path": "work-update-check-20261113/native-named-observer-report-source-4c-v1/normal-native-producer-extraction.json",
+      "sha256": "22ddab51e13a551e24f18e643df176fc0c3da48d5a5af94f1025912e13c86ca2",
+      "bytes": 3885
+    },
+    {
+      "path": "work-update-check-20261113/native-named-observer-report-source-4c-v1/online-builder-source-extraction.json",
+      "sha256": "50b6cd730839ba6c4b13e5c0bc0c10c5d978bb61b528a6c8d5306da7981da073",
+      "bytes": 1763
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-contract-4c-v1/publish.cjs",
+      "sha256": "9606b45fda524e56bf803c4ecdf015524f2ed087f38065f245cdcb9bd2410f89",
+      "bytes": 10897
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/context-references.json",
+      "sha256": "881041aa68e17ef9eba7115f9ad8801e6a62efd5eec9e2ac9f771e6e950619d1",
+      "bytes": 58038
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/extract.cjs",
+      "sha256": "25ea9a2111aea33418e127d71c465077a70017b93a4f8e81c6bb916580326af9",
+      "bytes": 3679
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/f24488.dcmp",
+      "sha256": "f8d595ca89a66a23eff79ce8aeb513b328ef4379a3de0d7c2b12f0d048c0317f",
+      "bytes": 11803
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/f893.dcmp",
+      "sha256": "acbb960c82324c2b4fbcdc1c8348d9a87f47574945f83cd9c36e21718e87b644",
+      "bytes": 9661
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/field-evidence.cjs",
+      "sha256": "1d2b8a742b5715603bc16cb269b1b919984bc4dd58a454faa4d3954731908f43",
+      "bytes": 1284
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/field-evidence.json",
+      "sha256": "0f5834c34594f9295cc4d862ade6eca5cbfc2a64475aabc08124423d607782c5",
+      "bytes": 1403
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/isolated-f24488.wasm",
+      "sha256": "d1b396cd20517b6daa328ce0639c94440fb1690e4e0f84f549d12f85f58ce51a",
+      "bytes": 5497
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/isolated-f893.wasm",
+      "sha256": "830163913b462998b01eb76fece65d18c79e98f0744f04de2f056f7d642177fe",
+      "bytes": 5357
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/online-builder-source-extraction.json",
+      "sha256": "30bd8fd57a85d2a181d342777b6c033410bf21a6259da3c840487fca6b3aa4a6",
+      "bytes": 1817
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/packed-context-references.json",
+      "sha256": "45420f398e327c0fcef22f6fd99dcb4e0110262cd77d669a4a31cac142997ab4",
+      "bytes": 2154
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/pe-evidence-v2.json",
+      "sha256": "707fc06554fc4abb9f56be264318a0d196755822dc64004a6709877f7c232931",
+      "bytes": 36218
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/pe-evidence-v2.py",
+      "sha256": "72653d6566d1a7a805af8661e67b36732bd50771dbae672afe3ede491c652941",
+      "bytes": 2296
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/pe-evidence.json",
+      "sha256": "225a41b096e54da228d53c47e481df9cffb18f8fe4d4b09a1d4f9eba79227e96",
+      "bytes": 58309
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/pe-evidence.py",
+      "sha256": "00865f0a5fc56e798aecff34e58065f8f9ce1c54284e85867fb72b14a1414f48",
+      "bytes": 2291
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/pe-readiness.json",
+      "sha256": "dd4562dda05539f8c6e1a44c6fc4b066e15cc775a3bff21d57eb13f49fb0aa1a",
+      "bytes": 34455
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/pe-readiness.py",
+      "sha256": "2c5864fabf96d2e3f548a51f537884b2f3b81eddf0c1acb80c33a415c9565926",
+      "bytes": 2296
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/readiness-candidates.json",
+      "sha256": "7c030d81ba1b4e524680ca4518480adc74f7d36d677ed949a8f33e42f729084a",
+      "bytes": 12983
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/readiness-scan.cjs",
+      "sha256": "89898f99273cd243ea8765d5575d7130b938f49ce966e4ebeccde3a525b5b7d2",
+      "bytes": 2225
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/readiness-target.cjs",
+      "sha256": "d197cbafacff4fb549c2026af2c4a85a21015e12a0eb70558d5c1715f4481db2",
+      "bytes": 1161
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/readiness-target.json",
+      "sha256": "528f1e29f8fa1f97bb1ef7fbe506b0b1009522488bd75dbd3e05d6db86df8e01",
+      "bytes": 885
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/references.json",
+      "sha256": "63c55c7338cb09a6383c3234e30c7469d251ad59fe2b4c044d36e92fbc813910",
+      "bytes": 9863
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/scan-context.cjs",
+      "sha256": "1f538f615efc0e45c3b6dfc7396f54a59de81b79a7e216b1d5445f912901a055",
+      "bytes": 1556
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/scan-packed-context.cjs",
+      "sha256": "149a710fcfdc56d5b16eac9c3f01ec2f7ac68877ec459a1c4325175a4982d9e7",
+      "bytes": 1545
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v1/scan.cjs",
+      "sha256": "5f13e91e6475207856714bb3fa7db6de3ec50ae5a27e87f2e3b0e5fbea779458",
+      "bytes": 2787
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v2/extract.cjs",
+      "sha256": "ea479ab835e9d4fc4c181be419c402ee1a7645aff7e5585d4983e513e03fd830",
+      "bytes": 3687
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v2/f22415.dcmp",
+      "sha256": "effc945f5849656c62a86e7bd91dcc4c4276ae0fd42bf717fa66c20fea441931",
+      "bytes": 3398
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v2/f22416.dcmp",
+      "sha256": "201a48d08f43e9e8b9feb9a7fcd4e028bb5319a5a3d7257caec68140bc860252",
+      "bytes": 3398
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v2/f23139.dcmp",
+      "sha256": "f1fbaf4eb569fb2ddc8f66f89bd4d3930275156934ef0fc1135c04799e6d3fbc",
+      "bytes": 12019
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v2/followup-references.json",
+      "sha256": "20af33fdb30956000f6f4696d5021dafbb83e1924aedb916fe0ad05e2dfc2775",
+      "bytes": 29967
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v2/isolated-f22415.wasm",
+      "sha256": "cfb149c663347695ab4f0617510c838748e8fa19ce62b929d7b293e65aa7eab8",
+      "bytes": 2852
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v2/isolated-f22416.wasm",
+      "sha256": "5ce2e8451d4e2c986218d67d6a066f08772c4f11721ad78b52dc04593b77a55a",
+      "bytes": 2852
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v2/isolated-f23139.wasm",
+      "sha256": "e02e67dc9420f1dac08f9e31a524d98918297ff15b20581e4f6268c8c747f67e",
+      "bytes": 5810
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v2/online-builder-source-extraction.json",
+      "sha256": "057ee727a189c5eafd107b6b797fa744217815aa325417fec153d35197edcff0",
+      "bytes": 2305
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v2/scan-followup.cjs",
+      "sha256": "3f6f3f38d5998cc11eb97b5ffee4d0b2b1fb7d40a6afff386a2a2932c93ccb3c",
+      "bytes": 1539
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/extract.cjs",
+      "sha256": "23f91af700784eb5ec159c931ce98e6596db350da80a37c1ca34d542cd73323d",
+      "bytes": 3720
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/f14493.dcmp",
+      "sha256": "ec4c0b0d7b92c666054f540669ac54b54f304f81962c0c9fef967afbaa02d00a",
+      "bytes": 5529
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/f14780.dcmp",
+      "sha256": "ffc0d041a9654d901f9ab89fbba95343e11fc20bd1db54c4022064bf5af3700d",
+      "bytes": 18259
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/f22445.dcmp",
+      "sha256": "9f214529eb399743410902bbcaf2bb636a962979bc5fd942f7a531dcb2d741b8",
+      "bytes": 4578
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/f22449.dcmp",
+      "sha256": "79534e4f3c39ee07287b249bf20d6e3ea2ac4be097e9d705105e9ad3c645ff68",
+      "bytes": 5792
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/f22460.dcmp",
+      "sha256": "ca22fc7bfa5ebbd9084343e65455a1a67c42b767e11ffff7bcb5e467e9496495",
+      "bytes": 5227
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/f22478.dcmp",
+      "sha256": "c3f71ea1258020eb01fb4cf0bef0682509028d19c5bcb96f9d27e5f57bf455f9",
+      "bytes": 7737
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/f8496.dcmp",
+      "sha256": "270c4ca1a4db87c128b2199e4fcc23f9508503d21c0caf228072e818e02ea6bd",
+      "bytes": 3859
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/f8915.dcmp",
+      "sha256": "5b29355fe4ed6c05e05a1a6c724495474e68ab377239a5de851d6254f6b42476",
+      "bytes": 7909
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/f9384.dcmp",
+      "sha256": "738bd16518b299ada5de1a84f4a17eeb1c4611b9798b87168511070814673eee",
+      "bytes": 6986
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/isolated-f14493.wasm",
+      "sha256": "fe1bce0598491e53544d1b5792d22f5902cb4c31c702b99046f398de30fa50cd",
+      "bytes": 3828
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/isolated-f14780.wasm",
+      "sha256": "e27888d5fab258cdfdbd220ed6c660d4041e8c7807a69ead452f5dd00c1de3ee",
+      "bytes": 9137
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/isolated-f22445.wasm",
+      "sha256": "f752ad11ccfa9bddb082f5a4af685a926dce04416aa79392a77b79e4cdb41a2f",
+      "bytes": 3295
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/isolated-f22449.wasm",
+      "sha256": "60040c92c1aa2f522c28152f369afcf206df72f4d03ea906f70ce1dbb0c8b501",
+      "bytes": 3710
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/isolated-f22460.wasm",
+      "sha256": "cf25891d730fa389b80454a14eac6521d1bd084bf919ba833e23de79b81c0763",
+      "bytes": 3579
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/isolated-f22478.wasm",
+      "sha256": "42a0af5cdfdb0fd0e5429630ab886dbaf0e757b8291904fc102f17537008ccb5",
+      "bytes": 4357
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/isolated-f8496.wasm",
+      "sha256": "18027842d294591237f8525fa62976122822273094e0593f98f1c8f3914b562d",
+      "bytes": 3011
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/isolated-f8915.wasm",
+      "sha256": "8c03ea81a7636bcf2d00857fc190001b01de5f38ee7c7a01edd2a39f39d2bbfc",
+      "bytes": 4736
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/isolated-f9384.wasm",
+      "sha256": "a3c9b7763252a1925c3eec58b5e0cd240da8c931bbcff980fc6c6d939bfb670b",
+      "bytes": 4311
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/online-builder-source-extraction.json",
+      "sha256": "40786bc577d36f79f1008e7d33019848a83bed02624aa9232f9e53cdf61d36f4",
+      "bytes": 5606
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v4/extract.cjs",
+      "sha256": "1c1e6781ec0875c3f71daa2bb20f77ae049a15fc59981c287bf1b5778dac0a2b",
+      "bytes": 3675
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v4/f21272.dcmp",
+      "sha256": "707e226669cd196f63de0a85760d410b010d92b1f6550e99032e60dc260130a0",
+      "bytes": 3409
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v4/isolated-f21272.wasm",
+      "sha256": "230d2b7109ef865ece1dc4a4753194dae71ead7cea8fa80bf51a2173f4fd58fc",
+      "bytes": 2859
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v4/online-builder-source-extraction.json",
+      "sha256": "1b66906777cccb8b80a20eade86d4bac3ec423b556178461c7c6daad6b32f0c8",
+      "bytes": 1107
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v5/extract.cjs",
+      "sha256": "9495fa6f48354f624660c96e58af7f12d93b288eb72681c7ccc353d4218a23f3",
+      "bytes": 3707
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v5/f10737.dcmp",
+      "sha256": "f8101868f47e27d3f5ba40bed440a25d4179c262747b67dc80323feaaae09903",
+      "bytes": 3899
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v5/f11523.dcmp",
+      "sha256": "764ffe252ae1d85e233e7a911ec6470e92a87ec54a35447a4bee0b219f4f6f74",
+      "bytes": 3699
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v5/f14652.dcmp",
+      "sha256": "6b8dc5f9e69868f021409c47cc4f1f931b0e890a13695cebe206a61f0b5cb6f9",
+      "bytes": 28247
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v5/f2067.dcmp",
+      "sha256": "270a207d8615d47e0b622ab8cd1b7c8bc74c6b25d942c571ee6b57dd8ab5fce0",
+      "bytes": 3815
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v5/f4177.dcmp",
+      "sha256": "45287c7733f4df83e697c513075a6766dabc6b49ef2d9cc2b15f1cb72a2a2fb6",
+      "bytes": 4251
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v5/f5269.dcmp",
+      "sha256": "e916802c877f1d620830c97698cd59d39c69122ad7adbaa0dad959d8f6e31fb0",
+      "bytes": 5617
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v5/f5583.dcmp",
+      "sha256": "e6d9e6930997958b4cc2336b778f27eb2af3ece77d0c13817d0ba376f9e2edd5",
+      "bytes": 5581
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v5/isolated-f10737.wasm",
+      "sha256": "013e7aa7e5cd0dec56b7268cc71359773b7dcc91b3de1ece0db2aa2195a6d48b",
+      "bytes": 3069
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v5/isolated-f11523.wasm",
+      "sha256": "2572b527efa7a4685ce6febec1bb52637769d49e7aa1db795d6d372b1dd327f9",
+      "bytes": 3026
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v5/isolated-f14652.wasm",
+      "sha256": "ba9bb230da326b3463f466fdedc812a242d288621669fc4c869477b1f8daa7e2",
+      "bytes": 12853
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v5/isolated-f2067.wasm",
+      "sha256": "fb75a5ceeea928f2bcbe246dcf74a9a5aa08b20a306c3564330a39d3e5c12aa6",
+      "bytes": 3082
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v5/isolated-f4177.wasm",
+      "sha256": "b6c23a22743b767c2e2122cb49fa3559eda5d1668b2affb0c4e4e93157e03bd0",
+      "bytes": 3223
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v5/isolated-f5269.wasm",
+      "sha256": "560cde40a3bee73c1e328f7c2f4f85547abd32afe5f2825991a747c07ffcb248",
+      "bytes": 3892
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v5/isolated-f5583.wasm",
+      "sha256": "2d5e8c297a4597144adec16e5dc5bdc7eb117b61ae3b2c9fab7cf59a9597a752",
+      "bytes": 3703
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v5/online-builder-source-extraction.json",
+      "sha256": "1143dac5da2d27309b441473efa93d1d868fe75483c62c8a48985615a21c9820",
+      "bytes": 4341
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v6/extract.cjs",
+      "sha256": "a2ae6b97de2f11b88b1a76d5b7efa3de08f5d9ed10c335c7d2c0ec6c25cdfcfa",
+      "bytes": 3692
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v6/f13557.dcmp",
+      "sha256": "c32b81845b2d3dfc9d3baea743b8cf7a45580316b2ead028a265631fc9ad05de",
+      "bytes": 4621
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v6/f14339.dcmp",
+      "sha256": "e30c581d7a003659182692897ce4fadc84db0de36a02c7edc4851d004bdde4fc",
+      "bytes": 4929
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v6/f20008.dcmp",
+      "sha256": "05c7b1948f877764ffd924073f2561b896475ec890198a4cd81f5cfae161d401",
+      "bytes": 24201
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v6/f8651.dcmp",
+      "sha256": "a4a8b3e84c8fe7fd9ebe66162cfe24cea867c67bfc0901b4a96d520fc02176c8",
+      "bytes": 4026
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v6/isolated-f13557.wasm",
+      "sha256": "2350f3fc53fcf20ad223ebba39f10cda162d03b54f3bbae75a1f59b52ac025f8",
+      "bytes": 3479
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v6/isolated-f14339.wasm",
+      "sha256": "f0f6641ddd8fd51f8d74df4df9625cc236c01e40fbf74bcfdaf065c4f498f00f",
+      "bytes": 3448
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v6/isolated-f20008.wasm",
+      "sha256": "86e489534d8d2fcefaf9b3f80af9aab77a33a5cba0cfd57c1eefe99fea2989c8",
+      "bytes": 11172
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v6/isolated-f8651.wasm",
+      "sha256": "402789c93e2676f2e3eec7392dfc6f786e910f3154da075e47eb91ddba7addff",
+      "bytes": 3113
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v6/online-builder-source-extraction.json",
+      "sha256": "826a1df6f418a2808735ff6f1fd5047bb912b07920ffb95d2cfd1d468296dccb",
+      "bytes": 2667
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v7/extract.cjs",
+      "sha256": "93f62cc525c3d272e4d5ca7be8e248f024bb3ecf9e1f65cb4a001050857c88a2",
+      "bytes": 3675
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v7/f14808.dcmp",
+      "sha256": "c933f6232fe675119d5d57b8615f40a43a59c434a8fc02948d53e0914adffe43",
+      "bytes": 5556
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v7/isolated-f14808.wasm",
+      "sha256": "13b76fc84cc3ebe138cd9141ce2c4f448bc162fa0cb8012d6763fe6ed97b39cc",
+      "bytes": 3917
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v7/online-builder-source-extraction.json",
+      "sha256": "601ae56ab64867e8a03174ffa35ca8aa6cdc8729beffe8263cb9a327ecaa7dbd",
+      "bytes": 1158
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v8/extract.cjs",
+      "sha256": "b2b378fc13e999395aae744be44a9aaefd94de064a07576d37c7c1766a925d48",
+      "bytes": 3679
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v8/f7769.dcmp",
+      "sha256": "d2a96659e1a35d403e38c310ba5b30d6a8e1c26aaf941ecae04e3c4a91d02262",
+      "bytes": 6705
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v8/f8807.dcmp",
+      "sha256": "25b62741a3069414e2fa57b413644cfc1beecff1d0780b4a9350552188531fed",
+      "bytes": 4207
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v8/isolated-f7769.wasm",
+      "sha256": "13948c34f3c48f742cf459555a1e8312c0ba128b0b0337abbc179a657be501c6",
+      "bytes": 3984
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v8/isolated-f8807.wasm",
+      "sha256": "9b676687cb2a08b303f946a2e39d87dde323ea4106991419831c8ccfcdc8d678",
+      "bytes": 3159
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v8/online-builder-source-extraction.json",
+      "sha256": "26027c5d5f65e03188add8a4ef14a11db3e93263cf4c2956d3a0595dcb1cbd74",
+      "bytes": 1568
+    },
+    {
+      "path": "work-update-check-20261113/native-selected-exporter-source-4c-v1/contract.json",
+      "sha256": "ed0f142ee8152486bab4693385daf5f3b63eb85bd12ec2a90857445d7a00c326",
+      "bytes": 6599
+    }
+  ]
+}

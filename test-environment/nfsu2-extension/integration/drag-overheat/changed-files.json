@@ -1,0 +1,41 @@
+{
+  "all": [
+    "extension/CHANGELOG.md",
+    "extension/README.md",
+    "extension/ai.js",
+    "extension/core.js",
+    "extension/diagnostics.js",
+    "extension/latest-profile.js",
+    "extension/manifest.json",
+    "extension/next-profile.js",
+    "extension/page.js",
+    "extension/popup.html",
+    "tools/add-drag-overheat.cjs",
+    "tools/ai-latest-body.json",
+    "tools/ai-next-body.json",
+    "tools/build-drag-overheat.cjs",
+    "tools/build-latest-profile.cjs",
+    "tools/build-next-profile.cjs",
+    "tools/drag-overheat.json",
+    "tools/drag-overheat.wat",
+    "tools/package-release.py",
+    "tests/ai-latest-bridge.wasm",
+    "tests/ai-next-bridge.wasm",
+    "tests/combined-profile-rebuild.test.cjs",
+    "tests/core.test.cjs",
+    "tests/diagnostics-page.test.cjs",
+    "tests/drag-overheat-native.test.cjs",
+    "tests/drag-overheat-prefix.wasm",
+    "tests/drag-overheat.test.cjs",
+    "tests/latest-profile.test.cjs",
+    "tests/latest-replay.test.cjs",
+    "tests/next-profile.test.cjs",
+    "tests/next-replay.test.cjs",
+    "tests/package-release.test.cjs"
+  ],
+  "regeneratedBinary": [
+    "tests/ai-latest-bridge.wasm",
+    "tests/ai-next-bridge.wasm",
+    "tests/drag-overheat-prefix.wasm"
+  ]
+}

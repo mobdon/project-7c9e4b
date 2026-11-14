@@ -1,0 +1,90 @@
+{
+  "schema": "nfsu2-route-geometry-freeze-v03811",
+  "scope": "TrackInfo-only guest-window and bounded per-read diagnostics",
+  "files": [
+    {
+      "file": "extension/route-probe.js",
+      "sha256": "6fac1a4f98b86f06f18c7e1d481afa54d721f1d161db6f05546f68b2aa8b70df"
+    },
+    {
+      "file": "extension/forward-geometry.js",
+      "sha256": "8fd2386fd14ec67645eeac465a977cbc59d304d707155430605e64de569de772"
+    },
+    {
+      "file": "extension/forward-driving.js",
+      "sha256": "76412d32e3d6f698e04508e50308c78d3a2c0c29cdeee205a9e432cf8b04ac8a"
+    },
+    {
+      "file": "extension/forward-native-config.js",
+      "sha256": "7b79f9efb1ec733671c5adf13f92a1deeed570ceb21d67cf899d0c31b2596802"
+    },
+    {
+      "file": "tools/route-trackinfo-window-v03811.cjs",
+      "sha256": "4334a6b8524a77d0b956d1f4fa48177f92463c5eae89d1f331be2de5091ee554"
+    },
+    {
+      "file": "tools/native-route-policy.cjs",
+      "sha256": "c4506f2cb498060890f5107c4f9ffb2a4a1c93507b544f86986931dc54a6bc8f"
+    },
+    {
+      "file": "tests/route-read-diagnostics-v03811.test.cjs",
+      "sha256": "a2391ad20f32ddf03ad8e71e33e5de1070c3cd7868069f927d3d70c54a46c042"
+    },
+    {
+      "file": "tests/route-trackinfo-native-v03811.test.cjs",
+      "sha256": "08472726a8f24378af46e5abb20cff733fa5013c97e7407f36026b6b114c9d2c"
+    },
+    {
+      "file": "integration/forward-native-profiles/8abf9be8.json",
+      "sha256": "1755327afe524f95d5660240c2b2ea1f0e15cb24cc0083202d49a1e8ced44e43"
+    },
+    {
+      "file": "integration/forward-native-profiles/93cfc6e9.json",
+      "sha256": "14408715b8f83dea30d283beeaa857807f57ea25cc1e6bcbf79162680cf5d33a"
+    },
+    {
+      "file": "integration/forward-native-profiles/aa2429fb.json",
+      "sha256": "a1d03899007bfc48dfca33d8b8810252e72ab178175713b1a2834151bf203daf"
+    },
+    {
+      "file": "integration/forward-native-profiles/15e5958f.json",
+      "sha256": "a73457efc0dcfebf6f31e93474eff937852edd28d61db656843f270aa6208364"
+    },
+    {
+      "file": "integration/forward-native-profiles/943ee537.json",
+      "sha256": "2c9848ce08a1e10c82e1dde6c3a8a0fe7d80766d8db18bd23bdadb94189d5855"
+    }
+  ],
+  "validation": {
+    "command": [
+      "node",
+      "--test",
+      "tests/route-read-diagnostics-v03811.test.cjs",
+      "tests/route-trackinfo-native-v03811.test.cjs",
+      "tests/forward-current-compatibility.test.cjs",
+      "tests/forward-preflight-guards.test.cjs",
+      "tests/forward-plan-diagnostics.test.cjs"
+    ],
+    "exitCode": 0,
+    "passed": 58,
+    "failed": 0,
+    "skipped": 0
+  },
+  "candidateManifest": {
+    "file": "integration/route-trackinfo-window-v03811/manifest.json",
+    "sha256": "26de08d278b0a0aa71f0220aeffe0ab2e6d6a7dbce071a4d50c3d955fcdce215"
+  },
+  "profileDelta": "Only fwg_context helper body changes in five profiles; all other fields and three older profiles equal frozen .10",
+  "readCodebook": {
+    "phases": 31,
+    "subreasons": 16,
+    "rawPointersLogged": false
+  },
+  "wholeRaceChecked": false,
+  "liveVerified": false,
+  "limitations": [
+    "Controlled native construction/projection boundary; no complete live race loop.",
+    "Guard103 live source remains unlocalized until bounded .11 diagnostics are collected.",
+    "No live cornering improvement or whole-race route capture claimed."
+  ]
+}

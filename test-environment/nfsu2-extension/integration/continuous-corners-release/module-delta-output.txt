@@ -1,0 +1,34 @@
+[
+  {
+    profile: 'legacy',
+    inputHash: 'ee5d281a3109240d5db25dc3921e1044672cf6d650eb58c3baa089b54fe2941f',
+    outputHash: '9565ea0e15b1dc0834fef163fd0379482884a2060968cee036965400b0f093a3',
+    changedFunctions: [ 4497, 4653 ],
+    validated: true,
+    compiled: true
+  },
+  {
+    profile: 'current',
+    inputHash: '5e33ad2cb4c4cc6893dee7cbd4d6e9bfb0f59a349d218fddbb5e3331ca69bc34',
+    outputHash: '19d7364413c024e3a29caaa8f8c01847d36db7d49a70f311d11e72de72eb5682',
+    changedFunctions: [ 4497, 4653 ],
+    validated: true,
+    compiled: true
+  },
+  {
+    profile: 'latest',
+    inputHash: 'df7b930bb293ffdf975f0735d93e0797d51bd137d0cbeabcaff87fc5a693c759',
+    outputHash: '61dd8c1685ff8771067c2f6a5d82f095f9f2a981f4e53b2cea5972d8286795e1',
+    changedFunctions: [ 4497, 4653 ],
+    validated: true,
+    compiled: true
+  },
+  {
+    profile: 'next',
+    inputHash: '128e2b5816a8eace4b768aec920318a1613da8235801a361e2009e96550be1d6',
+    outputHash: 'd716f6530fdc83cfd187d9e9850cb7f731e27481e35369d2047700a99557627e',
+    changedFunctions: [ 4497, 4653 ],
+    validated: true,
+    compiled: true
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "fixtureId": "nfsu2-60946132-host-guard-extension-0.42.5",
+  "syntheticHarness": true,
+  "sourceGameRevision": "60946132",
+  "extensionVersion": "0.42.5",
+  "scope": "Exact host-guard and extension-startup sources plus a synthetic empty standalone WASM module. Offline architecture demonstration only; no game bytes, account/session records, or live data.",
+  "hostSource": {
+    "url": "https://nfsu2.xyz/main.js",
+    "savedSourcePath": "work-functions-20261112/host-review/main.js",
+    "sha256": "64700139309ee9d4f46a3f93d5b47c8f5d1b25434726d07e2f47923fdeef3510",
+    "excerptStartUTF16": 711354,
+    "excerptEndUTF16": 712252,
+    "guardName": "wO",
+    "predicateName": "yO",
+    "sourceLine": 679
+  },
+  "files": [
+    {
+      "file": "host-guard-source.js",
+      "bytes": 898,
+      "sha256": "be7b473848fa48ec7ca8c20dc3ad7e35906e2226e538f251a04ef70462ec399a",
+      "sourcePath": "work-functions-20261112/host-review/main.js"
+    },
+    {
+      "file": "extension-ai.js",
+      "bytes": 96640,
+      "sha256": "f407444e5e723ca9c0235cf981630354554e10aff01faa05fa19042f2f0122e6",
+      "sourcePath": "nfsu2-extension/extension/ai.js"
+    },
+    {
+      "file": "extension-current-profile.js",
+      "bytes": 32268,
+      "sha256": "4249fc980c6281cd790121aef68dc25d6ff50b901a1eaeff8c77a4b1c05b836f",
+      "sourcePath": "nfsu2-extension/extension/current-profile.js"
+    },
+    {
+      "file": "empty-standalone.wasm",
+      "bytes": 8,
+      "sha256": "93a44bbb96c751218e4c00d479e4c14358122a389acca16205b1e4d0dc5f9476",
+      "sourcePath": "synthetic:empty-wasm-v1-module",
+      "purpose": "Benign standalone empty module for direct native loader architecture demonstration; no game code, imports, exports, memory, or start function."
+    }
+  ],
+  "limitations": [
+    "Synthetic Node VM comparison, not browser-session or account evidence.",
+    "No native game module is included or executed.",
+    "No inference about an account ban, enforcement decision, or multiplayer safety.",
+    "Unrelated settings/module predicates stay false. Startup compiler positions use harmless native callable stand-ins; the direct-loader case exposes actual native compiler references but invokes them only outside the VM for the pinned empty module."
+  ]
+}

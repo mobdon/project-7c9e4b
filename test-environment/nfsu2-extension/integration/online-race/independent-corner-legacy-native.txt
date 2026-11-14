@@ -1,0 +1,13 @@
+✔ opted-in online corner output equals solo output without changing network or foreign state (173.967138ms)
+✔ race corner output compensates post-route pace while preserving native controls and sharpness (6.171106ms)
+✔ race clear straights stay native and high-pace gentle curves are protected (1.46668ms)
+✔ road option rejects all non-road, foreign, special, malformed and network contexts (121.811888ms)
+✔ race hook only changes ST0 and dedicated diagnostic fields, never steering or identity (42.799135ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 530.309302

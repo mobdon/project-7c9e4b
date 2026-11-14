@@ -1,0 +1,31 @@
+{
+  "path": "/workspace/scratch/0d6b822176fd/nfsu2-extension/NFSU2-Driving-Tools-v0.31-Combined-Drag-Retention.zip",
+  "size": 227784,
+  "sha256": "349894953587377ff7b45b702f8d77feb7ef219ce1e70a666216720244809ad6",
+  "files": [
+    "README.md",
+    "CHANGELOG.md",
+    "manifest.json",
+    "popup.html",
+    "diagnostics.js",
+    "walls.js",
+    "cars.js",
+    "current-profile.js",
+    "latest-profile.js",
+    "next-profile.js",
+    "signatures.js",
+    "signature-profile.js",
+    "signature-profile-latest.js",
+    "signature-profile-next.js",
+    "dyno-native-profile.js",
+    "dyno-native.js",
+    "ai.js",
+    "core.js",
+    "dyno-core.js",
+    "dyno.js",
+    "dyno-evaluator.js",
+    "dyno-full.js",
+    "tool-profiles.js",
+    "page.js"
+  ]
+}

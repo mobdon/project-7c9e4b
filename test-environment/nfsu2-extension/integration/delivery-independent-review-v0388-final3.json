@@ -1,0 +1,35 @@
+{
+  "version": "0.38.8",
+  "kind": "immutable narrow delivery addendum for final broadcast HUD, camera and strict inspector proofs",
+  "result": "passed",
+  "findings": [],
+  "reviewer": "catchup_wrapper",
+  "priorReview": "integration/delivery-independent-review-v0388-final2.json",
+  "priorReviewSha256": "e9105ead4d89f1ff9a4e638b48af7f118c25241469daa5fa36931e664939f327",
+  "sourceHashes": {
+    "integration/deliver-paced-v0388.py": "fd07ba247e7f95b1d2fcebce591c76962538751c11976e0fe4ea1924e68f0458",
+    "verification/source-reviewed-v0388-final.json": "482f4744f5843ec8bb71a65663cdd02f3f5694cb8b0284e25b90ebc0a100a6e1",
+    "verification/release-modules-v0388-final.json": "46deba754d8f79838a376d2d73827386a363e3fd363e36d31abb2f519f343c17",
+    "tools/verify-release-modules-v0388.cjs": "8537d2ee92e741cb155bad7901539a09040e17c43281779611f84464af66b372",
+    "native/wasm-inspector-v0388.cjs": "32cc83a8cad4fa9b4805f44f06b1cc93c791d2c69d502c5d52033dcf2866965e",
+    "verification/parser-regression-fix-v0388.json": "a07cf1c2099b937fdd185b93b29e078ddb891d7373e34e431816f9af9a69a1d4",
+    "verification/hud-broadcast-attempt4-v0388/hud-labels-browser-v0388.json": "fb4ee68148637afcedab5e6cc2d90c3d3b202bfa49b88f95fa5737b80b20bbe1",
+    "integration/native-hud-units-evidence-v0388.json": "90a34eae4683fc84a7262e54c7a594adff7f4056e92522b457b051a6b00ed3da"
+  },
+  "checks": {
+    "syntaxParsedWithoutImportOrExecution": true,
+    "twoPinReplacementsAndTwentyTwoNewGateLinesExactlyReconstructPriorReviewedScript": true,
+    "allEarlierDeliveryControlsByteIdentical": true,
+    "finalSourceAndNativeProofPinsCurrent": true,
+    "strictInspectorAndParserRegressionProofBound": true,
+    "finalOfflineHudVisualReceiptAndNativeUnitEvidenceBound": true,
+    "cameraPageAndDirectorCountsBoundToLifecycle": true,
+    "newEvidenceAddedToFrozenInputsBeforeBackup": true
+  },
+  "deliveryExecuted": false,
+  "liveGameTested": false,
+  "limitations": [
+    "Narrow static addendum only; final canonical and lifecycle receipts remain required by unchanged pre-delivery gates.",
+    "Offline visual and native unit proofs establish no loaded live HUD, camera key delivery or driving/race result."
+  ]
+}

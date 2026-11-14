@@ -1,0 +1,13 @@
+[
+  "extension/CHANGELOG.md",
+  "extension/README.md",
+  "extension/core.js",
+  "extension/diagnostics.js",
+  "extension/manifest.json",
+  "extension/page.js",
+  "extension/popup.html",
+  "tools/package-release.py",
+  "tests/diagnostics-page.test.cjs",
+  "tests/nos-clock.test.cjs",
+  "tests/package-release.test.cjs"
+]

@@ -1,0 +1,48 @@
+✔ production page records effective boost/grip, mode, traps and manual JSON export (32.771637ms)
+✔ production page retains a prior trap across reload and Clear log removes it (8.880568ms)
+✔ production page collects sanitized page/worker failures and checkpoints stay bounded (23.679618ms)
+✔ storage failure still permits in-memory manual export and does not stop controls (7.777963ms)
+✔ logger checkpoints and export leave guest memory byte-for-byte unchanged with tools off (36.635411ms)
+✔ production logger exports bounded corner evidence separately from confirmed pace (7.507174ms)
+✔ verified current profile logs bounded Drift telemetry without writes and clears it on mode exit (16.395973ms)
+✔ unknown or older profiles never receive new Drift telemetry from metadata alone (18.837382ms)
+✔ page forwards independent road-race controls and native braking evidence to local diagnostics (5.108429ms)
+✔ production page reports native command and saved-skill mailbox scalars (6.923674ms)
+✔ online race contact scope is exported as a bounded boolean, not peer identity (8.151363ms)
+✔ page exports bounded Drag engine heat and explicit blowout toggle without addresses (4.388708ms)
+✔ page displays snapshot rejection and exports guard evidence without retaining raw error text (4.57992ms)
+✔ verified page samples NOS before refill, then uses the native online clock (4.297344ms)
+✔ unknown and older profile pages do not log new NOS state from metadata alone (6.426201ms)
+✔ HUD converts real bounded native speed to km/h and identifies sample-backed observations (1.94026ms)
+✔ HUD distinguishes a measured zero from unavailable speed (0.527488ms)
+✔ HUD never exposes unsupported or stale speed as a current observation (0.505555ms)
+✔ HUD cannot fabricate a speed from power or pace multipliers (0.243899ms)
+✔ HUD reports network opt-out while keeping permitted read-only speed (0.380971ms)
+✔ HUD old/missing/out-of-bounds pace acknowledgement cannot confirm a changed request (0.334002ms)
+✔ HUD separates selected pace from an actual requested/acknowledged AI target (0.272321ms)
+✔ HUD mode classification stays within known native mode evidence (0.260854ms)
+✔ HUD keeps request, field application and governor evidence separate (0.421421ms)
+✔ HUD driver does not confuse manual, pending handback, unavailable AI and native ownership (0.506426ms)
+✔ production HUD defaults on and F6 changes no car memory or driving selections (31.807396ms)
+✔ production HUD hides under open menu and returns without resetting controls (6.35811ms)
+✔ production HUD exposes actual native speed read only and fails closed on older modules (24.118574ms)
+✔ production HUD loses speed when pointer/context becomes invalid rather than keeping previous value (7.369921ms)
+✔ production HUD clears observations immediately on blur and hide, then resamples on resume (22.519398ms)
+✔ production HUD immediate stop, takeover and checkbox off clear prior acknowledgement (22.058479ms)
+✔ production HUD game exit, trap and replacement boot immediately discard previous car speed (14.019151ms)
+✔ production HUD newly selected pace does not reuse the prior native acknowledgement (4.176785ms)
+✔ production HUD tuner busy clears speed and confirmations while preserving selection (6.379681ms)
+✔ production HUD has no live-region speech flood and uses click-through scoped CSS (4.92681ms)
+✔ Shift+Insert toggles the same menu as F8 without changing driving selections or memory (28.637294ms)
+✔ Shift+Insert preserves paste in text controls and editable shadow ancestors (9.750459ms)
+✔ Shift+Insert ignores extra modifiers, untrusted events, composition and repeated toggles (3.301436ms)
+✔ Shift+Insert works on non-editing controls and retains existing close-cancels-tuner behavior (5.351236ms)
+✔ closed-shadow retargeting preserves profile-name paste and editable ancestor focus (2.946573ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 295.948664

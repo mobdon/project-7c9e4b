@@ -1,0 +1,14 @@
+patching file extension/README.md
+patching file extension/ai.js
+patching file extension/diagnostics.js
+patching file extension/page.js
+patching file tools/braking-hook.json
+patching file tools/braking-hook.wat
+patching file tools/build-braking-hook.cjs
+patching file tools/build-corner-hook.cjs
+patching file tools/corner-hook.json
+patching file tools/corner-hook.wat
+patching file tests/adaptive-race.test.cjs
+patching file tests/continuous-braking.test.cjs
+patching file tests/continuous-corners.test.cjs
+patching file tests/race-only-adaptive.test.cjs

@@ -1,0 +1,1037 @@
+import memory env_memory;
+
+global g_a:int = 734004784;
+global g_b:int = 0;
+global g_c:int = 18408;
+global g_d:int = 16;
+global g_e:int = 0;
+
+table T_a:funcref(min: 20927, max: 20927);
+
+import function nfsu2_wall_ms():double; // func0
+
+import function nfsu2_movie_open(a:int, b:int):int; // func1
+
+import function nfsu2_now_ms():double; // func2
+
+import function nfsu2_movie_decode(a:int, b:int, c:int, d:int, e:int, f:int, g:int, h:int):int; // func3
+
+import function nfsu2_movie_close(a:int):int; // func4
+
+import function nfsu2_register(a:int, b:int, c:int):int; // func5
+
+import function nfsu2_stack_frames():int; // func6
+
+import function nfsu2_blocked_ms():double; // func7
+
+import function wasi_snapshot_preview1_args_get(a:int, b:int):int; // func8
+
+import function wasi_snapshot_preview1_args_sizes_get(a:int, b:int):int; // func9
+
+import function wasi_snapshot_preview1_environ_get(a:int, b:int):int; // func10
+
+import function wasi_snapshot_preview1_environ_sizes_get(a:int, b:int):int; // func11
+
+import function wasi_snapshot_preview1_clock_time_get(a:int, b:long, c:int):int; // func12
+
+import function wasi_snapshot_preview1_fd_close(a:int):int; // func13
+
+import function wasi_snapshot_preview1_fd_fdstat_get(a:int, b:int):int; // func14
+
+import function wasi_snapshot_preview1_fd_fdstat_set_flags(a:int, b:int):int; // func15
+
+import function wasi_snapshot_preview1_fd_filestat_get(a:int, b:int):int; // func16
+
+import function wasi_snapshot_preview1_fd_filestat_set_size(a:int, b:long):int; // func17
+
+import function wasi_snapshot_preview1_fd_pread(a:int, b:int, c:int, d:long, e:int):int; // func18
+
+import function wasi_snapshot_preview1_fd_prestat_get(a:int, b:int):int; // func19
+
+import function wasi_snapshot_preview1_fd_prestat_dir_name(a:int, b:int, c:int):int; // func20
+
+import function wasi_snapshot_preview1_fd_read(a:int, b:int, c:int, d:int):int; // func21
+
+import function wasi_snapshot_preview1_fd_readdir(a:int, b:int, c:int, d:long, e:int):int; // func22
+
+import function wasi_snapshot_preview1_fd_seek(a:int, b:long, c:int, d:int):int; // func23
+
+import function wasi_snapshot_preview1_fd_sync(a:int):int; // func24
+
+import function wasi_snapshot_preview1_fd_tell(a:int, b:int):int; // func25
+
+import function wasi_snapshot_preview1_fd_write(a:int, b:int, c:int, d:int):int; // func26
+
+import function wasi_snapshot_preview1_path_create_directory(a:int, b:int, c:int):int; // func27
+
+import function wasi_snapshot_preview1_path_filestat_get(a:int, b:int, c:int, d:int, e:int):int; // func28
+
+import function wasi_snapshot_preview1_path_open(a:int, b:int, c:int, d:int, e:int, f:long, g:long, h:int, i:int):int; // func29
+
+import function wasi_snapshot_preview1_path_remove_directory(a:int, b:int, c:int):int; // func30
+
+import function wasi_snapshot_preview1_path_rename(a:int, b:int, c:int, d:int, e:int, f:int):int; // func31
+
+import function wasi_snapshot_preview1_path_unlink_file(a:int, b:int, c:int):int; // func32
+
+import function wasi_snapshot_preview1_poll_oneoff(a:int, b:int, c:int, d:int):int; // func33
+
+import function wasi_snapshot_preview1_proc_exit(a:int); // func34
+
+import function wasi_snapshot_preview1_sched_yield():int; // func35
+
+import function wasi_snapshot_preview1_random_get(a:int, b:int):int; // func36
+
+import function wasi_thread_spawn(a:int):int; // func37
+
+import function isolated_direct_f7235(a:int, b:double, c:double, d:double):double; // func38
+
+import function isolated_direct_f8185(a:int); // func39
+
+import function isolated_direct_f18657(a:int); // func40
+
+import function isolated_direct_f18813(a:int); // func41
+
+import function isolated_direct_f23286(a:int); // func42
+
+export function f7321(a:int) { // func43
+  var c:int_ptr@1;
+  var e:int;
+  var f:simd;
+  var g:int_ptr@1;
+  var j:double;
+  var l:int_ptr@1;
+  var m:float;
+  var n:float;
+  var s:int;
+  var u:double;
+  var b:int = a[4]:int + -4;
+  b[0]:int@1 = a[5]:int;
+  var d:int_ptr@1 = 0 + (c = b & -16);
+  (d + -8)[0]:int@1 = a[3]:int;
+  (d + -16)[0]:long@1 = a[3]:long << 32L;
+  (d + -20)[0]:int@1 = 0;
+  (d + -28)[0]:long@1 = 8029448L;
+  (d + -4)[0]:int@1 = (d = a[1]:int);
+  (d + 0 + 20184)[0]:int@1 = 0;
+  a[7]:int = 0;
+  a[6]:int = d;
+  a[5]:int = b;
+  a[4]:int = (d = c + -32);
+  d[0] = 6369392;
+  isolated_direct_f8185(a);
+  d = a[4]:int;
+  d[0] = a[0]:int;
+  d = d + -4;
+  d[0] = 6369401;
+  a[4]:int = d;
+  isolated_direct_f23286(a);
+  d = 0 + (b = a[4]:int);
+  d[0] = 8029436;
+  (d + 8)[0]:int@1 = (c = a[7]:int);
+  (d + 4)[0]:int@1 = c;
+  (0 + a[6]:int + 19836)[0]:int@1 = a[0]:int;
+  a[4]:int = (d = b + -4);
+  d[0] = 6369422;
+  isolated_direct_f8185(a);
+  d = a[4]:int;
+  d[0] = a[0]:int;
+  d = d + -4;
+  d[0] = 6369431;
+  a[4]:int = d;
+  isolated_direct_f23286(a);
+  d = 0 + (e = a[6]:int);
+  (d + 19840)[0]:int@1 = a[0]:int;
+  (d + 19844)[0]:int@1 = 8575752[0]:int@1;
+  c = 8575752[0]:int@1;
+  (d + 19748)[0]:simd@1 = (f = i32x4_splat(b = a[7]:int));
+  (d + 19732)[0]:simd@1 = f;
+  (d + 19716)[0]:simd@1 = f;
+  (d + 19848)[0]:int@1 = c;
+  (d + 504)[0]:int@1 = b;
+  (d + 19712)[0]:int@1 = 400;
+  (d + 19852)[0]:int@1 = b;
+  c = (0 + (g = a[5]:int) + 8)[0]:int@1;
+  (d + 508)[0]:int@1 = 1;
+  (d + (c << 2) + 19716)[0]:int@1 = 400;
+  (d + 19788)[0]:int@1 = 8403404[0]:int@1;
+  (d + 19796)[0]:int@1 = 8403408[0]:int@1;
+  (d + 19804)[0]:int@1 = 8403412[0]:int@1;
+  (d + 19812)[0]:int@1 = 8403416[0]:int@1;
+  (d + 19820)[0]:int@1 = b;
+  (d + 19828)[0]:int@1 = 1065353216;
+  var h:int = a[4]:int;
+  var i:double = f64_promote_f32(8403404[0]:float@1);
+  var k:double = i * (j = f64_promote_f32(7881312[0]:float@1));
+  l = a[70]:ushort;
+  c = l & 3840;
+  if (c) goto B_c;
+  m = f32_demote_f64(k);
+  n = abs(m);
+  if (eqz(n > 0.0f)) goto B_d;
+  if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_d;
+  k = f64_promote_f32(m);
+  goto B_a;
+  label B_d:
+  if (k != 0.0) goto B_b;
+  goto B_a;
+  label B_c:
+  if (k != k) goto B_b;
+  if (l & 768) goto B_a;
+  label B_b:
+  k = isolated_direct_f7235(l, i, j, k);
+  label B_a:
+  (d + 19792)[0]:float@1 = f32_demote_f64(k);
+  i = f64_promote_f32(8403408[0]:float@1);
+  k = i * (j = f64_promote_f32(7881312[0]:float@1));
+  if (c) goto B_g;
+  m = f32_demote_f64(k);
+  n = abs(m);
+  if (eqz(n > 0.0f)) goto B_h;
+  if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_h;
+  k = f64_promote_f32(m);
+  goto B_e;
+  label B_h:
+  if (k != 0.0) goto B_f;
+  goto B_e;
+  label B_g:
+  if (eqz(l & 768)) goto B_f;
+  if (k == k) goto B_e;
+  label B_f:
+  k = isolated_direct_f7235(l, i, j, k);
+  label B_e:
+  (d + 19800)[0]:float@1 = f32_demote_f64(k);
+  i = f64_promote_f32(8403412[0]:float@1);
+  k = i * (j = f64_promote_f32(7881312[0]:float@1));
+  if (c) goto B_k;
+  m = f32_demote_f64(k);
+  n = abs(m);
+  if (eqz(n > 0.0f)) goto B_l;
+  if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_l;
+  k = f64_promote_f32(m);
+  goto B_i;
+  label B_l:
+  if (k != 0.0) goto B_j;
+  goto B_i;
+  label B_k:
+  if (eqz(l & 768)) goto B_j;
+  if (k == k) goto B_i;
+  label B_j:
+  k = isolated_direct_f7235(l, i, j, k);
+  label B_i:
+  (d + 19808)[0]:float@1 = f32_demote_f64(k);
+  n = 8403416[0]:float@1;
+  (d + 19824)[0]:int@1 = b;
+  i = f64_promote_f32(n);
+  k = i * (j = f64_promote_f32(7881312[0]:float@1));
+  if (c) goto B_o;
+  m = f32_demote_f64(k);
+  n = abs(m);
+  if (eqz(n > 0.0f)) goto B_p;
+  if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_p;
+  k = f64_promote_f32(m);
+  goto B_m;
+  label B_p:
+  if (k != 0.0) goto B_n;
+  goto B_m;
+  label B_o:
+  if (eqz(l & 768)) goto B_n;
+  if (k == k) goto B_m;
+  label B_n:
+  k = isolated_direct_f7235(l, i, j, k);
+  label B_m:
+  var o:int = h + 12;
+  (d + 19816)[0]:float@1 = f32_demote_f64(k);
+  (d + 19832)[0]:int@1 = 1065353216;
+  c = 8403420[0]:int@1;
+  (d + 19892)[0]:long@1 = 8403424[0]:long@1;
+  (d + 19888)[0]:int@1 = c;
+  c = 8403432[0]:int@1;
+  (d + 19908)[0]:long@1 = 8403436[0]:long@1;
+  (d + 19904)[0]:int@1 = c;
+  c = 8403444[0]:int@1;
+  (d + 19924)[0]:long@1 = 8403448[0]:long@1;
+  (d + 19920)[0]:int@1 = c;
+  c = 8403456[0]:int@1;
+  var p:long = 8403460[0]:long@1;
+  (d + 19960)[0]:int@1 = b;
+  (d + 19956)[0]:int@1 = b;
+  (d + 19952)[0]:int@1 = b;
+  (d + 19940)[0]:long@1 = p;
+  (d + 19936)[0]:int@1 = c;
+  c = 8403308[0]:int@1;
+  (d + 19988)[0]:long@1 = 8403312[0]:long@1;
+  (d + 19984)[0]:int@1 = c;
+  c = 8403324[0]:int@1;
+  (d + 20004)[0]:long@1 = 8403328[0]:long@1;
+  (d + 20000)[0]:int@1 = c;
+  n = 8403348[0]:float@1;
+  c = 8403340[0]:int@1;
+  (d + 20020)[0]:float@1 = 8403344[0]:float@1;
+  (d + 20016)[0]:int@1 = c;
+  (0 + h + 24)[0]:int@1 = b;
+  (d + 20024)[0]:float@1 = n;
+  c = 8403356[0]:int@1;
+  p = 8403360[0]:long@1;
+  (d + 20056)[0]:int@1 = b;
+  (d + 20052)[0]:int@1 = b;
+  (d + 20048)[0]:int@1 = b;
+  (d + 20036)[0]:long@1 = p;
+  (d + 20032)[0]:int@1 = c;
+  (d + 20080)[0]:int@1 = 8403320[0]:int@1;
+  (d + 20084)[0]:int@1 = (l = 8403336[0]:int@1);
+  var q:int = 8403352[0]:int@1;
+  c = 1;
+  (d + 20112)[0]:int@1 = 1;
+  (d + 20104)[0]:int@1 = 1;
+  (d + 20180)[0]:int@1 = b;
+  (d + 20120)[0]:int@1 = b;
+  (d + 20116)[0]:int@1 = b;
+  (d + 20108)[0]:int@1 = b;
+  (d + 20092)[0]:int@1 = b;
+  (d + 20088)[0]:int@1 = q;
+  (d + 20152)[0]:int@1 = b;
+  (d + 20148)[0]:int@1 = b;
+  (d + 20144)[0]:int@1 = b;
+  d = (d + 19712)[0]:int@1;
+  if (d == b) goto B_q;
+  var r:int = d - b;
+  if ((((r ^ d) & (d ^ b)) ^ r) < 0) goto B_q;
+  d = (0 + g + 8)[0]:ubyte;
+  (0 + h + 8)[0]:int@1 = 2;
+  b = e + 549;
+  b[0]:byte = d;
+  (0 + e + 548)[0]:byte = 0;
+  a[2]:int = q;
+  a[1]:int = l;
+  a[4]:int = (c = h + 4);
+  a[3]:int = b;
+  a[0]:int = d;
+  c[0] = 6370160;
+  isolated_direct_f18657(a);
+  (0 + a[3]:int + 1)[0]:byte = a[0]:int;
+  a[4]:int = (b = (d = a[4]:int) + -8);
+  (d + 0 + -4)[0]:int@1 = (d = 8403372[0]:int@1);
+  b[0]:int@1 = 6370175;
+  a[1]:int = d;
+  isolated_direct_f18813(a);
+  i = f64_promote_f32(8403372[0]:float@1);
+  k = i * (j = f64_promote_f32(7881312[0]:float@1));
+  d = a[34]:int;
+  l = a[7]:int;
+  b = a[6]:int;
+  c = a[4]:int;
+  q = a[70]:ushort;
+  e = q & 3840;
+  if (e) goto B_t;
+  m = f32_demote_f64(k);
+  n = abs(m);
+  if (eqz(n > 0.0f)) goto B_u;
+  if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_u;
+  k = f64_promote_f32(m);
+  goto B_r;
+  label B_u:
+  if (k != 0.0) goto B_s;
+  goto B_r;
+  label B_t:
+  if (k != k) goto B_s;
+  if (q & 768) goto B_r;
+  label B_s:
+  k = isolated_direct_f7235(q, i, j, k);
+  label B_r:
+  h = a + 72;
+  j = h[d & 7]:double;
+  i = j - k;
+  o = (0 + b + 504)[0]:int@1;
+  l = (o + l << 4) + 512;
+  if (e) goto B_ba;
+  m = f32_demote_f64(i);
+  n = abs(m);
+  if (eqz(n > 0.0f)) goto B_ca;
+  if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_ca;
+  i = f64_promote_f32(m);
+  goto B_y;
+  label B_ca:
+  if (i == 0.0) goto B_y;
+  goto B_aa;
+  label B_ba:
+  if (eqz(q & 768)) goto B_aa;
+  if (i != i) goto B_aa;
+  k = i + (j = f64_promote_f32(8403384[0]:float@1));
+  e = 1;
+  goto B_z;
+  label B_aa:
+  i = isolated_direct_f7235(q, j, k, i);
+  k = i + (j = f64_promote_f32(8403384[0]:float@1));
+  if (eqz(e)) goto B_x;
+  e = (q & 768) != 0;
+  label B_z:
+  if (eqz(e)) goto B_w;
+  if (k == k) goto B_v;
+  goto B_w;
+  label B_y:
+  k = i + (j = f64_promote_f32(8403384[0]:float@1));
+  label B_x:
+  m = f32_demote_f64(k);
+  n = abs(m);
+  if (eqz(n > 0.0f)) goto B_da;
+  if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_da;
+  k = f64_promote_f32(m);
+  goto B_v;
+  label B_da:
+  if (k == 0.0) goto B_v;
+  label B_w:
+  k = isolated_direct_f7235(q, i, j, k);
+  label B_v:
+  (0 + l + b)[0]:float@1 = f32_demote_f64(k);
+  a[2]:int = o;
+  a[0]:int = l;
+  a[4]:int = (b = c + -8);
+  a[34]:int = d + 1 & 7;
+  (0 + c + -4)[0]:int@1 = (d = 8403376[0]:int@1);
+  b[0]:int@1 = 6370223;
+  a[1]:int = d;
+  isolated_direct_f18813(a);
+  i = f64_promote_f32(8403376[0]:float@1);
+  k = i * (j = f64_promote_f32(7881312[0]:float@1));
+  d = a[34]:int;
+  l = a[7]:int;
+  b = a[6]:int;
+  c = a[4]:int;
+  o = a[70]:ushort;
+  e = o & 3840;
+  if (e) goto B_ga;
+  m = f32_demote_f64(k);
+  n = abs(m);
+  if (eqz(n > 0.0f)) goto B_ha;
+  if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_ha;
+  k = f64_promote_f32(m);
+  goto B_ea;
+  label B_ha:
+  if (k != 0.0) goto B_fa;
+  goto B_ea;
+  label B_ga:
+  if (k != k) goto B_fa;
+  if (o & 768) goto B_ea;
+  label B_fa:
+  k = isolated_direct_f7235(o, i, j, k);
+  label B_ea:
+  j = h[d & 7]:double;
+  i = j - k;
+  l = (0 + b + 504)[0]:int@1 + l << 4;
+  if (e) goto B_oa;
+  m = f32_demote_f64(i);
+  n = abs(m);
+  if (eqz(n > 0.0f)) goto B_pa;
+  if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_pa;
+  i = f64_promote_f32(m);
+  goto B_la;
+  label B_pa:
+  if (i == 0.0) goto B_la;
+  goto B_na;
+  label B_oa:
+  if (eqz(o & 768)) goto B_na;
+  if (i != i) goto B_na;
+  k = i + (j = f64_promote_f32(9051452[0]:float@1));
+  e = 1;
+  goto B_ma;
+  label B_na:
+  i = isolated_direct_f7235(o, j, k, i);
+  k = i + (j = f64_promote_f32(9051452[0]:float@1));
+  if (eqz(e)) goto B_ka;
+  e = (o & 768) != 0;
+  label B_ma:
+  if (eqz(e)) goto B_ja;
+  if (k == k) goto B_ia;
+  goto B_ja;
+  label B_la:
+  k = i + (j = f64_promote_f32(9051452[0]:float@1));
+  label B_ka:
+  m = f32_demote_f64(k);
+  n = abs(m);
+  if (eqz(n > 0.0f)) goto B_qa;
+  if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_qa;
+  k = f64_promote_f32(m);
+  goto B_ia;
+  label B_qa:
+  if (k == 0.0) goto B_ia;
+  label B_ja:
+  k = isolated_direct_f7235(o, i, j, k);
+  label B_ia:
+  (0 + l + b + 516)[0]:float@1 = f32_demote_f64(k);
+  a[2]:int = l;
+  a[4]:int = (b = c + -8);
+  a[34]:int = d + 1 & 7;
+  (0 + c + -4)[0]:int@1 = (d = 8403380[0]:int@1);
+  b[0]:int@1 = 6370272;
+  a[0]:int = d;
+  isolated_direct_f18813(a);
+  i = h[(s = a[34]:int) & 7]:double;
+  k = i + (j = f64_promote_f32(9051456[0]:float@1));
+  b = a[7]:int;
+  e = a[6]:int;
+  r = a[5]:int;
+  o = a[4]:int;
+  q = a[3]:int;
+  d = a[70]:ushort;
+  if (d & 3840) goto B_ta;
+  m = f32_demote_f64(k);
+  n = abs(m);
+  if (eqz(n > 0.0f)) goto B_ua;
+  if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_ua;
+  k = f64_promote_f32(m);
+  goto B_ra;
+  label B_ua:
+  if (k != 0.0) goto B_sa;
+  goto B_ra;
+  label B_ta:
+  if (k != k) goto B_sa;
+  if (d & 768) goto B_ra;
+  label B_sa:
+  k = isolated_direct_f7235(d, i, j, k);
+  label B_ra:
+  d = 0 + e;
+  (d + ((l = d + 504)[0] + b << 4) + 520)[0]:float@1 =
+    f32_demote_f64(k);
+  g = 0 + o + 28;
+  var t:int = g[0];
+  c = d + ((d + 508)[0]:int@1 + b << 4);
+  (c + 520)[0]:float@1 = ((l = d + (l[0] + b << 4)) + 520)[0]:float@1;
+  (c + 516)[0]:float@1 = (l + 516)[0]:float@1;
+  (c + 512)[0]:int@1 = (l + 512)[0]:int@1;
+  c = g[0];
+  (0 + q + -5)[0]:int@1 = (t = e + (t % 10 << 4) + 20768);
+  a[34]:int = s + 1 & 7;
+  l = (d + 19712)[0]:int@1;
+  g[0] = (c = c + 1);
+  o = o + 16;
+  d = c - l;
+  if ((((d ^ c) & (l ^ c)) ^ d) > -1) goto B_q;
+  loop L_va {
+    d = (0 + r + 8)[0]:ubyte;
+    (0 + o + -4)[0]:int@1 = 2;
+    q = 0 + (e = q + 48);
+    q[0]:byte = d;
+    (q + -1)[0]:byte = 0;
+    a[2]:int = t;
+    a[1]:int = l;
+    a[7]:int = b + 3;
+    a[4]:int = (b = o + -8);
+    a[3]:int = e;
+    a[0]:int = d | (c & -256);
+    b[0]:int@1 = 6370160;
+    isolated_direct_f18657(a);
+    (0 + a[3]:int + 1)[0]:byte = a[0]:int;
+    a[4]:int = (b = (d = a[4]:int) + -8);
+    (d + 0 + -4)[0]:int@1 = (d = 8403372[0]:int@1);
+    b[0]:int@1 = 6370175;
+    a[1]:int = d;
+    isolated_direct_f18813(a);
+    i = f64_promote_f32(8403372[0]:float@1);
+    k = i * (j = f64_promote_f32(7881312[0]:float@1));
+    d = a[34]:int;
+    l = a[7]:int;
+    b = a[6]:int;
+    c = a[4]:int;
+    q = a[70]:ushort;
+    e = q & 3840;
+    if (e) goto B_ya;
+    m = f32_demote_f64(k);
+    n = abs(m);
+    if (eqz(n > 0.0f)) goto B_za;
+    if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_za;
+    k = f64_promote_f32(m);
+    goto B_wa;
+    label B_za:
+    if (k != 0.0) goto B_xa;
+    goto B_wa;
+    label B_ya:
+    if (k != k) goto B_xa;
+    if (q & 768) goto B_wa;
+    label B_xa:
+    k = isolated_direct_f7235(q, i, j, k);
+    label B_wa:
+    j = h[d & 7]:double;
+    i = j - k;
+    o = (0 + b + 504)[0]:int@1;
+    l = (o + l << 4) + 512;
+    if (e) goto B_gb;
+    m = f32_demote_f64(i);
+    n = abs(m);
+    if (eqz(n > 0.0f)) goto B_hb;
+    if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_hb;
+    i = f64_promote_f32(m);
+    goto B_db;
+    label B_hb:
+    if (i == 0.0) goto B_db;
+    goto B_fb;
+    label B_gb:
+    if (eqz(q & 768)) goto B_fb;
+    if (i != i) goto B_fb;
+    k = i + (j = f64_promote_f32(8403384[0]:float@1));
+    e = 1;
+    goto B_eb;
+    label B_fb:
+    i = isolated_direct_f7235(q, j, k, i);
+    k = i + (j = f64_promote_f32(8403384[0]:float@1));
+    if (eqz(e)) goto B_cb;
+    e = (q & 768) != 0;
+    label B_eb:
+    if (eqz(e)) goto B_bb;
+    if (k == k) goto B_ab;
+    goto B_bb;
+    label B_db:
+    k = i + (j = f64_promote_f32(8403384[0]:float@1));
+    label B_cb:
+    m = f32_demote_f64(k);
+    n = abs(m);
+    if (eqz(n > 0.0f)) goto B_ib;
+    if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_ib;
+    k = f64_promote_f32(m);
+    goto B_ab;
+    label B_ib:
+    if (k == 0.0) goto B_ab;
+    label B_bb:
+    k = isolated_direct_f7235(q, i, j, k);
+    label B_ab:
+    (0 + l + b)[0]:float@1 = f32_demote_f64(k);
+    a[2]:int = o;
+    a[0]:int = l;
+    a[4]:int = (b = c + -8);
+    a[34]:int = d + 1 & 7;
+    (0 + c + -4)[0]:int@1 = (d = 8403376[0]:int@1);
+    b[0]:int@1 = 6370223;
+    a[1]:int = d;
+    isolated_direct_f18813(a);
+    i = f64_promote_f32(8403376[0]:float@1);
+    k = i * (j = f64_promote_f32(7881312[0]:float@1));
+    d = a[34]:int;
+    l = a[7]:int;
+    b = a[6]:int;
+    c = a[4]:int;
+    o = a[70]:ushort;
+    e = o & 3840;
+    if (e) goto B_lb;
+    m = f32_demote_f64(k);
+    n = abs(m);
+    if (eqz(n > 0.0f)) goto B_mb;
+    if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_mb;
+    k = f64_promote_f32(m);
+    goto B_jb;
+    label B_mb:
+    if (k != 0.0) goto B_kb;
+    goto B_jb;
+    label B_lb:
+    if (k != k) goto B_kb;
+    if (o & 768) goto B_jb;
+    label B_kb:
+    k = isolated_direct_f7235(o, i, j, k);
+    label B_jb:
+    j = h[d & 7]:double;
+    i = j - k;
+    l = (0 + b + 504)[0]:int@1 + l << 4;
+    if (e) goto B_tb;
+    m = f32_demote_f64(i);
+    n = abs(m);
+    if (eqz(n > 0.0f)) goto B_ub;
+    if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_ub;
+    i = f64_promote_f32(m);
+    goto B_qb;
+    label B_ub:
+    if (i == 0.0) goto B_qb;
+    goto B_sb;
+    label B_tb:
+    if (eqz(o & 768)) goto B_sb;
+    if (i != i) goto B_sb;
+    k = i + (j = f64_promote_f32(9051452[0]:float@1));
+    e = 1;
+    goto B_rb;
+    label B_sb:
+    i = isolated_direct_f7235(o, j, k, i);
+    k = i + (j = f64_promote_f32(9051452[0]:float@1));
+    if (eqz(e)) goto B_pb;
+    e = (o & 768) != 0;
+    label B_rb:
+    if (eqz(e)) goto B_ob;
+    if (k == k) goto B_nb;
+    goto B_ob;
+    label B_qb:
+    k = i + (j = f64_promote_f32(9051452[0]:float@1));
+    label B_pb:
+    m = f32_demote_f64(k);
+    n = abs(m);
+    if (eqz(n > 0.0f)) goto B_vb;
+    if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_vb;
+    k = f64_promote_f32(m);
+    goto B_nb;
+    label B_vb:
+    if (k == 0.0) goto B_nb;
+    label B_ob:
+    k = isolated_direct_f7235(o, i, j, k);
+    label B_nb:
+    (0 + l + b + 516)[0]:float@1 = f32_demote_f64(k);
+    a[2]:int = l;
+    a[4]:int = (b = c + -8);
+    a[34]:int = d + 1 & 7;
+    (0 + c + -4)[0]:int@1 = (d = 8403380[0]:int@1);
+    b[0]:int@1 = 6370272;
+    a[0]:int = d;
+    isolated_direct_f18813(a);
+    i = h[(s = a[34]:int) & 7]:double;
+    k = i + (j = f64_promote_f32(9051456[0]:float@1));
+    b = a[7]:int;
+    e = a[6]:int;
+    r = a[5]:int;
+    o = a[4]:int;
+    q = a[3]:int;
+    d = a[70]:ushort;
+    if (d & 3840) goto B_yb;
+    m = f32_demote_f64(k);
+    n = abs(m);
+    if (eqz(n > 0.0f)) goto B_zb;
+    if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_zb;
+    k = f64_promote_f32(m);
+    goto B_wb;
+    label B_zb:
+    if (k != 0.0) goto B_xb;
+    goto B_wb;
+    label B_yb:
+    if (k != k) goto B_xb;
+    if (d & 768) goto B_wb;
+    label B_xb:
+    k = isolated_direct_f7235(d, i, j, k);
+    label B_wb:
+    d = 0 + e;
+    (d + ((l = d + 504)[0] + b << 4) + 520)[0]:float@1 =
+      f32_demote_f64(k);
+    g = 0 + o + 28;
+    t = g[0];
+    c = d + ((d + 508)[0]:int@1 + b << 4);
+    (c + 520)[0]:float@1 = ((l = d + (l[0] + b << 4)) + 520)[0]:float@1;
+    (c + 516)[0]:float@1 = (l + 516)[0]:float@1;
+    (c + 512)[0]:int@1 = (l + 512)[0]:int@1;
+    c = g[0];
+    (0 + q + -5)[0]:int@1 = (t = e + (t % 10 << 4) + 20768);
+    a[34]:int = s + 1 & 7;
+    l = (d + 19712)[0]:int@1;
+    g[0] = (c = c + 1);
+    o = o + 16;
+    d = c - l;
+    if ((((d ^ c) & (l ^ c)) ^ d) < 0) continue L_va;
+  }
+  label B_q:
+  a[3]:int = 10;
+  a[1]:int = l;
+  a[0]:int = c;
+  a[7]:int = e + 20772;
+  a[4]:int = (b = o + -8);
+  d = (0 + e + 19984)[0]:int@1;
+  b[0]:int@1 = 6370428;
+  (0 + o + -4)[0]:int@1 = d;
+  a[2]:int = d;
+  isolated_direct_f18813(a);
+  i = f64_promote_f32((0 + (l = a[6]:int) + 19984)[0]:float@1);
+  k = i * (j = f64_promote_f32(7881312[0]:float@1));
+  b = a[34]:int;
+  e = a[7]:int;
+  c = a[4]:int;
+  o = a[70]:ushort;
+  h = o & 3840;
+  if (h) goto B_gc;
+  m = f32_demote_f64(k);
+  n = abs(m);
+  if (eqz(n > 0.0f)) goto B_hc;
+  if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_hc;
+  k = f64_promote_f32(m);
+  goto B_dc;
+  label B_hc:
+  if (k == 0.0) goto B_dc;
+  goto B_fc;
+  label B_gc:
+  if (k != k) goto B_fc;
+  if (eqz(o & 768)) goto B_fc;
+  d = a + 72;
+  u = d[b & 7]:double;
+  i = u - k;
+  h = 1;
+  goto B_ec;
+  label B_fc:
+  d = a + 72;
+  u = d[b & 7]:double;
+  i = u - (k = isolated_direct_f7235(o, i, j, k));
+  if (eqz(h)) goto B_cc;
+  h = (o & 768) != 0;
+  label B_ec:
+  if (eqz(h)) goto B_bc;
+  if (i == i) goto B_ac;
+  goto B_bc;
+  label B_dc:
+  d = a + 72;
+  u = d[b & 7]:double;
+  i = u - k;
+  label B_cc:
+  m = f32_demote_f64(i);
+  n = abs(m);
+  if (eqz(n > 0.0f)) goto B_ic;
+  if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_ic;
+  i = f64_promote_f32(m);
+  goto B_ac;
+  label B_ic:
+  if (i == 0.0) goto B_ac;
+  label B_bc:
+  i = isolated_direct_f7235(o, u, k, i);
+  label B_ac:
+  (0 + e + -4)[0]:float@1 = f32_demote_f64(i);
+  a[4]:int = (e = c + -8);
+  a[34]:int = b + 1 & 7;
+  (0 + c + -4)[0]:int@1 = (b = (0 + l + 19988)[0]:int@1);
+  e[0]:int@1 = 6370457;
+  a[0]:int = b;
+  isolated_direct_f18813(a);
+  i = f64_promote_f32((0 + (l = a[6]:int) + 19988)[0]:float@1);
+  k = i * (j = f64_promote_f32(7881312[0]:float@1));
+  b = a[34]:int;
+  e = a[7]:int;
+  c = a[4]:int;
+  o = a[70]:ushort;
+  h = o & 3840;
+  if (h) goto B_pc;
+  m = f32_demote_f64(k);
+  n = abs(m);
+  if (eqz(n > 0.0f)) goto B_qc;
+  if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_qc;
+  k = f64_promote_f32(m);
+  goto B_mc;
+  label B_qc:
+  if (k == 0.0) goto B_mc;
+  goto B_oc;
+  label B_pc:
+  if (k != k) goto B_oc;
+  if (eqz(o & 768)) goto B_oc;
+  u = d[b & 7]:double;
+  i = u - k;
+  h = 1;
+  goto B_nc;
+  label B_oc:
+  u = d[b & 7]:double;
+  i = u - (k = isolated_direct_f7235(o, i, j, k));
+  if (eqz(h)) goto B_lc;
+  h = (o & 768) != 0;
+  label B_nc:
+  if (eqz(h)) goto B_kc;
+  if (i == i) goto B_jc;
+  goto B_kc;
+  label B_mc:
+  u = d[b & 7]:double;
+  i = u - k;
+  label B_lc:
+  m = f32_demote_f64(i);
+  n = abs(m);
+  if (eqz(n > 0.0f)) goto B_rc;
+  if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_rc;
+  i = f64_promote_f32(m);
+  goto B_jc;
+  label B_rc:
+  if (i == 0.0) goto B_jc;
+  label B_kc:
+  i = isolated_direct_f7235(o, u, k, i);
+  label B_jc:
+  e[0]:float@1 = f32_demote_f64(i);
+  a[4]:int = (e = c + -8);
+  a[34]:int = b + 1 & 7;
+  (0 + c + -4)[0]:int@1 = (b = (0 + l + 19992)[0]:int@1);
+  e[0]:int@1 = 6370485;
+  a[1]:int = b;
+  isolated_direct_f18813(a);
+  i = -(d[(b = a[34]:int) & 7]:double);
+  k = 
+    i - (j = f64_promote_f32((0 + (l = a[6]:int) + 20080)[0]:float@1));
+  c = a[7]:int;
+  q = a[5]:int;
+  e = a[4]:int;
+  o = a[3]:int;
+  h = a[70]:ushort;
+  if (h & 3840) goto B_uc;
+  m = f32_demote_f64(k);
+  n = abs(m);
+  if (eqz(n > 0.0f)) goto B_vc;
+  if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_vc;
+  k = f64_promote_f32(m);
+  goto B_sc;
+  label B_vc:
+  if (k != 0.0) goto B_tc;
+  goto B_sc;
+  label B_uc:
+  if (k != k) goto B_tc;
+  if (h & 768) goto B_sc;
+  label B_tc:
+  k = isolated_direct_f7235(h, i, j, k);
+  label B_sc:
+  h = 0 + c;
+  (h + 4)[0]:float@1 = f32_demote_f64(k);
+  (h + 8)[0]:int@1 = -943501325;
+  a[34]:int = b + 1 & 7;
+  b = e + 12;
+  e = o + -1;
+  if (eqz(e)) goto B_wc;
+  loop L_xc {
+    a[3]:int = e;
+    a[7]:int = c + 16;
+    a[4]:int = (e = b + -8);
+    c = (0 + l + 19984)[0]:int@1;
+    e[0]:int@1 = 6370428;
+    (0 + b + -4)[0]:int@1 = c;
+    a[2]:int = c;
+    isolated_direct_f18813(a);
+    l = 0 + a[6]:int;
+    i = f64_promote_f32((l + 19984)[0]:float@1);
+    k = i * (j = f64_promote_f32(7881312[0]:float@1));
+    b = a[34]:int;
+    e = a[7]:int;
+    c = a[4]:int;
+    o = a[70]:ushort;
+    h = o & 3840;
+    if (h) goto B_ed;
+    m = f32_demote_f64(k);
+    n = abs(m);
+    if (eqz(n > 0.0f)) goto B_fd;
+    if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_fd;
+    k = f64_promote_f32(m);
+    goto B_bd;
+    label B_fd:
+    if (k == 0.0) goto B_bd;
+    goto B_dd;
+    label B_ed:
+    if (k != k) goto B_dd;
+    if (eqz(o & 768)) goto B_dd;
+    u = d[b & 7]:double;
+    i = u - k;
+    h = 1;
+    goto B_cd;
+    label B_dd:
+    u = d[b & 7]:double;
+    i = u - (k = isolated_direct_f7235(o, i, j, k));
+    if (eqz(h)) goto B_ad;
+    h = (o & 768) != 0;
+    label B_cd:
+    if (eqz(h)) goto B_zc;
+    if (i == i) goto B_yc;
+    goto B_zc;
+    label B_bd:
+    u = d[b & 7]:double;
+    i = u - k;
+    label B_ad:
+    m = f32_demote_f64(i);
+    n = abs(m);
+    if (eqz(n > 0.0f)) goto B_gd;
+    if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_gd;
+    i = f64_promote_f32(m);
+    goto B_yc;
+    label B_gd:
+    if (i == 0.0) goto B_yc;
+    label B_zc:
+    i = isolated_direct_f7235(o, u, k, i);
+    label B_yc:
+    (0 + e + -4)[0]:float@1 = f32_demote_f64(i);
+    a[4]:int = (e = c + -8);
+    a[34]:int = b + 1 & 7;
+    (0 + c + -4)[0]:int@1 = (b = (l + 19988)[0]:int@1);
+    e[0]:int@1 = 6370457;
+    a[0]:int = b;
+    isolated_direct_f18813(a);
+    l = 0 + a[6]:int;
+    i = f64_promote_f32((l + 19988)[0]:float@1);
+    k = i * (j = f64_promote_f32(7881312[0]:float@1));
+    b = a[34]:int;
+    e = a[7]:int;
+    c = a[4]:int;
+    o = a[70]:ushort;
+    h = o & 3840;
+    if (h) goto B_nd;
+    m = f32_demote_f64(k);
+    n = abs(m);
+    if (eqz(n > 0.0f)) goto B_od;
+    if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_od;
+    k = f64_promote_f32(m);
+    goto B_kd;
+    label B_od:
+    if (k == 0.0) goto B_kd;
+    goto B_md;
+    label B_nd:
+    if (k != k) goto B_md;
+    if (eqz(o & 768)) goto B_md;
+    u = d[b & 7]:double;
+    i = u - k;
+    h = 1;
+    goto B_ld;
+    label B_md:
+    u = d[b & 7]:double;
+    i = u - (k = isolated_direct_f7235(o, i, j, k));
+    if (eqz(h)) goto B_jd;
+    h = (o & 768) != 0;
+    label B_ld:
+    if (eqz(h)) goto B_id;
+    if (i == i) goto B_hd;
+    goto B_id;
+    label B_kd:
+    u = d[b & 7]:double;
+    i = u - k;
+    label B_jd:
+    m = f32_demote_f64(i);
+    n = abs(m);
+    if (eqz(n > 0.0f)) goto B_pd;
+    if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_pd;
+    i = f64_promote_f32(m);
+    goto B_hd;
+    label B_pd:
+    if (i == 0.0) goto B_hd;
+    label B_id:
+    i = isolated_direct_f7235(o, u, k, i);
+    label B_hd:
+    e[0]:float@1 = f32_demote_f64(i);
+    a[4]:int = (e = c + -8);
+    a[34]:int = b + 1 & 7;
+    (0 + c + -4)[0]:int@1 = (b = (l + 19992)[0]:int@1);
+    e[0]:int@1 = 6370485;
+    a[1]:int = b;
+    isolated_direct_f18813(a);
+    i = -(d[(b = a[34]:int) & 7]:double);
+    k = 
+      i - (j = f64_promote_f32((0 + (l = a[6]:int) + 20080)[0]:float@1));
+    c = a[7]:int;
+    q = a[5]:int;
+    e = a[4]:int;
+    o = a[3]:int;
+    h = a[70]:ushort;
+    if (h & 3840) goto B_sd;
+    m = f32_demote_f64(k);
+    n = abs(m);
+    if (eqz(n > 0.0f)) goto B_td;
+    if (eqz(n <= 340282346638528859811704183484516925440.0f)) goto B_td;
+    k = f64_promote_f32(m);
+    goto B_qd;
+    label B_td:
+    if (k != 0.0) goto B_rd;
+    goto B_qd;
+    label B_sd:
+    if (k != k) goto B_rd;
+    if (h & 768) goto B_qd;
+    label B_rd:
+    k = isolated_direct_f7235(h, i, j, k);
+    label B_qd:
+    h = 0 + c;
+    (h + 4)[0]:float@1 = f32_demote_f64(k);
+    (h + 8)[0]:int@1 = -943501325;
+    a[34]:int = b + 1 & 7;
+    b = e + 12;
+    e = o + -1;
+    if (e) continue L_xc;
+  }
+  label B_wc:
+  a[5]:int = q[0]:int@1;
+  a[4]:int = q + 16;
+  a[3]:long = b[0]:long@1 << 32L;
+  a[8]:int = (0 + q + 4)[0]:int@1;
+  a[3]:int = (0 + b + 8)[0]:int@1;
+}
+

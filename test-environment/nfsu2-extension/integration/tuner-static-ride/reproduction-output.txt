@@ -1,0 +1,12 @@
+{
+  "baseline": "combined-v028-integration",
+  "patchWithoutConflicts": true,
+  "fourBuildersReproduced": true,
+  "allChangedFilesMatch": 22,
+  "regeneratedBinaries": [
+    "tests/full-tuner-bridge.wasm"
+  ],
+  "archiveByteIdentical": true,
+  "sha256": "ea6e85cf4c7cecd4a93a081b84278fb44d4bf07edaf909d24c6d806cf346dba2",
+  "size": 222050
+}

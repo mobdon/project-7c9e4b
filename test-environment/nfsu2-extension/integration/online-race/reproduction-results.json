@@ -1,0 +1,10 @@
+{
+  "freshCopy": "full-tuner-v018",
+  "patchAppliedWithoutConflicts": true,
+  "twoHookBuildersReproduced": true,
+  "changedFilesByteIdentical": 19,
+  "archiveByteIdentical": true,
+  "sha256": "18bc12d5ed206bfa162dc078c18101eea78c15db4b97e9c6781ef9eb9a824d65",
+  "size": 199817,
+  "temporaryCopyRemoved": true
+}

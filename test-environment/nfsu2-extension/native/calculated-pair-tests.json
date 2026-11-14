@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "kind": "final postcorner actual native consumer publisher and unity forward policy fixture",
+  "checkedAt": "2026-11-11T04:51:55.495Z",
+  "testSha256": "604bfeff12416bb755470132d96a69a51d96d630b0b5e90aeb5a5a2a36fb9c93",
+  "fixtureSha256": "ad66b15085fe9c07e8278c937d89e06eedf6b96de25089103f186830681009c5",
+  "cornerTargetProductSha256": "449ccd9e2d83bf4ee11eae0436423fe1f1a4fcc93a7e797f121a82ac103bd7ee",
+  "modules": [
+    {
+      "revision": "aa2429fb",
+      "nativeFactorFixtureBoundary": 1.4850000143051147,
+      "authoredPacePercent": 100,
+      "authoredSubstitutionEnabled": false,
+      "unityForwardPolicyAccepted": true,
+      "actualConsumerIDs": [
+        13653,
+        13962
+      ],
+      "actualPublisherID": 3553,
+      "actualFinalSetterID": 6140,
+      "finalCap": 38.945674896240234,
+      "stopReleasesCapAndPreservesNativeFactor": true,
+      "liveVerified": false
+    },
+    {
+      "revision": "15e5958f",
+      "nativeFactorFixtureBoundary": 1.4850000143051147,
+      "authoredPacePercent": 100,
+      "authoredSubstitutionEnabled": false,
+      "unityForwardPolicyAccepted": true,
+      "actualConsumerIDs": [
+        13653,
+        13962
+      ],
+      "actualPublisherID": 3553,
+      "actualFinalSetterID": 6140,
+      "finalCap": 38.945674896240234,
+      "stopReleasesCapAndPreservesNativeFactor": true,
+      "liveVerified": false
+    },
+    {
+      "revision": "943ee537",
+      "nativeFactorFixtureBoundary": 1.4850000143051147,
+      "authoredPacePercent": 100,
+      "authoredSubstitutionEnabled": false,
+      "unityForwardPolicyAccepted": true,
+      "actualConsumerIDs": [
+        13653,
+        13962
+      ],
+      "actualPublisherID": 3553,
+      "actualFinalSetterID": 6140,
+      "finalCap": 38.945674896240234,
+      "stopReleasesCapAndPreservesNativeFactor": true,
+      "liveVerified": false
+    }
+  ],
+  "liveVerified": false,
+  "limitation": "The finite M1.485 factor is a controlled fixture boundary; complete live gap/rank/reference calculation and gameplay are not proved."
+}

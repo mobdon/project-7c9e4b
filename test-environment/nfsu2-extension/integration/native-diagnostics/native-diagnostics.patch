@@ -1,0 +1,182 @@
+--- a/extension/core.js
++++ b/extension/core.js
+@@ -196,25 +196,36 @@
+       }
+       return { cars, scannedCars: seen.size, activeBarriers, barrierAhead };
+     }
+-    driftDiagnostics(s, exactProfile = false) {
++    driftDiagnostics(s, exactProfile = false) { return this.nativeDiagnostics(s, exactProfile, true); }
++    nativeDiagnostics(s, exactProfile = false, driftOnly = false) {
+       // Read-only, best-effort scalar samples. The page opts in only after the
+       // exact reviewed module profile has been verified. Never export pointers.
+       this.refresh();
+       if (!exactProfile || !s?.ready || !this.live(s)) return {};
+       const car=s.car, race=s.race, d=this.view;
+       const f=(p,lo,hi)=>{if(!this.ok(p))return undefined;const v=d.getFloat32(p,true);return Number.isFinite(v)&&v>=lo&&v<=hi?v:undefined;};
+-      const out={trackId:this.u32(0x89e7a0),driftRace:!!this.u8(0x89e7d9),forcedDrift:!!this.u32(0x890104),driftVariant:!!this.u32(0x890114)};
+-      if((!out.driftRace&&!out.forcedDrift&&!out.driftVariant)||this.u8(0x89e7d8)||this.u32(0x890108))return {};
++      const out={nativeTelemetry:true,trackId:this.u32(0x89e7a0),dragRace:!!this.u8(0x89e7d8),forcedDrag:!!this.u32(0x890108),driftRace:!!this.u8(0x89e7d9),forcedDrift:!!this.u32(0x890104),driftVariant:!!this.u32(0x890114)};
++      const driftFamily=(out.driftRace||out.forcedDrift||out.driftVariant)&&!out.dragRace&&!out.forcedDrag;
++      if(driftOnly&&!driftFamily)return {};
+       out.carRpm=s.rpm;out.carGear=s.gear;
++      const player=this.u32(A.PLAYER);
++      if(this.ok(player,0x234)){
++        const input=this.u32(player+0x22c),next=this.u32(player+0x230);
++        if(input<=10)out.nativeInputMode=input;if(next<=10)out.nativeNextInputMode=next;
++      }
+       const put=(k,v)=>{if(v!==undefined)out[k]=v;};
+       put('speedMps',f(car+0x430,0,500));put('forwardMps',f(car+0x42c,-500,500));
+       const record=this.u32(car+0x14);
+       if(this.ok(record,0x902)&&this.u32(record+4)===1)out.nativeSkill=this.u8(record+0x901);
+       const driver=this.u32(car+0x2c),driverKind=this.u32(car+0x24),driverOK=driverKind===3&&this.ok(driver,0x800)&&this.u32(driver)===0x785370&&this.u32(driver+4)===car;
+       out.aiDriverVerified=!!driverOK;
+-      let behavior=0,action=0,behaviorVT=0,behaviorVerified=false,actionVT=0,actionId=0,actionReadable=false;
++      let behavior=0,action=0,behaviorVT=0,behaviorVerified=false,actionVT=0,actionId=0,actionReadable=false,navigation=0,config=0,companion=0;
+       if(driverOK){
+         behavior=this.u32(driver+8);action=this.u32(driver+0x6fc);
++        navigation=this.u32(driver+0xc);config=this.u32(driver+0x6e0);companion=this.u32(driver+0x6f8);
++        out.nativeNavigationPresent=navigation!==0;out.nativeNavigationValid=this.ok(navigation,0x30);
++        out.nativeConfigPresent=config!==0;out.nativeConfigValid=this.ok(config,4);
++        out.nativeCompanionPresent=companion!==0;out.nativeCompanionValid=this.ok(companion,0x200);
+         out.aiGoalPending=action===0;
+         out.aiGoalRecognized=false;
+         if(this.ok(action,24)){
+@@ -224,14 +235,19 @@
+         }
+         if(this.ok(behavior,0x230)&&this.u32(behavior+0x220)===car){
+           behaviorVT=this.u32(behavior);behaviorVerified=true;out.nativeDriftBehavior=behaviorVT===0x784f40;out.nativeRoadBehavior=behaviorVT===0x784eb0;
+-          if(out.nativeDriftBehavior)put('driftTargetMps',f(behavior+0x22c,-200,200));
++          if(out.nativeDriftBehavior&&driftFamily)put('driftTargetMps',f(behavior+0x22c,-200,200));
++          if(out.nativeDriftBehavior||out.nativeRoadBehavior){
++            put('nativeThrottle',f(behavior+0x20c,0,1));put('nativeHandbrake',f(behavior+0x210,0,1));put('nativeBrake',f(behavior+0x214,0,1));
++            out.nativeSteering=d.getInt16(behavior+0x1e0,true);
++            const gear=d.getInt32(behavior+0x1e4,true);if(gear>=-1&&gear<=10)out.nativeGearCommand=gear;
++          }
+         }
+       }
+       const racer=this.u32(car+0x1c),count=this.u32(race+0x24);
+       let score=0,driftCar=0,style=0,racerSlot=-1;
+       if(count>=1&&count<=6)racerSlot=Array.from({length:count},(_,i)=>this.u32(race+0xbd0+i*4)).indexOf(racer);
+-      out.driftScoreLinked=false;
+-      if(this.ok(racer,0x1f0)&&this.u32(racer)===car&&racerSlot>=0){
++      if(driftFamily)out.driftScoreLinked=false;
++      if(driftFamily&&this.ok(racer,0x1f0)&&this.u32(racer)===car&&racerSlot>=0){
+         score=this.u32(racer+0x1d4);driftCar=this.u32(racer+0x1d8);
+         if(this.ok(score,39*4)&&this.ok(driftCar,0x48)&&this.u32(driftCar)===score&&this.u32(driftCar+4)===racer&&this.u32(driftCar+8)===car){
+           style=this.u32(score);
+@@ -251,9 +267,12 @@
+       // Identity may change while the native game is running. Reject a sample
+       // if the validated graph changed; this is not a native frame lock.
+       if(!this.live(s)||this.u32(car+0x14)!==record||this.u32(car+0x2c)!==driver||this.u32(car+0x24)!==driverKind)return {};
+-      if(this.u32(0x89e7a0)!==out.trackId||!!this.u8(0x89e7d9)!==out.driftRace||!!this.u32(0x890104)!==out.forcedDrift||!!this.u32(0x890114)!==out.driftVariant||this.u8(0x89e7d8)||this.u32(0x890108))return {};
++      if(this.u32(0x89e7a0)!==out.trackId||!!this.u8(0x89e7d9)!==out.driftRace||!!this.u32(0x890104)!==out.forcedDrift||!!this.u32(0x890114)!==out.driftVariant||!!this.u8(0x89e7d8)!==out.dragRace||!!this.u32(0x890108)!==out.forcedDrag)return {};
++      if(this.u32(A.PLAYER)!==player)return {};
++      if(out.nativeInputMode!==undefined&&this.u32(player+0x22c)!==out.nativeInputMode)return {};
++      if(out.nativeNextInputMode!==undefined&&this.u32(player+0x230)!==out.nativeNextInputMode)return {};
+       if(out.nativeSkill!==undefined&&this.u32(record+4)!==1)return {};
+-      if(driverOK&&(this.u32(driver)!==0x785370||this.u32(driver+4)!==car||this.u32(driver+8)!==behavior||this.u32(driver+0x6fc)!==action))return {};
++      if(driverOK&&(this.u32(driver)!==0x785370||this.u32(driver+4)!==car||this.u32(driver+8)!==behavior||this.u32(driver+0x6fc)!==action||this.u32(driver+0xc)!==navigation||this.u32(driver+0x6e0)!==config||this.u32(driver+0x6f8)!==companion))return {};
+       if(behaviorVerified&&(this.u32(behavior)!==behaviorVT||this.u32(behavior+0x220)!==car))return {};
+       if(actionReadable&&(this.u32(action)!==actionVT||this.u32(action+20)!==actionId))return {};
+       if(out.driftScoreLinked&&(this.u32(car+0x1c)!==racer||this.u32(racer)!==car||this.u32(race+0x24)!==count||this.u32(race+0xbd0+racerSlot*4)!==racer||this.u32(racer+0x1d4)!==score||this.u32(racer+0x1d8)!==driftCar||this.u32(score)!==style||this.u32(style+0xc)!==0||this.u32(driftCar)!==score||this.u32(driftCar+4)!==racer||this.u32(driftCar+8)!==car))return {};
+--- a/extension/page.js
++++ b/extension/page.js
+@@ -221,7 +221,7 @@
+           if(grip.changed){gripGate.reset();message(grip.reason);}
+         }
+       } else {engine.restoreGrip(s);gripGate.reset();}
+-      try {diagnosticState={...diagnosticState,...engine.driftDiagnostics(s,supported&&moduleProfile?.capabilities.driftDiagnostics===true),powerActive:!!tune.active,gripActive:!!grip.active,effectivePower:tune.power,effectiveGrip:grip.factor,limiterRemoved:!!tune.unlimit,aiActive:!!aiState.active,aiOwned:!!aiState.owned,handbackPending:!!ai?.handbackPending,pageHeartbeat:ai?.hb,nativeHeartbeatAck:aiState.ready&&typeof ai?.read==='function'?ai.read(44):undefined,requestedPace,cornerRequested:!!aiState.cornerRequested,cornerMemoryBlocked:!!aiState.cornerMemoryBlocked,cornerDriftBlocked:!!aiState.cornerDriftBlocked,cornerHits:aiState.cornerHits,cornerApplied:aiState.cornerApplied,wallRequested:!!wallState.requested,wallHits:wallState.hits,onlineTrafficRequested:!!carState.onlineTraffic,onlinePlayersRequested:!!carState.onlinePlayers,trafficHits:carState.trafficHits,playerHits:carState.playerHits,carRequested:typeof carState!=='undefined'?!!carState.requested:false,carHits:typeof carState!=='undefined'?carState.hits:0};diagnostics?.snapshot(diagnosticState);} catch {}
++      try {diagnosticState={...diagnosticState,...engine.nativeDiagnostics(s,supported&&moduleProfile?.capabilities.driftDiagnostics===true),powerActive:!!tune.active,gripActive:!!grip.active,effectivePower:tune.power,effectiveGrip:grip.factor,limiterRemoved:!!tune.unlimit,aiActive:!!aiState.active,aiOwned:!!aiState.owned,handbackPending:!!ai?.handbackPending,pageHeartbeat:ai?.hb,nativeHeartbeatAck:aiState.ready&&typeof ai?.read==='function'?ai.read(44):undefined,aiRequestedMode:aiState.ready&&typeof ai?.read==='function'?ai.read(8):undefined,aiNativeStatus:aiState.ready&&typeof ai?.read==='function'?ai.read(52):undefined,aiStaleTicks:aiState.ready&&typeof ai?.read==='function'?ai.read(48):undefined,aiSkillSaved:aiState.ready&&typeof ai?.read==='function'?!!ai.read(64):undefined,savedNativeSkill:aiState.ready&&typeof ai?.read==='function'&&ai.read(64)?ai.read(68):undefined,requestedPace,cornerRequested:!!aiState.cornerRequested,cornerMemoryBlocked:!!aiState.cornerMemoryBlocked,cornerDriftBlocked:!!aiState.cornerDriftBlocked,cornerHits:aiState.cornerHits,cornerApplied:aiState.cornerApplied,wallRequested:!!wallState.requested,wallHits:wallState.hits,onlineTrafficRequested:!!carState.onlineTraffic,onlinePlayersRequested:!!carState.onlinePlayers,trafficHits:carState.trafficHits,playerHits:carState.playerHits,carRequested:typeof carState!=='undefined'?!!carState.requested:false,carHits:typeof carState!=='undefined'?carState.hits:0};diagnostics?.snapshot(diagnosticState);} catch {}
+       const manualDriver = s.ready && engine.u32(s.car+0x24)===1 && !aiState.active && (!ai || !aiState.available || (aiState.ready && !aiState.owned));
+       const dragCountdown = dragRace && engine.u32(s.race)===3;
+       const activeDrag = canInput && (s.driving || dragCountdown) && prefs.drag && !dragAIRequested && dragRace && manualDriver && !dragTakenOver;
+--- a/extension/diagnostics.js
++++ b/extension/diagnostics.js
+@@ -10,9 +10,12 @@
+   FLAGS.push('driftScoreLinked','driftCollisionLoss','aiGoalRecognized');
+   Object.assign(NUMBERS,{driftScoreState:[0,4],driftMultiplier:[1,5],driftNextPoints:[0,1e9],driftPendingPoints:[0,1e9],driftBankedPoints:[0,1e9],driftRawRate:[0,1e6],driftLatchedSlipRad:[-Math.PI,Math.PI],currentRawRouteProgress:[-1,1e7],driftBestRawRouteProgress:[-1,1e7]});
+   // Moving telemetry must not turn ordinary state sampling into per-tick
+-  // storage writes. Keep drift scalar samples at two seconds unless a
++  // storage writes. Keep native scalar samples at two seconds unless a
+   // discrete mode, controller, scoring-state or tool change needs a record.
+   const MOVING_FIELDS=['gameTicks','pageHeartbeat','nativeHeartbeatAck','carRpm','speedMps','forwardMps','driftTargetMps','driftPendingPoints','driftBankedPoints','driftRawRate','driftLatchedSlipRad','currentRawRouteProgress','driftBestRawRouteProgress'];
++  FLAGS.push('nativeTelemetry','dragRace','forcedDrag','nativeNavigationPresent','nativeNavigationValid','nativeConfigPresent','nativeConfigValid','nativeCompanionPresent','nativeCompanionValid','aiSkillSaved');
++  Object.assign(NUMBERS,{nativeInputMode:[0,10],nativeNextInputMode:[0,10],nativeThrottle:[0,1],nativeHandbrake:[0,1],nativeBrake:[0,1],nativeSteering:[-32768,32767],nativeGearCommand:[-1,10],aiRequestedMode:[0,2],aiNativeStatus:[0,3],aiStaleTicks:[0,4294967295],savedNativeSkill:[0,255]});
++  MOVING_FIELDS.push('nativeThrottle','nativeHandbrake','nativeBrake','nativeSteering','aiStaleTicks');
+   const TOOL_FLAGS = ['ai','aiPace','cornerAssist','racePace','walls','cars','traffic','players','online','nos','drag','tester','boost','unlimit','grip','drift','dynoEnabled'];
+   const TOOL_NUMBERS = {paceFactor:[0.75,3],racePaceFactor:[0.75,3],cornerFactor:[0.6,0.95],cornerMargin:[0,25],power:[1,3],gripFactor:[1,2],rpm:[3000,10000]};
+   const ERROR_KINDS = new Set(['memory-bounds','unreachable','indirect-call','integer-divide','invalid-conversion','stack-overflow','out-of-memory','type-error','reference-error','syntax-error','other']);
+@@ -87,8 +90,8 @@
+       }
+     } catch { persistence='memory-only'; }
+     const record=(event,data={})=>{try{if(!EVENTS.has(event))return false;const at=now();if(['page-error','promise-rejection','worker-error','engine-error','dyno-error'].includes(event)){const burst=bursts.get(event);if(burst&&at-burst.at<1000){if(burst.count++>=8){dropped++;return false;}}else bursts.set(event,{at,count:1});}events.push({at,event,data:sanitize(data)});persist();return true;}catch{return false;}};
+-    const snapshot=(data={})=>{try{const clean=sanitize(data),stable={...clean};for(const key of MOVING_FIELDS)delete stable[key];const key=JSON.stringify(stable),t=now(),sampleMs=clean.driftRace||clean.forcedDrift||clean.driftVariant?2000:5000;if(lastSnapshot && t-lastSample < (key===lastSnapshot?sampleMs:250))return;lastSnapshot=key;lastSample=t;record('state',clean);}catch{}};
+-    const exportText=()=>JSON.stringify({format:'NFSU2 Driving Tools local diagnostics',schema:1,exportedAt:now(),persistence,dropped,limits:{maxEvents:MAX_EVENTS,maxStoredBytes:MAX_BYTES},capture:'Tool selections, sampled game mode/status, bounded Drift controller/scoring/speed and corner evidence, page and game-worker lifecycle, classified errors, numeric wasm locations and known script line numbers. No raw logs, messages, URLs, credentials, saves, names, keyboard input or network traffic. Same-origin page scripts can access this same-tab storage. Browser/tab/GPU failures may prevent a final event; absence of an error does not show that the game was healthy. Not a game crash dump.',events},null,2)+'\n';
++    const snapshot=(data={})=>{try{const clean=sanitize(data),stable={...clean};for(const key of MOVING_FIELDS)delete stable[key];const key=JSON.stringify(stable),t=now(),sampleMs=clean.nativeTelemetry||clean.driftRace||clean.forcedDrift||clean.driftVariant?2000:5000;if(lastSnapshot && t-lastSample < (key===lastSnapshot?sampleMs:250))return;lastSnapshot=key;lastSample=t;record('state',clean);}catch{}};
++    const exportText=()=>JSON.stringify({format:'NFSU2 Driving Tools local diagnostics',schema:1,exporterVersion:sanitize({version}).version,exportedAt:now(),persistence,dropped,limits:{maxEvents:MAX_EVENTS,maxStoredBytes:MAX_BYTES},capture:'Tool selections, sampled game mode/status, bounded native controller/skill/input-mode/speed, Drift scoring and corner evidence, page and game-worker lifecycle, classified errors, numeric wasm locations and known script line numbers. No raw logs, messages, URLs, credentials, saves, names, keyboard input or network traffic. Same-origin page scripts can access this same-tab storage. Browser/tab/GPU failures may prevent a final event; absence of an error does not show that the game was healthy. Not a game crash dump.',events},null,2)+'\n';
+     const clear=()=>{events=[];dropped=0;lastSnapshot='';lastSample=0;bursts.clear();record('clear');};
+     record('page-start',{version});
+     return Object.freeze({record,snapshot,exportText,clear,status:()=>({events:events.length,dropped,persistence})});
+--- a/tests/diagnostics-page.test.cjs
++++ b/tests/diagnostics-page.test.cjs
+@@ -10,6 +10,7 @@
+ replace('WebAssembly,Worker,URL,console,',"WebAssembly,Worker,Blob,URL:Object.assign(class extends URL {},{createObjectURL:blob=>(downloads.push(blob),'blob:local-test'),revokeObjectURL(){}}),console,");
+ replace("    __NFSU2_DRIVING_CORE__:require('../extension/core.js'),", "    __NFSU2_DIAGNOSTICS__:{create:options=>require('../extension/diagnostics.js').create({...options,clock:()=>1000+now})},\n    __NFSU2_DRIVING_CORE__:require('../extension/core.js'),");
+ replace('sessionStorage:{getItem:()=>stored,setItem:(k,v)=>stored=v},',"sessionStorage:{getItem:k=>k==='nfsu2-driving-tools-diagnostics-v1'?diagnosticsStored:stored,setItem:(k,v)=>{if(k==='nfsu2-driving-tools-diagnostics-v1'){if(compatibility.noStorage)throw Error('storage blocked');diagnosticsStored=v;}else stored=v;}},");
++replace('    stop(){aiLog.stops++;}', '    read(offset){return aiLog.mailbox?.[offset]??0;}\n    stop(){aiLog.stops++;}');
+ replace('  return {...f,nodes,worker,status,physics,wheels,gameModule,',"  return {...f,nodes,worker,status,physics,wheels,gameModule,log:()=>JSON.parse(diagnosticsStored||'{}'),storedLog:()=>diagnosticsStored,downloads,fire:event=>context.dispatchEvent(event),");
+ const context={require:Object.assign(name=>name==='node:test'?{test(){}}:baseRequire(name),{resolve:baseRequire.resolve}),console,Buffer,WebAssembly,Blob,URL,setImmediate};
+ vm.runInNewContext(source+'\nthis.makeDiagnosticFixture=pageFixture;',context,{filename:coreFile});
+@@ -57,7 +58,7 @@
+  const before=Buffer.from(f.memory.buffer);f.run(8);let s=f.log().events.filter(e=>e.event==='state').at(-1).data;
+  assert.equal(s.nativeDriftBehavior,true);assert.equal(s.trackId,4301);assert.equal(s.speedMps,22);assert.equal(s.driftTargetMps,30);assert.equal(s.aiGoalPending,true);assert.deepEqual(Buffer.from(f.memory.buffer),before);
+  f.click('diagnostic-export');const exported=JSON.parse(await f.downloads[0].text());assert.equal(exported.events.filter(e=>e.event==='state').at(-1).data.trackId,4301);
+- f.d.setUint8(0x89e7d9,0);f.run(6);s=f.log().events.filter(e=>e.event==='state').at(-1).data;for(const key of ['trackId','nativeDriftBehavior','speedMps','driftTargetMps'])assert.equal(key in s,false);
++ f.d.setUint8(0x89e7d9,0);f.run(6);s=f.log().events.filter(e=>e.event==='state').at(-1).data;assert.equal(s.driftRace,false);assert.equal(s.trackId,4301);assert.equal(s.nativeDriftBehavior,true);assert.equal(s.speedMps,22);for(const key of ['driftTargetMps','driftScoreLinked','driftPendingPoints'])assert.equal(key in s,false);
+ });
+ test('unknown or older profiles never receive new Drift telemetry from metadata alone',async()=>{
+  for(const options of [{revision:'93af6ccb',profile:require('../extension/next-profile.js'),verified:false},{revision:'2f0ddd3b',profile:require('../extension/current-profile.js')}]){
+@@ -65,3 +66,12 @@
+   for(const e of f.log().events.filter(e=>e.event==='state'))assert.equal('trackId' in e.data,false);
+  }
+ });
++
++test('production page reports native command and saved-skill mailbox scalars',async()=>{
++ const profile=require('../extension/next-profile.js'),f=await fixture(null,true,false,{revision:profile.revision,profile});
++ f.aiLog.mailbox={8:1,44:123,48:7,52:1,64:1,68:4};f.run(8);
++ let s=f.log().events.filter(e=>e.event==='state').at(-1).data;
++ assert.equal(s.aiRequestedMode,1);assert.equal(s.nativeHeartbeatAck,123);assert.equal(s.aiStaleTicks,7);assert.equal(s.aiNativeStatus,1);assert.equal(s.aiSkillSaved,true);assert.equal(s.savedNativeSkill,4);
++ f.aiLog.mailbox={8:0,44:124,48:0,52:0,64:0,68:9};f.run(6);
++ s=f.log().events.filter(e=>e.event==='state').at(-1).data;assert.equal(s.aiSkillSaved,false);assert.equal('savedNativeSkill' in s,false);assert.equal(s.aiRequestedMode,0);
++});
+--- /dev/null
++++ b/tests/native-diagnostics.test.cjs
+@@ -0,0 +1,28 @@
++'use strict';
++const {test}=require('node:test'),assert=require('node:assert/strict');
++const {Engine,A}=require('../extension/core.js');
++const {create}=require('../extension/diagnostics.js');
++function fixture(){
++ const memory=new WebAssembly.Memory({initial:256,maximum:300,shared:true}),e=new Engine(memory),d=new DataView(memory.buffer);
++ const p=0xe00000,car=0xe01000,race=0xe04000,record=0xe06000,driver=0xe08000,behavior=0xe0a000,action=0xe0b000,racer=0xe0c000,score=0xe0d000,dc=0xe0e000,style=0xe0f000;
++ const put=(a,v)=>d.setUint32(a,v,true),fput=(a,v)=>d.setFloat32(a,v,true);
++ put(A.FLOW,6);put(A.MODE,1);put(A.PLAYER,p);put(p+4,car);put(A.RACE,race);put(race,4);put(race+0x24,2);put(race+0xbd4,racer);
++ put(0x89e7a0,4301);d.setUint8(0x89e7d9,1);fput(car+A.RPM,6000);put(car+A.GEAR,3);fput(car+0x430,20);fput(car+0x42c,15);
++ put(car+0x14,record);put(record+4,1);d.setUint8(record+0x901,9);put(car+0x24,3);put(car+0x28,1);put(car+0x2c,driver);put(driver,0x785370);put(driver+4,car);put(driver+8,behavior);put(driver+0x6fc,action);put(behavior,0x784f40);put(behavior+0x220,car);fput(behavior+0x22c,31.2919);put(action,0x784768);put(action+20,1);
++ put(car+0x1c,racer);put(racer,car);put(racer+0x1d4,score);put(racer+0x1d8,dc);put(score,style);put(dc,score);put(dc+4,racer);put(dc+8,car);put(dc+0x1c,3);put(dc+0x20,200);fput(dc+0x34,0.8);fput(dc+0x44,0.4);fput(dc+0x30,130);fput(racer+0x14,125);put(style+0x14,0);fput(style+0x24,250);fput(style+0x2c,1500);
++ const sample=()=>e.nativeDiagnostics(e.state(),true);
++ return {memory,e,d,put,fput,p,car,race,record,driver,behavior,action,racer,score,dc,style,sample};
++}
++
++test('all-mode diagnostics expose actual skill, action and current/requested input modes without writes',()=>{
++ const f=fixture();f.d.setUint8(0x89e7d9,0);f.d.setUint8(0x89e7d8,1);f.put(f.behavior,0x784eb0);f.put(f.action,0x7847d0);f.put(f.action+20,2);f.put(f.p+0x22c,3);f.put(f.p+0x230,3);f.put(f.driver+0xc,0xe10000);f.put(f.driver+0x6e0,0xe11000);f.put(f.driver+0x6f8,0xe12000);f.fput(f.behavior+0x20c,0.75);f.fput(f.behavior+0x214,0.25);f.put(f.behavior+0x1e4,4);f.d.setInt16(f.behavior+0x1e0,-100,true);
++ const before=Buffer.from(f.memory.buffer),s=f.sample();assert.equal(s.dragRace,true);assert.equal(s.nativeSkill,9);assert.equal(s.aiGoalId,2);assert.equal(s.nativeInputMode,3);assert.equal(s.nativeNextInputMode,3);assert.equal(s.nativeNavigationPresent,true);assert.equal(s.nativeNavigationValid,true);assert.equal(s.nativeConfigValid,true);assert.equal(s.nativeCompanionValid,true);assert.equal(s.nativeThrottle,0.75);assert.equal(s.nativeBrake,0.25);assert.equal(s.nativeSteering,-100);assert.equal(s.nativeGearCommand,4);assert.equal('driftScoreLinked' in s,false);assert.deepEqual(Buffer.from(f.memory.buffer),before);
++});
++test('manual or foreign driver logs skill but cannot claim a native AI goal',()=>{const f=fixture();f.put(f.car+0x24,2);f.d.setUint8(f.record+0x901,4);const s=f.sample();assert.equal(s.nativeSkill,4);assert.equal(s.aiDriverVerified,false);assert.equal('aiGoalId' in s,false);assert.equal('nativeNavigationPresent' in s,false);});
++test('missing and malformed navigation/config are distinguished without dereferencing them',()=>{const f=fixture();let s=f.sample();assert.equal(s.nativeNavigationPresent,false);assert.equal(s.nativeNavigationValid,false);f.put(f.driver+0xc,0xfffffff0);f.put(f.driver+0x6e0,0xfffffff0);s=f.sample();assert.equal(s.nativeNavigationPresent,true);assert.equal(s.nativeNavigationValid,false);assert.equal(s.nativeConfigPresent,true);assert.equal(s.nativeConfigValid,false);});
++for(const [name,change] of Object.entries({navigation:f=>f.put(f.driver+0xc,0xe10000),config:f=>f.put(f.driver+0x6e0,0xe11000),companion:f=>f.put(f.driver+0x6f8,0xe12000),inputMode:f=>f.put(f.p+0x22c,3),requestedMode:f=>f.put(f.p+0x230,3)}))test('changed native diagnostic graph is rejected: '+name,()=>{const f=fixture(),read=f.e.u32.bind(f.e);let changed=false;f.e.u32=p=>{const v=read(p);if(p===f.dc+0x20&&!changed){changed=true;change(f);}return v;};assert.deepEqual(f.sample(),{});});
++test('only recognized finite controls and input enums are exported',()=>{const f=fixture();f.fput(f.behavior+0x20c,Infinity);f.fput(f.behavior+0x214,-1);f.put(f.p+0x22c,100);f.put(f.p+0x230,0xffffffff);f.put(f.behavior+0x1e4,99);const s=f.sample();for(const k of ['nativeThrottle','nativeBrake','nativeInputMode','nativeNextInputMode','nativeGearCommand'])assert.equal(k in s,false);});
++test('native logger keeps input and skill scalars but removes addresses and text',()=>{const f=fixture(),log=create();log.record('state',{...f.sample(),nativeNavigationAddress:1234,password:'SECRET',aiRequestedMode:1,aiNativeStatus:1,aiSkillSaved:true,savedNativeSkill:5});const s=JSON.parse(log.exportText()).events.at(-1).data;assert.equal(s.nativeSkill,9);assert.equal(s.savedNativeSkill,5);assert.equal(s.aiNativeStatus,1);assert.equal(s.aiSkillSaved,true);assert.doesNotMatch(JSON.stringify(s),/SECRET|Address/);});
++test('moving native controls sample at two seconds while skill and driver changes remain prompt',()=>{let now=1000;const log=create({clock:()=>now});log.snapshot({nativeTelemetry:true,nativeThrottle:0.2,nativeSkill:9,driverKind:3});const n=log.status().events;now+=250;log.snapshot({nativeTelemetry:true,nativeThrottle:1,nativeSkill:9,driverKind:3});assert.equal(log.status().events,n);now+=1750;log.snapshot({nativeTelemetry:true,nativeThrottle:1,nativeSkill:9,driverKind:3});assert.equal(log.status().events,n+1);now+=250;log.snapshot({nativeTelemetry:true,nativeThrottle:0,nativeSkill:4,driverKind:2});assert.equal(log.status().events,n+2);});
++
++test('export identifies current logger even when startup record was cleared and rejects unsafe version text',()=>{const log=create({version:'0.17.0'});log.clear();assert.equal(JSON.parse(log.exportText()).exporterVersion,'0.17.0');assert.equal('exporterVersion' in JSON.parse(create({version:'SECRET'}).exportText()),false);});

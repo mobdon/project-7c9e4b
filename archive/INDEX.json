@@ -1,0 +1,699 @@
+{
+  "kind": "PUBLIC-HISTORICAL-ARCHIVE-CATALOG",
+  "archives": [
+    {
+      "id": "A001",
+      "name": "backup-0.38.2-replaced-files.zip",
+      "bytes": 127587,
+      "sha256": "fcf4879a97c8ce355c142b2623e7b7bb5015b073f80d239b33abdd6e6fa2f21b",
+      "kind": "historical-archive",
+      "path": "archive/A001/backup-0.38.2-replaced-files.zip"
+    },
+    {
+      "id": "A002",
+      "name": "Desktop-v0.38.3-extra-backup-0.38.2-replaced-files.zip",
+      "bytes": 127587,
+      "sha256": "fcf4879a97c8ce355c142b2623e7b7bb5015b073f80d239b33abdd6e6fa2f21b",
+      "kind": "historical-archive",
+      "path": "archive/A002/Desktop-v0.38.3-extra-backup-0.38.2-replaced-files.zip"
+    },
+    {
+      "id": "A003",
+      "name": "NFSU2-Driving-Tools-0.42.1.zip",
+      "bytes": 1261139,
+      "sha256": "bbc6780e9dc641912aabb842e235cf58441eb8b8331de3e9feb8a21ff94a78f8",
+      "kind": "historical-archive",
+      "path": "archive/A003/NFSU2-Driving-Tools-0.42.1.zip"
+    },
+    {
+      "id": "A004",
+      "name": "NFSU2-Driving-Tools-v0.34-Desktop-Folder.zip",
+      "bytes": 266546,
+      "sha256": "75d69b70c3944f99d340fe390cf0cd6eaa96e547abb113dce613081b61a8cf07",
+      "kind": "historical-archive",
+      "path": "archive/A004/NFSU2-Driving-Tools-v0.34-Desktop-Folder.zip"
+    },
+    {
+      "id": "A005",
+      "name": "NFSU2-Driving-Tools-v0.34.1-Desktop-Folder.zip",
+      "bytes": 268134,
+      "sha256": "915f11f358ce402b4b56a80af10e3e503cfef6cf433bbc354aaf4ed8221cd254",
+      "kind": "historical-archive",
+      "path": "archive/A005/NFSU2-Driving-Tools-v0.34.1-Desktop-Folder.zip"
+    },
+    {
+      "id": "A006",
+      "name": "NFSU2-Driving-Tools-v0.35.0-Desktop-Folder.zip",
+      "bytes": 302087,
+      "sha256": "8e960eca33004ed87401bcf0772f8b603a3148a3ee2317d144c5dcc1786093b6",
+      "kind": "historical-archive",
+      "path": "archive/A006/NFSU2-Driving-Tools-v0.35.0-Desktop-Folder.zip"
+    },
+    {
+      "id": "A007",
+      "name": "NFSU2-Driving-Tools-v0.36.0-Desktop-Folder.zip",
+      "bytes": 318399,
+      "sha256": "cb4284eec6d1413e015712ffdb8d5fac84fd62b95bd3d3b9a963867074399915",
+      "kind": "historical-archive",
+      "path": "archive/A007/NFSU2-Driving-Tools-v0.36.0-Desktop-Folder.zip"
+    },
+    {
+      "id": "A008",
+      "name": "NFSU2-Driving-Tools-v0.37.0-Desktop-Folder.zip",
+      "bytes": 363770,
+      "sha256": "e9770f5657db1d782b737f69ca087bd2f6102143903554f208e072f1401531cc",
+      "kind": "historical-archive",
+      "path": "archive/A008/NFSU2-Driving-Tools-v0.37.0-Desktop-Folder.zip"
+    },
+    {
+      "id": "A009",
+      "name": "NFSU2-Driving-Tools-v0.38.0-Desktop-Folder.zip",
+      "bytes": 396250,
+      "sha256": "f175c2708641cb29f69e9da11a25c40087cd904e8e2e1232a9e798a05c18b3e1",
+      "kind": "historical-archive",
+      "path": "archive/A009/NFSU2-Driving-Tools-v0.38.0-Desktop-Folder.zip"
+    },
+    {
+      "id": "A010",
+      "name": "NFSU2-Driving-Tools-v0.38.1-Desktop-Folder.zip",
+      "bytes": 398895,
+      "sha256": "1a8b3c373ee0002ddad30f22b29521f2de8a42e7a0d8dd07830c48c112d45bdc",
+      "kind": "historical-archive",
+      "path": "archive/A010/NFSU2-Driving-Tools-v0.38.1-Desktop-Folder.zip"
+    },
+    {
+      "id": "A011",
+      "name": "NFSU2-Driving-Tools-v0.38.10-Desktop-Folder.zip",
+      "bytes": 577202,
+      "sha256": "7312f1d8ae82e0b8983fb7fbd92190b66d12ad8f6bad93576ecf47b2342997ba",
+      "kind": "historical-archive",
+      "path": "archive/A011/NFSU2-Driving-Tools-v0.38.10-Desktop-Folder.zip"
+    },
+    {
+      "id": "A012",
+      "name": "NFSU2-Driving-Tools-v0.38.11-Desktop-Folder.zip",
+      "bytes": 584428,
+      "sha256": "42d97f73055aa4bc87fe6d8f44ea81506d95c3f3be425d5fd7581ef224b9f303",
+      "kind": "historical-archive",
+      "path": "archive/A012/NFSU2-Driving-Tools-v0.38.11-Desktop-Folder.zip"
+    },
+    {
+      "id": "A013",
+      "name": "NFSU2-Driving-Tools-v0.38.12-Desktop-Folder.zip",
+      "bytes": 684277,
+      "sha256": "ad6e918b9682c8ff2279e28019f2be3565fca74bebed14b99ce2e13666c0b974",
+      "kind": "historical-archive",
+      "path": "archive/A013/NFSU2-Driving-Tools-v0.38.12-Desktop-Folder.zip"
+    },
+    {
+      "id": "A014",
+      "name": "NFSU2-Driving-Tools-v0.38.13-Desktop-Folder.zip",
+      "bytes": 712171,
+      "sha256": "b509b30cdbbd8a00879321157eeaa2aac05cd0a74c15e930a893cde342dcc9e4",
+      "kind": "historical-archive",
+      "path": "archive/A014/NFSU2-Driving-Tools-v0.38.13-Desktop-Folder.zip"
+    },
+    {
+      "id": "A015",
+      "name": "NFSU2-Driving-Tools-v0.38.14-Desktop-Folder.zip",
+      "bytes": 715591,
+      "sha256": "7a29b6c92197f017e53996ba32dc8b2965822b08ef4d32f0b6d9174e9b38fa16",
+      "kind": "historical-archive",
+      "path": "archive/A015/NFSU2-Driving-Tools-v0.38.14-Desktop-Folder.zip"
+    },
+    {
+      "id": "A016",
+      "name": "NFSU2-Driving-Tools-v0.38.15-Desktop-Folder.zip",
+      "bytes": 729441,
+      "sha256": "89be449722f45ef211bb4e66bc9b3726b7ebef33a74c2b76edb6c6f23aaa06bc",
+      "kind": "historical-archive",
+      "path": "archive/A016/NFSU2-Driving-Tools-v0.38.15-Desktop-Folder.zip"
+    },
+    {
+      "id": "A017",
+      "name": "NFSU2-Driving-Tools-v0.38.16-Desktop-Folder.zip",
+      "bytes": 859815,
+      "sha256": "c01832130ea77d739acdbb27e85c96705990fc5b6fe266e1fa9cc5013c2eabdd",
+      "kind": "historical-archive",
+      "path": "archive/A017/NFSU2-Driving-Tools-v0.38.16-Desktop-Folder.zip"
+    },
+    {
+      "id": "A018",
+      "name": "NFSU2-Driving-Tools-v0.38.18-Desktop-Folder.zip",
+      "bytes": 1116573,
+      "sha256": "0c98b5c07ee348c838b3f130630a1ddc6bd26e9f8bb801e7e80946ca65a29bcd",
+      "kind": "historical-archive",
+      "path": "archive/A018/NFSU2-Driving-Tools-v0.38.18-Desktop-Folder.zip"
+    },
+    {
+      "id": "A019",
+      "name": "NFSU2-Driving-Tools-v0.38.2-Desktop-Folder.zip",
+      "bytes": 420021,
+      "sha256": "23ec20ebc7fbc6e8ac7180d68dea19965a832574057ec5b12cf3bcf2d385913f",
+      "kind": "historical-archive",
+      "path": "archive/A019/NFSU2-Driving-Tools-v0.38.2-Desktop-Folder.zip"
+    },
+    {
+      "id": "A020",
+      "name": "NFSU2-Driving-Tools-v0.38.4-Desktop-Folder.zip",
+      "bytes": 442261,
+      "sha256": "bce51d42e99ab56c1965adacbd243ab79be0a0af5d279130c9e40099d0114493",
+      "kind": "historical-archive",
+      "path": "archive/A020/NFSU2-Driving-Tools-v0.38.4-Desktop-Folder.zip"
+    },
+    {
+      "id": "A021",
+      "name": "NFSU2-Driving-Tools-v0.38.5-Desktop-Folder.zip",
+      "bytes": 448433,
+      "sha256": "47f7f6a0b28cafc0e606f38d7f456468b1e71052390c1f240c79719f63ee3cf1",
+      "kind": "historical-archive",
+      "path": "archive/A021/NFSU2-Driving-Tools-v0.38.5-Desktop-Folder.zip"
+    },
+    {
+      "id": "A022",
+      "name": "NFSU2-Driving-Tools-v0.38.6-Desktop-Folder.zip",
+      "bytes": 482940,
+      "sha256": "d812777d56bf060699048c407f91241fa916aa9bc6b978c3cb1cba30b939badd",
+      "kind": "historical-archive",
+      "path": "archive/A022/NFSU2-Driving-Tools-v0.38.6-Desktop-Folder.zip"
+    },
+    {
+      "id": "A023",
+      "name": "NFSU2-Driving-Tools-v0.38.7-Desktop-Folder.zip",
+      "bytes": 505791,
+      "sha256": "cb5b3f2110d2d1c2a9c55b73b868b796855f13b1ac36a742490e05ca108306c1",
+      "kind": "historical-archive",
+      "path": "archive/A023/NFSU2-Driving-Tools-v0.38.7-Desktop-Folder.zip"
+    },
+    {
+      "id": "A024",
+      "name": "NFSU2-Driving-Tools-v0.38.8-Desktop-Folder.zip",
+      "bytes": 558913,
+      "sha256": "da5f29b0865e32ad0f28ebc3886844dea4273a36c30c3a1f30a340a8ae5a602b",
+      "kind": "historical-archive",
+      "path": "archive/A024/NFSU2-Driving-Tools-v0.38.8-Desktop-Folder.zip"
+    },
+    {
+      "id": "A025",
+      "name": "NFSU2-Driving-Tools-v0.38.9-Desktop-Folder.zip",
+      "bytes": 576759,
+      "sha256": "f441a18255702c3300b11445204ec438fa50661a067ea97db342b99deb0df39c",
+      "kind": "historical-archive",
+      "path": "archive/A025/NFSU2-Driving-Tools-v0.38.9-Desktop-Folder.zip"
+    },
+    {
+      "id": "A026",
+      "name": "vgmstream-win64.zip",
+      "bytes": 4452782,
+      "sha256": "2b51c4f293c55f46326ddeff2f18aaa6673ee193c437b9b7b973bc762ad3ff24",
+      "kind": "historical-archive",
+      "path": "archive/A026/vgmstream-win64.zip"
+    },
+    {
+      "id": "A027",
+      "name": "vgmstream-win64.zip",
+      "bytes": 4452782,
+      "sha256": "2b51c4f293c55f46326ddeff2f18aaa6673ee193c437b9b7b973bc762ad3ff24",
+      "kind": "historical-archive",
+      "path": "archive/A027/vgmstream-win64.zip"
+    },
+    {
+      "id": "A028",
+      "name": "nfsu2-web-public-9e023021-source.zip",
+      "bytes": 9026865,
+      "sha256": "96c634b5db9432a20e131b5af4dd3a5125f836e44d3e4a250333e84c3fb5e23a",
+      "kind": "historical-archive",
+      "path": "archive/A028/nfsu2-web-public-9e023021-source.zip"
+    },
+    {
+      "id": "A029",
+      "name": "vgmstream-win64.zip",
+      "bytes": 4452782,
+      "sha256": "2b51c4f293c55f46326ddeff2f18aaa6673ee193c437b9b7b973bc762ad3ff24",
+      "kind": "historical-archive",
+      "path": "archive/A029/vgmstream-win64.zip"
+    },
+    {
+      "id": "A030",
+      "name": "vgmstream-win64.zip",
+      "bytes": 4452782,
+      "sha256": "2b51c4f293c55f46326ddeff2f18aaa6673ee193c437b9b7b973bc762ad3ff24",
+      "kind": "historical-archive",
+      "path": "archive/A030/vgmstream-win64.zip"
+    },
+    {
+      "id": "A031",
+      "name": "vgmstream-win64.zip",
+      "bytes": 4452782,
+      "sha256": "2b51c4f293c55f46326ddeff2f18aaa6673ee193c437b9b7b973bc762ad3ff24",
+      "kind": "historical-archive",
+      "path": "archive/A031/vgmstream-win64.zip"
+    },
+    {
+      "id": "A032",
+      "name": "vgmstream-win64.zip",
+      "bytes": 4452782,
+      "sha256": "2b51c4f293c55f46326ddeff2f18aaa6673ee193c437b9b7b973bc762ad3ff24",
+      "kind": "historical-archive",
+      "path": "archive/A032/vgmstream-win64.zip"
+    },
+    {
+      "id": "A033",
+      "name": "vgmstream-win64.zip",
+      "bytes": 4452782,
+      "sha256": "2b51c4f293c55f46326ddeff2f18aaa6673ee193c437b9b7b973bc762ad3ff24",
+      "kind": "historical-archive",
+      "path": "archive/A033/vgmstream-win64.zip"
+    },
+    {
+      "id": "A034",
+      "name": "vgmstream-win64.zip",
+      "bytes": 4452782,
+      "sha256": "2b51c4f293c55f46326ddeff2f18aaa6673ee193c437b9b7b973bc762ad3ff24",
+      "kind": "historical-archive",
+      "path": "archive/A034/vgmstream-win64.zip"
+    },
+    {
+      "id": "A035",
+      "name": "workspace-extension-0.38.18.zip",
+      "bytes": 1177771,
+      "sha256": "0214b9b27f010d7b397549e599131b8ee090fd00793ab922d37a8f9be04d6e26",
+      "kind": "historical-archive",
+      "path": "archive/A035/workspace-extension-0.38.18.zip"
+    },
+    {
+      "id": "A036",
+      "name": "NFSU2-Driving-Tools-0.42.6-reviewed-candidate.zip",
+      "bytes": 1381220,
+      "sha256": "fac388490104496a8128cbf19c63d0c2c63a47df75683321347c1b06af4221f7",
+      "kind": "historical-archive",
+      "path": "archive/A036/NFSU2-Driving-Tools-0.42.6-reviewed-candidate.zip"
+    },
+    {
+      "id": "A037",
+      "name": "vgmstream-win64.zip",
+      "bytes": 4452782,
+      "sha256": "2b51c4f293c55f46326ddeff2f18aaa6673ee193c437b9b7b973bc762ad3ff24",
+      "kind": "historical-archive",
+      "path": "archive/A037/vgmstream-win64.zip"
+    },
+    {
+      "id": "A038",
+      "name": "vgmstream-win64.zip",
+      "bytes": 4452782,
+      "sha256": "2b51c4f293c55f46326ddeff2f18aaa6673ee193c437b9b7b973bc762ad3ff24",
+      "kind": "historical-archive",
+      "path": "archive/A038/vgmstream-win64.zip"
+    },
+    {
+      "id": "A039",
+      "name": "vgmstream-win64.zip",
+      "bytes": 4452782,
+      "sha256": "2b51c4f293c55f46326ddeff2f18aaa6673ee193c437b9b7b973bc762ad3ff24",
+      "kind": "historical-archive",
+      "path": "archive/A039/vgmstream-win64.zip"
+    },
+    {
+      "id": "A040",
+      "name": "vgmstream-win64.zip",
+      "bytes": 4452782,
+      "sha256": "2b51c4f293c55f46326ddeff2f18aaa6673ee193c437b9b7b973bc762ad3ff24",
+      "kind": "historical-archive",
+      "path": "archive/A040/vgmstream-win64.zip"
+    },
+    {
+      "id": "A041",
+      "name": "vgmstream-win64.zip",
+      "bytes": 4452782,
+      "sha256": "2b51c4f293c55f46326ddeff2f18aaa6673ee193c437b9b7b973bc762ad3ff24",
+      "kind": "historical-archive",
+      "path": "archive/A041/vgmstream-win64.zip"
+    },
+    {
+      "id": "A042",
+      "name": "vgmstream-win64.zip",
+      "bytes": 4452782,
+      "sha256": "2b51c4f293c55f46326ddeff2f18aaa6673ee193c437b9b7b973bc762ad3ff24",
+      "kind": "historical-archive",
+      "path": "archive/A042/vgmstream-win64.zip"
+    },
+    {
+      "id": "A043",
+      "name": "vgmstream-win64.zip",
+      "bytes": 4452782,
+      "sha256": "2b51c4f293c55f46326ddeff2f18aaa6673ee193c437b9b7b973bc762ad3ff24",
+      "kind": "historical-archive",
+      "path": "archive/A043/vgmstream-win64.zip"
+    },
+    {
+      "id": "A044",
+      "name": "Need for Speed - Underground 2 (USA) (1).zip",
+      "bytes": 1629182182,
+      "sha256": null,
+      "kind": "excluded-iso"
+    },
+    {
+      "id": "A045",
+      "name": "Need for Speed - Underground 2 (USA).zip",
+      "bytes": 1629182182,
+      "sha256": null,
+      "kind": "excluded-iso"
+    },
+    {
+      "id": "A046",
+      "name": "NFSU2-Driving-Tools-0.38.3.zip",
+      "bytes": 438079,
+      "sha256": "563fbb0d26c2d4a4ea02ace21c9e7ab294fa5310aaffcbeb00be5cd394c87028",
+      "kind": "historical-archive",
+      "path": "archive/A046/NFSU2-Driving-Tools-0.38.3.zip"
+    },
+    {
+      "id": "A047",
+      "name": "NFSU2-Driving-Tools-0.42.1-before-0.42.2.zip",
+      "bytes": 1261139,
+      "sha256": "bbc6780e9dc641912aabb842e235cf58441eb8b8331de3e9feb8a21ff94a78f8",
+      "kind": "historical-archive",
+      "path": "archive/A047/NFSU2-Driving-Tools-0.42.1-before-0.42.2.zip"
+    },
+    {
+      "id": "A048",
+      "name": "NFSU2-Driving-Tools-0.42.1.zip",
+      "bytes": 1261139,
+      "sha256": "bbc6780e9dc641912aabb842e235cf58441eb8b8331de3e9feb8a21ff94a78f8",
+      "kind": "historical-archive",
+      "path": "archive/A048/NFSU2-Driving-Tools-0.42.1.zip"
+    },
+    {
+      "id": "A049",
+      "name": "NFSU2-Driving-Tools-0.42.2-before-0.42.3.zip",
+      "bytes": 1356190,
+      "sha256": "61f229231a94485f44feb2230ca4871ce4ec072180dead0a079be71e8cef2654",
+      "kind": "historical-archive",
+      "path": "archive/A049/NFSU2-Driving-Tools-0.42.2-before-0.42.3.zip"
+    },
+    {
+      "id": "A050",
+      "name": "NFSU2-Driving-Tools-0.42.2.zip",
+      "bytes": 1356190,
+      "sha256": "61f229231a94485f44feb2230ca4871ce4ec072180dead0a079be71e8cef2654",
+      "kind": "historical-archive",
+      "path": "archive/A050/NFSU2-Driving-Tools-0.42.2.zip"
+    },
+    {
+      "id": "A051",
+      "name": "NFSU2-Driving-Tools-0.42.3-before-0.42.4.zip",
+      "bytes": 1382841,
+      "sha256": "b4b0632964b07f926ded7942f4b9a0c17f92bb8b0a3450fea8f43d73a49d1a9f",
+      "kind": "historical-archive",
+      "path": "archive/A051/NFSU2-Driving-Tools-0.42.3-before-0.42.4.zip"
+    },
+    {
+      "id": "A052",
+      "name": "NFSU2-Driving-Tools-0.42.3.zip",
+      "bytes": 1382841,
+      "sha256": "b4b0632964b07f926ded7942f4b9a0c17f92bb8b0a3450fea8f43d73a49d1a9f",
+      "kind": "historical-archive",
+      "path": "archive/A052/NFSU2-Driving-Tools-0.42.3.zip"
+    },
+    {
+      "id": "A053",
+      "name": "NFSU2-Driving-Tools-0.42.4-before-0.42.5.zip",
+      "bytes": 1384227,
+      "sha256": "a2e9ec98fdf65670e57748f518328b86b05cc80e12555ef7aeb6e985300c8e5d",
+      "kind": "historical-archive",
+      "path": "archive/A053/NFSU2-Driving-Tools-0.42.4-before-0.42.5.zip"
+    },
+    {
+      "id": "A054",
+      "name": "NFSU2-Driving-Tools-0.42.4.zip",
+      "bytes": 1384227,
+      "sha256": "a2e9ec98fdf65670e57748f518328b86b05cc80e12555ef7aeb6e985300c8e5d",
+      "kind": "historical-archive",
+      "path": "archive/A054/NFSU2-Driving-Tools-0.42.4.zip"
+    },
+    {
+      "id": "A055",
+      "name": "NFSU2-Driving-Tools-0.42.5.zip",
+      "bytes": 1394751,
+      "sha256": "43294da571e8c44fee2796cf8a8b77cf648f5b5e132cca650914dc25fbab4b12",
+      "kind": "historical-archive",
+      "path": "archive/A055/NFSU2-Driving-Tools-0.42.5.zip"
+    },
+    {
+      "id": "A056",
+      "name": "NFSU2-Driving-Tools-v0.1.zip",
+      "bytes": 11462,
+      "sha256": "613ba7b178689bd396a7c2cbc48feb9d2df32eac32a9ac87be3f14e01ceaa96c",
+      "kind": "historical-archive",
+      "path": "archive/A056/NFSU2-Driving-Tools-v0.1.zip"
+    },
+    {
+      "id": "A057",
+      "name": "NFSU2-Driving-Tools-v0.10-Combined.zip",
+      "bytes": 44045,
+      "sha256": "87994526016c310debbdb929a88d45ac40af20b58f82085f3eda58d74d393c72",
+      "kind": "historical-archive",
+      "path": "archive/A057/NFSU2-Driving-Tools-v0.10-Combined.zip"
+    },
+    {
+      "id": "A058",
+      "name": "NFSU2-Driving-Tools-v0.11-Current-Build.zip",
+      "bytes": 47742,
+      "sha256": "b180e3a82fe3859b7813e7830f416808f7bf331d21aef2e9448084e730562e1f",
+      "kind": "historical-archive",
+      "path": "archive/A058/NFSU2-Driving-Tools-v0.11-Current-Build.zip"
+    },
+    {
+      "id": "A059",
+      "name": "NFSU2-Driving-Tools-v0.12-Current-Build.zip",
+      "bytes": 61861,
+      "sha256": "9a542805cbf1a5207582188363782152c0dfcf9d75338993944f3afea2ef9f69",
+      "kind": "historical-archive",
+      "path": "archive/A059/NFSU2-Driving-Tools-v0.12-Current-Build.zip"
+    },
+    {
+      "id": "A060",
+      "name": "NFSU2-Driving-Tools-v0.13-Current-Build.zip",
+      "bytes": 76443,
+      "sha256": "a36f8d3810a5a9e6d64debc557bff3bb2f0c1cb58c79e161bcd55b447cad11ff",
+      "kind": "historical-archive",
+      "path": "archive/A060/NFSU2-Driving-Tools-v0.13-Current-Build.zip"
+    },
+    {
+      "id": "A061",
+      "name": "NFSU2-Driving-Tools-v0.15-Opponent-AI.zip",
+      "bytes": 85963,
+      "sha256": "241b6ba27e791cfd9046aae01dd3072c3ddc22e0e5ca4a90b525ac13607b8d38",
+      "kind": "historical-archive",
+      "path": "archive/A061/NFSU2-Driving-Tools-v0.15-Opponent-AI.zip"
+    },
+    {
+      "id": "A062",
+      "name": "NFSU2-Driving-Tools-v0.16-Current-Build-Players.zip",
+      "bytes": 96852,
+      "sha256": "1f79293b5e776a96890cb646ed02e4f9b284786f3a0467b2e63b89bfff74f63a",
+      "kind": "historical-archive",
+      "path": "archive/A062/NFSU2-Driving-Tools-v0.16-Current-Build-Players.zip"
+    },
+    {
+      "id": "A063",
+      "name": "NFSU2-Driving-Tools-v0.17-Combined-Drift-AI (1).zip",
+      "bytes": 101867,
+      "sha256": "cd926b802f3e12a83d18b0bdf55170b81b6960421880f4538641256ffd38734a",
+      "kind": "historical-archive",
+      "path": "archive/A063/NFSU2-Driving-Tools-v0.17-Combined-Drift-AI (1).zip"
+    },
+    {
+      "id": "A064",
+      "name": "NFSU2-Driving-Tools-v0.17-Combined-Drift-AI.zip",
+      "bytes": 101867,
+      "sha256": "cd926b802f3e12a83d18b0bdf55170b81b6960421880f4538641256ffd38734a",
+      "kind": "historical-archive",
+      "path": "archive/A064/NFSU2-Driving-Tools-v0.17-Combined-Drift-AI.zip"
+    },
+    {
+      "id": "A065",
+      "name": "NFSU2-Driving-Tools-v0.18-Combined-Race-AI(1).zip",
+      "bytes": 108685,
+      "sha256": "c5acdfe3fdb5cf39a6a6d040e7da4c3a980c0a24db89c0b1574d33dda558a7df",
+      "kind": "historical-archive",
+      "path": "archive/A065/NFSU2-Driving-Tools-v0.18-Combined-Race-AI(1).zip"
+    },
+    {
+      "id": "A066",
+      "name": "NFSU2-Driving-Tools-v0.2.zip",
+      "bytes": 13565,
+      "sha256": "0a3eed1e4340bef462a497d51afcb86189e36c62361f22462dfb18c97ede0f82",
+      "kind": "historical-archive",
+      "path": "archive/A066/NFSU2-Driving-Tools-v0.2.zip"
+    },
+    {
+      "id": "A067",
+      "name": "NFSU2-Driving-Tools-v0.24-Combined-Online-Drag-Tuner (1).zip",
+      "bytes": 204573,
+      "sha256": "eaf1745261a9da590890433503fc57460546459e3045c2a5af34fc6731ad4a9e",
+      "kind": "historical-archive",
+      "path": "archive/A067/NFSU2-Driving-Tools-v0.24-Combined-Online-Drag-Tuner (1).zip"
+    },
+    {
+      "id": "A068",
+      "name": "NFSU2-Driving-Tools-v0.24-Combined-Online-Drag-Tuner (2).zip",
+      "bytes": 204573,
+      "sha256": "eaf1745261a9da590890433503fc57460546459e3045c2a5af34fc6731ad4a9e",
+      "kind": "historical-archive",
+      "path": "archive/A068/NFSU2-Driving-Tools-v0.24-Combined-Online-Drag-Tuner (2).zip"
+    },
+    {
+      "id": "A069",
+      "name": "NFSU2-Driving-Tools-v0.24-Combined-Online-Drag-Tuner.zip",
+      "bytes": 204573,
+      "sha256": "eaf1745261a9da590890433503fc57460546459e3045c2a5af34fc6731ad4a9e",
+      "kind": "historical-archive",
+      "path": "archive/A069/NFSU2-Driving-Tools-v0.24-Combined-Online-Drag-Tuner.zip"
+    },
+    {
+      "id": "A070",
+      "name": "NFSU2-Driving-Tools-v0.25-Combined-Saved-Profiles (1).zip",
+      "bytes": 214596,
+      "sha256": "8166d0332eadcd7abe2b4fc9ecfc0fa5e17c76548c286e940deb4e6c0b617cc6",
+      "kind": "historical-archive",
+      "path": "archive/A070/NFSU2-Driving-Tools-v0.25-Combined-Saved-Profiles (1).zip"
+    },
+    {
+      "id": "A071",
+      "name": "NFSU2-Driving-Tools-v0.25-Combined-Saved-Profiles.zip",
+      "bytes": 214596,
+      "sha256": "8166d0332eadcd7abe2b4fc9ecfc0fa5e17c76548c286e940deb4e6c0b617cc6",
+      "kind": "historical-archive",
+      "path": "archive/A071/NFSU2-Driving-Tools-v0.25-Combined-Saved-Profiles.zip"
+    },
+    {
+      "id": "A072",
+      "name": "NFSU2-Driving-Tools-v0.27-Combined-Tuner-Diagnostics.zip",
+      "bytes": 218005,
+      "sha256": "998809910d76cfdc8835d845dfa90e70c98c6f18060f18a617d6522391b05866",
+      "kind": "historical-archive",
+      "path": "archive/A072/NFSU2-Driving-Tools-v0.27-Combined-Tuner-Diagnostics.zip"
+    },
+    {
+      "id": "A073",
+      "name": "NFSU2-Driving-Tools-v0.28-Combined-NOS-Clock-Fix.zip",
+      "bytes": 219527,
+      "sha256": "af6d25797383465e381740f90fc2e3e12688a3413face20d764d1675ace0178d",
+      "kind": "historical-archive",
+      "path": "archive/A073/NFSU2-Driving-Tools-v0.28-Combined-NOS-Clock-Fix.zip"
+    },
+    {
+      "id": "A074",
+      "name": "NFSU2-Driving-Tools-v0.31-Combined-Drag-Retention.zip",
+      "bytes": 227784,
+      "sha256": "349894953587377ff7b45b702f8d77feb7ef219ce1e70a666216720244809ad6",
+      "kind": "historical-archive",
+      "path": "archive/A074/NFSU2-Driving-Tools-v0.31-Combined-Drag-Retention.zip"
+    },
+    {
+      "id": "A075",
+      "name": "NFSU2-Driving-Tools-v0.32-Same-Folder-Update (1).zip",
+      "bytes": 235207,
+      "sha256": "40bf3c98d6083d34e8ad99afbb6b95479898707f6b3dac5329eb9b863d6a3651",
+      "kind": "historical-archive",
+      "path": "archive/A075/NFSU2-Driving-Tools-v0.32-Same-Folder-Update (1).zip"
+    },
+    {
+      "id": "A076",
+      "name": "NFSU2-Driving-Tools-v0.32-Same-Folder-Update.zip",
+      "bytes": 235207,
+      "sha256": "40bf3c98d6083d34e8ad99afbb6b95479898707f6b3dac5329eb9b863d6a3651",
+      "kind": "historical-archive",
+      "path": "archive/A076/NFSU2-Driving-Tools-v0.32-Same-Folder-Update.zip"
+    },
+    {
+      "id": "A077",
+      "name": "NFSU2-Driving-Tools-v0.33-Desktop-Folder.zip",
+      "bytes": 238099,
+      "sha256": "06bf5f37ddfd446ba845813b23fa376bb6c41719c038aa85b65f80aa839b5b28",
+      "kind": "historical-archive",
+      "path": "archive/A077/NFSU2-Driving-Tools-v0.33-Desktop-Folder.zip"
+    },
+    {
+      "id": "A078",
+      "name": "NFSU2-Driving-Tools-v0.4.zip",
+      "bytes": 23828,
+      "sha256": "508933f4880358ca0cb3cd87caf57966c9c18144659ba042b20288d24581b2d0",
+      "kind": "historical-archive",
+      "path": "archive/A078/NFSU2-Driving-Tools-v0.4.zip"
+    },
+    {
+      "id": "A079",
+      "name": "NFSU2-Driving-Tools-v0.6.zip",
+      "bytes": 28796,
+      "sha256": "7bc6ae1963227225f2331176f92248ce7cce5bf7a4ecdb001d0cfffadf8c5df4",
+      "kind": "historical-archive",
+      "path": "archive/A079/NFSU2-Driving-Tools-v0.6.zip"
+    },
+    {
+      "id": "A080",
+      "name": "nfsu2-OG-Skyline-only-2026-11-12.zip",
+      "bytes": 3411,
+      "sha256": "b47610865e3e03a9005e2ea325df141766b05104e36cf8d380995b8f8e1d976e",
+      "kind": "excluded-save"
+    },
+    {
+      "id": "A081",
+      "name": "nfsu2-saves-2026-11-08_212323.zip",
+      "bytes": 87885,
+      "sha256": "94ca9a03181c10e0a9b6d415415eec4bde41dde4da3abab38de33aeb89bc4dd5",
+      "kind": "excluded-save"
+    },
+    {
+      "id": "A082",
+      "name": "nfsu2-saves-2026-11-08_220341.zip",
+      "bytes": 88248,
+      "sha256": "9ee6d82edd3fdf724fe2a076b3d370bf44145582d3c8795046c0bafc5be98010",
+      "kind": "excluded-save"
+    },
+    {
+      "id": "A083",
+      "name": "nfsu2-saves-2026-11-08_222936.zip",
+      "bytes": 88283,
+      "sha256": "0d9b42a6c93657cd49f4ca2776c95d23d7816f432a253ab15f64073eeb86057f",
+      "kind": "excluded-save"
+    },
+    {
+      "id": "A084",
+      "name": "nfsu2-saves-2026-11-12_115910.zip",
+      "bytes": 9509044,
+      "sha256": "78459db25d809e4879bc27285aaa19a717df8a01aa73f969146f4afae522dfd8",
+      "kind": "excluded-save"
+    },
+    {
+      "id": "A085",
+      "name": "nfsu2-saves-2026-11-12_120443.zip",
+      "bytes": 3150129,
+      "sha256": "8376cfd596ce51bc570583e834bbf1544b911a0188c12f9c086cddf7f5214395",
+      "kind": "excluded-save"
+    },
+    {
+      "id": "A086",
+      "name": "nfsu2-saves-2026-11-12_121639.zip",
+      "bytes": 89998,
+      "sha256": "19b0756b44f77d038c37655232fd6dc393c239e936ac55e09c9917498db082f6",
+      "kind": "excluded-save"
+    },
+    {
+      "id": "A087",
+      "name": "nfsu2-saves-only-2026-11-12_115910.zip",
+      "bytes": 2661116,
+      "sha256": "6faa541a94107d16d98740622de59a3e701a0e232797a4e7207da64fdafcbaed",
+      "kind": "excluded-save"
+    },
+    {
+      "id": "A088",
+      "name": "NFSU2-Source-Handoff-2026-11-10.zip",
+      "bytes": 11671354,
+      "sha256": "adadde23f712cb050ce95167e8310c4a4ca165aa53b2205893eae8a69e8df441",
+      "kind": "historical-archive",
+      "path": "archive/A088/NFSU2-Source-Handoff-2026-11-10.zip"
+    }
+  ]
+}

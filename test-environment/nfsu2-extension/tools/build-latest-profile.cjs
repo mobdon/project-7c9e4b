@@ -1,0 +1,40 @@
+/* Recompile only authored hooks for exact reviewed 78e2bb69 indices.
+ * Never reads or embeds game code. Preserve previous-build profiles. */
+'use strict';
+const fs=require('fs'),path=require('path'),assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'..'),{compose}=require('./compose-contact-prefixes.cjs');
+const wabtFactory=require(process.env.WABT_MODULE||path.join(root,'research/compatibility-v011/node_modules/wabt'));
+(async()=>{
+ const wabt=await wabtFactory(),read=n=>fs.readFileSync(path.join(root,'tools',n),'utf8');
+ const compile=s=>{const m=wabt.parseWat('authored-latest.wat',s,{threads:true,simd:true});m.resolveNames();m.validate({threads:true,simd:true});return Buffer.from(m.toBinary({}).buffer)};
+ const body=b=>{let p=8;const u=()=>{let n=0,s=0,x;do{x=b[p++];n|=(x&127)<<s;s+=7}while(x&128);return n>>>0};while(p<b.length){const id=b[p++],len=u(),end=p+len;if(id===10){assert.equal(u(),1);const n=u();return [...b.subarray(p,p+n)]}p=end}throw Error('Missing authored body')};
+ const dummy=(a,b)=>Array.from({length:b-a},(_,i)=>`(import "unused" "${a+i}" (func))`).join('');
+ const ptr=x=>`(i32.and (i32.ge_u ${x} (i32.const 65536)) (i32.and (i32.lt_u ${x} (i32.const 0x27fff000)) (i64.lt_u (i64.extend_i32_u ${x}) (i64.sub (i64.shl (i64.extend_i32_u (memory.size)) (i64.const 16)) (i64.const 4096)))))`;
+ const acquisition=read('drag-acquisition.wat').replace('PTR_DRIVER',ptr('(local.get $rec)')).replace('PTR_CONFIG',ptr('(i32.load offset=1760 (local.get $rec))')).replace('PTR_ACTION',ptr('(i32.load offset=1788 (local.get $rec))'));
+ const anchor='(i32.store (i32.const 13685044) (i32.const 1))';
+ const source=require('./add-drift-physics.cjs').transform(read('ai-current-bridge.wat'));assert.equal(source.split(anchor).length,2);
+ const ai=require('./add-drag-overheat.cjs').transform(require('./add-drag-input-handoff.cjs').transform(source.replace(anchor,anchor+'\n'+acquisition)));
+ fs.writeFileSync(path.join(root,'tests/ai-latest-bridge.wasm'),compile(ai));
+ const bridge=body(compile(ai.replace('(import "env" "dispatch"',dummy(0,21726)+'(import "env" "dispatch"').replace('(import "env" "gcall"',dummy(21727,21740)+'(import "env" "gcall"')));
+ const pace=require('./add-drift-pace.cjs').transform(read('ai-pace.wat')),pOrig='(import "env" "original" (func $original (param i32)))',pCatch='(import "env" "catchup" (func $catchup (param i32)))';
+ assert(pace.includes(pOrig+pCatch));
+ const pImports=Array.from({length:21263},(_,i)=>i===16154?pOrig:i===21262?pCatch:`(import "unused" "${i}" (func))`).join('');
+ const paceBody=body(compile(pace.replace(pOrig+pCatch,pImports)));
+ fs.writeFileSync(path.join(root,'tests/ai-latest-pace.wasm'),compile(pace));
+ const online='(import "env" "roam_online" (func $roam_online (result i32)))',original='(import "env" "original" (func $native (param i32)))';
+ const slot='(import "env" "slot_kind" (func $slot_kind (param i32 i32) (result i32)))';
+ const contact=n=>{const s=read(n),imports=n==='cars-online.wat'?online+slot+original:online+original;assert(s.includes(imports));assert(s.includes('(call $native (local.get $cpu))'));return body(compile(s.replace(imports,dummy(0,22758)+online+(n==='cars-online.wat'?slot:'')).replace('(call $native (local.get $cpu))','')))};
+ const wallBody=contact('walls-current.wat'),carBody=contact('cars-online.wat'),contactBody=compose(carBody,wallBody);
+ fs.writeFileSync(path.join(root,'tests/walls-latest.wasm'),compile(read('walls-current.wat')));fs.writeFileSync(path.join(root,'tests/cars-latest.wasm'),compile(read('cars-online.wat')));
+ const config={target:22470-37,functionIndex:22470,helper:22758,onlineAddresses:[705664956,705781840,705666124],originalLocals:1,totalLocals:19};
+ const cars={...config,slotKind:22759,onlineTraffic:true,onlinePlayers:true,contactCounters:2,base:0xd0d1c0,bytes:40,magic:0x3143414e};
+ for(const [n,b]of Object.entries({'ai-latest-body.json':bridge,'pace-latest-body.json':paceBody,'wall-latest-body.json':wallBody,'car-latest-body.json':carBody,'contact-latest-body.json':contactBody,'wall-latest-config.json':config,'car-latest-config.json':cars}))fs.writeFileSync(path.join(root,'tools',n),JSON.stringify(b)+'\n');
+ const dragSelector=JSON.parse(read('drag-selector.json'));
+ const ownedNos=JSON.parse(read('owned-nos.json'));
+ const driftRecovery=JSON.parse(read('drift-recovery.json'));
+ const dragInputGuard=JSON.parse(read('drag-input-guard.json'));
+ const dragOverheat=JSON.parse(read('drag-overheat.json'));
+ const profile={dragOverheat,dragInputGuard,driftRecovery,dragSelector,ownedNos,revision:'78e2bb69',size:38170601,hash:'df7b930bb293ffdf975f0735d93e0797d51bd137d0cbeabcaff87fc5a693c759',target:21213-37,bridge,locals:64,pace:{target:21263-37,bridge:paceBody},wall:{...config,bridge:contactBody},cars,capabilities:{legacy:true,ai:true,pace:true,corner:true,walls:true,cars:true,onlineTraffic:true,onlinePlayers:true,dyno:true,dragAI:true,opponentDrag:true,nativeDragInputHandoff:true,ownedNativeNos:true,nativeDriftPhysics:true,nativeDriftRecovery:true,nativeDriftPace:true,driftDiagnostics:true,nativeDragOverheat:true}};
+ fs.writeFileSync(path.join(root,'extension/latest-profile.js'),`/* Exact reviewed 78e2bb69 profile. Contains authored prefixes only. */\n(function(root){'use strict';const profile=${JSON.stringify(profile)};const freeze=o=>{if(o&&typeof o==='object'){Object.values(o).forEach(freeze);Object.freeze(o);}return o;};freeze(profile);root.__NFSU2_LATEST_PROFILE__=profile;if(typeof module==='object'&&module.exports)module.exports=profile;})(globalThis);\n`);
+ console.log(JSON.stringify({revision:profile.revision,bridge:bridge.length,pace:paceBody.length,contact:contactBody.length}));
+})().catch(e=>{console.error(e);process.exit(1)});

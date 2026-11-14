@@ -1,0 +1,967 @@
+VERBATIM REVIEW CHUNK 002
+Canonical bundle byte range [120000, 240000). Read chunks in numeric order.
+Only the payload below belongs to the canonical bundle; headers are generated.
+
+.toFixed(2)+'× ack':'pending');
+      } else if(selected&&Number.isFinite(factor))pace=factor.toFixed(2)+'× selected · AI off';
+    }
+    if(cityRequested&&!blocked)pace='City '+pace;
+    if(adaptiveRequested&&!blocked&&Number.isFinite(factor)){
+      const requested=Number.isFinite(d.adaptiveRuntimePace)?d.adaptiveRuntimePace.toFixed(2)+'× req':'pending';
+      const reason=d.adaptivePacingState==='native-fallback'?'native pace · corner coverage unknown':d.adaptivePacingState==='coverage-unknown'?'route coverage unknown':d.adaptivePacingState==='clearance-limited'?'clearance slowing':d.adaptiveRaceState==='planner-observed'?'planner observed':'pending';
+      pace=`Adaptive ${factor.toFixed(2)}× ceiling · ${requested} · ${reason}`;
+    }
+    const req=choices.boost?choices.power:1;
+    const requested=Number.isFinite(req)?req.toFixed(1)+'× req':'Requested';
+    const states={'network-permission':'online paused',unsupported:'unavailable','not-ready':'waiting',hidden:'paused',unfocused:'paused',hud:'waiting','not-driving':'waiting',menu:'paused','drift-change':'waiting',layout:'unavailable',settling:'settling',suspended:'paused','tuner-busy':'tuner busy',neutral:'neutral',changed:'changed',rejected:'rejected'};
+    let power=!(choices.boost||choices.unlimit)?'Off':requested+' · '+(blocked?'not confirmed':states[d.powerStatus]||'pending');
+    if(!blocked&&d.powerStatus==='applied'&&d.powerActive===true&&Number.isFinite(d.effectivePower)&&d.effectivePower>=1&&d.effectivePower<=3&&Math.abs(d.effectivePower-req)<.011)power=requested+' · '+d.effectivePower.toFixed(1)+'× set';
+    const limiter=!choices.unlimit?'':!blocked&&d.powerStatus==='applied'&&d.limiterRemoved===true?' · governor removed':' · governor requested';
+    return {governor:limiter?limiter.slice(3):'',speed,unit:speed==='Unavailable'?'':'km/h',context,driver,pace,power,powerTitle:power+limiter+'. Set reports guarded power-field writes, not measured speed or horsepower.',state:paused||(d.network&&!choices.online?'Read-only · network tools paused':'Live observations'),speedTitle:speed==='Unavailable'?(paused||'Speed telemetry is unavailable for this build or car.'):'Native speed sample converted from m/s to km/h. Not a GPS or measured tuning gain.'};
+  }
+  function renderInfoHud() {
+    if(!ui)return;
+    const hud=ui.querySelector('#info-hud');
+    hud.hidden=!infoHudEnabled||visible||hubOpen||cleanView||streamHudEnabled||rearRadarEnabled||pitwallEnabled;
+    ui.querySelector('#info-hud-enable').checked=infoHudEnabled;
+    renderStreamHud();
+    if(hud.hidden)return;
+    const view=infoHudView(infoHudSample,{...prefs,raceOnlyAI},performance.now());
+    for(const field of ['speed','unit','context','driver','pace','power','governor','state']) {
+      const node=ui.querySelector('#hud-'+field);
+      if(node.textContent!==view[field])node.textContent=view[field];
+      node.title=field==='speed'?view.speedTitle:field==='power'?view.powerTitle:view[field];
+      if(field==='governor')node.hidden=!view.governor;
+    }
+  }
+  function setInfoHud(enabled) {
+    infoHudEnabled=!!enabled;
+    try {sessionStorage.setItem(HUD_KEY,infoHudEnabled?'1':'0');} catch {}
+    renderInfoHud();
+  }
+  function clearInfoHud(reason='Waiting for live sample') {
+    infoHudSample=null;
+    streamSession?.observe(null,performance.now());
+    radarSample=null;radarAt=-Infinity;radarOwner=null;
+    renderInfoHud();
+    renderStreamHud(true);
+    if(ui&&infoHudEnabled&&!visible)ui.querySelector('#hud-state').textContent=reason;
+  }
+  function renderPowerStatus(powerStatus,tune={}) {
+    if(!ui)return;
+    const powerText={off:'Off · not a vehicle-speed multiplier',unsupported:'Unavailable · game build not verified','not-ready':'Waiting for the current car','network-permission':'Paused online · enable Allow network tools',hidden:'Paused · tab hidden',unfocused:'Paused · game unfocused',hud:'Waiting for driving HUD','not-driving':'Waiting for active driving',menu:'Paused · game menu open','drift-change':'Waiting for drift handling change',layout:'Unavailable · car performance layout',settling:'Waiting for stable performance values',suspended:'Paused · waiting for driving tools to resume','tuner-busy':'Paused · tuner is busy',applied:`Power fields set to ${Number(tune.power).toFixed(1)}×${tune.unlimit?' · stock governor set to zero':''}`,neutral:'Neutral · 1.0× power',changed:'Waiting · native tuning/state changed',rejected:'Not applied · performance guard rejected'};
+    ui.querySelector('#power-state').textContent=powerText[powerStatus];
+    ui.querySelector('#power-state').title=(tune.reason||powerText[powerStatus])+'. This reports guarded field writes, not a measured speed increase.';
+  }
+  function clearPaceEvidence() {
+    clearTargetFeedback();
+    // A stop request can precede native handback. Retain native ownership
+    // diagnostics, but never present an old acknowledgement as a current one.
+    cancelForward();dynamicPacer?.reset();cityPacer?.reset();pacingEvidence=null;
+    railsView=newRailsView();renderRails();
+    diagnosticState={...diagnosticState,railsWanted:false,railsRequested:false,railsOn:false,railsPins:undefined,railsPaceOnly:false,railsSuspended:false,railsRecoveryTrips:0,skillNine:false,onlineAIAllowed:false};
+    diagnosticState={...diagnosticState,...cityEvidence({state:cityPacingEnabled?'paused':'off'}),raceOnlyRequested:false,adaptiveRaceRequested:false,adaptiveRaceState:adaptiveRaceEnabled?'paused':'off',adaptivePacingState:'off',adaptiveRuntimePace:undefined,adaptiveClearanceM:undefined,paceConfirmed:false,paceApplied:undefined};
+    clearInfoHud();
+    if(ui){
+      const raceState=ui.querySelector('#race-only-state');raceState.textContent=raceOnlyAI?'Armed · waiting for current race evidence':'Off · current page only';raceState.title=raceState.textContent;
+      ui.querySelector('#adaptive-race-state').textContent=adaptiveRaceEnabled?'Selected · waiting for current planner evidence':'Off · session only';
+      if(adaptiveRaceEnabled)ui.querySelector('#race-corner-state').textContent='Adaptive selected · waiting for current planner evidence';
+      ui.querySelector('#ai-pace-state').textContent=prefs.aiPace?'Waiting for current AI acknowledgement':'Off · free roam only';
+      ui.querySelector('#race-pace-state').textContent=prefs.racePace?'Waiting for current AI acknowledgement':'Off · normal race pace';
+    }
+  }
+  function clearApplicationEvidence(status='suspended') {
+    stopRubberband();
+    // Reporting only. Actual restoration and native handback remain owned by
+    // the existing callers, and are not claimed to have completed here.
+    try {
+      pauseRaceStats();
+      clearPaceEvidence();
+      const powerStatus=prefs.boost||prefs.unlimit?status:'off';
+      diagnosticState={...diagnosticState,powerStatus,powerActive:false,effectivePower:undefined,limiterRemoved:false};
+      renderPowerStatus(powerStatus);
+    } catch {}
+  }
+  function pendingCornerText(state) {
+    // Existing read-only evidence only. Stages are the furthest native check
+    // reached for this request, not a diagnosis of the latest turn or failure.
+    // A missing hit does not prove the road has no qualifying bends.
+    if (state.cornerHits > 0) return 'Armed · waiting for current settings confirmation';
+    if (state.cornerRouteOwned === true && state.cornerPlannerCorners === 0) return 'Armed · native plan currently has no corner entries';
+    if (state.cornerProbeStage === 6) return 'Armed · limiting curve seen; reduction not confirmed';
+    if (state.cornerProbeStage === 5) return 'Armed · planner reached; no speed reduction recorded';
+    if (state.cornerProbeStage >= 1 && state.cornerProbeStage <= 4) return 'Armed · native corner checks not yet complete';
+    return 'Armed · no native corner reduction recorded';
+  }
+  function cornerEvidenceText(state) {
+    const count = value => Number.isInteger(value) && value >= 0 && value <= 40 ? value : 'unknown';
+    const stage = Number.isInteger(state.cornerProbeStage) && state.cornerProbeStage >= 0 && state.cornerProbeStage <= 7 ? state.cornerProbeStage : 'unknown';
+    const mask = Number.isInteger(state.cornerGuardMask) && state.cornerGuardMask >= 0 && state.cornerGuardMask <= 255 ? state.cornerGuardMask : null;
+    const checks = [[1,'command/profile'],[2,'AI ownership'],[4,'game context'],[8,'race state'],[16,'drag/drift exclusion'],[32,'network permission'],[64,'driver identity'],[128,'private route']];
+    const sampled = mask === null ? 'unknown' : mask ? checks.filter(([bit]) => mask & bit).map(([,name]) => name).join(', ') : 'none';
+    return `Native route points: ${count(state.cornerRouteNodes)}; corner entries: ${count(state.cornerPlannerCorners)}; usable sampled bends: ${count(state.cornerPlannerUsable)}. Furthest native check: ${stage}/7; 7 means a hit exists. Sampled unmet checks: ${sampled}. Counts/checks are snapshots, not a proven cause. Export a short crash log after several turns if no reduction is recorded.`;
+  }
+  const NativeWorker = window.Worker;
+  // Observe only the known game worker; AI validates its patched module separately.
+  window.Worker = new Proxy(NativeWorker, {
+    construct(Target, args, NewTarget) {
+      const worker = Reflect.construct(Target, args, NewTarget);
+      let url; try { url = new URL(String(args[0]), location.href); } catch { return worker; }
+      if (url.origin !== location.origin || url.pathname !== '/host/game-worker.js') return worker;
+      const send = worker.postMessage;
+      let bootSession=null;
+      const targetReceiver=TargetFeedback?.createReceiver({onReceipt:receipt=>{if(currentSession()&&bootSession.feedback&&moduleProfile?.capabilities.nativeTargetFeedback===true)targetFeedbackState?.receive(receipt);}});
+      const observeBoot = function (m,{verified=true,originalMemory=m?.memory}={}) {
+        if(m?.mod instanceof WebAssembly.Module&&Number.isSafeInteger(m.slot)&&m.slot===0&&!(originalMemory instanceof WebAssembly.Memory)) {
+          nearMissTopUp?.setEnabled(false);
+          suspend('Worker memory is not available to page controls.');
+          ai=null;wall=null;cars=null;dyno=null;ecu=null;engine=null;activeWorker=null;activeModule=null;moduleProfile=null;statusPtr=0;inputPtr=0;bootSession=null;sessionGeneration++;refreshCompatibility();return;
+        }
+        if(originalMemory instanceof WebAssembly.Memory&&m.memory!==originalMemory)m={...m,memory:originalMemory};
+        if (m && m.mod instanceof WebAssembly.Module && m.memory instanceof WebAssembly.Memory && Number.isSafeInteger(m.slot) && m.slot>=0) {
+          if(m.slot===0){
+          const verifiedProfile=verified?AI?.getModuleProfile?.(m.mod)||null:null;
+          if (!engine || engine.memory !== m.memory || activeModule!==m.mod || activeWorker!==worker || moduleProfile!==verifiedProfile) {
+            // Release only the previous verified session before sending the new
+            // module to its worker. A reused memory object is not an identity.
+            cameraDirector?.reset();clearCameraPulse();
+            if(engine&&moduleProfile){try{const state=engine.state();engine.restorePerformance(state);engine.restoreGrip(state);}catch{}}
+            forwardDrive?.invalidate();forwardDrive=null;
+            stopEcu('Game session changed');ecu=null;
+            dyno?.cancel();wall?.stop();cars?.stop();ai?.stop();
+            nearMissTopUp?.setEnabled(false);nearMiss?.cancel();nearMiss?.invalidate();
+            sessionGeneration++;activeWorker=worker;activeModule=m.mod;moduleProfile=verifiedProfile;refreshCompatibility();
+            // A new module/worker/memory generation has no current native
+            // observations yet. Do not carry prior application or ownership
+            // evidence into its boot event or an immediate diagnostic export.
+            diagnosticState={generation:sessionGeneration,revision:moduleProfile?.revision||'unknown',supported,ready:false,driving:false,safe:false,tools:diagnosticTools()};
+            clearApplicationEvidence('not-ready');
+            diagnosticIdentity=null;
+            recordDiagnostic('game-boot',{generation:sessionGeneration,slot:m.slot,memoryMiB:m.memory.buffer.byteLength/1048576,revision:moduleProfile?.revision||'unknown',supported,tools:diagnosticTools()});
+            const caps=moduleProfile?.capabilities;
+            // Native installation decides online availability; apply the rails default pace once per page.
+            enforceSolo();railsWatch=newRailsWatch();railsView=newRailsView();
+            if(caps?.nativeRails===true&&!railsDefaultsApplied){railsDefaultsApplied=true;if(railsEnabled&&!rubberbandPercentTouched){rubberbandPercent=RAILS_DEFAULT_PERCENT;syncRubberbandControls();}}
+            forwardDrive=caps?.nativeForwardGeometry&&caps?.nativeForwardClamp&&globalThis.__NFSU2_FORWARD_DRIVING__?.Controller?new globalThis.__NFSU2_FORWARD_DRIVING__.Controller(m.memory,{verified:true,installed:true,moduleHash:moduleProfile.hash,moduleIdentity:m.mod,nativeLease:caps.nativeForwardLease===true,runtimeGuard:()=>supported&&moduleProfile?.capabilities.nativeForwardLease===true&&!document.hidden&&document.hasFocus()&&!document.querySelector('dialog[open]')&&!tuningActive()&&!dyno?.busy&&!driftPending&&railsView.on===true}):null;
+            rubberband=caps?.nativePacedCatchup&&globalThis.__NFSU2_PACED_CATCHUP_CONTROLLER__?.Controller?new globalThis.__NFSU2_PACED_CATCHUP_CONTROLLER__.Controller(m.memory,{installed:true,verified:true,moduleHash:moduleProfile.hash,moduleIdentity:m.mod}):null;
+            nativeCalculatedState={eligible:false,reason:'unsafe'};
+            rubberbandSnapshot=rubberband?.status(performance.now())||{state:'unsupported',active:false,resetPending:false};
+            diagnosticState={...diagnosticState,...rubberbandEvidence()};renderRubberband();renderRails();
+            renderForwardStatus();
+            raceCapture?.invalidate('Game session changed');
+            raceCapture=caps?.nativeRaceCapture&&globalThis.__NFSU2_RACE_CAPTURE__?.Controller?new globalThis.__NFSU2_RACE_CAPTURE__.Controller(m.memory,true,m.mod):null;updateRaceCapture();
+            dyno=caps?.fullTuner && globalThis.__NFSU2_DYNO_FULL__?.Controller?new globalThis.__NFSU2_DYNO_FULL__.Controller(m.memory,true,moduleProfile.revision,{prepared:AI.getNativeEvaluator(m.mod),module:m.mod}):caps?.dyno && globalThis.__NFSU2_DYNO__?.Controller?new globalThis.__NFSU2_DYNO__.Controller(m.memory,true,moduleProfile.revision):null;dyno?.setEnabled(dynoEnabled);
+            ecu=caps?.nativeEcuScope===true&&caps?.nativeEcuOrderedReplay===true&&dyno?.full&&globalThis.__NFSU2_ECU_SCOPE__?.Controller?new globalThis.__NFSU2_ECU_SCOPE__.Controller(m.memory,dyno,{hookVerified:true,moduleHash:moduleProfile.hash,prepared:AI.getNativeEvaluator(m.mod)}):null;
+            wall=caps?.walls && Walls?.Controller?new Walls.Controller(m.memory,true,moduleProfile.wall):null;
+            cars=caps?.cars && Cars?.Controller?new Cars.Controller(m.memory,true,moduleProfile.cars):null;
+            ai=AI?.Controller?new AI.Controller(m.memory,!!caps?.ai,caps,{moduleHash:moduleProfile?.hash}):null;
+            engine = new Engine(m.memory,moduleProfile?.statusCapacity,moduleProfile?.hash); targetFeedbackState?.reset(); statusPtr = 0; inputPtr = 0; driftPending = null; driftNeedsReapply=typeof prefs.drift==='boolean'; powerGate.reset(); gripGate.reset();
+            renderNearMiss();
+            installAutonomy();
+          }
+          }
+          targetReceiver?.reset();
+          bootSession={module:m.mod,memory:m.memory,generation:activeModule===m.mod&&engine?.memory===m.memory?sessionGeneration:-1,feedback:verified&&AI?.getModuleProfile?.(m.mod)?.capabilities.nativeTargetFeedback===true,slot:m.slot};
+        }
+      };
+      if(workerModuleLoader) {
+        try{workerModuleLoader.attach(worker,{onForward:observeBoot});}
+        catch(error){aiInstallFailed=true;refreshCompatibility();recordDiagnostic('page-error',{error});}
+      } else worker.postMessage=function(m,...rest){observeBoot(m);return Reflect.apply(send,this,[m,...rest]);};
+      const currentSession = () => !!bootSession && bootSession.generation===sessionGeneration && bootSession.module===activeModule && bootSession.memory===engine?.memory;
+      worker.addEventListener('error', event => {
+        if(currentSession())setCameraRotation(false);
+        recordDiagnostic('worker-error',{sessionCurrent:currentSession(),error:event.error || event.message,tools:diagnosticTools()});
+      });
+      worker.addEventListener('message', event => {
+        const m = event.data;
+        if(bootSession?.feedback&&m?.t==='register'&&m.kind===TargetFeedback?.KIND){
+          event.stopImmediatePropagation?.();
+          if(currentSession())targetReceiver?.consume(m);
+          return;
+        }
+        if(m?.t==='trap')recordDiagnostic('game-trap',{sessionCurrent:currentSession(),tid:m.tid,error:m.msg,stack:m.stack,tools:diagnosticTools()});
+        if(m?.t==='exit')recordDiagnostic('game-exit',{sessionCurrent:currentSession(),code:m.code,tools:diagnosticTools()});
+        if(!currentSession())return;
+        if(m?.t==='register' && (m.kind===3||m.kind===5))recordDiagnostic('game-register',{kind:m.kind});
+        if (worker===activeWorker && m?.t === 'register' && m.kind === 3 && Number.isSafeInteger(m.ptr)) inputPtr = m.ptr;
+        if (worker===activeWorker && m?.t === 'register' && m.kind === 5 && Number.isSafeInteger(m.ptr)) statusPtr = m.ptr;
+        if (m?.t === 'exit' || m?.t === 'trap') {nearMissTopUp?.setEnabled(false);forwardDrive?.invalidate();forwardDrive=null;raceCapture?.invalidate('Recording stopped · game ended');updateRaceCapture();suspend('Game stopped. Enabled choices are kept for the next game.');ai=null;wall=null;cars=null;dyno=null;ecu=null;engine=null;activeWorker=null;activeModule=null;moduleProfile=null;refreshCompatibility();statusPtr=0;inputPtr=0;renderForwardStatus();}
+      });
+      return worker;
+    }
+  });
+  // A different game revision must be reviewed before writing its memory.
+  void readBuildInfo();
+
+  function key(code, down) {
+    const keyName = { ArrowUp: 'ArrowUp', ShiftLeft: 'Shift', AltLeft: 'Alt', KeyC: 'c' }[code] || code;
+    window.dispatchEvent(new KeyboardEvent(down ? 'keydown' : 'keyup', { code, key: keyName,
+      location: /Left$/.test(code) ? 1 : 0, bubbles: true, cancelable: true }));
+  }
+  function hold(code, down) {
+    if (down && !held.has(code)) { if (!physicallyHeld.has(code)) { held.add(code); key(code, true); } }
+    else if (!down && held.delete(code) && !physicallyHeld.has(code)) key(code, false);
+  }
+  function clearCameraPulse(){
+    clearTimeout(cameraPulseTimer);cameraPulseTimer=null;
+    if(cameraPulseActive){cameraPulseActive=false;if(!physicallyHeld.has('KeyC'))key('KeyC',false);}
+  }
+  function setCameraRotation(enabled){
+    cameraRotationEnabled=enabled===true;cameraDirector?.reset();clearCameraPulse();
+    if(ui)ui.querySelector('#camera-rotate-enable').checked=cameraRotationEnabled;
+  }
+  function updateCameraRotation(state,driveStatus,now,viewBlocked=false){
+    const typing=[document.activeElement,ui?.activeElement].some(node=>node&&(node.isContentEditable||node.getAttribute?.('role')==='textbox'||/^(TEXTAREA|SELECT)$/.test(node.tagName)||(node.tagName==='INPUT'&&!/^(button|checkbox|radio|range|submit|reset|color|file|image|hidden)$/.test(String(node.type||'').toLowerCase()))));
+    const ready=supported&&state.ready&&state.driving&&(driveStatus===1||driveStatus===2)&&!viewBlocked&&!document.hidden&&document.hasFocus()&&!dyno?.busy&&!visible&&!hubOpen&&!hudEditing&&!typing&&!document.querySelector('dialog[open]')&&!engine.u32(0x838974)&&!physicallyHeld.has('KeyC');
+    const decision=cameraDirector?.update({enabled:cameraRotationEnabled,ready,now,identity:`${sessionGeneration}:${state.car}:${driveStatus}`});
+    if(!ready){clearCameraPulse();return;}
+    if(decision?.due){
+      clearCameraPulse();cameraPulseActive=true;key('KeyC',true);
+      cameraPulseTimer=setTimeout(()=>clearCameraPulse(),80);
+    }
+  }
+  function release() { clearTimeout(shiftTimer);clearCameraPulse();for (const code of [...held]) hold(code, false); }
+  function stopAutonomy(reason='Stopped; manual control') {autonomyStartPending=false;autonomyStartUntil=0;autonomyVisitDrag=false;autonomyCruise=false;autonomyLoop?.stop(reason);autonomySnapshot=autonomyLoop?.status()||null;renderAutonomy();publishAutonomyEvidence();}
+  function installAutonomy(){
+    stopAutonomy('Game session changed');autonomySelected.clear();autonomySample=null;autonomyCatalogSample=null;autonomyCatalogAt=-Infinity;autonomyNodes.clear();ui?.querySelector('#autonomy-list')?.replaceChildren();
+    autonomyObserver=AutonomyHosted?.create?.(engine.memory,{moduleHash:moduleProfile?.hash,verified:true});
+    autonomyDrive=AutonomyDrive?.create?.();
+    autonomyLoop=autonomyObserver&&autonomyDrive&&AutonomyLoop?.create?AutonomyLoop.create({drive:autonomyDrive,port:{supportsSolo:false,release,join:(tuple,d,s)=>autonomyObserver.join(tuple,d,s),plan:d=>{const graph=AutonomyRoad.capture(engine.memory,{moduleHash:moduleProfile?.hash,verified:supported});return AutonomyRoad.plan(graph,d.marker);}}}):null;
+    autonomySnapshot=autonomyLoop?.status()||null;renderAutonomy();
+  }
+  const autonomyReadLabels=Object.freeze({
+    'exact-hosted-profile':'This game build is not supported by the selected loop',
+    'shared-memory':'Waiting for shared game memory',bitmap:'Waiting for the verified memory map',
+    span:'Race-start data is outside verified memory',uncommitted:'Race-start data is not resident yet',
+    'guest-window':'Race-start guest window is not ready','window-changed':'Race-start guest window changed; waiting for a fresh sample',
+    'commit-changed':'Race-start memory changed; waiting for a fresh sample','snapshot-changed':'Race-start data changed during the read; retrying',
+    'host-snapshot-changed':'Native race-start catalog changed during the read; retrying','memory-changed':'Game memory changed; waiting for a fresh sample',
+    'host-span':'Native race-start catalog is unavailable','read-budget':'Race-start data exceeded the verified read limit',
+    'city-free-roam':'Return to career free roam to choose race starts','single-player-context':'Waiting for a single local career car',
+    'physical-sample':'Waiting for valid car position and heading','lobby-state':'Waiting for a valid native lobby state',
+    'lobby-identity':'Waiting for a valid native lobby identity','game-clock-reset':'Game clock restarted; reload the game before retrying',
+    clock:'Waiting for a valid observation clock','race-table':'Waiting for a valid native race table','race-membership':'A race-start record does not match the native race table',
+    'catalog-context':'Waiting for the career race-start catalog to match this city and stage',
+    'career-stage':'Choose a career with a completed prologue before selecting race starts','guided-event':'Finish the guided career event before selecting race starts',
+    'catalog-count':'The native race-start count did not pass validation','catalog-generation':'Waiting for the native city race-start sweep to finish',
+    'trigger-span':'Waiting for current city race triggers','trigger-chain':'Waiting for a complete native race-trigger chain',
+    'trigger-record':'A native race-trigger record did not pass validation','catalog-row':'A native race-start record did not pass validation',
+    destination:'A native race-start destination did not pass validation','offer-count':'The native lobby list did not pass validation',
+    'read-failed':'Race starts are unavailable; export diagnostics to identify the blocked check'
+  });
+  function autonomyAvailability(){
+    const available=autonomyObserver?.supported===true,active=autonomySnapshot?.active===true,locked=active||autonomyStartPending;
+    const fresh=autonomySample?.fresh===true,inRoam=autonomySample?.inRoam===true,age=performance.now()-autonomyCatalogAt,cached=autonomyTransient(autonomySample)&&age>=0&&age<=AUTONOMY_CATALOG_MS&&!!autonomyCatalogSample;
+    const rows=fresh&&inRoam&&Array.isArray(autonomySample.catalog)?autonomySample.catalog:cached?autonomyCatalogSample.catalog:[];
+    const readReason=!autonomySample?'not-observed':fresh?'none':Object.hasOwn(autonomyReadLabels,autonomySample.reason)?autonomySample.reason:'read-failed';
+    const block=!available?'unsupported':active?'active':autonomyStartPending?'starting':!autonomySample?'not-observed':!fresh&&!cached?'read-blocked':!inRoam&&!cached?'not-free-roam':autonomyVisitDrag?(cached?'cached-ready':'discover-ready'):!rows.length?'no-starts':!autonomySelected.size?'choose-starts':cached?'cached-ready':'ready';
+    const labels={unsupported:'Selected race loop is unavailable on this game build',starting:'Start requested; waiting for a fresh city catalog and manual handback','not-observed':'Reading native city race starts','read-blocked':autonomyReadLabels[readReason],'not-free-roam':'Return to career free roam to choose race starts','no-starts':'No native race starts are published yet; enter career free roam and wait for the city catalog','choose-starts':'Select one or more race starts below','cached-ready':'Brief catalog refresh; Start will wait for a fresh check','discover-ready':autonomyCruise?'Ready · native AI cruise while finding open Drag lobbies':'Ready · parked wait while finding open Drag lobbies',ready:`Ready · ${autonomySelected.size} race start${autonomySelected.size===1?'':'s'} selected`};
+    return{available,active,locked,fresh,inRoam,cached,age,rows,readReason,block,enabled:available&&!locked&&(fresh&&inRoam||cached)&&(autonomyVisitDrag||rows.length>0&&autonomySelected.size>0),label:labels[block]};
+  }
+  function autonomyEvidence(){
+    const a=autonomyAvailability(),loop=autonomySnapshot,drive=autonomyDrive?.status?.(),intent=loop?.intent;
+    return{autonomyAvailable:a.available,autonomyCatalogFresh:a.fresh,autonomyInRoam:a.inRoam,autonomyCatalogCached:a.cached,autonomyCatalogAgeMs:a.age>=0&&a.age<=AUTONOMY_CATALOG_MS?a.age:undefined,autonomyStartEnabled:a.enabled,autonomyVisitDrag,autonomyCruiseSelected:autonomyCruise,autonomyCruiseRequested:loop?.active===true&&intent?.cruiseAI===true,autonomyTargetLocked:loop?.targetLocked===true,autonomySelectedCount:autonomySelected.size,autonomyLocationCount:a.rows.length,autonomyOfferCount:Array.isArray(autonomySample?.offers)?autonomySample.offers.length:0,autonomyBlockReason:a.block,autonomyReadReason:a.readReason,
+      autonomyActive:loop?.active===true,autonomyStartPending,autonomyJoinPending:loop?.pending===true,autonomyPhase:loop?.phase||'off',autonomyReasonCode:loop?.reasonCode||'not-reported',autonomyDrivePhase:drive?.phase||'off',autonomyWaypointIndex:drive?.index,autonomyWaypointCount:drive?.count,autonomyCompletedTrips:loop?.completedTrips,autonomyRequestRaceAI:loop?.active===true&&intent?.raceAI===true,autonomyRequestCruiseAI:loop?.active===true&&intent?.cruiseAI===true,autonomyTravelKeyRequest:loop?.active===true&&Array.isArray(intent?.keys)&&intent.keys.length>0,autonomyPauseReason:loop?.pauseReason,autonomyPauseRemainingMs:loop?.pauseRemainingMs,autonomyResumePhase:loop?.resumePhase};
+  }
+  function publishAutonomyEvidence(){
+    const evidence=autonomyEvidence();diagnosticState={...diagnosticState,...evidence};
+    const key=JSON.stringify([evidence.autonomyActive,evidence.autonomyStartPending,evidence.autonomyJoinPending,evidence.autonomyPhase,evidence.autonomyReasonCode,evidence.autonomyDrivePhase,evidence.autonomyPauseReason,evidence.autonomyResumePhase,evidence.autonomyRequestRaceAI,evidence.autonomyRequestCruiseAI]);
+    if(key!==autonomyDiagnosticTransition){autonomyDiagnosticTransition=key;recordDiagnostic('autonomy-state',evidence);}
+    return evidence;
+  }
+  const isRunway15=d=>d?.track===4222&&d.reverse===0&&d.rawType===4&&Number.isInteger(d.raceFlavor)&&d.raceFlavor>=0&&d.raceFlavor<=255&&d.raceFlavor!==2;
+  function runway15Choice(a=autonomyAvailability()){
+    if(!a.available)return{reason:'Runway 15 selection is unavailable on this game build.'};
+    if(!a.fresh||!a.inRoam)return{reason:'Runway 15 selection needs fresh city race starts in free roam.'};
+    const matches=a.rows.filter(isRunway15);
+    if(matches.length!==1)return{reason:matches.length?'Multiple normal Runway 15 starts are published; choose the exact start below.':'Runway 15 is not available in the current city catalog.'};
+    return{destination:matches[0],reason:'Select normal Runway 15 only; wait there for an open lobby, race, return and repeat.'};
+  }
+  function runway15Selected(a=autonomyAvailability()){
+    if(autonomySelected.size!==1||autonomyVisitDrag||autonomyCruise)return false;
+    const selected=a.rows.find(d=>autonomySelected.has(d.key))||autonomySnapshot?.current;
+    const absence=autonomySnapshot?.active?autonomySnapshot.options?.absence:ui?.querySelector('#autonomy-absence')?.value;
+    return isRunway15(selected)&&autonomySelected.has(selected.key)&&absence==='wait';
+  }
+  function renderAutonomy(){
+    if(!ui?.querySelector('#autonomy-state'))return;
+    const a=autonomyAvailability(),{active,locked,rows}=a,coherentCatalog=a.fresh&&a.inRoam&&Array.isArray(autonomySample?.catalog);
+    ui.querySelector('#autonomy-stop').disabled=!active&&!autonomyStartPending&&!autonomyVisitDrag;
+    const discovery=ui.querySelector('#autonomy-drag-discovery');discovery.checked=autonomyVisitDrag;discovery.disabled=locked;
+    const cruise=ui.querySelector('#autonomy-cruise');cruise.checked=autonomyCruise;cruise.disabled=locked||!autonomyVisitDrag;
+    const runway=runway15Choice(a),runwayButton=ui.querySelector('#autonomy-runway15');
+    runwayButton.disabled=locked||!runway.destination;runwayButton.title=locked?'Stop the current loop before changing its selection.':runway.reason;
+    const list=ui.querySelector('#autonomy-list'),liveKeys=new Set(rows.map(d=>d.key));
+    for(const[key,row]of autonomyNodes)if(coherentCatalog&&!liveKeys.has(key)&&!locked){row.node.remove();autonomyNodes.delete(key);autonomySelected.delete(key);}
+    for(const d of rows){let row=autonomyNodes.get(d.key);if(!row){const node=document.createElement('label'),check=document.createElement('input'),text=document.createElement('span');node.className='row';check.type='checkbox';check.addEventListener('change',()=>{if(autonomySnapshot?.active||autonomyStartPending)return;if(check.checked){if(autonomySelected.size<16)autonomySelected.add(d.key);}else autonomySelected.delete(d.key);renderAutonomy();});node.append(text,check);list.append(node);row={node,check,text};autonomyNodes.set(d.key,row);}row.text.textContent=d.label+' · '+d.markerHash.toString(16).padStart(8,'0');}
+    for(const[key,row]of autonomyNodes){row.check.checked=autonomySelected.has(key);row.check.disabled=locked;}
+    const current=autonomyAvailability(),state=ui.querySelector('#autonomy-state');state.textContent=active?`${autonomySnapshot.reason}${autonomySnapshot.targetLocked||!autonomySnapshot.selected?'':` · ${autonomySnapshot.index+1}/${autonomySnapshot.selected} · rounds ${autonomySnapshot.round}`}`:['ready','cached-ready','discover-ready'].includes(current.block)&&autonomySnapshot?.phase==='stopped'?`Stopped · ${autonomySnapshot.reason}`:current.label;state.title=state.textContent;
+    const runwayOnly=runway15Selected(current);
+    ui.querySelector('#autonomy-runway15-help').textContent=runwayOnly?(active?'Runway 15 only · wait at the start for an open lobby, race, return and repeat.':'Runway 15 selected · wait at the start for an open lobby, race, return and repeat. Press Start selected loop.'):runway.reason;
+    if(runwayOnly){state.textContent=active&&autonomySnapshot.phase==='waiting'?'Waiting here for an open Runway 15 lobby · race, return and repeat':'Runway 15 · '+state.textContent;state.title=state.textContent;}
+    const start=ui.querySelector('#autonomy-start');start.disabled=!current.enabled;start.textContent=autonomyVisitDrag?'Start loop / Drag discovery':'Start selected loop';start.title=current.enabled?'Start travel through selected locations and any enabled Drag discovery':current.label||'Selected loop is active';
+  }
+  function updateAutonomy(s,driveStatus,safe){
+    if(!autonomyObserver||!autonomyLoop){publishAutonomyEvidence();return false;}
+    const old=ai?.status?.()||{},kind=s.ready?engine.u32(s.car+0x24):0,raceType=engine.u32(0x89e7b0);
+    const context={network:s.network===true,allowNetwork:prefs.online,focused:document.hasFocus(),hidden:document.hidden,manualInput:['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','KeyW','KeyA','KeyS','KeyD','Space'].some(code=>physicallyHeld.has(code)),tunerBusy:tuningActive(),menu:visible||hubOpen||hudEditing||!!document.querySelector('dialog[open]'),standaloneAI:prefs.ai===true,manual:old.manual===true,aiOwned:old.owned===true,handbackPending:ai?.handbackPending===true,driverActive:old.active===true&&old.owned===true,kind,safe,raceActive:safe&&driveStatus===1&&raceType===1,raceResults:driveStatus===0&&raceType===1};
+    autonomySample=autonomyObserver.observe(context);
+    if(autonomySample.fresh===true){if(autonomySample.inRoam===true&&Array.isArray(autonomySample.catalog)){autonomyCatalogSample={catalog:JSON.parse(JSON.stringify(autonomySample.catalog))};autonomyCatalogAt=performance.now();}else{autonomyCatalogSample=null;autonomyCatalogAt=-Infinity;}}
+    if(autonomyStartPending){
+      const fresh=autonomySample.fresh===true&&autonomySample.inRoam===true&&Array.isArray(autonomySample.catalog);
+      if(!safe||context.manualInput||context.tunerBusy||context.menu||context.hidden||!context.focused){stopAutonomy('Start interrupted; manual control');message('Start interrupted; manual control');}
+      else if(!Number.isFinite(performance.now())||performance.now()<autonomyStartUntil-AUTONOMY_START_MS||performance.now()>autonomyStartUntil){stopAutonomy('Start could not obtain a fresh city catalog');message('Start could not obtain a fresh city catalog. Export diagnostics to identify the blocked check.');}
+      else if(fresh){
+        autonomyStartPending=false;autonomyStartUntil=0;const rows=autonomySample.catalog.filter(d=>autonomySelected.has(d.key));
+        if(rows.length!==autonomySelected.size||!autonomyLoop.choose(rows)){stopAutonomy('Selected race start changed; select again');message('Selected race start changed; select again');}
+        else{const wait=Number(ui?.querySelector('#autonomy-wait')?.value||60)*1000,absence=ui?.querySelector('#autonomy-absence')?.value||'wait';if(!autonomyLoop.start(autonomySample,{absence,waitMs:wait,soloFallback:false,visitDrag:autonomyVisitDrag,cruise:autonomyCruise}))message(autonomyLoop.status().reason);}
+      }else if(!autonomyTransient(autonomySample)){stopAutonomy('Start could not obtain a fresh city catalog');message('Start could not obtain a fresh city catalog. Export diagnostics to identify the blocked check.');}
+    }
+    const wasActive=autonomySnapshot?.active===true;autonomySnapshot=autonomyLoop.poll(autonomySample,context);if(wasActive&&!autonomySnapshot.active){autonomyVisitDrag=false;autonomyCruise=false;}renderAutonomy();publishAutonomyEvidence();return autonomySnapshot.active&&(autonomySnapshot.intent.raceAI===true||autonomySnapshot.intent.cruiseAI===true);
+  }
+  function publishAutonomyInput(aiState){
+    if(!autonomySnapshot?.active||autonomySnapshot.intent.raceAI||autonomySnapshot.intent.cruiseAI)return;
+    const keys=aiState.manual===true&&!aiState.owned&&!ai?.handbackPending?autonomySnapshot.intent.keys:[];
+    for(const code of['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','Space'])hold(code,keys.includes(code));
+  }
+  function suspend(why,{keepEcu=false}={}) {
+    nearMissTopUp?.pause();nearMiss?.cancel();renderNearMiss();
+    if(!keepEcu)stopEcu(why||'Tools paused');
+    stopAutonomy(why||'Tools paused');
+    cameraDirector?.reset();
+    stopRubberband();
+    cancelForward();
+    raceCapture?.stop('Recording stopped · tools paused');updateRaceCapture();
+    dyno?.cancel();
+    wall?.stop();cars?.stop(); ai?.stop(); release(); powerGate.reset(); gripGate.reset();
+    try {if(engine){const state=engine.state();engine.restorePerformance(state);engine.restoreGrip(state);}} catch { /* no stale pointer writes */ }
+    clearApplicationEvidence();
+    if(why) message(why);
+  }
+  function stop(why = 'Driving controls off. F9 cleared driving assists and network permission. Saved profiles are kept. Load one manually, or select it and enable Load on startup to resume.', persistProfilePause=true) {
+    nearMissTopUp?.setEnabled(false);renderNearMiss();
+    setCameraRotation(false);
+    stopRubberband(true);
+    raceCapture?.stop('Recording stopped · Stop pressed');updateRaceCapture();
+    profileStartup=null;loadedProfile=null;profileActionEpoch++;profileActionPending=false;if(profileDriftChoice)driftNeedsReapply=false;profileDriftChoice=false;
+    // Keep an already-issued drift request pending until confirmation/timeout: a
+    // native toggle cannot be recalled safely, and a second must not overlap it.
+    if(persistProfilePause){
+      profileSessionStopped=true;
+      try{sessionStorage.setItem(PROFILE_SESSION_STOP,'1');}catch{}
+      const result=profileStore?.pause();
+      profileNotice=result?.error||'Automatic loading paused by Stop. Select a profile and enable Load on startup to resume.';
+      renderProfiles();
+    }
+    recordDiagnostic('stop',{tools:diagnosticTools()});
+    clearRaceOnlyAI();
+    dynoEnabled=false;dyno?.setEnabled(false);if(ui)ui.querySelector('#dyno-enable').checked=false;
+    adaptiveRaceEnabled=false;if(ui)ui.querySelector('#adaptive-race').checked=false;clearCityPace();clearRivalNoClip();stopRubberband(true);
+    prefs.raceCornerAssist=false;prefs.cornerAssist=false;prefs.racePace=false;prefs.walls=false;prefs.cars=false;prefs.traffic=false;prefs.players=false;prefs.online=false;prefs.ai=false;prefs.aiPace=false;prefs.nos=false;prefs.dragNoBlowout=false;prefs.drag=false;prefs.boost=false;prefs.unlimit=false;prefs.grip=false;savePrefs();suspend();
+    if(ui) for(const id of ['race-corner-assist','corner-assist','race-pace','walls','cars','traffic','players','online','ai','ai-pace','nos','drag-no-blowout','drag','boost','unlimit','grip']) ui.querySelector('#'+id).checked=false;
+    message(profileNotice&&persistProfilePause ? why+' '+profileNotice : why);
+  }
+  function clearRaceOnlyAI() {
+    raceOnlyAI=false;
+    if(ui){ui.querySelector('#race-only-ai').checked=false;ui.querySelector('#race-only-state').textContent='Off · current page only';}
+  }
+  function setRaceOnlyAI(enabled) {
+    stopAutonomy('Race-only driver selected');
+    raceOnlyAI=enabled===true;
+    if(raceOnlyAI){prefs.ai=false;if(ui)ui.querySelector('#ai').checked=false;}
+    ai?.stop();release();clearPaceEvidence();savePrefs();
+    if(ui){ui.querySelector('#race-only-ai').checked=raceOnlyAI;ui.querySelector('#race-only-state').textContent=raceOnlyAI?'Armed · waiting for an eligible race':'Off · current page only';}
+    message(raceOnlyAI?'Race-only AI armed on this page. Start or join races yourself. It waits for GO, releases in free roam/results, and needs online permission. F7/F9 or driving keys during a race disarm it. Reload or profile Load turns it off.':'Race-only AI off. Native handback may complete on the next game frame.');
+  }
+  function raceOnlyRaceContext() {
+    // Manual driving in free roam should not cancel arming for the next race.
+    // Read the current context so an old sample cannot ignore race takeover.
+    if(!supported||!engine||!statusPtr)return false;
+    try {const state=engine.state(),hud=engine.status(statusPtr)?.drive;return !!state.ready&&Number.isFinite(hud)&&(hud&3)===1&&engine.u32(0x89e7b0)===1;}catch{return false;}
+  }
+  function takeControl() {
+    nearMissTopUp?.setEnabled(false);renderNearMiss();
+    stopEcu('Manual control');
+    stopAutonomy('Manual control');
+    setCameraRotation(false);
+    stopRubberband(true);
+    cancelForward();
+    pauseRaceStats();
+    raceCapture?.stop('Recording stopped · manual control');updateRaceCapture();
+    recordDiagnostic('manual',{tools:diagnosticTools()});
+    clearRaceOnlyAI();
+    prefs.ai=false; ai?.stop(); dragTakenOver=true; release(); savePrefs();
+    try {clearPaceEvidence();} catch {}
+    if(ui) {ui.querySelector('#ai').checked=false;ui.querySelector('#ai-state').textContent='Manual control · native AI off';}
+    message('Returning control to you. Native AI is off on the next game frame. Toggle drag assist again if you want assisted throttle.');
+  }
+  window.addEventListener('keydown', e => {
+    if (!e.isTrusted) return;
+    if(e.code==='Insert' && e.shiftKey && !e.ctrlKey && !e.altKey && !e.metaKey){
+      // Shift+Insert remains Paste in text/editable controls, including controls
+      // inside a shadow root. Otherwise it toggles all extension chrome.
+      const path=e.composedPath?.()||[e.target];
+      const editingNode=node=>{
+        for(let depth=0;node&&depth<32;depth++,node=node.parentElement){
+          if(node.isContentEditable || node.getAttribute?.('role')==='textbox' || /^(TEXTAREA|SELECT)$/.test(node.tagName) || (node.tagName==='INPUT' && !/^(button|checkbox|radio|range|submit|reset|color|file|image|hidden)$/.test(String(node.type||'').toLowerCase())))return true;
+        }
+        return false;
+      };
+      // Window's composedPath hides our closed shadow tree. Its retained
+      // activeElement is required to preserve Paste in the profile-name field.
+      const editing=[...path,ui?.activeElement,document.activeElement].some(editingNode);
+      if(e.isComposing || e.defaultPrevented || editing)return;
+      e.preventDefault();if(!e.repeat)setCleanView(!cleanView);return;
+    }
+    // Range controls keep their native arrow/Space behavior without taking over the car.
+    if(host && e.composedPath?.().includes(host) && !['F6','F7','F8','F9','Escape'].includes(e.code)) return;
+    if(e.code==='F6'){e.preventDefault();if(!e.repeat)setInfoHud(!infoHudEnabled);return;}
+    physicallyHeld.add(e.code);
+    if(e.code==='KeyC'){cameraDirector?.reset();clearCameraPulse();}
+    if(e.code==='F7') {e.preventDefault();takeControl();}
+    else if((prefs.ai || autonomySnapshot?.active || autonomyStartPending || autonomyVisitDrag || (raceOnlyAI && raceOnlyRaceContext())) && ['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','KeyW','KeyA','KeyS','KeyD','Space'].includes(e.code)) takeControl();
+    if (e.code === 'F8') { e.preventDefault();if(cleanView){setCleanView(false);setPanel(true);}else setPanel(!visible); }
+    if (e.code === 'Escape') {if(hubOpen)setRaceHub(false);if(visible)setPanel(false);}
+    if (e.code === 'F9') { e.preventDefault(); stop(); }
+  }, true);
+  window.addEventListener('keyup', e => { if (e.isTrusted) physicallyHeld.delete(e.code); }, true);
+  window.addEventListener('focus', () => recordDiagnostic('resume',{reason:'blur',tools:diagnosticTools()}));
+  window.addEventListener('blur', () => { recordDiagnostic('pause',{reason:'blur',tools:diagnosticTools()}); physicallyHeld.clear(); suspend('Paused while unfocused. Enabled tools resume when you return to a supported driving mode.'); });
+  document.addEventListener('visibilitychange', () => { recordDiagnostic(document.hidden?'pause':'resume',{reason:'hidden',hidden:document.hidden,tools:diagnosticTools()}); if (document.hidden) suspend('Paused while the tab is hidden. Your enabled choices are kept.'); });
+  window.addEventListener('storage',event=>{
+    if(!ToolProfiles||![null,ToolProfiles.KEY,ToolProfiles.STOP_KEY].includes(event.key))return;
+    const after=profileStore.refresh();
+    const changed=loadedProfile&&!after.data.profiles.some(p=>p.id===loadedProfile.id&&p.revision===loadedProfile.revision);
+    if(event.key===null||event.key===ToolProfiles.STOP_KEY||!after.available||changed){
+      stop('Profile storage or Stop changed in another tab. Current driving controls are off. Load a profile explicitly to resume.',false);
+      profileSessionStopped=true;try{sessionStorage.setItem(PROFILE_SESSION_STOP,'1');}catch{}
+    }
+    profileSelection=null;profileNotice=after.error||'Profiles updated in another tab. Select a profile again; nothing was automatically loaded.';renderProfiles();
+  });
+  window.addEventListener('pageshow',event=>{
+    if(!event.persisted)return;
+    // A BFCache page must recheck durable Stop and profile permissions before it
+    // resumes. Do not auto-reload a profile or revive a retained controller.
+    stop('Page restored. Driving controls remain off; load a profile explicitly to resume.',false);
+    profileStore?.refresh();profileSelection=null;profileNotice='Page restored with controls off. Select and Load a profile to resume.';renderProfiles();
+    clearInterval(timer);timer=setInterval(tick,50);
+  });
+  window.addEventListener('pagehide', () => { recordDiagnostic('page-hide',{reason:'page-hide',tools:diagnosticTools()});savePrefs(); suspend(); clearInterval(timer); });
+
+  function setDrift(wanted) {
+    if (driftPending) return false;
+    const state = engine?.state(), counters = engine && statusPtr ? engine.status(statusPtr) : null;
+    if (!supported || !state?.ready || !state.driving || state.network || !counters || (counters.drive & 3) !== 2 || !Number.isFinite(counters.drift) || document.hidden || document.querySelector('dialog[open]')) {
+      message('Drift assist only works while driving solo free roam with the game menus closed.'); return false;
+    }
+    if (!!(counters.drift & 1) === wanted) return true;
+    // Rebuilding the native drift setup must not inherit our power multiplier.
+    engine.restorePerformance(state);engine.restoreGrip(state);powerGate.reset();gripGate.reset();
+    if (!engine.driftTap(inputPtr)) { message('Drift request not sent: the game input mailbox is unavailable, inactive, typing, or full.'); return false; }
+    driftPending = { wanted, until: performance.now() + 3000 };
+    ui.querySelector('#drift').disabled = true;
+    message('Drift request sent. Waiting for the game to confirm its handling state…');
+    return true;
+  }
+  function moduleFailure() {
+    if(aiInstallFailed)return 'Native loader could not initialize. Memory tools stay disabled. Reload the page before retrying.';
+    const patch=AI?.patchState;
+    if(moduleProfile || patch?.phase!=='unavailable')return '';
+    const reported=/^[a-f0-9]{8,40}$/.test(revision)?` Site reports build ${revision}.`:'';
+    const bytes=Number.isSafeInteger(patch.moduleBytes)?` Loaded module: ${patch.moduleBytes} bytes.`:'';
+    const signatures=Number.isInteger(patch.signatureUnique)?` Fingerprints: ${patch.signatureUnique}/${patch.signatureTotal} unique matches; this does not approve an unknown build.`:'';
+    return ['module-size','module-hash'].includes(patch.patchCode)
+      ? `Game module is not verified.${reported}${bytes} A compatible Driving Tools update is required.${signatures}`
+      : `Game module could not be prepared.${reported} Reload once. If it persists, export the diagnostic log.`;
+  }
+  function tick() {
+    let diagnosticReadFailure=0;
+    nearMissTopUp?.poll();nearMiss?.poll();renderNearMiss();
+    if(raceCapture){try{if(document.hidden||!document.hasFocus()||tuningActive())raceCapture.stop('Recording stopped · tools paused');else raceCapture.poll();}catch{raceCapture.stop('Recording stopped · capture unavailable');}updateRaceCapture();}
+    try {
+      const patch=AI?.patchState,phase=patch?.phase || 'idle';
+      const key=JSON.stringify([phase,patch?.revision,patch?.moduleBytes,patch?.moduleHash,patch?.patchCode,patch?.signatureReference,patch?.signatureUnique,patch?.signatureFailed,patch?.nativeForwardGeometry,patch?.nativeForwardClamp,patch?.forwardUnavailable,revision]);
+      if(key!==diagnosticPatch){diagnosticPatch=key;recordDiagnostic('patch-state',{phase,revision:patch?.revision,reportedRevision:revision,candidateRevision:patch?.candidateRevision,moduleBytes:patch?.moduleBytes,moduleHash:patch?.moduleHash,patchCode:patch?.patchCode,signatureReference:patch?.signatureReference,signatureExact:patch?.signatureExact,signatureTotal:patch?.signatureTotal,signatureUnique:patch?.signatureUnique,signatureMissing:patch?.signatureMissing,signatureAmbiguous:patch?.signatureAmbiguous,signatureFailed:patch?.signatureFailed,nativeForwardGeometry:patch?.nativeForwardGeometry,nativeForwardClamp:patch?.nativeForwardClamp,forwardUnavailable:patch?.forwardUnavailable,error:phase==='unavailable'?patch?.reason:undefined});}
+      if(ui){const status=diagnostics?.status();ui.querySelector('#diagnostic-state').textContent=status?`${status.events} recent events · ${status.traceSamples||0} driving trace samples · ${status.persistence==='same-tab'?'kept across reloads in this tab':'memory only; storage unavailable'}`:'Logger unavailable';if(status&&Number.isInteger(patch?.signatureUnique))ui.querySelector('#diagnostic-state').textContent+=` · fingerprints ${patch.signatureUnique}/${patch.signatureTotal}`;}
+    } catch {}
+    updateDynoUI();
+    if(tuningActive()) {stopAutonomy('Tuner activity');clearApplicationEvidence('tuner-busy');clearInfoHud('Tuner busy · driving tools paused');traceDiagnostic({generation:sessionGeneration,revision,supported,dynoBusy:true,safe:false},1,1);try{diagnostics?.snapshot({...diagnosticState,dynoBusy:true,tools:diagnosticTools()});}catch{} wall?.stop();cars?.stop();ai?.stop();release();return;}
+    if (!engine) { clearApplicationEvidence('not-ready');traceDiagnostic({generation:sessionGeneration,revision,supported,ready:false,driving:false,safe:false},1,1);if (live) live.textContent = 'Waiting for game. Reload after installing, then press Play.'; return; }
+    try {
+      enforceSolo();
+      diagnosticState={generation:sessionGeneration,revision:moduleProfile?.revision||revision,supported,tools:diagnosticTools()};
+      const s = engine.state(), counters = statusPtr ? engine.status(statusPtr) : null;
+      dragRace=!!(s.ready && s.drag);
+      const driveStatus = counters && Number.isFinite(counters.drive) ? counters.drive & 3 : 0;
+      const canInput = supported && s.ready && (!s.network || prefs.online) && driveStatus !== 0 && !document.hidden && document.hasFocus() && !document.querySelector('dialog[open]');
+      const safe = canInput && s.driving;
+      // Record identity changes as booleans, never addresses or save/player identifiers.
+      try {
+      const identity={player:engine.u32(0xd00000),car:s.car,race:s.race};
+      diagnosticState={generation:sessionGeneration,revision,supported,nativeRubberband:moduleProfile?.capabilities.nativeRubberband===true,nativeCornerTarget:moduleProfile?.capabilities.nativeCornerTarget===true,nativePacedCatchup:moduleProfile?.capabilities.nativePacedCatchup===true,ready:!!s.ready,driving:!!s.driving,network:!!s.network,safe:!!safe,hidden:document.hidden,focused:document.hasFocus(),hud:driveStatus,flow:engine.u32(0x8654a4),gameTicks:engine.u32(0x86518c),raceType:engine.u32(0x89e7b0),racePhase:s.ready?engine.u32(s.race):0,driverKind:s.ready?engine.u32(s.car+0x24):0,physicsKind:s.ready?engine.u32(s.car+0x28):0,dynoBusy:!!dyno?.busy,dynoFullTuner:moduleProfile?.capabilities.fullTuner===true,dynoSecondWindowCapture:moduleProfile?.capabilities.tunerSecondGuestWindow===true,dynoCurrentClamp:moduleProfile?.capabilities.tunerCurrentNativeClamp===true,tools:diagnosticTools()};
+      if(diagnosticIdentity && Object.keys(identity).some(key=>identity[key]!==diagnosticIdentity[key]))recordDiagnostic('identity-change',{playerChanged:identity.player!==diagnosticIdentity.player,carChanged:identity.car!==diagnosticIdentity.car,raceChanged:identity.race!==diagnosticIdentity.race});
+      diagnosticIdentity=identity;
+      } catch { diagnosticReadFailure=1; }
+      const nativeRaceType=s.ready?engine.u32(0x89e7b0):null;
+      const roamProfile=!dragRace && driveStatus===2 && nativeRaceType===0;
+      const raceProfile=!dragRace && (nativeRaceType===1 || nativeRaceType===7);
+      const roadRaceProfile=(!s.network || prefs.online) && !dragRace && driveStatus===1 && nativeRaceType===1 && !engine.u8(0x89e7d8) && !engine.u8(0x89e7d9) && !engine.u32(0x890108) && !engine.u32(0x890104) && !engine.u32(0x890114);
+      const nativeDriftPace=moduleProfile?.capabilities.nativeDriftPace===true && !dragRace && !engine.u32(0x890108) && !!(engine.u8(0x89e7d9)||engine.u32(0x890104)||engine.u32(0x890114));
+      const raceOnlyInputClear=!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','KeyW','KeyA','KeyS','KeyD','Space'].some(code=>physicallyHeld.has(code));
+      const raceOnlyEligible=!!(safe && raceOnlyInputClear && driveStatus===1 && nativeRaceType===1 && moduleProfile?.capabilities.ai===true && (!dragRace||moduleProfile?.capabilities.dragAI===true));
+      const raceOnlyRequested=raceOnlyAI && raceOnlyEligible;
+      const autonomyNativeRequested=updateAutonomy(s,driveStatus,safe);
+      const autonomyCruiseRequested=autonomySnapshot?.active===true&&autonomySnapshot?.intent.cruiseAI===true;
+      const autonomyTravel=autonomySnapshot?.active===true&&!autonomyNativeRequested;
+      const aiRequested=autonomySnapshot?.active?autonomyNativeRequested:prefs.ai || raceOnlyRequested;
+      const streetX=!!(engine.u8(0x89e7e3)||engine.u32(0x89010c)||(s.network&&engine.u32(0x850088)===10));
+      // 0.42 rails. railsWanted: this is a rails race. railsRace: the pin is requested right now (the watchdog can
+      // release it). railsPaceOnly: no paired power/grip boost for the whole rails race, released or not, because
+      // that boost on simplified physics is far too strong. Drag keeps the paired boost on full physics.
+      const onlineRaceAllowed=s.network!==true||(prefs.online===true&&moduleProfile?.capabilities.nativeOnlineAI===true);
+      const railsWanted=moduleProfile?.capabilities.nativeRails===true&&railsEnabled&&supported&&onlineRaceAllowed&&roadRaceProfile;
+      // Recovery rebuilds the driver. Count releases for the race, not for that replaceable driver.
+      const railsRaceIdentity=[sessionGeneration,engine.u32(0xd00000),s.car,s.race,engine.u32(0x89e7a0),engine.u32(0x89e7b4),s.network===true,engine.u32(0x850088)].join(':');
+      // A missing HUD or withdrawn permission is not a new race. Preserve the
+      // release allowance until native race completion, identity change or explicit toggle.
+      if(railsWatch.identity&&(railsWatch.identity!==railsRaceIdentity||engine.u32(s.race)!==4))railsWatch=newRailsWatch();
+      const railsRace=railsWanted&&!railsWatch.suspended;
+      const railsPaceOnly=railsWanted&&rubberbandEnabled;
+      const rubberbandRoad=rubberbandEnabled&&!!rubberband&&supported&&moduleProfile?.capabilities.nativePacedCatchup===true&&roadRaceProfile&&!streetX&&onlineRaceAllowed;
+      // Drag and unpinned Street X use strength at neutral pace; online needs the native mode adapter.
+      const godlyExtra=rubberbandEnabled&&!!rubberband&&supported&&moduleProfile?.capabilities.nativePacedCatchup===true&&moduleProfile?.capabilities.godlyModes===true&&!!aiRequested&&(!!dragRace||!!engine.u32(0x890108)||(!!streetX&&!railsWanted))&&onlineRaceAllowed;
+      const adaptive=adaptiveRaceSettings({enabled:adaptiveRaceEnabled||rubberbandRoad,ceiling:rubberbandRoad?rubberbandPercent/100:adaptiveRaceCeiling,verified:!!dynamicPacer&&supported&&moduleProfile?.capabilities.nativeDragInputHandoff===true&&moduleProfile?.capabilities.corner===true&&moduleProfile?.capabilities.pace===true,ai:aiRequested,safe,network:s.network,allowNetwork:prefs.online,hud:driveStatus,raceType:nativeRaceType,drag:dragRace||!!engine.u32(0x890108),drift:!!(engine.u8(0x89e7d9)||engine.u32(0x890104)||engine.u32(0x890114)),streetX});
+      const rubberbandOwnsPace=rubberbandRoad&&adaptive.requested;
+      // Street X rails use speed targets only, even with paired handling switched off.
+      // Keep legacy multipliers parked through watchdog recovery and native handback.
+      const streetXRailsOwner=railsWanted&&streetX&&typeof ai?.status==='function'?ai.status():null;
+      const streetXRailsOwnsPhysics=railsWanted&&streetX&&(!!aiRequested||!!ai?.handbackPending||streetXRailsOwner?.owned===true||streetXRailsOwner?.active===true);
+      // Native Drift calculates its own throttle/brake targets on full physics.
+      // Keep legacy engine/limiter overrides neutral through takeover and handback;
+      // saved manual-driving preferences resume after native ownership is released.
+      const driftOwner=nativeDriftPace&&typeof ai?.status==='function'?ai.status():null;
+      const nativeDriftOwnsPhysics=nativeDriftPace&&(!!aiRequested||!!ai?.handbackPending||driftOwner?.owned===true||driftOwner?.active===true);
+      const parkLegacyPhysics=autonomyTravel||rubberbandOwnsPace||godlyExtra||streetXRailsOwnsPhysics||nativeDriftOwnsPhysics||rubberbandSnapshot.resetPending===true||rubberbandSnapshot.commandEnabled===true||rubberbandSnapshot.active===true;
+      if(parkLegacyPhysics){engine.restorePerformance(s);engine.restoreGrip(s);powerGate.reset();gripGate.reset();}
+      const pacingIdentity=[sessionGeneration,s.car,s.race,engine.u32(s.car+0x2c),engine.u32(0x89e7a0),engine.u32(0x89e7b4)].join(':');
+      let nativeSample;
+      try { nativeSample=engine.nativeDiagnostics(s,supported&&moduleProfile?.capabilities.driftDiagnostics===true); }
+      catch(error) { diagnosticReadFailure=1;throw error; }
+      if(rearRadarEnabled){
+        const radarReady=supported&&s.ready&&s.driving&&!document.hidden&&document.hasFocus()&&!document.querySelector('dialog[open]')&&!dyno?.busy&&!driftPending;
+        const owner=pacingIdentity+':'+engine.u32(0xd00000);
+        if(!radarReady){radarSample=null;radarAt=-Infinity;radarOwner=null;if(ui)StreamHud?.renderRadar(ui,null);}
+        else if(owner!==radarOwner||performance.now()<radarAt||performance.now()-radarAt>=100){const changed=owner!==radarOwner;radarSample=RearRadar?.observe(engine,s,{verified:supported,moduleHash:moduleProfile?.hash,range:radarRange})||null;radarAt=performance.now();radarOwner=owner;if(changed&&ui)StreamHud?.renderRadar(ui,radarSample);}
+      }
+      const currentPacingEvidence=adaptive.requested&&typeof ai?.status==='function'?ai.status():pacingEvidence?.identity===pacingIdentity?pacingEvidence.state:{};
+      const pacing=dynamicPacer?.update({enabled:adaptive.requested,ceiling:adaptive.ceiling,identity:pacingIdentity,now:performance.now(),evidence:currentPacingEvidence,speedMps:nativeSample.speedMps,hazards:adaptive.requested?engine.pacingHazards(s,supported,prefs.online):null,brakingMps2:4*prefs.raceBraking,nativeFallback:true})||{active:false,state:'off',pace:null};
+      const configuredPace=adaptive.requested?adaptive.ceiling:nativeDriftPace?1:roamProfile && prefs.aiPace?prefs.paceFactor:raceProfile && prefs.racePace?prefs.racePaceFactor:railsPaceOnly&&streetX?rubberbandPercent/100:1;
+      // The shared custom factor must not bypass Street X's rails ceiling or disagree
+      // with the neutral pace required by its full-physics handling publication.
+      const streetXPacePolicy=streetX&&roadRaceProfile&&(railsWanted||godlyExtra);
+      const selectedPace=streetXPacePolicy?(railsWanted?Math.min(configuredPace,RAILS_STREET_X_CEILING):1):configuredPace;
+      const carState=cars?.update({enabled:prefs.cars,onlineTraffic:prefs.traffic,onlinePlayers:prefs.players,onlineRivals:onlineRivalsEnabled,allowNetwork:prefs.online,safe,state:s}) || {requested:false,hits:0,reason:'Car no-clip is not verified for this build.'};
+      const cityPacing=cityPacer?.update({enabled:cityPacingEnabled,verified:supported,capabilities:moduleProfile?.capabilities,automaticAI:prefs.ai===true||autonomyCruiseRequested,allowNetwork:prefs.online,
+        safe:safe&&!driftPending,focused:document.hasFocus(),hidden:document.hidden,menuOpen:!!document.querySelector('dialog[open]'),tunerBusy:tuningActive(),hud:driveStatus,raceType:nativeRaceType,
+        drag:dragRace||!!engine.u32(0x890108),drift:!!(engine.u8(0x89e7d9)||engine.u32(0x890104)||engine.u32(0x890114)),streetX,
+        engine,state:s,aiState:typeof ai?.status==='function'?ai.status():null,handbackPending:!!ai?.handbackPending,identity:pacingIdentity,now:performance.now(),selectedPace,nativeSpeed:nativeSample.speedMps,carController:cars,moduleHash:moduleProfile?.hash})||{active:false,state:'off',pace:null};
+      renderCityPace(cityPacing);
+      // Keep the selected planning ceiling stable through city reductions.
+      // A separate bounded city request must not rebuild the native route.
+      const requestedPace=selectedPace;
+      const effectiveRaceCorner=(prefs.raceCornerAssist||adaptive.requested)&&roadRaceProfile;
+      // Drop synthetic input before publishing a native drag handoff request.
+      const dragAIRequested = aiRequested && dragRace;
+      if (dragAIRequested) release();
+      const aiState = ai?.update({enabled:aiRequested,safe,state:s,mode:driveStatus,pace:requestedPace,adaptivePace:pacing.active?pacing.pace:null,cityPace:cityPacing.active?cityPacing.pace:null,allowNetwork:prefs.online,allowDragAI:dragAIRequested,cornerAssist:prefs.cornerAssist,cornerFactor:prefs.cornerFactor,cornerMargin:prefs.cornerMargin,raceCornerAssist:effectiveRaceCorner,adaptiveCorners:adaptive.requested,raceCornerFactor:rubberbandOwnsPace ? .95 : prefs.raceCornerFactor,raceCornerMargin:rubberbandOwnsPace?0:prefs.raceCornerMargin,raceBraking:rubberbandOwnsPace?1:prefs.raceBraking,dragNoBlowout:prefs.dragNoBlowout,rails:railsRace}) || {available:false,active:false,status:'Native game AI · experimental',reason:'Reload with the native AI module installed.'};
+      // The watchdog reads this tick's AI state; its verdict steers the next tick's request.
+      {
+        const railsDriving=railsWanted&&safe&&!driftPending&&!counters?.pause&&!counters?.photo&&!counters?.drone&&!engine.u32(0x838974)&&aiState.active===true&&aiState.owned===true&&!ai?.handbackPending&&!aiState.switching;
+        const watch=updateRailsWatch(railsRaceIdentity,railsDriving,nativeSample.speedMps,performance.now(),engine.u32(0x86518c));
+        if(railsWanted&&watch.suspended&&!railsView.suspended)message(watch.trips>=2?'Rails released for the rest of this race: the car stopped twice.':'Rails released for a moment: the car stopped. They return once it is moving again.');
+        railsView={wanted:railsWanted,race:railsRace,paceOnly:railsPaceOnly,on:railsDriving&&aiState.railsOn===true,pins:Number.isInteger(aiState.railsPins)?aiState.railsPins:0,suspended:railsWanted&&watch.suspended,trips:watch.trips,pace:requestedPace,streetX:!!streetX};
+      }
+      diagnosticState={...diagnosticState,nativeOnlineAI:moduleProfile?.capabilities.nativeOnlineAI===true,onlineAIAllowed:onlineRaceAllowed,railsWanted,railsRequested:railsWanted&&safe&&!!aiRequested&&aiState.railsRequested===true,railsOn:railsView.on,railsPins:aiState.railsPins,railsPaceOnly,railsSuspended:railsView.suspended,railsRecoveryTrips:railsView.trips,skillNine:safe&&!!aiRequested&&aiState.skillNine===true};
+      renderRails();
+      const legacyNeutral=engine.legacyPhysicsNeutral(s);
+      // Derive each publication from the native source, never the prior output.
+      // Native use-time guards withhold extra pace until four tires match.
+      rubberbandSnapshot=rubberband?.update({enabled:rubberbandEnabled&&!railsPaceOnly,safe:safe&&!driftPending&&!dyno?.busy,ordinaryRace:(roadRaceProfile&&!streetX)||godlyExtra,network:s.network===true,allowNetwork:prefs.online===true&&moduleProfile?.capabilities.nativeOnlineAI===true,aiState,ownerSequence:typeof ai?.read==="function"?ai.read(4):undefined,currentCar:s.car,percent:godlyExtra?100:rubberbandPercent,strength:rubberbandStrength,selectedPace:godlyExtra?1:pacing.active?pacing.pace:requestedPace,featureOwnsPace:(rubberbandOwnsPace||godlyExtra)&&!railsPaceOnly,customPower:legacyNeutral?1:0,customGrip:legacyNeutral?1:0,customBoost:!parkLegacyPhysics&&prefs.boost,customUnlimit:!parkLegacyPhysics&&prefs.unlimit,now:performance.now()})||{state:'unsupported',active:false,resetPending:false};
+      const calculatedOwned=(rubberbandOwnsPace||godlyExtra)&&!railsPaceOnly&&safe&&!driftPending&&!dyno?.busy&&aiState.active===true&&aiState.owned===true&&!ai?.handbackPending&&!aiState.switching;
+      const calculatedEligible=calculatedOwned&&legacyNeutral&&onlineRaceAllowed;
+      nativeCalculatedState={eligible:calculatedEligible,reason:!rubberbandEnabled?'off':!onlineRaceAllowed?'network-permission':(!roadRaceProfile||streetX)&&!godlyExtra?'not-ordinary-race':!safe||driftPending||dyno?.busy?'unsafe':!calculatedOwned?'ai-unowned':!legacyNeutral?'stacking-not-neutral':'sample'};
+      if(calculatedEligible){
+        nativeCalculatedState.catchupOn=engine.u32(0x89e7f8)===1;
+        if(aiState.catchupTelemetryStatus==='sampled'&&aiState.catchupDriverVerified===true){nativeCalculatedState.driverFactor=aiState.catchupDriverFactor;nativeCalculatedState.carFactor=aiState.catchupCarFactor;}
+      }
+      renderRubberband();
+      pacingEvidence=adaptive.requested?{identity:pacingIdentity,state:aiState}:null;
+      const paceConfirmed=!!aiRequested && safe && !ai?.handbackPending && !aiState.switching && !!aiState.active && Number.isFinite(aiState.paceApplied) && aiState.paceApplied>=.75 && aiState.paceApplied<=3;
+      try {
+        // Current geometry corrects road-race rails only. Recovery and full
+        // physics return immediately to their existing native target path.
+        const currentForwardScope=moduleProfile?.hash!=='2ba0b075721d80e75fc3fb9a3b0e4d2acae835d21fcc406d009669b83f81858d'||(moduleProfile?.capabilities.nativeRailsForwardGeometry===true&&railsRace&&railsView.on&&roadRaceProfile&&!streetX&&onlineRaceAllowed&&engine.u32(s.car+0x28)===3);
+        forwardSnapshot=forwardDrive?.update({enabled:adaptive.requested&&currentForwardScope,applyTarget:'native-policy',safe:safe&&!driftPending&&!dyno?.busy,offline:!s.network,allowNetwork:prefs.online,ordinaryRace:roadRaceProfile&&!streetX,aiState:{...aiState,ownerSequence:typeof ai?.read==='function'?ai.read(4):undefined},handbackPending:!!ai?.handbackPending,expectedPace:pacing.active?pacing.pace:requestedPace,identity:pacingIdentity,gain:rubberbandSnapshot,policy:rubberbandOwnsPace?{mode:'native',brakingFactor:1,cornerFactor:1,sharpMargin:0,reactionSeconds:.1,marginDistance:0}:{mode:'native',brakingFactor:prefs.raceBraking,cornerFactor:prefs.raceCornerFactor,sharpMargin:prefs.raceCornerMargin,reactionSeconds:.6,marginDistance:8}})||{forwardState:'off',forwardNativeApplied:false,forwardLiveVerified:false};
+      } catch {cancelForward();forwardSnapshot={forwardState:'unknown',forwardGuardCode:45,forwardNativeApplied:false,forwardLiveVerified:false};}
+      renderForwardStatus();
+      const adaptiveState=!adaptive.requested?adaptive.state:ai?.handbackPending||aiState.switching||!aiState.active?'handoff':!paceConfirmed||Math.abs(aiState.paceApplied-pacing.pace)>.011?'pace-pending':pacing.state==='native-fallback'?'native-fallback':pacing.state==='clearance-limited'?'clearance-limited':!pacing.currentCorners?'coverage-unknown':'planner-observed';
+      diagnosticState={...diagnosticState,...forwardSnapshot,...rubberbandEvidence(),adaptiveRaceRequested:adaptive.requested,adaptiveRaceState:adaptiveState,adaptiveRaceCeiling:rubberbandRoad?rubberbandPercent/100:adaptiveRaceCeiling,adaptivePacingState:pacing.state,adaptiveRuntimePace:pacing.active?pacing.pace:undefined,adaptiveClearanceM:pacing.clearance?.distanceM};
+      const wallState=wall?.update({enabled:prefs.walls,safe,state:s}) || {requested:false,hits:0,reason:'Reload with the wall-contact module installed.'};
+      try {diagnosticState={...diagnosticState,...engine.nosDiagnostics(s,supported&&moduleProfile?.capabilities.driftDiagnostics===true)};} catch { diagnosticReadFailure=1; }
+      let tune={active:false},grip={active:false};
+      // Observational only: selection, page-side write success and a native
+      // pace-hook acknowledgement are different from measured vehicle speed.
+      let powerStatus=parkLegacyPhysics&&(prefs.boost||prefs.unlimit)?'suspended':!(prefs.boost||prefs.unlimit)?'off':!supported?'unsupported':!s.ready?'not-ready':s.network&&!prefs.online?'network-permission':document.hidden?'hidden':!document.hasFocus()?'unfocused':!driveStatus?'hud':!s.driving?'not-driving':!safe?'menu':driftPending?'drift-change':'settling';
+      if(safe && !driftPending && !parkLegacyPhysics && (prefs.boost || prefs.unlimit)) {
+        const info=engine.performanceInfo(s),patch=engine.performancePatch;
+        if(patch && (!info || patch.car!==s.car || patch.race!==s.race || patch.pi!==info.pi)) {engine.restorePerformance(s);powerGate.reset();}
+        if(!info){powerGate.reset();powerStatus='layout';}
+        if(info && (engine.performancePatch || powerGate.accept([s.car,s.race,info.pi,...info.values]))) {
+          tune=engine.tunePerformance(s,prefs.boost?prefs.power:1,prefs.unlimit,prefs.online);
+          powerStatus=tune.active?'applied':tune.ok?'neutral':tune.changed?'changed':'rejected';
+          if(tune.changed){powerGate.reset();message(tune.reason);}
+        }
+      } else {engine.restorePerformance(s);powerGate.reset();}
+      if(safe && !driftPending && !parkLegacyPhysics && prefs.grip) {
+        const info=engine.gripInfo(s),patch=engine.gripPatch;
+        if(patch && (!info || patch.car!==s.car || patch.race!==s.race || patch.physics!==info.physics || patch.wheels.some((w,i)=>w!==info.wheels[i]))) {engine.restoreGrip(s);gripGate.reset();}
+        if(!info)gripGate.reset();
+        if(info && (engine.gripPatch || gripGate.accept([s.car,s.race,info.physics,...info.wheels,...info.values]))) {
+          grip=engine.tuneGrip(s,prefs.gripFactor,prefs.online);
+          if(grip.changed){gripGate.reset();message(grip.reason);}
+        }
+      } else {engine.restoreGrip(s);gripGate.reset();}
+      let producerFailureCode=1;
+      try {
+        diagnosticState={...diagnosticState,...engine.nativeDiagnostics(s,supported&&moduleProfile?.capabilities.driftDiagnostics===true,false,true),...engine.dragEngineDiagnostics(s,supported&&moduleProfile?.capabilities.nativeDragOverheat===true)};
+        producerFailureCode=2;
+        diagnosticState={...diagnosticState,powerStatus,raceOnlyInputClear,raceOnlyEligible,raceOnlyRequested,paceConfirmed,paceApplied:paceConfirmed?aiState.paceApplied:undefined,powerActive:!!tune.active,gripActive:!!grip.active,effectivePower:tune.power,effectiveGrip:grip.factor,limiterRemoved:!!tune.unlimit,aiActive:!!aiState.active,aiOwned:!!aiState.owned,handbackPending:!!ai?.handbackPending,pageHeartbeat:ai?.hb,nativeHeartbeatAck:aiState.ready&&typeof ai?.read==='function'?ai.read(44):undefined,aiRequestedMode:aiState.ready&&typeof ai?.read==='function'?ai.read(8):undefined,aiNativeStatus:aiState.ready&&typeof ai?.read==='function'?ai.read(52):undefined,aiStaleTicks:aiState.ready&&typeof ai?.read==='function'?ai.read(48):undefined,aiSkillSaved:aiState.ready&&typeof ai?.read==='function'?!!ai.read(64):undefined,savedNativeSkill:aiState.ready&&typeof ai?.read==='function'&&ai.read(64)?ai.read(68):undefined,requestedPace,cornerRequested:!!aiState.cornerRequested,cornerMemoryBlocked:!!aiState.cornerMemoryBlocked,cornerDriftBlocked:!!aiState.cornerDriftBlocked,cornerMode:aiState.cornerMode,cornerPace:aiState.cornerPace,cornerBraking:aiState.cornerBraking,brakingHits:aiState.brakingHits,cornerHits:aiState.cornerHits,cornerApplied:aiState.cornerApplied,cornerProbeStage:aiState.cornerProbeStage,cornerDriverValid:aiState.cornerDriverValid,cornerRouteOwned:aiState.cornerRouteOwned,cornerRouteNodes:aiState.cornerRouteNodes,cornerPlannerCorners:aiState.cornerPlannerCorners,cornerPlannerUsable:aiState.cornerPlannerUsable,cornerPlannerTelemetryStatus:aiState.cornerPlannerTelemetryStatus,cornerGuardMask:aiState.cornerGuardMask,nativePaceRequested:aiState.nativePaceRequested,nativePaceApplied:aiState.nativePaceApplied,nativePaceHits:aiState.nativePaceHits,nativePaceTelemetryStatus:aiState.nativePaceTelemetryStatus,shortcutPolicyInstalled:moduleProfile?.capabilities.nativeRouteChoice===true,shortcutPolicyRequested:moduleProfile?.capabilities.nativeRouteChoice===true&&adaptive.requested===true,catchupTelemetryStatus:aiState.catchupTelemetryStatus,catchupDriverVerified:aiState.catchupDriverVerified,catchupDriverFactor:aiState.catchupDriverFactor,catchupCarFactor:aiState.catchupCarFactor,wallRequested:!!wallState.requested,wallHits:wallState.hits,onlineTrafficRequested:!!carState.onlineTraffic,onlinePlayersRequested:!!carState.onlinePlayers,onlineRaceCarsRequested:!!carState.onlineRaceCars,onlineRivalsSelected:onlineRivalsEnabled,onlineAllCarsSelected:prefs.online===true&&prefs.traffic===true&&prefs.players===true&&onlineRivalsEnabled===true,onlineRivalsRequested:!!carState.onlineRivals,onlinePlayerOutrunRequested:!!carState.onlinePlayerOutrun,contactCounterScope:carState.contactCounterScope,trafficHitsExact:carState.trafficHitsExact,trafficHits:carState.trafficHitsExact===false?undefined:carState.trafficHits,playerHits:carState.playerHits,carRequested:typeof carState!=='undefined'?!!carState.requested:false,carHits:typeof carState!=='undefined'?carState.hits:0};
+        producerFailureCode=3;
+        diagnosticState={...diagnosticState,...cityEvidence(cityPacing),forwardReadPhaseCode:forwardSnapshot.forwardReadPhaseCode,forwardReadSubreasonCode:forwardSnapshot.forwardReadSubreasonCode,...(typeof forwardDrive?.diagnosticEvidence==='function'?forwardDrive.diagnosticEvidence():{}),planSelectedPace:selectedPace,planInputSpeedMps:nativeSample.speedMps,planCurrentCorners:pacing.currentCorners,planClearanceAvailable:pacing.clearance?.available,planClearanceObserved:pacing.clearance?.observed,planClearanceTarget:pacing.clearance?.targetMps,planClearanceSource:pacing.clearance?.source};
+        const targetDriver=s.ready?engine.u32(s.car+0x2c):0;
+        const targetEvidence=targetFeedbackState?.snapshot({available:moduleProfile?.capabilities.nativeTargetFeedback===true,safe:safe&&supported,owned:!!aiRequested&&aiState.active===true&&aiState.owned===true&&!aiState.switching&&!ai?.handbackPending,ownerSequence:typeof ai?.read==='function'?ai.read(4):undefined,car:s.car,race:s.race,driver:targetDriver,route:targetDriver?engine.u32(targetDriver+0x6e8):0,tick:engine.u32(0x86518c)});
+        if(targetEvidence){diagnosticState={...diagnosticState,...targetEvidence};const node=ui?.querySelector('#native-target-state');if(node)node.textContent=targetFeedbackState.text(targetEvidence);}
+        traceDiagnostic(diagnosticState,diagnosticReadFailure,diagnosticReadFailure);
+        diagnostics?.snapshot(diagnosticState);
+      } catch { traceDiagnostic(diagnosticState,producerFailureCode,producerFailureCode); }
+      try{
+        const carSample=s.ready&&supported?RaceTelemetry?.readCar(engine.memory,s.car,{verified:true,moduleHash:moduleProfile?.hash}):null;
+        const carKey=carSample?.carKey||'unknown',trackId=Number.isInteger(nativeSample.trackId)?nativeSample.trackId:null;
+        const raceType=nativeSample.nativeTelemetry===true?RaceCatalog?.classify(trackId,{drag:nativeSample.dragRace===true||nativeSample.forcedDrag===true,drift:nativeSample.driftRace===true||nativeSample.forcedDrift===true||nativeSample.driftVariant===true,streetX,roam:roamProfile,outrun:nativeRaceType===7})||'unknown':'unknown';
+        raceStats?.observe({sessionGeneration,raceIdentity:pacingIdentity,trackId,raceType,carKey,inRace:driveStatus===1&&(nativeRaceType===1||nativeRaceType===7),driving:supported&&safe&&s.driving,aiOwned:safe&&aiState.active===true&&aiState.owned===true&&!aiState.switching&&!ai?.handbackPending,nativeSpeed:nativeSample.speedMps});
+        hubRuntime={ready:supported&&s.ready&&safe,aiOwned:safe&&aiState.active===true&&aiState.owned===true&&!ai?.handbackPending,carKey,...forwardSnapshot};renderRaceHub();
+      }catch{pauseRaceStats();}
+      infoHudSample={at:performance.now(),data:{...diagnosticState},context:{cityPacing:cityPacing.active,cityPace:cityPacing.pace,menu:!!document.querySelector('dialog[open]'),drag:dragRace,drift:nativeDriftPace,roam:roamProfile,race:raceProfile,paceAvailable:moduleProfile?.capabilities.pace===true,aiAvailable:aiState.available,aiStatus:aiState.status,manual:aiState.manual,switching:!!aiState.switching}};
+      streamSession?.observe(infoHudSample,performance.now());
+      showcaseHighlights?.observe(infoHudSample,RaceCatalog?.classify(diagnosticState.trackId,{drag:dragRace,drift:nativeDriftPace,streetX,roam:roamProfile,outrun:nativeRaceType===7}));
+      renderInfoHud();
+      const manualDriver = s.ready && engine.u32(s.car+0x24)===1 && !aiState.active && (!ai || !aiState.available || (aiState.ready && !aiState.owned));
+      const dragCountdown = dragRace && engine.u32(s.race)===3;
+      const activeDrag = canInput && (s.driving || dragCountdown) && prefs.drag && !dragAIRequested && dragRace && manualDriver && !dragTakenOver;
+      const now = performance.now();
+      if (autonomyTravel) {
+        hold('AltLeft',false);hold('ShiftLeft',false);publishAutonomyInput(aiState);
+      } else if (activeDrag) {
+        hold('ArrowUp', true);
+        hold('AltLeft', false);
+        if (s.driving && s.rpm >= prefs.rpm && s.gear >= 2 && s.gear < 7 && now - lastShift > 650) {
+          lastShift = now; hold('ShiftLeft', true);
+          shiftTimer = setTimeout(() => hold('ShiftLeft', false), 85);
+        }
+        // Refresh synthetic held keys after a game's own input-release event.
+        if (now - lastPulse > 500) { lastPulse = now; for (const code of held) if (code !== 'ShiftLeft') key(code, true); }
+      } else release();
+      updateCameraRotation(s,driveStatus,now,!!(counters?.photo||counters?.drone||counters?.pause));
+      if (live) live.textContent = !supported ? `Game build ${revision || '(checking)'} is not verified. Memory tools disabled.` : !s.ready ? s.reason : s.network && !prefs.online ? (soloOnlyBuild() ? 'Online session · driving tools are solo/offline only on this game build.' : 'Online/LAN tools paused. Enable Allow Online/LAN tools in Session mode.') : !driveStatus ? 'Waiting for driving HUD.' : `${s.network ? 'Online/LAN opt-in' : 'Game linked'} · ${Math.round(s.rpm)} RPM${prefs.nos ? ' · Refill unavailable' : ''}${tune.active ? ` · Power ${tune.power.toFixed(1)}×${tune.unlimit ? ' · Governor off' : ''}` : (prefs.boost || prefs.unlimit) ? ' · Power controls waiting/unavailable' : ''}${grip.active ? ` · Grip ${grip.factor.toFixed(1)}×` : prefs.grip ? ' · Grip paused/unavailable' : ''}${prefs.drag ? activeDrag ? dragCountdown ? ' · Drag countdown throttle' : ' · Drag throttle/shifting · you steer' : dragTakenOver ? ' · Drag paused for manual control' : dragRace && !manualDriver ? ' · Drag waiting for native handback' : ' · Drag assist paused/waiting' : ''}`;
+      if (ui) {
+        renderNosRefill();
+        const caps=moduleProfile?.capabilities;
+        for(const [id,feature] of [['ai-pace','pace'],['pace-factor','pace'],['race-pace','pace'],['race-pace-factor','pace'],['race-corner-assist','corner'],['race-corner-factor','corner'],['race-corner-margin','corner'],['race-braking','corner'],['corner-assist','corner'],['corner-factor','corner'],['corner-margin','corner'],['walls','walls'],['cars','cars'],['traffic','onlineTraffic'],['players','onlinePlayers'],['rivals','onlineRivals'],['dyno-enable','dyno']]){const control=ui.querySelector('#'+id);if(control)control.disabled=(feature==='onlineTraffic'||feature==='onlinePlayers'||feature==='onlineRivals')?caps?.[feature]!==true:!!caps&&!caps[feature];}
+        if(live)live.title=live.textContent;
+        renderPowerStatus(powerStatus,tune);
+        const enabled=[onlineRivalsEnabled,cityPacingEnabled,adaptiveRaceEnabled,prefs.raceCornerAssist,prefs.cornerAssist,prefs.racePace,prefs.walls,prefs.cars,prefs.traffic,prefs.players,prefs.ai,raceOnlyAI,prefs.aiPace,nosRefillAvailable&&prefs.nos,prefs.boost,prefs.unlimit,prefs.grip,prefs.dragNoBlowout,prefs.drag,prefs.tester,!!(counters?.drift & 1)].filter(Boolean).length;
+        ui.querySelector('#enabled').textContent=enabled ? `${enabled} selected` : 'Ready';
+        ui.querySelector('#cars-state').textContent=caps&&!caps.cars?'Not verified for this build':prefs.cars?(carState.soloReason||carState.reason):'OFF · other cars only · solo';
+        ui.querySelector('#traffic-state').textContent=caps?.onlineTraffic!==true?'Not verified for this build':prefs.traffic?(carState.trafficReason||carState.reason):'OFF · traffic only · online free roam';
+        ui.querySelector('#players-state').textContent=caps?.onlinePlayers!==true?'Not verified for this build':prefs.players?(carState.playersReason||carState.reason):'OFF · players / online race cars';
+        renderAllOnlineCars(carState);
+        ui.querySelector('#rivals-state').textContent=caps?.onlineRivals!==true?'Unavailable on this game build':onlineRivalsEnabled?(carState.rivalsReason||carState.reason):'OFF · NPC rivals / Outrun';
+        ui.querySelector('#walls-state').textContent=caps&&!caps.walls?'Not yet verified for this build':prefs.walls?wallState.reason:'OFF · resets after reload';
+        ui.querySelector('#online-state').textContent = soloOnlyBuild() ? 'Unavailable on this game build · solo/offline only' : prefs.online ? 'ON this page · experimental · F9 disables' : 'OFF · profile restore needs saved permission';
+        const aiNode=ui.querySelector('#ai-state'),failure=moduleFailure();
+        aiNode.dataset.unavailable=String(!!failure);
+        ui.querySelector('#race-only-state').textContent=!raceOnlyAI?'Off · current page only':!supported||caps?.ai!==true?'Armed · waiting for a verified AI build':s.network&&!prefs.online?'Armed · paused online without permission':!raceOnlyInputClear?'Armed · release driving controls before takeover':!raceOnlyEligible?(ai?.handbackPending||aiState.owned?'Leaving race · native handback pending':'Armed · waiting for active race / GO'):aiState.active&&!ai?.handbackPending&&!aiState.switching?'Native race AI active':aiState.status==='retry'?'Native request preserved · switch off/on to retry':aiState.reason||'Race AI requested · waiting for native confirmation';
+        aiNode.textContent = failure ? `AI unavailable. ${failure}` : (prefs.ai||raceOnlyAI) && s.network && !prefs.online ? (soloOnlyBuild() ? 'Paused online · solo/offline only on this game build' : 'Paused online · enable Session mode opt-in') : aiRequested ? [dragRace ? 'Auto · drag AI' : 'Auto · native AI', aiState.status || 'Native game AI · experimental', aiState.reason].filter(Boolean).join(' · ') : 'Highest native skill · experimental · off';
+        ui.querySelector('#adaptive-race').disabled=!(supported&&caps?.nativeDragInputHandoff&&caps?.corner&&caps?.pace);
+        const adaptiveLabels={off:'Off · session only',invalid:'Invalid ceiling · not applied',unsupported:'Unavailable on this build','street-x':streetXPacePolicy?(railsWanted?'Street X · rails pace limit 1.15×':'Street X · paired handling at 1.00×'):'Street X · using saved controls',mode:'Waiting for road race · not Drag, Drift, Outrun or free roam','network-permission':'Paused online · allow network tools first','ai-off':'Waiting for an automatic driver mode',paused:'Paused · waiting for safe active driving',handoff:'Rebuilding native route · waiting for handoff','pace-pending':'Requested · waiting for pace acknowledgment','planner-pending':'Pace acknowledged · awaiting corner/braking evidence','planner-observed':'Native corner and braking controls active','native-fallback':'Native pace active · optional corner coverage unknown','coverage-unknown':'Native corner coverage unknown','clearance-limited':'Observed clearance · reducing pace request'};
+        ui.querySelector('#adaptive-race-state').textContent=adaptiveLabels[adaptiveState];
+        ui.querySelector('#adaptive-race-state').title=adaptiveLabels[adaptiveState]+`. Ceiling ${adaptive.ceiling.toFixed(2)}×; live request ${Number.isFinite(pacing.pace)?pacing.pace.toFixed(2)+'×':'off'}. Clearance is partial; braking deceleration is provisional. This is not a physical speed cap or proof of a clean corner.`;
+        if(cityPacing.active)ui.querySelector('#city-pace-state').title='Ordinary free-roam pace request; not steering, route coverage, obstacle avoidance or a collision guarantee.';
+        ui.querySelector('#ai-pace-state').textContent = cityPacing.active?cityPacing.pace.toFixed(2)+'× city request · selected factor retained':caps&&!caps.pace?'Not yet verified for this build':!prefs.aiPace ? 'Off · free roam only' : nativeDriftPace ? 'Paused in Drift · native pace retained' : dragRace ? 'Paused in drag · native pace unchanged' : !roamProfile ? `${prefs.paceFactor.toFixed(2)}× saved · waiting for free roam` : !aiRequested || !aiState.active ? `${prefs.paceFactor.toFixed(2)}× selected · waiting for AI` : paceConfirmed ? `${aiState.paceApplied.toFixed(2)}× confirmed` : `${prefs.paceFactor.toFixed(2)}× requested`;
+        ui.querySelector('#race-pace-state').textContent = streetXPacePolicy?`Street X ${selectedPace.toFixed(2)}× ${!aiRequested||!safe?'selected · waiting for AI':paceConfirmed&&Math.abs(aiState.paceApplied-selectedPace)<.011?'confirmed':'requested'} · ${railsWanted?'rails limit 1.15×':'neutral paired pace'}${prefs.racePace?` · saved ${prefs.racePaceFactor.toFixed(2)}×`:''}`:adaptive.requested?`Adaptive ceiling ${adaptive.ceiling.toFixed(2)}× · requested ${pacing.pace.toFixed(2)}×${rubberbandOwnsPace?rubberbandSnapshot.active===true&&rubberbandSnapshot.outputsVerified===true?' · physics confirmed':' · awaiting physics':''}`: caps&&!caps.pace?'Not yet verified for this build':!prefs.racePace ? 'Off · normal race pace' : nativeDriftPace ? 'Paused in Drift · native pace retained' : !raceProfile ? `${prefs.racePaceFactor.toFixed(2)}× saved · waiting for race / outrun` : !aiRequested || !aiState.active ? `${prefs.racePaceFactor.toFixed(2)}× selected · waiting for AI` : paceConfirmed ? `${aiState.paceApplied.toFixed(2)}× confirmed` : `${prefs.racePaceFactor.toFixed(2)}× requested`;
+        ui.querySelector('#race-corner-state').textContent = adaptive.requested?adaptiveState==='planner-observed'?'Adaptive hook hits observed · not a check of this corner':`Adaptive requested · ${pendingCornerText(aiState)}`: caps&&!caps.corner?'Not yet verified for this build':!prefs.raceCornerAssist ? 'Off · road races; online needs opt-in' : s.network && !prefs.online ? 'Paused online · enable Session mode opt-in' : !roadRaceProfile ? 'Waiting for ordinary road race · excludes outrun, drag and drift' : !aiRequested || !aiState.active ? 'Waiting for automatic AI' : aiState.cornerMemoryBlocked ? 'Blocked · corner command memory is occupied' : aiState.cornerMode===2 && Number.isFinite(aiState.cornerApplied) ? `${aiState.cornerApplied.toFixed(2)}× road-race corner cap observed · braking hits ${aiState.brakingHits ?? 0}` : aiState.cornerMode===2 && aiState.cornerRequested ? pendingCornerText(aiState) : 'Not armed · road-race command was not accepted';
+        ui.querySelector('#corner-state').textContent = caps&&!caps.corner?'Not yet verified for this build':!prefs.cornerAssist ? 'Off · free roam only' : !roamProfile ? 'Waiting for free roam' : !aiRequested || !aiState.active ? 'Waiting for automatic AI' : aiState.cornerMemoryBlocked ? 'Blocked · corner command memory is occupied' : aiState.cornerDriftBlocked ? 'Paused · drift mode excludes corner assist' : Number.isFinite(aiState.cornerApplied) ? `${aiState.cornerApplied.toFixed(2)}× corner-speed cap confirmed` : aiState.cornerRequested ? pendingCornerText(aiState) : 'Not armed · corner command was not accepted';
+        ui.querySelector('#drag-ai-state').textContent = caps&&!caps.dragAI?'Not yet verified for this build':!aiRequested ? (raceOnlyAI?'Race-only AI armed · waiting for active race':'Enable Automatic driver or Race-only automatic driver') : dragRace ? aiState.active ? aiState.opponentDragSelected ? 'Opponent drag action confirmed · gameplay unverified' : aiState.dragSelection==='unsupported' ? 'Opponent selector unsupported on this build' : 'Native driver active · opponent action pending' : safe ? 'Auto-selected · waiting for native confirmation' : 'Auto-selected · waits for GO / supported driving state' : 'Automatic · waiting for a drag race';
+        ui.querySelector('#drag-no-blowout').disabled=moduleProfile?.capabilities.nativeDragOverheat!==true;
+        ui.querySelector('#drag-no-blowout-state').textContent=moduleProfile?.capabilities.nativeDragOverheat!==true?'Unavailable on this game build':prefs.dragNoBlowout?(s.network&&!prefs.online?'Paused online · enable Allow network tools':safe && s.drag?'Requested · current player engine only':'Waiting for active Drag'):'Off · normal Drag engine damage';
+        ui.querySelector('#drag-state').textContent = activeDrag ? dragCountdown ? 'Countdown throttle · shifts wait for GO' : 'Throttle + shifting active · you steer' : prefs.drag ? dragAIRequested ? 'Paused while automatic drag AI is requested' : dragTakenOver ? 'Paused by manual takeover · toggle to resume' : dragRace && !manualDriver ? 'Waiting for native AI to release the car' : s.network && !prefs.online ? 'Paused online · enable Session mode opt-in' : 'Waiting for drag driving state' : 'Throttle + shifting · you steer';
+        ui.querySelector('#grip-state').textContent=grip.active ? `Tyre-force multiplier ${grip.factor.toFixed(1)}× applied` : prefs.grip ? (grip.reason || 'Waiting for driving state') : 'More tyre grip · start at 1.3×';
+        if (prefs.tester && supported && s.ready && now - lastScan > 250) {
+          lastScan = now;
+          const h = engine.hazards(s), close = h?.cars[0];
+          ui.querySelector('#hazards').textContent = h ? `${h.scannedCars} car objects read. ${close ? `Nearest ahead: ${close.ahead.toFixed(0)} m, side offset ${close.side.toFixed(1)} m.` : 'No nearby car detected ahead.'} ${h.barrierAhead !== null ? `Barrier line ahead: ${h.barrierAhead.toFixed(0)} m.` : 'No crossing barrier line detected.'} Props and general obstacles: NOT detected.` : 'Detector waiting for valid car coordinates.';
+        }
+        const driftKnown = counters && Number.isFinite(counters.drift);
+        const drift = driftKnown ? !!(counters.drift & 1) : null;
+        const driftActive = driftKnown && !!(counters.drift & 2);
+        if (driftPending && driftKnown && drift === driftPending.wanted && (!drift || driftActive)) {
+          message(drift ? 'Drift assist ON: confirmed by the game’s handling state.' : 'Drift assist OFF: confirmed by the game.'); driftPending=null;
+        } else if (driftPending && now > driftPending.until) {
+          message('The game did not confirm drift assist. Use solo free roam (not a race or co-op), close menus, then try again.'); driftPending=null;
+        }
+        ui.querySelector('#drift').disabled = !!driftPending;
+        if(driftNeedsReapply && !driftPending && safe && driveStatus===2 && driftKnown) {driftNeedsReapply=false;if(!setDrift(prefs.drift))message('Drift request could not be sent. Toggle it again in free roam.');}
+        if(driftKnown && !driftPending && !driftNeedsReapply) {
+          ui.querySelector('#drift').checked=drift;
+          if(typeof prefs.drift==='boolean' && prefs.drift!==drift){prefs.drift=drift;savePrefs();}
+        }
+        for(const id of ['ai-state','race-only-state','ai-pace-state','race-pace-state','race-corner-state','corner-state','grip-state','walls-state','cars-state','traffic-state','players-state','rivals-state','drag-state','drag-ai-state','online-state']) {const node=ui.querySelector('#'+id);node.title=node.textContent;}
+        for(const [id,mode] of [['corner-state',1],['race-corner-state',2]]) if(aiState.cornerRequested && aiState.cornerMode===mode) {const node=ui.querySelector('#'+id);node.title=node.textContent+' · '+cornerEvidenceText(aiState);}
+        ui.querySelector('#drift-state').textContent = driftNeedsReapply ? 'Choice saved · waiting for solo free roam' : driftPending ? 'Waiting for confirmation…' : driftActive ? 'Game confirms drift handling ON' : drift ? 'Selected, but not active in this game mode' : 'Free roam only · not perfect-drift automation';
+      }
+    } catch (error) { traceDiagnostic({...coarseDiagnostic(),generation:sessionGeneration,revision,supported},diagnosticReadFailure||3,diagnosticReadFailure||3);recordDiagnostic('engine-error',{error,tools:diagnosticTools()});stop('Runtime changed or is unavailable. Reload the game before retrying.'); engine = null; }
+  }
+  function setPanel(open) {
+    visible=!!open;
+    if(!visible)stopEcu('Tuning menu closed');
+    if(host)host.style.width=visible?'244px':'170px';
+    if(!visible && dyno?.busy)dyno.cancel();
+    if(!ui) return;
+    ui.querySelector('#tools-panel').hidden=!visible;
+    ui.querySelector('#min').setAttribute('aria-expanded',String(visible));
+    ui.querySelector('#chevron').textContent=visible ? '▴' : '▾';
+    renderInfoHud();
+  }
+  function updateDynoUI() {
+    if(!ui)return;
+    if(ecuOwnsTuner()&&(!dynoEnabled||!supported||!visible||document.hidden||!document.hasFocus()||!dyno?.canUse()))stopEcu('ECU paused; return to solo Performance Tuning');
+    ecuUi?.refresh();
+    const ecuOwned=ecuOwnsTuner(),busy=!!dyno?.busy||!!ecu?.busy,ready=!!(dynoEnabled && supported && dyno?.canUse() && !document.hidden && document.hasFocus()&&!ecuOwned);
+    const captureReady=!!(dynoEnabled&&supported&&dyno?.full&&(typeof dyno.canCapture==='function'?dyno.canCapture():dyno.canUse())&&!document.hidden&&document.hasFocus()&&!ecuOwned);
+    const context=ready&&!busy?dyno?.syncContext?.():null;
+    if(context?.invalidated)dynoText='Car tuning or installed parts changed. Load settings or find a new tune for this game mode.';
+    else if(context?.changed)dynoText=dyno.applied?'Applied tune found for this car and mode. Restore is available while it stays unchanged.':dyno.outcome?'Preview found for this car and mode. Review it before Apply.':'Ready for the selected mode. Load all settings or search a measured native estimate.';
+    ui.querySelector('#dyno-mode').textContent=context?`Game tuning slot ${context.kind+1} of 5${Tune?.MODE_LABELS?.[context.kind]?' · '+Tune.MODE_LABELS[context.kind]:''} · selected in Mode Select`:busy&&dyno?.context?`Game tuning slot ${dyno.context.kind+1} of 5`:'Choose a race mode in the game, then open the Dyno main screen.';
+    ui.querySelector('#dyno-find').disabled=!ready || busy || !!dyno?.applied;
+    ui.querySelector('#dyno-cancel').disabled=!busy;
+    ui.querySelector('#dyno-apply').disabled=!ready || busy || !(dyno?.full?dyno.outcome?.changed:dyno?.outcome?.improved) || !!dyno?.applied;
+    ui.querySelector('#dyno-restore').disabled=!ready || busy || !dyno?.applied;
+    ui.querySelector('#dyno-goal').disabled=busy;
+    for(const option of ui.querySelector('#dyno-goal').options||[])if(['acceleration60','acceleration100','topSpeed'].includes(option.value))option.disabled=!dyno?.full;
+    if(dyno && !dyno.full&&['acceleration60','acceleration100','topSpeed'].includes(ui.querySelector('#dyno-goal').value))ui.querySelector('#dyno-goal').value='peakPower';
+    updateSetupEditor(ready,busy,captureReady);
+    let blockedText='';
+    if(dynoEnabled&&!ready&&!busy){
+      const code=(captureReady?dyno?.captureReadiness?.():dyno?.readiness?.())?.code,labels=globalThis.__NFSU2_DYNO_FULL__?.readinessLabels;
+      blockedText=document.hidden?'Return to the game tab to use the tuner.':!document.hasFocus()?'Focus the game window to use the tuner.':ecuOwned?'Stop ECU controls before using the preset tuner.':!dyno?'Waiting for the supported game tuner.':labels&&Object.hasOwn(labels,code)&&code!=='ready'?labels[code]:'';
+    }
+    ui.querySelector('#dyno-state').textContent=moduleFailure()?`Dyno unavailable. ${moduleFailure()}`:moduleProfile&&!moduleProfile.capabilities.dyno?'Not yet verified for this build':dynoText+(blockedText?' '+blockedText:'');
+  }
+  const tuneValue=value=>(value>100?'+':'')+(value-100);
+  function updateSetupEditor(ready,busy,captureReady=ready){
+    const editor=dyno?.editor,editable=!!(ready&&!busy&&editor&&!dyno?.applied);
+    ui.querySelector('#tune-load').disabled=!captureReady||busy||!!dyno?.applied||!dyno?.full;
+    ui.querySelector('#tune-preview').disabled=!editable;
+    ui.querySelector('#tune-reset').disabled=!editable;
+    ui.querySelector('#tune-group').disabled=!editable;
+    const group=Tune?.GROUPS?.find(g=>g.id===ui.querySelector('#tune-group').value)||Tune?.GROUPS?.[0];
+    for(let i=0;i<9;i++){
+      const offset=group?.offsets[i],present=!!editor&&offset!==undefined,row=ui.querySelector('#tune-row-'+i),input=ui.querySelector('#tune-input-'+i);
+      row.hidden=!present;input.disabled=!editable||!editor?.allowedOffsets.includes(offset);
+      if(present){
+        input.dataset.offset=String(offset);input.value=editor.draft[offset]-100;
+        ui.querySelector('#tune-label-'+i).textContent=(Tune?.FIELD_LABELS?.[offset]||'Setting '+(offset+1))+(editor.allowedOffsets.includes(offset)?'':editor.unlockedOffsets?.includes(offset)?' · unverified':' · locked');
+        ui.querySelector('#tune-value-'+i).textContent=tuneValue(editor.draft[offset]);
+      }
+    }
+    renderTunerResults(ready,busy);
+    const o=dyno?.outcome;
+    ui.querySelector('#tune-changes').textContent=dyno?.full&&Array.isArray(o?.changes)?o.changes.map(x=>`${Tune?.FIELD_LABELS?.[x.offset]||x.field}: ${tuneValue(x.before)} → ${tuneValue(x.after)}${x.adjusted?' (native adjusted request '+tuneValue(x.requested)+')':''}`).join('\n')||'No accepted setup changes.':editor?'Edit sliders, then Preview changes. Drafts never alter the game.':'Load settings to see unlocked controls for this car and preset.';
+  }
+  function tunerDisplayModel(controller,ready,busy){
+    const empty={power:'—',torque:'—',accel:'—',speed:'—'},o=controller?.outcome;
+    const state=!ready?'Tuner unavailable':busy?'Working':controller?.applied?'Staged':o?'Preview':'Ready';
+    const note=!ready?'Follow the tuner status to continue.':busy?'Current calculation is in progress.':!o?'Load settings, then preview or find a tune.':controller?.applied?'Staged in game · Test Run to refresh · Save Profile to save.':'Native estimates · original → preview · game setup unchanged.';
+    if(!ready||busy||!o)return {...empty,state,note};
+    const pair=(key,scale,digits,max)=>{const before=o.baselineResult?.[key],after=o.bestResult?.[key],valid=n=>Number.isFinite(n)&&n>0&&n*scale<=max;return valid(before)&&valid(after)?(before*scale).toFixed(digits)+' → '+(after*scale).toFixed(digits):'—';};
+    return {state,note,power:pair('peakPowerKw',1,1,1e6),torque:pair('peakTorqueNm',1,0,1e7),accel:pair('zeroTo60Seconds',1,2,3600),speed:pair('topSpeedMps',3.6,1,2000)};
+  }
+  function renderTunerResults(ready,busy){
+    const view=tunerDisplayModel(dyno,ready,busy);
+    for(const field of ['power','torque','accel','speed']){const el=ui.querySelector('#tune-kpi-'+field);if(el.textContent!==view[field])el.textContent=view[field];}
+    const state=ui.querySelector('#tune-display-state');if(state.textContent!==view.state)state.textContent=view.state;
+    const note=ui.querySelector('#tune-display-note');if(note.textContent!==view.note)note.textContent=view.note;
+  }
+  async function runDyno(action) {
+    if(!dynoEnabled || !dyno || dyno.busy || ecu?.busy)return;
+    recordDiagnostic('dyno-action',{reason:action,dynoFullTuner:dyno.full===true,dynoSecondWindowCapture:moduleProfile?.capabilities.tunerSecondGuestWindow===true,dynoCurrentClamp:moduleProfile?.capabilities.tunerCurrentNativeClamp===true,tools:diagnosticTools()});
+    suspend();
+    dyno.setEnabled(true);
+    try {
+      if(action==='load'){
+        await dyno.loadSetup();dynoText='All supported settings loaded. Edit a category, then Preview. Nothing changes in the game until Stage.';
+      } else if(action==='preview'){
+        const r=await dyno.preview();
+        dynoText=`${r.changed?'Preview ready. Review accepted changes, then Stage selected preset.':'No accepted setup changes.'} Game unchanged. Native estimates: 0–60 ${r.bestResult.zeroTo60Seconds.toFixed(2)} s; 0–100 ${r.bestResult.zeroTo100Seconds.toFixed(2)} s; top ${(r.bestResult.topSpeedMps*3.6).toFixed(1)} km/h; ${r.bestResult.peakPowerKw.toFixed(1)} kW / ${r.bestResult.peakTorqueNm.toFixed(1)} Nm. NOS ${r.bestResult.nitrousSeconds.toFixed(2)} s / torque setting ${r.bestResult.nitrousTorque.toFixed(3)}. No handling/lap-time measurement.`;
+      } else if(action==='find') {
+        dynoText=dyno.full?'Searching in private memory · game setup stays unchanged':'Searching · original setup is restored after each trial';updateDynoUI();
+        const r=await dyno.find({goal:ui.querySelector('#dyno-goal').value,onProgress:p=>{dynoText=`Searching ${p.evaluations}/${p.budget} trials · Cancel or F9 to stop`;updateDynoUI();}});
+        const [field,unit]=({peakPower:['peakPowerKw','kW'],peakTorque:['peakTorqueNm','Nm'],acceleration60:['zeroTo60Seconds','s (0–60)'],acceleration100:['zeroTo100Seconds','s (0–100)'],topSpeed:['topSpeedMps','m/s']}[r.goal]);
+        if(dyno.full){
+          const manualSeed=r.seed?.some((value,index)=>value!==r.baseline[index]);
+          const seedText=manualSeed&&r.changed?(r.improvedFromSeed?' Search improved the measured goal over your draft.':' No further measured improvement over the draft. Accepted manual draft retained.'):'';
+          dynoText=`${r.baselineResult[field].toFixed(1)} → ${r.bestResult[field].toFixed(1)} ${unit} · ${r.evaluations} trials. Original kept. ${r.improved?'Measured goal improved versus original.':'No measured goal improvement versus original.'}${seedText} ${r.changed?'Review accepted changes, then Stage selected preset.':'No accepted setup changes.'} No handling/lap-time measurement.`;
+        }else dynoText=`${r.baselineResult[field].toFixed(1)} → ${r.bestResult[field].toFixed(1)} ${unit} · ${r.evaluations} trials. Original kept. ${r.improved?'Stage preview to use this tune.':'No improvement found.'}`;
+      } else if(action==='apply') {const r=await dyno.apply();dynoText=dyno.full?'Selected preset staged. Use the game’s Test Run to refresh driving physics, and Save Profile to persist. Disk save is not confirmed.'+(r.saveReady?'':' Other presets also have unsaved edits; native Save Profile saves them too.'):'Best tune applied. Use native Save Profile to persist.';}
+      else {await dyno.restore();dynoText=dyno.full?'Previous current and selected-visit settings restored. Test Run refreshes physics. Save Profile again if you want this restored version persisted.':'Previous tune restored and confirmed.';}
+    } catch(error) {recordDiagnostic('dyno-error',{error,dynoStatus:error?.dynoStatus,dynoGuard:error?.dynoGuard,dynoObserved:error?.dynoObserved,tools:diagnosticTools()});dynoText=error?.message || 'Dyno tuner stopped. Reload before retrying.';}
+    updateDynoUI();
+  }
+  function exportDiagnostic() {
+    if(!diagnostics){message('Diagnostic logger is unavailable. The game’s Download log may still have crash details.');return;}
+    let url=null,link=null;
+    try {
+      recordDiagnostic('export',{tools:diagnosticTools()});
+      const blob=new Blob([diagnostics.exportText()],{type:'application/json'});
+      url=URL.createObjectURL(blob);link=document.createElement('a');link.href=url;link.download='nfsu2-driving-tools-diagnostics.json';link.hidden=true;
+      (document.body||document.documentElement).append(link);link.click();
+      message('Diagnostic download requested. It stays local until you choose to share the file. For native crash details, also use the game’s Download log.');
+    } catch(error) {recordDiagnostic('engine-error',{error});message('Diagnostic download failed. Try again, or use the game’s Download log.');}
+    finally {link?.remove();if(url)setTimeout(()=>URL.revokeObjectURL(url),1000);}
+  }
+  const profileToggleIds={raceCornerAssist:'race-corner-assist',cornerAssist:'corner-assist',racePace:'race-pace',walls:'walls',cars:'cars',traffic:'traffic',players:'players',online:'online',ai:'ai',aiPace:'ai-pace',nos:'nos',dragNoBlowout:'drag-no-blowout',drag:'drag',tester:'tester',boost:'boost',unlimit:'unlimit',grip:'grip'};
+  const profileNumericBindings=[['race-corner-factor','raceCornerFactor','race-corner-value',2,'×'],['race-corner-margin','raceCornerMargin','race-corner-margin-value',0,'%'],['race-braking','raceBraking','race-braking-value',2,'×'],['race-pace-factor','racePaceFactor','race-pace-value',2,'×'],['corner-factor','cornerFactor','corner-value',2,'×'],['corner-margin','cornerMargin','corner-margin-value',0,'%'],['pace-factor','paceFactor','pace-value',2,'×'],['rpm','rpm','rpm-value',0,''],['power','power','power-value',1,'×'],['grip-factor','gripFactor','grip-value',1,'×']];
+  function syncProfileControls(){
+    if(!ui)return;
+    for(const [key,id]of Object.entries(profileToggleIds))ui.querySelector('#'+id).checked=prefs[key];
+    renderNosRefill();
+    for(const [id,key,out,digits,suffix]of profileNumericBindings){const el=ui.querySelector('#'+id);el.value=prefs[key];ui.querySelector('#'+out).textContent=prefs[key].toFixed(digits)+suffix;el.setAttribute('aria-valuetext',prefs[key].toFixed(digits)+(suffix==='%'?' percent':suffix?' times':' RPM'));}
+    ui.querySelector('#dyno-enable').checked=dynoEnabled;
+    ui.querySelector('#drift').checked=!!prefs.drift;
+    ui.querySelector('#hazards').hidden=!prefs.tester;
+  }
+  const profileLocks=()=>typeof navigator!=='undefined'&&navigator.locks&&typeof navigator.locks.request==='function'?navigator.locks:null;
+  function renderProfiles(){
+    if(!ui)return;
+    const state=profileStore?.snapshot(),select=ui.querySelector('#profile-select');
+    select.replaceChildren();const empty=document.createElement('option');empty.value='';empty.textContent='Choose a saved profile';select.append(empty);
+    for(const p of state?.data.profiles||[]){const option=document.createElement('option');option.value=p.id;option.textContent=p.name;select.append(option);}
+    const selected=state?.data.profiles.find(p=>p.id===profileSelection?.id&&p.revision===profileSelection?.revision);
+    if(!selected){profileSelection=null;ui.querySelector('#profile-network').checked=false;}
+    select.value=selected?.id||'';
+    for(const id of ['profile-load','profile-update','profile-delete','profile-auto'])ui.querySelector('#'+id).disabled=profileActionPending||!state?.available||!selected||(id!=='profile-load'&&!profileLocks());
+    ui.querySelector('#profile-save').disabled=profileActionPending||!state?.available||!profileLocks();
+    for(const id of ['profile-select','profile-name','profile-network'])ui.querySelector('#'+id).disabled=profileActionPending;
+    ui.querySelector('#profile-auto').checked=!!selected&&state.data.auto?.id===selected.id&&state.data.auto.stopToken===state.stopToken&&!profileSessionStopped;
+    ui.querySelector('#profile-state').textContent=state?.error||(profileActionPending?'Waiting for another tab to finish saving profiles.':profileNotice)||(!profileLocks()?'Profile editing is unavailable because this browser cannot lock local saves.':!profileStore?'Profiles unavailable; existing controls still work.':state.paused?'Automatic loading paused by Stop. Select a profile and enable Load on startup to resume.':state.data.auto?'A saved profile will load on next startup.':'Automatic loading is off. Save current controls, then select and Load when needed.');
+    renderShowcaseProfiles();
+  }
+  function selectProfile(){
+    const id=ui.querySelector('#profile-select').value,state=profileStore?.refresh();
+    profileSelection=state?.data.profiles.find(p=>p.id===id)||null;
+    ui.querySelector('#profile-name').value=profileSelection?.name||'';
+    ui.querySelector('#profile-network').checked=profileSelection?.networkConsent||false;
+    profileNotice=profileSelection?'Selected '+profileSelection.name+'. Load applies its saved choices. Update replaces it with current controls.':'';renderProfiles();
+  }
+  function applyToolProfile(result,automatic=false){
+    stopEcu('Profile load');
+    if(driftPending)throw Error('Wait for the current drift request to confirm or time out, then Load again. No profile was loaded.');
+    if(dyno?.busy||dyno?.pending){dyno.cancel();throw Error('Tuner cancellation requested. Wait for the pending game request to finish, then Load again. A staged preset is not reverted.');}
+    clearRaceOnlyAI();
+    adaptiveRaceEnabled=false;if(ui)ui.querySelector('#adaptive-race').checked=false;clearCityPace();clearRivalNoClip();stopRubberband(true);
+    suspend();driftNeedsReapply=false;dragTakenOver=false;lastShift=0;lastPulse=0;
+    const choices=result.settings;
+    for(const key of Object.keys(prefs))prefs[key]=choices[key];
+    enforceSolo();
+    dynoEnabled=choices.dynoEnabled;dyno?.setEnabled(dynoEnabled);
+    if(ui){ui.querySelector('#dyno-goal').value=choices.dynoGoal;ui.querySelector('#profile-network').checked=result.profile.networkConsent;ui.querySelector('#profile-name').value=result.profile.name;}
+    driftNeedsReapply=typeof prefs.drift==='boolean';profileDriftChoice=driftNeedsReapply;
+    loadedProfile={id:result.profile.id,revision:result.profile.revision};savePrefs();syncProfileControls();
+    dynoText=dynoEnabled?'Profile loaded. Open the solo Performance Tuning main screen. Existing staged presets are unchanged.':'Tuner off. Existing staged presets are unchanged.';updateDynoUI();
+    profileNotice=(automatic?'Loaded on startup: ':'Loaded: ')+result.profile.name+'. Choices wait for verified game contexts.'+(result.profile.networkConsent?' Saved network permission restored where selected.':' Network permission and online no-clip remain off.')+' Game presets and drafts are not saved or restored by profiles.';
+    message(profileNotice);renderProfiles();
+  }
+  function profileAction(action){
+    if(profileActionPending)return;
+    const request={stopToken:profileStore?.snapshot().stopToken,selection:profileSelection?{...profileSelection}:null,name:ui.querySelector('#profile-name').value,networkConsent:ui.querySelector('#profile-network').checked===true,auto:ui.querySelector('#profile-auto').checked,settings:{...prefs,dynoEnabled,dynoGoal:ui.querySelector('#dyno-goal').value}};
+    const epoch=profileActionEpoch;
+    // localStorage has no atomic compare-and-swap. Serialize named-profile
+    // writes across tabs with a browser-managed lock; Stop remains immediate
+    // and its independent marker invalidates any stale startup authorization.
+    const execute=()=>{
+      if(epoch!==profileActionEpoch)return;
+      if(action==='auto'){
+        const latest=profileStore?.refresh();
+        if(!latest?.available||latest.stopToken!==request.stopToken){profileNotice='Stop or profile storage changed while waiting. Select a profile and request startup loading again.';renderProfiles();return;}
+      }
+      performProfileAction(action,request);
+    };
+    if(action==='load'){execute();return;}
+    const locks=profileLocks();
+    if(!locks){profileNotice='Profile editing needs browser storage locking, which is unavailable. No profile was changed.';renderProfiles();return;}
+    profileActionPending=true;renderProfiles();
+    try{
+      const result=locks.request('nfsu2-driving-tools-profiles-v1-write',execute);
+      if(result&&typeof result.then==='function')result.catch(()=>{if(epoch===profileActionEpoch)profileNotice='Could not lock profile storage. No profile change was confirmed.';}).finally(()=>{if(epoch===profileActionEpoch){profileActionPending=false;renderProfiles();}});
+      else {profileActionPending=false;renderProfiles();}
+    }catch{profileActionPending=false;profileNotice='Could not lock profile storage. No profile change was confirmed.';renderProfiles();}
+  }
+  function performProfileAction(action,request){
+    const selected=request.selection;
+    try{
+      if(!profileStore)throw Error('Profiles are unavailable.');
+      if(action==='save'||action==='update'){
+        if(action==='update'&&!selected)throw Error('Select a saved profile first.');
+        const saved=profileStore.save({id:action==='update'?selected.id:null,revision:action==='update'?selected.revision:null,name:request.name,settings:request.settings,networkConsent:request.networkConsent});
+        profileSelection=saved;profileNotice='Saved '+saved.name+' locally in this browser. This profile will not load on startup until explicitly enabled.';
+      }else if(action==='load'){
+        if(!selected)throw Error('Select a saved profile first.');
+        applyToolProfile(profileStore.load(selected.id,selected.revision));return;
+      }else if(action==='delete'){
+        if(!selected)throw Error('Select a saved profile first.');
+        profileStore.remove(selected.id,selected.revision);profileSelection=null;ui.querySelector('#profile-name').value='';ui.querySelector('#profile-network').checked=false;profileNotice='Saved profile deleted. Current controls are unchanged; automatic loading for it is off.';
+      }else if(action==='auto'){
+        const enabled=request.auto;
+        if(enabled&&!selected)throw Error('Select a saved profile first.');
+        profileStore.setAuto(enabled?selected.id:null,enabled?selected.revision:null);
+        if(enabled){
+          // Clear the fallback latch only AFTER the requested saved revision was
+          // authorized successfully; a stale/failed enable must not erase Stop.
+          try{sessionStorage.removeItem(PROFILE_SESSION_STOP);if(sessionStorage.getItem(PROFILE_SESSION_STOP)==='1')throw Error();}
+          catch{try{profileStore.setAuto(null);}catch{}throw Error('Cannot clear the Stop pause in this tab. Automatic loading remains blocked here; check storage before retrying.');}
+          profileSessionStopped=false;
+        }
+        profileNotice=enabled?'Load on startup enabled for '+selected.name+'. Its saved choices, including separately saved network permission, will be requested after reload. F9 pauses this.':'Automatic profile loading is off. Current controls are unchanged.';
+      }
+    }catch(error){profileNotice=error.message||'Profile action failed. Nothing was loaded.';message(profileNotice);}
+    renderProfiles();
+  }
+  function mount() {
+    host = document.createElement('div'); host.id = 'nfsu2-driving-tools'; host.dataset.nfsu2Ui = '';
+    host.addEventListener('keydown', e => e.stopPropagation());
+    host.addEventListener('keyup', e => e.stopPropagation());
+    Object.assign(host.style, { position: 'fixed', top: '8px', right: '8px', zIndex: '2147483647', width: '170px', maxWidth: 'calc(100vw - 16px)' });
+    ui = host.attachShadow({ mode: 'closed' });
+    // MAIN-world content scripts follow the page's CSP. A <style> element is
+    // rejected by the game's style-src 'self'; use the CSSOM-supported sheet
+    // instead, keeping styling scoped to this shadow root and CSP unchanged.
+    const stylesheet = new CSSStyleSheet();
+    stylesheet.replaceSync(`
+:host{color-scheme:dark}*{box-sizing:border-box}[hidden]{display:none!important}button,input,select{font:inherit}button,summary{cursor:pointer}button,input,select,summary{-webkit-tap-highlight-color:transparent}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid #8cdbb5;outline-offset:2px}
+.shell{font:11px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#dde9e5;filter:none}button{color:inherit}.launcher{width:100%;height:29px;display:flex;align-items:center;gap:7px;padding:0 9px;background:#141e24;border:1px solid #50645e;border-radius:5px;color:#e3eee8;text-align:left}.mark{width:6px;height:6px;background:#9be8bc;border-radius:2px;box-shadow:0 0 8px #9be8bc35;flex:none}.title{font-size:11px;font-weight:650;white-space:nowrap}.badge{font-size:9px;color:#9bb4aa;margin-left:auto;white-space:nowrap}.arrow{color:#9bb4aa;font-size:10px;flex:none}.launcher[aria-expanded=true]{border-radius:5px 5px 0 0;border-bottom-color:#2a3b3b}
+.panel{border:1px solid #50645e;border-top:0;border-radius:0 0 5px 5px;background:#141e24;max-height:calc(100vh - 48px);max-height:min(390px,calc(100dvh - 48px));overflow-y:auto;scrollbar-width:thin;scrollbar-color:#4e6860 #141e24}.toolbar{display:flex;align-items:center;gap:5px;padding:6px 8px;border-bottom:1px solid #2a3b3b;position:sticky;top:0;z-index:2;background:#141e24}.toolbar button{height:24px;flex:1;border:1px solid #3d5550;border-radius:3px;background:#20332f;font-size:10px}.toolbar button.stop{border-color:#60494c;background:#32272b;color:#e3afb3}.toolbar kbd{margin-left:4px;font-size:9px;color:#8eaaa0}.toolbar .stop kbd{color:#bc9095}.version{font-size:8px;color:#789289;line-height:1;white-space:nowrap;padding-left:2px}
+.quick-stop{width:100%;min-height:26px;margin:4px 0 0;border:1px solid #bc6570;border-radius:4px;background:#452831;color:#ffe1e4;font-size:10px;font-weight:650}.quick-stop kbd{font:inherit;opacity:.8}
+.group{border:0;border-bottom:1px solid #263737}.group>summary{display:flex;align-items:center;gap:8px;list-style:none;min-height:26px;padding:5px 9px;color:#c3d5ce;font-weight:550;font-size:11px}.group>summary::-webkit-details-marker,.help>summary::-webkit-details-marker{display:none}.group>summary::after{content:'›';font-size:13px;line-height:1;color:#78978c;margin-left:auto;transform:rotate(0deg)}.group[open]>summary{background:#1d2e2d;color:#a7e8c2}.group[open]>summary::after{transform:rotate(90deg);color:#9be8bc}.section-icon{width:4px;height:4px;border-radius:1px;background:#789c8d;flex:none}.group-body{padding:3px 9px 7px;background:#101a20}
+.row{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:26px;padding:4px 0;margin:0;color:#d1dfd9}.row>span:first-child{min-width:0;flex:1}.row small,.state{display:block;max-width:100%;margin:1px 0 0;color:#849d93;font-size:9px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.row small{max-width:184px}#ai-state[data-unavailable="true"]{white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;line-height:1.45;color:#c5b591}.row-main{font-weight:550}.row input[type=checkbox]{appearance:none;width:25px;height:14px;margin:0;flex:none;border:1px solid #4d665b;border-radius:8px;background:#263a33;position:relative;cursor:pointer}.row input[type=checkbox]::before{content:'';position:absolute;left:2px;top:2px;width:8px;height:8px;background:#8ba69b;border-radius:50%}.row input[type=checkbox]:checked{background:#6cb68c;border-color:#8bcda7}.row input[type=checkbox]:checked::before{transform:translateX(11px);background:#10291f}
+#autonomy-list{max-height:130px;overflow:auto}#autonomy-wait{width:58px;min-width:0;background:#1c2e27;color:#c5dfce;border:1px solid #3c5549;border-radius:3px;padding:4px}#autonomy-absence{max-width:112px}#autonomy-state{overflow-wrap:anywhe

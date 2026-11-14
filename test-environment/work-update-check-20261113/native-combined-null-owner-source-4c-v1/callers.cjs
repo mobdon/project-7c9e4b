@@ -1,0 +1,6 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),C=require('../../work-online-v0426/native-review/port-core.cjs');
+const raw=fs.readFileSync(path.resolve(__dirname,'../live-build-4c35f9f5/game.wasm'));assert.equal(C.sha(raw),'40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8');const p=C.I.inspect(raw,38),targets=process.argv.slice(2).map(Number);assert(targets.length&&targets.every(Number.isInteger));
+const rows=[],decodeErrors=[];
+for(const[id,body]of p.bodies){try{const calls=C.decode(body).flatMap(o=>o.operands.filter(x=>x.role==='call'&&targets.includes(x.value)).map(x=>({at:o.at,callee:x.value})));if(calls.length)rows.push({id,bodyBytes:body.length,bodySha256:C.sha(body),calls});}catch(e){decodeErrors.push({id,bodyBytes:body.length,decodeError:e.message});}}
+const out={kind:'STATIC-CALLER-SCAN',sourceSha256:C.sha(raw),targets,rows,decodeErrors,note:'Earlier canonical byte-needle prefilter receipt omitted padded LEB calls and is superseded by this complete instruction decode.',nativeExecuted:false};fs.writeFileSync(path.join(__dirname,'callers-v2-'+targets.join('-')+'.json'),JSON.stringify(out,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({rows,decodeErrorCount:decodeErrors.length}));

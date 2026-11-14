@@ -1,0 +1,47 @@
+ allocate(){
+  if(this.pb)return this.pb;
+  const known=allocations.get(this.memory);
+  if(known){if(known.module!==this.module)throw Error('Game memory was reused by another module. Reload before tuning.');this.pb=known.pb;return this.pb;}
+  if(this.u32(100)!==0)throw Error('Full tuner buffer already has another owner. Reload before tuning.');
+  const pages=this.memory.grow(256),pb=pages*65536;
+  if(pb<0x40000000||pb+CAPACITY>this.memory.buffer.byteLength)throw Error('Could not allocate an isolated tuner mailbox');
+  this.pb=pb;allocations.set(this.memory,{module:this.module,pb});const v=this.view();v.setUint32(pb,BUFFER_MAGIC,true);v.setUint32(pb+4,1,true);v.setUint32(pb+8,CAPACITY,true);return pb;
+ }
+ async request(cmd,{lease,expected,expectedVisit,candidate,candidateVisit,signal}={}){
+  if(!this.enabled||!this.available())throw Error('Enable full tuning and reload the supported game first');
+  if(this.pending)throw Error('A game-thread request is still pending');
+  if(signal?.aborted)throw Object.assign(Error('Tuning cancelled'),{name:'AbortError'});
+  if(![16,17,18,19].includes(cmd))throw Error('Unsupported full-tuner command');
+  const pb=this.allocate(),v=this.view(),put=(o,n)=>v.setUint32(pb+o,n,true),copy=(o,b)=>new Uint8Array(this.memory.buffer,pb+o,b.length).set(b);
+  if(cmd===17||cmd===18){
+   if(!lease||lease.partBytes?.length!==148||lease.recordBytes?.length!==205)throw Error('Missing full tuning lease');
+   for(const x of [expected,expectedVisit,candidate,candidateVisit])Core.setupCopy(x);
+  }
+  this.seq=((Math.max(this.seq,this.u32(36))+2)&0x7ffffffe)||2;const seq=this.seq;
+  Atomics.store(this.words(),(BASE+4)>>2,seq|1);this.set(0,MAGIC);this.set(8,cmd);this.set(96,pb);
+  if(lease){for(const [o,key]of [[16,'record'],[20,'tuned'],[24,'kind'],[28,'parts'],[32,'ride']])put(o,lease[key]);copy(352,lease.partBytes);copy(624,lease.recordBytes);}
+  if(expected)copy(256,expected);if(expectedVisit)copy(304,expectedVisit);if(candidate)copy(512,candidate);if(candidateVisit)copy(560,candidateVisit);
+  Atomics.store(this.words(),(BASE+12)>>2,1);
+  const cancel=()=>{if(this.available())Atomics.store(this.words(),(BASE+12)>>2,0);};signal?.addEventListener('abort',cancel,{once:true});
+  const waiting=new Promise((resolve,reject)=>{
+   const started=Date.now();const poll=()=>{try{
+    if(!this.available())throw Error('Tuner ownership was lost. Reload before retrying.');
+    if(Atomics.load(this.words(),(BASE+36)>>2)===seq){
+     signal?.removeEventListener('abort',cancel);const status=this.u32(40);if(status){reject(Error(errors[status]||'Tuning request rejected'));return;}
+     const rv=this.view(),u=o=>rv.getUint32(pb+o,true),b=(o,n)=>Uint8Array.from(new Uint8Array(this.memory.buffer,pb+o,n));
+     const setup=Core.setupCopy(b(256,41)),resultLease={record:u(16),tuned:u(20),kind:u(24),parts:u(28),ride:u(32),partBytes:b(352,148),visitBytes:Core.setupCopy(b(304,41)),recordBytes:b(624,205)};
+     let snapshot=null;
+     if(cmd===16){
+      if(u(120)!==6||u(72)>CAPACITY)throw Error('Invalid full tuner capture');const ranges=[];
+      for(let i=0;i<6;i++){const p=128+i*16,address=u(p),offset=u(p+4),length=u(p+8);if(length===0)continue;if(offset<4096||offset+length>u(72))throw Error('Invalid capture range');ranges.push({address,data:b(offset,length),writable:i===1||i===5});}
+      snapshot={...resultLease,setup,carType:u(36),ranges};
+     }
+     resolve({setup,lease:resultLease,snapshot,saveReady:u(68)===1,saveState:'not-confirmed',staged:cmd===17||cmd===18});return;
+    }
+    if(Date.now()-started>8000){cancel();this.failed=true;throw Error('Game did not acknowledge tuning. An outcome may be uncertain; reload before retrying.');}
+    setTimeout(poll,16);
+   }catch(error){signal?.removeEventListener('abort',cancel);cancel();this.failed=true;reject(error);}};setTimeout(poll,0);
+  });
+  this.pending=waiting;Atomics.store(this.words(),(BASE+4)>>2,seq);
+  try{return await waiting;}finally{this.pending=null;}
+ }

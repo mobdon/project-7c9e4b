@@ -1,0 +1,51 @@
+{
+  "kind": "ORDERED-WORLD-HISTORY-SOURCE-CLOSURE",
+  "condition": "current-native-ordered-world-history-4c-v2",
+  "inputs": {
+    "work-update-check-20261113/native-preworld-network-order-source-4c-v1/ordering-assessment.json": "eb88e5e49114d14e0b3a3c42763869f5bcbe426b6dba41abf9c47c5051739e34",
+    "work-update-check-20261113/native-preworld-network-order-source-4c-v1/shared-branch-render-review.json": "994df2b9718060f585a75e067d4d021288106686ac78a72ac31b25d57bef254c",
+    "work-update-check-20261113/native-combined-null-context-analysis-4c-v1/frozen-null-context-analysis.json": "768a97af3b33e53483d9f951ee8df68a7377f0535ec6eb02176986821d530ac3",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/contract-v1.json": "1ed4e4ce6e116b421a341f1bd2176cf1cd16af2f8a849cb97d4d064f99ce282b"
+  },
+  "sourceOnly": true,
+  "nativeExecuted": false,
+  "wasmCompiledOrInstantiated": false,
+  "memoryCreated": false,
+  "ordinaryProducer": {
+    "historyGlobal": 8978732,
+    "wholeWrapper": 21991,
+    "core": 1690,
+    "predicate": "Genuine pending-client8808948 output ispositive before1690",
+    "factory": 23287,
+    "arguments": [
+      128,
+      50,
+      8020800,
+      0
+    ],
+    "label": "ExtrapolatedStateSlotPool",
+    "freeListOwner": 3178,
+    "legacyConsumer": [
+      10443,
+      17795,
+      22840,
+      7944,
+      2243,
+      7474
+    ]
+  },
+  "reviewRecipe": [
+    "Verify every prepared file and source pin before creating a separate root-owned execution contract.",
+    "Confirm the exact existing network block occurs once beforeWorld and afterSessionStart.construct820/9037; original earlier initialization remains inrelativeorder.",
+    "Confirm same fixture/hook/metadata hashes as frozenV2; no new native hook or instruction edits.",
+    "Confirm all added witness code only reads native memory and writes diagnostic output files.",
+    "After one root-approved run, verify native pool8978732, original128B label/header/backing, nonzero returned history node, and list links; freeze all outputs immediately.",
+    "Preserve any failure and all unrelated low-memory bytes; no proper startup or movement qualification."
+  ],
+  "safety": {
+    "runtimeHarnessOrProviderImported": false,
+    "webAssemblyApiCalled": false,
+    "frozenFilesEdited": false,
+    "nativeStateRepaired": false
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "version": "0.38.12",
+  "kind": "exact943 normal tuner selective integration delta; root applies to release candidate",
+  "runtimeFrozen": true,
+  "copyFiles": {
+    "dyno-core.js": {
+      "source": "work-tuner-v03812/extension/dyno-core.js",
+      "sha256": "7f4eefaa47b2b19f1ec9ea6440c6903e1033b819b7f882535bb8aaea620243df",
+      "expectedBaselineSha256": "5c09f1c022866d39ee1e82f78eb5c771a656ba4a5770523df694cdf4f360acce"
+    },
+    "dyno-evaluator.js": {
+      "source": "work-tuner-v03812/extension/dyno-evaluator.js",
+      "sha256": "5d8284553eb7edcb9c6adc9fb2ee3246e56a66ae2a2e2a55e715d0b96390828e",
+      "expectedBaselineSha256": "7c13a568c3a20e1de51c9c7e0008c8ed1cdfe6e4d73271d85f2f4b6ec63994b2"
+    },
+    "dyno-full.js": {
+      "source": "work-tuner-v03812/extension/dyno-full.js",
+      "sha256": "157a3e2f18548eb1b617168621397936eb3867272f2320c76bdc5b9c655050db",
+      "expectedBaselineSha256": "e83ba6883ee06b475573a17c5e39419f0e30c69e7fc3da21376125c860cda5a3"
+    },
+    "dyno-native.js": {
+      "source": "work-tuner-v03812/extension/dyno-native.js",
+      "sha256": "c3893310e7e3b3233071846d9a683beca8dedd0b54397e365dac0e3039d16b4f",
+      "expectedBaselineSha256": "bc77061d101b3219430459793ce616ccfda0e4694e8de8ea8fd0795f47f69fdf"
+    },
+    "dyno-native-profile-943.js": {
+      "source": "work-tuner-v03812/extension/dyno-native-profile-943.js",
+      "sha256": "bb04062818bb64d9aae0af117178ded906f09950ce94c5aee512eaf4dbb42873",
+      "expectedBaselineSha256": null
+    },
+    "tuner-profile-943.js": {
+      "source": "work-tuner-v03812/extension/tuner-profile-943.js",
+      "sha256": "647000e79a932bbdc25e4c290a2f3402c0af323bb62f08ba2e20896d4586176b",
+      "expectedBaselineSha256": null
+    }
+  },
+  "selectiveEdits": {
+    "diagnostics.js": [
+      [
+        "'dynoBusy','dynoEnabled',",
+        "'dynoBusy','dynoEnabled','dynoFullTuner','dynoSecondWindowCapture','dynoCurrentClamp',"
+      ]
+    ],
+    "family-profiles.js": [
+      [
+        "const sourceHash=",
+        "const tuner=root.__NFSU2_TUNER_943_PROFILE__||(typeof require==='function'?require('./tuner-profile-943.js'):null);const sourceHash="
+      ],
+      [
+        "return Object.freeze({...source,...identity,...extra});",
+        "const resolved={...source,...identity,...extra};return pin.revision==='943ee537'&&tuner?.compose?tuner.compose(resolved):Object.freeze(resolved);"
+      ]
+    ],
+    "page.js": [
+      [
+        "'dynoBusy'].filter",
+        "'dynoBusy','dynoFullTuner','dynoSecondWindowCapture','dynoCurrentClamp'].filter"
+      ],
+      [
+        "dynoBusy:!!dyno?.busy,",
+        "dynoBusy:!!dyno?.busy,dynoFullTuner:moduleProfile?.capabilities.fullTuner===true,dynoSecondWindowCapture:moduleProfile?.capabilities.tunerSecondGuestWindow===true,dynoCurrentClamp:moduleProfile?.capabilities.tunerCurrentNativeClamp===true,"
+      ],
+      [
+        "recordDiagnostic('dyno-action',{reason:action,tools:diagnosticTools()});",
+        "recordDiagnostic('dyno-action',{reason:action,dynoFullTuner:dyno.full===true,dynoSecondWindowCapture:moduleProfile?.capabilities.tunerSecondGuestWindow===true,dynoCurrentClamp:moduleProfile?.capabilities.tunerCurrentNativeClamp===true,tools:diagnosticTools()});"
+      ]
+    ]
+  },
+  "manifestInsertBefore": {
+    "tuner-profile-943.js": "family-profiles.js",
+    "dyno-native-profile-943.js": "dyno-native.js"
+  },
+  "changedRuntimeFiles": [
+    "diagnostics.js",
+    "dyno-core.js",
+    "dyno-evaluator.js",
+    "dyno-full.js",
+    "dyno-native.js",
+    "family-profiles.js",
+    "manifest.json",
+    "page.js"
+  ],
+  "addedRuntimeFiles": [
+    "dyno-native-profile-943.js",
+    "tuner-profile-943.js"
+  ],
+  "notes": [
+    "Preserve parent page/family driving changes and manifest version.",
+    "Copy6 tuner-specific files; apply exact textual edits to3 shared files; insert2 manifest entries in order.",
+    "Compose tuner main21212 before root shortcut/native/corner/phase complete-module pins.",
+    "No historical research metadata, legacy aliases, raw native modules or fixtures belong in the extension."
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "passed": true,
+  "revision": "943ee537",
+  "sourceHashes": {
+    "research/compatibility-943ee537/game.wasm": "c000f8f9002762f4274f173c81678772c456b1a696f3b69751fc6e91118fe391",
+    "research/current-native-image/SPEED2.EXE": "f9dd86c054878ce6276beb07c1fd61874f7a1e4bf1f241b084c65b73e24168a7",
+    "website-backup/source/runtime/game.h": "ec1575d0d231aa05a87cf37bc085f532b2d0f59a3f6b033dde9d82789b476bce",
+    "website-backup/source/runtime/whine.c": "b75b4932bc8169d9763d3590b22cb9056548849772da15fcb8689aade4c0b66f",
+    "nfsu2-extension/extension/core.js": "a418e603393bbe9d275ed848c8b0b393d31c284e1081b5c21111684cdc856061",
+    "work-race-shortcuts/native-fixture.cjs": "5a8332df5c8d323904f1a8d7b2c9a299e713ba5040f635adfad049e8c18d3bc3",
+    "research/native-unit-linkage.md": "d57889b3a63b4d946ea0b1b2ecad3db8ef2265c2d687440df2c02003c5d162cf"
+  },
+  "nativeMappings": [
+    {
+      "guest": "0x4c68d0",
+      "slot": 4672,
+      "index": 9929,
+      "bodySha256": "76866542bb6e8672f271594292fe1df7f996a3b2df1a37a269cabc0e62b8d681"
+    },
+    {
+      "guest": "0x5ea8b0",
+      "slot": 10023,
+      "index": 5125,
+      "bodySha256": "d3f633610cefd1ba9d90d12aed56a3211f402c361f46af046f09e6c9b819abc7"
+    },
+    {
+      "guest": "0x75bed4",
+      "slot": 15235,
+      "index": 22384,
+      "bodySha256": "60595fdf45975c9132813e754d758f0e1f33e4aa2d2404b9210cf50c682b6cca"
+    }
+  ],
+  "hud": {
+    "entry": "0x4c68d0",
+    "speedRead": "0x4c6940 car+0x430 followed by fabs",
+    "unitsSelector": "0x5ea8b0: [0x83aa1a]==1 is metric",
+    "metricMultiply": "0x4c696c [0x7904fc]",
+    "imperialMultiply": "0x4c6987 [0x78426c]",
+    "mphFactor": 2.236999988555908,
+    "kmhFactor": 3.5999999046325684,
+    "speedFormula": "trunc(f32(abs(rawSpeed)*factor))",
+    "integerConversion": "0x75bed4",
+    "gearRead": "0x4c6a6d car+0x434",
+    "gearTableAddress": "0x7f66a4",
+    "gearTable": [
+      {
+        "raw": -1,
+        "label": "A"
+      },
+      {
+        "raw": 0,
+        "label": "R"
+      },
+      {
+        "raw": 1,
+        "label": "N"
+      },
+      {
+        "raw": 2,
+        "label": "1"
+      },
+      {
+        "raw": 3,
+        "label": "2"
+      },
+      {
+        "raw": 4,
+        "label": "3"
+      },
+      {
+        "raw": 5,
+        "label": "4"
+      },
+      {
+        "raw": 6,
+        "label": "5"
+      },
+      {
+        "raw": 7,
+        "label": "6"
+      },
+      {
+        "raw": 8,
+        "label": "7"
+      }
+    ],
+    "rpmRead": "0x4c6933 car+0x440; some native special/test paths override from the dyno/sound control",
+    "samples": [
+      {
+        "rawSpeed": 0,
+        "mph": 0,
+        "kmh": 0
+      },
+      {
+        "rawSpeed": 1,
+        "mph": 2,
+        "kmh": 3
+      },
+      {
+        "rawSpeed": 28,
+        "mph": 62,
+        "kmh": 100
+      },
+      {
+        "rawSpeed": 45,
+        "mph": 100,
+        "kmh": 162
+      },
+      {
+        "rawSpeed": 45.561,
+        "mph": 101,
+        "kmh": 164
+      },
+      {
+        "rawSpeed": 100,
+        "mph": 223,
+        "kmh": 360
+      }
+    ]
+  },
+  "conversionFixture": {
+    "passed": true,
+    "cases": 64,
+    "bodyHashes": {
+      "22384": "60595fdf45975c9132813e754d758f0e1f33e4aa2d2404b9210cf50c682b6cca",
+      "22385": "db999ccd157eb28b1f151092b290c8cb40ed38e4e56dc63ee8a515a65067bc5f",
+      "22386": "1c0f18d691bcd812c7af763ffd490b72f7dbadb2b10716e279e9f2b6c00d053e"
+    },
+    "rounding": "toward zero for tested finite values in all four x87 rounding modes",
+    "returnAndStackAbiPreserved": true,
+    "samples": [
+      {
+        "roundingMode": 0,
+        "input": 0,
+        "result": 0
+      },
+      {
+        "roundingMode": 0,
+        "input": 0.1,
+        "result": 0
+      },
+      {
+        "roundingMode": 0,
+        "input": 0.49,
+        "result": 0
+      },
+      {
+        "roundingMode": 0,
+        "input": 0.5,
+        "result": 0
+      },
+      {
+        "roundingMode": 0,
+        "input": 0.99,
+        "result": 0
+      },
+      {
+        "roundingMode": 0,
+        "input": 1,
+        "result": 1
+      },
+      {
+        "roundingMode": 0,
+        "input": 1.49,
+        "result": 1
+      },
+      {
+        "roundingMode": 0,
+        "input": 1.5,
+        "result": 1
+      },
+      {
+        "roundingMode": 0,
+        "input": 1.99,
+        "result": 1
+      },
+      {
+        "roundingMode": 0,
+        "input": 2.5,
+        "result": 2
+      },
+      {
+        "roundingMode": 0,
+        "input": 62.636,
+        "result": 62
+      },
+      {
+        "roundingMode": 0,
+        "input": 100.6,
+        "result": 100
+      },
+      {
+        "roundingMode": 0,
+        "input": 223.7,
+        "result": 223
+      },
+      {
+        "roundingMode": 0,
+        "input": -0.1,
+        "result": 0
+      },
+      {
+        "roundingMode": 0,
+        "input": -1.99,
+        "result": -1
+      },
+      {
+        "roundingMode": 0,
+        "input": -62.636,
+        "result": -62
+      }
+    ]
+  },
+  "coreReadContract": {
+    "rpmOffset": "0x440",
+    "rpmMinimum": 0,
+    "rpmMaximum": 30000,
+    "gearOffset": "0x434",
+    "gearMinimum": 0,
+    "gearMaximum": 10,
+    "speedDiagnosticMaximum": 500,
+    "zeroIsValid": true,
+    "gear9And10AreNotInNativeDisplayTable": true
+  },
+  "fullGameInstantiated": false,
+  "liveGameTested": false,
+  "limitations": [
+    "Private native conversion helper fixture and exact source/data audit only; no live HUD frame or complete game was executed.",
+    "Existing diagnostic samples may be rounded and are sampled separately from the game HUD; exact per-frame integer equality at a threshold is not guaranteed.",
+    "Native-special/dyno RPM override paths are not emulated by car+0x440.",
+    "The observed game-unit speed conversion does not independently calibrate real-world distance or prove a separate native HUD distance consumer."
+  ]
+}

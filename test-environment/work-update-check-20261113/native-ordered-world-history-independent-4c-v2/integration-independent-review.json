@@ -1,0 +1,75 @@
+{
+  "kind": "INDEPENDENT-STATIC-ORDERED-WORLD-HISTORY-V2-INTEGRATION-REVIEW",
+  "status": "PASS",
+  "findings": [],
+  "checks": {
+    "files": 51,
+    "pins": 662,
+    "parentFrozenFiles": 138,
+    "detailedChecks": 9
+  },
+  "details": [
+    {
+      "check": "Exact prepared inventory, file lengths, hashes, source pins and syntax-only CJS parsing",
+      "files": 51,
+      "pins": 662,
+      "syntaxOnlyParsed": 35
+    },
+    {
+      "check": "Frozen combined V2 full inventory and all138 files remain byte-identical",
+      "frozenFiles": 138
+    },
+    {
+      "check": "Exactly six inherited files changed and three prepared additions; all other fixture/hooks/metadata/providers/inputs/clocks untouched",
+      "changed": [
+        "combined-observer-source-addendum.json",
+        "native-legacy-enrollment.cjs",
+        "probe-current-native-ai.cjs",
+        "replay-context-diagnostics.cjs",
+        "run-bounded.cjs",
+        "world-initializer-stages.cjs"
+      ],
+      "added": 3
+    },
+    {
+      "check": "Exact existing network block moved once after original session/static prerequisites and before World; all remaining probe code recovered exactly by reversing declared diagnostic/scope edits",
+      "newNativeCalls": 0,
+      "requestedMovementFrames": 0,
+      "typedMaximumGetterCalls": 0
+    },
+    {
+      "check": "World only gains before/after read-only witness; original render8715, allocation5867, whole21991 and native tick/dt/preserved-time assertions unchanged",
+      "renderBeforeWorld": true
+    },
+    {
+      "check": "Legacy removes only typed22873 maximum getter; both original setup22866 invocations, original23139 availability call, native serializer/decoder/names/timestamps/scheduler remain byte-identical",
+      "setup22866Calls": 2,
+      "hub23139Calls": 1
+    },
+    {
+      "check": "Diagnostics only add8978732/header64; runner only renames condition/unit with original8second no-retry gate and failure capture",
+      "boundedMilliseconds": 8000,
+      "retriesAdded": 0
+    },
+    {
+      "check": "New witness has only host-file output and guest reads; validates native publication, containing live allocation, actual2243 call result and controller list without guest writes or native calls",
+      "nativeCallsAdded": 0,
+      "guestWritesAdded": 0,
+      "typedMaximumGettersCalled": 0
+    },
+    {
+      "check": "Source closure preserves unresolved startup/report contexts and explicitly excludes movement, detector/client report and online clearance claims",
+      "fullStartupQualified": false,
+      "nativeExecutedByReviewer": false
+    }
+  ],
+  "sourcePreparationSha256": "2faa5c4f495b1937f1d8983f87f1e56c48e5e27fcf2c5d9d30512b2aed59ec42",
+  "fixtureSha256": "05101cdedb8349ae63f9a3453d0f93614d18d57cf1819258ba1d6c7045ba4439",
+  "scope": "Data-only source/hashes/syntax review. No game, fixture, provider or runtime module imported; no native execution, guest Memory, browser/network or frozen-output mutation.",
+  "limits": [
+    "This approves only the prepared ordering/history-enrollment unit scope. It does not establish full startup, movement, detector/client-report or online acceptance.",
+    "Containing-allocation checks and list postconditions must be independently corroborated from the one bounded native outcome, preserving every failure.",
+    "Client-report23139 may remain naturally unavailable when lobby/race context is absent; unavailable reporting is not a passing report result."
+  ],
+  "verifierSha256": "11b8a1dd052d827dd3413945ce84de23a18d18ee7fcbc2ae8b045a3b92886188"
+}

@@ -1,0 +1,33 @@
+✔ HUD converts real bounded native speed to km/h and identifies sample-backed observations (1.289217ms)
+✔ HUD distinguishes a measured zero from unavailable speed (0.313722ms)
+✔ HUD never exposes unsupported or stale speed as a current observation (0.303937ms)
+✔ HUD cannot fabricate a speed from power or pace multipliers (0.131714ms)
+✔ HUD reports network opt-out while keeping permitted read-only speed (0.207165ms)
+✔ HUD old/missing/out-of-bounds pace acknowledgement cannot confirm a changed request (0.253122ms)
+✔ HUD separates selected pace from an actual requested/acknowledged AI target (0.223449ms)
+✔ HUD mode classification stays within known native mode evidence (0.180655ms)
+✔ HUD keeps request, field application and governor evidence separate (0.297147ms)
+✔ HUD driver does not confuse manual, pending handback, unavailable AI and native ownership (0.415552ms)
+✔ production HUD defaults on and F6 changes no car memory or driving selections (26.480233ms)
+✔ production HUD hides under open menu and returns without resetting controls (4.209263ms)
+✔ production HUD exposes actual native speed read only and fails closed on older modules (17.157765ms)
+✔ production HUD loses speed when pointer/context becomes invalid rather than keeping previous value (4.168954ms)
+✔ production HUD clears observations immediately on blur and hide, then resamples on resume (13.94578ms)
+✔ production HUD immediate stop, takeover and checkbox off clear prior acknowledgement (16.581327ms)
+✔ production HUD game exit, trap and replacement boot immediately discard previous car speed (15.158765ms)
+✔ production HUD newly selected pace does not reuse the prior native acknowledgement (4.472361ms)
+✔ production HUD tuner busy clears speed and confirmations while preserving selection (6.079124ms)
+✔ production HUD has no live-region speech flood and uses click-through scoped CSS (2.368464ms)
+✔ Shift+Insert toggles the same menu as F8 without changing driving selections or memory (28.700169ms)
+✔ Shift+Insert preserves paste in text controls and editable shadow ancestors (6.622449ms)
+✔ Shift+Insert ignores extra modifiers, untrusted events, composition and repeated toggles (2.702947ms)
+✔ Shift+Insert works on non-editing controls and retains existing close-cancels-tuner behavior (4.699464ms)
+✔ closed-shadow retargeting preserves profile-name paste and editable ancestor focus (2.606985ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 207.877301

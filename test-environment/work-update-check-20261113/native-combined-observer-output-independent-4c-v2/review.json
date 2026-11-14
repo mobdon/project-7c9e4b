@@ -1,0 +1,455 @@
+{
+  "kind": "INDEPENDENT-DATA-ONLY-COMBINED-NAMED-OBSERVER-V2-DIAGNOSTIC-PARTIAL-REVIEW",
+  "checks": [
+    {
+      "name": "All138 frozen condition files match exact hashes and sizes",
+      "pass": true,
+      "details": {
+        "files": 138,
+        "manifestSha256": "3e95aa085395a912848274529b4a7c9f36ec6aa32d4ed9ae63bf42dfc8a7da26"
+      }
+    },
+    {
+      "name": "All412 execution source pins remain unchanged",
+      "pass": true,
+      "details": {
+        "sourcePins": 412,
+        "executionContractSha256": "2453a6909ae39c1a8424ee83cc27691556f277ea4dbe9bc9d9d8e6ada9144f6d"
+      }
+    },
+    {
+      "name": "The actual outcome is one completed frame and a natural frame2 failure",
+      "pass": true,
+      "details": {
+        "exitCode": 1,
+        "elapsedMilliseconds": 1079,
+        "timedOut": false,
+        "completedFrames": 1,
+        "requestedFrames": 192,
+        "failureStage": "remote-whole-World22587-287-frame2"
+      }
+    },
+    {
+      "name": "All eight raw capture files have exact dense independently hashed span coverage",
+      "pass": true,
+      "details": {
+        "named-observer-raw.bin": {
+          "bytes": 8496,
+          "spans": 21
+        },
+        "native-legacy-enrollment-raw.bin": {
+          "bytes": 121212,
+          "spans": 152
+        },
+        "native-realtime-timing-raw.bin": {
+          "bytes": 117568,
+          "spans": 646
+        },
+        "platform-vlan-raw.bin": {
+          "bytes": 4480,
+          "spans": 122
+        },
+        "remote-admission-raw.bin": {
+          "bytes": 512962,
+          "spans": 26
+        },
+        "remote-application-raw.bin": {
+          "bytes": 374592,
+          "spans": 96
+        },
+        "remote-world-replay-raw.bin": {
+          "bytes": 125106,
+          "spans": 43
+        },
+        "replay-context-diagnostics-raw.bin": {
+          "bytes": 123504,
+          "spans": 1162
+        }
+      }
+    },
+    {
+      "name": "Completed timing and genuine named legacy enrollment precede movement",
+      "pass": true,
+      "details": {
+        "realTick": 804,
+        "schedulerFlags": 15,
+        "writtenBits": 288,
+        "readBits": 288,
+        "legacyAcceptedCount": 1,
+        "remoteCar": 269380288,
+        "nativeName": "Fixture-Remote",
+        "setupObserverCalls": 2
+      }
+    },
+    {
+      "name": "All three observer states decode exactly from raw records, histories, clocks and speed bytes",
+      "pass": true,
+      "details": {
+        "states": 3,
+        "recordsPerState": 8,
+        "recordStride": 208,
+        "rawCarWriteAggregateAddress": 674009140,
+        "unknownAggregateFieldsLeftUnlabeled": true
+      }
+    },
+    {
+      "name": "Completed frame1 actually applies remote history within the whole World caller",
+      "pass": true,
+      "details": {
+        "nativeCallOrder": [
+          21767,
+          22587,
+          21215,
+          21767,
+          21215,
+          21997
+        ],
+        "stepsBefore": 0,
+        "stepsAfter": 1,
+        "evalsAfter": 1,
+        "putsAfter": 1,
+        "applyEntries": 2,
+        "applyReturns": 2,
+        "worldTickBefore": 4000,
+        "worldTickAfter": 4067,
+        "wholeWorldPosition": [
+          64,
+          -3,
+          0.39191004633903503
+        ]
+      }
+    },
+    {
+      "name": "Exactly one automatic named observer frame is witnessed after the completed World return",
+      "pass": true,
+      "details": {
+        "markerEvents": [
+          10004,
+          10005,
+          10006,
+          10007
+        ],
+        "order": "22866 before →22828 before →22828 after →22866 after",
+        "automaticObserverFrames": 1,
+        "frame2ObserverMarkers": 0,
+        "nativeCallsAdded": 0
+      }
+    },
+    {
+      "name": "Native shown/game histories are preserved as actual partial-window results",
+      "pass": true,
+      "details": {
+        "shownPosition": [
+          56,
+          3,
+          0.39191004633903503
+        ],
+        "gamePosition": [
+          64,
+          -3,
+          0.39191004633903503
+        ],
+        "gameDisplacement": [
+          8,
+          -6,
+          0
+        ],
+        "haveBefore": 1,
+        "haveAfter": 2,
+        "updates": 1,
+        "faded": 1,
+        "jumps": 0,
+        "reportableJump": 0,
+        "fullWindowOrThresholdResultEstablished": false
+      }
+    },
+    {
+      "name": "Native speed name becomes populated while retained getters are correctly skipped",
+      "pass": true,
+      "details": {
+        "baselineNameGuard": false,
+        "frame1NameGuard": true,
+        "finalNameGuard": true,
+        "gettersExecuted": 0,
+        "retainedSpeedMaximum": {
+          "value": 0,
+          "bits": 0
+        }
+      }
+    },
+    {
+      "name": "Frame2 packet admission and native OOB failure are retained without invented completion",
+      "pass": true,
+      "details": {
+        "admittedHistory": 2,
+        "admittedPackets": 3,
+        "nativeStackInnermostFirst": [
+          2243,
+          285,
+          12948,
+          287
+        ],
+        "completedStepsStill": 1,
+        "worldTickStill": 4067,
+        "observerFrame2Absent": true
+      }
+    },
+    {
+      "name": "Report-unavailable guard and selected raw aggregate are distinguished from report clearance",
+      "pass": true,
+      "details": {
+        "hubReportCalls": 1,
+        "hubCallBeforeMovement": true,
+        "lobbyId": 0,
+        "racePointer": 0,
+        "guardUnavailable": true,
+        "selectedCarWriteRaw16B": [
+          "00000000000000000000000000000000",
+          "00000000000000000000000000000000",
+          "00000000000000000000000000000000"
+        ],
+        "aggregateOnlyNotAllClientReportCoverage": true
+      }
+    },
+    {
+      "name": "Actual isolation, locks and host observation preservation remain intact",
+      "pass": true,
+      "details": {
+        "networkAttempts": 0,
+        "allLocksReleased": true,
+        "markersPreserved": 10014,
+        "compactMarkers": 0,
+        "stageBucketFrameIdsAllNull": true,
+        "pollCalls": 0,
+        "typedClockCalls": 0
+      }
+    },
+    {
+      "name": "All166 diagnostic snapshots decode directly from1162 dense hashed spans",
+      "pass": true,
+      "details": {
+        "snapshots": 166,
+        "spans": 1162,
+        "bytes": 123504,
+        "globalsAllZero": {
+          "replay": true,
+          "checksum": true,
+          "eventManager": true,
+          "eventPool": true
+        },
+        "properPointedContextsAvailable": false,
+        "lowMemorySeparateFromNativeObjects": true
+      }
+    },
+    {
+      "name": "Diagnostics cover every actual stage and exactly the existing call boundaries",
+      "pass": true,
+      "details": {
+        "stages": 78,
+        "stageSnapshots": 156,
+        "freshHarnessSnapshot": 1,
+        "nativeCallBoundarySnapshots": 9,
+        "failedStageSnapshots": 1,
+        "frame2NativeReturnSnapshotAbsent": true
+      }
+    },
+    {
+      "name": "Literal low-memory transitions and trap CPU are preserved without interpreting a null replay object",
+      "pass": true,
+      "details": {
+        "beforeWorld1": {
+          "0": 269396020,
+          "4": 269396020,
+          "8": 1065353216,
+          "12": 0,
+          "16": 1113585671,
+          "140": 0
+        },
+        "afterWorld1": {
+          "0": 269396020,
+          "4": 0,
+          "8": 1065353216,
+          "12": 0,
+          "16": 1113585698,
+          "140": 0
+        },
+        "beforeWorld2": {
+          "0": 269396020,
+          "4": 0,
+          "8": 1065353216,
+          "12": 0,
+          "16": 1113585698,
+          "140": 0
+        },
+        "failedWorld2": {
+          "0": 269396020,
+          "4": 0,
+          "8": 1065353216,
+          "12": 1,
+          "16": 1113585698,
+          "140": 0
+        },
+        "native112ReturnByteOrInternalBranchObserved": false
+      }
+    },
+    {
+      "name": "Diagnostic-only replay retains all prepared inputs and five exact V1 raw binaries",
+      "pass": true,
+      "details": {
+        "preparedFiles": 48,
+        "parentFrozenFiles": 134,
+        "physicalComparison": {
+          "remote-world-replay-raw.bin": {
+            "sha256": "948e2b9d9170c2409edc60f9f870f2256d3753c9afab314bb6b2d356669b01ec",
+            "bytes": 125106,
+            "equalToV1": true
+          },
+          "named-observer-raw.bin": {
+            "sha256": "b2a1c36f9cff1b8cf1636d4789f920fcc0b567c5b8a058bbbed6eb64885ecb7e",
+            "bytes": 8496,
+            "equalToV1": true
+          },
+          "remote-admission-raw.bin": {
+            "sha256": "72c217f4a9667156c96887213fef6a94c913706aefcbd752fe8958e3222ab702",
+            "bytes": 512962,
+            "equalToV1": true
+          },
+          "remote-application-raw.bin": {
+            "sha256": "6af8314c9d0938f8c354ce22ec0f83759af86422cb7696122124b10803b3c09f",
+            "bytes": 374592,
+            "equalToV1": true
+          },
+          "native-realtime-timing-raw.bin": {
+            "sha256": "3d1d0d68c492a6e0f9baf118298112e7a00653bd7720e4027ad876aa5574a1bd",
+            "bytes": 117568,
+            "equalToV1": true
+          }
+        },
+        "allConstructorMarkersAndCountsExactV1": true,
+        "wasmHooksPacketsClocksStartupAndProvidersUnchanged": true
+      }
+    },
+    {
+      "name": "Previous stale name limitation is corrected without altering captured native bytes",
+      "pass": true,
+      "details": {
+        "staleMetadataFindingResolved": true,
+        "nativeNameOrOutputRepairAdded": false
+      }
+    }
+  ],
+  "checksPassed": 18,
+  "findings": [],
+  "actualOutcome": {
+    "complete": false,
+    "exitCode": 1,
+    "timedOut": false,
+    "elapsedMilliseconds": 1079,
+    "requestedFrames": 192,
+    "completedMovementFrames": 1,
+    "partialFrame": 2,
+    "failureStage": "remote-whole-World22587-287-frame2",
+    "nativeTrapChainInnermostFirst": [
+      2243,
+      285,
+      12948,
+      287
+    ],
+    "automaticNamedObserverFrames": 1,
+    "hubReportContextAvailable": false,
+    "selectedCarWriteAggregateHex": [
+      "00000000000000000000000000000000",
+      "00000000000000000000000000000000",
+      "00000000000000000000000000000000"
+    ],
+    "diagnosticSnapshots": 166,
+    "diagnosticSpans": 1162,
+    "properReplayChecksumAndEventContextsAvailable": false,
+    "allFivePhysicalRawBinariesExactV1": true,
+    "networkAttempts": 0
+  },
+  "diagnosticEvidence": {
+    "allGlobalsZero": true,
+    "globalAddresses": {
+      "replay": 8802488,
+      "checksum": 8802512,
+      "eventManager": 8978648,
+      "eventPool": 8978652
+    },
+    "lowMemoryBeforeWorld1": {
+      "0": 269396020,
+      "4": 269396020,
+      "8": 1065353216,
+      "12": 0,
+      "16": 1113585671,
+      "140": 0
+    },
+    "lowMemoryAfterWorld1": {
+      "0": 269396020,
+      "4": 0,
+      "8": 1065353216,
+      "12": 0,
+      "16": 1113585698,
+      "140": 0
+    },
+    "lowMemoryBeforeWorld2": {
+      "0": 269396020,
+      "4": 0,
+      "8": 1065353216,
+      "12": 0,
+      "16": 1113585698,
+      "140": 0
+    },
+    "lowMemoryAfterFailure": {
+      "0": 269396020,
+      "4": 0,
+      "8": 1065353216,
+      "12": 1,
+      "16": 1113585698,
+      "140": 0
+    },
+    "native112ReturnByteOrInternalBranchObserved": false,
+    "physicalComparison": {
+      "remote-world-replay-raw.bin": {
+        "sha256": "948e2b9d9170c2409edc60f9f870f2256d3753c9afab314bb6b2d356669b01ec",
+        "bytes": 125106,
+        "equalToV1": true
+      },
+      "named-observer-raw.bin": {
+        "sha256": "b2a1c36f9cff1b8cf1636d4789f920fcc0b567c5b8a058bbbed6eb64885ecb7e",
+        "bytes": 8496,
+        "equalToV1": true
+      },
+      "remote-admission-raw.bin": {
+        "sha256": "72c217f4a9667156c96887213fef6a94c913706aefcbd752fe8958e3222ab702",
+        "bytes": 512962,
+        "equalToV1": true
+      },
+      "remote-application-raw.bin": {
+        "sha256": "6af8314c9d0938f8c354ce22ec0f83759af86422cb7696122124b10803b3c09f",
+        "bytes": 374592,
+        "equalToV1": true
+      },
+      "native-realtime-timing-raw.bin": {
+        "sha256": "3d1d0d68c492a6e0f9baf118298112e7a00653bd7720e4027ad876aa5574a1bd",
+        "bytes": 117568,
+        "equalToV1": true
+      }
+    }
+  },
+  "limits": [
+    "Only one complete synthetic offline remote movement frame was observed; frame2 trapped before its observer posthook.",
+    "All replay/checksum/event-manager/event-pool globals are zero throughout this condition. Literal low-memory bytes must not be labeled genuine replay fields or native detector results.",
+    "The extra caller snapshots do not expose the exact native112 return byte or internal branch PCs.",
+    "This is frozen AI-source native-codec replay with disclosed synthetic packet framing and modeled caller inputs; no extension-feature A/B comparison or actual sender datagram is claimed.",
+    "The whole World caller subset and original automatic observer paths ran, but the full game mainloop/renderer/control loop did not.",
+    "Report23139 was called once before movement and naturally unavailable because lobbyId/racePointer were zero. No post-replay or complete online rank/report qualification is established.",
+    "Raw16B at674009140 is one selected car-write aggregate, not exhaustive client-report coverage.",
+    "Warmup RealTimer804 remains fixed during the World-only caller subset; actual WorldTimer reaches4067 after the completed frame.",
+    "Zero retained jumps, maximum values or report output in this partial window do not establish detector or online clearance.",
+    "Native retained getter APIs were deliberately skipped after incomplete replay.",
+    "Prepared poll/typed clock boundaries were not reached; compact recorder frameId was null for all observed stages, so all markers remained in the full journal.",
+    "Verifier executed only data parsing, hashing and byte decoding. It did not import/instantiate game or fixture code, alter frozen conditions, patch native outputs or run a reproduction."
+  ],
+  "verifierSha256": "2c4b0db20436b3918a157927b98a137bd63f99bad57270edd78276f0693d2cee"
+}

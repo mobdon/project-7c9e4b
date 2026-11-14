@@ -1,0 +1,38 @@
+{
+  "6f4f1e4e": {
+    "inputSHA256": "ee5d281a3109240d5db25dc3921e1044672cf6d650eb58c3baa089b54fe2941f",
+    "patchedSHA256": "7a94c50dd50be4cd9bd8ce74182acecd697ea63686dda2066ddc7d2a726e47ea",
+    "patchedBytes": 37848263,
+    "changedFunctionsFromV030": [],
+    "nonCodeSectionsUnchanged": true,
+    "compiled": true
+  },
+  "2f0ddd3b": {
+    "inputSHA256": "5e33ad2cb4c4cc6893dee7cbd4d6e9bfb0f59a349d218fddbb5e3331ca69bc34",
+    "patchedSHA256": "a1ba5864d6dd35887f1e0bb141f4d5473a4a7998deea97107a4881c1438ab3ec",
+    "patchedBytes": 36885977,
+    "changedFunctionsFromV030": [],
+    "nonCodeSectionsUnchanged": true,
+    "compiled": true
+  },
+  "78e2bb69": {
+    "inputSHA256": "df7b930bb293ffdf975f0735d93e0797d51bd137d0cbeabcaff87fc5a693c759",
+    "patchedSHA256": "ac5af5b36e8912c481eef073491f50b15ed48e6dbf35b44c2128b90d98c50d13",
+    "patchedBytes": 38190658,
+    "changedFunctionsFromV030": [
+      19197
+    ],
+    "nonCodeSectionsUnchanged": true,
+    "compiled": true
+  },
+  "93af6ccb": {
+    "inputSHA256": "128e2b5816a8eace4b768aec920318a1613da8235801a361e2009e96550be1d6",
+    "patchedSHA256": "c31dd1973e05b3c4f9eb71ef8fd69215f4bb375f68893d6a2856b6b7ef0212a2",
+    "patchedBytes": 38234257,
+    "changedFunctionsFromV030": [
+      19197
+    ],
+    "nonCodeSectionsUnchanged": true,
+    "compiled": true
+  }
+}

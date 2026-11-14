@@ -1,0 +1,4 @@
+PUBLIC ARCHIVE INDEX: A085
+Archive contents excluded: personal-save-data
+No save/settings/registry bytes or game ISO bytes are present in this public export.
+{"id": "A085", "archiveBytes": 3150129, "mtimeNs": 1794510283930041900, "sha256": "8376cfd596ce51bc570583e834bbf1544b911a0188c12f9c086cddf7f5214395", "recordsIncludingNested": 5, "topLevelRecords": 5, "topLevelFiles": 5, "kinds": {"text": 3, "binary-indexed": 2}, "sourceStatUnchangedAtOriginalExport": true, "status": "excluded", "exclusionReason": "personal-save-data", "sourceName": "personal-save-data-A085.zip", "contentsIncluded": false}

@@ -1,0 +1,4 @@
+PUBLIC ARCHIVE INDEX: A045
+Archive contents excluded: commercial-game-iso
+No save/settings/registry bytes or game ISO bytes are present in this public export.
+{"id": "A045", "archiveBytes": 1629182182, "mtimeNs": 1794341098555549300, "sha256": null, "recordsIncludingNested": 1, "topLevelRecords": 1, "topLevelFiles": 1, "kinds": {"binary-indexed": 1}, "sourceStatUnchangedAtOriginalExport": true, "status": "excluded", "exclusionReason": "commercial-game-iso", "sourceName": "commercial-game-iso-A045.zip", "contentsIncluded": false, "hashNote": "Large archive indexed by central-directory entries/CRC; whole archive not hashed"}

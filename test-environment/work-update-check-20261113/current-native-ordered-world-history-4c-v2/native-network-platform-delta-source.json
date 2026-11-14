@@ -1,0 +1,79 @@
+{
+  "kind": "FRESH-SOURCE-ONLY-NATIVE-NETWORK-PLATFORM-DELTA",
+  "parentCondition": "current-native-remote-admission-4c-v1",
+  "parentPreparationSha256": "1a3e1d4da4acd543cfa6b40799df228ca9246eba6d2c8667f12a4d8fdf90ea0e",
+  "parentFrozenManifest": {
+    "file": "work-update-check-20261113/native-remote-admission-output-4c-v1/frozen-output-manifest.json",
+    "sha256": "87ef1e0cef2878e5a663d184e7bfc619c0fa316d7da0fbeb2c4e22c36226cf5f"
+  },
+  "observedFailure": {
+    "stage": "native-whole9490-network-startup-and-address-discovery",
+    "error": "Unapproved native CRT critical-section address 8b7cc4",
+    "entryChain": [
+      9490,
+      11574,
+      7510,
+      13452,
+      21833
+    ],
+    "native9490Returned": false,
+    "enrollmentOrAdmissionReached": false
+  },
+  "exactNative13452": {
+    "bytes": 1094,
+    "sha256": "b635aca7247b019caf6a8d64d719eb06ca43c940581e415dc0ede9b3ac5fdd00",
+    "candidateEqualsRaw": true,
+    "guestEntry": 7649936,
+    "criticalSectionInitializers": [
+      {
+        "key": 9141444,
+        "iat": 7877040,
+        "callSite": 7649986
+      },
+      {
+        "key": 9141740,
+        "iat": 7877040,
+        "callSite": 7650011
+      }
+    ],
+    "CreateThread": {
+      "dll": "kernel32.dll",
+      "name": "CreateThread",
+      "ordinal": null,
+      "iat": 7877192,
+      "target": 2088831023,
+      "callSite": 7650037,
+      "arguments": [
+        0,
+        0,
+        7649872,
+        0,
+        0,
+        "original native stack threadId output pointer"
+      ],
+      "stdcallArgumentBytes": 24,
+      "nativeZeroHandleBranch": {
+        "comparisonSite": 7650044,
+        "branchSite": 7650052,
+        "destination": 7650079,
+        "returnSite": 7650080,
+        "skips": [
+          "SetThreadPriority",
+          "CloseHandle"
+        ]
+      }
+    }
+  },
+  "platformDelta": {
+    "networkKeys": "Only the two exact native global24B section keys are added to existing host recursive lock ownership model; actual native InitializeCriticalSection is still required before enter/leave.",
+    "CreateThread": "Deterministic offline API failure0 at the exact bound PE target; only normal EAX/ESP/EIP stdcall return changes. No handle, thread, callback or threadId output is supplied. Native13452 owns its actual handle0 store and failure branch."
+  },
+  "unchanged": [
+    "Every WASM byte, native guard, all native startup/factory/receiver/helper bodies, fixture memory layout, caller inputs and frozen codec bytes.",
+    "Existing critical-section exact IAT/single-thread/init/ownership/recursion/CPU/guest-stack/shadow-stack checks.",
+    "Admission/full startup assertions; complete original9490 return and actual independently queried address still required."
+  ],
+  "nativeExecuted": false,
+  "wasmCompiledOrInstantiated": false,
+  "memoryCreated": false
+}

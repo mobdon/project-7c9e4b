@@ -1,0 +1,98 @@
+{
+  "kind": "STATIC-COMBINED-ALLOCATOR-FAILURE-SOURCE-EXTRACTION",
+  "rawPath": "work-update-check-20261113/live-build-4c35f9f5/game.wasm",
+  "rawSha256": "40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8",
+  "candidatePath": "work-update-check-20261113/4c-private-composed-v2/candidate-composed.wasm",
+  "candidateSha256": "6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23",
+  "rows": [
+    {
+      "index": 4032,
+      "bodyBytes": 1359,
+      "rawBodySha256": "f4ab42fb2ac015ec50a11612395cfa82387726e224bc46c4bd5491bc2bc5ff3d",
+      "rawCandidateExact": true,
+      "sourceType": 0,
+      "directCallees": [
+        3760,
+        8185,
+        18829,
+        21832
+      ],
+      "isolatedSha256": "c6ad7fbd71055406e949742a7e7c2c0cde0cb29ff7a87302e0976942e8983695",
+      "decompilerStatus": 0,
+      "error": null,
+      "diagnostic": null,
+      "pseudocodeSha256": "17af0c21a2c669e6debd3f31558d45b55546ed4978dba739a546059d0050eb58"
+    },
+    {
+      "index": 899,
+      "bodyBytes": 2513,
+      "rawBodySha256": "bd13e73a2c72b10719b2146c3308222e9c625444096362004816995ff2cea956",
+      "rawCandidateExact": true,
+      "sourceType": 0,
+      "directCallees": [
+        2243,
+        3686,
+        7940,
+        8964,
+        11529,
+        11691
+      ],
+      "isolatedSha256": "0e28d133707ebd0c7cc9866cbdd55eb78ab5aa2d852164c83dfa72dedaba3494",
+      "decompilerStatus": 0,
+      "error": null,
+      "diagnostic": null,
+      "pseudocodeSha256": "cdd33905714228365b15c2771197b58bec7bc4b66b4b943b1f57617be968f8ab"
+    },
+    {
+      "index": 3686,
+      "bodyBytes": 43,
+      "rawBodySha256": "a2d626270b1b8b88dcff8b126d5da46cb185f3558bf8d623c3f9a530c087739b",
+      "rawCandidateExact": true,
+      "sourceType": 0,
+      "directCallees": [],
+      "isolatedSha256": "4112367c1b2b38913c285e146805626d8a898f94fcc2147f1892476bb6f09e2b",
+      "decompilerStatus": 0,
+      "error": null,
+      "diagnostic": null,
+      "pseudocodeSha256": "28d97567723e08c35ca795e5cde423ccd6da25dda19958c598e2c39d2754fc7d"
+    },
+    {
+      "index": 18829,
+      "bodyBytes": 685,
+      "rawBodySha256": "0194c631f95f76987af19d9e82dc084f85dfe43f777bb6677325876b8e1937ac",
+      "rawCandidateExact": true,
+      "sourceType": 0,
+      "directCallees": [
+        3686,
+        18673
+      ],
+      "isolatedSha256": "c2cfc0fe5fb766f2892e31c14c55400bd2aac15809ac55a7cb6fdea8cba89132",
+      "decompilerStatus": 0,
+      "error": null,
+      "diagnostic": null,
+      "pseudocodeSha256": "cfb7e6109743b0e8311568494c90d975b56c54aebb3dd2a8294b73ce97654068"
+    },
+    {
+      "index": 23287,
+      "bodyBytes": 66,
+      "rawBodySha256": "38b6ed46ffbefad0a390baef3bf97f7b2d4eff3f99a31ac36786fd073c552fac",
+      "rawCandidateExact": true,
+      "sourceType": 0,
+      "directCallees": [
+        1931,
+        22266,
+        23226
+      ],
+      "isolatedSha256": "a3a607d6fa0ef378fb6bc37fa28f267bf2eb4853a5ee22d53fa991b1682473a5",
+      "decompilerStatus": 0,
+      "error": null,
+      "diagnostic": null,
+      "pseudocodeSha256": "ac0c3af05f03b4a325a70266227c8ce0a3a5414b5c4ea974825312f24c7b9ad6"
+    }
+  ],
+  "nativeExecuted": false,
+  "wasmCompiledValidatedOrInstantiated": false,
+  "memoryCreated": false,
+  "runtimeHarnessOrProviderImported": false,
+  "extractorSha256": "e52bb20cae56a81fe3b4a28f418caa2c6d88d2516647da3b5f38cb7f0a9984d0"
+}

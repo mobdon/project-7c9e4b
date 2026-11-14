@@ -1,0 +1,12 @@
+{
+  "baseline": "combined-v023-integration",
+  "patchWithoutConflicts": true,
+  "threeBuildersReproduced": true,
+  "allChangedFilesMatch": 18,
+  "regeneratedBinaries": [
+    "tests/drag-overheat-prefix.wasm"
+  ],
+  "archiveByteIdentical": true,
+  "sha256": "eaf1745261a9da590890433503fc57460546459e3045c2a5af34fc6731ad4a9e",
+  "size": 204573
+}

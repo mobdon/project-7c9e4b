@@ -1,0 +1,27 @@
+{
+  "preservedFiles": [
+    "ai.js",
+    "walls.js",
+    "current-profile.js",
+    "latest-profile.js",
+    "signatures.js",
+    "signature-profile.js",
+    "signature-profile-latest.js",
+    "signature-profile-next.js",
+    "core.js",
+    "dyno-core.js",
+    "dyno.js",
+    "dyno-native-profile.js",
+    "dyno-native.js",
+    "dyno-evaluator.js",
+    "dyno-full.js"
+  ],
+  "fullTunerBridgeAndMetadata": "byte-identical",
+  "onlineCornerBrakingAI": "byte-identical",
+  "nativeFunctionsChangedRelativeToV021": [
+    22508
+  ],
+  "allOtherBodiesAndNonCodeSections": "byte-identical",
+  "newCapability": "onlineRaceCars only",
+  "nativeGripDownforce": "not activated"
+}

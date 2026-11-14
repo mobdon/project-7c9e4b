@@ -1,0 +1,36 @@
+test_canonical_and_reproducible (test_package.PackageTests.test_canonical_and_reproducible) ... ok
+test_case_collision_rejected (test_package.PackageTests.test_case_collision_rejected) ... ok
+test_desktop_archive_has_one_stable_folder_and_exact_runtime (test_package.PackageTests.test_desktop_archive_has_one_stable_folder_and_exact_runtime) ... ok
+test_desktop_instructions_explain_first_install_and_update_separately (test_package.PackageTests.test_desktop_instructions_explain_first_install_and_update_separately) ... ok
+test_desktop_layout_deterministic_and_future_versions_keep_folder (test_package.PackageTests.test_desktop_layout_deterministic_and_future_versions_keep_folder) ... ok
+test_directory_symlink_rejected (test_package.PackageTests.test_directory_symlink_rejected) ... ok
+test_duplicate_script_rejected (test_package.PackageTests.test_duplicate_script_rejected) ... ok
+test_every_runtime_byte_matches_delivered_v031 (test_package.PackageTests.test_every_runtime_byte_matches_delivered_v031) ... ok
+test_file_symlink_rejected (test_package.PackageTests.test_file_symlink_rejected) ... ok
+test_flat_complete_archive (test_package.PackageTests.test_flat_complete_archive) ... ok
+test_frame_scope_rejected (test_package.PackageTests.test_frame_scope_rejected) ... ok
+test_future_version_uses_same_flat_paths (test_package.PackageTests.test_future_version_uses_same_flat_paths) ... ok
+test_incomplete_readme_fails_before_output (test_package.PackageTests.test_incomplete_readme_fails_before_output) ... ok
+test_instructions_distinguish_both_reload_steps (test_package.PackageTests.test_instructions_distinguish_both_reload_steps) ... ok
+test_invalid_version_rejected (test_package.PackageTests.test_invalid_version_rejected) ... ok
+test_manual_rollback_restores_old_runtime (test_package.PackageTests.test_manual_rollback_restores_old_runtime) ... ok
+test_mismatched_version_badge_rejected (test_package.PackageTests.test_mismatched_version_badge_rejected) ... ok
+test_missing_file_rejected (test_package.PackageTests.test_missing_file_rejected) ... ok
+test_nested_directory_rejected (test_package.PackageTests.test_nested_directory_rejected) ... ok
+test_new_background_rejected (test_package.PackageTests.test_new_background_rejected) ... ok
+test_new_permission_rejected (test_package.PackageTests.test_new_permission_rejected) ... ok
+test_original_flat_archive_still_reproduces (test_package.PackageTests.test_original_flat_archive_still_reproduces) ... ok
+test_overlay_is_repeatable_and_preserves_unrelated_files (test_package.PackageTests.test_overlay_is_repeatable_and_preserves_unrelated_files) ... ok
+test_receipt_matches_all_payloads (test_package.PackageTests.test_receipt_matches_all_payloads) ... ok
+test_refuses_overwrite (test_package.PackageTests.test_refuses_overwrite) ... ok
+test_source_unchanged_and_output_cannot_live_in_source (test_package.PackageTests.test_source_unchanged_and_output_cannot_live_in_source) ... ok
+test_unexpected_file_rejected (test_package.PackageTests.test_unexpected_file_rejected) ... ok
+test_unsafe_script_reference_rejected (test_package.PackageTests.test_unsafe_script_reference_rejected) ... ok
+test_unsupported_layout_refused (test_package.PackageTests.test_unsupported_layout_refused) ... ok
+test_wider_host_rejected (test_package.PackageTests.test_wider_host_rejected) ... ok
+test_world_change_rejected (test_package.PackageTests.test_world_change_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 1.863s
+
+OK

@@ -1,0 +1,86 @@
+{
+  "version": "0.38.11",
+  "checkedAt": "2026-11-11T04:43:24.486Z",
+  "sealed": false,
+  "experimental": true,
+  "liveVerified": false,
+  "publicationOnly": true,
+  "selectedPacePaired": true,
+  "productSha256": "6d4d15782495ad9be35c062694021249f4be644c06e3568f5ed4321896a646dc",
+  "builderSha256": "3108702a125a0f957750edfb5b6b9b3b25fb15104e64e5e26415104d87b3005a",
+  "publisherBuilderSha256": "93a6c5ab1cbcf511e72f34de51f8ea6ad68bbd7600233433a5feab21825ab6ab",
+  "templateSha256": "1a0fd29a28a7a9dc26653de32efd4a8810e82a01ea119896fb97b639d6d8081a",
+  "mailbox": {
+    "base": 13684992,
+    "offsets": [
+      232,
+      236,
+      240,
+      244,
+      248,
+      252
+    ]
+  },
+  "modules": [
+    {
+      "revision": "aa2429fb",
+      "input": {
+        "file": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\research\\compatibility-aa2429fb\\game.wasm",
+        "hash": "a220e667d38c0a6509c1507ad3ca9c6fddeb2220b429bf28707d7ca8cbbc42c8",
+        "size": 38619724
+      },
+      "completeInputSha256": "16c35b57e0954cebc8c53feb4fe6a795adb04b2e4cce6fd4cd61242eb0924d95",
+      "candidateOutputSha256": "2ecc7cb9515f611221bbd844873fb11d2c7ce4f8757844181d52d0e532cf904a",
+      "inputBytes": 38673330,
+      "outputBytes": 38684181,
+      "modifiedFunctions": [
+        3553
+      ],
+      "nativePhysicsClosureIdentical": 42,
+      "otherBodiesAndNonCodeSectionsPreserved": true,
+      "valid": true,
+      "compiled": true,
+      "liveVerified": false
+    },
+    {
+      "revision": "15e5958f",
+      "input": {
+        "file": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\research\\compatibility-15e5958f\\game.wasm",
+        "hash": "f88fc7a0fe3082e20814f705635410d046fcdfe053eb70d65c49dec7583105b9",
+        "size": 38619511
+      },
+      "completeInputSha256": "33a50fbd36e6c31878e2f62059367cfbd4aa9f020a16a2770bb2f7dcf7fb3575",
+      "candidateOutputSha256": "acd91ae5e9a8d6cd4b1310467c2b994aa463eafb9292e5a41adf23a80acb09fd",
+      "inputBytes": 38673117,
+      "outputBytes": 38683968,
+      "modifiedFunctions": [
+        3553
+      ],
+      "nativePhysicsClosureIdentical": 42,
+      "otherBodiesAndNonCodeSectionsPreserved": true,
+      "valid": true,
+      "compiled": true,
+      "liveVerified": false
+    },
+    {
+      "revision": "943ee537",
+      "input": {
+        "file": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\research\\compatibility-943ee537\\game.wasm",
+        "hash": "c000f8f9002762f4274f173c81678772c456b1a696f3b69751fc6e91118fe391",
+        "size": 38618703
+      },
+      "completeInputSha256": "e912a1f9b8a73ea4695558e4b03363889fa8f1d02414823fa0a22dbb15e0d37d",
+      "candidateOutputSha256": "d5c8912e31ee529f8619090bdb5521079e7ee7e99b3117799b85708669a3b6cc",
+      "inputBytes": 38672309,
+      "outputBytes": 38683160,
+      "modifiedFunctions": [
+        3553
+      ],
+      "nativePhysicsClosureIdentical": 42,
+      "otherBodiesAndNonCodeSectionsPreserved": true,
+      "valid": true,
+      "compiled": true,
+      "liveVerified": false
+    }
+  ]
+}

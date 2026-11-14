@@ -1,0 +1,19 @@
+{
+  "preservedFiles": [
+    "core.js",
+    "walls.js",
+    "cars.js",
+    "current-profile.js",
+    "latest-profile.js",
+    "signatures.js",
+    "signature-profile.js",
+    "signature-profile-latest.js",
+    "signature-profile-next.js",
+    "dyno.js"
+  ],
+  "aiController": "byte-identical",
+  "profile": "only new tuner command prefix and metadata",
+  "streetX": "no driver/event/pace/corner physics changes",
+  "nativeGripDownforce": "not activated",
+  "pageSha256": "6676417a7b2c252cdb38c42d3de8b7e88e3601d744726948bcbdd7b0488928ff"
+}

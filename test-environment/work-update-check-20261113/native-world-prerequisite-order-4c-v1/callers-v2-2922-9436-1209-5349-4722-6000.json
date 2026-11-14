@@ -1,0 +1,714 @@
+{
+  "kind": "STATIC-CALLER-SCAN",
+  "sourceSha256": "40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8",
+  "targets": [
+    2922,
+    9436,
+    1209,
+    5349,
+    4722,
+    6000
+  ],
+  "rows": [
+    {
+      "id": 351,
+      "bodyBytes": 141,
+      "bodySha256": "e8fcfb1144bde7474dd161f45bd9ec51b03b2fd965db93ff0ee740ebe86fef83",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 506,
+      "bodyBytes": 141,
+      "bodySha256": "b1f00b80d76032b3a8827e983fc968912942a1a669f6b301f52a0002b5473a38",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 663,
+      "bodyBytes": 141,
+      "bodySha256": "1817ae3c8763047ae7b783638e207130533290adec88ebf637510ad5571f3fb3",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 819,
+      "bodyBytes": 141,
+      "bodySha256": "1b94fcb00d713cdb8a30fa70a5a0dfec442833eb4aa3414f0452155a37641c05",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 975,
+      "bodyBytes": 141,
+      "bodySha256": "61904dac12235d1d51aa1b02c251b349df5be8dd2ebc39f1f8087b3c014563a4",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 976,
+      "bodyBytes": 141,
+      "bodySha256": "e5b97be1bdf07b535c35975a0da66739c36663307e097a7b2009b7ede64976bb",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 1130,
+      "bodyBytes": 141,
+      "bodySha256": "674255b4ba9070512a5845d5d60827ec719a54ee9b521da5df40d5633337cce4",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 2380,
+      "bodyBytes": 141,
+      "bodySha256": "84f04f034d632ec73b00e729513c93c327fa0d669a85d81d9bf590e784eae3e8",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 2922,
+      "bodyBytes": 1901,
+      "bodySha256": "959da188371102ccda8b2f171ba7ce115b914f83fd2ff0fcfb44168f65deda90",
+      "calls": [
+        {
+          "at": 1393,
+          "callee": 6000
+        }
+      ]
+    },
+    {
+      "id": 3315,
+      "bodyBytes": 141,
+      "bodySha256": "ae273626d51a10eaf3e23e99fab2c64b16ffb5a8b6701be4f0e6ed4340fa31ec",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 3318,
+      "bodyBytes": 141,
+      "bodySha256": "c68dbacf959611a1e16ec8fc73ae8ed62de4f1ef72b854d7bf7050a2c6ce083c",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 3471,
+      "bodyBytes": 141,
+      "bodySha256": "b0c6be84c6b240a1e6daab402a0c37046b1e9557330e8be87dcc6d4aaae25745",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 4258,
+      "bodyBytes": 141,
+      "bodySha256": "a00cfae603b0fdd038d0477fa519f040e5e187e36511d030e9c057db3eb613e5",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 4412,
+      "bodyBytes": 141,
+      "bodySha256": "74dbcf8ae03f1a90a485a7a7ca690142ea7279b5f65f7c1784271911ee2fc7c9",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 4568,
+      "bodyBytes": 141,
+      "bodySha256": "d6db8d5d2f6a42512fcc020902fb5b2ab685266c82ae854fd5c1868f251520d2",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 4723,
+      "bodyBytes": 141,
+      "bodySha256": "66ff57693b1f5198b3935c623b678e10a0b87182aced78f46573c5272c0cb1a1",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 4880,
+      "bodyBytes": 167,
+      "bodySha256": "44beb24808ef0e175ed4c6e2603ec2c37b3b02a6ce853b86d31b4bcc6a8f6eaa",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 4881,
+      "bodyBytes": 167,
+      "bodySha256": "a434fc588ae1d9a71d400bc046549e8cbca921574b0e1dc4aa7a306d0f3f5be3",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 5037,
+      "bodyBytes": 141,
+      "bodySha256": "c1bd008ea24ef982c7f4709b510f98a6e978e3955a115a48e3e995a765fbc810",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 5268,
+      "bodyBytes": 1481,
+      "bodySha256": "1dee524e7b11a4c6c6b8769543493848265c2bff30b5dec5e8448ead59d21eb8",
+      "calls": [
+        {
+          "at": 211,
+          "callee": 2922
+        },
+        {
+          "at": 355,
+          "callee": 2922
+        }
+      ]
+    },
+    {
+      "id": 5349,
+      "bodyBytes": 141,
+      "bodySha256": "64071c8bca4e16a5887bafa1fec2c87277c0dd36eea2f14cad1a633e4d40d618",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 5351,
+      "bodyBytes": 141,
+      "bodySha256": "db3da34c7019e395f7775fb5368c335e9f4910a3f7c1d042b3da839a32ae8ed8",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 5505,
+      "bodyBytes": 141,
+      "bodySha256": "d223d305c2c5777c17db1fc19d3dcea6ab246b2db031551d304f181fbb1545fa",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 5662,
+      "bodyBytes": 141,
+      "bodySha256": "5bd5414a00d1297f63ae682f2bedecb5c93c340c9802a51cce5d618dc388243f",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 5819,
+      "bodyBytes": 141,
+      "bodySha256": "88bb0904cf9d7408d812841469ac927c3cf0f45ce0199a75ead1c7f828084b25",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 5975,
+      "bodyBytes": 141,
+      "bodySha256": "596f65db70096dad9a2742eb97d935d3812f3fa79e0662c34990719b7993b93a",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 6757,
+      "bodyBytes": 141,
+      "bodySha256": "7886a40394a5431259385920f633b9e1cbf9be7253635dd0f15cbd5b5a354da8",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 6913,
+      "bodyBytes": 141,
+      "bodySha256": "c05605286d4a8913a77b42e616201e2e0dddf607daf90c0add0c35a84d1d1d91",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 6914,
+      "bodyBytes": 141,
+      "bodySha256": "ef22ebd5a61ac36f0862b689f8d2af3706ea06c9c95132ac0cdba9f47a1ef303",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 7070,
+      "bodyBytes": 141,
+      "bodySha256": "dfb1597a15fcef9d0bc2321ece9c7f8f7236c2d05ea6fcde706e05f9df1b5932",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 7227,
+      "bodyBytes": 141,
+      "bodySha256": "66b3dfba30ab5f916e270e102bb3f82f536bbff83ff9149c8c2787d83a2abffb",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 7697,
+      "bodyBytes": 141,
+      "bodySha256": "2cef70fed4a9176df7c86fa458d188a3e9ef28c4f8a8f0d5c594ffe59ebcd6a5",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 8009,
+      "bodyBytes": 141,
+      "bodySha256": "20471b0d5721521c06e5163df8295427d9162f8387cdf8ae3af5020e91e85d0d",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 8477,
+      "bodyBytes": 141,
+      "bodySha256": "4170fbd9318e2d9bfc19dc271315b33bd1ed1b843c5d9a4278aab2c22f57f56a",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 8633,
+      "bodyBytes": 141,
+      "bodySha256": "facda6b2fee233a6d7af82b2302cb6b304d6175f3de92681a1454a77ce6fd1a3",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 8788,
+      "bodyBytes": 141,
+      "bodySha256": "61b6952b798d0c3e8d880dfaf75907a760f0671c35176d48ae45aa008c2228bb",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 9415,
+      "bodyBytes": 141,
+      "bodySha256": "0a1a21bb12ad61795b2549ca61f262d148bc50e44d11635d86ac12b2de08dac1",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 11290,
+      "bodyBytes": 141,
+      "bodySha256": "4b247df1648a9b9c881264b661d1812ddf51c92d9c438cc8c3492fc5edeb3814",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 9436
+        }
+      ]
+    },
+    {
+      "id": 11292,
+      "bodyBytes": 141,
+      "bodySha256": "0a9d40bfd96aa198371a71cff30592f4a51daec501e36d4aa3d8694f22360f08",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 11605,
+      "bodyBytes": 141,
+      "bodySha256": "ba3b5d98e25bb9da48e90c3d1b9955a8e8444528ea2b3f6dd2471eb4115e7f45",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 11762,
+      "bodyBytes": 141,
+      "bodySha256": "e2ad6d312541bbbdec898c6c840739cafbc575cb8887d9a17472f33f321a7418",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 12076,
+      "bodyBytes": 141,
+      "bodySha256": "e7ed5b26ff4752fdaf6735d9e05ec0d90efd7a77b6a9c0498c2e54515725b29e",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 12701,
+      "bodyBytes": 141,
+      "bodySha256": "18c2a882ac4d152de6e70bfb12b165ac190f3260214e5b1a4e2d1892b643766c",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 13011,
+      "bodyBytes": 141,
+      "bodySha256": "cb380be0dd1f07dab50923f51914e32108bacd1296843aacc85da23899faac62",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 13793,
+      "bodyBytes": 141,
+      "bodySha256": "519604e2dd513f8ca18913af07a1e497f272ab49003c7b334d995c9f3445c9a0",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 14420,
+      "bodyBytes": 141,
+      "bodySha256": "6a06e76b6af3afe1a082b06a626105b944998078cbf38a6148d75b43a2a245df",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 14574,
+      "bodyBytes": 141,
+      "bodySha256": "6c4dc131c4c64f593e88de358dbafd9bc7325018f1caeb6a99b5fb317d341a2f",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 15202,
+      "bodyBytes": 141,
+      "bodySha256": "ca301779f3797adafb0f4452428ad423e4c9c450a69af68074464407706963f6",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 15827,
+      "bodyBytes": 141,
+      "bodySha256": "1371e40e900a0f93458144353a344a3ce5cfb4cc8ecbc59ea8adf812345b82ca",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 15985,
+      "bodyBytes": 141,
+      "bodySha256": "18f592ea9a53730a6888130de00dba44b17851d0b586ccfdfa35399641075be4",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 16141,
+      "bodyBytes": 141,
+      "bodySha256": "89126b3f11f95dba65c527da188eec45359407d0bf9b55b97aa91ecb53941678",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 16297,
+      "bodyBytes": 141,
+      "bodySha256": "dd1c4cc50b9fb526f5a015f5b7e0efd83dc6141fdcf652204f6dc8f27d747a16",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 16450,
+      "bodyBytes": 141,
+      "bodySha256": "e0d496e9ecf7ed9dc6f16dbf65e6f5955b8f27b9cf45cdd7adc4151a7fa88505",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 16452,
+      "bodyBytes": 141,
+      "bodySha256": "18a2b8f001b76252e70ba072445c22e1c9ad61ef36aa17c854b33486ca341971",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 16453,
+      "bodyBytes": 141,
+      "bodySha256": "fc62e46e124341851083e4d3c60942fd1512e34a23a02db3d6bc7b0387898f5d",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 16608,
+      "bodyBytes": 141,
+      "bodySha256": "f006e84191d9b0e903e4713e427125264e7ac9330a39160b1a930c735137f2dd",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 16764,
+      "bodyBytes": 141,
+      "bodySha256": "cf57d1b8f9121cc9165ee98c481873ff340e2c2a4f928b00bb33dfe01227c2e6",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 16916,
+      "bodyBytes": 141,
+      "bodySha256": "1ae25e5a2532b0d59e5f3bf2eca82b5a68594bc85bb1d398c44591a1bd17ea3a",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 16919,
+      "bodyBytes": 141,
+      "bodySha256": "df71c1448a1d8efd76b7597c0ef2752e56bf83b3c8111237f3e31591a2ebc257",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 17075,
+      "bodyBytes": 141,
+      "bodySha256": "0cfe4fda3f4a5e33fd0460f6adbb1a5b79ff707360b556314cd51bc87682fb0e",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 17386,
+      "bodyBytes": 141,
+      "bodySha256": "d4418442bdebae2bd8410c7bc2747dce71c385698e4230adbb84aca5424ce8a1",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    },
+    {
+      "id": 19571,
+      "bodyBytes": 141,
+      "bodySha256": "8a3fb1e1c48309b3a78d80a0317a5b12b372f36189076c2187dd704375dd90e4",
+      "calls": [
+        {
+          "at": 44,
+          "callee": 1209
+        }
+      ]
+    }
+  ],
+  "decodeErrors": [
+    {
+      "id": 24154,
+      "bodyBytes": 383,
+      "decodeError": "Unsupported opcode 1f at 63"
+    },
+    {
+      "id": 24326,
+      "bodyBytes": 241,
+      "decodeError": "Unsupported opcode 1f at 134"
+    }
+  ],
+  "note": "Earlier canonical byte-needle prefilter receipt omitted padded LEB calls and is superseded by this complete instruction decode.",
+  "nativeExecuted": false
+}

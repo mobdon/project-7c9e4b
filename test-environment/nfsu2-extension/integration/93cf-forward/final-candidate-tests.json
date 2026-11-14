@@ -1,0 +1,40 @@
+{
+  "startedAt": "2026-11-10T20:13:16.764Z",
+  "finishedAt": "2026-11-10T20:13:32.742Z",
+  "exitCode": 0,
+  "selectedFiles": [
+    "tests/compatibility.test.cjs",
+    "tests/forward-native-horizon.test.cjs",
+    "tests/forward-native-policy.test.cjs",
+    "tests/prior-forward-native-horizon.test.cjs",
+    "tests/prior-forward-native-policy.test.cjs",
+    "tests/rear-radar.test.cjs"
+  ],
+  "counts": {
+    "tests": 55,
+    "pass": 55,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "sourceHashes": {
+    "extension/core.js": "2a13623f231bd67ccb9e9fb92856b4082dd8f04ca12bf98c035af781b17974d8",
+    "extension/forward-clamp.js": "bb47de6ebb28beac987611d9dd3730cfd6340afcac5bd9bdc15f4474efff06cc",
+    "extension/forward-driving.js": "39a880970824e16531a80a67d6612180f7561297dff6698389a5bf42b7002b64",
+    "extension/forward-geometry.js": "f0e78097e888b57d703ce5ae639aaa46eb66a2ae45d0a3bc75477a90d7f0792c",
+    "extension/forward-native-config.js": "ed7e4543240698e607a499cfdcfbe85ad43374aa768773b9f325d1edbc553373",
+    "extension/forward-native-patcher.js": "82ad51c12e24a51a3f51bdf02e112375ff76d33df27059b5874ee057d6bef7ff",
+    "extension/forward-pacing.js": "d11eb219e566b4a5d8df256c6bddb7df2a019fa62c3851a000ccc253ef5463f9",
+    "extension/race-window-geometry.js": "606c85593397dfe675783071fda58ddb73fc95a19cabf1412fb135df49455c24",
+    "extension/rear-radar.js": "f06a89ddcd6bb3608f44302144b5d1dd4f7d3d098d0a6bae93fd25ab8805addd",
+    "extension/route-probe.js": "821c49fda1d6d12b02473289d5e84462c5e32cfbb6bf95758ffd30407157e0c3",
+    "integration/forward-native-profiles/3bdd9959.json": "30a206bc5d51937194d4c403bc5e6950af0b51104c36cef08c0093a67a312045",
+    "integration/forward-native-profiles/8abf9be8.json": "1b9671afa0c0d2a8f2ba6c24fd4b041188c04b432bd5c59f07fb089d962463bc",
+    "integration/forward-native-profiles/93cfc6e9.json": "ff6144d26c6e4418d3187d01242fbb87f8364c7b29ef59ad9011aec8b5065fa5",
+    "integration/forward-native-profiles/cd5b74d5.json": "ecd308e51a0e1368a6f7213212d19d47bfdc150cce11a394923298a5a78241ab",
+    "integration/forward-native-profiles/d2fa4f4c.json": "011d2a252ec664168852fa6af1319cdaf08fc25077ef98b400fc9edb705b3028"
+  },
+  "sourceUnchanged": true,
+  "liveVerified": false
+}

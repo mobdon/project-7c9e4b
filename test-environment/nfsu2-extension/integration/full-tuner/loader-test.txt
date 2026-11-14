@@ -1,0 +1,9 @@
+compiled 400985
+matches 7775 64
+matches 9171 142
+matches 10435 147
+matches 10592 34980
+matches 10902 39002
+matches 19654 1958
+matches 12627 101
+private runtime extraction and bounded rollback passed

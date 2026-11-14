@@ -1,0 +1,41 @@
+{
+  "a220e667d38c0a6509c1507ad3ca9c6fddeb2220b429bf28707d7ca8cbbc42c8": {
+    "revision": "aa2429fb",
+    "sourceModuleHash": "a220e667d38c0a6509c1507ad3ca9c6fddeb2220b429bf28707d7ca8cbbc42c8",
+    "inputModuleHash": "2ecc7cb9515f611221bbd844873fb11d2c7ce4f8757844181d52d0e532cf904a",
+    "outputModuleHash": "e71b34af8fd926f58754df7536b44bd122b077e28af528200c24602b63b47a73",
+    "index": 4653,
+    "originalLength": 3412,
+    "originalBodyHash": "b4a50ed5234e1e4d71d8b2f62c0822e2702fca7a5a57e4cace505e2bce7f2860",
+    "patchedBodyHash": "cb55d4a4d038f5b6f12071119e98b0ef6d711230104e6a2a4df8e05a33bff467",
+    "offset": 3116,
+    "needle": "IBe4RAAAAAAAAFlAoyEiIB9EAAAAAAAA8D8gHiAlICWioiAdQbij6QMqAgC7oiAiICKioqOgn6MhIQ==",
+    "replacement": "IBe4RAAAAAAAAFlAoyEiIB8gJCAioiAjo6QhIQ=="
+  },
+  "f88fc7a0fe3082e20814f705635410d046fcdfe053eb70d65c49dec7583105b9": {
+    "revision": "15e5958f",
+    "sourceModuleHash": "f88fc7a0fe3082e20814f705635410d046fcdfe053eb70d65c49dec7583105b9",
+    "inputModuleHash": "acd91ae5e9a8d6cd4b1310467c2b994aa463eafb9292e5a41adf23a80acb09fd",
+    "outputModuleHash": "2863cd57dc898efa1bee1dffd83bace6872cf72b355c2e8043d501a8d7ddf7d0",
+    "index": 4653,
+    "originalLength": 3412,
+    "originalBodyHash": "b4a50ed5234e1e4d71d8b2f62c0822e2702fca7a5a57e4cace505e2bce7f2860",
+    "patchedBodyHash": "cb55d4a4d038f5b6f12071119e98b0ef6d711230104e6a2a4df8e05a33bff467",
+    "offset": 3116,
+    "needle": "IBe4RAAAAAAAAFlAoyEiIB9EAAAAAAAA8D8gHiAlICWioiAdQbij6QMqAgC7oiAiICKioqOgn6MhIQ==",
+    "replacement": "IBe4RAAAAAAAAFlAoyEiIB8gJCAioiAjo6QhIQ=="
+  },
+  "c000f8f9002762f4274f173c81678772c456b1a696f3b69751fc6e91118fe391": {
+    "revision": "943ee537",
+    "sourceModuleHash": "c000f8f9002762f4274f173c81678772c456b1a696f3b69751fc6e91118fe391",
+    "inputModuleHash": "8d2f26db929eec415732f261e8739bec55bc7a8f496a57b324bed1d6d5edb97c",
+    "outputModuleHash": "7d7b7854340965a964b255c01ff2750d12e82cd814144156bb2050137a931c3e",
+    "index": 4653,
+    "originalLength": 3412,
+    "originalBodyHash": "b4a50ed5234e1e4d71d8b2f62c0822e2702fca7a5a57e4cace505e2bce7f2860",
+    "patchedBodyHash": "cb55d4a4d038f5b6f12071119e98b0ef6d711230104e6a2a4df8e05a33bff467",
+    "offset": 3116,
+    "needle": "IBe4RAAAAAAAAFlAoyEiIB9EAAAAAAAA8D8gHiAlICWioiAdQbij6QMqAgC7oiAiICKioqOgn6MhIQ==",
+    "replacement": "IBe4RAAAAAAAAFlAoyEiIB8gJCAioiAjo6QhIQ=="
+  }
+}

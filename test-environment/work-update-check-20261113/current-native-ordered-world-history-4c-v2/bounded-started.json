@@ -1,0 +1,5 @@
+{
+  "executionContractSha256": "9bc16ef1d29696c90a6a026a3a20adb0558e2da90051ffb3f078b55e1c1a620f",
+  "boundedMilliseconds": 8000,
+  "orderedWorldHistoryEnrollmentUnitOnly": true
+}

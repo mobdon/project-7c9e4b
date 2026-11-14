@@ -1,0 +1,1152 @@
+VERBATIM REVIEW CHUNK 024
+Canonical bundle byte range [2760000, 2880000). Read chunks in numeric order.
+Only the payload below belongs to the canonical bundle; headers are generated.
+
+ 305419896,
+  "before": [
+    {
+      "address": 8597172,
+      "value": 0
+    },
+    {
+      "address": 8597284,
+      "value": 0
+    }
+  ],
+  "outputs": [
+    {
+      "address": 8597172,
+      "pointer": 268870784,
+      "allocation": {
+        "target": 2089944532,
+        "iat": 7877212,
+        "requestedHandle": 0,
+        "effectiveFixtureHeap": 1,
+        "flags": 0,
+        "bytes": 20928,
+        "allocationBytes": 20944,
+        "address": 268870784,
+        "alignment": 16,
+        "zeroRequested": false,
+        "returnAddress": 7718538,
+        "phase": "current-native-World-minimal-render-initializer8715",
+        "headerAddress": 268870768,
+        "extentEnd": 268891712,
+        "beforeEsp": 1572748,
+        "afterEsp": 1572764,
+        "returnEip": 7718538,
+        "returnEax": 268870784,
+        "otherCpuBytesPreserved": true,
+        "wasmShadowStackPointerPreserved": true,
+        "zeroBytesVerifiedAtReturn": null,
+        "live": true
+      },
+      "headerHex": "00000000000000000000000000000000d069033fabdf593ff0faa63c000000000000000000000000a56e073fe93eb13e2a53133d000000000000000000000000cdbb883f76766a3f6f29873d0000000000000000000000006f9e123f28bafe3ee7e5cf3d0000000000000000000000005a00be3f620e293c7b30823d00000000"
+    },
+    {
+      "address": 8597284,
+      "pointer": 268892688,
+      "allocation": {
+        "target": 2089944532,
+        "iat": 7877212,
+        "requestedHandle": 0,
+        "effectiveFixtureHeap": 1,
+        "flags": 0,
+        "bytes": 20928,
+        "allocationBytes": 20944,
+        "address": 268892688,
+        "alignment": 16,
+        "zeroRequested": false,
+        "returnAddress": 7718538,
+        "phase": "current-native-World-minimal-render-initializer8715",
+        "headerAddress": 268892672,
+        "extentEnd": 268913616,
+        "beforeEsp": 1572748,
+        "afterEsp": 1572764,
+        "returnEip": 7718538,
+        "returnEax": 268892688,
+        "otherCpuBytesPreserved": true,
+        "wasmShadowStackPointerPreserved": true,
+        "zeroBytesVerifiedAtReturn": null,
+        "live": true
+      },
+      "headerHex": "00000000000000000000000000000000113cba3ff627243f0783c23d0000000000000000000000006021e43f1fd3ce3ef05bd43d000000000000000000000000d690e23f1450e43ee5ce8d3d0000000000000000000000004d1db23f47f0ce3e8c97d23d000000000000000000000000b544a23e2758433e3704083d00000000"
+    }
+  ],
+  "actualHeapAllocations": [
+    {
+      "target": 2089944532,
+      "iat": 7877212,
+      "requestedHandle": 0,
+      "effectiveFixtureHeap": 1,
+      "flags": 0,
+      "bytes": 944,
+      "allocationBytes": 960,
+      "address": 268869824,
+      "alignment": 16,
+      "zeroRequested": false,
+      "returnAddress": 7718538,
+      "phase": "current-native-World-minimal-render-initializer8715",
+      "headerAddress": 268869808,
+      "extentEnd": 268870768,
+      "beforeEsp": 1572740,
+      "afterEsp": 1572756,
+      "returnEip": 7718538,
+      "returnEax": 268869824,
+      "otherCpuBytesPreserved": true,
+      "wasmShadowStackPointerPreserved": true,
+      "zeroBytesVerifiedAtReturn": null,
+      "live": true
+    },
+    {
+      "target": 2089944532,
+      "iat": 7877212,
+      "requestedHandle": 0,
+      "effectiveFixtureHeap": 1,
+      "flags": 0,
+      "bytes": 20928,
+      "allocationBytes": 20944,
+      "address": 268870784,
+      "alignment": 16,
+      "zeroRequested": false,
+      "returnAddress": 7718538,
+      "phase": "current-native-World-minimal-render-initializer8715",
+      "headerAddress": 268870768,
+      "extentEnd": 268891712,
+      "beforeEsp": 1572748,
+      "afterEsp": 1572764,
+      "returnEip": 7718538,
+      "returnEax": 268870784,
+      "otherCpuBytesPreserved": true,
+      "wasmShadowStackPointerPreserved": true,
+      "zeroBytesVerifiedAtReturn": null,
+      "live": true
+    },
+    {
+      "target": 2089944532,
+      "iat": 7877212,
+      "requestedHandle": 0,
+      "effectiveFixtureHeap": 1,
+      "flags": 0,
+      "bytes": 944,
+      "allocationBytes": 960,
+      "address": 268891728,
+      "alignment": 16,
+      "zeroRequested": false,
+      "returnAddress": 7718538,
+      "phase": "current-native-World-minimal-render-initializer8715",
+      "headerAddress": 268891712,
+      "extentEnd": 268892672,
+      "beforeEsp": 1572744,
+      "afterEsp": 1572760,
+      "returnEip": 7718538,
+      "returnEax": 268891728,
+      "otherCpuBytesPreserved": true,
+      "wasmShadowStackPointerPreserved": true,
+      "zeroBytesVerifiedAtReturn": null,
+      "live": true
+    },
+    {
+      "target": 2089944532,
+      "iat": 7877212,
+      "requestedHandle": 0,
+      "effectiveFixtureHeap": 1,
+      "flags": 0,
+      "bytes": 20928,
+      "allocationBytes": 20944,
+      "address": 268892688,
+      "alignment": 16,
+      "zeroRequested": false,
+      "returnAddress": 7718538,
+      "phase": "current-native-World-minimal-render-initializer8715",
+      "headerAddress": 268892672,
+      "extentEnd": 268913616,
+      "beforeEsp": 1572748,
+      "afterEsp": 1572764,
+      "returnEip": 7718538,
+      "returnEax": 268892688,
+      "otherCpuBytesPreserved": true,
+      "wasmShadowStackPointerPreserved": true,
+      "zeroBytesVerifiedAtReturn": null,
+      "live": true
+    }
+  ],
+  "preceding16486Or4135Called": false,
+  "renderFieldsOrAllocationResultsAuthored": false
+}
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-World-construction-proof.json =====
+{
+  "entry": 21991,
+  "core": 1690,
+  "historyBefore": {
+    "pool": 0,
+    "client": 1,
+    "host": 0,
+    "online": 0,
+    "nativeWorld": 0
+  },
+  "historyPoolProof": {
+    "wholeProducer": 1690,
+    "wrapper": 21991,
+    "receiver": 268913632,
+    "pool": 268980080,
+    "header": {
+      "address": 268980080,
+      "rawHex": "aaaaaaaaaaaaaaaa0000000040637a00a04f08100b00000000000000000000000000000032000000800000003200000020500810aaaaaaaaaaaaaaaaaaaaaaaa",
+      "label": 8020800,
+      "freeHead": 268980128,
+      "flags": 11,
+      "allocated": 0,
+      "highWater": 0,
+      "allocationFlags": 0,
+      "blockCapacity": 50,
+      "stride": 128,
+      "totalCapacity": 50
+    },
+    "allocation": {
+      "target": 2089944532,
+      "iat": 7877212,
+      "requestedHandle": 0,
+      "effectiveFixtureHeap": 1,
+      "flags": 0,
+      "bytes": 102400,
+      "allocationBytes": 102416,
+      "address": 268920000,
+      "alignment": 16,
+      "zeroRequested": false,
+      "returnAddress": 7718538,
+      "phase": "current-native-whole-World-constructor21991-1690",
+      "headerAddress": 268919984,
+      "extentEnd": 269022400,
+      "beforeEsp": 1572584,
+      "afterEsp": 1572600,
+      "returnEip": 7718538,
+      "returnEax": 268920000,
+      "otherCpuBytesPreserved": true,
+      "wasmShadowStackPointerPreserved": true,
+      "zeroBytesVerifiedAtReturn": null,
+      "live": true
+    },
+    "nativeAllocatorInteriorOffset": 60080,
+    "nativeAllocatorPrefixHex": "30f5081080cb04104486000033334444eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "nativePublicationObservedAfterWholeReturn": true,
+    "poolMetadataOrLinksAuthored": false
+  },
+  "wholeNativeReturned": true,
+  "eax": 268913632,
+  "esp": 1572868,
+  "eip": 305419896,
+  "receiver": 268913632,
+  "allocation": {
+    "allocator": 5867,
+    "wholeNativeReturned": true,
+    "eax": 268913632,
+    "esp": 1572868,
+    "eip": 305419896,
+    "receiver": 268913632,
+    "requestedBytes": 5632,
+    "nativeCdeclArgumentBytes": 4,
+    "nativeCalleeEspAdvance": 4,
+    "allocation": {
+      "target": 2089944532,
+      "iat": 7877212,
+      "requestedHandle": 0,
+      "effectiveFixtureHeap": 1,
+      "flags": 0,
+      "bytes": 5632,
+      "allocationBytes": 5648,
+      "address": 268913632,
+      "alignment": 16,
+      "zeroRequested": false,
+      "returnAddress": 7718538,
+      "phase": "current-native-actual-5632-byte-World-allocation5867",
+      "headerAddress": 268913616,
+      "extentEnd": 268919264,
+      "beforeEsp": 1572784,
+      "afterEsp": 1572800,
+      "returnEip": 7718538,
+      "returnEax": 268913632,
+      "otherCpuBytesPreserved": true,
+      "wasmShadowStackPointerPreserved": true,
+      "zeroBytesVerifiedAtReturn": null,
+      "live": true
+    },
+    "receiverOrPayloadAuthored": false
+  },
+  "before": {
+    "owned": [
+      {
+        "address": 8978560,
+        "value": 0
+      },
+      {
+        "address": 8827760,
+        "value": 0
+      },
+      {
+        "address": 8827764,
+        "value": 0
+      },
+      {
+        "address": 8827776,
+        "value": 0
+      },
+      {
+        "address": 8826768,
+        "value": 0
+      },
+      {
+        "address": 8928856,
+        "value": 0
+      },
+      {
+        "address": 8928848,
+        "value": 0
+      },
+      {
+        "address": 9051164,
+        "value": 0
+      },
+      {
+        "address": 8928628,
+        "value": 0
+      },
+      {
+        "address": 8978736,
+        "value": 0
+      },
+      {
+        "address": 8928640,
+        "value": 0
+      }
+    ],
+    "earlierOwnership": [
+      {
+        "address": 8826208,
+        "value": 268466976
+      },
+      {
+        "address": 8827544,
+        "value": 268743040
+      },
+      {
+        "address": 8827580,
+        "value": 268742960
+      },
+      {
+        "address": 8928824,
+        "value": 268664880
+      },
+      {
+        "address": 8928828,
+        "value": 268664320
+      },
+      {
+        "address": 9055396,
+        "value": 9055396
+      },
+      {
+        "address": 9055400,
+        "value": 9055396
+      }
+    ],
+    "dtBits": 0,
+    "tick": 0,
+    "wrapperPreservedTimeBits": 0
+  },
+  "after": {
+    "owned": [
+      {
+        "address": 8978560,
+        "value": 268913632
+      },
+      {
+        "address": 8827760,
+        "value": 268954400
+      },
+      {
+        "address": 8827764,
+        "value": 269083392
+      },
+      {
+        "address": 8827776,
+        "value": 1
+      },
+      {
+        "address": 8826768,
+        "value": 5980592
+      },
+      {
+        "address": 8928856,
+        "value": 268986560
+      },
+      {
+        "address": 8928848,
+        "value": 269022420
+      },
+      {
+        "address": 9051164,
+        "value": 268653232
+      },
+      {
+        "address": 8928628,
+        "value": 268987536
+      },
+      {
+        "address": 8978736,
+        "value": 268919376
+      },
+      {
+        "address": 8928640,
+        "value": 268649952
+      }
+    ],
+    "earlierOwnership": [
+      {
+        "address": 8826208,
+        "value": 268466976
+      },
+      {
+        "address": 8827544,
+        "value": 268743040
+      },
+      {
+        "address": 8827580,
+        "value": 268742960
+      },
+      {
+        "address": 8928824,
+        "value": 268664880
+      },
+      {
+        "address": 8928828,
+        "value": 268664320
+      },
+      {
+        "address": 9055396,
+        "value": 9055396
+      },
+      {
+        "address": 9055400,
+        "value": 9055396
+      }
+    ],
+    "dtBits": 0,
+    "tick": 4000,
+    "wrapperPreservedTimeBits": 0
+  },
+  "actualTailObject": 269126576,
+  "worldHeaderHex": "e04b0710e04b0710e84b0710e84b071000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "worldTailHex": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000b08b0a100000000000000000",
+  "worldGlobalValidatedAfterWholeReturn": true,
+  "worldOrMembershipOrTimingOutputsAuthored": false,
+  "subsystemAllocationSuccessNotInferredFromWorldPointer": true
+}
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-World-post-return-dt-input.json =====
+{
+  "address": 8802644,
+  "value": 0.016666666666666666,
+  "before": {
+    "dtBits": 0,
+    "tick": 4000,
+    "owned": [
+      {
+        "address": 8978560,
+        "value": 268913632
+      },
+      {
+        "address": 8827760,
+        "value": 268954400
+      },
+      {
+        "address": 8827764,
+        "value": 269083392
+      },
+      {
+        "address": 8827776,
+        "value": 1
+      },
+      {
+        "address": 8826768,
+        "value": 5980592
+      },
+      {
+        "address": 8928856,
+        "value": 268986560
+      },
+      {
+        "address": 8928848,
+        "value": 269022420
+      },
+      {
+        "address": 9051164,
+        "value": 268653232
+      },
+      {
+        "address": 8928628,
+        "value": 268987536
+      },
+      {
+        "address": 8978736,
+        "value": 268919376
+      },
+      {
+        "address": 8928640,
+        "value": 268649952
+      }
+    ]
+  },
+  "after": {
+    "dtBits": 1015580809,
+    "dt": 0.01666666753590107,
+    "tick": 4000,
+    "owned": [
+      {
+        "address": 8978560,
+        "value": 268913632
+      },
+      {
+        "address": 8827760,
+        "value": 268954400
+      },
+      {
+        "address": 8827764,
+        "value": 269083392
+      },
+      {
+        "address": 8827776,
+        "value": 1
+      },
+      {
+        "address": 8826768,
+        "value": 5980592
+      },
+      {
+        "address": 8928856,
+        "value": 268986560
+      },
+      {
+        "address": 8928848,
+        "value": 269022420
+      },
+      {
+        "address": 9051164,
+        "value": 268653232
+      },
+      {
+        "address": 8928628,
+        "value": 268987536
+      },
+      {
+        "address": 8978736,
+        "value": 268919376
+      },
+      {
+        "address": 8928640,
+        "value": 268649952
+      }
+    ]
+  },
+  "onlyExplicitDtCallerInputAuthored": true,
+  "worldTickOrOwnershipAuthored": false
+}
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-ordered-history-pool-proof.json =====
+{
+  "kind": "READ-ONLY-ORDERED-WORLD-EXTRAPOLATED-STATE-POOL-WITNESS",
+  "before": {
+    "pool": 0,
+    "client": 1,
+    "host": 0,
+    "online": 0,
+    "nativeWorld": 0
+  },
+  "world": {
+    "wholeProducer": 1690,
+    "wrapper": 21991,
+    "receiver": 268913632,
+    "pool": 268980080,
+    "header": {
+      "address": 268980080,
+      "rawHex": "aaaaaaaaaaaaaaaa0000000040637a00a04f08100b00000000000000000000000000000032000000800000003200000020500810aaaaaaaaaaaaaaaaaaaaaaaa",
+      "label": 8020800,
+      "freeHead": 268980128,
+      "flags": 11,
+      "allocated": 0,
+      "highWater": 0,
+      "allocationFlags": 0,
+      "blockCapacity": 50,
+      "stride": 128,
+      "totalCapacity": 50
+    },
+    "allocation": {
+      "target": 2089944532,
+      "iat": 7877212,
+      "requestedHandle": 0,
+      "effectiveFixtureHeap": 1,
+      "flags": 0,
+      "bytes": 102400,
+      "allocationBytes": 102416,
+      "address": 268920000,
+      "alignment": 16,
+      "zeroRequested": false,
+      "returnAddress": 7718538,
+      "phase": "current-native-whole-World-constructor21991-1690",
+      "headerAddress": 268919984,
+      "extentEnd": 269022400,
+      "beforeEsp": 1572584,
+      "afterEsp": 1572600,
+      "returnEip": 7718538,
+      "returnEax": 268920000,
+      "otherCpuBytesPreserved": true,
+      "wasmShadowStackPointerPreserved": true,
+      "zeroBytesVerifiedAtReturn": null,
+      "live": true
+    },
+    "nativeAllocatorInteriorOffset": 60080,
+    "nativeAllocatorPrefixHex": "30f5081080cb04104486000033334444eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "nativePublicationObservedAfterWholeReturn": true,
+    "poolMetadataOrLinksAuthored": false
+  },
+  "result": {
+    "complete": true,
+    "pool": 268980080,
+    "header": {
+      "address": 268980080,
+      "rawHex": "aaaaaaaaaaaaaaaa0000000040637a00205008100b00000001000000010000000000000032000000800000003200000034a80e1034a80e100000803f00000000",
+      "label": 8020800,
+      "freeHead": 268980256,
+      "flags": 11,
+      "allocated": 1,
+      "highWater": 1,
+      "allocationFlags": 0,
+      "blockCapacity": 50,
+      "stride": 128,
+      "totalCapacity": 50
+    },
+    "initialNodeArea": {
+      "start": 268980128,
+      "end": 268986528,
+      "stride": 128,
+      "relativeAlignmentVerified": true,
+      "growthObserved": false
+    },
+    "controller": 269396016,
+    "sentinel": 269396020,
+    "head": 268980128,
+    "tail": 268980128,
+    "nodes": [
+      {
+        "address": 268980128,
+        "next": 269396020,
+        "previous": 269396020,
+        "rawHex": "34a80e1034a80e100000803f0000000007f85f4206803f403200cc3e000000000100c83b0100c83b0000c83b00000000eefe003ceefe003ce8f97f3f0002013c061020bc061020bc061020bc000000000000c83b0000c83b0000c83b00000000000000000000000000000000000000006edddd3e00004c330000000000000000"
+      }
+    ],
+    "nativeAllocations": [
+      {
+        "event": 8717,
+        "activeStage": "native-legacy-whole-receiver10443-actual-remote-slot",
+        "pool": 268980080,
+        "entryEsp": 1572788,
+        "returnAddress": 6261307,
+        "poolHeaderHex": "aaaaaaaaaaaaaaaa0000000040637a00a04f08100b00000000000000000000000000000032000000800000003200000020500810aaaaaaaaaaaaaaaaaaaaaaaa",
+        "returnEvent": 8718,
+        "result": 268980128,
+        "returnedEip": 6261307,
+        "returnedEsp": 1572792,
+        "poolHeaderAfterHex": "aaaaaaaaaaaaaaaa0000000040637a00205008100b00000001000000010000000000000032000000800000003200000000000000000000000000000000000000"
+      }
+    ],
+    "nativeLegacyAccepted": 1,
+    "nativeObserverRecord": {
+      "address": 703604128,
+      "raw": {
+        "file": "native-legacy-enrollment-raw.bin",
+        "address": 703604128,
+        "length": 208,
+        "offset": 85876,
+        "sha256": "cad93534bc732b3dc84f89b2fb44f84ff165c31ecba9fd5d26ead46fb7c7d438",
+        "role": "native-enrolled-observer-record"
+      },
+      "nameHex": "466978747572652d52656d6f74650000"
+    },
+    "requestedMovementFrames": 0,
+    "typedMaximumGettersCalled": 0,
+    "scope": "Only ordered World/history allocation and legacy receiver enrollment. Other known startup omissions remain unresolved."
+  },
+  "nativeCallsAdded": 0,
+  "nativeMemoryAuthored": false,
+  "properStartupBaselineClaimed": false
+}
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-hub-report-availability.json =====
+{
+  "function": 23139,
+  "signature": "()->void",
+  "wholeNativeReturned": true,
+  "before": {
+    "lobbyId": 0,
+    "racePointer": 0,
+    "context": {
+      "file": "native-legacy-enrollment-raw.bin",
+      "address": 706643224,
+      "length": 64,
+      "offset": 0,
+      "sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b",
+      "role": "native-hub-report-context-before"
+    }
+  },
+  "after": {
+    "lobbyId": 0,
+    "racePointer": 0,
+    "context": {
+      "file": "native-legacy-enrollment-raw.bin",
+      "address": 706643224,
+      "length": 64,
+      "offset": 64,
+      "sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b",
+      "role": "native-hub-report-context-after"
+    }
+  },
+  "initialGuardUnavailable": true,
+  "claim": "Whole ordinary producer invoked with actual native context. Initial zero lobby/race guard means natural no report; no synthetic context/body/annotation is supplied. Online rank annotation is a separate unexecuted family."
+}
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/replay-context-diagnostics-receipt.json =====
+{
+  "kind": "READ-ONLY-REPLAY-AND-EVENT-CONTEXT-DIAGNOSTICS",
+  "snapshots": 153,
+  "rawBytes": 118988,
+  "raw": {
+    "file": "replay-context-diagnostics-raw.bin",
+    "sha256": "b8ae7cddcd110dab4ceedaa2fa3a3c0d28e521721d8560550a0cb82ac4a05123"
+  },
+  "journal": {
+    "file": "replay-context-diagnostics.jsonl",
+    "sha256": "4a175b3ab3b7a563f53385b1d48ad37e9fa763b9c9b28bf358ba72f8342efb21"
+  },
+  "nativeFunctionsCalled": false,
+  "nativeMemoryAuthored": false,
+  "limits": [
+    "Zero or invalid pointers are recorded as unavailable objects; low memory is captured separately and is never interpreted as a valid replay object.",
+    "No additional native hook is installed. Stage and caller boundaries do not expose the exact native112 return byte or internal branch execution.",
+    "Read-only diagnostics preserve native mismatches, events, failures and report availability. No client-report or online-clearance conclusion follows."
+  ]
+}
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/observer-frame-counts.jsonl =====
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-complete-CarRecord-input-and-roster507-5441\",null]","activeStage":"current-native-complete-CarRecord-input-and-roster507-5441","frameId":null,"recording":"full","firstEvent":0,"lastEvent":11,"startedEvents":12,"events":12,"checkedEvents":12,"counts":[{"function":7620,"phase":"after","events":2,"preservationChecksPassed":2},{"function":7620,"phase":"before","events":2,"preservationChecksPassed":2},{"function":8022,"phase":"after","events":2,"preservationChecksPassed":2},{"function":8022,"phase":"before","events":2,"preservationChecksPassed":2},{"function":8179,"phase":"after","events":2,"preservationChecksPassed":2},{"function":8179,"phase":"before","events":2,"preservationChecksPassed":2}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-owned-physics-pool-initializer3082\",null]","activeStage":"current-native-owned-physics-pool-initializer3082","frameId":null,"recording":"full","firstEvent":12,"lastEvent":241,"startedEvents":230,"events":230,"checkedEvents":230,"counts":[{"function":1152,"phase":"after","events":10,"preservationChecksPassed":10},{"function":1152,"phase":"before","events":10,"preservationChecksPassed":10},{"function":1931,"phase":"after","events":10,"preservationChecksPassed":10},{"function":1931,"phase":"before","events":10,"preservationChecksPassed":10},{"function":3082,"phase":"after","events":1,"preservationChecksPassed":1},{"function":3082,"phase":"before","events":1,"preservationChecksPassed":1},{"function":3178,"phase":"after","events":10,"preservationChecksPassed":10},{"function":3178,"phase":"before","events":10,"preservationChecksPassed":10},{"function":5166,"phase":"after","events":2,"preservationChecksPassed":2},{"function":5166,"phase":"before","events":2,"preservationChecksPassed":2},{"function":5636,"phase":"after","events":2,"preservationChecksPassed":2},{"function":5636,"phase":"before","events":2,"preservationChecksPassed":2},{"function":5793,"phase":"after","events":2,"preservationChecksPassed":2},{"function":5793,"phase":"before","events":2,"preservationChecksPassed":2},{"function":8124,"phase":"after","events":1,"preservationChecksPassed":1},{"function":8124,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8435,"phase":"after","events":12,"preservationChecksPassed":12},{"function":8435,"phase":"before","events":12,"preservationChecksPassed":12},{"function":8591,"phase":"after","events":12,"preservationChecksPassed":12},{"function":8591,"phase":"before","events":12,"preservationChecksPassed":12},{"function":16315,"phase":"after","events":2,"preservationChecksPassed":2},{"function":16315,"phase":"before","events":2,"preservationChecksPassed":2},{"function":17095,"phase":"after","events":10,"preservationChecksPassed":10},{"function":17095,"phase":"before","events":10,"preservationChecksPassed":10},{"function":18814,"phase":"after","events":1,"preservationChecksPassed":1},{"function":18814,"phase":"before","events":1,"preservationChecksPassed":1},{"function":19280,"phase":"after","events":10,"preservationChecksPassed":10},{"function":19280,"phase":"before","events":10,"preservationChecksPassed":10},{"function":22266,"phase":"after","events":10,"preservationChecksPassed":10},{"function":22266,"phase":"before","events":10,"preservationChecksPassed":10},{"function":23226,"phase":"after","events":10,"preservationChecksPassed":10},{"function":23226,"phase":"before","events":10,"preservationChecksPassed":10},{"function":23287,"phase":"before","events":10,"preservationChecksPassed":10},{"function":23287,"phase":"tail","events":10,"preservationChecksPassed":10}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-authentic-CRT-onexit-table4385\",null]","activeStage":"current-native-authentic-CRT-onexit-table4385","frameId":null,"recording":"full","firstEvent":242,"lastEvent":247,"startedEvents":6,"events":6,"checkedEvents":6,"counts":[{"function":5166,"phase":"after","events":1,"preservationChecksPassed":1},{"function":5166,"phase":"before","events":1,"preservationChecksPassed":1},{"function":5636,"phase":"after","events":1,"preservationChecksPassed":1},{"function":5636,"phase":"before","events":1,"preservationChecksPassed":1},{"function":5793,"phase":"after","events":1,"preservationChecksPassed":1},{"function":5793,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-global-session-static-initializer820-9037\",null]","activeStage":"native-global-session-static-initializer820-9037","frameId":null,"recording":"full","firstEvent":248,"lastEvent":323,"startedEvents":76,"events":76,"checkedEvents":76,"counts":[{"function":820,"phase":"after","events":1,"preservationChecksPassed":1},{"function":820,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8651,"phase":"after","events":36,"preservationChecksPassed":36},{"function":8651,"phase":"before","events":36,"preservationChecksPassed":36},{"function":9037,"phase":"after","events":1,"preservationChecksPassed":1},{"function":9037,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-component-pools18874-registry4412-callback-pools15445-registry16297-pose-registry2380\",null]","activeStage":"current-native-component-pools18874-registry4412-callback-pools15445-registry16297-pose-registry2380","frameId":null,"recording":"full","firstEvent":324,"lastEvent":519,"startedEvents":196,"events":196,"checkedEvents":196,"counts":[{"function":1152,"phase":"after","events":6,"preservationChecksPassed":6},{"function":1152,"phase":"before","events":6,"preservationChecksPassed":6},{"function":1209,"phase":"after","events":3,"preservationChecksPassed":3},{"function":1209,"phase":"before","events":3,"preservationChecksPassed":3},{"function":1931,"phase":"after","events":6,"preservationChecksPassed":6},{"function":1931,"phase":"before","events":6,"preservationChecksPassed":6},{"function":3178,"phase":"after","events":6,"preservationChecksPassed":6},{"function":3178,"phase":"before","events":6,"preservationChecksPassed":6},{"function":4412,"phase":"after","events":1,"preservationChecksPassed":1},{"function":4412,"phase":"before","events":1,"preservationChecksPassed":1},{"function":5166,"phase":"after","events":8,"preservationChecksPassed":8},{"function":5166,"phase":"before","events":8,"preservationChecksPassed":8},{"function":5636,"phase":"after","events":8,"preservationChecksPassed":8},{"function":5636,"phase":"before","events":8,"preservationChecksPassed":8},{"function":5793,"phase":"after","events":4,"preservationChecksPassed":4},{"function":5793,"phase":"before","events":4,"preservationChecksPassed":4},{"function":8435,"phase":"after","events":10,"preservationChecksPassed":10},{"function":8435,"phase":"before","events":10,"preservationChecksPassed":10},{"function":8591,"phase":"after","events":10,"preservationChecksPassed":10},{"function":8591,"phase":"before","events":10,"preservationChecksPassed":10},{"function":13399,"phase":"after","events":3,"preservationChecksPassed":3},{"function":13399,"phase":"before","events":3,"preservationChecksPassed":3},{"function":16315,"phase":"after","events":2,"preservationChecksPassed":2},{"function":16315,"phase":"before","events":2,"preservationChecksPassed":2},{"function":17095,"phase":"after","events":6,"preservationChecksPassed":6},{"function":17095,"phase":"before","events":6,"preservationChecksPassed":6},{"function":18874,"phase":"after","events":1,"preservationChecksPassed":1},{"function":18874,"phase":"before","events":1,"preservationChecksPassed":1},{"function":19280,"phase":"after","events":6,"preservationChecksPassed":6},{"function":19280,"phase":"before","events":6,"preservationChecksPassed":6},{"function":22266,"phase":"after","events":6,"preservationChecksPassed":6},{"function":22266,"phase":"before","events":6,"preservationChecksPassed":6},{"function":23226,"phase":"after","events":6,"preservationChecksPassed":6},{"function":23226,"phase":"before","events":6,"preservationChecksPassed":6},{"function":23287,"phase":"before","events":6,"preservationChecksPassed":6},{"function":23287,"phase":"tail","events":6,"preservationChecksPassed":6}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-World-static-CPP-initializer5662\",null]","activeStage":"current-native-World-static-CPP-initializer5662","frameId":null,"recording":"full","firstEvent":520,"lastEvent":523,"startedEvents":4,"events":4,"checkedEvents":4,"counts":[{"function":1209,"phase":"after","events":1,"preservationChecksPassed":1},{"function":1209,"phase":"before","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-World-static-CPP-initializer7227\",null]","activeStage":"current-native-World-static-CPP-initializer7227","frameId":null,"recording":"full","firstEvent":524,"lastEvent":527,"startedEvents":4,"events":4,"checkedEvents":4,"counts":[{"function":1209,"phase":"after","events":1,"preservationChecksPassed":1},{"function":1209,"phase":"before","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-World-static-CPP-initializer8477\",null]","activeStage":"current-native-World-static-CPP-initializer8477","frameId":null,"recording":"full","firstEvent":528,"lastEvent":531,"startedEvents":4,"events":4,"checkedEvents":4,"counts":[{"function":1209,"phase":"after","events":1,"preservationChecksPassed":1},{"function":1209,"phase":"before","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-World-static-CPP-initializer17388\",null]","activeStage":"current-native-World-static-CPP-initializer17388","frameId":null,"recording":"full","firstEvent":532,"lastEvent":723,"startedEvents":192,"events":192,"checkedEvents":192,"counts":[{"function":3686,"phase":"after","events":96,"preservationChecksPassed":96},{"function":3686,"phase":"before","events":96,"preservationChecksPassed":96}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-World-static-CPP-initializer4568\",null]","activeStage":"current-native-World-static-CPP-initializer4568","frameId":null,"recording":"full","firstEvent":724,"lastEvent":727,"startedEvents":4,"events":4,"checkedEvents":4,"counts":[{"function":1209,"phase":"after","events":1,"preservationChecksPassed":1},{"function":1209,"phase":"before","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-World-static-CPP-initializer4724\",null]","activeStage":"current-native-World-static-CPP-initializer4724","frameId":null,"recording":"full","firstEvent":728,"lastEvent":729,"startedEvents":2,"events":2,"checkedEvents":2,"counts":[{"function":13399,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-authentic-static-query-registry4880\",null]","activeStage":"current-native-authentic-static-query-registry4880","frameId":null,"recording":"full","firstEvent":730,"lastEvent":733,"startedEvents":4,"events":4,"checkedEvents":4,"counts":[{"function":1209,"phase":"after","events":1,"preservationChecksPassed":1},{"function":1209,"phase":"before","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-World-static-CPP-initializer6757\",null]","activeStage":"current-native-World-static-CPP-initializer6757","frameId":null,"recording":"full","firstEvent":734,"lastEvent":739,"startedEvents":6,"events":6,"checkedEvents":6,"counts":[{"function":1209,"phase":"after","events":1,"preservationChecksPassed":1},{"function":1209,"phase":"before","events":1,"preservationChecksPassed":1},{"function":6757,"phase":"after","events":1,"preservationChecksPassed":1},{"function":6757,"phase":"before","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-World-static-CPP-initializer6914\",null]","activeStage":"current-native-World-static-CPP-initializer6914","frameId":null,"recording":"full","firstEvent":740,"lastEvent":745,"startedEvents":6,"events":6,"checkedEvents":6,"counts":[{"function":1209,"phase":"after","events":1,"preservationChecksPassed":1},{"function":1209,"phase":"before","events":1,"preservationChecksPassed":1},{"function":6914,"phase":"after","events":1,"preservationChecksPassed":1},{"function":6914,"phase":"before","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-World-static-CPP-initializer11449\",null]","activeStage":"current-native-World-static-CPP-initializer11449","frameId":null,"recording":"full","firstEvent":746,"lastEvent":747,"startedEvents":2,"events":2,"checkedEvents":2,"counts":[{"function":13399,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-World-static-CPP-initializer11762\",null]","activeStage":"current-native-World-static-CPP-initializer11762","frameId":null,"recording":"full","firstEvent":748,"lastEvent":751,"startedEvents":4,"events":4,"checkedEvents":4,"counts":[{"function":1209,"phase":"after","events":1,"preservationChecksPassed":1},{"function":1209,"phase":"before","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-World-static-CPP-initializer12701\",null]","activeStage":"current-native-World-static-CPP-initializer12701","frameId":null,"recording":"full","firstEvent":752,"lastEvent":755,"startedEvents":4,"events":4,"checkedEvents":4,"counts":[{"function":1209,"phase":"after","events":1,"preservationChecksPassed":1},{"function":1209,"phase":"before","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-World-static-CPP-initializer16453\",null]","activeStage":"current-native-World-static-CPP-initializer16453","frameId":null,"recording":"full","firstEvent":756,"lastEvent":759,"startedEvents":4,"events":4,"checkedEvents":4,"counts":[{"function":1209,"phase":"after","events":1,"preservationChecksPassed":1},{"function":1209,"phase":"before","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-World-static-CPP-initializer976\",null]","activeStage":"current-native-World-static-CPP-initializer976","frameId":null,"recording":"full","firstEvent":760,"lastEvent":763,"startedEvents":4,"events":4,"checkedEvents":4,"counts":[{"function":1209,"phase":"after","events":1,"preservationChecksPassed":1},{"function":1209,"phase":"before","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-world-query-manager15134-before-whole-World\",null]","activeStage":"current-native-world-query-manager15134-before-whole-World","frameId":null,"recording":"full","firstEvent":764,"lastEvent":765,"startedEvents":2,"events":2,"checkedEvents":2,"counts":[{"function":15134,"phase":"after","events":1,"preservationChecksPassed":1},{"function":15134,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-ordinary-session-start-request10442\",null]","activeStage":"native-ordinary-session-start-request10442","frameId":null,"recording":"full","firstEvent":766,"lastEvent":767,"startedEvents":2,"events":2,"checkedEvents":2,"counts":[{"function":10442,"phase":"after","events":1,"preservationChecksPassed":1},{"function":10442,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-whole9490-network-startup-and-address-discovery\",null]","activeStage":"native-whole9490-network-startup-and-address-discovery","frameId":null,"recording":"full","firstEvent":768,"lastEvent":785,"startedEvents":18,"events":18,"checkedEvents":18,"counts":[{"function":7510,"phase":"after","events":1,"preservationChecksPassed":1},{"function":7510,"phase":"before","events":1,"preservationChecksPassed":1},{"function":9490,"phase":"after","events":1,"preservationChecksPassed":1},{"function":9490,"phase":"before","events":1,"preservationChecksPassed":1},{"function":9853,"phase":"after","events":1,"preservationChecksPassed":1},{"function":9853,"phase":"before","events":1,"preservationChecksPassed":1},{"function":11574,"phase":"after","events":1,"preservationChecksPassed":1},{"function":11574,"phase":"before","events":1,"preservationChecksPassed":1},{"function":11731,"phase":"after","events":1,"preservationChecksPassed":1},{"function":11731,"phase":"before","events":1,"preservationChecksPassed":1},{"function":15175,"phase":"before","events":1,"preservationChecksPassed":1},{"function":15175,"phase":"tail","events":1,"preservationChecksPassed":1},{"function":15644,"phase":"before","events":1,"preservationChecksPassed":1},{"function":15644,"phase":"tail","events":1,"preservationChecksPassed":1},{"function":15800,"phase":"before","events":1,"preservationChecksPassed":1},{"function":15800,"phase":"tail","events":1,"preservationChecksPassed":1},{"function":18144,"phase":"before","events":1,"preservationChecksPassed":1},{"function":18144,"phase":"tail","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-whole17624-pending-client-initializer\",null]","activeStage":"native-whole17624-pending-client-initializer","frameId":null,"recording":"full","firstEvent":786,"lastEvent":799,"startedEvents":14,"events":14,"checkedEvents":14,"counts":[{"function":9853,"phase":"after","events":1,"preservationChecksPassed":1},{"function":9853,"phase":"before","events":1,"preservationChecksPassed":1},{"function":10166,"phase":"after","events":1,"preservationChecksPassed":1},{"function":10166,"phase":"before","events":1,"preservationChecksPassed":1},{"function":11731,"phase":"after","events":1,"preservationChecksPassed":1},{"function":11731,"phase":"before","events":1,"preservationChecksPassed":1},{"function":15644,"phase":"before","events":1,"preservationChecksPassed":1},{"function":15644,"phase":"tail","events":1,"preservationChecksPassed":1},{"function":15800,"phase":"before","events":1,"preservationChecksPassed":1},{"function":15800,"phase":"tail","events":1,"preservationChecksPassed":1},{"function":17624,"phase":"after","events":1,"preservationChecksPassed":1},{"function":17624,"phase":"before","events":1,"preservationChecksPassed":1},{"function":18144,"phase":"before","events":1,"preservationChecksPassed":1},{"function":18144,"phase":"tail","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-World-required-pool-initializer11167\",null]","activeStage":"current-native-World-required-pool-initializer11167","frameId":null,"recording":"full","firstEvent":800,"lastEvent":841,"startedEvents":42,"events":42,"checkedEvents":42,"counts":[{"function":1152,"phase":"after","events":1,"preservationChecksPassed":1},{"function":1152,"phase":"before","events":1,"preservationChecksPassed":1},{"function":1931,"phase":"after","events":1,"preservationChecksPassed":1},{"function":1931,"phase":"before","events":1,"preservationChecksPassed":1},{"function":3178,"phase":"after","events":1,"preservationChecksPassed":1},{"function":3178,"phase":"before","events":1,"preservationChecksPassed":1},{"function":5166,"phase":"after","events":2,"preservationChecksPassed":2},{"function":5166,"phase":"before","events":2,"preservationChecksPassed":2},{"function":5636,"phase":"after","events":2,"preservationChecksPassed":2},{"function":5636,"phase":"before","events":2,"preservationChecksPassed":2},{"function":5793,"phase":"after","events":2,"preservationChecksPassed":2},{"function":5793,"phase":"before","events":2,"preservationChecksPassed":2},{"function":8435,"phase":"after","events":3,"preservationChecksPassed":3},{"function":8435,"phase":"before","events":3,"preservationChecksPassed":3},{"function":8591,"phase":"after","events":3,"preservationChecksPassed":3},{"function":8591,"phase":"before","events":3,"preservationChecksPassed":3},{"function":16315,"phase":"after","events":1,"preservationChecksPassed":1},{"function":16315,"phase":"before","events":1,"preservationChecksPassed":1},{"function":17095,"phase":"after","events":1,"preservationChecksPassed":1},{"function":17095,"phase":"before","events":1,"preservationChecksPassed":1},{"function":19280,"phase":"after","events":1,"preservationChecksPassed":1},{"function":19280,"phase":"before","events":1,"preservationChecksPassed":1},{"function":22266,"phase":"after","events":1,"preservationChecksPassed":1},{"function":22266,"phase":"before","events":1,"preservationChecksPassed":1},{"function":23226,"phase":"after","events":1,"preservationChecksPassed":1},{"function":23226,"phase":"before","events":1,"preservationChecksPassed":1},{"function":23287,"phase":"before","events":1,"preservationChecksPassed":1},{"function":23287,"phase":"tail","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-World-minimal-render-initializer8715\",null]","activeStage":"current-native-World-minimal-render-initializer8715","frameId":null,"recording":"full","firstEvent":842,"lastEvent":857,"startedEvents":16,"events":16,"checkedEvents":16,"counts":[{"function":5166,"phase":"after","events":4,"preservationChecksPassed":4},{"function":5166,"phase":"before","events":4,"preservationChecksPassed":4},{"function":5636,"phase":"after","events":4,"preservationChecksPassed":4},{"function":5636,"phase":"before","events":4,"preservationChecksPassed":4}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-actual-5632-byte-World-allocation5867\",null]","activeStage":"current-native-actual-5632-byte-World-allocation5867","frameId":null,"recording":"full","firstEvent":858,"lastEvent":861,"startedEvents":4,"events":4,"checkedEvents":4,"counts":[{"function":5166,"phase":"after","events":1,"preservationChecksPassed":1},{"function":5166,"phase":"before","events":1,"preservationChecksPassed":1},{"function":5636,"phase":"after","events":1,"preservationChecksPassed":1},{"function":5636,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-whole-World-constructor21991-1690\",null]","activeStage":"current-native-whole-World-constructor21991-1690","frameId":null,"recording":"full","firstEvent":862,"lastEvent":2131,"startedEvents":1270,"events":1270,"checkedEvents":1270,"counts":[{"function":1152,"phase":"after","events":7,"preservationChecksPassed":7},{"function":1152,"phase":"before","events":7,"preservationChecksPassed":7},{"function":1209,"phase":"after","events":203,"preservationChecksPassed":203},{"function":1209,"phase":"before","events":203,"preservationChecksPassed":203},{"function":1690,"phase":"after","events":1,"preservationChecksPassed":1},{"function":1690,"phase":"before","events":1,"preservationChecksPassed":1},{"function":1931,"phase":"after","events":7,"preservationChecksPassed":7},{"function":1931,"phase":"before","events":7,"preservationChecksPassed":7},{"function":2243,"phase":"after","events":1,"preservationChecksPassed":1},{"function":2243,"phase":"before","events":1,"preservationChecksPassed":1},{"function":3178,"phase":"after","events":7,"preservationChecksPassed":7},{"function":3178,"phase":"before","events":7,"preservationChecksPassed":7},{"function":3686,"phase":"after","events":114,"preservationChecksPassed":114},{"function":3686,"phase":"before","events":114,"preservationChecksPassed":114},{"function":5166,"phase":"after","events":10,"preservationChecksPassed":10},{"function":5166,"phase":"before","events":10,"preservationChecksPassed":10},{"function":5636,"phase":"after","events":10,"preservationChecksPassed":10},{"function":5636,"phase":"before","events":10,"preservationChecksPassed":10},{"function":5793,"phase":"after","events":4,"preservationChecksPassed":4},{"function":5793,"phase":"before","events":4,"preservationChecksPassed":4},{"function":8435,"phase":"after","events":11,"preservationChecksPassed":11},{"function":8435,"phase":"before","events":11,"preservationChecksPassed":11},{"function":8591,"phase":"after","events":11,"preservationChecksPassed":11},{"function":8591,"phase":"before","events":11,"preservationChecksPassed":11},{"function":10121,"phase":"after","events":1,"preservationChecksPassed":1},{"function":10121,"phase":"before","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"after","events":204,"preservationChecksPassed":204},{"function":13399,"phase":"before","events":204,"preservationChecksPassed":204},{"function":16315,"phase":"after","events":2,"preservationChecksPassed":2},{"function":16315,"phase":"before","events":2,"preservationChecksPassed":2},{"function":17095,"phase":"after","events":7,"preservationChecksPassed":7},{"function":17095,"phase":"before","events":7,"preservationChecksPassed":7},{"function":19280,"phase":"after","events":7,"preservationChecksPassed":7},{"function":19280,"phase":"before","events":7,"preservationChecksPassed":7},{"function":21215,"phase":"after","events":6,"preservationChecksPassed":6},{"function":21215,"phase":"before","events":6,"preservationChecksPassed":6},{"function":21991,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21991,"phase":"before","events":1,"preservationChecksPassed":1},{"function":22266,"phase":"after","events":7,"preservationChecksPassed":7},{"function":22266,"phase":"before","events":7,"preservationChecksPassed":7},{"function":23226,"phase":"after","events":7,"preservationChecksPassed":7},{"function":23226,"phase":"before","events":7,"preservationChecksPassed":7},{"function":23287,"phase":"before","events":7,"preservationChecksPassed":7},{"function":23287,"phase":"tail","events":7,"preservationChecksPassed":7}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-inactive-query-list13399\",null]","activeStage":"current-native-inactive-query-list13399","frameId":null,"recording":"full","firstEvent":2132,"lastEvent":2133,"startedEvents":2,"events":2,"checkedEvents":2,"counts":[{"function":13399,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-cache-list13399-and-startup17475\",null]","activeStage":"current-native-cache-list13399-and-startup17475","frameId":null,"recording":"full","firstEvent":2134,"lastEvent":4207,"startedEvents":2074,"events":2074,"checkedEvents":2074,"counts":[{"function":1152,"phase":"after","events":1,"preservationChecksPassed":1},{"function":1152,"phase":"before","events":1,"preservationChecksPassed":1},{"function":1931,"phase":"after","events":1,"preservationChecksPassed":1},{"function":1931,"phase":"before","events":1,"preservationChecksPassed":1},{"function":3178,"phase":"after","events":1,"preservationChecksPassed":1},{"function":3178,"phase":"before","events":1,"preservationChecksPassed":1},{"function":3686,"phase":"after","events":1024,"preservationChecksPassed":1024},{"function":3686,"phase":"before","events":1024,"preservationChecksPassed":1024},{"function":5166,"phase":"after","events":1,"preservationChecksPassed":1},{"function":5166,"phase":"before","events":1,"preservationChecksPassed":1},{"function":5636,"phase":"after","events":1,"preservationChecksPassed":1},{"function":5636,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8435,"phase":"after","events":1,"preservationChecksPassed":1},{"function":8435,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8591,"phase":"after","events":1,"preservationChecksPassed":1},{"function":8591,"phase":"before","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"before","events":1,"preservationChecksPassed":1},{"function":17095,"phase":"after","events":1,"preservationChecksPassed":1},{"function":17095,"phase":"before","events":1,"preservationChecksPassed":1},{"function":19280,"phase":"after","events":1,"preservationChecksPassed":1},{"function":19280,"phase":"before","events":1,"preservationChecksPassed":1},{"function":22266,"phase":"after","events":1,"preservationChecksPassed":1},{"function":22266,"phase":"before","events":1,"preservationChecksPassed":1},{"function":23226,"phase":"after","events":1,"preservationChecksPassed":1},{"function":23226,"phase":"before","events":1,"preservationChecksPassed":1},{"function":23287,"phase":"before","events":1,"preservationChecksPassed":1},{"function":23287,"phase":"tail","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-authored-scene-loaders1375-17792\",null]","activeStage":"current-native-authored-scene-loaders1375-17792","frameId":null,"recording":"full","firstEvent":4208,"lastEvent":4211,"startedEvents":4,"events":4,"checkedEvents":4,"counts":[{"function":592,"phase":"after","events":1,"preservationChecksPassed":1},{"function":592,"phase":"before","events":1,"preservationChecksPassed":1},{"function":2243,"phase":"after","events":1,"preservationChecksPassed":1},{"function":2243,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-generated-road-loaders10506-and17476-16383-2623\",null]","activeStage":"current-native-generated-road-loaders10506-and17476-16383-2623","frameId":null,"recording":"full","firstEvent":4212,"lastEvent":4219,"startedEvents":8,"events":8,"checkedEvents":8,"counts":[{"function":2623,"phase":"after","events":1,"preservationChecksPassed":1},{"function":2623,"phase":"before","events":1,"preservationChecksPassed":1},{"function":16383,"phase":"after","events":1,"preservationChecksPassed":1},{"function":16383,"phase":"before","events":1,"preservationChecksPassed":1},{"function":17476,"phase":"after","events":2,"preservationChecksPassed":2},{"function":17476,"phase":"before","events":2,"preservationChecksPassed":2}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"current-native-action-pool-initializer18958\",null]","activeStage":"current-native-action-pool-initializer18958","frameId":null,"recording":"full","firstEvent":4220,"lastEvent":4343,"startedEvents":124,"events":124,"checkedEvents":124,"counts":[{"function":1152,"phase":"after","events":5,"preservationChecksPassed":5},{"function":1152,"phase":"before","events":5,"preservationChecksPassed":5},{"function":1931,"phase":"after","events":5,"preservationChecksPassed":5},{"function":1931,"phase":"before","events":5,"preservationChecksPassed":5},{"function":3178,"phase":"after","events":5,"preservationChecksPassed":5},{"function":3178,"phase":"before","events":5,"preservationChecksPassed":5},{"function":5166,"phase":"after","events":2,"preservationChecksPassed":2},{"function":5166,"phase":"before","events":2,"preservationChecksPassed":2},{"function":5636,"phase":"after","events":2,"preservationChecksPassed":2},{"function":5636,"phase":"before","events":2,"preservationChecksPassed":2},{"function":5793,"phase":"after","events":2,"preservationChecksPassed":2},{"function":5793,"phase":"before","events":2,"preservationChecksPassed":2},{"function":8435,"phase":"after","events":7,"preservationChecksPassed":7},{"function":8435,"phase":"before","events":7,"preservationChecksPassed":7},{"function":8591,"phase":"after","events":7,"preservationChecksPassed":7},{"function":8591,"phase":"before","events":7,"preservationChecksPassed":7},{"function":16315,"phase":"after","events":1,"preservationChecksPassed":1},{"function":16315,"phase":"before","events":1,"preservationChecksPassed":1},{"function":17095,"phase":"after","events":5,"preservationChecksPassed":5},{"function":17095,"phase":"before","events":5,"preservationChecksPassed":5},{"function":18958,"phase":"after","events":1,"preservationChecksPassed":1},{"function":18958,"phase":"before","events":1,"preservationChecksPassed":1},{"function":19280,"phase":"after","events":5,"preservationChecksPassed":5},{"function":19280,"phase":"before","events":5,"preservationChecksPassed":5},{"function":22266,"phase":"after","events":5,"preservationChecksPassed":5},{"function":22266,"phase":"before","events":5,"preservationChecksPassed":5},{"function":23226,"phase":"after","events":5,"preservationChecksPassed":5},{"function":23226,"phase":"before","events":5,"preservationChecksPassed":5},{"function":23287,"phase":"before","events":5,"preservationChecksPassed":5},{"function":23287,"phase":"tail","events":5,"preservationChecksPassed":5}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-two-car-whole-enrollment16076\",null]","activeStage":"native-two-car-whole-enrollment16076","frameId":null,"recording":"full","firstEvent":4344,"lastEvent":6315,"startedEvents":1972,"events":1972,"checkedEvents":1972,"counts":[{"function":119,"phase":"after","events":2,"preservationChecksPassed":2},{"function":119,"phase":"before","events":2,"preservationChecksPassed":2},{"function":592,"phase":"after","events":3,"preservationChecksPassed":3},{"function":592,"phase":"before","events":3,"preservationChecksPassed":3},{"function":1209,"phase":"after","events":60,"preservationChecksPassed":60},{"function":1209,"phase":"before","events":60,"preservationChecksPassed":60},{"function":1367,"phase":"after","events":2,"preservationChecksPassed":2},{"function":1367,"phase":"before","events":2,"preservationChecksPassed":2},{"function":1520,"phase":"after","events":3,"preservationChecksPassed":3},{"function":1520,"phase":"before","events":3,"preservationChecksPassed":3},{"function":1686,"phase":"after","events":4,"preservationChecksPassed":4},{"function":1686,"phase":"before","events":4,"preservationChecksPassed":4},{"function":1767,"phase":"after","events":1,"preservationChecksPassed":1},{"function":1767,"phase":"before","events":1,"preservationChecksPassed":1},{"function":1843,"phase":"after","events":6,"preservationChecksPassed":6},{"function":1843,"phase":"before","events":6,"preservationChecksPassed":6},{"function":2243,"phase":"after","events":24,"preservationChecksPassed":24},{"function":2243,"phase":"before","events":24,"preservationChecksPassed":24},{"function":2397,"phase":"after","events":90,"preservationChecksPassed":90},{"function":2397,"phase":"before","events":90,"preservationChecksPassed":90},{"function":2617,"phase":"after","events":2,"preservationChecksPassed":2},{"function":2617,"phase":"before","events":2,"preservationChecksPassed":2},{"function":2627,"phase":"after","events":4,"preservationChecksPassed":4},{"function":2627,"phase":"before","events":4,"preservationChecksPassed":4},{"function":3686,"phase":"after","events":107,"preservationChecksPassed":107},{"function":3686,"phase":"before","events":107,"preservationChecksPassed":107},{"function":3962,"phase":"after","events":16,"preservationChecksPassed":16},{"function":3962,"phase":"before","events":16,"preservationChecksPassed":16},{"function":5128,"phase":"after","events":2,"preservationChecksPassed":2},{"function":5128,"phase":"before","events":2,"preservationChecksPassed":2},{"function":5166,"phase":"after","events":28,"preservationChecksPassed":28},{"function":5166,"phase":"before","events":28,"preservationChecksPassed":28},{"function":5437,"phase":"after","events":4,"preservationChecksPassed":4},{"function":5437,"phase":"before","events":4,"preservationChecksPassed":4},{"function":5636,"phase":"after","events":28,"preservationChecksPassed":28},{"function":5636,"phase":"before","events":28,"preservationChecksPassed":28},{"function":5681,"phase":"after","events":12,"preservationChecksPassed":12},{"function":5681,"phase":"before","events":12,"preservationChecksPassed":12},{"function":5793,"phase":"after","events":6,"preservationChecksPassed":6},{"function":5793,"phase":"before","events":6,"preservationChecksPassed":6},{"function":5906,"phase":"after","events":3,"preservationChecksPassed":3},{"function":5906,"phase":"before","events":3,"preservationChecksPassed":3},{"function":6465,"phase":"after","events":9,"preservationChecksPassed":9},{"function":6465,"phase":"before","events":9,"preservationChecksPassed":9},{"function":7620,"phase":"after","events":2,"preservationChecksPassed":2},{"function":7620,"phase":"before","events":2,"preservationChecksPassed":2},{"function":7636,"phase":"after","events":4,"preservationChecksPassed":4},{"function":7636,"phase":"before","events":4,"preservationChecksPassed":4},{"function":8022,"phase":"after","events":2,"preservationChecksPassed":2},{"function":8022,"phase":"before","events":2,"preservationChecksPassed":2},{"function":8179,"phase":"after","events":2,"preservationChecksPassed":2},{"function":8179,"phase":"before","events":2,"preservationChecksPassed":2},{"function":8651,"phase":"after","events":8,"preservationChecksPassed":8},{"function":8651,"phase":"before","events":8,"preservationChecksPassed":8},{"function":9189,"phase":"after","events":1,"preservationChecksPassed":1},{"function":9189,"phase":"before","events":1,"preservationChecksPassed":1},{"function":9585,"phase":"after","events":1,"preservationChecksPassed":1},{"function":9585,"phase":"before","events":1,"preservationChecksPassed":1},{"function":10046,"phase":"after","events":1,"preservationChecksPassed":1},{"function":10046,"phase":"before","events":1,"preservationChecksPassed":1},{"function":10283,"phase":"after","events":3,"preservationChecksPassed":3},{"function":10283,"phase":"before","events":3,"preservationChecksPassed":3},{"function":10679,"phase":"after","events":1,"preservationChecksPassed":1},{"function":10679,"phase":"before","events":1,"preservationChecksPassed":1},{"function":11211,"phase":"after","events":2,"preservationChecksPassed":2},{"function":11211,"phase":"before","events":2,"preservationChecksPassed":2},{"function":11222,"phase":"after","events":2,"preservationChecksPassed":2},{"function":11222,"phase":"before","events":2,"preservationChecksPassed":2},{"function":12555,"phase":"after","events":1,"preservationChecksPassed":1},{"function":12555,"phase":"before","events":1,"preservationChecksPassed":1},{"function":12708,"phase":"after","events":1,"preservationChecksPassed":1},{"function":12708,"phase":"before","events":1,"preservationChecksPassed":1},{"function":12949,"phase":"after","events":2,"preservationChecksPassed":2},{"function":12949,"phase":"before","events":2,"preservationChecksPassed":2},{"function":13028,"phase":"after","events":4,"preservationChecksPassed":4},{"function":13028,"phase":"before","events":4,"preservationChecksPassed":4},{"function":13100,"phase":"after","events":8,"preservationChecksPassed":8},{"function":13100,"phase":"before","events":8,"preservationChecksPassed":8},{"function":13248,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13248,"phase":"before","events":1,"preservationChecksPassed":1},{"function":13256,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13256,"phase":"before","events":1,"preservationChecksPassed":1},{"function":13399,"phase":"after","events":120,"preservationChecksPassed":120},{"function":13399,"phase":"before","events":120,"preservationChecksPassed":120},{"function":13567,"phase":"after","events":4,"preservationChecksPassed":4},{"function":13567,"phase":"before","events":4,"preservationChecksPassed":4},{"function":13568,"phase":"after","events":9,"preservationChecksPassed":9},{"function":13568,"phase":"before","events":9,"preservationChecksPassed":9},{"function":13883,"phase":"after","events":3,"preservationChecksPassed":3},{"function":13883,"phase":"before","events":3,"preservationChecksPassed":3},{"function":13969,"phase":"after","events":94,"preservationChecksPassed":94},{"function":13969,"phase":"before","events":94,"preservationChecksPassed":94},{"function":14813,"phase":"after","events":2,"preservationChecksPassed":2},{"function":14813,"phase":"before","events":2,"preservationChecksPassed":2},{"function":15536,"phase":"after","events":1,"preservationChecksPassed":1},{"function":15536,"phase":"before","events":1,"preservationChecksPassed":1},{"function":15917,"phase":"after","events":3,"preservationChecksPassed":3},{"function":15917,"phase":"before","events":3,"preservationChecksPassed":3},{"function":15921,"phase":"after","events":2,"preservationChecksPassed":2},{"function":15921,"phase":"before","events":2,"preservationChecksPassed":2},{"function":16072,"phase":"after","events":28,"preservationChecksPassed":28},{"function":16072,"phase":"before","events":28,"preservationChecksPassed":28},{"function":16693,"phase":"after","events":4,"preservationChecksPassed":4},{"function":16693,"phase":"before","events":4,"preservationChecksPassed":4},{"function":16781,"phase":"after","events":94,"preservationChecksPassed":94},{"function":16781,"phase":"before","events":94,"preservationChecksPassed":94},{"function":17468,"phase":"after","events":2,"preservationChecksPassed":2},{"function":17468,"phase":"before","events":2,"preservationChecksPassed":2},{"function":17562,"phase":"after","events":4,"preservationChecksPassed":4},{"function":17562,"phase":"before","events":4,"preservationChecksPassed":4},{"function":17721,"phase":"after","events":90,"preservationChecksPassed":90},{"function":17721,"phase":"before","events":90,"preservationChecksPassed":90},{"function":18341,"phase":"after","events":1,"preservationChecksPassed":1},{"function":18341,"phase":"before","events":1,"preservationChecksPassed":1},{"function":18423,"phase":"after","events":4,"preservationChecksPassed":4},{"function":18423,"phase":"before","events":4,"preservationChecksPassed":4},{"function":18727,"phase":"after","events":22,"preservationChecksPassed":22},{"function":18727,"phase":"before","events":22,"preservationChecksPassed":22},{"function":19341,"phase":"after","events":2,"preservationChecksPassed":2},{"function":19341,"phase":"before","events":2,"preservationChecksPassed":2},{"function":19657,"phase":"after","events":22,"preservationChecksPassed":22},{"function":19657,"phase":"before","events":22,"preservationChecksPassed":22},{"function":21215,"phase":"after","events":2,"preservationChecksPassed":2},{"function":21215,"phase":"before","events":2,"preservationChecksPassed":2},{"function":23280,"phase":"after","events":2,"preservationChecksPassed":2},{"function":23280,"phase":"before","events":2,"preservationChecksPassed":2},{"function":23281,"phase":"after","events":6,"preservationChecksPassed":6},{"function":23281,"phase":"before","events":6,"preservationChecksPassed":6},{"function":23290,"phase":"before","events":2,"preservationChecksPassed":2},{"function":23290,"phase":"tail","events":2,"preservationChecksPassed":2}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-local-only-Player-setup23721\",null]","activeStage":"native-local-only-Player-setup23721","frameId":null,"recording":"full","firstEvent":6316,"lastEvent":8455,"startedEvents":2140,"events":2140,"checkedEvents":2140,"counts":[{"function":2243,"phase":"after","events":2,"preservationChecksPassed":2},{"function":2243,"phase":"before","events":2,"preservationChecksPassed":2},{"function":2397,"phase":"after","events":305,"preservationChecksPassed":305},{"function":2397,"phase":"before","events":305,"preservationChecksPassed":305},{"function":3686,"phase":"after","events":35,"preservationChecksPassed":35},{"function":3686,"phase":"before","events":35,"preservationChecksPassed":35},{"function":5166,"phase":"after","events":36,"preservationChecksPassed":36},{"function":5166,"phase":"before","events":36,"preservationChecksPassed":36},{"function":5437,"phase":"after","events":1,"preservationChecksPassed":1},{"function":5437,"phase":"before","events":1,"preservationChecksPassed":1},{"function":5636,"phase":"after","events":36,"preservationChecksPassed":36},{"function":5636,"phase":"before","events":36,"preservationChecksPassed":36},{"function":5681,"phase":"after","events":2,"preservationChecksPassed":2},{"function":5681,"phase":"before","events":2,"preservationChecksPassed":2},{"function":5793,"phase":"after","events":1,"preservationChecksPassed":1},{"function":5793,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8651,"phase":"after","events":1,"preservationChecksPassed":1},{"function":8651,"phase":"before","events":1,"preservationChecksPassed":1},{"function":13568,"phase":"after","events":1,"preservationChecksPassed":1},{"function":13568,"phase":"before","events":1,"preservationChecksPassed":1},{"function":13969,"phase":"after","events":319,"preservationChecksPassed":319},{"function":13969,"phase":"before","events":319,"preservationChecksPassed":319},{"function":16781,"phase":"after","events":319,"preservationChecksPassed":319},{"function":16781,"phase":"before","events":319,"preservationChecksPassed":319},{"function":17721,"phase":"after","events":12,"preservationChecksPassed":12},{"function":17721,"phase":"before","events":12,"preservationChecksPassed":12}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-racecars-clock-frame22828-before-receive\",null]","activeStage":"native-racecars-clock-frame22828-before-receive","frameId":null,"recording":"full","firstEvent":8456,"lastEvent":8457,"startedEvents":2,"events":2,"checkedEvents":2,"counts":[{"function":22828,"phase":"after","events":1,"preservationChecksPassed":1},{"function":22828,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-session-allocator9348-before-name-registration\",null]","activeStage":"native-session-allocator9348-before-name-registration","frameId":null,"recording":"full","firstEvent":8458,"lastEvent":8503,"startedEvents":46,"events":46,"checkedEvents":46,"counts":[{"function":216,"phase":"after","events":1,"preservationChecksPassed":1},{"function":216,"phase":"before","events":1,"preservationChecksPassed":1},{"function":5166,"phase":"after","events":2,"preservationChecksPassed":2},{"function":5166,"phase":"before","events":2,"preservationChecksPassed":2},{"function":5636,"phase":"after","events":2,"preservationChecksPassed":2},{"function":5636,"phase":"before","events":2,"preservationChecksPassed":2},{"function":5793,"phase":"after","events":2,"preservationChecksPassed":2},{"function":5793,"phase":"before","events":2,"preservationChecksPassed":2},{"function":8124,"phase":"after","events":1,"preservationChecksPassed":1},{"function":8124,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8435,"phase":"after","events":4,"preservationChecksPassed":4},{"function":8435,"phase":"before","events":4,"preservationChecksPassed":4},{"function":8591,"phase":"after","events":4,"preservationChecksPassed":4},{"function":8591,"phase":"before","events":4,"preservationChecksPassed":4},{"function":9348,"phase":"after","events":1,"preservationChecksPassed":1},{"function":9348,"phase":"before","events":1,"preservationChecksPassed":1},{"function":16315,"phase":"after","events":2,"preservationChecksPassed":2},{"function":16315,"phase":"before","events":2,"preservationChecksPassed":2},{"function":17095,"phase":"after","events":1,"preservationChecksPassed":1},{"function":17095,"phase":"before","events":1,"preservationChecksPassed":1},{"function":18814,"phase":"after","events":1,"preservationChecksPassed":1},{"function":18814,"phase":"before","events":1,"preservationChecksPassed":1},{"function":18971,"phase":"after","events":1,"preservationChecksPassed":1},{"function":18971,"phase":"before","events":1,"preservationChecksPassed":1},{"function":19280,"phase":"after","events":1,"preservationChecksPassed":1},{"function":19280,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-legacy-register-declared-names286\",null]","activeStage":"native-legacy-register-declared-names286","frameId":null,"recording":"full","firstEvent":8504,"lastEvent":8527,"startedEvents":24,"events":24,"checkedEvents":24,"counts":[{"function":286,"phase":"after","events":2,"preservationChecksPassed":2},{"function":286,"phase":"before","events":2,"preservationChecksPassed":2},{"function":8435,"phase":"after","events":2,"preservationChecksPassed":2},{"function":8435,"phase":"before","events":2,"preservationChecksPassed":2},{"function":8591,"phase":"after","events":2,"preservationChecksPassed":2},{"function":8591,"phase":"before","events":2,"preservationChecksPassed":2},{"function":17095,"phase":"after","events":2,"preservationChecksPassed":2},{"function":17095,"phase":"before","events":2,"preservationChecksPassed":2},{"function":18108,"phase":"after","events":2,"preservationChecksPassed":2},{"function":18108,"phase":"before","events":2,"preservationChecksPassed":2},{"function":19280,"phase":"after","events":2,"preservationChecksPassed":2},{"function":19280,"phase":"before","events":2,"preservationChecksPassed":2}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-legacy-whole-observer22866-begin\",null]","activeStage":"native-legacy-whole-observer22866-begin","frameId":null,"recording":"full","firstEvent":8528,"lastEvent":8531,"startedEvents":4,"events":4,"checkedEvents":4,"counts":[{"function":22828,"phase":"after","events":1,"preservationChecksPassed":1},{"function":22828,"phase":"before","events":1,"preservationChecksPassed":1},{"function":22866,"phase":"after","events":1,"preservationChecksPassed":1},{"function":22866,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-realtime-whole16627-frequency-initializer\",null]","activeStage":"native-realtime-whole16627-frequency-initializer","frameId":null,"recording":"full","firstEvent":8532,"lastEvent":8533,"startedEvents":2,"events":2,"checkedEvents":2,"counts":[{"function":16627,"phase":"after","events":1,"preservationChecksPassed":1},{"function":16627,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-realtime-timing-only-input-step1\",null]","activeStage":"native-realtime-timing-only-input-step1","frameId":null,"recording":"full","firstEvent":8534,"lastEvent":8547,"startedEvents":14,"events":14,"checkedEvents":14,"counts":[{"function":2610,"phase":"after","events":1,"preservationChecksPassed":1},{"function":2610,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"after","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"before","events":1,"preservationChecksPassed":1},{"function":16780,"phase":"after","events":2,"preservationChecksPassed":2},{"function":16780,"phase":"before","events":2,"preservationChecksPassed":2},{"function":16937,"phase":"after","events":1,"preservationChecksPassed":1},{"function":16937,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-realtime-timing-only-input-step2\",null]","activeStage":"native-realtime-timing-only-input-step2","frameId":null,"recording":"full","firstEvent":8548,"lastEvent":8561,"startedEvents":14,"events":14,"checkedEvents":14,"counts":[{"function":2610,"phase":"after","events":1,"preservationChecksPassed":1},{"function":2610,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"after","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"before","events":1,"preservationChecksPassed":1},{"function":16780,"phase":"after","events":2,"preservationChecksPassed":2},{"function":16780,"phase":"before","events":2,"preservationChecksPassed":2},{"function":16937,"phase":"after","events":1,"preservationChecksPassed":1},{"function":16937,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-realtime-timing-only-input-step3\",null]","activeStage":"native-realtime-timing-only-input-step3","frameId":null,"recording":"full","firstEvent":8562,"lastEvent":8575,"startedEvents":14,"events":14,"checkedEvents":14,"counts":[{"function":2610,"phase":"after","events":1,"preservationChecksPassed":1},{"function":2610,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"after","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"before","events":1,"preservationChecksPassed":1},{"function":16780,"phase":"after","events":2,"preservationChecksPassed":2},{"function":16780,"phase":"before","events":2,"preservationChecksPassed":2},{"function":16937,"phase":"after","events":1,"preservationChecksPassed":1},{"function":16937,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-realtime-timing-only-input-step4\",null]","activeStage":"native-realtime-timing-only-input-step4","frameId":null,"recording":"full","firstEvent":8576,"lastEvent":8589,"startedEvents":14,"events":14,"checkedEvents":14,"counts":[{"function":2610,"phase":"after","events":1,"preservationChecksPassed":1},{"function":2610,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"after","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"before","events":1,"preservationChecksPassed":1},{"function":16780,"phase":"after","events":2,"preservationChecksPassed":2},{"function":16780,"phase":"before","events":2,"preservationChecksPassed":2},{"function":16937,"phase":"after","events":1,"preservationChecksPassed":1},{"function":16937,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-realtime-timing-only-input-step5\",null]","activeStage":"native-realtime-timing-only-input-step5","frameId":null,"recording":"full","firstEvent":8590,"lastEvent":8603,"startedEvents":14,"events":14,"checkedEvents":14,"counts":[{"function":2610,"phase":"after","events":1,"preservationChecksPassed":1},{"function":2610,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"after","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"before","events":1,"preservationChecksPassed":1},{"function":16780,"phase":"after","events":2,"preservationChecksPassed":2},{"function":16780,"phase":"before","events":2,"preservationChecksPassed":2},{"function":16937,"phase":"after","events":1,"preservationChecksPassed":1},{"function":16937,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-realtime-timing-only-input-step6\",null]","activeStage":"native-realtime-timing-only-input-step6","frameId":null,"recording":"full","firstEvent":8604,"lastEvent":8617,"startedEvents":14,"events":14,"checkedEvents":14,"counts":[{"function":2610,"phase":"after","events":1,"preservationChecksPassed":1},{"function":2610,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"after","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"before","events":1,"preservationChecksPassed":1},{"function":16780,"phase":"after","events":2,"preservationChecksPassed":2},{"function":16780,"phase":"before","events":2,"preservationChecksPassed":2},{"function":16937,"phase":"after","events":1,"preservationChecksPassed":1},{"function":16937,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-realtime-timing-only-input-step7\",null]","activeStage":"native-realtime-timing-only-input-step7","frameId":null,"recording":"full","firstEvent":8618,"lastEvent":8631,"startedEvents":14,"events":14,"checkedEvents":14,"counts":[{"function":2610,"phase":"after","events":1,"preservationChecksPassed":1},{"function":2610,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"after","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"before","events":1,"preservationChecksPassed":1},{"function":16780,"phase":"after","events":2,"preservationChecksPassed":2},{"function":16780,"phase":"before","events":2,"preservationChecksPassed":2},{"function":16937,"phase":"after","events":1,"preservationChecksPassed":1},{"function":16937,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-realtime-timing-only-input-step8\",null]","activeStage":"native-realtime-timing-only-input-step8","frameId":null,"recording":"full","firstEvent":8632,"lastEvent":8645,"startedEvents":14,"events":14,"checkedEvents":14,"counts":[{"function":2610,"phase":"after","events":1,"preservationChecksPassed":1},{"function":2610,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"after","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"before","events":1,"preservationChecksPassed":1},{"function":16780,"phase":"after","events":2,"preservationChecksPassed":2},{"function":16780,"phase":"before","events":2,"preservationChecksPassed":2},{"function":16937,"phase":"after","events":1,"preservationChecksPassed":1},{"function":16937,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-realtime-timing-only-input-step9\",null]","activeStage":"native-realtime-timing-only-input-step9","frameId":null,"recording":"full","firstEvent":8646,"lastEvent":8659,"startedEvents":14,"events":14,"checkedEvents":14,"counts":[{"function":2610,"phase":"after","events":1,"preservationChecksPassed":1},{"function":2610,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"after","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"before","events":1,"preservationChecksPassed":1},{"function":16780,"phase":"after","events":2,"preservationChecksPassed":2},{"function":16780,"phase":"before","events":2,"preservationChecksPassed":2},{"function":16937,"phase":"after","events":1,"preservationChecksPassed":1},{"function":16937,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-realtime-timing-only-input-step10\",null]","activeStage":"native-realtime-timing-only-input-step10","frameId":null,"recording":"full","firstEvent":8660,"lastEvent":8673,"startedEvents":14,"events":14,"checkedEvents":14,"counts":[{"function":2610,"phase":"after","events":1,"preservationChecksPassed":1},{"function":2610,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"after","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"before","events":1,"preservationChecksPassed":1},{"function":16780,"phase":"after","events":2,"preservationChecksPassed":2},{"function":16780,"phase":"before","events":2,"preservationChecksPassed":2},{"function":16937,"phase":"after","events":1,"preservationChecksPassed":1},{"function":16937,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-realtime-timing-only-input-step11\",null]","activeStage":"native-realtime-timing-only-input-step11","frameId":null,"recording":"full","firstEvent":8674,"lastEvent":8687,"startedEvents":14,"events":14,"checkedEvents":14,"counts":[{"function":2610,"phase":"after","events":1,"preservationChecksPassed":1},{"function":2610,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"after","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"before","events":1,"preservationChecksPassed":1},{"function":16780,"phase":"after","events":2,"preservationChecksPassed":2},{"function":16780,"phase":"before","events":2,"preservationChecksPassed":2},{"function":16937,"phase":"after","events":1,"preservationChecksPassed":1},{"function":16937,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-realtime-timing-only-input-step12\",null]","activeStage":"native-realtime-timing-only-input-step12","frameId":null,"recording":"full","firstEvent":8688,"lastEvent":8701,"startedEvents":14,"events":14,"checkedEvents":14,"counts":[{"function":2610,"phase":"after","events":1,"preservationChecksPassed":1},{"function":2610,"phase":"before","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"after","events":1,"preservationChecksPassed":1},{"function":8084,"phase":"before","events":1,"preservationChecksPassed":1},{"function":16780,"phase":"after","events":2,"preservationChecksPassed":2},{"function":16780,"phase":"before","events":2,"preservationChecksPassed":2},{"function":16937,"phase":"after","events":1,"preservationChecksPassed":1},{"function":16937,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21992,"phase":"before","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"after","events":1,"preservationChecksPassed":1},{"function":21996,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-legacy-bitstream2456-and-scheduler114\",null]","activeStage":"native-legacy-bitstream2456-and-scheduler114","frameId":null,"recording":"full","firstEvent":8702,"lastEvent":8705,"startedEvents":4,"events":4,"checkedEvents":4,"counts":[{"function":114,"phase":"after","events":1,"preservationChecksPassed":1},{"function":114,"phase":"before","events":1,"preservationChecksPassed":1},{"function":2456,"phase":"after","events":1,"preservationChecksPassed":1},{"function":2456,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-legacy-whole-writer10600-actual-remote-slot\",null]","activeStage":"native-legacy-whole-writer10600-actual-remote-slot","frameId":null,"recording":"full","firstEvent":8706,"lastEvent":8711,"startedEvents":6,"events":6,"checkedEvents":6,"counts":[{"function":3686,"phase":"after","events":1,"preservationChecksPassed":1},{"function":3686,"phase":"before","events":1,"preservationChecksPassed":1},{"function":10600,"phase":"after","events":1,"preservationChecksPassed":1},{"function":10600,"phase":"before","events":1,"preservationChecksPassed":1},{"function":17637,"phase":"after","events":1,"preservationChecksPassed":1},{"function":17637,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-legacy-whole-receiver10443-actual-remote-slot\",null]","activeStage":"native-legacy-whole-receiver10443-actual-remote-slot","frameId":null,"recording":"full","firstEvent":8712,"lastEvent":8721,"startedEvents":10,"events":10,"checkedEvents":10,"counts":[{"function":2243,"phase":"after","events":1,"preservationChecksPassed":1},{"function":2243,"phase":"before","events":1,"preservationChecksPassed":1},{"function":3686,"phase":"after","events":1,"preservationChecksPassed":1},{"function":3686,"phase":"before","events":1,"preservationChecksPassed":1},{"function":10443,"phase":"after","events":1,"preservationChecksPassed":1},{"function":10443,"phase":"before","events":1,"preservationChecksPassed":1},{"function":17795,"phase":"after","events":1,"preservationChecksPassed":1},{"function":17795,"phase":"before","events":1,"preservationChecksPassed":1},{"function":22840,"phase":"after","events":1,"preservationChecksPassed":1},{"function":22840,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+{"kind":"host-observer-stage-function-counts","key":"[\"native-legacy-whole-observer22866-after-enrollment\",null]","activeStage":"native-legacy-whole-observer22866-after-enrollment","frameId":null,"recording":"full","firstEvent":8722,"lastEvent":8725,"startedEvents":4,"events":4,"checkedEvents":4,"counts":[{"function":22828,"phase":"after","events":1,"preservationChecksPassed":1},{"function":22828,"phase":"before","events":1,"preservationChecksPassed":1},{"function":22866,"phase":"after","events":1,"preservationChecksPassed":1},{"function":22866,"phase":"before","events":1,"preservationChecksPassed":1}],"allRecordedCallbacksPreservedCpuAndStacks":true,"claim":"Counts of existing observation markers only; no native typed-helper return, routine completion, detector result or movement inferred."}
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/isolation-receipt.json =====
+{
+  "attempts": []
+}
+
+
+===== work-update-check-20261113/native-ordered-world-history-output-independent-4c-v2/review.json =====
+{
+  "kind": "INDEPENDENT-DATA-ONLY-ORDERED-WORLD-HISTORY-V2-OUTCOME-REVIEW",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "All136 frozen condition files match full inventory, hashes and byte lengths",
+      "pass": true,
+      "details": {
+        "files": 136,
+        "manifestSha256": "a6dfc058d52a34128f58e8bbd82dd7d95de551021278e1e08def15297814757b"
+      }
+    },
+    {
+      "name": "All665 execution pins and independently reviewed prepared source remain unchanged",
+      "pass": true,
+      "details": {
+        "pins": 665,
+        "preparationSha256": "2faa5c4f495b1937f1d8983f87f1e56c48e5e27fcf2c5d9d30512b2aed59ec42"
+      }
+    },
+    {
+      "name": "Every raw binary is covered by dense nonoverlapping independently hashed spans",
+      "pass": true,
+      "details": {
+        "rawCoverage": {
+          "named-observer-raw.bin": {
+            "bytes": 0,
+            "spans": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "native-legacy-enrollment-raw.bin": {
+            "bytes": 111164,
+            "spans": 139,
+            "sha256": "6615e3916f69af78ea483422cbb17724f25951f5fac43e00676482da6f2726e7"
+          },
+          "native-realtime-timing-raw.bin": {
+            "bytes": 117568,
+            "spans": 646,
+            "sha256": "3d1d0d68c492a6e0f9baf118298112e7a00653bd7720e4027ad876aa5574a1bd"
+          },
+          "platform-vlan-raw.bin": {
+            "bytes": 4208,
+            "spans": 88,
+            "sha256": "abeb09a5a5e9bd945c66d4673adf32df745ef7aa36b1946b6349a9077159769d"
+          },
+          "remote-admission-raw.bin": {
+            "bytes": 512962,
+            "spans": 26,
+            "sha256": "72c217f4a9667156c96887213fef6a94c913706aefcbd752fe8958e3222ab702"
+          },
+          "remote-application-raw.bin": {
+            "bytes": 93648,
+            "spans": 24,
+            "sha256": "25a9dc24f9782e71d10c2543d0579cf6cf51179c2c7be02f444c75cc9945071a"
+          },
+          "replay-context-diagnostics-raw.bin": {
+            "bytes": 118988,
+            "spans": 1295,
+            "sha256": "b8ae7cddcd110dab4ceedaa2fa3a3c0d28e521721d8560550a0cb82ac4a05123"
+          }
+        }
+      }
+    },
+    {
+      "name": "Single bounded native history/enrollment unit completed with no motion/getters/full-startup claim",
+      "pass": true,
+      "details": {
+        "exitCode": 0,
+        "elapsedMilliseconds": 1004,
+        "completedStages": 76,
+        "movementFrames": 0,
+        "typedMaximumGetters": 0,
+        "fullStartupQualified": false
+      }
+    },
+    {
+      "name": "Native pool header decodes as50×128B initial block inside its actual live102400B allocation",
+      "pass": true,
+      "details": {
+        "pool": 268980080,
+        "platformAllocation": 268920000,
+        "platformBytes": 102400,
+        "nativeInteriorOffset": 60080,
+        "label": 8020800,
+        "stride": 128,
+        "capacity": 50,
+        "allocatedBefore": 0,
+        "allocatedAfter": 1,
+        "initialFreeHead": 268980128,
+        "finalFreeHead": 268980256
+      }
+    },
+    {
+      "name": "Actual2243 entry/return pair corroborates original7944 history allocation rather than inferred success",
+      "pass": true,
+      "details": {
+        "event": 8717,
+        "returnEvent": 8718,
+        "callSite": 6261307,
+        "pool": 268980080,
+        "node": 268980128,
+        "returnEip": 6261307,
+        "calleeEspAdvance": 4
+      }
+    },
+    {
+      "name": "One actual returned aligned node is linked to the native controller sentinel and fits initial backing",
+      "pass": true,
+      "details": {
+        "controller": 269396016,
+        "sentinel": 269396020,
+        "node": 268980128,
+        "head": 268980128,
+        "tail": 268980128,
+        "nodeRawBytes": 128,
+        "independentHeaderOverlapBytes": 16,
+        "independentControllerLinks": true,
+        "growthObserved": false
+      }
+    },
+    {
+      "name": "Native serializer/decoder consumes288bits and enrolls the real remote car exactly once with original two observer setup calls",
+      "pass": true,
+      "details": {
+        "writtenBits": 288,
+        "readBits": 288,
+        "acceptedCountBefore": 0,
+        "acceptedCountAfter": 1,
+        "record": 703604128,
+        "remoteCar": 269380288,
+        "nativeName": "Fixture-Remote",
+        "setup22866Calls": 2,
+        "retainedMaximumGetterExcluded": true,
+        "actualSenderCaptureClaimed": false
+      }
+    },
+    {
+      "name": "All153 raw diagnostic snapshots corroborate native pool publication while replay/checksum/event contexts remain absent",
+      "pass": true,
+      "details": {
+        "snapshots": 153,
+        "spans": 1295,
+        "bytes": 118988,
+        "stagePairs": 76,
+        "nonzeroPoolSnapshots": 71,
+        "replay": 0,
+        "checksum": 0,
+        "eventManager": 0,
+        "eventPool": 0,
+        "lowMemoryIsNotAValidObject": true
+      }
+    },
+    {
+      "name": "Ordinary hub-report invocation is naturally unavailable, preserving its zero lobby/race guard",
+      "pass": true,
+      "details": {
+        "calls": 1,
+        "lobbyId": 0,
+        "racePointer": 0,
+        "reportContextAvailable": false,
+        "unavailableIsNotReportClearance": true
+      }
+    },
+    {
+      "name": "No movement replay/named observation was performed; all8726 recorded callbacks preserve CPU/stacks and network isolation",
+      "pass": true,
+      "details": {
+        "movementFrames": 0,
+        "namedObserverFrames": 0,
+        "markers": 8726,
+        "compactMarkers": 0,
+        "networkAttempts": 0,
+        "allLocksReleased": true
+      }
+    },
+    {
+      "name": "Actual completed stage order matches the independently reviewed unit and frozen parent remains unchanged",
+      "pass": true,
+      "details": {
+        "nativeStartupBeforeWorld": true,
+        "renderBeforeWorld": true,
+        "enrollmentAfterWorld": true,
+        "parentFrozenFiles": 138
+      }
+    }
+  ],
+  "checksPassed": 12,
+  "findings": [],
+  "actualOutcome": {
+    "complete": true,
+    "exitCode": 0,
+    "timedOut": false,
+    "elapsedMilliseconds": 1004,
+    "frozenFiles": 136,
+    "executionSourcePins": 665,
+    "pool": 268980080,
+    "platformAllocation": 268920000,
+    "platformAllocationBytes": 102400,
+    "nativeInteriorOffset": 60080,
+    "node": 268980128,
+    "controller": 269396016,
+    "sentinel": 269396020,
+    "nodeCount": 1,
+    "nativeLegacyAccepted": 1,
+    "legacyWrittenBits": 288,
+    "legacyReadBits": 288,
+    "movementFrames": 0,
+    "typedMaximumGetters": 0,
+    "fullStartupQualified": false,
+    "reportContextAvailable": false,
+    "replayChecksumEventContextsAvailable": false,
+    "networkAttempts": 0
+  },
+  "limits": [
+    "This completed only the native ordered startup/history allocation and legacy enrollment unit, with zero movement frames. It does not qualify movement, full startup or extension-feature A/B behavior.",
+    "Replay/checksum/event-manager/event-pool contexts remain zero. Literal low-memory words are preserved separately and are not detector output or valid object fields.",
+    "Hub report23139 returned through its natural unavailable guard because both lobbyId and racePointer were zero. No reports is not report clearance or online acceptance.",
+    "The128B node payload is emitted by the read-only witness. Independent diagnostic overlap corroborates its first16B and independent controller raw spans corroborate its list membership; a second independent full128B capture is not claimed.",
+    "Native serializer/decoder loopback uses disclosed ordinary caller event time and names. It is not an actual sender/datagram capture.",
+    "All verifier work was read-only hashing/parsing/byte decoding; no game/fixture/provider module import, guest Memory, native execution, frozen edit or rerun occurred."
+  ],
+  "manifestSha256": "a6dfc058d52a34128f58e8bbd82dd7d95de551021278e1e08def15297814757b",
+  "executionContractSha256": "9bc16ef1d29696c90a6a026a3a20adb0558e2da90051ffb3f078b55e1c1a620f",
+  "verifierSha256": "5be8335faa70496ff41f799f71cabef752007ac3a29128cd871bd8fb8c91c8d0"
+}
+
+
+===== work-update-check-20261113/current-native-combined-observer-4c-v2/bounded-receipt.json =====
+{
+  "kind": "BOUNDED-NATIVE-NAMED-OBSERVER-REMOTE-WORLD-APPLICATION",
+  "exitCode": 1,
+  "timedOut": false,
+  "elapsedMilliseconds": 1079,
+  "boundedMilliseconds": 8000,
+  "stdout": "{\"complete\":false,\"initialized\":true,\"lastStage\":\"native-retained-speed-jump-getters-after-combined-replay\",\"admissionFailure\":null,\"reportAvailabilityReady\":true,\"allocatorReady\":true,\"legacyComplete\":true,\"legacyUnavailable\":null,\"legacyFailure\":null,\"replayComplete\":false,\"replayFrames\":1,\"namedObserverComplete\":false}\n",
+  "stderr": "",
+  "error": null,
+  "complete": false,
+  "pinnedInputsUnchanged": true,
+  "pinnedFiles": 412
+}
+
+
+===== work-update-check-20261113/current-native-combined-observer-4c-v2/native-failure-snapshot.json =====
+{
+  "activeStage": "remote-whole-World22587-287-frame2",
+  "error": {
+    "message": "RuntimeError: memory access out of bounds",
+    "stack": "RuntimeError: memory access out of bounds\n    at wasm://wasm/097c0916:wasm-function[2243]:0x360812\n    at wasm://wasm/097c0916:wasm-function[285]:0xd00c2\n    at wasm://wasm/097c0916:wasm-function[12948]:0x14150a1\n    at wasm://wasm/097c0916:wasm-function[287]:0xd0625\n    at callExisting (C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\work-update-check-20261113\\current-native-combined-observer-4c-v2\\remote-world-replay.cjs:11:431)\n    at C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\work-update-check-20261113\\current-native-combined-observer-4c-v2\\remote-world-replay.cjs:26:5\n    at stage (C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\work-update-check-20261113\\current-native-combined-observer-4c-v2\\probe-current-native-ai.cjs:94:369)\n    at Object.run (C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\work-update-check-20261113\\current-native-combined-observer-4c-v2\\remote-world-replay.cjs:17:15)\n    at main (C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\work-update-check-20261113\\current-native-combined-observer-4c-v2\\probe-current-native-ai.cjs:177:246)\n    at Object.<anonymous> (C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\work-update-check-20261113\\current-native-combined-observer-4c-v2\\probe-current-native-ai.cjs:180:5)"
+  },
+  "cpuHex": "000000000000000027ffffffe8a17d0cbcff1700fcff17000000000000000000e9a75f000000500100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000804ec10000000000000000000000007f0300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "cpuWords": [
+    0,
+    0,
+    4294967079,
+    209560040,
+    1572796,
+    1572860,
+    0,
+    0,
+    6268905,
+    22020096,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    3243147264,
+    0,
+    0,
+    0,
+    895,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "guestStackHex": "ee415f0000000000e04b071008a85f000c00000000000000e04b07100000000020a17d0cf09c60000000000000000000000000000000204102000000044c0710000000000c1458008988883c001050060000803f0f00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "wasmShadowPointer": 734004784,
+  "commitBitmapHex": "00000000000000000100008001000000000011000000000000000000000000000000000000000000000000000000000000000000000000000000000000004000c03f1007ff41000000000000000000000000000000000000000000000000000000000000000000000900000000000000010000000000000000000000000000007f0000000000000000000000000000000100000000000000010000000000000000000000000000000100000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffffffffffffff010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000

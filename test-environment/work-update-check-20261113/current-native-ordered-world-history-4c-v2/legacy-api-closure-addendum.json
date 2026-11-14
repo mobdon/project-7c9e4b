@@ -1,0 +1,165 @@
+{
+  "kind": "SOURCE-ONLY-NATIVE-LEGACY-API-CURSOR-TIMESTAMP-CLOSURE",
+  "historicalContract": {
+    "file": "work-update-check-20261113/native-named-observer-report-source-4c-v1/contract.json",
+    "sha256": "7e597e1eccb5c67cb692e4fc0a50949901712436912942d76c0cb127dceac78b"
+  },
+  "independentApiReview": {
+    "file": "work-update-check-20261113/native-named-observer-report-source-4c-v1/legacy-api-independent-review.json",
+    "sha256": "b08975507905ee0e82c147a9959b0ec5182a7a0d5abe4e9fe5c898a20ff60388"
+  },
+  "supersedesOnly": "Historical minimumCandidate timestamp/cursor/ABI blocker for a disclosed per-car API loopback. Does not close normal17623 readiness, full transport receipt, Online rank body, or actual hub report producer context.",
+  "callAbi": [
+    {
+      "function": 286,
+      "ecx": 9031496,
+      "args": [
+        "slot",
+        "unused0",
+        "flag",
+        "name16Ptr"
+      ],
+      "guestRetBytes": 16,
+      "totalEspAdvance": 20
+    },
+    {
+      "function": 2456,
+      "ecx": "owned1033B storage",
+      "args": [],
+      "guestRetBytes": 0,
+      "totalEspAdvance": 4
+    },
+    {
+      "function": 114,
+      "ecx": 0,
+      "args": [],
+      "guestRetBytes": 0,
+      "totalEspAdvance": 4
+    },
+    {
+      "function": 10600,
+      "ecx": 9031496,
+      "args": [
+        1,
+        "nativeBitstream",
+        "actual114flags"
+      ],
+      "guestRetBytes": 12,
+      "totalEspAdvance": 16
+    },
+    {
+      "function": 10443,
+      "ecx": 9031496,
+      "args": [
+        1,
+        "sameNativeBitstream",
+        "declaredFloatTimestampBits",
+        "sameActual114flags"
+      ],
+      "guestRetBytes": 16,
+      "totalEspAdvance": 20
+    },
+    {
+      "function": 22866,
+      "kind": "host(CPU*)->void",
+      "call": "f.exports.f22866(A.cpu)",
+      "guestRetExpected": false
+    },
+    {
+      "function": 22873,
+      "kind": "host(nameOut)->f32"
+    },
+    {
+      "function": 23139,
+      "kind": "host()->void",
+      "scope": "Natural actual-context availability only"
+    }
+  ],
+  "cursor": "2456 natively initializes written+1024/read+1028 independently to0.7771 changes only written;7928 changes only read.10600 output can feed10443 at existing read0 without a cursor or byte reset. Require actual nonzero flags, writtenbits>0 and exact native consumed bits.",
+  "serializedState": "Actual remote slot1 World car/controller serialized through whole10600 and its native vtable+4→17637; decoder through whole10443 retains actual race/player/time/readiness guards and vtable+12→17795→22840.",
+  "timestamp": "Ordinary disclosed10443 API caller event time:Math.fround(signed actual WorldTimer8802700 * original f32 scale7881320). Journal source clock, scale and output bits. It is not native17623 output, not captured sender time, and writes no native clock. Preserve future-time guard.",
+  "names": "Fixture-Local/Fixture-Remote are declared caller inputs only. Whole286/18108 owns allocation, slot/table/name/state/count publication.",
+  "observerOrder": "Whole22866 naturalbegin first; accepted native legacy decoder then22840 native record allocation/name copy; whole22866 once afterward. No movement sample/residual claim.",
+  "report": "Invoke whole23139 once with actual native context. Original first guards read706643224 lobbyID and706643232 racePtr; zero naturally emits no report. No fabricated report body/context or classifier call.",
+  "sourceBodies": {
+    "114": {
+      "bytes": 2448,
+      "sha256": "f28c7b25350cae29809cbefe2df1b5a513aada856392628366034c3e2086ef54",
+      "candidateEqualsRaw": true
+    },
+    "286": {
+      "bytes": 956,
+      "sha256": "dc3690a552781dc3f59aab88b9f068ee8d8548f205fa86314b742e6070df7335",
+      "candidateEqualsRaw": true
+    },
+    "2456": {
+      "bytes": 94,
+      "sha256": "9ab8ae91e402f66124a5fc53275b7885b5dcebfd685f7610ec7d1887b0b671f6",
+      "candidateEqualsRaw": true
+    },
+    "7771": {
+      "bytes": 693,
+      "sha256": "1c948c36428c40dea3cd208886c25d36e004702c946d00d1eeb84afc08495270",
+      "candidateEqualsRaw": true
+    },
+    "7928": {
+      "bytes": 757,
+      "sha256": "7f3779de7086cccfea55a465785b364a743fbe383aac3cd0a39ff9c30094886b",
+      "candidateEqualsRaw": true
+    },
+    "10443": {
+      "bytes": 1774,
+      "sha256": "18d96582a6dc518bf78b0a851232e1c2a951274df4ebf364949ebe9163afbecf",
+      "candidateEqualsRaw": true
+    },
+    "10600": {
+      "bytes": 1465,
+      "sha256": "e8ccb5f3a3b45f5cf52a860201265745d22b0fe383ff10cd671559f1beb5db99",
+      "candidateEqualsRaw": true
+    },
+    "17637": {
+      "bytes": 11675,
+      "sha256": "93a87311cb6dc716e5e43ad0ee2f8302191604bf38663c8a367b2ff8db5cb6ea",
+      "candidateEqualsRaw": true
+    },
+    "17795": {
+      "bytes": 10788,
+      "sha256": "1f53c86fe3714463b969db6e18788b105cf4383a2f03dcc826c007b41ecbf003",
+      "candidateEqualsRaw": true
+    },
+    "18108": {
+      "bytes": 944,
+      "sha256": "c0e840fa59ca19105b4580e1e498f1685858daa7b4ed9986d09fd6ae0413e1cd",
+      "candidateEqualsRaw": true
+    },
+    "22840": {
+      "bytes": 2970,
+      "sha256": "e85e2dc1ee0d302de6acf02939ec8f28133b3fc7e4ed54a37d7ae9a52812fed8",
+      "candidateEqualsRaw": true
+    },
+    "22841": {
+      "bytes": 818,
+      "sha256": "1420bdec9207a8d54e94ba8d4d5ba0b66c8b0af1cc3c16ad88e06151fbff5b3a",
+      "candidateEqualsRaw": true
+    },
+    "22866": {
+      "bytes": 8612,
+      "sha256": "1357e9c082929ec4d931a682d714a2ad9cd08496f0a6f1c7704e11bd76ea6c3a",
+      "candidateEqualsRaw": true
+    },
+    "22873": {
+      "bytes": 815,
+      "sha256": "da72f4fe3a49af550ab75c436dfbd05afde30bbcd3542d40fbc043d21d46949e",
+      "candidateEqualsRaw": true
+    },
+    "23139": {
+      "bytes": 2633,
+      "sha256": "eb05739abd068da8dc33970100296d7b0701054b64d6440c8993ce6911130a7c",
+      "candidateEqualsRaw": true
+    }
+  },
+  "nativeExecuted": false,
+  "wasmCompiledValidatedOrInstantiated": false,
+  "memoryCreated": false,
+  "frozenFilesEdited": false
+}

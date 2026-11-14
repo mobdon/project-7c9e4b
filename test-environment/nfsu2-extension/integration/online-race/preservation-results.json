@@ -1,0 +1,32 @@
+{
+  "preservedFiles": [
+    "walls.js",
+    "cars.js",
+    "current-profile.js",
+    "latest-profile.js",
+    "next-profile.js",
+    "signatures.js",
+    "signature-profile.js",
+    "signature-profile-latest.js",
+    "signature-profile-next.js",
+    "core.js",
+    "dyno-core.js",
+    "dyno.js",
+    "dyno-native-profile.js",
+    "dyno-native.js",
+    "dyno-evaluator.js",
+    "dyno-full.js"
+  ],
+  "unchangedScriptListAndPermissions": true,
+  "changedNativeFunctionsRelativeToV020": [
+    4497,
+    4653
+  ],
+  "allOtherBodiesAndNonCodeSectionsUnchanged": true,
+  "fullTunerPrefixAndProfiles": "byte-identical",
+  "nativeGripDownforce": "not activated",
+  "frozenArchives": {
+    "NFSU2-Driving-Tools-v0.18-Combined-Race-AI.zip": "c5acdfe3fdb5cf39a6a6d040e7da4c3a980c0a24db89c0b1574d33dda558a7df",
+    "NFSU2-Driving-Tools-v0.20-Full-Preset-Tuner.zip": "14b4a4e56b97e4b6234f67319a977b9451920507b55f3ee74e179758688d2f84"
+  }
+}

@@ -1,0 +1,324 @@
+{
+  "kind": "ROOT-DATA-ONLY-COMBINED-DIAGNOSTIC-OUTCOME",
+  "frozenFiles": 138,
+  "sourcePins": 412,
+  "diagnostics": {
+    "snapshots": 166,
+    "denseSpans": 1162,
+    "rawBytes": 123504,
+    "transitions": [
+      {
+        "sequence": 1,
+        "label": "fresh-harness-before-inputs",
+        "context": {},
+        "globals": {
+          "replay": 0,
+          "checksum": 0,
+          "eventManager": 0,
+          "eventPool": 0
+        },
+        "replayObjectValid": false,
+        "lowMemoryWords": {
+          "0": 0,
+          "4": 0,
+          "8": 0,
+          "12": 0,
+          "16": 0,
+          "140": 0
+        }
+      },
+      {
+        "sequence": 73,
+        "label": "current-native-whole-World-constructor21991-1690-after",
+        "context": {
+          "stage": "current-native-whole-World-constructor21991-1690",
+          "phase": "after"
+        },
+        "globals": {
+          "replay": 0,
+          "checksum": 0,
+          "eventManager": 0,
+          "eventPool": 0
+        },
+        "replayObjectValid": false,
+        "lowMemoryWords": {
+          "0": 268749792,
+          "4": 2,
+          "8": 0,
+          "12": 0,
+          "16": 0,
+          "140": 0
+        }
+      },
+      {
+        "sequence": 103,
+        "label": "native-two-car-whole-enrollment16076-after",
+        "context": {
+          "stage": "native-two-car-whole-enrollment16076",
+          "phase": "after"
+        },
+        "globals": {
+          "replay": 0,
+          "checksum": 0,
+          "eventManager": 0,
+          "eventPool": 0
+        },
+        "replayObjectValid": false,
+        "lowMemoryWords": {
+          "0": 269372040,
+          "4": 2,
+          "8": 0,
+          "12": 0,
+          "16": 0,
+          "140": 0
+        }
+      },
+      {
+        "sequence": 105,
+        "label": "native-local-only-Player-setup23721-after",
+        "context": {
+          "stage": "native-local-only-Player-setup23721",
+          "phase": "after"
+        },
+        "globals": {
+          "replay": 0,
+          "checksum": 0,
+          "eventManager": 0,
+          "eventPool": 0
+        },
+        "replayObjectValid": false,
+        "lowMemoryWords": {
+          "0": 269402416,
+          "4": 8597364,
+          "8": 0,
+          "12": 0,
+          "16": 0,
+          "140": 0
+        }
+      },
+      {
+        "sequence": 149,
+        "label": "native-legacy-whole-receiver10443-actual-remote-slot-after",
+        "context": {
+          "stage": "native-legacy-whole-receiver10443-actual-remote-slot",
+          "phase": "after"
+        },
+        "globals": {
+          "replay": 0,
+          "checksum": 0,
+          "eventManager": 0,
+          "eventPool": 0
+        },
+        "replayObjectValid": false,
+        "lowMemoryWords": {
+          "0": 269396020,
+          "4": 269396020,
+          "8": 1065353216,
+          "12": 0,
+          "16": 1113585671,
+          "140": 0
+        }
+      },
+      {
+        "sequence": 154,
+        "label": "frame1-native22587-after",
+        "context": {
+          "frameId": 1,
+          "entry": 22587,
+          "phase": "after"
+        },
+        "globals": {
+          "replay": 0,
+          "checksum": 0,
+          "eventManager": 0,
+          "eventPool": 0
+        },
+        "replayObjectValid": false,
+        "lowMemoryWords": {
+          "0": 269396020,
+          "4": 0,
+          "8": 1065353216,
+          "12": 0,
+          "16": 1113585698,
+          "140": 0
+        }
+      },
+      {
+        "sequence": 164,
+        "label": "remote-whole-World22587-287-frame2-failed",
+        "context": {
+          "stage": "remote-whole-World22587-287-frame2",
+          "phase": "failed"
+        },
+        "globals": {
+          "replay": 0,
+          "checksum": 0,
+          "eventManager": 0,
+          "eventPool": 0
+        },
+        "replayObjectValid": false,
+        "lowMemoryWords": {
+          "0": 269396020,
+          "4": 0,
+          "8": 1065353216,
+          "12": 1,
+          "16": 1113585698,
+          "140": 0
+        }
+      }
+    ],
+    "replayNativeCallBoundaries": [
+      {
+        "sequence": 153,
+        "label": "frame1-native22587-before",
+        "context": {
+          "frameId": 1,
+          "entry": 22587,
+          "phase": "before"
+        },
+        "globals": {
+          "replay": 0,
+          "checksum": 0,
+          "eventManager": 0,
+          "eventPool": 0
+        },
+        "replayObjectValid": false,
+        "lowMemoryWords": {
+          "0": 269396020,
+          "4": 269396020,
+          "8": 1065353216,
+          "12": 0,
+          "16": 1113585671,
+          "140": 0
+        }
+      },
+      {
+        "sequence": 154,
+        "label": "frame1-native22587-after",
+        "context": {
+          "frameId": 1,
+          "entry": 22587,
+          "phase": "after"
+        },
+        "globals": {
+          "replay": 0,
+          "checksum": 0,
+          "eventManager": 0,
+          "eventPool": 0
+        },
+        "replayObjectValid": false,
+        "lowMemoryWords": {
+          "0": 269396020,
+          "4": 0,
+          "8": 1065353216,
+          "12": 0,
+          "16": 1113585698,
+          "140": 0
+        }
+      },
+      {
+        "sequence": 163,
+        "label": "frame2-native22587-before",
+        "context": {
+          "frameId": 2,
+          "entry": 22587,
+          "phase": "before"
+        },
+        "globals": {
+          "replay": 0,
+          "checksum": 0,
+          "eventManager": 0,
+          "eventPool": 0
+        },
+        "replayObjectValid": false,
+        "lowMemoryWords": {
+          "0": 269396020,
+          "4": 0,
+          "8": 1065353216,
+          "12": 0,
+          "16": 1113585698,
+          "140": 0
+        }
+      }
+    ],
+    "failedStages": [
+      {
+        "sequence": 164,
+        "label": "remote-whole-World22587-287-frame2-failed",
+        "context": {
+          "stage": "remote-whole-World22587-287-frame2",
+          "phase": "failed"
+        },
+        "globals": {
+          "replay": 0,
+          "checksum": 0,
+          "eventManager": 0,
+          "eventPool": 0
+        },
+        "replayObjectValid": false,
+        "lowMemoryWords": {
+          "0": 269396020,
+          "4": 0,
+          "8": 1065353216,
+          "12": 1,
+          "16": 1113585698,
+          "140": 0
+        }
+      }
+    ]
+  },
+  "actual": {
+    "exitCode": 1,
+    "timedOut": false,
+    "elapsedMilliseconds": 1079,
+    "complete": false,
+    "completedFrames": 1,
+    "parentCompletedFrames": 1,
+    "requestedFrames": 192,
+    "automaticNamedSamples": 1,
+    "finalGetterCalls": 0,
+    "failures": [
+      {
+        "name": "remote-whole-World22587-287-frame2",
+        "error": {
+          "message": "RuntimeError: memory access out of bounds",
+          "stack": "RuntimeError: memory access out of bounds\n    at wasm://wasm/097c0916:wasm-function[2243]:0x360812\n    at wasm://wasm/097c0916:wasm-function[285]:0xd00c2\n    at wasm://wasm/097c0916:wasm-function[12948]:0x14150a1\n    at wasm://wasm/097c0916:wasm-function[287]:0xd0625\n    at callExisting (C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\work-update-check-20261113\\current-native-combined-observer-4c-v2\\remote-world-replay.cjs:11:431)\n    at C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\work-update-check-20261113\\current-native-combined-observer-4c-v2\\remote-world-replay.cjs:26:5\n    at stage (C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\work-update-check-20261113\\current-native-combined-observer-4c-v2\\probe-current-native-ai.cjs:94:369)\n    at Object.run (C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\work-update-check-20261113\\current-native-combined-observer-4c-v2\\remote-world-replay.cjs:17:15)\n    at main (C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\work-update-check-20261113\\current-native-combined-observer-4c-v2\\probe-current-native-ai.cjs:177:246)\n    at Object.<anonymous> (C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\work-update-check-20261113\\current-native-combined-observer-4c-v2\\probe-current-native-ai.cjs:180:5)"
+        }
+      }
+    ],
+    "physicalComparison": {
+      "remote-world-replay-raw.bin": {
+        "parent": "948e2b9d9170c2409edc60f9f870f2256d3753c9afab314bb6b2d356669b01ec",
+        "diagnostic": "948e2b9d9170c2409edc60f9f870f2256d3753c9afab314bb6b2d356669b01ec",
+        "equal": true
+      },
+      "named-observer-raw.bin": {
+        "parent": "b2a1c36f9cff1b8cf1636d4789f920fcc0b567c5b8a058bbbed6eb64885ecb7e",
+        "diagnostic": "b2a1c36f9cff1b8cf1636d4789f920fcc0b567c5b8a058bbbed6eb64885ecb7e",
+        "equal": true
+      },
+      "remote-admission-raw.bin": {
+        "parent": "72c217f4a9667156c96887213fef6a94c913706aefcbd752fe8958e3222ab702",
+        "diagnostic": "72c217f4a9667156c96887213fef6a94c913706aefcbd752fe8958e3222ab702",
+        "equal": true
+      },
+      "remote-application-raw.bin": {
+        "parent": "6af8314c9d0938f8c354ce22ec0f83759af86422cb7696122124b10803b3c09f",
+        "diagnostic": "6af8314c9d0938f8c354ce22ec0f83759af86422cb7696122124b10803b3c09f",
+        "equal": true
+      },
+      "native-realtime-timing-raw.bin": {
+        "parent": "3d1d0d68c492a6e0f9baf118298112e7a00653bd7720e4027ad876aa5574a1bd",
+        "diagnostic": "3d1d0d68c492a6e0f9baf118298112e7a00653bd7720e4027ad876aa5574a1bd",
+        "equal": true
+      }
+    },
+    "networkAttempts": []
+  },
+  "limits": [
+    "This verifies retained diagnostic bytes and reports the actual condition outcome; verification success is not a movement-test pass.",
+    "Exact native112 return byte/internal branch PCs are not observed by these additional caller snapshots.",
+    "A null replay pointer is an invalid native context; low memory is literal evidence and must not be described as genuine replay flags.",
+    "No client-report, all-feature or live acceptance conclusion follows."
+  ]
+}

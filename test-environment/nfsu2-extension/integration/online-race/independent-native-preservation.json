@@ -1,0 +1,46 @@
+[
+  {
+    "profile": "legacy",
+    "gameSha256": "ee5d281a3109240d5db25dc3921e1044672cf6d650eb58c3baa089b54fe2941f",
+    "patchedSha256": "7a94c50dd50be4cd9bd8ce74182acecd697ea63686dda2066ddc7d2a726e47ea",
+    "changedNativeFunctions": [
+      4497,
+      4653
+    ],
+    "allOtherNativeFunctionsAndNonCodeSectionsPreserved": true,
+    "validates": true
+  },
+  {
+    "profile": "current",
+    "gameSha256": "5e33ad2cb4c4cc6893dee7cbd4d6e9bfb0f59a349d218fddbb5e3331ca69bc34",
+    "patchedSha256": "a1ba5864d6dd35887f1e0bb141f4d5473a4a7998deea97107a4881c1438ab3ec",
+    "changedNativeFunctions": [
+      4497,
+      4653
+    ],
+    "allOtherNativeFunctionsAndNonCodeSectionsPreserved": true,
+    "validates": true
+  },
+  {
+    "profile": "latest",
+    "gameSha256": "df7b930bb293ffdf975f0735d93e0797d51bd137d0cbeabcaff87fc5a693c759",
+    "patchedSha256": "4fcbad72bff69a7de9ce5d22a4b76fcc928f5a8430dca7d13436e27acaac0a74",
+    "changedNativeFunctions": [
+      4497,
+      4653
+    ],
+    "allOtherNativeFunctionsAndNonCodeSectionsPreserved": true,
+    "validates": true
+  },
+  {
+    "profile": "next",
+    "gameSha256": "128e2b5816a8eace4b768aec920318a1613da8235801a361e2009e96550be1d6",
+    "patchedSha256": "1adc69c5d6d1f5641205c56384c31523baf72f3b6e8287f37c41dcf2b86bcf5d",
+    "changedNativeFunctions": [
+      4497,
+      4653
+    ],
+    "allOtherNativeFunctionsAndNonCodeSectionsPreserved": true,
+    "validates": true
+  }
+]

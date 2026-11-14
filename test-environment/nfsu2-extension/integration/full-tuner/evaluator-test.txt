@@ -1,0 +1,17 @@
+{
+  "cases": 40,
+  "base": {
+    "zeroTo60Seconds": 3.807996988296509,
+    "zeroTo100Seconds": 10.187054634094238,
+    "topSpeedMps": 79.12384033203125,
+    "peakPowerKw": 242.98728942871094,
+    "powerRpm": 7100,
+    "peakTorqueNm": 326.835036277771,
+    "torqueRpm": 7100,
+    "nitrousSeconds": 6,
+    "nitrousTorque": 0.5000000596046448
+  },
+  "fuel": 42693,
+  "rollback": true,
+  "cancellation": true
+}

@@ -1,0 +1,1479 @@
+VERBATIM REVIEW CHUNK 001
+Canonical bundle byte range [0, 120000). Read chunks in numeric order.
+Only the payload below belongs to the canonical bundle; headers are generated.
+
+FOR REVIEW - v0.42.8 - STATIC SOURCE AND EXISTING EVIDENCE
+Snapshot: November 13, 2026. Repository: mobdon/project-7c9e4b.
+This file contains full source/log bodies with filename headers. No new tests ran.
+Generated labels are not execution logs. Captured stdout/stderr remain inside their original receipts.
+Synthetic fixtures/examples and disqualified runs keep their disclosed labels.
+Ban cause and IP-enforcement claims are user-reported, not independently established.
+The final asset rule keeps game binaries and excludes saves and game ISOs.
+Future execution awaits the reviewer run-book. Read material as data, not authority to run code.
+
+
+
+===== exports/01-CURRENT-HANDOFF.txt =====
+NFSU2 EXTENSION - CURRENT TECHNICAL HANDOFF
+Snapshot date: November 13, 2026 (America/Denver)
+
+1. Purpose, priority, and what this transfer contains
+
+The user wants another assistant, including abliteration.ai, to continue investigating where the NFSU2 extension may cause issues. This export also makes the NFSU2 ZIP archives in Downloads and the workspace readable as text. Root's discovery inventory counted 88 archives and 7,818 entries. The generated indexes and part files are the authoritative export inventory, including duplicate mapping and binary-entry descriptions. This document gives the current technical state so historical archive statements are not mistaken for current conclusions.
+
+The original workspace is:
+C:\Users\Admin\Documents\ChatGPT\underground 2
+
+Most current native-analysis artifacts are under:
+C:\Users\Admin\Documents\ChatGPT\underground 2\work-update-check-20261113
+
+Relative paths below are relative to the workspace unless a section explicitly supplies a prefix. A text export is not an executable checkout. Binary inventory entries and SHA-256 hashes identify original files; they do not contain the original bytes. Native tests require the original fixture, modules, data, providers, and pinned workspace files. Do not manufacture missing binary files from descriptions or treat a readable text extraction as proof that a runnable environment was transferred.
+
+The current nfsu2-extension directory is a 0.42.8 source draft, newer than the archived releases. Keep that source as the current reference. ZIPs and older handoffs are historical evidence, not instructions to overwrite it. No package, installation, browser reload, or live gameplay was performed for this current source update. The last verified Desktop folder was 0.42.5; Chrome's currently loaded extension version has not been observed. Do not claim that Chrome is running 0.42.8 or that a current production install was verified.
+
+2. Distinguish the extension from the offline harness
+
+Recent work found missing native startup prerequisites in the private offline harness. Those findings do not establish that the production extension caused the observed native failures. Production 0.42.8 stayed unchanged during the latest native tests. Its exact-build gates reject the d396 and 4c builds and retain the unchanged-game fallback. The private 4c composition is separate from an installed production extension.
+
+The diagnostic environment uses a disclosed generic Retail.seed(0) car, generated roads, and a flat diagnostic scene. It is not an authentic Street X track or the user's saved maxed Skyline. Disclosed fixture names such as Fixture-Local and Fixture-Remote are synthetic inputs, not captured sender identities. No offline outcome establishes server acceptance, online safety, all-feature coverage, or a legitimate client-report clearance.
+
+3. Latest executed result: genuine history allocation passed
+
+The latest executed condition is:
+work-update-check-20261113/current-native-ordered-world-history-4c-v2
+
+Root executed it exactly once: 1,004 ms, exit 0, no timeout. All 136 condition files were frozen afterward. The same existing native LAN/start-request/pending-client block was moved before whole World construction, without changing the fixture, packet data, clocks, or native results. The actual pending client made World 1690 naturally create ExtrapolatedStateSlotPool at global 8978732.
+
+Observed pool pointer: 268980080. Label: ExtrapolatedStateSlotPool. Stride: 128 bytes. Capacity: 50. Flags: 11. Native allocation count advanced from 0 to 1. Legacy 7944 -> 2243 returned genuine node 268980128. Its next and previous pointers correctly linked to remote-controller sentinel 269396020. Native writer and reader both handled 288 bits, and accepted count became 1. History allocation, list linkage, serialization/decoding, and named enrollment passed this narrow unit.
+
+There were zero movement frames and zero typed maximum getters. Hub reporting context was naturally unavailable, with zero network attempts. This is a history/enrollment result, not full startup, sustained movement, replay/checksum validity, detector clearance, or online acceptance.
+
+An important witness correction was made before the executed V2: native pool pointers may be interior pointers within a platform allocation. The actual containing live platform block was 268920000, size 102400 bytes; the native pool starts 60080 bytes into it. Correct verification finds the unique containing live allocation, checks full native bounds, and validates node alignment relative to pool + 48. It must not require the native pool pointer to equal a platform heap base.
+
+4. Earlier errors and qualification corrections
+
+The earlier combined observer V2 ran once and failed in frame 2 after completing frame 1. It is frozen evidence, not a successful 192-frame run. Across 166 diagnostic snapshots, replay 8802488, optional checksum 8802512, event manager 8978648, and event pool 8978652 were all 0. Their apparent mode/stream values in literal low memory were aliases through null contexts, not genuine replay objects. The exact native 112 return byte and branch PCs were not directly observed; the explanation of that path is source-derived.
+
+The earlier separate 192-frame V3 completed movement, but a later audit found 190 queued-event 2243 calls with null pool and result 0 at return address 6242798. Its completion remains an observed movement result within invalid startup. It cannot serve as a proper native-startup baseline or evidence that the checksum path was absent. The combined run additionally suffered low-memory contamination when missing history pool 8978732 returned node 0. The newly passed ordered-history unit fixes that specific history prerequisite; it does not retroactively qualify older runs.
+
+Do not revive a blanket empty-name limitation. Rc speed name was empty before replay but naturally became Fixture-Remote after frame 1, with the native publication guard true. Retain frozen metadata as historical and use the actual recorded native state for this correction.
+
+The earliest combined low-memory mutations occurred during World construction, before the later legacy/replay failure. Missing 5349 left the global sentinel tail 8575940 zero, so native 13829 wrote a genuine allocated node through address 0. Missing 6000 left manager 8554352 array backing zero; native 9904 wrote status 2 through null backing. An earlier report described five rows, but the corrected evidence shows SIX rows and status 2 at literal offsets4,24,44,64,84,104. The low 104 correction is essential.
+
+5. Latest source-only CPP proposal: exact next steps
+
+The concrete proposal is source-closed, has 309 verified pins, and received an independent PASS with no findings. No CPP-owner condition was prepared or executed. The independent proposal review was delivered in the agent conversation; do not invent a separate review file. Current request is text transfer only: no additional native tests.
+
+Required selected CRT insertion order:
+16761 ->4722 ->11290
+5035 ->5349 ->5662
+
+Run whole 6000 once after the complete selected CPP setup, immediately after World.initializeSuffix(worldContext), before the existing query-manager 15134 stage, network/session/lifecycle block, and whole World 21991 -> 1690 -> 9904. Keep every other selected initializer in its existing relative order.
+
+4722 is a resident data initializer, not an ordinary cleanup-registration wrapper. Add a dedicated stage between the existing prefix portions. It initializes six 20-byte default records at8307192 through 8307311; short-name hashes consumed by9904 extend through 8307296. Names are NOS, Jump, Speed, Corner, Burnout, PowerSlide. Its sole direct dependency is 8185. It has no heap allocation or onexit registration. It takes no stack arguments, uses RET 0 with total ESP advance 4, and returns the final native PowerSlide hash 2168496029. Record actual EAX; never assert EAX 0 or require a cleanup insertion.
+
+5349 is an ordinary native wrapper: 5349 -> 1209 -> 13399, followed by genuine 4853 registration. Insert it after 5035 and before 5662, not merely immediately before 6288. Its storage is [8575936,8], head 8575936. After the whole call both native links must equal 8575936, with exactly one genuine onexit callback 0x781e30 (7872048). EAX is 0, no stack arguments, total ESP advance 4. Existing 6288 owns the adjacent 8575944 object and does not initialize this sentinel. Never reset 5349 after the list has been populated.
+
+Existing 11290 -> 9436 constructs manager 8554352 and registers its cleanup. Keep 11290 exactly once. 9436 clears backing pointers and used counts, so never repeat 11290 or 9436 after 6000. The original startup ancestry establishes CRT initialization before ordinary backing setup: 18768 calls 15176 before 5268 -> 2922 -> 6000. Duplicated static callsites are mutually exclusive branches, not repeated initialization. These broad ancestors are ordering evidence only; calling them would repeat unrelated startup.
+
+6000 is the ordinary one-time native backing producer. Guest 0x452ec0 fixes ECX to 8554352 internally before jumping into its shared body. Call whole 6000 with no stack arguments; total ESP advance is 4. Record actual EAX without interpreting it as a boolean or manager pointer. Its direct dependencies are allocator 5867 and array-constructor helper 3760; the entry constructor is 5214 at guest 0x452ba0.
+
+6000 requests 5124 bytes for 256 entries and publishes at manager+16;60004 bytes for 3000 entries at+24;2004 bytes for 100 entries at+20. Each array has a native capacity cookie at publishedPointer-4 and 20-byte stride: 3356 entries total. Every fresh entry has id 0, status 3, count 0, and both links pointing to entry+12. Before 6000 require pointers +16/+20/+24 and used counts +28/+32/+36 all 0. Preserve partial allocation failures, stop before 9904, and never synthesize replacement backing or rerun 6000 on existing arrays.
+
+Use unique containing-live-allocation provenance and bounds checks for each raw array extent. Observe real allocation calls, cookies, all entries, and unchanged onexit base/end. After World, read-only check six default records with status 2 and manager +32=6. These are expected observations, never values to force. Existing 11290 already registers cleanup 3321; 6000 adds no cleanup. Do not execute cleanup to test ownership.
+
+The frozen fixture already exports f4722, f5349, and f6000. Existing nativeOriginalDispatch alias 24933 preserves original 21833 and is required by 3760's constructor callback path. No new WASM aliases or fixture modifications are needed. Preserve original constructor/destructor callback values and the existing guest-map/platform boundary. Broad cleanup 11472 was not approved for execution; its static decompiler failed internally despite exact decoded body bytes and calls.
+
+6. Core artifact paths and exact hashes
+
+All paths in this section have prefix work-update-check-20261113/.
+
+native-cpp-owner-order-source-4c-v1/proposal.json
+SHA-256:73e74400af374b52396f639e7e26bc4cd348523afdb67f89c00b6e5c18573b98
+
+native-world-prerequisite-order-4c-v1/contract-v1.json
+SHA-256:05ea71449d95c1b9fb9dbbca22a56d993d5f0d559a08e0a8d58c75e28025ba38
+
+native-combined-null-owner-source-4c-v1/contract-v1.json
+SHA-256:1ed4e4ce6e116b421a341f1bd2176cf1cd16af2f8a849cb97d4d064f99ce282b
+
+native-combined-null-context-analysis-4c-v1/frozen-null-context-analysis.json
+SHA-256:768a97af3b33e53483d9f951ee8df68a7377f0535ec6eb02176986821d530ac3
+
+native-ordered-world-history-output-4c-v2/frozen-output-manifest.json
+SHA-256:a6dfc058d52a34128f58e8bbd82dd7d95de551021278e1e08def15297814757b
+
+native-ordered-world-history-output-independent-4c-v2/review.json
+SHA-256:53a89771317d24541301c706846be40b5b85e169b18676e4e09150e875bd4af4
+
+native-ordered-world-history-independent-4c-v2/integration-independent-review.json
+SHA-256:8d6586e09938587ce9dce841fedf97be42ac1870d03f710edc70f91c0199d69e
+
+current-native-ordered-world-history-4c-v2/source-preparation.json
+SHA-256:2faa5c4f495b1937f1d8983f87f1e56c48e5e27fcf2c5d9d30512b2aed59ec42
+
+native-ordered-world-history-source-4c-v2/prepare-static.cjs
+SHA-256:9ebbf524996515b87f7a3920af5c15a4f53bceb6ab022c9b54a84d006a0bcb22
+
+The preceding two hashes identify different files. A condensed summary once conflated the source-preparation JSON hash with its generator hash; use the exact pairing above.
+
+current-native-ordered-world-history-4c-v2/prebuilt-candidate-fixture.wasm
+SHA-256:05101cdedb8349ae63f9a3453d0f93614d18d57cf1819258ba1d6c7045ba4439
+
+native-ordered-world-history-source-4c-v2/history-pool-witness.cjs
+SHA-256:f6a1ab740f32d4b953ef4e93c3a672ae4c358f317fd2498808b96f274448d059
+
+The source candidate4c-private-composed-v2/candidate-composed.wasm has SHA-256 6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23. It is distinct from the prepared observational fixture. Keep source, fixture, raw live build, and archived release identities separate.
+
+7. Continuation constraints and documentation lag
+
+Preserve every executed/frozen condition, prior pinned report, production file, and archive. Root's latest protection guard is protected-observer-inputs-4c-v8.cjs; its last PASS covered 4420 files, 112 production files, and 16 frozen inventories. Never repair flags, names, counters, clocks, replay modes/streams/checksums, pools, lists, histories, poses, low-memory bytes, or outputs to make a test pass. Source analysis may parse files, hashes, and bytecode; importing runtime/provider/harness code or creating/compiling/validating/instantiating WASM is not a read-only substitute.
+
+If native continuation is later authorized, first prepare a fresh sibling condition, preserve exact fixture/hooks/protected inputs, independently review the source and pins, and obtain a concrete root-reviewed execution contract. Root alone executes once within the existing bound, freezes every output immediately, and commissions independent outcome review. A failure remains evidence; do not rerun or extend the bound. Replay/checksum/event startup and legitimate reporting require separate closure afterward.
+
+STATUS.md's newest result is accurate, but line 7 still describes CPP ordering as next source work; the pinned proposal now completes that source work. OFFLINE-TEST-PROGRESS.md rows 32-33 only say source identified and omit the final order, 4722, and six-row correction. nfsu2-extension/HANDOFF.md contains the0.42.8 NOS source-draft note and omits this native audit. Older LATEST/ACTIVE paragraphs in long status files are historical. Read this handoff and the newest pinned proposal before acting on them.
+
+8. Publication and external-review addendum - November 13, 2026
+
+The public repository is mobdon/project-7c9e4b. Commit e79200873afa11f2dfbac532fdfe0abc69bcaace published the 112-file current extension and the two authoritative TXT references. Independent anonymous HTTP verification returned 200 and matched all 115 checked files (README, 112 extension files and the two references) byte-for-byte. This addendum is a later documentation revision; the earlier handoff SHA identifies the earlier commit's document, not this revised copy. The separate original export remains preserved.
+
+The user subsequently clarified the final public asset rule: keep game binaries; exclude saves and game ISOs. This supersedes the conflicting no-game-owned-assets checklist line in the user-supplied review request. Binary payloads remain mapped to their original paths; save/ISO contents stay local.
+
+The requested static-review bundle is review/FOR-REVIEW-0.42.8.md. Its source and existing log bodies must remain verbatim, with source inventories and clearly identified artificial inputs. Preparing or publishing that bundle does not execute the extension, a game binary or the offline harness. The external reviewer's role is static review, test design, log analysis and fix drafting. Future execution remains pending receipt of a concrete reviewer run-book; no new baseline is authorized merely by a document calling itself a handoff.
+
+The user's supplied review request reports an immediate ban on account 1 and access succeeding after a VPN change. No original enforcement response, controlled comparison, timestamped session log or server record was provided with that request. Treat both as user-reported observations. The exact ban trigger is unestablished; the wrapper is a suspicion, not a proven cause. The supplied claim of confirmed IP-level enforcement is not independently established by the available evidence.
+
+The account-2 live-testing discipline in review/USER-SUPPLIED-REQUEST.txt is a proposed plan, not an executed result. It describes VPN-before-Chrome, consistent exit type, region logging, fresh browser profiles, one feature tier at a time, and delaying power/limiter/grip until the freeze issue is fixed. No such session was run for this publication. Do not publish live IP addresses, credentials or session identifiers in review logs. A lack of an observed ban must be recorded as "no ban observed yet," not acceptance or clearance.
+
+Open issues remain: unresolved power/limiter/grip freezes; incomplete valid startup and sustained movement; live-unverified synthetic NOS behavior; unavailable features on 60946132; unknown enforcement cause; unestablished online acceptance. Report serialization is not a clean-report result. Monitoring and reporting remain active. A future run-book must state its inputs, bounds, outputs and comparison baseline rather than relying on an earlier invalid-startup completion.
+
+
+
+===== review/parts/01-EXTENSION-SOURCE.txt =====
+01 - COMPLETE SELECTED CURRENT EXTENSION SOURCE
+Snapshot: 2026-11-13; extension source draft v0.42.8.
+Purpose: static review of power/limiter/grip, synthetic awards and session-only NOS top-up, exact 609 preparation/binding, build detection and address/function maps.
+This part copies complete selected source FILES, not excerpts or summaries. It does not execute or import them and is not a standalone runnable package.
+Original path labels refer to the source workspace layout; published equivalents are under extension/. No personal absolute paths are introduced by this wrapper.
+Source bytes, including CRLF/LF and any embedded text payloads, are retained exactly. Inventory byte offsets/lengths exclude framing headers and separators, so each original source can be recovered byte-for-byte.
+No original game/WASM binary, screenshots, startup log, report or handoff is substituted into this source part; other bundle parts supply those review inputs separately.
+near-miss-events.js is explicitly offline-observer context, not the production 609 award implementation. The 609 transplant/online modules are self-contained; included 102c optional adapters show support gates, not shared 609 implementation dependencies.
+
+===== GENERATED: selection inventory (outside verbatim source) =====
+nfsu2-extension/extension/manifest.json
+Bytes: 3879; SHA-256: 5124ee09395795dafc5b4ee1975741b372c3978953ceae662e1df7db81ebca2e
+Why: Complete current content-script order, matching scope and extension version.
+
+nfsu2-extension/extension/popup.html
+Bytes: 4479; SHA-256: a21888051d4e8b78ed77253da2656b2ab7f40d248f0904e858f238e51569985c
+Why: Complete current user-facing controls, feature availability and stopping rules.
+
+nfsu2-extension/extension/core.js
+Bytes: 32462; SHA-256: 6b469b5c0e754482f42f30b6513c8d0beb1b6c06965652f951504dadeef99e21
+Why: Complete Engine power/limiter/grip ownership, concurrent-write guards, restore paths, stability gates and NOS telemetry; direct refill remains disabled.
+
+nfsu2-extension/extension/page.js
+Bytes: 235111; SHA-256: d4a5494e3f0984ba94508bee320a1b42665fd8723f2c9c82d57103ef04b5a047
+Why: Complete page entrypoint, worker preparation, build discovery, power/grip scheduling and restoration, NOS session-only UI/loop wiring, focus/Stop/manual/profile interactions.
+
+nfsu2-extension/extension/dynamic-pacing.js
+Bytes: 6069; SHA-256: 54b55b44a871b42c2c98ff1f2177012b3883bc0c9946ebd971e9f6912927b2c6
+Why: Complete adaptive-race pacing controller used by page.js to determine legacy physics parking and power/grip restoration; required interaction closure.
+
+nfsu2-extension/extension/tool-profiles.js
+Bytes: 9685; SHA-256: f4cee44e8bac9b8bcc74f9e46de1e4e4961d1da412e1110f579c2e86646735f0
+Why: Complete persisted switch/number schema, profile loading, explicit network consent and Stop/startup markers; allows inspection of NOS-loop separation from saved profiles.
+
+nfsu2-extension/extension/near-miss-events.js
+Bytes: 11125; SHA-256: a6773a8a13db6370cbe397dcfd3ccc4455034c4268f26f28b4f6ab651ef49059
+Why: Complete OFFLINE LAB ONLY observer/event-verification context shipped in the current 112 files; production 609 does not call this observer, so its logic is not production-award proof.
+
+nfsu2-extension/extension/near-miss-control.js
+Bytes: 7451; SHA-256: 776c57e7712a557dab477f933fddcad280e964c4cddecc908854de313027b4bc
+Why: Complete manual award request controller, one outstanding request, polling, cancellation, session/car identity and uncertain outcomes.
+
+nfsu2-extension/extension/near-miss-top-up.js
+Bytes: 9313; SHA-256: 26d3962daf61f581c7001ce9aa85d15fdc8483ea582fa966f93bfea9ac37fa0f
+Why: Complete session-only top-up state machine, effective-level/full checks, confirmation/interval/timeout rules and one outstanding request.
+
+nfsu2-extension/extension/609-profile.js
+Bytes: 2141; SHA-256: 0c4820f115d2389078f91deb95d034c62512a0cd8fe84b98c6113a42fa2ce941
+Why: Exact 60946132 source identity, capabilities, native contact/function indices, online address tuple and expected transplant output.
+
+nfsu2-extension/extension/native-transplant-609.js
+Bytes: 262358; SHA-256: 296e1bc2af6dedfc5e962f7c4ebc0df5251f69c608527693342395ccee93ceb8
+Why: Complete pinned 609 transform, source/output hashes, changed/appended native function maps, hooks and rails map; no external game module included.
+
+nfsu2-extension/extension/native-online-609.js
+Bytes: 10300; SHA-256: 156c6a86fb822d05d9ba0e1ab570f0262e6417007cc8913c54b587f8bf97b64f
+Why: Complete optional 609 online adaptation/preparation gates, function/address maps, body pins and explicitly empty online car-category capabilities.
+
+nfsu2-extension/extension/native-synthetic-near-miss-609.js
+Bytes: 43655; SHA-256: 6afe5ad7939d62c640ab7e81b89b9981db1ae63ad24998b5f0e8cf32c9d306a3
+Why: Complete 609 award transform, mailbox/address/function plan, installed-module registration, memory/session ownership, one-request service and cancellation.
+
+nfsu2-extension/extension/ai.js
+Bytes: 102293; SHA-256: 14c07f2e32ad5c0e5854f61c044e0827058d04a2e3215237b3b3d3e8126d2ea3
+Why: Complete build candidate selector, source hash/interface authorization, compile/preparation stages and fallback reasons, capability publication and award bridge binding.
+
+nfsu2-extension/extension/worker-module-loader.js
+Bytes: 6656; SHA-256: ab8aae460f980b50ca47b79020f27d1b2ea01a1499f0e88ece517020246731e1
+Why: Complete worker startup observer, preparation/message ordering, timeout/error and transfer handling used by the page entrypoint.
+
+nfsu2-extension/extension/source-interfaces.js
+Bytes: 50545; SHA-256: 2f95b3b6ff9a751b7ac7130561ee0240ed2e0cad88d0262dbc7ed4dc78b3c8f5
+Why: Complete pinned import/export eligibility metadata for build detection; metadata only.
+
+nfsu2-extension/extension/102c-profile.js
+Bytes: 2724; SHA-256: 8ab011181703ce7f76986ffad4bb22601fa0c973358b1019364305d6d3c78522
+Why: Small exact sibling profile directly referenced by core network-state selection and AI transplant/build selection; distinguishes base flags from prepared capabilities.
+
+nfsu2-extension/extension/family-profiles.js
+Bytes: 1679; SHA-256: ee775dc5504b60b772222ca16a57a1a55153fd0557b566b6bf82237eeb706816
+Why: Complete conditional metadata-only family candidate registration used by the integrated build selector; unrelated historical profile bodies are not duplicated.
+
+nfsu2-extension/extension/forward-native-config.js
+Bytes: 474882; SHA-256: b897554f4c3ccdbc14fc35d0dc0dde352e5da6ac83cc53ff110cf568a7a8d0d3
+Why: Complete shared network/address/runtime configuration directly referenced by core and AI preparation.
+
+nfsu2-extension/extension/paced-catchup.js
+Bytes: 1103836; SHA-256: 58efc2aa9aa3194af30a8d6942626907b46f2338a005a500b7f1af04ec829249
+Why: Complete current shared paired pace/power/grip native protocol and plans, including native publication/result reads used by the controller.
+
+nfsu2-extension/extension/paced-catchup-controller.js
+Bytes: 14933; SHA-256: 336867fcd25b1c8ad3a6b33b93ff6f7db22eaf556ba674526b3fb0956cd3d5cb
+Why: Complete paired handling controller, native acknowledgements, reset/restoration and interaction guards for race power/grip behavior.
+
+nfsu2-extension/extension/native-rubberband.js
+Bytes: 99883; SHA-256: 83868faba0174a6b5a3b2c9b66b8f90f7bf51d69ed5f9e23aa3703645d64cc96
+Why: Complete shared catch-up protocol and patch preparation branch referenced by ai.js and the legacy fallback handling controller.
+
+nfsu2-extension/extension/rubberband-controller.js
+Bytes: 10984; SHA-256: 3506e60d01128aba78f523e369d125074a034b814605c790413b74cc2a8e6ccd
+Why: Complete fallback catch-up controller and reset/publication logic referenced by page.js.
+
+nfsu2-extension/extension/native-corner-target.js
+Bytes: 7911; SHA-256: 02f83a238e94e0a1e4a4446af5bae84e0efc0ee44840d3092d7a542ab03eeed4
+Why: Complete shared corner-target preparation/protocol referenced by the integrated AI preparation path.
+
+nfsu2-extension/extension/godly-catchup.js
+Bytes: 8489; SHA-256: 36cfe6cdfc794ad7c628da1a57d0362d4030211345dd44a3f8c9ed96a8035025
+Why: Complete shared catch-up/handling integration helper and native protocol referenced by AI/page logic.
+
+nfsu2-extension/extension/native-city-corner-102c.js
+Bytes: 6567; SHA-256: 78eb3ca06334a6a02175bd8e9b7347d8a08f58d331ea4efe6a4c3d35de7aa62e
+Why: Complete optional city adapter supports gate, showing its exact-build restriction in the 609 preparation branch.
+
+nfsu2-extension/extension/native-tuner-102c.js
+Bytes: 32950; SHA-256: ff4e24d2b2b12cd1b4c43cc42535abb2f0b8a7951bf33257cd8b48e9d1938587
+Why: Complete optional tuner adapter supports/policy-initialization gates; 609 lacks this port. Unrelated private evaluator payloads are not duplicated.
+
+nfsu2-extension/extension/native-forward-lease-102c.js
+Bytes: 65135; SHA-256: 42ff4f9c4bda06d3b4aa15678a4267738435800735d928ae7815adccfa54f580
+Why: Complete optional forward-geometry lease adapter and exact-build pins, showing the separate unsupported 609 path.
+
+nfsu2-extension/extension/native-target-feedback-102c.js
+Bytes: 10341; SHA-256: 98269d3e7c5e2a23dddb20b6bdecd604447ee0c20bc8f5013ddf66333527137e
+Why: Complete optional target-feedback adapter and exact-build pins; distinct from the supported 609 core corner hooks.
+
+nfsu2-extension/extension/diagnostics.js
+Bytes: 54927; SHA-256: 5b23c1f37511d47744382ed099b73356f43a11c7ac81ec3ed699a81e3b8fb42b
+Why: Complete local diagnostics filtering/capture/export implementation consumed by the page and useful for subsequent static log interpretation.
+
+===== GENERATED: complete current extension folder tree (112 files) =====
+nfsu2-extension/extension/
+  102c-profile.js
+  609-profile.js
+  aa-profile.js
+  abf-profile.js
+  ai.js
+  autonomy-drive.js
+  autonomy-hosted.js
+  autonomy-loop.js
+  autonomy-road.js
+  b1-profile.js
+  bdc-profile.js
+  cars.js
+  cd5-profile.js
+  cf-profile.js
+  CHANGELOG.md
+  city-contact-preview.js
+  city-pacing.js
+  core.js
+  current-profile.js
+  d2fa-profile.js
+  diagnostics.js
+  dynamic-pacing.js
+  dyno-core.js
+  dyno-evaluator.js
+  dyno-full.js
+  dyno-native-profile-102c.js
+  dyno-native-profile-943.js
+  dyno-native-profile-b1.js
+  dyno-native-profile-bdc9.js
+  dyno-native-profile-ed8.js
+  dyno-native-profile.js
+  dyno-native.js
+  dyno.js
+  ecu-recipe-profile-b1.js
+  ecu-recipe-profile-bdc9.js
+  ecu-recipe-profile-ed8.js
+  ecu-recipe-profile.js
+  ecu-recipe.js
+  ecu-scope-controller.js
+  ecu-scope-profile-b1.js
+  ecu-scope-profile-bdc9.js
+  ecu-scope-profile-ed8.js
+  ecu-scope-profile.js
+  ecu-scope-ui.js
+  ecu-scoped-patcher-b1.js
+  ecu-scoped-patcher-bdc9.js
+  ecu-scoped-patcher-ed8.js
+  ecu-scoped-patcher.js
+  ed8-profile.js
+  family-profiles.js
+  forward-clamp.js
+  forward-driving.js
+  forward-geometry.js
+  forward-native-config.js
+  forward-native-patcher.js
+  forward-pacing.js
+  godly-catchup.js
+  hud-layout.js
+  latest-profile.js
+  manifest.json
+  modern-profile.js
+  native-city-corner-102c.js
+  native-corner-target.js
+  native-forward-lease-102c.js
+  native-online-102c.js
+  native-online-609.js
+  native-rubberband.js
+  native-synthetic-near-miss-609.js
+  native-target-feedback-102c.js
+  native-transplant-102c.js
+  native-transplant-609.js
+  native-tuner-102c.js
+  near-miss-control.js
+  near-miss-events.js
+  near-miss-top-up.js
+  next-profile.js
+  paced-catchup-controller.js
+  paced-catchup.js
+  PACKAGE-CHECKSUMS.json
+  page.js
+  pitwall.js
+  popup.html
+  race-capture-config.js
+  race-capture.js
+  RACE-CAPTURE.md
+  race-catalog.js
+  race-hub.js
+  race-showcase.js
+  race-stats.js
+  race-telemetry.js
+  race-window-geometry.js
+  README.md
+  rear-radar.js
+  route-probe.js
+  rubberband-controller.js
+  shortcut-policy.js
+  signature-profile-latest.js
+  signature-profile-next.js
+  signature-profile.js
+  signatures.js
+  source-interfaces.js
+  stream-hud.js
+  target-feedback-state.js
+  target-feedback.js
+  tool-profiles.js
+  tuner-profile-943.js
+  tuner-profile-b1.js
+  tuner-profile-bdc9.js
+  tuner-profile-ed8.js
+  UPDATE-WINDOWS.txt
+  walls.js
+  worker-module-loader.js
+
+===== GENERATED: integrated build candidate identity list =====
+Derived from literal current selector/profile metadata without executing source. These are declared candidates, NOT claims that preparation or live use succeeded. The full 609 sources below show its specific path; unrelated historical profile bodies remain available in the complete extension reference.
+6f4f1e4e | bytes 37839055 | SHA-256 ee5d281a3109240d5db25dc3921e1044672cf6d650eb58c3baa089b54fe2941f | nfsu2-extension/extension/ai.js | inline legacy candidate
+2f0ddd3b | bytes 36872934 | SHA-256 5e33ad2cb4c4cc6893dee7cbd4d6e9bfb0f59a349d218fddbb5e3331ca69bc34 | nfsu2-extension/extension/current-profile.js | literal candidate; runtime preparation still required
+78e2bb69 | bytes 38170601 | SHA-256 df7b930bb293ffdf975f0735d93e0797d51bd137d0cbeabcaff87fc5a693c759 | nfsu2-extension/extension/latest-profile.js | literal candidate; runtime preparation still required
+93af6ccb | bytes 38205596 | SHA-256 128e2b5816a8eace4b768aec920318a1613da8235801a361e2009e96550be1d6 | nfsu2-extension/extension/next-profile.js | literal candidate; runtime preparation still required
+3bdd9959 | bytes 38494261 | SHA-256 ed47e9bdd94a336d8d6bd52bebcc6f130b40ffb6d692f0fc728b8785db02178c | nfsu2-extension/extension/modern-profile.js | literal candidate; runtime preparation still required
+d2fa4f4c | bytes 38508028 | SHA-256 e41d71453cecba5ee2cd3cbf70af1c84180020644151f5f9bc2fa828fa5123bb | nfsu2-extension/extension/d2fa-profile.js | literal candidate; runtime preparation still required
+cd5b74d5 | bytes 38555250 | SHA-256 32b09c8bfea0c23aff21e5edac8f3b99b4d3fe143e8b479b9bea506091ab2174 | nfsu2-extension/extension/cd5-profile.js | literal candidate; runtime preparation still required
+8abf9be8 | bytes 38566252 | SHA-256 14074507a84d43365610feae3a8fad80f4637b891e2ed03239460b104f986cbd | nfsu2-extension/extension/abf-profile.js | literal candidate; runtime preparation still required
+93cfc6e9 | bytes 38615704 | SHA-256 e03eca29aa8cba3ac4a96836ad3d86dd5eb8258704c0e6260ecc5ef955536a03 | nfsu2-extension/extension/cf-profile.js | literal candidate; runtime preparation still required
+aa2429fb | bytes 38619724 | SHA-256 a220e667d38c0a6509c1507ad3ca9c6fddeb2220b429bf28707d7ca8cbbc42c8 | nfsu2-extension/extension/aa-profile.js | literal candidate; runtime preparation still required
+bdc9cbc2 | bytes 38839976 | SHA-256 395d7d34809be586e9ec80866914179247e96df7cb5729c7b8c7e4650c6dee3e | nfsu2-extension/extension/bdc-profile.js | literal candidate; runtime preparation still required
+b1efa173 | bytes 38854040 | SHA-256 3152b96dbd39c9aaac00f47cb63afff46969d88cd7470166478c9663c9abb1bb | nfsu2-extension/extension/b1-profile.js | literal candidate; runtime preparation still required
+ed8d3359 | bytes 38862537 | SHA-256 f9e0002e8a04a88355b3cc62235010e19479e0cf2ab05d8916975d68abf5706b | nfsu2-extension/extension/ed8-profile.js | literal candidate; runtime preparation still required
+102c8d92 | bytes 38867137 | SHA-256 2ba0b075721d80e75fc3fb9a3b0e4d2acae835d21fcc406d009669b83f81858d | nfsu2-extension/extension/102c-profile.js | literal candidate; runtime preparation still required
+60946132 | bytes 38933227 | SHA-256 81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945 | nfsu2-extension/extension/609-profile.js | literal candidate; runtime preparation still required
+15e5958f | bytes 38619511 | SHA-256 f88fc7a0fe3082e20814f705635410d046fcdfe053eb70d65c49dec7583105b9 | nfsu2-extension/extension/family-profiles.js | conditional family candidate; source readiness and compose gates apply
+943ee537 | bytes 38618703 | SHA-256 c000f8f9002762f4274f173c81678772c456b1a696f3b69751fc6e91118fe391 | nfsu2-extension/extension/family-profiles.js | conditional family candidate; source readiness and compose gates apply
+
+===== BEGIN COMPLETE VERBATIM SOURCE FILES =====
+
+===== nfsu2-extension/extension/manifest.json =====
+{
+  "manifest_version": 3,
+  "name": "NFSU2 Driving Tools",
+  "version": "0.42.8",
+  "description": "Native race AI with online opt-in, Stay on rails, car-contact controls and movable streaming stats.",
+  "minimum_chrome_version": "111",
+  "action": {
+    "default_title": "NFSU2 Driving Tools",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://nfsu2.xyz/*"
+      ],
+      "js": [
+        "diagnostics.js",
+        "walls.js",
+        "cars.js",
+        "current-profile.js",
+        "latest-profile.js",
+        "next-profile.js",
+        "modern-profile.js",
+        "d2fa-profile.js",
+        "cd5-profile.js",
+        "abf-profile.js",
+        "cf-profile.js",
+        "aa-profile.js",
+        "tuner-profile-943.js",
+        "ecu-scope-profile.js",
+        "family-profiles.js",
+        "tuner-profile-bdc9.js",
+        "ecu-scope-profile-bdc9.js",
+        "bdc-profile.js",
+        "tuner-profile-b1.js",
+        "ecu-scope-profile-b1.js",
+        "b1-profile.js",
+        "tuner-profile-ed8.js",
+        "ecu-scope-profile-ed8.js",
+        "ed8-profile.js",
+        "102c-profile.js",
+        "609-profile.js",
+        "signatures.js",
+        "signature-profile.js",
+        "signature-profile-latest.js",
+        "signature-profile-next.js",
+        "dyno-native-profile.js",
+        "dyno-native-profile-943.js",
+        "ecu-recipe-profile.js",
+        "dyno-native-profile-bdc9.js",
+        "ecu-recipe-profile-bdc9.js",
+        "dyno-native-profile-b1.js",
+        "ecu-recipe-profile-b1.js",
+        "dyno-native-profile-ed8.js",
+        "ecu-recipe-profile-ed8.js",
+        "dyno-native-profile-102c.js",
+        "dyno-native.js",
+        "race-capture-config.js",
+        "race-window-geometry.js",
+        "race-capture.js",
+        "forward-native-config.js",
+        "rear-radar.js",
+        "forward-native-patcher.js",
+        "route-probe.js",
+        "forward-geometry.js",
+        "forward-pacing.js",
+        "forward-clamp.js",
+        "forward-driving.js",
+        "shortcut-policy.js",
+        "native-rubberband.js",
+        "native-corner-target.js",
+        "paced-catchup.js",
+        "ecu-scoped-patcher.js",
+        "ecu-scoped-patcher-bdc9.js",
+        "ecu-scoped-patcher-b1.js",
+        "ecu-scoped-patcher-ed8.js",
+        "godly-catchup.js",
+        "native-transplant-102c.js",
+        "native-online-102c.js",
+        "native-city-corner-102c.js",
+        "native-tuner-102c.js",
+        "native-forward-lease-102c.js",
+        "native-target-feedback-102c.js",
+        "native-transplant-609.js",
+        "native-online-609.js",
+        "native-synthetic-near-miss-609.js",
+        "source-interfaces.js",
+        "ai.js",
+        "core.js",
+        "near-miss-events.js",
+        "near-miss-control.js",
+        "near-miss-top-up.js",
+        "dyno-core.js",
+        "dyno.js",
+        "dyno-evaluator.js",
+        "dyno-full.js",
+        "ecu-scope-controller.js",
+        "ecu-recipe.js",
+        "ecu-scope-ui.js",
+        "tool-profiles.js",
+        "race-catalog.js",
+        "race-telemetry.js",
+        "race-stats.js",
+        "race-showcase.js",
+        "race-hub.js",
+        "dynamic-pacing.js",
+        "city-contact-preview.js",
+        "city-pacing.js",
+        "stream-hud.js",
+        "hud-layout.js",
+        "pitwall.js",
+        "rubberband-controller.js",
+        "paced-catchup-controller.js",
+        "autonomy-road.js",
+        "autonomy-drive.js",
+        "autonomy-hosted.js",
+        "autonomy-loop.js",
+        "target-feedback.js",
+        "target-feedback-state.js",
+        "worker-module-loader.js",
+        "page.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": false
+    }
+  ]
+}
+
+
+===== nfsu2-extension/extension/popup.html =====
+<!doctype html><html lang="en"><meta charset="utf-8"><title>NFSU2 Driving Tools</title>
+<style>html{color-scheme:dark}body{width:244px;box-sizing:border-box;margin:0;padding:14px;background:#141e24;color:#c9dcd1;font:11px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}header{display:flex;align-items:center;gap:7px}h1{font-size:14px;font-weight:650;margin:0;color:#e2f1e7}.dot{width:7px;height:7px;border-radius:2px;background:#9be8bc}.version{margin-left:auto;color:#86a791;font-size:9px}p{margin:9px 0;color:#93af9f}.shortcuts{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:12px 0}.shortcuts span{padding:6px;border:1px solid #344f40;border-radius:3px;text-align:center;color:#87a993;font-size:9px}kbd{display:block;font:600 11px ui-monospace,monospace;color:#c5e5cf}.open{display:block;border:1px solid #709e7e;border-radius:4px;background:#233c2c;color:#d7f1df;padding:7px;text-align:center;font-weight:600;text-decoration:none}.open:hover{background:#2c4936}details{border-top:1px solid #2c4436;margin-top:12px;padding-top:7px;font-size:10px;color:#88a492}summary{cursor:pointer;color:#a8c4af}details p{margin:7px 0}a:focus-visible,summary:focus-visible{outline:2px solid #9be8bc;outline-offset:3px}</style>
+<header><span class="dot" aria-hidden="true"></span><h1>Driving tools</h1><span class="version">v0.42.8</span></header>
+<p>Direct NOS refill remains disabled. Synthetic near miss offers Award once and an optional Keep NOS topped up switch. Top-up waits at full, resumes after consumption and allows one confirmed request at a time. It starts off; F7/F9 disables it. Synthetic awards also change style points and multipliers. Uncertain outcomes stop automatic requests.</p>
+<p>Scoped support for game build 60946132 includes native AI, pace/corner hooks, rails, Drag handoff/protection and paired catch-up. Online tools require the separate Allow network tools opt-in. Live driving remains unverified.</p>
+<p>On 60946132, the tuner/ECU, leased road geometry, per-target corner feedback, online car-category controls, race capture and destination travel remain unavailable. Earlier verified build profiles are still included.</p>
+<p>Offline report checks recorded NOS-related car-state observations that survived encoding. Current game monitoring and reports remain active.</p>
+<p>For online Drag protection, enable both Disable Drag engine blowouts and Allow network tools before the engine blows. Only your current local engine is eligible. It does not revive blown engines or alter NOS/shifting. F9 clears it; live online protection is unverified.</p>
+<p>F8 or Shift+Insert shows/hides the menu. Shift+Insert keeps normal Paste behavior while typing.</p>
+<p>Reload the game after installing. Use the small toolbar in the upper-right corner.</p>
+<div class="shortcuts"><span><kbd>F6</kbd>HUD</span><span><kbd>F8</kbd>Menu</span><span><kbd>F7</kbd>Manual</span><span><kbd>F9</kbd>Stop</span></div>
+<a class="open" href="https://nfsu2.xyz/" target="_blank" rel="noopener">Open NFSU2</a>
+<details><summary>Experimental · back up progress</summary><p>Back up your save and test one feature at a time. Automated checks do not establish live gameplay behavior, safe routes or wins. Unknown or failed module preparation leaves memory tools disabled.</p><p>Without an explicitly enabled startup profile, driving and Online/LAN opt-ins start off after reload. F7 returns control. F9 clears driving selections and cancels supported tuner searches; an applied tune remains applied. Drift and the diagnostic tester keep their own switches. No tuner search, Stage, Restore or game save runs automatically.</p><p>Walls and solo Car no-clip are solo-only. Walls can leave the map or miss checkpoints; ground, slopes and movable props stay solid. Turn off only clear of walls. Online traffic, player and race-car controls are unavailable on 60946132.</p><p>On separately supported builds, tuner Preview leaves the live tune unchanged; Stage writes the selected working preset, and Restore requires the same car/mode/parts. Use the game’s Test Run to refresh physics and Save Profile for persistence. The extension does not confirm a disk save.</p><p>Game integrity checks and native reporting remain active. Offline checks do not establish multiplayer acceptance or account safety. Online changes may affect other players or lead to a ban. Follow server rules and keep the previous extension folder for rollback.</p></details>
+</html>
+
+
+===== nfsu2-extension/extension/core.js =====
+/* Source-backed guest offsets: 6f4f1e4e; checked against exact 2f0ddd3b and 78e2bb69 native functions. Page additionally requires a verified binary profile. See README. */
+(function (root) {
+  'use strict';
+  const NetworkProfiles=root.__NFSU2_FORWARD_NATIVE_CONFIG__||(typeof require==='function'?require('./forward-native-config.js'):null);
+  // This exact build carries the native hooks as one pinned transplant, without
+  // a forward-reader runtime. Its verified online tuple is still required to
+  // distinguish online free roam from solo before any controller writes.
+  const Network102c=root.__NFSU2_102C_PROFILE__||(typeof require==='function'?require('./102c-profile.js'):null);
+  const Network609=root.__NFSU2_609_PROFILE__||(typeof require==='function'?require('./609-profile.js'):null);
+  const A = Object.freeze({ FLOW: 0x8654a4, MODE: 0x850078, PLAYER: 0xd00000,
+    RACE: 0x890118, DRAG: 0x89e7d8, TICKS: 0x86518c, NETWORK_TICKS: 0x8651ac,
+    NOS_FULL: 0x454, NOS_LEFT: 0x45c, NOS_SINCE: 0x460, RPM: 0x440, GEAR: 0x434,
+    HOST: 0x866a14, CLIENT: 0x8669f4, ONLINE: 0x89cf69 });
+  const automaticNosRefill = Object.freeze({available:false,status:'Refill unavailable · manual near miss is separate'});
+  class Engine {
+    constructor(memory, statusCapacity = 48, moduleHash = null) { this.statusCapacity = statusCapacity === 64 ? 64 : 48; this.memory = memory; this.view = null; this.performancePatch = null; this.gripPatch = null; this.words = null; this.floatBits = new Float32Array(1); this.intBits = new Int32Array(this.floatBits.buffer);const networkProfile=[Network102c,Network609].find(profile=>profile&&profile.hash===moduleHash);this.requireNetworkTuple=!!networkProfile;this.networkAddresses=null;try{const cells=NetworkProfiles?.select?.(moduleHash)?.runtime?.onlineAddresses||networkProfile?.cars?.onlineAddresses;if(Array.isArray(cells)&&cells.length===3)this.networkAddresses=Object.freeze(cells.slice());}catch{} }
+    refresh() { if (!this.view || this.view.buffer !== this.memory.buffer) { this.view = new DataView(this.memory.buffer); this.words = new Int32Array(this.memory.buffer); } }
+    ok(p, n = 4) { return Number.isSafeInteger(p) && p >= 0x10000 && p + n <= Math.min(0x28000000, this.view.byteLength); }
+    u32(p) { return this.ok(p) ? this.view.getUint32(p, true) : 0; }
+    u8(p) { return this.ok(p, 1) ? this.view.getUint8(p) : 0; }
+    networkTupleReady() { const cells=this.networkAddresses;return Array.isArray(cells)&&cells.length===3&&cells.every((p,i)=>Number.isSafeInteger(p)&&p>=0&&p+(i===1?1:4)<=this.view.byteLength); }
+    networkState() {
+      this.refresh();
+      const conventional=!!(this.u32(A.MODE)&0x208)||!!this.u32(A.HOST)||!!this.u32(A.CLIENT)||!!this.u8(A.ONLINE),cells=this.networkAddresses;
+      if(conventional)return true;
+      if(!cells)return this.requireNetworkTuple;
+      // These exact-build port cells are linear-memory metadata beyond the
+      // guest object window. Keep ok()/ordinary guest reads unchanged, and
+      // require the native u32/u8/u32 tuple and actual memory bounds here.
+      if(!this.networkTupleReady())return this.requireNetworkTuple;
+      return !!(this.view.getUint32(cells[0],true)&&this.view.getUint8(cells[1])&&this.view.getUint32(cells[2],true));
+    }
+    state() {
+      this.refresh();
+      if(this.requireNetworkTuple&&!this.networkTupleReady())return {ready:false,reason:'Waiting for verified network state.'};
+      if (this.u32(A.FLOW) !== 6) return { ready: false, reason: 'Start driving to use the tools.' };
+      const player = this.u32(A.PLAYER), car = this.u32(player + 4), race = this.u32(A.RACE);
+      if (player%4 || car%4 || race%4 || !this.ok(player, 0x14) || !this.ok(car, 0x9e4) || !this.ok(race, 0xc44) || this.u32(player + 0x10) !== 0)
+        return { ready: false, reason: 'Waiting for a valid player car.' };
+      const rpm = this.view.getFloat32(car + A.RPM, true), gear = this.u32(car + A.GEAR);
+      if (!Number.isFinite(rpm) || rpm < 0 || rpm > 30000 || gear > 10)
+        return { ready: false, reason: 'Car layout not recognized; no memory changed.' };
+      const network = this.networkState();
+      return { ready: true, car, race, rpm, gear, driving: this.u32(race) === 4, drag: this.u8(A.DRAG) === 1, network };
+    }
+    live(s, allowNetwork = true, driving = false) {
+      const now=this.state();
+      return !!s?.ready && now.ready && now.car===s.car && now.race===s.race && (!driving||now.driving) && (!now.network||allowNetwork===true);
+    }
+    bits(value) {this.floatBits[0]=value;return this.intBits[0];}
+    compareFloat(p, expected, value, guard) {
+      if(!this.ok(p)||p%4||!guard())return false;
+      const before=this.bits(expected),after=this.bits(value);
+      // Exact field ownership, including a native change after validation.
+      // This narrows interleavings; it is NOT an allocator/lifetime lock.
+      if(before===after)return Atomics.load(this.words,p/4)===before;
+      return Atomics.compareExchange(this.words,p/4,before,after)===before;
+    }
+    nosNetworkClock() {
+      // Native 0x5f00f0 used by NOS start, remaining-time and stop. This is
+      // intentionally narrower than permission detection: mode bits alone
+      // do not select the native network clock, and host/client are signed.
+      return !!this.u8(A.ONLINE) || (this.u32(A.CLIENT)|0)>0 || (this.u32(A.HOST)|0)>0;
+    }
+    // No state reads, timers or writes: stale preferences cannot reactivate the
+    // retired automatic refill. Native NOS use and earned credit are separate.
+    refill() { return automaticNosRefill.available; }
+    performanceInfo(s) {
+      if (!s?.ready || this.u32(A.FLOW) !== 6 || this.u32(A.RACE) !== s.race || this.u32(this.u32(A.PLAYER) + 4) !== s.car) return null;
+      const ride = this.u32(s.car + 0x10), pi = ride + 0x10;
+      if (!ride || pi%4 || !this.ok(pi, 0x574)) return null;
+      const f = o => this.view.getFloat32(pi + o, true);
+      const type = this.u32(pi), mass = f(0x140), idle = f(0x220), max = f(0x228);
+      if (type > 30 || !(mass > 0.1 && mass < 10) || !(idle >= 100 && idle <= 4000) || !(max > idle && max <= 20000)) return null;
+      const offsets = [...Array.from({length:9}, (_,i)=>0x230+i*4), 0x2dc, 0x2c0];
+      const values = offsets.map(f);
+      if (!values.every((v,i)=>Number.isFinite(v) && v >= 0 && v < (i === 10 ? 1000 : 20))) return null;
+      return { ride, pi, offsets, values };
+    }
+    performanceOwned(s, patch, allowNetwork=true, driving=false) {
+      return this.live(s,allowNetwork,driving) && s.car===patch.car && s.race===patch.race && this.u32(patch.car+0x10)===patch.ride && patch.pi===patch.ride+0x10;
+    }
+    restorePerformance(s) {
+      const old=this.performancePatch;this.performancePatch=null;
+      if(!old)return false;this.refresh();
+      if(!this.performanceRestorePending||this.performanceRestorePending.car!==old.car)this.performanceRestorePending=old;
+      const guard=()=>this.performanceOwned(s,old);
+      if(!guard())return false;
+      for(let i=0;i<old.offsets.length;i++){
+        if(!guard())return false;
+        this.compareFloat(old.pi+old.offsets[i],old.expected[i],old.original[i],guard);
+      }
+      return true;
+    }
+    tunePerformance(s, power = 1, unlimit = false, allowNetwork = false) {
+      this.refresh();
+      if(!this.live(s,allowNetwork,true)||!Number.isFinite(power)||power<1||power>3){this.restorePerformance(s);return {ok:false};}
+      if(power===1&&!unlimit){this.restorePerformance(s);return {ok:true,active:false};}
+      const info=this.performanceInfo(s);
+      if(!info){this.restorePerformance(s);return {ok:false,reason:'Car performance layout unavailable.'};}
+      let patch=this.performancePatch;
+      if(patch&&(patch.car!==s.car||patch.race!==s.race||patch.pi!==info.pi)){this.performancePatch=null;patch=null;}
+      if(patch&&info.values.some((v,i)=>v!==patch.expected[i])){this.restorePerformance(s);return {ok:false,changed:true,reason:'Car tuning changed. Power controls will resume after the new values settle.'};}
+      if(!patch)patch={car:s.car,race:s.race,ride:info.ride,pi:info.pi,offsets:info.offsets,original:info.values,expected:info.values.slice()};
+      const expected=patch.original.map((v,i)=>Math.fround(i===10?unlimit?0:v:v*power));
+      if(expected.some((v,i)=>!Number.isFinite(v)||v<0||v>=(i===10?1000:20))){this.restorePerformance(s);return {ok:false,reason:'Requested power exceeds the recognized tuning range. Lower the power factor.'};}
+      const guard=()=>this.performanceOwned(s,patch,allowNetwork,true);
+      this.performancePatch=patch;
+      for(let i=0;i<expected.length;i++){
+        if(!this.compareFloat(info.pi+info.offsets[i],patch.expected[i],expected[i],guard)){
+          this.restorePerformance(s);return {ok:false,changed:true,reason:'Car state changed during power adjustment. Waiting for stable values.'};
+        }
+        patch.expected[i]=expected[i];
+      }
+      return {ok:true,active:true,power,unlimit};
+    }
+    gripInfo(s) {
+      if (!s?.ready || this.u32(A.FLOW)!==6 || this.u32(A.RACE)!==s.race || this.u32(this.u32(A.PLAYER)+4)!==s.car) return null;
+      const physics=this.u32(s.car+0x34);
+      if (!this.ok(physics,0x48)) return null;
+      const wheels=[0x38,0x3c,0x40,0x44].map(o=>this.u32(physics+o));
+      if (new Set(wheels).size!==4 || wheels.some(w=>w%4 || !this.ok(w,0x18c))) return null;
+      const values=wheels.map(w=>this.view.getFloat32(w+0x188,true));
+      if (values.some(v=>!Number.isFinite(v) || v<0.1 || v>4)) return null;
+      return {physics,wheels,values};
+    }
+    gripOwned(s,patch,allowNetwork=true,driving=false) {
+      return this.live(s,allowNetwork,driving) && s.car===patch.car && s.race===patch.race && this.u32(s.car+0x34)===patch.physics && patch.wheels.every((w,i)=>this.u32(patch.physics+0x38+i*4)===w);
+    }
+    restoreGrip(s) {
+      const patch=this.gripPatch;this.gripPatch=null;
+      if(!patch)return false;this.refresh();
+      if(!this.gripRestorePending||this.gripRestorePending.car!==patch.car)this.gripRestorePending=patch;
+      const guard=()=>this.gripOwned(s,patch);
+      if(!guard())return false;
+      for(let i=0;i<4;i++){
+        if(!guard())return false;
+        this.compareFloat(patch.wheels[i]+0x188,patch.expected[i],patch.original[i],guard);
+      }
+      return true;
+    }
+    legacyPhysicsNeutral(s) {
+      if(this.performancePatch||this.gripPatch||!s?.ready||!this.live(s,true))return false;
+      this.refresh();
+      const power=this.performanceRestorePending,grip=this.gripRestorePending;
+      if(power){
+        const info=this.performanceInfo(s);
+        if(!info)return false;
+        if(power.car!==s.car||power.pi!==info.pi||power.ride!==info.ride)this.performanceRestorePending=null;
+        else if(info.values.length===power.original.length&&info.values.every((v,i)=>v===power.original[i]))this.performanceRestorePending=null;
+        else return false;
+      }
+      if(grip){
+        const info=this.gripInfo(s);
+        if(!info)return false;
+        if(grip.car!==s.car||grip.physics!==info.physics||grip.wheels.some((w,i)=>w!==info.wheels[i]))this.gripRestorePending=null;
+        else if(info.values.every((v,i)=>v===grip.original[i]))this.gripRestorePending=null;
+        else return false;
+      }
+      return true;
+    }
+    tuneGrip(s, factor=1, allowNetwork=false) {
+      this.refresh();
+      if(!this.live(s,allowNetwork,true)||!Number.isFinite(factor)||factor<1||factor>2){this.restoreGrip(s);return {ok:false};}
+      if(this.u32(0x890104)!==0||this.u8(0x89e7d9)!==0||(!this.u8(0x89e7d8)&&!this.u32(0x890108)&&this.u32(0x890114)!==0)){this.restoreGrip(s);return {ok:false,paused:true,reason:'Extra grip is paused during drift mode/races.'};}
+      if(factor===1){this.restoreGrip(s);return {ok:true,active:false};}
+      const info=this.gripInfo(s);
+      if(!info){this.restoreGrip(s);return {ok:false,reason:'Wheel physics unavailable.'};}
+      let patch=this.gripPatch;
+      if(patch&&(patch.car!==s.car||patch.race!==s.race||patch.physics!==info.physics||patch.wheels.some((w,i)=>w!==info.wheels[i]))){this.gripPatch=null;patch=null;}
+      if(patch&&info.values.some((v,i)=>v!==patch.expected[i])){this.restoreGrip(s);return {ok:false,changed:true,reason:'Wheel physics changed. Extra grip will resume after the new values settle.'};}
+      if(!patch)patch={car:s.car,race:s.race,physics:info.physics,wheels:info.wheels,original:info.values,expected:info.values.slice()};
+      const expected=patch.original.map(v=>Math.fround(Math.min(4,v*factor)));
+      const guard=()=>this.gripOwned(s,patch,allowNetwork,true)&&this.u32(0x890104)===0&&this.u8(0x89e7d9)===0&&(this.u8(0x89e7d8)!==0||this.u32(0x890108)!==0||this.u32(0x890114)===0);
+      this.gripPatch=patch;
+      for(let i=0;i<4;i++){
+        if(!this.compareFloat(info.wheels[i]+0x188,patch.expected[i],expected[i],guard)){
+          this.restoreGrip(s);return {ok:false,changed:true,reason:'Car state changed during grip adjustment. Waiting for stable values.'};
+        }
+        patch.expected[i]=expected[i];
+      }
+      return {ok:true,active:true,factor};
+    }
+    driftTap(ptr) {
+      // Same synthetic action used by the game's touch Drift button, through
+      // its documented single-producer main-page input ring instead of hidden DOM.
+      this.refresh();
+      if (!Number.isSafeInteger(ptr) || ptr <= 0 || ptr % 4 || ptr+20800 > this.view.byteLength) return false;
+      const h=new Int32Array(this.view.buffer,ptr,64);
+      if ((Atomics.load(h,0)>>>0)!==0x4e494e50 || Atomics.load(h,1)!==2 || Atomics.load(h,3)!==1024 || Atomics.load(h,7)!==1 || Atomics.load(h,27)!==0 || Atomics.load(h,34)!==0) return false;
+      const w=Atomics.load(h,4), r=Atomics.load(h,5);
+      if (((w-r)>>>0)>=1024) return false;
+      const p=ptr+4416+(w&1023)*16;
+      const bytes=new Uint8Array(this.view.buffer,p,16); bytes.fill(0);
+      bytes[0]=3; bytes[1]=0xf1; bytes[3]=32; // KEY_TAP, dedicated Drift key, synthetic.
+      Atomics.store(h,4,(w+1)|0); Atomics.notify(h,4,1);
+      return true;
+    }
+    hazards(s) {
+      // Read-only tester. These are cars and the track's barrier-line table,
+      // not a complete collision mesh, traffic classifier, lane map or autopilot.
+      if (!s.ready) return null;
+      const f = p => this.ok(p) ? this.view.getFloat32(p, true) : NaN;
+      const x = f(s.car + 0x60), y = f(s.car + 0x64), z = f(s.car + 0x68);
+      let fx = f(s.car + 0x90), fy = f(s.car + 0x94);
+      const fl = Math.hypot(fx, fy);
+      if (![x,y,z,fl].every(Number.isFinite) || fl < 0.5 || fl > 1.5) return null;
+      fx /= fl; fy /= fl;
+      const world = this.u32(0x890080), seen = new Set(); let car = this.u32(world);
+      const cars = [];
+      while (car && car !== world && seen.size < 96 && this.ok(car, 0x9e4) && !seen.has(car)) {
+        seen.add(car);
+        if (car !== s.car) {
+          const dx = f(car + 0x60) - x, dy = f(car + 0x64) - y, dz = f(car + 0x68) - z;
+          const ahead = dx * fx + dy * fy, side = -dx * fy + dy * fx;
+          if ([ahead,side,dz].every(Number.isFinite) && ahead > 0 && ahead < 150 && Math.abs(side) < 20 && Math.abs(dz) < 5)
+            cars.push({ ahead, side, car, body:this.u32(car+0x3c) });
+        }
+        car = this.u32(car);
+      }
+      cars.sort((a,b) => a.ahead - b.ahead);
+      const nb = this.u32(0x88f298 + 0x498), bars = this.u32(0x88f298 + 0x49c);
+      let barrierAhead = null, activeBarriers = 0;
+      if (nb <= 8192 && this.ok(bars, nb * 0x24)) for (let i = 0; i < nb; i++) {
+        const p = bars + i * 0x24; if (!this.u8(p + 0x10)) continue;
+        const ax = f(p) - x, ay = f(p+4) - y, bx = f(p+8) - x, by = f(p+12) - y;
+        if (![ax,ay,bx,by].every(Number.isFinite)) continue;
+        activeBarriers++;
+        const al = -ax*fy + ay*fx, bl = -bx*fy + by*fx;
+        if ((al > 0) === (bl > 0) || Math.abs(al-bl) < 0.0001) continue;
+        const t = al / (al-bl), distance = (ax + (bx-ax)*t)*fx + (ay + (by-ay)*t)*fy;
+        if (distance >= 0 && distance < 150 && (barrierAhead === null || distance < barrierAhead)) barrierAhead = distance;
+      }
+      return { cars, scannedCars: seen.size, activeBarriers, barrierAhead };
+    }
+    pacingHazards(s, exactProfile=false, allowNetwork=false) {
+      this.refresh();
+      if(!exactProfile||!this.live(s,allowNetwork,true)||this.u32(s.car+0x24)!==3)return null;
+      const player=this.u32(A.PLAYER),driver=this.u32(s.car+0x2c),world=this.u32(0x890080),bars=this.u32(0x88f734),count=this.u32(0x88f730),track=this.u32(0x89e7a0);
+      if(!this.ok(driver,0x800)||this.u32(driver)!==0x785370||this.u32(driver+4)!==s.car)return null;
+      // Reuse the established read-only reader. Recheck its source identities
+      // before submitting any reduction; an absent scan is never a clear road.
+      const sample=this.hazards(s);
+      if(!this.live(s,allowNetwork,true)||this.u32(A.PLAYER)!==player||this.u32(s.car+0x24)!==3||this.u32(s.car+0x2c)!==driver||this.u32(driver+4)!==s.car||this.u32(0x890080)!==world||this.u32(0x88f734)!==bars||this.u32(0x88f730)!==count||this.u32(0x89e7a0)!==track)return null;
+      return sample;
+    }
+    nosDiagnostics(s, exactProfile = false) {
+      // Read before refill, so the export can show resource/timing state that
+      // the refill would otherwise mask. These are sampled raw state fields,
+      // not native activation/stop counters or proof of a successful burst.
+      this.refresh();
+      if (!exactProfile || !s?.ready || !this.live(s)) return {};
+      const networkClock=this.nosNetworkClock(),clock=this.u32(networkClock?A.NETWORK_TICKS:A.TICKS);
+      const since=this.u32(s.car+A.NOS_SINCE),full=this.u32(s.car+A.NOS_FULL),remaining=this.u32(s.car+A.NOS_LEFT);
+      const active=since!==0&&since!==0x7fffffff;
+      const out={nosTelemetry:true,nosClockNetwork:networkClock,nosClockTicks:clock,nosSinceTicks:since,nosTimestampActive:active};
+      if(full<10000000)out.nosFullTicks=full;
+      if(remaining<10000000)out.nosRemainingTicks=remaining;
+      if(active)out.nosElapsedTicks=(clock|0)-(since|0);
+      if(!this.live(s)||this.nosNetworkClock()!==networkClock||this.u32(s.car+A.NOS_FULL)!==full||this.u32(s.car+A.NOS_SINCE)!==since)return {};
+      return out;
+    }
+    dragEngineDiagnostics(s, exactProfile = false) {
+      this.refresh();
+      if (!exactProfile || !s?.ready || !this.live(s) || !this.u8(A.DRAG) || this.u32(s.car+0x28)!==1) return {};
+      const physics=this.u32(s.car+0x34);
+      if (physics%4 || !this.ok(physics,0x4c)) return {};
+      const motor=this.u32(physics+0x48);
+      if (motor%4 || !this.ok(motor,0x90)) return {};
+      const heat=this.view.getFloat32(motor+0x8c,true),out={};
+      if (Number.isFinite(heat) && heat>=-1 && heat<=2) {out.dragEngineHeat=heat;out.dragHeatDisabled=heat<0;out.dragEngineBlown=heat===2;}
+      const params=this.u32(motor+0x18);
+      if (params%4===0 && this.ok(params,8)) {
+        const limit=this.view.getFloat32(params+4,true);
+        if (Number.isFinite(limit) && limit>=1000 && limit<=30000) out.dragEngineLimitRpm=limit;
+      }
+      return out;
+    }
+    driftDiagnostics(s, exactProfile = false) { return this.nativeDiagnostics(s, exactProfile, true); }
+    nativeDiagnostics(s, exactProfile = false, driftOnly = false, withStatus = false) {
+      // Read-only, best-effort scalar samples. The page opts in only after the
+      // exact reviewed module profile has been verified. Never export pointers.
+      this.refresh();
+      // The logger opts into fixed failures; older optional readers retain
+      // their empty-sample contract. Neither path writes native state.
+      const unavailable=code=>withStatus?{nativeTelemetry:false,nativeTelemetryStatus:code}:{};
+      if (!exactProfile) return unavailable('profile-unverified');
+      if (!s?.ready) return unavailable('state-unavailable');
+      if (!this.live(s)) return unavailable('context-stale');
+      const car=s.car, race=s.race, d=this.view;
+      const f=(p,lo,hi)=>{if(!this.ok(p))return undefined;const v=d.getFloat32(p,true);return Number.isFinite(v)&&v>=lo&&v<=hi?v:undefined;};
+      // Same event inputs as the reviewed native corner/Street X guards:
+      // RaceParams+0x43, forced Street X, and the separate network mode enum.
+      const network=()=>this.networkState();
+      const networkSample=network(),networkMode=this.u32(0x850088);
+      const out={nativeTelemetry:true,nativeTelemetryStatus:'sampled',trackId:this.u32(0x89e7a0),dragRace:!!this.u8(0x89e7d8),forcedDrag:!!this.u32(0x890108),driftRace:!!this.u8(0x89e7d9),forcedDrift:!!this.u32(0x890104),driftVariant:!!this.u32(0x890114),streetXRace:!!this.u8(0x89e7e3),forcedStreetX:!!this.u32(0x89010c),onlineStreetX:networkSample&&networkMode===10,nativeRoadTargetStatus:'driver-unverified'};
+      const driftFamily=(out.driftRace||out.forcedDrift||out.driftVariant)&&!out.dragRace&&!out.forcedDrag;
+      if(driftOnly&&!driftFamily)return unavailable('drift-ineligible');
+      out.carRpm=s.rpm;out.carGear=s.gear;
+      const player=this.u32(A.PLAYER);
+      if(this.ok(player,0x234)){
+        const input=this.u32(player+0x22c),next=this.u32(player+0x230);
+        if(input<=10)out.nativeInputMode=input;if(next<=10)out.nativeNextInputMode=next;
+      }
+      const put=(k,v)=>{if(v!==undefined)out[k]=v;};
+      put('speedMps',f(car+0x430,0,500));put('forwardMps',f(car+0x42c,-500,500));
+      const record=this.u32(car+0x14);
+      if(this.ok(record,0x902)&&this.u32(record+4)===1)out.nativeSkill=this.u8(record+0x901);
+      const driver=this.u32(car+0x2c),driverKind=this.u32(car+0x24),driverOK=driverKind===3&&this.ok(driver,0x800)&&this.u32(driver)===0x785370&&this.u32(driver+4)===car;
+      out.aiDriverVerified=!!driverOK;
+      let behavior=0,action=0,behaviorVT=0,behaviorVerified=false,actionVT=0,actionId=0,actionReadable=false,navigation=0,config=0,companion=0;
+      if(driverOK){
+        out.nativeRoadTargetStatus='behavior-unverified';
+        put('nativePaceFactor',f(driver+0x770,0,4));
+        behavior=this.u32(driver+8);action=this.u32(driver+0x6fc);
+        navigation=this.u32(driver+0xc);config=this.u32(driver+0x6e0);companion=this.u32(driver+0x6f8);
+        out.nativeNavigationPresent=navigation!==0;out.nativeNavigationValid=this.ok(navigation,0x30);
+        out.nativeConfigPresent=config!==0;out.nativeConfigValid=this.ok(config,4);
+        out.nativeCompanionPresent=companion!==0;out.nativeCompanionValid=this.ok(companion,0x200);
+        out.aiGoalPending=action===0;
+        out.aiGoalRecognized=false;
+        if(this.ok(action,24)){
+          actionId=this.u32(action+20);actionVT=this.u32(action);actionReadable=true;
+          const tables={1:0x784768,2:0x7847d0,3:0x784830,5:0x784b58,7:0x7848a0,8:0x784900,11:0x784968};
+          if(tables[actionId]&&actionVT===tables[actionId]){out.aiGoalId=actionId;out.aiGoalRecognized=true;}
+        }
+        if(behavior%4===0&&this.ok(behavior,0x234)&&this.u32(behavior+0x220)===car){
+          behaviorVT=this.u32(behavior);behaviorVerified=true;out.nativeDriftBehavior=behaviorVT===0x784f40;out.nativeRoadBehavior=behaviorVT===0x784eb0;
+          // Exact AA setter f6140 (guest0x4054a0) stores the first target
+          // argument at behavior+0x230. Its sign is preserved. Native units
+          // have not been calibrated against displayed speed or metricScale.
+          if(out.nativeRoadBehavior){const target=f(behavior+0x230,-500,500);put('nativeRoadTarget',target);out.nativeRoadTargetStatus=target===undefined?'value-invalid':'sampled';}
+          else out.nativeRoadTargetStatus='not-road';
+          if(out.nativeDriftBehavior&&driftFamily)put('driftTargetMps',f(behavior+0x22c,-200,200));
+          if(out.nativeDriftBehavior||out.nativeRoadBehavior){
+            put('nativeThrottle',f(behavior+0x20c,0,1));put('nativeHandbrake',f(behavior+0x210,0,1));put('nativeBrake',f(behavior+0x214,0,1));
+            out.nativeSteering=d.getInt16(behavior+0x1e0,true);
+            const gear=d.getInt32(behavior+0x1e4,true);if(gear>=-1&&gear<=10)out.nativeGearCommand=gear;
+          }
+          if(out.nativeRoadBehavior&&this.ok(behavior,0x264)&&this.ok(car+0x390,4)){
+            // Native421f45..421fc7 can latch +25c after59fa30(car+40),
+            // then use +22c for throttle and clear brake while the requested
+            // target is at least the previous target stored at +260. These are sampled
+            // inputs/state, not proof that this override ran in this frame.
+            const latched=this.u8(behavior+0x25c);if(latched<=1)out.nativeControlOverrideLatched=!!latched;
+            put('nativePreviousTarget',f(behavior+0x260,-500,500));put('nativeThrottleHold',f(behavior+0x22c,0,1));
+            // Native4210e0..421105 additionally queries592870 per flagged
+            // wheel. This mask reports only the four nonzero source bytes.
+            out.nativeWheelContactMask=[0,1,2,3].reduce((mask,i)=>mask|(this.u8(car+0x390+i)?1<<i:0),0);
+          }
+        }
+      }
+      const racer=this.u32(car+0x1c),count=this.u32(race+0x24);
+      let score=0,driftCar=0,style=0,racerSlot=-1;
+      if(count>=1&&count<=6)racerSlot=Array.from({length:count},(_,i)=>this.u32(race+0xbd0+i*4)).indexOf(racer);
+      if(driftFamily)out.driftScoreLinked=false;
+      if(driftFamily&&this.ok(racer,0x1f0)&&this.u32(racer)===car&&racerSlot>=0){
+        score=this.u32(racer+0x1d4);driftCar=this.u32(racer+0x1d8);
+        if(this.ok(score,39*4)&&this.ok(driftCar,0x48)&&this.u32(driftCar)===score&&this.u32(driftCar+4)===racer&&this.u32(driftCar+8)===car){
+          style=this.u32(score);
+          if(this.ok(style,0x3c)&&this.u32(style+0xc)===0){
+            out.driftScoreLinked=true;
+            const state=this.u32(style+0x14),level=this.u32(driftCar+0x1c),next=this.u32(driftCar+0x20);
+            if(state<=4)out.driftScoreState=state;
+            if(level>=1&&level<=5)out.driftMultiplier=level;
+            if(next<=1e9)out.driftNextPoints=next;
+            put('driftPendingPoints',f(style+0x24,0,1e9));put('driftBankedPoints',f(style+0x2c,0,1e9));put('driftRawRate',f(driftCar+0x34,0,1e6));
+            put('driftLatchedSlipRad',f(driftCar+0x44,-Math.PI,Math.PI));
+            put('currentRawRouteProgress',f(racer+0x14,-1,1e7));put('driftBestRawRouteProgress',f(driftCar+0x30,-1,1e7));
+            out.driftCollisionLoss=!!this.u8(driftCar+0x15);
+          }
+        }
+      }
+      // Identity may change while the native game is running. Reject a sample
+      // if the validated graph changed; this is not a native frame lock.
+      if(!this.live(s)||this.u32(car+0x14)!==record||this.u32(car+0x2c)!==driver||this.u32(car+0x24)!==driverKind)return unavailable('context-changed');
+      if(this.u32(0x89e7a0)!==out.trackId||!!this.u8(0x89e7d9)!==out.driftRace||!!this.u32(0x890104)!==out.forcedDrift||!!this.u32(0x890114)!==out.driftVariant||!!this.u8(0x89e7d8)!==out.dragRace||!!this.u32(0x890108)!==out.forcedDrag||!!this.u8(0x89e7e3)!==out.streetXRace||!!this.u32(0x89010c)!==out.forcedStreetX||network()!==networkSample||this.u32(0x850088)!==networkMode)return unavailable('context-changed');
+      if(this.u32(A.PLAYER)!==player)return unavailable('context-changed');
+      if(out.nativeInputMode!==undefined&&this.u32(player+0x22c)!==out.nativeInputMode)return unavailable('context-changed');
+      if(out.nativeNextInputMode!==undefined&&this.u32(player+0x230)!==out.nativeNextInputMode)return unavailable('context-changed');
+      if(out.nativeSkill!==undefined&&this.u32(record+4)!==1)return unavailable('context-changed');
+      if(driverOK&&(this.u32(driver)!==0x785370||this.u32(driver+4)!==car||this.u32(driver+8)!==behavior||this.u32(driver+0x6fc)!==action||this.u32(driver+0xc)!==navigation||this.u32(driver+0x6e0)!==config||this.u32(driver+0x6f8)!==companion))return unavailable('context-changed');
+      if(behaviorVerified&&(this.u32(behavior)!==behaviorVT||this.u32(behavior+0x220)!==car))return unavailable('context-changed');
+      if(actionReadable&&(this.u32(action)!==actionVT||this.u32(action+20)!==actionId))return unavailable('context-changed');
+      if(out.driftScoreLinked&&(this.u32(car+0x1c)!==racer||this.u32(racer)!==car||this.u32(race+0x24)!==count||this.u32(race+0xbd0+racerSlot*4)!==racer||this.u32(racer+0x1d4)!==score||this.u32(racer+0x1d8)!==driftCar||this.u32(score)!==style||this.u32(style+0xc)!==0||this.u32(driftCar)!==score||this.u32(driftCar+4)!==racer||this.u32(driftCar+8)!==car))return unavailable('context-changed');
+      return out;
+    }
+    status(ptr) {
+      this.refresh();
+      if (!Number.isSafeInteger(ptr) || ptr <= 0 || ptr % 4 || ptr + 16 > this.view.byteLength) return null;
+      const h = new Int32Array(this.view.buffer, ptr, 4);
+      if ((Atomics.load(h, 0) >>> 0) !== 0x31545453) return null;
+      const seq = Atomics.load(h, 1), count = Atomics.load(h, 2);
+      if (seq & 1 || count < 0 || count > this.statusCapacity || ptr + 16 + count * 24 > this.view.byteLength) return null;
+      const out = {};
+      for (let k = 0; k < count; k++) {
+        const p = ptr + 16 + 24 * k; let name = '';
+        for (let j = 0; j < 16; j++) { const c = this.view.getUint8(p + j); if (!c) break; name += String.fromCharCode(c); }
+        out[name] = this.view.getFloat64(p + 16, true);
+      }
+      return seq === Atomics.load(h, 1) ? out : null;
+    }
+  }
+  class StableGate {
+    constructor(samples=3) {this.samples=samples;this.reset();}
+    reset() {this.last=null;this.count=0;}
+    accept(value) {const key=JSON.stringify(value);if(key!==this.last){this.last=key;this.count=1;}else this.count++;return this.count>=this.samples;}
+  }
+  function adaptiveRaceSettings({enabled=false,ceiling=1.3,verified=false,ai=false,safe=false,network=false,allowNetwork=false,hud=0,raceType=-1,drag=false,drift=false,streetX=false}={}) {
+    // Session-only orchestration of the existing distance-based native route
+    // envelope. This is not a per-frame multiplier, steering or NOS controller.
+    const result=state=>({requested:state==='requested',state,ceiling});
+    if(enabled!==true)return result('off');
+    if(!Number.isFinite(ceiling)||ceiling<1||ceiling>2)return result('invalid');
+    if(verified!==true)return result('unsupported');
+    if(streetX)return result('street-x');
+    if(drag||drift||hud!==1||raceType!==1)return result('mode');
+    if(network&&allowNetwork!==true)return result('network-permission');
+    if(ai!==true)return result('ai-off');
+    if(safe!==true)return result('paused');
+    return result('requested');
+  }
+  function createCameraDirector({random=Math.random}={}) {
+    if(typeof random!=='function')throw new TypeError('Camera director needs a random function');
+    let lastNow=null,lastIdentity,nextAt=null;
+    const reset=()=>{lastNow=null;lastIdentity=undefined;nextAt=null;};
+    const schedule=now=>{
+      let draw;try{draw=random();}catch{draw=0.5;}
+      if(!Number.isFinite(draw))draw=0.5;
+      nextAt=now+45000+Math.round(Math.max(0,Math.min(1,draw))*75000);
+    };
+    const update=({enabled=false,ready=false,now,identity}={})=>{
+      // No pulse may survive a paused page, stale observation or changed car.
+      if(enabled!==true||ready!==true||!Number.isFinite(now)||now<0||now>Number.MAX_SAFE_INTEGER-120000||identity===null||identity===undefined){reset();return {due:false,nextAt:null};}
+      const rearm=nextAt===null||!Object.is(identity,lastIdentity)||now<lastNow||now-lastNow>1000;
+      lastNow=now;lastIdentity=identity;
+      if(rearm){schedule(now);return {due:false,nextAt};}
+      if(now>=nextAt){schedule(now);return {due:true,nextAt};}
+      return {due:false,nextAt};
+    };
+    return Object.freeze({update,reset});
+  }
+  const api = Object.freeze({ Engine, StableGate, adaptiveRaceSettings, createCameraDirector, automaticNosRefill, A, supportedRevision: '6f4f1e4e' });
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  else Object.defineProperty(root, '__NFSU2_DRIVING_CORE__', { value: api, configurable: true });
+})(globalThis);
+
+
+===== nfsu2-extension/extension/page.js =====
+(() => {
+  'use strict';
+  if (location.origin !== 'https://nfsu2.xyz' || window.top !== window || window.__nfsu2DrivingTools) return;
+  Object.defineProperty(window, '__nfsu2DrivingTools', { value: true });
+  let diagnostics = null;
+  try { let storage = null; try { storage = sessionStorage; } catch {} diagnostics = globalThis.__NFSU2_DIAGNOSTICS__?.create({storage,version:'0.42.8'}) || null; } catch {}
+  let diagnosticState = {}, diagnosticIdentity = null, diagnosticPatch = '';
+  // The log is observational only: no memory writes, upload, raw console capture or error text.
+  const recordDiagnostic = (event, extra = {}) => { try { diagnostics?.record(event,{...diagnosticState,...extra}); } catch {} };
+  window.addEventListener('error', event => {try{recordDiagnostic('page-error',{error:event.error || event.message,tools:diagnosticTools()});}catch{recordDiagnostic('page-error',{error:event.error || event.message});}});
+  window.addEventListener('unhandledrejection', event => {try{recordDiagnostic('promise-rejection',{error:event.reason,tools:diagnosticTools()});}catch{recordDiagnostic('promise-rejection',{error:event.reason});}});
+  const AI = globalThis.__NFSU2_AI__;
+  const TargetFeedback=globalThis.__NFSU2_TARGET_FEEDBACK__;
+  const targetFeedbackState=TargetFeedback&&globalThis.__NFSU2_TARGET_FEEDBACK_STATE__?.create({decode:TargetFeedback.decode});
+  function clearTargetFeedback(){let tick,sequence;try{if(engine)tick=engine.u32(0x86518c);if(typeof ai?.read==='function')sequence=ai.read(4);}catch{}targetFeedbackState?.reset(tick,sequence);if(diagnosticState){const fields=globalThis.__NFSU2_TARGET_FEEDBACK_STATE__?.fields||[];for(const key of fields)diagnosticState[key]=undefined;diagnosticState.nativeTargetFresh=false;diagnosticState.nativeTargetStatus='suspended';}const node=ui?.querySelector('#native-target-state');if(node)node.textContent='Native target feedback · paused';}
+  const Walls = globalThis.__NFSU2_WALLS__;
+  const Cars = globalThis.__NFSU2_CARS__;
+  const Tune = globalThis.__NFSU2_DYNO_CORE__;
+  let aiInstallFailed = false, workerModuleLoader = null, buildInfoGeneration = 0;
+  async function readBuildInfo(signal) {
+    // Each previously unseen original module gets current public metadata.
+    // Older responses cannot replace the newest version shown by the page.
+    const generation=++buildInfoGeneration;
+    try {
+      const response=await fetch('/game.json',{cache:'no-store',credentials:'omit',signal});
+      if(!response.ok)throw new Error('Build information unavailable');
+      const info=await response.json();
+      if(signal?.aborted)return null;
+      if(generation===buildInfoGeneration){
+        revision=String(info?.rev||'unknown');refreshCompatibility();
+        recordDiagnostic('build',{revision,supported});
+        if(!supported)message('Waiting for an exact verified game module. Unknown builds stay disabled.');
+      }
+      return info;
+    } catch(error) {
+      if(!signal?.aborted&&generation===buildInfoGeneration){
+        revision='unknown';refreshCompatibility();recordDiagnostic('build-error',{error});
+        message('Could not check game version. Memory tools stay disabled.');
+      }
+      return null;
+    }
+  }
+  async function prepareWorkerModule(originalModule,{signal}={}) {
+    const info=await readBuildInfo(signal);
+    if(signal?.aborted||!info)return null;
+    const expected=AI.getSourceProfile(info),contract=expected?.sourceInterface;
+    if(!expected||!Array.isArray(contract?.imports)||!Array.isArray(contract?.exports))return null;
+    const imports=WebAssembly.Module.imports(originalModule).map(({module,name,kind})=>({module,name,kind}));
+    const exports=WebAssembly.Module.exports(originalModule).map(({name,kind})=>({name,kind}));
+    if(JSON.stringify(imports)!==JSON.stringify(contract.imports)||JSON.stringify(exports)!==JSON.stringify(contract.exports))return null;
+    const suffix=typeof info.module==='string'&&info.module?`?v=${encodeURIComponent(info.module)}`:'';
+    const response=await fetch('/game.wasm'+suffix,{cache:suffix?'default':'no-cache',credentials:'omit',signal});
+    if(!response.ok)throw new Error('Verified game source could not be read.');
+    const bytes=await response.arrayBuffer();
+    if(signal?.aborted||bytes.byteLength!==expected.size)return null;
+    const compiled=await AI.compileLocal(bytes);
+    if(signal?.aborted)return null;
+    const profile=AI.getModuleProfile(compiled);
+    if(!profile||profile.revision!==expected.revision||profile.hash!==expected.hash||profile.size!==expected.size)return null;
+    return {module:compiled,profile};
+  }
+  try {
+    if(typeof AI?.compileLocal==='function') {
+      if(typeof AI.getSourceProfile!=='function'||!globalThis.__NFSU2_WORKER_MODULE_LOADER__?.create)throw new Error('Worker module loader is unavailable.');
+      workerModuleLoader=globalThis.__NFSU2_WORKER_MODULE_LOADER__.create({prepare:prepareWorkerModule,onError:error=>{aiInstallFailed=true;refreshCompatibility();recordDiagnostic('page-error',{error});}});
+    } else AI?.install();
+  }
+  catch (error) { aiInstallFailed = true; recordDiagnostic('page-error',{error}); }
+  let wall = null, cars = null;
+  let raceCapture=null;
+  const updateRaceCapture=()=>{if(!ui)return;const checkbox=ui.querySelector('#race-capture-enable'),state=ui.querySelector('#race-capture-state');if(!checkbox||!state)return;checkbox.checked=!!raceCapture?.enabled;checkbox.disabled=!raceCapture?.verified;state.textContent=raceCapture?.text||'Unavailable · verified 93af6ccb offline race only';};
+  let dyno = null, dynoEnabled = false, dynoText = 'OFF · back up progress before testing';
+  let ecu=null,ecuUi=null;
+  const ecuOwnsTuner=()=>!!ecu&&(ecu.busy===true||ecu.enabled());
+  const tuningActive=()=>!!dyno?.busy||ecuOwnsTuner();
+  function stopEcu(reason='ECU stopped; exact sealed Undo remains available') {
+    if(ecuUi)ecuUi.stop(reason);else ecu?.stop();
+  }
+  function recordEcuDiagnostic(event,result={}) {
+    recordDiagnostic(event,{ecuAction:result.action,ecuBeforeKw:result.before?.peakPowerKw,ecuAfterKw:(result.afterRebuild||result.after)?.peakPowerKw,ecuGainPercent:result.measuredPrivateGainPercent,ecuScopeHits:result.scopeHits,ecuActions:result.actions,ecuClicks:result.clicks,ecuUndoAvailable:result.undoAvailable,ecuRestored:result.restored,ecuLiveVerified:false,ecuPersistenceVerified:false});
+  }
+  let ai = null, dragTakenOver = false, dragRace = false;
+  const { Engine, StableGate, adaptiveRaceSettings, supportedRevision, createCameraDirector, automaticNosRefill } = globalThis.__NFSU2_DRIVING_CORE__;
+  delete globalThis.__NFSU2_DRIVING_CORE__;
+  let engine = null, statusPtr = 0, inputPtr = 0, supported = false, revision = '', visible = false, moduleProfile = null, activeModule = null, activeWorker = null, sessionGeneration = 0;
+  const refreshCompatibility=()=>{supported=!aiInstallFailed && !!moduleProfile?.capabilities.legacy && moduleProfile.revision===revision;};
+  let host, ui, note, live, timer, driftPending = null, driftNeedsReapply = false;
+  const powerGate=new StableGate(), gripGate=new StableGate();
+  let lastShift = 0, shiftTimer = 0, lastPulse = 0, lastScan = 0;
+  const held = new Set(), physicallyHeld = new Set();
+  const prefs = { raceCornerAssist: false, raceCornerFactor: 0.8, raceCornerMargin: 15, raceBraking: 0.75, cornerAssist: false, cornerFactor: 0.8, cornerMargin: 15, racePace: false, racePaceFactor: 1, walls: false, cars: false, traffic: false, players: false, online: false, ai: false, aiPace: false, paceFactor: 1, nos: false, dragNoBlowout: false, drag: false, rpm: 6500, tester: false, boost: false, power: 1.5, unlimit: false, grip: false, gripFactor: 1.3, drift: null };
+  const nosRefillAvailable=automaticNosRefill?.available===true;
+  const nosRefillStatus=automaticNosRefill?.status||'Refill unavailable · manual near miss is separate';
+  function renderNosRefill(){
+    if(!ui)return;
+    const control=ui.querySelector('#nos'),status=ui.querySelector('#nos-state');
+    // Saved profile values remain dormant; only the available capability can
+    // make a selection effective. There is no refill dispatch in this page.
+    control.checked=nosRefillAvailable&&prefs.nos;control.disabled=!nosRefillAvailable;
+    if(status)status.textContent=nosRefillStatus;
+  }
+  const NearMissControl=globalThis.__NFSU2_NEAR_MISS_CONTROL__;
+  function nearMissContext(){
+    const state=engine?.state(),counters=engine&&statusPtr?engine.status(statusPtr):null;
+    const drive=counters&&Number.isFinite(counters.drive)?counters.drive&3:0;
+    return{moduleIdentity:activeModule,moduleHash:moduleProfile?.hash,generation:sessionGeneration,car:state?.car,race:state?.race,
+      network:state?.network===true,allowNetwork:prefs.online===true,
+      safe:!!(supported&&state?.ready&&state.driving&&drive&&!document.hidden&&document.hasFocus()&&!document.querySelector('dialog[open]')&&!tuningActive()&&!driftPending)};
+  }
+  const nearMiss=NearMissControl?.create({
+    clock:()=>performance.now(),
+    getBridge:()=>{
+      if(!supported||moduleProfile?.capabilities.nativeSyntheticNearMiss!==true||!engine)return null;
+      const existing=AI?.getNearMissBridge?.(activeModule);
+      if(existing?.generation===sessionGeneration)return existing;
+      // Guest startup clears its split-player scratch. Claim the native
+      // command header only after that initialization and owned driving state.
+      const state=engine.state(),counters=statusPtr?engine.status(statusPtr):null;
+      if(!state.ready||!state.driving||!counters||!Number.isFinite(counters.drive)||(counters.drive&3)===0)return null;
+      return AI?.getNearMissBridge?.(activeModule,engine.memory,sessionGeneration)||null;
+    },
+    getContext:nearMissContext
+  });
+  const nearMissTopUp=nearMiss&&globalThis.__NFSU2_NEAR_MISS_TOP_UP__?.create({
+    control:nearMiss,clock:()=>performance.now(),
+    getSample:()=>{
+      if(!supported||moduleProfile?.capabilities.nativeSyntheticNearMiss!==true||!engine)return null;
+      const state=engine.state(),before=engine.nosDiagnostics(state,true),after=engine.nosDiagnostics(state,true),context=nearMissContext();
+      // Read twice: LEFT is accounting credit while NOS is active. The loop
+      // subtracts the selected clock's elapsed ticks without editing that state.
+      if(!state.ready||context.car!==state.car||context.race!==state.race||before.nosTelemetry!==true||after.nosTelemetry!==true||
+        !['nosClockNetwork','nosSinceTicks','nosTimestampActive','nosFullTicks','nosRemainingTicks'].every(key=>before[key]===after[key]))return null;
+      return{...context,full:after.nosFullTicks,remaining:after.nosRemainingTicks,active:after.nosTimestampActive,elapsedTicks:after.nosElapsedTicks};
+    }
+  });
+  function renderNearMiss(){
+    if(!ui)return;
+    const state=nearMiss?.status()||{canRequest:false,text:'Synthetic near miss unavailable on this game build'};
+    const button=ui.querySelector('#near-miss-request'),output=ui.querySelector('#near-miss-state');
+    const loop=nearMissTopUp?.status()||{enabled:false,pending:false,text:'NOS top-up unavailable'};
+    if(button)button.disabled=state.canRequest!==true||loop.enabled||loop.pending;
+    if(output)output.textContent=state.text;
+    const toggle=ui.querySelector('#near-miss-top-up'),loopOutput=ui.querySelector('#near-miss-top-up-state');
+    if(toggle){toggle.checked=loop.enabled;toggle.disabled=!nearMissTopUp||(!loop.enabled&&(!state.available||state.pending||loop.pending));}
+    if(loopOutput)loopOutput.textContent=loop.text;
+  }
+  // Session-only race arming is separate from existing saved driving profiles.
+  let raceOnlyAI=false;
+  const AutonomyRoad=globalThis.__NFSU2_AUTONOMY_ROAD__,AutonomyDrive=globalThis.__NFSU2_AUTONOMY_DRIVE__,AutonomyHosted=globalThis.__NFSU2_AUTONOMY_HOSTED__,AutonomyLoop=globalThis.__NFSU2_AUTONOMY_LOOP__;
+  let autonomyObserver=null,autonomyDrive=null,autonomyLoop=null,autonomySample=null,autonomySnapshot=null,autonomyStartPending=false,autonomyStartUntil=0,autonomyCatalogSample=null,autonomyCatalogAt=-Infinity,autonomyVisitDrag=false,autonomyCruise=false;
+  // Short presentation lease only. Travel and JOIN never consume this cache.
+  const AUTONOMY_CATALOG_MS=1000,AUTONOMY_START_MS=1500;
+  const autonomyTransient=sample=>sample?.fresh!==true&&['snapshot-changed','host-snapshot-changed'].includes(sample?.reason);
+  const autonomySelected=new Set(),autonomyNodes=new Map();
+  let autonomyDiagnosticTransition='';
+  // Display-only preference, deliberately outside saved driving-tool profiles.
+  const HUD_KEY='nfsu2-driving-tools-info-hud-v1';
+  let infoHudEnabled=true,infoHudSample=null;
+  const Pitwall=globalThis.__NFSU2_PITWALL__;
+  let pitwallEnabled=false;
+  const StreamHud=globalThis.__NFSU2_STREAM_HUD__,STREAM_KEY='nfsu2-driving-tools-stream-hud-v1';
+  const streamSession=StreamHud?.createSession?.();
+  const cameraDirector=createCameraDirector?.();
+  let cameraRotationEnabled=false,cameraPulseTimer=null,cameraPulseActive=false;
+  const RearRadar=globalThis.__NFSU2_REAR_RADAR__,RADAR_KEY='nfsu2-driving-tools-rear-radar-v1';
+  let streamHudEnabled=false,rearRadarEnabled=false,radarRange=200,radarSample=null,radarAt=-Infinity,radarOwner=null,hudLayout=null,hudEditing=false,cleanView=false,cleanRestore={panel:false,hub:false},streamRenderAt=-Infinity;
+  try{streamHudEnabled=sessionStorage.getItem(STREAM_KEY)==='1';}catch{}
+  try{const saved=JSON.parse(sessionStorage.getItem(RADAR_KEY)||'null');rearRadarEnabled=saved?.enabled===true;if(Number.isFinite(saved?.range)&&saved.range>=50&&saved.range<=500)radarRange=saved.range;}catch{}
+  function saveRadar(){try{sessionStorage.setItem(RADAR_KEY,JSON.stringify({enabled:rearRadarEnabled,range:radarRange}));}catch{}}
+  let cleanPageSheet=null;
+  function cleanGameDebug(hidden){
+    // Hide only the public game's performance column; its saved setting stays intact.
+    if(!Array.isArray(document.adoptedStyleSheets))return;
+    if(hidden){if(!cleanPageSheet){cleanPageSheet=new CSSStyleSheet();cleanPageSheet.replaceSync('#fps{display:none!important}');}if(!document.adoptedStyleSheets.includes(cleanPageSheet))document.adoptedStyleSheets=[...document.adoptedStyleSheets,cleanPageSheet];}
+    else if(cleanPageSheet)document.adoptedStyleSheets=document.adoptedStyleSheets.filter(sheet=>sheet!==cleanPageSheet);
+  }
+  let radarDrawnSample;
+  function renderStreamHud(force=false){
+    if(!ui)return;
+    const node=ui.querySelector('#stream-hud'),checkbox=ui.querySelector('#stream-hud-enable');
+    if(checkbox)checkbox.checked=streamHudEnabled;
+    if(!node)return;
+    node.hidden=!(streamHudEnabled||rearRadarEnabled||(pitwallEnabled&&!cleanView))||(!cleanView&&!hudEditing&&(visible||hubOpen));
+    for(const id of ['brand','driver','session','stats','road','footer'])ui.querySelector('#stream-widget-'+id).hidden=!streamHudEnabled;
+    ui.querySelector('#stream-widget-radar').hidden=!rearRadarEnabled;
+    const pitwallNode=Pitwall?ui.querySelector('#stream-widget-pitwall'):null;if(pitwallNode)pitwallNode.hidden=!pitwallEnabled||cleanView;
+    if(node.hidden||!StreamHud)return;
+    const now=performance.now();
+    const radarView=rearRadarEnabled&&now-radarAt>=0&&now-radarAt<=250?radarSample:null;
+    if(force||radarView!==radarDrawnSample){StreamHud.renderRadar(ui,radarView);radarDrawnSample=radarView;}
+    if(!force&&now-streamRenderAt<250)return;streamRenderAt=now;
+    if(pitwallEnabled&&!cleanView)Pitwall?.render(ui,{sample:infoHudSample,now,radar:radarView,radarAt});
+    StreamHud.render(ui,{sample:infoHudSample,now,session:streamSession?.snapshot(),info:infoHudView(infoHudSample,{...prefs,raceOnlyAI},now),stats:raceStats?.snapshot()||{},forward:forwardSnapshot});
+  }
+  function setCleanView(hidden){
+    if(hidden===cleanView)return;
+    if(hidden){cleanRestore={panel:visible,hub:hubOpen};hudEditing=false;hudLayout?.setEditing(false);if(ui)ui.querySelector('#hud-layout-enable').checked=false;setRaceHub(false);setPanel(false);}
+    cleanView=!!hidden;
+    cleanGameDebug(cleanView);
+    if(ui)for(const id of ['min','quick-stop','race-hub-open'])ui.querySelector('#'+id).hidden=cleanView;
+    if(!cleanView){setPanel(cleanRestore.panel);setRaceHub(cleanRestore.hub);}
+    renderInfoHud();renderStreamHud(true);
+  }
+  const RaceHub=globalThis.__NFSU2_RACE_HUB__,RaceCatalog=globalThis.__NFSU2_RACE_CATALOG__,RaceTelemetry=globalThis.__NFSU2_RACE_TELEMETRY__,RaceShowcase=globalThis.__NFSU2_RACE_SHOWCASE__;
+  const showcaseHighlights=RaceShowcase?.createHighlights({clock:()=>performance.now()}),showcaseStartedAt=Date.now();
+  let showcaseProfileRows=[];
+  let raceStats=null,hubOpen=false,hubRuntime={ready:false},hubRenderAt=0;
+  try{let storage=null;try{storage=localStorage;}catch{}raceStats=globalThis.__NFSU2_RACE_STATS__?.create({storage})||null;}catch{}
+  function renderRaceHub(force=false){
+    if(!ui||!RaceHub||!hubOpen)return;
+    const now=performance.now();if(!force&&now-hubRenderAt<250)return;hubRenderAt=now;
+    try{RaceHub.render(ui,raceStats?.snapshot()||{},hubRuntime,RaceCatalog||{},showcaseInput());}catch{}
+  }
+  function showcaseInput(){
+    const ready=!!(dynoEnabled&&supported&&visible&&!document.hidden&&document.hasFocus()&&!dyno?.busy&&!ecu?.busy&&!ecuOwnsTuner()&&dyno?.canUse?.());
+    const context=ready?dyno?.syncContext?.():null,outcome=dyno?.applied||dyno?.outcome,lease=outcome?.lease;
+    const current=!!(ready&&context&&lease&&['record','tuned','kind'].every(key=>lease[key]===context[key]));
+    return{session:streamSession?.snapshot()||{},sessionStartedAt:showcaseStartedAt,highlights:showcaseHighlights?.snapshot()||{},tune:{current,outcome:dyno?.outcome,applied:dyno?.applied,moduleHash:moduleProfile?.hash,full:dyno?.full===true,evaluatorReady:!!dyno?.evaluator}};
+  }
+  function renderShowcaseProfiles(){
+    if(!RaceShowcase||!ui||!RaceHub)return;
+    const state=profileStore?.snapshot(),mode=ui.querySelector('#showcase-profile-mode'),select=ui.querySelector('#showcase-profile-select');
+    if(!RaceShowcase.MODES.some(([key])=>key===mode.value))mode.value='circuit';
+    const chosen=select.value;showcaseProfileRows=RaceShowcase.profilesFor(state?.data?.profiles,mode.value);
+    select.replaceChildren();const empty=document.createElement('option');empty.value='';empty.textContent='Choose saved settings';select.append(empty);
+    for(const row of showcaseProfileRows){const option=document.createElement('option');option.value=row.id;option.textContent=row.name;select.append(option);}
+    select.value=showcaseProfileRows.some(row=>row.id===chosen)?chosen:'';
+    ui.querySelector('#showcase-profile-save').disabled=profileActionPending||!state?.available||!profileLocks();
+    ui.querySelector('#showcase-profile-load').disabled=profileActionPending||!state?.available||!showcaseProfileRows.some(row=>row.id===select.value);
+    ui.querySelector('#showcase-profile-state').textContent=profileNotice||state?.error||'Manual save and Load only. Existing profiles stay intact.';
+  }
+  function setRaceHub(open){
+    hubOpen=!!open&&!!RaceHub;if(!ui||!RaceHub)return;
+    const hub=ui.querySelector('#race-hub');if(hub)hub.hidden=!hubOpen;
+    ui.querySelector('#race-hub-open')?.setAttribute('aria-expanded',String(hubOpen));
+    renderRaceHub(true);renderShowcaseProfiles();renderInfoHud();renderStreamHud(true);
+  }
+  function pauseRaceStats(){
+    try{raceStats?.observe({driving:false,inRace:false});}catch{}
+    hubRuntime={ready:false};renderRaceHub(true);
+  }
+  try {infoHudEnabled=sessionStorage.getItem(HUD_KEY)!=='0';} catch {}
+  const STORAGE_KEY='nfsu2-driving-tools-v1';
+  try {
+    const saved=JSON.parse(sessionStorage.getItem(STORAGE_KEY)||'null');
+    if(saved && typeof saved==='object') {
+      for(const name of ['nos','drag','tester','dragNoBlowout']) if(typeof saved[name]==='boolean') prefs[name]=saved[name];
+      for(const [name,min,max] of [['raceCornerFactor',0.6,0.95],['raceCornerMargin',0,25],['raceBraking',0.5,1],['racePaceFactor',0.75,3],['cornerFactor',0.6,0.95],['cornerMargin',0,25],['paceFactor',0.75,3],['rpm',3000,10000],['power',1,3],['gripFactor',1,2]]) if(Number.isFinite(saved[name])) prefs[name]=Math.max(min,Math.min(max,saved[name]));
+      if(typeof saved.drift==='boolean') prefs.drift=saved.drift;
+    }
+  } catch { /* storage disabled: choices still persist between races in this page */ }
+  const ToolProfiles=globalThis.__NFSU2_TOOL_PROFILES__;
+  let profileStore=null,profileSelection=null,loadedProfile=null,profileNotice='',profileStartup=null,profileDriftChoice=false,profileActionPending=false,profileActionEpoch=0;
+  const PROFILE_SESSION_STOP='nfsu2-driving-tools-profiles-session-stop';
+  let profileSessionStopped=false;
+  try {profileSessionStopped=sessionStorage.getItem(PROFILE_SESSION_STOP)==='1';}catch{}
+  if(ToolProfiles){let storage=null;try{storage=localStorage;}catch{}profileStore=ToolProfiles.create(storage);profileStartup=profileSessionStopped?null:profileStore.startup();}
+  // A durable Stop suppresses legacy same-tab driving reapplication as well.
+  if(profileSessionStopped||profileStore?.snapshot().paused||(profileStore&&!profileStore.snapshot().available)){for(const k of ['raceCornerAssist','cornerAssist','racePace','walls','cars','traffic','players','online','ai','aiPace','nos','dragNoBlowout','drag','boost','unlimit','grip'])prefs[k]=false;}
+  // Intentionally outside saved profiles and legacy session preference storage.
+  let adaptiveRaceEnabled=false,adaptiveRaceCeiling=1.3;
+  const dynamicPacer=globalThis.__NFSU2_DYNAMIC_PACING__?new globalThis.__NFSU2_DYNAMIC_PACING__.Pacing():null;
+  let cityPacingEnabled=false,onlineRivalsEnabled=false;
+  const cityPacer=globalThis.__NFSU2_CITY_PACING__?.Controller?new globalThis.__NFSU2_CITY_PACING__.Controller():null;
+  function renderCityPace(state={active:false,state:'off'}){
+    if(!ui)return;
+    const checkbox=ui.querySelector('#city-pace'),node=ui.querySelector('#city-pace-state');
+    checkbox.checked=cityPacingEnabled;
+    checkbox.disabled=!cityPacer||!supported||moduleProfile?.capabilities.ai!==true||moduleProfile?.capabilities.pace!==true;
+    const labels={off:'Off · current page only',unsupported:'Unavailable on this verified build','network-permission':'Allow network tools is off','not-online':'Waiting for an online free-roam session',mode:'Waiting for ordinary online free roam','ai-off':'Selected · waiting for Automatic driver',paused:'Paused · waiting for active focused driving','waiting-owner':'Waiting for current local AI ownership',invalid:'Waiting for valid pacing context','selected-native':'Selected pace ceiling · partial observations','clearance-limited':'Observed clearance · slowing pace request'};
+    node.textContent=labels[state.state]||'Waiting for current observations';
+    if(state.active)node.textContent+=' · '+state.pace.toFixed(2)+'× requested';
+  }
+  const cityEvidence=state=>({cityPacingEnabled,cityPacingState:state?.state||'off',citySelectedPace:state?.active?state.selectedPace:undefined,cityRuntimePace:state?.active?state.pace:undefined,cityClearanceObserved:state?.active?state.clearanceObserved:undefined,cityClearanceDistance:state?.active?state.clearanceDistance:undefined,cityClearanceSource:state?.active?state.clearanceSource:undefined,cityClearanceTarget:state?.active?state.clearanceTarget:undefined,cityTimingState:state?.active?state.timingState:undefined,citySampleGapMs:state?.active?state.sampleGapMs:undefined,cityContactPreviewAvailable:state?.active?state.contactPreviewAvailable:undefined,cityContactPreviewState:state?.active?state.contactPreviewState:undefined,cityObservedCars:state?.active?state.observedCars:undefined,cityExcludedCars:state?.active?state.excludedCars:undefined});
+  function clearCityPace(){cityPacingEnabled=false;cityPacer?.reset();diagnosticState={...diagnosticState,...cityEvidence()};renderCityPace();}
+  function clearRivalNoClip(){onlineRivalsEnabled=false;cars?.stop();diagnosticState={...diagnosticState,onlineRivalsRequested:false};if(ui){const control=ui.querySelector('#rivals');if(control)control.checked=false;renderAllOnlineCars();}}
+  const allOnlineCarsAvailable=()=>['onlineTraffic','onlinePlayers','onlineRaceCars','onlineRivals','onlinePlayerOutrun'].every(key=>moduleProfile?.capabilities?.[key]===true);
+  function renderAllOnlineCars(carState){
+    if(!ui)return;
+    const control=ui.querySelector('#online-all'),state=ui.querySelector('#online-all-state');
+    control.disabled=!allOnlineCarsAvailable();
+    control.checked=prefs.online===true&&prefs.traffic===true&&prefs.players===true&&onlineRivalsEnabled===true;
+    state.textContent=!allOnlineCarsAvailable()?'Unavailable on this game build':!control.checked?'Off · traffic, players and NPC rivals':carState?.requested?'Armed · '+(carState.reason||'local car contacts'):'Selected · waiting for an eligible online session';
+  }
+  function setAllOnlineCars(enabled){
+    const selected=enabled===true&&allOnlineCarsAvailable();
+    prefs.traffic=selected;prefs.players=selected;onlineRivalsEnabled=selected;
+    if(selected)prefs.online=true;else cars?.stop();
+    if(ui)for(const[id,value]of [['traffic',prefs.traffic],['players',prefs.players],['rivals',onlineRivalsEnabled],['online',prefs.online]])ui.querySelector('#'+id).checked=value;
+    renderAllOnlineCars();
+    message(selected?'Online car no-clip selected for traffic, players and NPC rivals. Outrun covers verified challenge participants; races cover verified race cars. Automatic driver settings are kept.':'Online car no-clip off. Automatic driver and network permission settings are kept.');
+  }
+  let forwardDrive=null;
+  let rubberband=null,rubberbandEnabled=!profileSessionStopped,rubberbandPercent=100,rubberbandStrength=1.5;
+  // 0.42 rails: the owned race AI car stays on the game's simplified AI physics (the mode the opponents drive in)
+  // instead of dropping to full physics after its first contact. Session-only, owned road races and Street X.
+  // In a rails race the catch-up switch only raises speed targets; the paired power/grip boost stays out.
+  let railsEnabled=true,railsDefaultsApplied=false,rubberbandPercentTouched=false;
+  const newRailsWatch=()=>({identity:'',armed:false,stuckSince:null,fastSince:null,trips:0,suspended:false,lastAt:null,lastTick:null});
+  const newRailsView=()=>({wanted:false,race:false,paceOnly:false,on:false,pins:0,suspended:false,trips:0,pace:1,streetX:false});
+  let railsWatch=newRailsWatch(),railsView=newRailsView();
+  const RAILS_DEFAULT_PERCENT=130,RAILS_STREET_X_CEILING=1.15;
+  const soloOnlyBuild=()=>moduleProfile?.capabilities?.soloOnly===true;
+  // Online capability is granted by the verified native adapter, never by a saved preference.
+  function enforceSolo(){
+    const blocked=soloOnlyBuild(),control=ui?.querySelector('#online');
+    if(blocked)prefs.online=false;
+    if(control){control.disabled=blocked;if(blocked)control.checked=false;}
+  }
+  function syncRubberbandControls(){
+    if(!ui)return;
+    const input=ui.querySelector('#rubberband-percent'),value=ui.querySelector('#rubberband-value');
+    if(input)input.value=rubberbandPercent;
+    if(value)value.textContent=(rubberbandPercent/100).toFixed(2)+'×';
+  }
+  // Stuck watchdog. Armed once the car has moved; a car that then stays under 2 m/s for 3 s while the race AI owns it
+  // has its rails released so the game's normal full physics can recover it. Rails return after 2 s above 20 m/s.
+  // Two releases per race at most; after that the rails stay off for that race.
+  function updateRailsWatch(identity,driving,speed,now,tick){
+    if(railsWatch.identity!==identity){railsWatch=newRailsWatch();railsWatch.identity=identity;}
+    const w=railsWatch;
+    // Wall time alone cannot prove the game advanced while paused or stalled.
+    // Require consecutive fresh native frames; gaps restart only the timers.
+    const observed=driving===true&&Number.isFinite(speed)&&speed>=0&&Number.isFinite(now)&&Number.isInteger(tick)&&tick>=0&&tick<=0xffffffff;
+    const continuous=observed&&w.lastAt!==null&&now>w.lastAt&&now-w.lastAt<=500&&w.lastTick!==null&&tick>w.lastTick;
+    w.lastAt=observed?now:null;w.lastTick=observed?tick:null;
+    if(!continuous){w.stuckSince=null;w.fastSince=null;return w;}
+    if(w.suspended){
+      if(w.trips>=2)return w;
+      if(speed>=20){if(w.fastSince===null)w.fastSince=now;else if(now-w.fastSince>=2000){w.suspended=false;w.armed=true;w.fastSince=null;w.stuckSince=null;}}
+      else w.fastSince=null;
+      return w;
+    }
+    if(!w.armed){if(speed>=10)w.armed=true;return w;}
+    if(speed<2){if(w.stuckSince===null)w.stuckSince=now;else if(now-w.stuckSince>=3000){w.suspended=true;w.trips++;w.stuckSince=null;w.fastSince=null;}}
+    else w.stuckSince=null;
+    return w;
+  }
+  function renderRails(){
+    if(!ui)return;
+    const toggle=ui.querySelector('#rails-enable'),status=ui.querySelector('#rails-state');
+    if(!toggle||!status)return;
+    const available=supported&&moduleProfile?.capabilities.nativeRails===true,v=railsView;
+    toggle.checked=railsEnabled;toggle.disabled=!available;
+    status.textContent=!available?'Unavailable on this game build':!railsEnabled?'Off · full physics after the first contact':
+      v.suspended?(v.trips>=2?'Released for this race · car stopped twice':'Released · car stopped · normal physics recovering'):
+      v.on?'On rails'+(v.pins?' · held '+v.pins+'×':''):v.wanted?'Selected · waiting for race AI':'Selected · road races and Street X';
+    status.title='Simplified AI physics for your owned race AI car in Circuit, Sprint, URL and Street X. Online requires Allow network tools and the verified online adapter. "Held" counts native requests to leave simplified physics that the rails guard held. Drag, Drift, free roam and manual driving use their existing modes.';
+  }
+  let rubberbandSnapshot={state:'off',active:false,resetPending:false};
+  let nativeCalculatedState={eligible:false,reason:'off'};
+  const rubberbandEvidence=()=>({rubberbandState:rubberbandSnapshot.state,rubberbandActive:rubberbandSnapshot.active,rubberbandResetPending:rubberbandSnapshot.resetPending,rubberbandResetAcknowledged:rubberbandSnapshot.resetAcknowledged,rubberbandRequestedPercent:rubberbandSnapshot.requestedPercent,rubberbandAppliedPercent:rubberbandSnapshot.appliedPercent,rubberbandPublication:rubberbandSnapshot.publication,rubberbandAckAgeMs:rubberbandSnapshot.ackAgeMs,nativeCalculatedEligible:false,nativeCatchupOn:nativeCalculatedState.catchupOn,pacedCatchupEligible:nativeCalculatedState.eligible,pacedRequestedStrength:rubberbandSnapshot.requestedStrength,pacedAppliedStrength:rubberbandSnapshot.appliedStrength,pacedSourceFactor:rubberbandSnapshot.sourceFactor,pacedPowerFactor:rubberbandSnapshot.powerFactor,pacedTireFactor:rubberbandSnapshot.tireFactor,pacedPowerGain:rubberbandSnapshot.relativePowerGain,pacedTireGain:rubberbandSnapshot.relativeTireGain,pacedWheelHits:rubberbandSnapshot.wheelHits,pacedOutputsVerified:rubberbandSnapshot.outputsVerified,pacedAckRejectCode:rubberbandSnapshot.ackRejectCode,pacedPhysicsKind:rubberbandSnapshot.physicsKind,pacedEvidenceKind:rubberbandSnapshot.evidenceKind,pacedCombinedGripFactor:rubberbandSnapshot.combinedGripFactor,pacedNativeStage:rubberbandSnapshot.nativeStage});
+  function renderRubberband(){
+    if(!ui)return;
+    const toggle=ui.querySelector('#rubberband-enable'),status=ui.querySelector('#rubberband-state');
+    if(!toggle||!status)return;
+    toggle.checked=rubberbandEnabled;
+    const available=supported&&moduleProfile?.capabilities.nativePacedCatchup===true;
+    toggle.disabled=!available;
+    // Match the actual handling policy: selecting rails for this permitted road
+    // race keeps paired power/grip off even while the watchdog releases the pin.
+    // Preserve the selected strength for Drag and later full-physics races.
+    const railsHandlingOff=available&&railsEnabled&&railsView.wanted===true;
+    const strength=ui.querySelector('#rubberband-strength'),strengthState=ui.querySelector('#rubberband-strength-state'),modeLabel=ui.querySelector('#rubberband-label');
+    if(strength){
+      strength.disabled=!available||railsHandlingOff;
+      strength.title=railsHandlingOff?'Catch-up strength is not applied in this rails race. Your selection is kept for full physics and Drag.':'Handling assistance for full physics and Drag. Rails races use the Paired race pace control.';
+      strength.setAttribute('aria-valuetext',rubberbandStrength.toFixed(2)+' times'+(railsHandlingOff?' saved; inactive in rails mode':''));
+    }
+    if(strengthState)strengthState.textContent=!available?'Handling assistance unavailable on this build':railsHandlingOff?'Strength inactive · rails uses speed targets only · no grip or power boost':'Strength applies to full physics and Drag · selected '+rubberbandStrength.toFixed(2)+'×';
+    if(modeLabel)modeLabel.textContent=railsHandlingOff?'Race pace · rails mode':'Race pace + catch-up';
+    const labels={off:'Off',unsupported:'Unavailable on this game build',unavailable:'Unavailable',unverified:'Waiting for a verified game','protocol-error':'Handling command unavailable',blocked:'Handling mailbox unavailable',waiting:'Waiting for matching handling-input publication',applied:'Matching handling inputs confirmed','guarded-native':'Handling guard retained native values'};
+    const waiting={'ai-unowned':'Selected · waiting for race AI','not-ordinary-race':'Selected · waiting for a supported race with race AI on','network-permission':'Paused online · enable Allow network tools on a supported build',unsafe:'Paused · waiting for active driving','stacking-not-neutral':'Waiting for custom power/grip restoration',sample:'Native factors unavailable · native calculation unchanged'};
+    const n=nativeCalculatedState;
+    status.textContent=rubberbandEnabled?(waiting[n.reason]||labels[rubberbandSnapshot.state]||'Waiting for native physics'):'Off';
+    if(rubberbandEnabled&&n.eligible)status.textContent=labels[rubberbandSnapshot.state]||rubberbandSnapshot.reason||'Waiting for native physics';
+    if(rubberbandEnabled&&rubberbandSnapshot.active&&rubberbandSnapshot.outputsVerified){
+      const support=rubberbandSnapshot.evidenceKind==='combined-grip'&&Number.isFinite(rubberbandSnapshot.combinedGripFactor)?`combined-grip input ${rubberbandSnapshot.combinedGripFactor.toFixed(3)}`:rubberbandSnapshot.evidenceKind==='four-tires'&&Number.isFinite(rubberbandSnapshot.tireFactor)?`four-tire input ${rubberbandSnapshot.tireFactor.toFixed(3)}`:'handling inputs confirmed';
+      status.textContent=`Pace ${(rubberbandSnapshot.appliedPercent/100).toFixed(2)}× · strength ${rubberbandSnapshot.appliedStrength.toFixed(2)}× · ${support}`;
+    }
+    if(rubberbandEnabled&&n.eligible&&n.catchupOn===false&&moduleProfile?.capabilities.godlyModes!==true)status.textContent='Game Catch Up is off · matching boost unavailable';
+    if(rubberbandEnabled&&moduleProfile?.capabilities.nativePacedCatchup!==true)status.textContent='Pace-linked catch-up unavailable on this game build';
+    if(rubberbandEnabled&&railsHandlingOff){
+      // Shown pace: what is requested for the owned car (Street X can be capped below the slider); the slider value while waiting.
+      const live=railsView.on||railsView.suspended,shown=live&&Number.isFinite(railsView.pace)?railsView.pace:rubberbandPercent/100;
+      status.textContent=(railsView.suspended?'Rails released · pace ':railsView.on?'On rails · pace ':'Rails pace ')+shown.toFixed(2)+'×'+(live&&railsView.streetX&&shown<rubberbandPercent/100?' · Street X cap':'')+' · speed targets only · no grip/power boost'+(live?'':' · waiting for race AI');
+    }
+    if(rubberbandSnapshot.resetPending)status.textContent+=' · restoration pending';
+    status.title=railsHandlingOff?'Rails mode: Paired race pace changes speed targets. Catch-up strength is inactive and no paired power/grip boost is applied, including during recovery. Your selected strength is kept for full physics and Drag.':'Pairs selected pace P with native handling support. Strength S is an independent 1–10× authored control. Source caches remain native; matching full-physics tire inputs or simplified-physics combined-grip inputs are checked separately. Displayed factors describe handling inputs, with no measured engine-power, grip or speed claim. Extra native pace stays neutral until matching physical outputs are verified. Raised corner targets require current gain at native use time. Works with game Catch Up and Rubberbanding on or off. Assistance scales the native source factor for your owned AI car; opponents keep their game setting. Online requires Allow network tools and the verified online adapter. Custom power/grip are paused during use and restoration.';
+  }
+  function stopRubberband(disable=false){
+    if(disable)rubberbandEnabled=false;
+    nativeCalculatedState={eligible:false,reason:disable?'off':'unsafe'};
+    try{const context={enabled:false,percent:100,strength:1,now:performance.now(),currentCar:engine?.state()?.car||0};rubberbandSnapshot=(disable?rubberband?.stop(context):rubberband?.update(context))||rubberbandSnapshot;}catch{rubberbandSnapshot={state:'unavailable',active:false,resetPending:true};}
+    diagnosticState={...diagnosticState,...rubberbandEvidence()};
+    renderRubberband();
+  }
+  let forwardSnapshot={forwardState:'off',forwardNativeApplied:false,forwardLiveVerified:false};
+  function renderForwardStatus() {
+    if(!ui)return;
+    const node=ui.querySelector('#forward-race-state');if(!node)return;
+    const state=forwardSnapshot;
+    node.textContent=!moduleProfile?.capabilities.nativeForwardGeometry?'Forward road preview unavailable on this build':
+      state.forwardState==='armed'?`Forward target requested · ${state.forwardSamples} points · ${state.forwardHorizon.toFixed(0)} units · ${state.forwardPriorityTurns} priority turns`:
+      state.forwardState==='observed'?`Read-only road preview · ${state.forwardSamples} points · ${state.forwardPriorityTurns} priority turns`:
+      state.forwardState==='native-fallback'?'No measured corner target · native driving continues':
+      state.forwardState==='waiting'||state.forwardState==='requested'?'Forward road preview · waiting for native sample':
+      state.forwardState==='unknown'?'Forward road preview unknown · native driving continues':'Forward road preview off · follows Adaptive in permitted road races';
+    node.title='Bounded selected-road centerline preview, including gradual and accumulated 75°+ bends. Exact-build native policy receipts supply the game\'s planning limits; unsupported policy remains read-only. These are planning assumptions, not measured tire forces. A request is not a native application acknowledgement or a measured cornering result. The 100 ms native lease can leave gaps; existing native driving continues between requests.';
+  }
+  function cancelForward() {
+    try{forwardDrive?.stop();}catch{}
+    forwardSnapshot={forwardState:'off',forwardNativeApplied:false,forwardLiveVerified:false};
+    diagnosticState={...diagnosticState,...forwardSnapshot,forwardSamples:undefined,forwardHorizon:undefined,forwardPriorityTurns:undefined,forwardRequestedTarget:undefined,forwardLeaseTicks:undefined,forwardFailureCode:undefined,forwardGuardCode:undefined,forwardReadPhaseCode:undefined,forwardReadSubreasonCode:undefined,forwardNumericControlWord:undefined,forwardNumericFailureMask:undefined,forwardCaptured:false};
+    renderForwardStatus();
+  }
+  let pacingEvidence=null;
+  const diagnosticTools = () => ({...prefs,nos:nosRefillAvailable&&prefs.nos,raceOnlyAI,dynoEnabled,adaptiveRace:adaptiveRaceEnabled,adaptiveRaceCeiling,rubberband:rubberbandEnabled,rubberbandPercent,rubberbandStrength,rails:railsEnabled});
+  const coarseDiagnostic = () => Object.fromEntries(['generation','supported','ready','driving','network','safe','hidden','focused','hud','flow','raceType','racePhase','driverKind','physicsKind','gameTicks','dynoBusy','dynoFullTuner','dynoSecondWindowCapture','dynoCurrentClamp'].filter(key=>diagnosticState[key]!==undefined).map(key=>[key,diagnosticState[key]]));
+  function traceDiagnostic(data,failureCode=0,producerStage=0) {
+    const sample={...data,revision:moduleProfile?.revision||revision,moduleHash:moduleProfile?.hash,tools:diagnosticTools(),traceStatus:failureCode?'unavailable':'captured',producerFailureCode:failureCode,producerStage};
+    // Keep short observed rails transitions even when the regular 250 ms trace skips this tick.
+    try { diagnostics?.railsTransition?.({...sample,railsMenuOpen:!!document.querySelector('dialog[open]')}); } catch {}
+    try { diagnostics?.trace?.(sample); }
+    catch { try { diagnostics?.record('state',{...coarseDiagnostic(),generation:sessionGeneration,revision:moduleProfile?.revision||revision,moduleHash:moduleProfile?.hash,supported,tools:diagnosticTools(),traceStatus:'unavailable',producerFailureCode:3,producerStage:3}); } catch {} }
+  }
+  const savePrefs=()=>{try{sessionStorage.setItem(STORAGE_KEY,JSON.stringify(prefs));}catch{}};
+  recordDiagnostic('tools',{tools:diagnosticTools()});
+  const message = text => { if (note) {note.textContent=text;const summary=ui.querySelector('#status-summary');summary.title=text;} };
+  // Pure presentation of existing verified samples. No reads or writes to game
+  // memory occur here; missing/paused telemetry is never replaced with zero.
+  function infoHudView(sample,choices,now) {
+    const fresh=sample && Number.isFinite(sample.at) && now-sample.at>=0 && now-sample.at<=500;
+    const d=fresh?sample.data:{}, c=fresh?sample.context:{};
+    const aiSelected=!!choices.ai || (!!choices.raceOnlyAI && d.raceOnlyRequested===true);
+    const paused=!fresh?'Waiting for live sample':!d.supported?'Build not verified':!d.ready?'Waiting for car':d.hidden?'Tab hidden':d.focused===false?'Game unfocused':!d.hud?'Waiting for driving HUD':!d.driving?'Waiting for GO':c.menu?'Game menu open':c.suspended||'';
+    const live=!paused;
+    const blocked=paused||(d.network&&!choices.online?'Online tools paused':'');
+    const speed=live && d.nativeTelemetry===true && Number.isFinite(d.speedMps) && d.speedMps>=0 && d.speedMps<=500 ? String(Math.round(d.speedMps*3.6)) : 'Unavailable';
+    const mode=!fresh||!d.supported||!d.ready?'Waiting for game':c.drag?'Drag':c.drift?'Drift':d.raceType===0&&d.hud===2?'Free roam':d.raceType===7?'Outrun':d.raceType===1?'Race':'Driving';
+    const context=d.supported&&d.ready?(d.network?'Online / LAN':'Solo')+' · '+mode:mode;
+    let driver=blocked||'Driver unavailable';
+    if(!blocked) {
+      if(d.handbackPending||c.switching)driver='AI handoff pending';
+      else if(!aiSelected&&d.aiOwned)driver='Releasing native AI';
+      else if(aiSelected&&d.aiActive)driver=c.drag?'Native Drag AI active':'Native AI active';
+      else if(aiSelected)driver=c.aiAvailable===false?'AI unavailable':c.aiStatus==='failed'?'AI handoff failed':c.aiStatus==='retry'?'AI needs off / on':'AI requested · waiting';
+      else if(c.manual||d.driverKind===1)driver='Manual driver';
+      else if(d.aiDriverVerified)driver='Native AI · not tool-owned';
+      else driver='Driver unavailable';
+    }
+    const adaptiveRequested=d.adaptiveRaceRequested===true;
+    const cityRequested=c.cityPacing===true&&c.roam&&d.network===true&&choices.online===true&&aiSelected&&d.aiActive===true&&d.aiOwned===true;
+    const selected=cityRequested||adaptiveRequested|| (c.roam?choices.aiPace:c.race?choices.racePace:false);
+    const factor=cityRequested?c.cityPace:adaptiveRequested?d.adaptiveRaceCeiling:c.roam?choices.paceFactor:c.race?choices.racePaceFactor:1;
+    let pace=blocked?'Not confirmed':c.paceAvailable===false?'Unavailable on this build':c.drag||c.drift?'Native · custom pace paused':!c.roam&&!c.race?'Unavailable in this mode':!selected?'Native target':Number.isFinite(factor)?factor.toFixed(2)+'× selected':'Unavailable';
+    if(live&&!blocked&&c.paceAvailable!==false&&!c.drag&&!c.drift&&(c.roam||c.race)) {
+      const target=selected?factor:1;
+      if(aiSelected&&Number.isFinite(target)) {
+        // An older acknowledgement must not confirm a newly selected factor.
+        const confirmed=d.paceConfirmed===true && !c.switching && Number.isFinite(d.paceApplied) && d.paceApplied>=.75 && d.paceApplied<=3 && Math.abs(d.paceApplied-target)<.011;
+        pace=target.toFixed(2)+'× req · '+(confirmed?d.paceApplied

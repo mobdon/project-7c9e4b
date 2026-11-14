@@ -1,0 +1,840 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src &#39;none&#39;; style-src &#39;sha256-7V9wikYxpoJyfo0c/2bjY5+kxAsrimPkPm/Si9wQ1WI=&#39;; script-src &#39;none&#39;; connect-src &#39;none&#39;; img-src &#39;none&#39;; font-src &#39;none&#39;; object-src &#39;none&#39;; base-uri &#39;none&#39;; form-action &#39;none&#39;"><meta name="referrer" content="no-referrer"><title>Offline Report Lab</title><style>
+    :root{color-scheme:light;--ink:#202c35;--muted:#55636c;--line:#d9dfdf;--paper:#fff;--wash:#f3f5f2;--accent:#265d68;--tint:#eaf1f1;--note:#fff4d8}
+    *{box-sizing:border-box}body{margin:0;background:var(--wash);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+    .wrap{max-width:1210px;margin:0 auto;padding:36px 30px 70px}.eyebrow{font-size:12px;letter-spacing:.12em;font-weight:750;text-transform:uppercase;color:var(--accent)}h1{font-size:clamp(30px,5vw,46px);line-height:1.12;letter-spacing:-.035em;margin:12px 0}h2{font-size:23px;line-height:1.3;margin:0 0 12px}h3{font-size:16px;margin:20px 0 8px}p{margin:10px 0}.lead{max-width:830px;color:var(--muted);font-size:18px}.banner{background:var(--note);padding:15px 18px;border-left:4px solid #b98221;border-radius:4px;margin:24px 0}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:25px 0}.stat{border:1px solid var(--line);padding:18px;background:var(--paper);border-radius:10px}.stat strong{display:block;font-size:27px;line-height:1.2}.stat span{font-size:13px;color:var(--muted)}.layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:25px}.nav{align-self:start;position:sticky;top:22px;font-size:13px}.nav ol{padding-left:21px}.nav li{margin:10px 0}.nav .small{font-size:12px}.case,.foot{background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:24px;margin-bottom:19px;scroll-margin-top:20px}.tag{display:inline-block;border-radius:4px;background:var(--tint);color:var(--accent);padding:3px 7px;font-size:11px;font-weight:700;letter-spacing:.035em;text-transform:uppercase;margin:0 5px 12px 0}.tag.fixture{background:#f4efdf;color:#775c18}.muted{color:var(--muted)}.explain{border-top:1px solid var(--line);padding-top:13px}.columns{display:grid;grid-template-columns:1fr 1fr;gap:16px}pre{margin:8px 0 0;padding:14px;border-radius:6px;background:#f3f5f5;border:1px solid #e4e8e8;font:12px/1.5 ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;max-height:430px;overflow:auto}summary{cursor:pointer;font-weight:650;color:var(--accent)}details{margin-top:16px}ul{padding-left:22px}.small{font-size:13px;color:var(--muted)}.limits{font-size:14px;color:var(--muted)}.downloads{display:flex;gap:18px;flex-wrap:wrap}.foot{margin-top:24px}.foot h2{font-size:20px}
+    @media(max-width:780px){.wrap{padding:24px 16px}.layout{grid-template-columns:1fr}.nav{position:static}.nav ol{display:flex;flex-wrap:wrap;gap:6px 24px}.nav li{margin:2px 0}.columns{grid-template-columns:1fr}.stats{gap:8px}.stat{padding:13px}.stat strong{font-size:23px}.case{padding:18px}}
+  </style></head><body><main class="wrap">
+    <header><div class="eyebrow">Local artifacts · transport disabled</div><h1>Client report inspection</h1><p class="lead">Original reporting helpers and page checks, exercised with controlled inputs. Expand a case to inspect the observed values and locally captured encoder input.</p></header>
+    <div class="banner"><strong>This is a fixture run, not a gameplay recording.</strong> It does not establish what was reported about your account, a ban decision, or multiplayer safety. Captures are taken before encoding; no wire-report equivalence is claimed.</div>
+    <div class="stats"><div class="stat"><strong>12</strong><span>controlled cases · 10 native cases</span></div><div class="stat"><strong>2</strong><span>local captures before encoding</span></div><div class="stat"><strong>0</strong><span>attempted network/process calls · blocked if attempted</span></div></div>
+    <div class="layout"><nav class="nav" aria-label="Report cases"><strong>Inspect a case</strong><ol><li><a href="#native-clean">Clean synthetic race frame</a></li><li><a href="#native-race-change">Changed synthetic race frame</a></li><li><a href="#native-freeroam-change">Changed synthetic free-roam frame</a></li><li><a href="#native-developer-event">Synthetic developer event in both accumulator contexts</a></li><li><a href="#native-no-context">Changed frame with both accumulators inactive</a></li><li><a href="#native-missing-snapshot">Developer marker without a matching synthetic snapshot</a></li><li><a href="#native-race-reset">Native race reset preserves the separate free-roam record</a></li><li><a href="#native-race-capture">Race helper: local pre-encoding capture</a></li><li><a href="#native-freeroam-capture">Free-roam helper: local pre-encoding capture</a></li><li><a href="#native-unready-envelope">Unready synthetic session: no capture</a></li><li><a href="#host-clean-native-apis">Clean synthetic browser APIs</a></li><li><a href="#host-extension-wrapper-before-load">Extension wrapper before a module load</a></li></ol><p class="small">Build 60946132<br>2026-11-12T22:30:00.681Z</p><div class="downloads"><a href="report.json">Complete JSON</a></div></nav><div><article class="case" id="native-clean">
+      <span class="tag">Isolated native helper</span><span class="tag fixture">Controlled fixture inputs</span>
+      <h2>Clean synthetic race frame</h2>
+      <p>Original native compare/accumulator/export helpers applied to controlled local fixture data.</p>
+      <div class="columns"><section><h3>What was supplied</h3><pre>{
+  &quot;race&quot;: true,
+  &quot;freeRoam&quot;: false,
+  &quot;changed&quot;: false,
+  &quot;developer&quot;: false,
+  &quot;watchedRegion&quot;: &quot;one artificial four-byte region&quot;
+}</pre></section><section><h3>What was observed</h3><pre>{
+  &quot;race&quot;: {
+    &quot;sampledFrames&quot;: 1,
+    &quot;changedFrames&quot;: 0,
+    &quot;developerEvents&quot;: 0,
+    &quot;observationFlags&quot;: 0
+  },
+  &quot;freeRoam&quot;: {
+    &quot;sampledFrames&quot;: 0,
+    &quot;changedFrames&quot;: 0,
+    &quot;developerEvents&quot;: 0,
+    &quot;observationFlags&quot;: 0
+  },
+  &quot;developerMarkerConsumed&quot;: true
+}</pre></section></div>
+      
+      <ul class="limits"><li>Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.</li><li>Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.</li><li>The original encoder is not run. Encoder inputs are captured locally and the replacement returns zero.</li><li>Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.</li><li>These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline.</li></ul>
+      <details><summary>Source evidence</summary><pre>{
+  &quot;originalModuleSha256&quot;: &quot;81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945&quot;,
+  &quot;revision&quot;: &quot;60946132&quot;,
+  &quot;fixtureManifestSha256&quot;: &quot;6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99&quot;,
+  &quot;functions&quot;: [
+    {
+      &quot;id&quot;: 21268,
+      &quot;originalBodySha256&quot;: &quot;f6237bdf1ee78ded15124d5a053fcc7311a8520f0d504b26923ec3a42a39a1ef&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;0062f9172d09a7bfd81cad09075e64a2259eaa1430314935695b4775cf05a25e&quot;
+    },
+    {
+      &quot;id&quot;: 21269,
+      &quot;originalBodySha256&quot;: &quot;8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f&quot;
+    },
+    {
+      &quot;id&quot;: 21270,
+      &quot;originalBodySha256&quot;: &quot;995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1&quot;
+    },
+    {
+      &quot;id&quot;: 21271,
+      &quot;originalBodySha256&quot;: &quot;b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e&quot;
+    },
+    {
+      &quot;id&quot;: 21272,
+      &quot;originalBodySha256&quot;: &quot;1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8&quot;
+    }
+  ],
+  &quot;fixtureDirectory&quot;: &quot;C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native&quot;
+}</pre></details>
+    </article><article class="case" id="native-race-change">
+      <span class="tag">Isolated native helper</span><span class="tag fixture">Controlled fixture inputs</span>
+      <h2>Changed synthetic race frame</h2>
+      <p>Original native compare/accumulator/export helpers applied to controlled local fixture data.</p>
+      <div class="columns"><section><h3>What was supplied</h3><pre>{
+  &quot;race&quot;: true,
+  &quot;freeRoam&quot;: false,
+  &quot;changed&quot;: true,
+  &quot;developer&quot;: false,
+  &quot;watchedRegion&quot;: &quot;one artificial four-byte region&quot;
+}</pre></section><section><h3>What was observed</h3><pre>{
+  &quot;race&quot;: {
+    &quot;sampledFrames&quot;: 1,
+    &quot;changedFrames&quot;: 1,
+    &quot;developerEvents&quot;: 0,
+    &quot;observationFlags&quot;: 1
+  },
+  &quot;freeRoam&quot;: {
+    &quot;sampledFrames&quot;: 0,
+    &quot;changedFrames&quot;: 0,
+    &quot;developerEvents&quot;: 0,
+    &quot;observationFlags&quot;: 0
+  },
+  &quot;developerMarkerConsumed&quot;: true
+}</pre></section></div>
+      
+      <ul class="limits"><li>Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.</li><li>Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.</li><li>The original encoder is not run. Encoder inputs are captured locally and the replacement returns zero.</li><li>Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.</li><li>These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline.</li></ul>
+      <details><summary>Source evidence</summary><pre>{
+  &quot;originalModuleSha256&quot;: &quot;81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945&quot;,
+  &quot;revision&quot;: &quot;60946132&quot;,
+  &quot;fixtureManifestSha256&quot;: &quot;6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99&quot;,
+  &quot;functions&quot;: [
+    {
+      &quot;id&quot;: 21268,
+      &quot;originalBodySha256&quot;: &quot;f6237bdf1ee78ded15124d5a053fcc7311a8520f0d504b26923ec3a42a39a1ef&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;0062f9172d09a7bfd81cad09075e64a2259eaa1430314935695b4775cf05a25e&quot;
+    },
+    {
+      &quot;id&quot;: 21269,
+      &quot;originalBodySha256&quot;: &quot;8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f&quot;
+    },
+    {
+      &quot;id&quot;: 21270,
+      &quot;originalBodySha256&quot;: &quot;995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1&quot;
+    },
+    {
+      &quot;id&quot;: 21271,
+      &quot;originalBodySha256&quot;: &quot;b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e&quot;
+    },
+    {
+      &quot;id&quot;: 21272,
+      &quot;originalBodySha256&quot;: &quot;1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8&quot;
+    }
+  ],
+  &quot;fixtureDirectory&quot;: &quot;C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native&quot;
+}</pre></details>
+    </article><article class="case" id="native-freeroam-change">
+      <span class="tag">Isolated native helper</span><span class="tag fixture">Controlled fixture inputs</span>
+      <h2>Changed synthetic free-roam frame</h2>
+      <p>Original native compare/accumulator/export helpers applied to controlled local fixture data.</p>
+      <div class="columns"><section><h3>What was supplied</h3><pre>{
+  &quot;race&quot;: false,
+  &quot;freeRoam&quot;: true,
+  &quot;changed&quot;: true,
+  &quot;developer&quot;: false,
+  &quot;watchedRegion&quot;: &quot;one artificial four-byte region&quot;
+}</pre></section><section><h3>What was observed</h3><pre>{
+  &quot;race&quot;: {
+    &quot;sampledFrames&quot;: 0,
+    &quot;changedFrames&quot;: 0,
+    &quot;developerEvents&quot;: 0,
+    &quot;observationFlags&quot;: 0
+  },
+  &quot;freeRoam&quot;: {
+    &quot;sampledFrames&quot;: 1,
+    &quot;changedFrames&quot;: 1,
+    &quot;developerEvents&quot;: 0,
+    &quot;observationFlags&quot;: 1
+  },
+  &quot;developerMarkerConsumed&quot;: true
+}</pre></section></div>
+      
+      <ul class="limits"><li>Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.</li><li>Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.</li><li>The original encoder is not run. Encoder inputs are captured locally and the replacement returns zero.</li><li>Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.</li><li>These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline.</li></ul>
+      <details><summary>Source evidence</summary><pre>{
+  &quot;originalModuleSha256&quot;: &quot;81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945&quot;,
+  &quot;revision&quot;: &quot;60946132&quot;,
+  &quot;fixtureManifestSha256&quot;: &quot;6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99&quot;,
+  &quot;functions&quot;: [
+    {
+      &quot;id&quot;: 21268,
+      &quot;originalBodySha256&quot;: &quot;f6237bdf1ee78ded15124d5a053fcc7311a8520f0d504b26923ec3a42a39a1ef&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;0062f9172d09a7bfd81cad09075e64a2259eaa1430314935695b4775cf05a25e&quot;
+    },
+    {
+      &quot;id&quot;: 21269,
+      &quot;originalBodySha256&quot;: &quot;8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f&quot;
+    },
+    {
+      &quot;id&quot;: 21270,
+      &quot;originalBodySha256&quot;: &quot;995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1&quot;
+    },
+    {
+      &quot;id&quot;: 21271,
+      &quot;originalBodySha256&quot;: &quot;b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e&quot;
+    },
+    {
+      &quot;id&quot;: 21272,
+      &quot;originalBodySha256&quot;: &quot;1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8&quot;
+    }
+  ],
+  &quot;fixtureDirectory&quot;: &quot;C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native&quot;
+}</pre></details>
+    </article><article class="case" id="native-developer-event">
+      <span class="tag">Isolated native helper</span><span class="tag fixture">Controlled fixture inputs</span>
+      <h2>Synthetic developer event in both accumulator contexts</h2>
+      <p>Original native compare/accumulator/export helpers applied to controlled local fixture data.</p>
+      <div class="columns"><section><h3>What was supplied</h3><pre>{
+  &quot;race&quot;: true,
+  &quot;freeRoam&quot;: true,
+  &quot;changed&quot;: false,
+  &quot;developer&quot;: true,
+  &quot;watchedRegion&quot;: &quot;one artificial four-byte region&quot;
+}</pre></section><section><h3>What was observed</h3><pre>{
+  &quot;race&quot;: {
+    &quot;sampledFrames&quot;: 1,
+    &quot;changedFrames&quot;: 0,
+    &quot;developerEvents&quot;: 1,
+    &quot;observationFlags&quot;: 128
+  },
+  &quot;freeRoam&quot;: {
+    &quot;sampledFrames&quot;: 1,
+    &quot;changedFrames&quot;: 0,
+    &quot;developerEvents&quot;: 1,
+    &quot;observationFlags&quot;: 128
+  },
+  &quot;developerMarkerConsumed&quot;: true
+}</pre></section></div>
+      
+      <ul class="limits"><li>Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.</li><li>Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.</li><li>The original encoder is not run. Encoder inputs are captured locally and the replacement returns zero.</li><li>Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.</li><li>These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline.</li></ul>
+      <details><summary>Source evidence</summary><pre>{
+  &quot;originalModuleSha256&quot;: &quot;81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945&quot;,
+  &quot;revision&quot;: &quot;60946132&quot;,
+  &quot;fixtureManifestSha256&quot;: &quot;6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99&quot;,
+  &quot;functions&quot;: [
+    {
+      &quot;id&quot;: 21268,
+      &quot;originalBodySha256&quot;: &quot;f6237bdf1ee78ded15124d5a053fcc7311a8520f0d504b26923ec3a42a39a1ef&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;0062f9172d09a7bfd81cad09075e64a2259eaa1430314935695b4775cf05a25e&quot;
+    },
+    {
+      &quot;id&quot;: 21269,
+      &quot;originalBodySha256&quot;: &quot;8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f&quot;
+    },
+    {
+      &quot;id&quot;: 21270,
+      &quot;originalBodySha256&quot;: &quot;995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1&quot;
+    },
+    {
+      &quot;id&quot;: 21271,
+      &quot;originalBodySha256&quot;: &quot;b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e&quot;
+    },
+    {
+      &quot;id&quot;: 21272,
+      &quot;originalBodySha256&quot;: &quot;1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8&quot;
+    }
+  ],
+  &quot;fixtureDirectory&quot;: &quot;C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native&quot;
+}</pre></details>
+    </article><article class="case" id="native-no-context">
+      <span class="tag">Isolated native helper</span><span class="tag fixture">Controlled fixture inputs</span>
+      <h2>Changed frame with both accumulators inactive</h2>
+      <p>Original native compare/accumulator/export helpers applied to controlled local fixture data.</p>
+      <div class="columns"><section><h3>What was supplied</h3><pre>{
+  &quot;race&quot;: false,
+  &quot;freeRoam&quot;: false,
+  &quot;changed&quot;: true,
+  &quot;developer&quot;: true,
+  &quot;watchedRegion&quot;: &quot;one artificial four-byte region&quot;
+}</pre></section><section><h3>What was observed</h3><pre>{
+  &quot;race&quot;: {
+    &quot;sampledFrames&quot;: 0,
+    &quot;changedFrames&quot;: 0,
+    &quot;developerEvents&quot;: 0,
+    &quot;observationFlags&quot;: 0
+  },
+  &quot;freeRoam&quot;: {
+    &quot;sampledFrames&quot;: 0,
+    &quot;changedFrames&quot;: 0,
+    &quot;developerEvents&quot;: 0,
+    &quot;observationFlags&quot;: 0
+  },
+  &quot;developerMarkerConsumed&quot;: true
+}</pre></section></div>
+      
+      <ul class="limits"><li>Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.</li><li>Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.</li><li>The original encoder is not run. Encoder inputs are captured locally and the replacement returns zero.</li><li>Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.</li><li>These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline.</li></ul>
+      <details><summary>Source evidence</summary><pre>{
+  &quot;originalModuleSha256&quot;: &quot;81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945&quot;,
+  &quot;revision&quot;: &quot;60946132&quot;,
+  &quot;fixtureManifestSha256&quot;: &quot;6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99&quot;,
+  &quot;functions&quot;: [
+    {
+      &quot;id&quot;: 21268,
+      &quot;originalBodySha256&quot;: &quot;f6237bdf1ee78ded15124d5a053fcc7311a8520f0d504b26923ec3a42a39a1ef&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;0062f9172d09a7bfd81cad09075e64a2259eaa1430314935695b4775cf05a25e&quot;
+    },
+    {
+      &quot;id&quot;: 21269,
+      &quot;originalBodySha256&quot;: &quot;8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f&quot;
+    },
+    {
+      &quot;id&quot;: 21270,
+      &quot;originalBodySha256&quot;: &quot;995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1&quot;
+    },
+    {
+      &quot;id&quot;: 21271,
+      &quot;originalBodySha256&quot;: &quot;b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e&quot;
+    },
+    {
+      &quot;id&quot;: 21272,
+      &quot;originalBodySha256&quot;: &quot;1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8&quot;
+    }
+  ],
+  &quot;fixtureDirectory&quot;: &quot;C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native&quot;
+}</pre></details>
+    </article><article class="case" id="native-missing-snapshot">
+      <span class="tag">Isolated native helper</span><span class="tag fixture">Controlled fixture inputs</span>
+      <h2>Developer marker without a matching synthetic snapshot</h2>
+      <p>Original native compare/accumulator/export helpers applied to controlled local fixture data.</p>
+      <div class="columns"><section><h3>What was supplied</h3><pre>{
+  &quot;race&quot;: true,
+  &quot;freeRoam&quot;: true,
+  &quot;changed&quot;: false,
+  &quot;developer&quot;: true,
+  &quot;available&quot;: false,
+  &quot;watchedRegion&quot;: &quot;one artificial four-byte region&quot;
+}</pre></section><section><h3>What was observed</h3><pre>{
+  &quot;race&quot;: {
+    &quot;sampledFrames&quot;: 0,
+    &quot;changedFrames&quot;: 0,
+    &quot;developerEvents&quot;: 1,
+    &quot;observationFlags&quot;: 128
+  },
+  &quot;freeRoam&quot;: {
+    &quot;sampledFrames&quot;: 0,
+    &quot;changedFrames&quot;: 0,
+    &quot;developerEvents&quot;: 1,
+    &quot;observationFlags&quot;: 128
+  },
+  &quot;developerMarkerConsumed&quot;: true
+}</pre></section></div>
+      
+      <ul class="limits"><li>Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.</li><li>Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.</li><li>The original encoder is not run. Encoder inputs are captured locally and the replacement returns zero.</li><li>Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.</li><li>These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline.</li></ul>
+      <details><summary>Source evidence</summary><pre>{
+  &quot;originalModuleSha256&quot;: &quot;81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945&quot;,
+  &quot;revision&quot;: &quot;60946132&quot;,
+  &quot;fixtureManifestSha256&quot;: &quot;6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99&quot;,
+  &quot;functions&quot;: [
+    {
+      &quot;id&quot;: 21268,
+      &quot;originalBodySha256&quot;: &quot;f6237bdf1ee78ded15124d5a053fcc7311a8520f0d504b26923ec3a42a39a1ef&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;0062f9172d09a7bfd81cad09075e64a2259eaa1430314935695b4775cf05a25e&quot;
+    },
+    {
+      &quot;id&quot;: 21269,
+      &quot;originalBodySha256&quot;: &quot;8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f&quot;
+    },
+    {
+      &quot;id&quot;: 21270,
+      &quot;originalBodySha256&quot;: &quot;995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1&quot;
+    },
+    {
+      &quot;id&quot;: 21271,
+      &quot;originalBodySha256&quot;: &quot;b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e&quot;
+    },
+    {
+      &quot;id&quot;: 21272,
+      &quot;originalBodySha256&quot;: &quot;1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8&quot;
+    }
+  ],
+  &quot;fixtureDirectory&quot;: &quot;C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native&quot;
+}</pre></details>
+    </article><article class="case" id="native-race-reset">
+      <span class="tag">Isolated native helper</span><span class="tag fixture">Controlled fixture inputs</span>
+      <h2>Native race reset preserves the separate free-roam record</h2>
+      <p>The original reset helper clears the race record; the separate free-roam record is retained.</p>
+      <div class="columns"><section><h3>What was supplied</h3><pre>{
+  &quot;contexts&quot;: &quot;both&quot;,
+  &quot;changed&quot;: true,
+  &quot;developer&quot;: true
+}</pre></section><section><h3>What was observed</h3><pre>{
+  &quot;before&quot;: {
+    &quot;race&quot;: {
+      &quot;sampledFrames&quot;: 1,
+      &quot;changedFrames&quot;: 1,
+      &quot;developerEvents&quot;: 1,
+      &quot;observationFlags&quot;: 129
+    },
+    &quot;freeRoam&quot;: {
+      &quot;sampledFrames&quot;: 1,
+      &quot;changedFrames&quot;: 1,
+      &quot;developerEvents&quot;: 1,
+      &quot;observationFlags&quot;: 129
+    }
+  },
+  &quot;after&quot;: {
+    &quot;race&quot;: {
+      &quot;sampledFrames&quot;: 0,
+      &quot;changedFrames&quot;: 0,
+      &quot;developerEvents&quot;: 0,
+      &quot;observationFlags&quot;: 0
+    },
+    &quot;freeRoam&quot;: {
+      &quot;sampledFrames&quot;: 1,
+      &quot;changedFrames&quot;: 1,
+      &quot;developerEvents&quot;: 1,
+      &quot;observationFlags&quot;: 129
+    }
+  }
+}</pre></section></div>
+      
+      <ul class="limits"><li>Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.</li><li>Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.</li><li>The original encoder is not run. Encoder inputs are captured locally and the replacement returns zero.</li><li>Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.</li><li>These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline.</li></ul>
+      <details><summary>Source evidence</summary><pre>{
+  &quot;originalModuleSha256&quot;: &quot;81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945&quot;,
+  &quot;revision&quot;: &quot;60946132&quot;,
+  &quot;fixtureManifestSha256&quot;: &quot;6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99&quot;,
+  &quot;functions&quot;: [
+    {
+      &quot;id&quot;: 21267,
+      &quot;originalBodySha256&quot;: &quot;343aa521713a377d695dc8745205fd065aa9f00767392951aa483a2fec367d1a&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;260998fe8b9a387fc5f4bad06cca2245491534c75350ad8a0911c02662f8ae58&quot;
+    },
+    {
+      &quot;id&quot;: 21269,
+      &quot;originalBodySha256&quot;: &quot;8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f&quot;
+    },
+    {
+      &quot;id&quot;: 21270,
+      &quot;originalBodySha256&quot;: &quot;995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1&quot;
+    },
+    {
+      &quot;id&quot;: 21271,
+      &quot;originalBodySha256&quot;: &quot;b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e&quot;
+    },
+    {
+      &quot;id&quot;: 21272,
+      &quot;originalBodySha256&quot;: &quot;1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8&quot;
+    }
+  ],
+  &quot;fixtureDirectory&quot;: &quot;C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native&quot;
+}</pre></details>
+    </article><article class="case" id="native-race-capture">
+      <span class="tag">Isolated native helper</span><span class="tag fixture">Controlled fixture inputs</span>
+      <h2>Race helper: local pre-encoding capture</h2>
+      <p>Original native helper constructed a pre-encoding envelope. Local interception returned zero, so native transport was not reached.</p>
+      <div class="columns"><section><h3>What was supplied</h3><pre>{
+  &quot;ready&quot;: true,
+  &quot;session&quot;: &quot;synthetic&quot;,
+  &quot;sourceStatistics&quot;: {
+    &quot;race&quot;: {
+      &quot;sampledFrames&quot;: 1,
+      &quot;changedFrames&quot;: 1,
+      &quot;developerEvents&quot;: 1,
+      &quot;observationFlags&quot;: 129
+    },
+    &quot;freeRoam&quot;: {
+      &quot;sampledFrames&quot;: 1,
+      &quot;changedFrames&quot;: 1,
+      &quot;developerEvents&quot;: 1,
+      &quot;observationFlags&quot;: 129
+    }
+  }
+}</pre></section><section><h3>What was observed</h3><pre>{
+  &quot;helperReturn&quot;: 0,
+  &quot;encoderCalls&quot;: 1,
+  &quot;sentCount&quot;: 0,
+  &quot;sentBytes&quot;: 0,
+  &quot;encoderResult&quot;: 0,
+  &quot;wireEncodingPerformed&quot;: false,
+  &quot;senderImplementationPresent&quot;: false
+}</pre></section></div>
+      
+      <details><summary>Capture 1: synthetic-race-envelope</summary>
+        <p class="small">Actual native envelope-builder input to encoder; synthetic session/context. Encoder returned zero; no encoding or transport occurred.</p>
+        <p class="small">1640 bytes · pre-encoding · <a href="captures/native-race-capture-1.bin">Binary copy</a></p>
+        <pre>0015000040302010000000008877665501000000010000000100000001000000810000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</pre>
+      </details>
+      <ul class="limits"><li>Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.</li><li>Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.</li><li>The original encoder is not run. Encoder inputs are captured locally and the replacement returns zero.</li><li>Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.</li><li>These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline.</li></ul>
+      <details><summary>Source evidence</summary><pre>{
+  &quot;originalModuleSha256&quot;: &quot;81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945&quot;,
+  &quot;revision&quot;: &quot;60946132&quot;,
+  &quot;fixtureManifestSha256&quot;: &quot;6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99&quot;,
+  &quot;functions&quot;: [
+    {
+      &quot;id&quot;: 22882,
+      &quot;originalBodySha256&quot;: &quot;83754053553cd5b23f1a3b16ade2afd06ab1462316351d68872db77a56883f1d&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;cf293903a085ac22f219ad1ebf996512f1d25175eaa37a908149c7c490800acf&quot;
+    },
+    {
+      &quot;id&quot;: 21271,
+      &quot;originalBodySha256&quot;: &quot;b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e&quot;
+    }
+  ],
+  &quot;fixtureDirectory&quot;: &quot;C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native&quot;
+}</pre></details>
+    </article><article class="case" id="native-freeroam-capture">
+      <span class="tag">Isolated native helper</span><span class="tag fixture">Controlled fixture inputs</span>
+      <h2>Free-roam helper: local pre-encoding capture</h2>
+      <p>Original native helper constructed a pre-encoding envelope. Local interception returned zero, so native transport was not reached.</p>
+      <div class="columns"><section><h3>What was supplied</h3><pre>{
+  &quot;ready&quot;: true,
+  &quot;session&quot;: &quot;synthetic&quot;,
+  &quot;sourceStatistics&quot;: {
+    &quot;race&quot;: {
+      &quot;sampledFrames&quot;: 1,
+      &quot;changedFrames&quot;: 1,
+      &quot;developerEvents&quot;: 1,
+      &quot;observationFlags&quot;: 129
+    },
+    &quot;freeRoam&quot;: {
+      &quot;sampledFrames&quot;: 1,
+      &quot;changedFrames&quot;: 1,
+      &quot;developerEvents&quot;: 1,
+      &quot;observationFlags&quot;: 129
+    }
+  }
+}</pre></section><section><h3>What was observed</h3><pre>{
+  &quot;helperReturn&quot;: 0,
+  &quot;encoderCalls&quot;: 1,
+  &quot;sentCount&quot;: 0,
+  &quot;sentBytes&quot;: 0,
+  &quot;encoderResult&quot;: 0,
+  &quot;wireEncodingPerformed&quot;: false,
+  &quot;senderImplementationPresent&quot;: false
+}</pre></section></div>
+      
+      <details><summary>Capture 1: synthetic-free-roam-envelope</summary>
+        <p class="small">Actual native envelope-builder input to encoder; synthetic session/context. Encoder returned zero; no encoding or transport occurred.</p>
+        <p class="small">1640 bytes · pre-encoding · <a href="captures/native-freeroam-capture-1.bin">Binary copy</a></p>
+        <pre>0016000040302010000000000100000001000000010000008100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</pre>
+      </details>
+      <ul class="limits"><li>Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.</li><li>Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.</li><li>The original encoder is not run. Encoder inputs are captured locally and the replacement returns zero.</li><li>Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.</li><li>These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline.</li></ul>
+      <details><summary>Source evidence</summary><pre>{
+  &quot;originalModuleSha256&quot;: &quot;81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945&quot;,
+  &quot;revision&quot;: &quot;60946132&quot;,
+  &quot;fixtureManifestSha256&quot;: &quot;6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99&quot;,
+  &quot;functions&quot;: [
+    {
+      &quot;id&quot;: 22883,
+      &quot;originalBodySha256&quot;: &quot;211ee8e34b921dd4d2397f3cff9ca2d8c90703d33496aee4813c45211e730c31&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;9448928e1e13d8688c81561eeeb1443feac020fd0b4cca96e73fc9e4cb9678b0&quot;
+    },
+    {
+      &quot;id&quot;: 21272,
+      &quot;originalBodySha256&quot;: &quot;1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8&quot;
+    }
+  ],
+  &quot;fixtureDirectory&quot;: &quot;C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native&quot;
+}</pre></details>
+    </article><article class="case" id="native-unready-envelope">
+      <span class="tag">Isolated native helper</span><span class="tag fixture">Controlled fixture inputs</span>
+      <h2>Unready synthetic session: no capture</h2>
+      <p>Original helper rejected the synthetic unready context before encoder interception.</p>
+      <div class="columns"><section><h3>What was supplied</h3><pre>{
+  &quot;ready&quot;: false,
+  &quot;session&quot;: &quot;synthetic&quot;,
+  &quot;sourceStatistics&quot;: {
+    &quot;race&quot;: {
+      &quot;sampledFrames&quot;: 1,
+      &quot;changedFrames&quot;: 1,
+      &quot;developerEvents&quot;: 1,
+      &quot;observationFlags&quot;: 129
+    },
+    &quot;freeRoam&quot;: {
+      &quot;sampledFrames&quot;: 1,
+      &quot;changedFrames&quot;: 1,
+      &quot;developerEvents&quot;: 1,
+      &quot;observationFlags&quot;: 129
+    }
+  }
+}</pre></section><section><h3>What was observed</h3><pre>{
+  &quot;helperReturn&quot;: 0,
+  &quot;encoderCalls&quot;: 0,
+  &quot;sentCount&quot;: 0,
+  &quot;sentBytes&quot;: 0,
+  &quot;encoderResult&quot;: 0,
+  &quot;wireEncodingPerformed&quot;: false,
+  &quot;senderImplementationPresent&quot;: false
+}</pre></section></div>
+      
+      <ul class="limits"><li>Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.</li><li>Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.</li><li>The original encoder is not run. Encoder inputs are captured locally and the replacement returns zero.</li><li>Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.</li><li>These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline.</li></ul>
+      <details><summary>Source evidence</summary><pre>{
+  &quot;originalModuleSha256&quot;: &quot;81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945&quot;,
+  &quot;revision&quot;: &quot;60946132&quot;,
+  &quot;fixtureManifestSha256&quot;: &quot;6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99&quot;,
+  &quot;functions&quot;: [
+    {
+      &quot;id&quot;: 22883,
+      &quot;originalBodySha256&quot;: &quot;211ee8e34b921dd4d2397f3cff9ca2d8c90703d33496aee4813c45211e730c31&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;9448928e1e13d8688c81561eeeb1443feac020fd0b4cca96e73fc9e4cb9678b0&quot;
+    },
+    {
+      &quot;id&quot;: 21272,
+      &quot;originalBodySha256&quot;: &quot;1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50&quot;,
+      &quot;isolatedWasmSha256&quot;: &quot;4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8&quot;
+    }
+  ],
+  &quot;fixtureDirectory&quot;: &quot;C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native&quot;
+}</pre></details>
+    </article><article class="case" id="host-clean-native-apis">
+      <span class="tag">Original page check</span><span class="tag fixture">Controlled fixture inputs</span>
+      <h2>Clean synthetic browser APIs</h2>
+      <p>The pinned host guard records no category for this clean synthetic API surface.</p>
+      <div class="columns"><section><h3>What was supplied</h3><pre>{
+  &quot;synthetic&quot;: true,
+  &quot;scenario&quot;: &quot;native-api-baseline&quot;,
+  &quot;extensionInstalled&quot;: false
+}</pre></section><section><h3>What was observed</h3><pre>{
+  &quot;guardCategories&quot;: [],
+  &quot;wrappedApiReported&quot;: false,
+  &quot;patchPhase&quot;: &quot;absent&quot;,
+  &quot;gameBytesSupplied&quot;: false,
+  &quot;gameMemorySupplied&quot;: false,
+  &quot;moduleBytesObserved&quot;: false,
+  &quot;externalCapabilitiesAbsent&quot;: true
+}</pre></section></div>
+      
+      <ul class="limits"><li>Synthetic Node VM cases are not a browser session or account record.</li><li>No game module, game memory, network connection, or report delivery is supplied.</li><li>Unrelated settings and module predicates remain false in both cases.</li><li>Compiler API positions use harmless native callable stand-ins, which are never invoked.</li><li>A reporter input is not proof of a server decision, account ban, or multiplayer safety.</li></ul>
+      <details><summary>Source evidence</summary><pre>{
+  &quot;fixtureId&quot;: &quot;nfsu2-60946132-host-guard-extension-0.42.5&quot;,
+  &quot;sourceGameRevision&quot;: &quot;60946132&quot;,
+  &quot;extensionVersion&quot;: &quot;0.42.5&quot;,
+  &quot;integrityVerified&quot;: true,
+  &quot;sourceFiles&quot;: [
+    {
+      &quot;file&quot;: &quot;fixtures/host/extension-ai.js&quot;,
+      &quot;sha256&quot;: &quot;f407444e5e723ca9c0235cf981630354554e10aff01faa05fa19042f2f0122e6&quot;,
+      &quot;bytes&quot;: 96640
+    },
+    {
+      &quot;file&quot;: &quot;fixtures/host/extension-current-profile.js&quot;,
+      &quot;sha256&quot;: &quot;4249fc980c6281cd790121aef68dc25d6ff50b901a1eaeff8c77a4b1c05b836f&quot;,
+      &quot;bytes&quot;: 32268
+    },
+    {
+      &quot;file&quot;: &quot;fixtures/host/host-guard-source.js&quot;,
+      &quot;sha256&quot;: &quot;be7b473848fa48ec7ca8c20dc3ad7e35906e2226e538f251a04ef70462ec399a&quot;,
+      &quot;bytes&quot;: 898
+    },
+    {
+      &quot;file&quot;: &quot;fixtures/host/provenance.json&quot;,
+      &quot;sha256&quot;: &quot;90e7f8cda0f360f9d916df37f4f4d34a2bfdb8b7ebafbe48071f89ba47a44cf7&quot;,
+      &quot;bytes&quot;: 1811
+    }
+  ],
+  &quot;hostSource&quot;: {
+    &quot;url&quot;: &quot;https://nfsu2.xyz/main.js&quot;,
+    &quot;savedSourcePath&quot;: &quot;work-functions-20261112/host-review/main.js&quot;,
+    &quot;sha256&quot;: &quot;64700139309ee9d4f46a3f93d5b47c8f5d1b25434726d07e2f47923fdeef3510&quot;,
+    &quot;excerptStartUTF16&quot;: 711354,
+    &quot;excerptEndUTF16&quot;: 712252,
+    &quot;guardName&quot;: &quot;wO&quot;,
+    &quot;predicateName&quot;: &quot;yO&quot;,
+    &quot;sourceLine&quot;: 679
+  },
+  &quot;harness&quot;: &quot;Same VM realm for native constructors and exact guard; string/WASM code generation disabled.&quot;
+}</pre></details>
+    </article><article class="case" id="host-extension-wrapper-before-load">
+      <span class="tag">Original page check</span><span class="tag fixture">Controlled fixture inputs</span>
+      <h2>Extension wrapper before a module load</h2>
+      <p>The actual pinned AI.install assignment adds the wrapped-browser-API category while module preparation remains idle.</p>
+      <div class="columns"><section><h3>What was supplied</h3><pre>{
+  &quot;synthetic&quot;: true,
+  &quot;scenario&quot;: &quot;actual-extension-startup&quot;,
+  &quot;extensionInstalled&quot;: true
+}</pre></section><section><h3>What was observed</h3><pre>{
+  &quot;guardCategories&quot;: [
+    &quot;wrapped-browser-api&quot;
+  ],
+  &quot;wrappedApiReported&quot;: true,
+  &quot;patchPhase&quot;: &quot;idle&quot;,
+  &quot;gameBytesSupplied&quot;: false,
+  &quot;gameMemorySupplied&quot;: false,
+  &quot;moduleBytesObserved&quot;: false,
+  &quot;externalCapabilitiesAbsent&quot;: true
+}</pre></section></div>
+      
+      <ul class="limits"><li>Synthetic Node VM cases are not a browser session or account record.</li><li>No game module, game memory, network connection, or report delivery is supplied.</li><li>Unrelated settings and module predicates remain false in both cases.</li><li>Compiler API positions use harmless native callable stand-ins, which are never invoked.</li><li>A reporter input is not proof of a server decision, account ban, or multiplayer safety.</li></ul>
+      <details><summary>Source evidence</summary><pre>{
+  &quot;fixtureId&quot;: &quot;nfsu2-60946132-host-guard-extension-0.42.5&quot;,
+  &quot;sourceGameRevision&quot;: &quot;60946132&quot;,
+  &quot;extensionVersion&quot;: &quot;0.42.5&quot;,
+  &quot;integrityVerified&quot;: true,
+  &quot;sourceFiles&quot;: [
+    {
+      &quot;file&quot;: &quot;fixtures/host/extension-ai.js&quot;,
+      &quot;sha256&quot;: &quot;f407444e5e723ca9c0235cf981630354554e10aff01faa05fa19042f2f0122e6&quot;,
+      &quot;bytes&quot;: 96640
+    },
+    {
+      &quot;file&quot;: &quot;fixtures/host/extension-current-profile.js&quot;,
+      &quot;sha256&quot;: &quot;4249fc980c6281cd790121aef68dc25d6ff50b901a1eaeff8c77a4b1c05b836f&quot;,
+      &quot;bytes&quot;: 32268
+    },
+    {
+      &quot;file&quot;: &quot;fixtures/host/host-guard-source.js&quot;,
+      &quot;sha256&quot;: &quot;be7b473848fa48ec7ca8c20dc3ad7e35906e2226e538f251a04ef70462ec399a&quot;,
+      &quot;bytes&quot;: 898
+    },
+    {
+      &quot;file&quot;: &quot;fixtures/host/provenance.json&quot;,
+      &quot;sha256&quot;: &quot;90e7f8cda0f360f9d916df37f4f4d34a2bfdb8b7ebafbe48071f89ba47a44cf7&quot;,
+      &quot;bytes&quot;: 1811
+    }
+  ],
+  &quot;hostSource&quot;: {
+    &quot;url&quot;: &quot;https://nfsu2.xyz/main.js&quot;,
+    &quot;savedSourcePath&quot;: &quot;work-functions-20261112/host-review/main.js&quot;,
+    &quot;sha256&quot;: &quot;64700139309ee9d4f46a3f93d5b47c8f5d1b25434726d07e2f47923fdeef3510&quot;,
+    &quot;excerptStartUTF16&quot;: 711354,
+    &quot;excerptEndUTF16&quot;: 712252,
+    &quot;guardName&quot;: &quot;wO&quot;,
+    &quot;predicateName&quot;: &quot;yO&quot;,
+    &quot;sourceLine&quot;: 679
+  },
+  &quot;harness&quot;: &quot;Same VM realm for native constructors and exact guard; string/WASM code generation disabled.&quot;
+}</pre></details>
+    </article></div></div>
+    <section class="foot"><h2>What this run covers</h2><ul><li>Controlled fixture inputs are not observations of your gameplay or account.</li><li>Only selected helpers execute. This is not the complete client or all reporting paths.</li><li>Native envelope captures are before encoding; no full wire-packet or server-response equivalence is claimed.</li><li>A clean fixture result does not establish multiplayer safety or absence of enforcement.</li><li>Historical server reports and private ban rules are unavailable here.</li><li>Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.</li><li>Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.</li><li>The original encoder is not run. Encoder inputs are captured locally and the replacement returns zero.</li><li>Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.</li><li>These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline.</li><li>Synthetic Node VM cases are not a browser session or account record.</li><li>No game module, game memory, network connection, or report delivery is supplied.</li><li>Unrelated settings and module predicates remain false in both cases.</li><li>Compiler API positions use harmless native callable stand-ins, which are never invoked.</li><li>A reporter input is not proof of a server decision, account ban, or multiplayer safety.</li></ul><details><summary>Run provenance and isolation</summary><pre>{
+  &quot;run&quot;: {
+    &quot;id&quot;: &quot;2026-11-12T22-30-00-681Z-b6bc99&quot;,
+    &quot;node&quot;: &quot;v26.13.0&quot;,
+    &quot;kind&quot;: &quot;controlled-offline-fixtures&quot;,
+    &quot;fullGameStarted&quot;: false,
+    &quot;accountQueried&quot;: false,
+    &quot;installedExtensionModified&quot;: false,
+    &quot;inputs&quot;: &quot;Locally constructed scenarios, pinned isolated native helpers and pinned page/extension source.&quot;
+  },
+  &quot;networkIsolation&quot;: {
+    &quot;activeDuringRun&quot;: true,
+    &quot;attemptCount&quot;: 0,
+    &quot;attempts&quot;: [],
+    &quot;transport&quot;: &quot;Native encoder boundary records locally and returns without sending.&quot;,
+    &quot;scope&quot;: &quot;Process-local API guard, deny-by-default fixture imports, and restricted VM contexts; no OS firewall changes.&quot;
+  },
+  &quot;evidence&quot;: [
+    {
+      &quot;originalModuleSha256&quot;: &quot;81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945&quot;,
+      &quot;revision&quot;: &quot;60946132&quot;,
+      &quot;fixtureManifestSha256&quot;: &quot;6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99&quot;,
+      &quot;functions&quot;: [
+        {
+          &quot;id&quot;: 21267,
+          &quot;originalBodySha256&quot;: &quot;343aa521713a377d695dc8745205fd065aa9f00767392951aa483a2fec367d1a&quot;,
+          &quot;isolatedWasmSha256&quot;: &quot;260998fe8b9a387fc5f4bad06cca2245491534c75350ad8a0911c02662f8ae58&quot;
+        },
+        {
+          &quot;id&quot;: 21268,
+          &quot;originalBodySha256&quot;: &quot;f6237bdf1ee78ded15124d5a053fcc7311a8520f0d504b26923ec3a42a39a1ef&quot;,
+          &quot;isolatedWasmSha256&quot;: &quot;0062f9172d09a7bfd81cad09075e64a2259eaa1430314935695b4775cf05a25e&quot;
+        },
+        {
+          &quot;id&quot;: 21269,
+          &quot;originalBodySha256&quot;: &quot;8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8&quot;,
+          &quot;isolatedWasmSha256&quot;: &quot;747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f&quot;
+        },
+        {
+          &quot;id&quot;: 21270,
+          &quot;originalBodySha256&quot;: &quot;995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b&quot;,
+          &quot;isolatedWasmSha256&quot;: &quot;40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1&quot;
+        },
+        {
+          &quot;id&quot;: 21271,
+          &quot;originalBodySha256&quot;: &quot;b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1&quot;,
+          &quot;isolatedWasmSha256&quot;: &quot;e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e&quot;
+        },
+        {
+          &quot;id&quot;: 21272,
+          &quot;originalBodySha256&quot;: &quot;1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50&quot;,
+          &quot;isolatedWasmSha256&quot;: &quot;4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8&quot;
+        },
+        {
+          &quot;id&quot;: 22882,
+          &quot;originalBodySha256&quot;: &quot;83754053553cd5b23f1a3b16ade2afd06ab1462316351d68872db77a56883f1d&quot;,
+          &quot;isolatedWasmSha256&quot;: &quot;cf293903a085ac22f219ad1ebf996512f1d25175eaa37a908149c7c490800acf&quot;
+        },
+        {
+          &quot;id&quot;: 22883,
+          &quot;originalBodySha256&quot;: &quot;211ee8e34b921dd4d2397f3cff9ca2d8c90703d33496aee4813c45211e730c31&quot;,
+          &quot;isolatedWasmSha256&quot;: &quot;9448928e1e13d8688c81561eeeb1443feac020fd0b4cca96e73fc9e4cb9678b0&quot;
+        }
+      ],
+      &quot;fixtureDirectory&quot;: &quot;C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native&quot;,
+      &quot;method&quot;: &quot;Exact selected native function WAT bodies copied from pinned current build. Existing isolated WABT contexts replace direct dependencies with typed imports, retain original globals/types and shared-memory declaration, and contain no game data or live transport implementation.&quot;,
+      &quot;memory&quot;: {
+        &quot;shared&quot;: true,
+        &quot;minimumPages&quot;: 11264,
+        &quot;touched&quot;: &quot;small fixture regions only&quot;
+      },
+      &quot;importPolicy&quot;: &quot;Exact pinned import sets only; no transport, network, process, filesystem or clock access is supplied to native imports.&quot;,
+      &quot;loggerInvocations&quot;: 0,
+      &quot;encoderCalls&quot;: 2
+    },
+    {
+      &quot;fixtureId&quot;: &quot;nfsu2-60946132-host-guard-extension-0.42.5&quot;,
+      &quot;sourceGameRevision&quot;: &quot;60946132&quot;,
+      &quot;extensionVersion&quot;: &quot;0.42.5&quot;,
+      &quot;integrityVerified&quot;: true,
+      &quot;sourceFiles&quot;: [
+        {
+          &quot;file&quot;: &quot;fixtures/host/extension-ai.js&quot;,
+          &quot;sha256&quot;: &quot;f407444e5e723ca9c0235cf981630354554e10aff01faa05fa19042f2f0122e6&quot;,
+          &quot;bytes&quot;: 96640
+        },
+        {
+          &quot;file&quot;: &quot;fixtures/host/extension-current-profile.js&quot;,
+          &quot;sha256&quot;: &quot;4249fc980c6281cd790121aef68dc25d6ff50b901a1eaeff8c77a4b1c05b836f&quot;,
+          &quot;bytes&quot;: 32268
+        },
+        {
+          &quot;file&quot;: &quot;fixtures/host/host-guard-source.js&quot;,
+          &quot;sha256&quot;: &quot;be7b473848fa48ec7ca8c20dc3ad7e35906e2226e538f251a04ef70462ec399a&quot;,
+          &quot;bytes&quot;: 898
+        },
+        {
+          &quot;file&quot;: &quot;fixtures/host/provenance.json&quot;,
+          &quot;sha256&quot;: &quot;90e7f8cda0f360f9d916df37f4f4d34a2bfdb8b7ebafbe48071f89ba47a44cf7&quot;,
+          &quot;bytes&quot;: 1811
+        }
+      ],
+      &quot;hostSource&quot;: {
+        &quot;url&quot;: &quot;https://nfsu2.xyz/main.js&quot;,
+        &quot;savedSourcePath&quot;: &quot;work-functions-20261112/host-review/main.js&quot;,
+        &quot;sha256&quot;: &quot;64700139309ee9d4f46a3f93d5b47c8f5d1b25434726d07e2f47923fdeef3510&quot;,
+        &quot;excerptStartUTF16&quot;: 711354,
+        &quot;excerptEndUTF16&quot;: 712252,
+        &quot;guardName&quot;: &quot;wO&quot;,
+        &quot;predicateName&quot;: &quot;yO&quot;,
+        &quot;sourceLine&quot;: 679
+      },
+      &quot;harness&quot;: &quot;Same VM realm for native constructors and exact guard; string/WASM code generation disabled.&quot;
+    }
+  ]
+}</pre></details></section>
+  </main></body></html>

@@ -1,0 +1,386 @@
+import memory env_memory;
+
+global g_a:int = 734004784;
+global g_b:int = 0;
+global g_c:int = 18408;
+global g_d:int = 16;
+global g_e:int = 0;
+
+table T_a:funcref(min: 20927, max: 20927);
+
+import function nfsu2_wall_ms():double; // func0
+
+import function nfsu2_movie_open(a:int, b:int):int; // func1
+
+import function nfsu2_now_ms():double; // func2
+
+import function nfsu2_movie_decode(a:int, b:int, c:int, d:int, e:int, f:int, g:int, h:int):int; // func3
+
+import function nfsu2_movie_close(a:int):int; // func4
+
+import function nfsu2_register(a:int, b:int, c:int):int; // func5
+
+import function nfsu2_stack_frames():int; // func6
+
+import function nfsu2_blocked_ms():double; // func7
+
+import function wasi_snapshot_preview1_args_get(a:int, b:int):int; // func8
+
+import function wasi_snapshot_preview1_args_sizes_get(a:int, b:int):int; // func9
+
+import function wasi_snapshot_preview1_environ_get(a:int, b:int):int; // func10
+
+import function wasi_snapshot_preview1_environ_sizes_get(a:int, b:int):int; // func11
+
+import function wasi_snapshot_preview1_clock_time_get(a:int, b:long, c:int):int; // func12
+
+import function wasi_snapshot_preview1_fd_close(a:int):int; // func13
+
+import function wasi_snapshot_preview1_fd_fdstat_get(a:int, b:int):int; // func14
+
+import function wasi_snapshot_preview1_fd_fdstat_set_flags(a:int, b:int):int; // func15
+
+import function wasi_snapshot_preview1_fd_filestat_get(a:int, b:int):int; // func16
+
+import function wasi_snapshot_preview1_fd_filestat_set_size(a:int, b:long):int; // func17
+
+import function wasi_snapshot_preview1_fd_pread(a:int, b:int, c:int, d:long, e:int):int; // func18
+
+import function wasi_snapshot_preview1_fd_prestat_get(a:int, b:int):int; // func19
+
+import function wasi_snapshot_preview1_fd_prestat_dir_name(a:int, b:int, c:int):int; // func20
+
+import function wasi_snapshot_preview1_fd_read(a:int, b:int, c:int, d:int):int; // func21
+
+import function wasi_snapshot_preview1_fd_readdir(a:int, b:int, c:int, d:long, e:int):int; // func22
+
+import function wasi_snapshot_preview1_fd_seek(a:int, b:long, c:int, d:int):int; // func23
+
+import function wasi_snapshot_preview1_fd_sync(a:int):int; // func24
+
+import function wasi_snapshot_preview1_fd_tell(a:int, b:int):int; // func25
+
+import function wasi_snapshot_preview1_fd_write(a:int, b:int, c:int, d:int):int; // func26
+
+import function wasi_snapshot_preview1_path_create_directory(a:int, b:int, c:int):int; // func27
+
+import function wasi_snapshot_preview1_path_filestat_get(a:int, b:int, c:int, d:int, e:int):int; // func28
+
+import function wasi_snapshot_preview1_path_open(a:int, b:int, c:int, d:int, e:int, f:long, g:long, h:int, i:int):int; // func29
+
+import function wasi_snapshot_preview1_path_remove_directory(a:int, b:int, c:int):int; // func30
+
+import function wasi_snapshot_preview1_path_rename(a:int, b:int, c:int, d:int, e:int, f:int):int; // func31
+
+import function wasi_snapshot_preview1_path_unlink_file(a:int, b:int, c:int):int; // func32
+
+import function wasi_snapshot_preview1_poll_oneoff(a:int, b:int, c:int, d:int):int; // func33
+
+import function wasi_snapshot_preview1_proc_exit(a:int); // func34
+
+import function wasi_snapshot_preview1_sched_yield():int; // func35
+
+import function wasi_snapshot_preview1_random_get(a:int, b:int):int; // func36
+
+import function wasi_thread_spawn(a:int):int; // func37
+
+import function isolated_direct_f3333(a:int); // func38
+
+import function isolated_direct_f9503(a:int); // func39
+
+import function isolated_direct_f15136(a:int); // func40
+
+import function isolated_direct_f23278(a:int); // func41
+
+export function f16076(a:int) { // func42
+  var g:int;
+  var k:int_ptr@1;
+  var j:byte_ptr;
+  var n:float;
+  var m:float;
+  var l:int_ptr@1;
+  var h:int;
+  var i:int;
+  var b:int = a[4]:int + -4;
+  b[0]:int@1 = a[5]:int;
+  a[5]:int = b;
+  b = b & -16;
+  var c:int = b + -252;
+  c[0]:long@1 = 25776121291L;
+  a[4]:int = c;
+  a[0]:int = (c = b + -192);
+  b = 0 + b;
+  (b + -236)[0]:int@1 = a[6]:int;
+  (b + -240)[0]:int@1 = a[7]:int;
+  (b + -244)[0]:int@1 = c;
+  (b + -232)[0]:int@1 = a[3]:int;
+  isolated_direct_f9503(a);
+  b = a[4]:int;
+  var d:int_ptr@1 = b + 56;
+  var e:int = b + 8;
+  var f:int = a[3]:int;
+  b = a[2]:int;
+  c = 1;
+  loop L_a {
+    h = 1 - (g = 9037844[0]:int@1);
+    loop L_c {
+      i = c;
+      if (g >= 1) goto B_e;
+      j = 0;
+      goto B_d;
+      label B_e:
+      c = 0;
+      b = 9037840[0]:int@1;
+      if (b[0]:byte <= 0) goto B_g;
+      k = 1;
+      goto B_f;
+      label B_g:
+      k = 0;
+      label B_f:
+      loop L_h {
+        br_table[B_o, B_n, ..B_n](k)
+        label B_o:
+        if (i == (f = ((k = 0 + b) + 3)[0]:byte)) goto B_m;
+        k = 1;
+        continue L_h;
+        label B_n:
+        b = b + 2368;
+        loop L_p {
+          if ((h + c | (k = c + 1)) > -1) goto B_l;
+          j = 0 + b;
+          l = b + 2368;
+          b = l;
+          c = k;
+          if (j[0] <= 0) goto B_i;
+          continue L_p;
+        }
+        label B_m:
+        j = (k + 2304)[0]:ubyte;
+        if (eqz(j)) goto B_q;
+        h = e + -8;
+        h[0]:long@1 = 0L;
+        c = (c & -256) | j;
+        goto B_k;
+        label B_q:
+        f = i;
+        j = (k + 4)[0]:int@1;
+        br_table[B_s, B_r, ..B_d](j + -1);
+        label B_s:
+        a[71]:short = (c = (j = a[71]:ushort) & -17665);
+        m = 9037752[0]:float@1;
+        if (m == m & (n = 8224060[0]:float@1) == n) goto B_x;
+        c = j | 17664;
+        goto B_w;
+        label B_x:
+        if (m > n) goto B_v;
+        if (eqz(m < n)) goto B_y;
+        c = c | 256;
+        goto B_w;
+        label B_y:
+        c = c | 16384;
+        label B_w:
+        a[71]:short = c;
+        if (c & 16640) goto B_u;
+        label B_v:
+        (0 + e + -4)[0]:int@1 = 0;
+        j = (k + 2332)[0]:ubyte;
+        c = 3;
+        h = e + -8;
+        h[0]:int@1 = 3;
+        if (eqz(j)) goto B_k;
+        goto B_t;
+        label B_u:
+        (0 + e + -4)[0]:int@1 = 0;
+        j = (k + 2332)[0]:ubyte;
+        c = 1;
+        h = e + -8;
+        h[0]:int@1 = 1;
+        if (eqz(j)) goto B_k;
+        label B_t:
+        m = (k + 2340)[0]:float@1;
+        l = h + 24;
+        l[0] = (k + 2336)[0]:int@1;
+        g = (k + 2352)[0]:ushort@1;
+        j = 0 + h;
+        (j + 28)[0]:float@1 = m;
+        a[7]:int = i;
+        a[6]:int = d;
+        a[3]:int = i;
+        a[2]:int = b;
+        a[0]:int = c;
+        a[4]:int = (b = h + -4);
+        a[1]:int = l;
+        (j + 32)[0]:float@1 = (k + 2344)[0]:float@1;
+        (j + 40)[0]:short@1 = g;
+        b[0]:int@1 = 6317729;
+        isolated_direct_f23278(a);
+        d = a[6]:int + 32;
+        e = a[4]:int + 8;
+        f = a[3]:int;
+        b = a[2]:int;
+        c = 6;
+        k = a[7]:int;
+        j = k + -5;
+        if (eqz(j)) continue L_a;
+        c = k + 1;
+        if (((c & 4 - k) ^ j) <= -1) continue L_a;
+        goto B_j;
+        label B_r:
+        a[7]:int = i;
+        a[6]:int = d;
+        a[3]:int = i;
+        a[2]:int = b;
+        a[1]:int = d;
+        a[0]:int = 2;
+        b = e + -12;
+        b[0]:long@1 = 12891219617L;
+        a[4]:int = b;
+        (0 + e + -4)[0]:int@1 = 0;
+        isolated_direct_f23278(a);
+        d = a[6]:int + 32;
+        e = a[4]:int + 8;
+        f = a[3]:int;
+        b = a[2]:int;
+        c = 6;
+        k = a[7]:int;
+        j = k + -5;
+        if (eqz(j)) continue L_a;
+        c = k + 1;
+        if (((c & 4 - k) ^ j) <= -1) continue L_a;
+        goto B_j;
+        label B_l:
+        j = c + 1;
+        goto B_d;
+        label B_k:
+        a[7]:int = i;
+        a[6]:int = d;
+        a[3]:int = i;
+        a[2]:int = b;
+        a[1]:int = d;
+        a[0]:int = c;
+        a[4]:int = (b = h + -4);
+        b[0]:int@1 = 6317729;
+        isolated_direct_f23278(a);
+        d = a[6]:int + 32;
+        e = a[4]:int + 8;
+        f = a[3]:int;
+        b = a[2]:int;
+        c = 6;
+        k = a[7]:int;
+        j = k + -5;
+        if (eqz(j)) continue L_a;
+        c = k + 1;
+        if (((c & 4 - k) ^ j) <= -1) continue L_a;
+        label B_j:
+        j = a[0]:int;
+        goto B_b;
+        label B_i:
+        b = l + -2368;
+        c = k;
+        k = 0;
+        continue L_h;
+      }
+      label B_d:
+      d = d + 32;
+      c = i + 1;
+      k = i + -5;
+      if (eqz(k)) continue L_c;
+      if (((c & 4 - i) ^ k) <= -1) continue L_c;
+    }
+    label B_b:
+  }
+  a[7]:int = c;
+  a[6]:int = d;
+  a[3]:int = f;
+  a[2]:int = b;
+  a[0]:int = j;
+  a[4]:int = (b = e + -4);
+  a[1]:int = 8978560[0]:int@1;
+  b[0]:int@1 = 6317756;
+  isolated_direct_f15136(a);
+  c = a[7]:int;
+  i = a[4]:int;
+  h = a[2]:int;
+  b = 0;
+  k = 9037844[0]:int@1;
+  if (k) goto B_aa;
+  k = 0;
+  goto B_z;
+  label B_aa:
+  if (k < 0) goto B_z;
+  c = 0;
+  b = 0;
+  h = 9037840[0]:int@1;
+  l = h;
+  if ((0 + h + 4)[0]:int@1 != 3) goto B_ca;
+  j = 0;
+  goto B_ba;
+  label B_ca:
+  j = 1;
+  label B_ba:
+  loop L_da {
+    br_table[B_ha, B_ga, ..B_ga](j)
+    label B_ha:
+    a[7]:int = c;
+    a[3]:int = b;
+    a[2]:int = h;
+    a[0]:int = l;
+    a[6]:int = (b = 8978560[0]:int@1);
+    a[4]:int = (c = i + -8);
+    b = (b + 0 + 280)[0]:int@1;
+    c[0]:int@1 = 6317812;
+    (0 + i + -4)[0]:int@1 = l;
+    a[1]:int = b;
+    isolated_direct_f3333(a);
+    c = a[7]:int;
+    i = a[4]:int;
+    b = a[3]:int;
+    h = a[2]:int;
+    k = a[0]:int;
+    if (eqz(k)) goto B_ia;
+    l = 0 + (j = a[6]:int) + 4;
+    d = l[0];
+    d[0] = k;
+    l[0] = k;
+    k = 0 + k;
+    k[0] = j;
+    (k + 4)[0]:int@1 = d;
+    c = c + 2368;
+    b = b + 1;
+    j = b - (k = 9037844[0]:int@1);
+    if ((((j ^ b) & (k ^ b)) ^ j) > -1) goto B_z;
+    goto B_fa;
+    label B_ia:
+    k = 9037844[0]:int@1;
+    goto B_ea;
+    label B_ga:
+    c = c + 2368;
+    b = b + 1;
+    j = b - k;
+    if ((((j ^ b) & (k ^ b)) ^ j) >= 0) goto B_z;
+    label B_fa:
+    if (
+      (0 + (l = (h = 9037840[0]:int@1) + c) + 4)[0]:int@1 != 3) goto B_ea;
+    j = 0;
+    continue L_da;
+    label B_ea:
+    j = 1;
+    continue L_da;
+  }
+  label B_z:
+  a[7]:int = c;
+  a[3]:int = b;
+  a[2]:int = h;
+  a[0]:int = k;
+  a[4]:int = (b = i + -4);
+  a[1]:int = 8978560[0]:int@1;
+  b[0]:int@1 = 6317856;
+  isolated_direct_f15136(a);
+  a[5]:int = (b = a[5]:int)[0]:int@1;
+  c = a[4]:int;
+  a[4]:int = b + 8;
+  a[3]:long = c[0]:long@1 << 32L;
+  a[8]:int = (b + 0 + 4)[0]:int@1;
+  a[3]:int = (c + 0 + 8)[0]:int@1;
+}
+

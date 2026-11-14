@@ -1,0 +1,39 @@
+{
+  "format": 1,
+  "version": "0.38.7",
+  "kind": "independent read-only delivery script review",
+  "checkedAt": "2026-11-11 00:40:47 UTC",
+  "result": "passed",
+  "findings": [],
+  "reviewer": "/root/catchup_wrapper",
+  "script": "integration/deliver-corner-v0387.py",
+  "scriptSha256": "d308a539b9bb1f653a6e91e694f21e49cdc73a7e4ea6f0b98e73971ced4ff3f7",
+  "deliveryExecuted": false,
+  "packerImportedOrExecuted": false,
+  "syntaxParsedByAuthor": true,
+  "checks": {
+    "sourceDesktopSupportBaselinePinsVerified": true,
+    "pinnedExistingPackerAndGuideVerified": true,
+    "sourceFiles": 54,
+    "desktopFiles": 56,
+    "runtimeFilesByteBoundToReviewedSourceExceptRenderedReadme": true,
+    "backupCurrentV0386BeforeAnyReplacement": true,
+    "immutableArchiveAndReceiptCreation": true,
+    "wholeDirectoryAndPerFileConcurrentChangeGuards": true,
+    "historicalV0386ProofsPreserved": true,
+    "eightHistoricalFixtureExclusionsExplicit": true,
+    "generatedPythonCachesExcludedFromSync": true,
+    "workspaceRelativeNativeHistoricalReferencesCorrect": true,
+    "postWriteSourceDesktopZipChecks": true,
+    "canonicalTestRuntimeSourceHashesBoundToFinalLock": true
+  },
+  "limits": [
+    "Concurrency checks are best-effort snapshots, not filesystem locks against a truly simultaneous writer.",
+    "The final source freeze, canonical test receipts and native verifier sourceHashes must match the final candidate before execution.",
+    "This report is a script review, not evidence that packaging or Desktop delivery has occurred."
+  ],
+  "priorReview": "integration/delivery-script-review-v0387.json",
+  "priorReviewedScriptSha256": "546aa30d9acd0072bfc8143a76593c7c4d2a28b2085417085e9cb63b39cd5170",
+  "finalDelta": "One required equality binds canonical test sourceHashes to the final 54-file source lock.",
+  "reviewerConfirmedFinalDelta": true
+}

@@ -1,0 +1,26 @@
+{
+  "version": "0.38.8",
+  "kind": "immutable narrow delivery pin-rebind review after reverse-label display correction",
+  "result": "passed",
+  "findings": [],
+  "reviewer": "catchup_wrapper",
+  "priorReview": "integration/delivery-independent-review-v0388-final.json",
+  "priorReviewSha256": "9eec3b354ac28d7bca7096bebfa5e18f431368d5bec670bbd7dd6a4dd95c8451",
+  "sourceHashes": {
+    "integration/deliver-paced-v0388.py": "a2b3e98fef7a7c9356cee12b59fd882b947d234d62bc5a79c8e8c7d2427d5310",
+    "verification/source-reviewed-v0388-final.json": "ba75e711e45ec96a860980c3b09152c6b9a7664cc996d908b1a0a9c37a97a852",
+    "verification/release-modules-v0388-final.json": "0b5756717f36b586035e6b3152849baa59c266ee81fd396e1c4f2d0ce63e2de3"
+  },
+  "checks": {
+    "syntaxParsedWithoutImportOrExecution": true,
+    "exactlyTwoLiteralPinReplacementsReconstructPriorReviewedScript": true,
+    "newRootSourceFreezeMatchesPin": true,
+    "rerunTwelveBuildReceiptMatchesPin": true,
+    "allOtherDeliveryLogicByteIdentical": true
+  },
+  "deliveryExecuted": false,
+  "liveGameTested": false,
+  "limitations": [
+    "Only source-lock and native-receipt pins changed; preceding independent delivery reviews and final canonical/lifecycle gates remain applicable."
+  ]
+}

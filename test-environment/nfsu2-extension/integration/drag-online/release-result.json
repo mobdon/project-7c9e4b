@@ -1,0 +1,30 @@
+{
+  "path": "/workspace/scratch/0d6b822176fd/nfsu2-extension/NFSU2-Driving-Tools-v0.24-Combined-Online-Drag-Tuner.zip",
+  "size": 204573,
+  "sha256": "eaf1745261a9da590890433503fc57460546459e3045c2a5af34fc6731ad4a9e",
+  "files": [
+    "README.md",
+    "CHANGELOG.md",
+    "manifest.json",
+    "popup.html",
+    "diagnostics.js",
+    "walls.js",
+    "cars.js",
+    "current-profile.js",
+    "latest-profile.js",
+    "next-profile.js",
+    "signatures.js",
+    "signature-profile.js",
+    "signature-profile-latest.js",
+    "signature-profile-next.js",
+    "dyno-native-profile.js",
+    "dyno-native.js",
+    "ai.js",
+    "core.js",
+    "dyno-core.js",
+    "dyno.js",
+    "dyno-evaluator.js",
+    "dyno-full.js",
+    "page.js"
+  ]
+}

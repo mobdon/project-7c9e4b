@@ -1,0 +1,88 @@
+{
+  "format": 1,
+  "version": "0.38.7",
+  "kind": "independent native-calculated page lifecycle, loader and diagnostics review",
+  "checkedAt": "2026-11-11T00:58:40.696336+00:00",
+  "reviewer": "/root/locate_extension",
+  "result": "passed",
+  "findings": [],
+  "sourceHashes": {
+    "page.js": "bf3dcc778d9c2ab65c4f696b2008f2df058ddc35b92590e65d5061242728c2c3",
+    "core.js": "a418e603393bbe9d275ed848c8b0b393d31c284e1081b5c21111684cdc856061",
+    "ai.js": "c29d29578154882c7c7debd85a2c2edc221dd0cd482a08e1dc0c15f6ac77384d",
+    "diagnostics.js": "54d070a29d290e20bfb4598872e3e5e775c8ede5963170ceca4178ad67a38a4a",
+    "forward-driving.js": "26e2a3dd010dfec23884259de0a1d40dc7d7746c0344f85de5aecba2ffec09fc",
+    "README.md": "d79a47d418999b427e29ff64858e8d7fdb1683946864fe4d3acbba69abb190d1"
+  },
+  "sourceFilesEditedByThisReview": [],
+  "nativeCornerTargetSourceSha256": "b77ad11ed360919ed346c934e6ea37c80bf482da18d2cec853ef78edf803608f",
+  "manifestSourceSha256": "f44036be0d3f275d5baf5690ff6715e31713c34cd67706203152ac82cb8b204c",
+  "activeContract": {
+    "mode": "native-calculated",
+    "selectedPace": 1,
+    "publisherCommandEnabled": false,
+    "publisherCommandPercent": 100,
+    "nativeCalculatedFactorsUnchanged": true,
+    "nativeUniversalMaximumClaimed": false
+  },
+  "checks": {
+    "allPagePublisherCommandsRemainOff100": true,
+    "defaultFollowsExistingAutomaticOrRaceOnlyAI": true,
+    "defaultDoesNotStartManualDriver": true,
+    "stopUsesExistingDurableSessionStopFlag": true,
+    "explicitSwitchOnArmsRaceOnlyAIWhenNeeded": true,
+    "manualTakeoverRequestsOffImmediately": true,
+    "profileLoadDisablesSelectionAndRequestsOff": true,
+    "suspendTunerNoEngineAndExceptionPathsClearEligibility": true,
+    "earlyPathDiagnosticsUseFreshObserverEvidence": true,
+    "moduleReplacementStartsWithoutInheritedApplicationOrResetAck": true,
+    "legacyControlsParkWhileOwnedOrResetPending": true,
+    "restorationOriginalsRetainedAfterPatchObjectCleared": true,
+    "actualPostRestoreReadbackRequiredBeforeEligible": true,
+    "foreignValueChangesVetoEligibilityAndRetainWaitingText": true,
+    "nativeDriver770AndCar468NeverWrittenByPageMode": true,
+    "nativeFactorSamplesDistinctFromObserverAck100": true,
+    "nativeCatchupFlagReadOnlyAndSeparatelyReported": true,
+    "newCornerCorrectionRequiredByUiAndOwnershipGate": true,
+    "cornerSupportsPatchValidateAndCompileFailureRetainSealedPublisher": true,
+    "publisherFailureRetainsVerifiedForwardAdapter": true,
+    "shortcutFailureRetainsVerifiedForwardAdapter": true,
+    "neutralPaceOneAndCommandThreeRetainGeometryAndShortcutEligibility": true,
+    "nativeModePolicyIndependentOfSavedSliders": true,
+    "explicitAdaptiveRetainsSavedCustomPolicy": true,
+    "streetXDragDriftOutrunAndRoamControlsRetainPriorPolicy": true,
+    "onlinePermissionStillRequired": true,
+    "nodeTargetLowerOnlyAndUnknownGeometryFallsBackNative": true,
+    "nodeAdapterFactorFourEligibilityIsNotNativeClamp": true,
+    "noFixedActiveAssistMaximumPromoted": true
+  },
+  "validation": {
+    "type": "independent source inspection plus focused tests by delegated test agent; canonical run bound separately",
+    "focusedTests": {
+      "file": "tests/rubberband-page.test.cjs",
+      "sha256": "cbb5676a3f234f0f4bab7e823d6193d3392df343df5f60eb3fdb2d4a8599fb77",
+      "tests": 16,
+      "passed": true,
+      "failed": 0,
+      "liveGameTested": false
+    },
+    "loaderTests": {
+      "file": "tests/catchup-shortcut-loader.test.cjs",
+      "sha256": "c2c7d5dab5307adb328807020e34481f8a8fc0d3b0e38cb2b21cc4f7fedcd108",
+      "tests": 11,
+      "passed": true,
+      "failed": 0,
+      "coversAbsentApiSupportsThrowPatchThrowValidationFalseAndNativeCompileThrow": true,
+      "liveGameTested": false
+    },
+    "liveGameTested": false,
+    "fullGameInstantiated": false
+  },
+  "limits": [
+    "Controlled page and native fixtures do not prove live lap times, collision-free driving, automatic wins or unattended streaming autonomy.",
+    "Native publication scheduling and observer acknowledgement on real race exits, pauses, car changes and manual takeover still require live verification.",
+    "Native calculated pace/physics factor samples are bounded read-only field observations; observer Off/100 acknowledges no authored substitution rather than a native factor of1.",
+    "The retained generic publisher API supports dormant authored substitution; the active page never enables it.",
+    "The node adapter remains bounded and may lack coverage, including native factor values above its eligibility range; it leaves native calculations unchanged."
+  ]
+}

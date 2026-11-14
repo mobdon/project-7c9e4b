@@ -1,0 +1,33 @@
+{
+  "format": 1,
+  "version": "0.38.7",
+  "kind": "independent procedural native seal delta review",
+  "checkedAt": "2026-11-11T00:36:23.553343+00:00",
+  "result": "passed",
+  "findings": [],
+  "sourceFilesEditedByThisReview": [],
+  "newTestsRunByThisReview": 0,
+  "reviewReceiptSha256": "94fa509271190eb0d1ded0fa96646d4d92c35cc78efe78f3dd9f4a66f7ddca18",
+  "unsealedProductSha256": "5d5b00e3ec33d07761797701bdf287a8b7a7a4e01ff577d9f2c16352ba7768eb",
+  "sealedProductSha256": "0505326e2b384b9918899efa936d2e2db3b3cc8ea0da2ddd6ee9ead4d1b6f3ca",
+  "sealReceiptSha256": "4aa8727d6a41ecaeb5e5ed60e24974211a3aab17979cdc19179cb4db3b14cefd",
+  "plansBeforeSha256": "5d379d03a0122edabecf4733e13da7b6618c4f1da1e85e449ab9225f2a526a9b",
+  "plansAfterSha256": "94ba95442b541e297f44e4982f64e29e28bc0b55e116dd20df217593615542e9",
+  "testAliasSha256": "22dde605c2a2c7ed3cd662f88f55170e1242733d409beb742e89c29d77ea53f2",
+  "checks": {
+    "exactlyThreeCompletePinSealedValuesChangedFalseToTrue": true,
+    "allOtherGeneratedProductBytesPreserved": true,
+    "preservedUnsealedProductAndPlansMatchIndependentReviewHashes": true,
+    "plansDifferOnlyInThreeSealBooleans": true,
+    "browserTestChangesAreOnlyTwoPreservedUnsealedProductAliases": true,
+    "allOtherReviewedInputsUnchanged": true,
+    "sealedRuntimeCopyMatchesNativeArtifact": true,
+    "nativeOutputPinsUnchanged": true
+  },
+  "outputPins": {
+    "aa2429fb": "8e9dad5c36a8d4e9de19656e37f15ac7a23886f6a4afaf710c010e4441d5c114",
+    "15e5958f": "4fb939201464f2fdcb117bbfa56ce5c9dff88387aa4fb81deb610cd489b3688b",
+    "943ee537": "6d23a0a62c1d133eaf5b64581a213a136d08c47600ae1d298452712e873f8bc2"
+  },
+  "liveGameTested": false
+}

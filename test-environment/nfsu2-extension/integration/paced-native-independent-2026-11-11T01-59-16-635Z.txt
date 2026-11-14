@@ -1,0 +1,448 @@
+TAP version 13
+# Subtest: aa2429fb actual native backward approach targets retain the same physical braking budget at P1/1.5/2/3
+ok 1 - aa2429fb actual native backward approach targets retain the same physical braking budget at P1/1.5/2/3
+  ---
+  duration_ms: 395.4791
+  type: 'test'
+  ...
+# Subtest: aa2429fb real getter compensates only boosted ordinary free roam and preserves its ABI
+ok 2 - aa2429fb real getter compensates only boosted ordinary free roam and preserves its ABI
+  ---
+  duration_ms: 264.7074
+  type: 'test'
+  ...
+# Subtest: aa2429fb sub-native/1x requests and race commands retain existing native bytes and behavior
+ok 3 - aa2429fb sub-native/1x requests and race commands retain existing native bytes and behavior
+  ---
+  duration_ms: 173.5588
+  type: 'test'
+  ...
+# Subtest: aa2429fb ownership, protected modes, native tables and network permission deny extra free-roam compensation
+ok 4 - aa2429fb ownership, protected modes, native tables and network permission deny extra free-roam compensation
+  ---
+  duration_ms: 957.3098
+  type: 'test'
+  ...
+# Subtest: aa2429fb same-sequence command, Stop and ownership-state changes during the native getter deny compensation
+ok 5 - aa2429fb same-sequence command, Stop and ownership-state changes during the native getter deny compensation
+  ---
+  duration_ms: 400.524
+  type: 'test'
+  ...
+# Subtest: 15e5958f actual native backward approach targets retain the same physical braking budget at P1/1.5/2/3
+ok 6 - 15e5958f actual native backward approach targets retain the same physical braking budget at P1/1.5/2/3
+  ---
+  duration_ms: 350.9759
+  type: 'test'
+  ...
+# Subtest: 15e5958f real getter compensates only boosted ordinary free roam and preserves its ABI
+ok 7 - 15e5958f real getter compensates only boosted ordinary free roam and preserves its ABI
+  ---
+  duration_ms: 266.8126
+  type: 'test'
+  ...
+# Subtest: 15e5958f sub-native/1x requests and race commands retain existing native bytes and behavior
+ok 8 - 15e5958f sub-native/1x requests and race commands retain existing native bytes and behavior
+  ---
+  duration_ms: 172.5864
+  type: 'test'
+  ...
+# Subtest: 15e5958f ownership, protected modes, native tables and network permission deny extra free-roam compensation
+ok 9 - 15e5958f ownership, protected modes, native tables and network permission deny extra free-roam compensation
+  ---
+  duration_ms: 733.4145
+  type: 'test'
+  ...
+# Subtest: 15e5958f same-sequence command, Stop and ownership-state changes during the native getter deny compensation
+ok 10 - 15e5958f same-sequence command, Stop and ownership-state changes during the native getter deny compensation
+  ---
+  duration_ms: 360.4747
+  type: 'test'
+  ...
+# Subtest: 943ee537 actual native backward approach targets retain the same physical braking budget at P1/1.5/2/3
+ok 11 - 943ee537 actual native backward approach targets retain the same physical braking budget at P1/1.5/2/3
+  ---
+  duration_ms: 389.7869
+  type: 'test'
+  ...
+# Subtest: 943ee537 real getter compensates only boosted ordinary free roam and preserves its ABI
+ok 12 - 943ee537 real getter compensates only boosted ordinary free roam and preserves its ABI
+  ---
+  duration_ms: 271.439
+  type: 'test'
+  ...
+# Subtest: 943ee537 sub-native/1x requests and race commands retain existing native bytes and behavior
+ok 13 - 943ee537 sub-native/1x requests and race commands retain existing native bytes and behavior
+  ---
+  duration_ms: 172.8323
+  type: 'test'
+  ...
+# Subtest: 943ee537 ownership, protected modes, native tables and network permission deny extra free-roam compensation
+ok 14 - 943ee537 ownership, protected modes, native tables and network permission deny extra free-roam compensation
+  ---
+  duration_ms: 738.8496
+  type: 'test'
+  ...
+# Subtest: 943ee537 same-sequence command, Stop and ownership-state changes during the native getter deny compensation
+ok 15 - 943ee537 same-sequence command, Stop and ownership-state changes during the native getter deny compensation
+  ---
+  duration_ms: 326.8504
+  type: 'test'
+  ...
+# Subtest: free-roam braking builder rejects unknown profiles or changed native getter/prefix inputs
+ok 16 - free-roam braking builder rejects unknown profiles or changed native getter/prefix inputs
+  ---
+  duration_ms: 24.631
+  type: 'test'
+  ...
+# Subtest: browser adaptation pins all three .7 inputs, preserves native sources and changes only declared authored paths
+ok 17 - browser adaptation pins all three .7 inputs, preserves native sources and changes only declared authored paths
+  ---
+  duration_ms: 2226.9528
+  type: 'test'
+  ...
+# Subtest: actual native split publication preserves finite M and applies P/S gains with four-wheel acknowledgement and exact reset
+ok 18 - actual native split publication preserves finite M and applies P/S gains with four-wheel acknowledgement and exact reset
+  ---
+  duration_ms: 2630.9207
+  type: 'test'
+  ...
+# Subtest: actual target consumers enter at1, unlockP after publication, and revoke immediately on command/source/output changes
+ok 19 - actual target consumers enter at1, unlockP after publication, and revoke immediately on command/source/output changes
+  ---
+  duration_ms: 3011.4323
+  type: 'test'
+  ...
+# Subtest: cold command3 cache stays usable as physical gain arrives and actual final cap falls back on withdrawal
+ok 20 - cold command3 cache stays usable as physical gain arrives and actual final cap falls back on withdrawal
+  ---
+  duration_ms: 2579.8872
+  type: 'test'
+  ...
+# Subtest: native publication and target guards retain ordinary-only, permission, identity, pause and finite-input boundaries
+ok 21 - native publication and target guards retain ordinary-only, permission, identity, pause and finite-input boundaries
+  ---
+  duration_ms: 2588.4826
+  type: 'test'
+  ...
+# Subtest: actual native tire consumer preserves combined-force direction and gives zero capacity at zero load with high strength
+ok 22 - actual native tire consumer preserves combined-force direction and gives zero capacity at zero load with high strength
+  ---
+  duration_ms: 2571.9714
+  type: 'test'
+  ...
+# Subtest: complete AA loader grants target-consumer and shortcut capabilities only after compiled output matches its pin
+ok 23 - complete AA loader grants target-consumer and shortcut capabilities only after compiled output matches its pin
+  ---
+  duration_ms: 933.5763
+  type: 'test'
+  ...
+# Subtest: optional shortcut mismatch cannot corrupt or discard the verified target-consumer and forward adapter
+ok 24 - optional shortcut mismatch cannot corrupt or discard the verified target-consumer and forward adapter
+  ---
+  duration_ms: 434.1028
+  type: 'test'
+  ...
+# Subtest: forward adapter rejection leaves native catchup wrapper and denies target-consumer pacing capability
+ok 25 - forward adapter rejection leaves native catchup wrapper and denies target-consumer pacing capability
+  ---
+  duration_ms: 313.5091
+  type: 'test'
+  ...
+# Subtest: unknown AA-sized original never reaches target or shortcut patchers
+ok 26 - unknown AA-sized original never reaches target or shortcut patchers
+  ---
+  duration_ms: 173.0185
+  type: 'test'
+  ...
+# Subtest: 15e5958f loader compiles exact combined target and shortcut output; tampering stays rejected
+ok 27 - 15e5958f loader compiles exact combined target and shortcut output; tampering stays rejected
+  ---
+  duration_ms: 1056.8784
+  type: 'test'
+  ...
+# Subtest: 943ee537 loader compiles exact combined target and shortcut output; tampering stays rejected
+ok 28 - 943ee537 loader compiles exact combined target and shortcut output; tampering stays rejected
+  ---
+  duration_ms: 1062.8809
+  type: 'test'
+  ...
+# Subtest: optional corner absent retains the exact sealed publisher, shortcut and forward composition
+ok 29 - optional corner absent retains the exact sealed publisher, shortcut and forward composition
+  ---
+  duration_ms: 620.5662
+  type: 'test'
+  ...
+# Subtest: optional corner throws retains the exact sealed publisher, shortcut and forward composition
+ok 30 - optional corner throws retains the exact sealed publisher, shortcut and forward composition
+  ---
+  duration_ms: 600.6999
+  type: 'test'
+  ...
+# Subtest: optional corner mutates-invalid retains the exact sealed publisher, shortcut and forward composition
+ok 31 - optional corner mutates-invalid retains the exact sealed publisher, shortcut and forward composition
+  ---
+  duration_ms: 612.7104
+  type: 'test'
+  ...
+# Subtest: optional corner compile-rejects retains the exact sealed publisher, shortcut and forward composition
+ok 32 - optional corner compile-rejects retains the exact sealed publisher, shortcut and forward composition
+  ---
+  duration_ms: 937.5105
+  type: 'test'
+  ...
+# Subtest: optional corner supports-throws retains the exact sealed publisher, shortcut and forward composition
+ok 33 - optional corner supports-throws retains the exact sealed publisher, shortcut and forward composition
+  ---
+  duration_ms: 609.3457
+  type: 'test'
+  ...
+# Subtest: optional paced absent retains exact .7 corner, publisher, shortcut and forward composition
+ok 34 - optional paced absent retains exact .7 corner, publisher, shortcut and forward composition
+  ---
+  duration_ms: 742.2995
+  type: 'test'
+  ...
+# Subtest: optional paced throws retains exact .7 corner, publisher, shortcut and forward composition
+ok 35 - optional paced throws retains exact .7 corner, publisher, shortcut and forward composition
+  ---
+  duration_ms: 770.9478
+  type: 'test'
+  ...
+# Subtest: optional paced mutates-invalid retains exact .7 corner, publisher, shortcut and forward composition
+ok 36 - optional paced mutates-invalid retains exact .7 corner, publisher, shortcut and forward composition
+  ---
+  duration_ms: 798.5879
+  type: 'test'
+  ...
+# Subtest: optional paced compile-rejects retains exact .7 corner, publisher, shortcut and forward composition
+ok 37 - optional paced compile-rejects retains exact .7 corner, publisher, shortcut and forward composition
+  ---
+  duration_ms: 908.4416
+  type: 'test'
+  ...
+# Subtest: optional paced supports-throws retains exact .7 corner, publisher, shortcut and forward composition
+ok 38 - optional paced supports-throws retains exact .7 corner, publisher, shortcut and forward composition
+  ---
+  duration_ms: 755.6246
+  type: 'test'
+  ...
+# Subtest: a historical matching receipt establishes a baseline, not live application
+ok 39 - a historical matching receipt establishes a baseline, not live application
+  ---
+  duration_ms: 1.3044
+  type: 'test'
+  ...
+# Subtest: unchanged acknowledgements expire and a long polling gap cannot redate old evidence
+ok 40 - unchanged acknowledgements expire and a long polling gap cannot redate old evidence
+  ---
+  duration_ms: 0.9359
+  type: 'test'
+  ...
+# Subtest: status can independently expire evidence in the caller clock domain
+ok 41 - status can independently expire evidence in the caller clock domain
+  ---
+  duration_ms: 0.1329
+  type: 'test'
+  ...
+# Subtest: stop forces one Off generation, never reports reset from the request, and polls while disabled
+ok 42 - stop forces one Off generation, never reports reset from the request, and polls while disabled
+  ---
+  duration_ms: 0.1977
+  type: 'test'
+  ...
+# Subtest: Off remains pending across no publication, wrong car and stale receipts
+ok 43 - Off remains pending across no publication, wrong car and stale receipts
+  ---
+  duration_ms: 0.2885
+  type: 'test'
+  ...
+# Subtest: manual and pause gates send Off without demanding AI ownership to acknowledge reset
+ok 44 - manual and pause gates send Off without demanding AI ownership to acknowledge reset
+  ---
+  duration_ms: 0.1894
+  type: 'test'
+  ...
+# Subtest: literal network permission and ordinary owned AI are required
+ok 45 - literal network permission and ordinary owned AI are required
+  ---
+  duration_ms: 0.3047
+  type: 'test'
+  ...
+# Subtest: no custom power, grip, unlimited boost or unowned pace can stack
+ok 46 - no custom power, grip, unlimited boost or unowned pace can stack
+  ---
+  duration_ms: 0.4962
+  type: 'test'
+  ...
+# Subtest: percent, selected pace and strict request types fail closed
+ok 47 - percent, selected pace and strict request types fail closed
+  ---
+  duration_ms: 0.5296
+  type: 'test'
+  ...
+# Subtest: changing memory never writes the previous memory and requires new evidence
+ok 48 - changing memory never writes the previous memory and requires new evidence
+  ---
+  duration_ms: 0.2449
+  type: 'test'
+  ...
+# Subtest: shared memory growth invalidates old receipt views and advances command generation
+ok 49 - shared memory growth invalidates old receipt views and advances command generation
+  ---
+  duration_ms: 0.1252
+  type: 'test'
+  ...
+# Subtest: current-car and module identity changes cannot inherit application status
+ok 50 - current-car and module identity changes cannot inherit application status
+  ---
+  duration_ms: 0.3076
+  type: 'test'
+  ...
+# Subtest: missing identities, unsupported protocols and nonshared memory do not write
+ok 51 - missing identities, unsupported protocols and nonshared memory do not write
+  ---
+  duration_ms: 0.2435
+  type: 'test'
+  ...
+# Subtest: foreign mailbox and exceptions never reuse prior active status
+ok 52 - foreign mailbox and exceptions never reuse prior active status
+  ---
+  duration_ms: 0.4269
+  type: 'test'
+  ...
+# Subtest: invalid and backwards clocks send Off and cannot refresh receipts
+ok 53 - invalid and backwards clocks send Off and cannot refresh receipts
+  ---
+  duration_ms: 0.6306
+  type: 'test'
+  ...
+# Subtest: publication wrap advances normally; rollback and ambiguous jumps lose freshness
+ok 54 - publication wrap advances normally; rollback and ambiguous jumps lose freshness
+  ---
+  duration_ms: 0.1223
+  type: 'test'
+  ...
+# Subtest: generation wrap and old same-command acknowledgement cannot bootstrap active
+ok 55 - generation wrap and old same-command acknowledgement cannot bootstrap active
+  ---
+  duration_ms: 0.2008
+  type: 'test'
+  ...
+# Subtest: coherent guarded-native100 is distinct from Off acknowledgement
+ok 56 - coherent guarded-native100 is distinct from Off acknowledgement
+  ---
+  duration_ms: 0.122
+  type: 'test'
+  ...
+# Subtest: malformed or mismatched acknowledgements invalidate live evidence
+ok 57 - malformed or mismatched acknowledgements invalidate live evidence
+  ---
+  duration_ms: 0.5428
+  type: 'test'
+  ...
+# Subtest: a missing receipt and later unchanged historical return require another native publication
+ok 58 - a missing receipt and later unchanged historical return require another native publication
+  ---
+  duration_ms: 0.1206
+  type: 'test'
+  ...
+# Subtest: the authored200 ceiling requires exact paired pace and fresh actual publication
+ok 59 - the authored200 ceiling requires exact paired pace and fresh actual publication
+  ---
+  duration_ms: 0.1422
+  type: 'test'
+  ...
+# Subtest: native f32 source factors above1 produce separate power and squared-pace tire evidence without compounding
+ok 60 - native f32 source factors above1 produce separate power and squared-pace tire evidence without compounding
+  ---
+  duration_ms: 0.2208
+  type: 'test'
+  ...
+# Subtest: every admitted percentage follows native f32 rounding at both multiplication stages
+ok 61 - every admitted percentage follows native f32 rounding at both multiplication stages
+  ---
+  duration_ms: 9.157
+  type: 'test'
+  ...
+# Subtest: invalid source, derived floats, incomplete wheels and unverifiable outputs cannot certify application
+ok 62 - invalid source, derived floats, incomplete wheels and unverifiable outputs cannot certify application
+  ---
+  duration_ms: 3.4392
+  type: 'test'
+  ...
+# Subtest: Stop, owner loss, expired status and module changes discard all physical gain claims immediately
+ok 63 - Stop, owner loss, expired status and module changes discard all physical gain claims immediately
+  ---
+  duration_ms: 0.9346
+  type: 'test'
+  ...
+# Subtest: every strength code through10 uses separate quarter steps and the two native f32 multiplication stages
+ok 64 - every strength code through10 uses separate quarter steps and the two native f32 multiplication stages
+  ---
+  duration_ms: 5.9015
+  type: 'test'
+  ...
+# Subtest: invalid strength and mismatched strength acknowledgement fail closed while Off encodes strength1
+ok 65 - invalid strength and mismatched strength acknowledgement fail closed while Off encodes strength1
+  ---
+  duration_ms: 3.051
+  type: 'test'
+  ...
+# Subtest: strength changes invalidate old evidence independently of selected pace and Stop resets the native strength command
+ok 66 - strength changes invalidate old evidence independently of selected pace and Stop resets the native strength command
+  ---
+  duration_ms: 0.3253
+  type: 'test'
+  ...
+# Subtest: ownership sequences require a fresh On generation and cannot inherit an earlier owner publication
+ok 67 - ownership sequences require a fresh On generation and cannot inherit an earlier owner publication
+  ---
+  duration_ms: 0.2675
+  type: 'test'
+  ...
+# Subtest: invalid or forged owner evidence cannot enable or retain scaled physical claims
+ok 68 - invalid or forged owner evidence cannot enable or retain scaled physical claims
+  ---
+  duration_ms: 2.4493
+  type: 'test'
+  ...
+# Subtest: Off acknowledgements ignore changing AI Off-heartbeat sequences without churning the reset generation
+ok 69 - Off acknowledgements ignore changing AI Off-heartbeat sequences without churning the reset generation
+  ---
+  duration_ms: 0.2538
+  type: 'test'
+  ...
+# Subtest: actual native fixture and packaged controller protocol use the same reviewed product
+ok 70 - actual native fixture and packaged controller protocol use the same reviewed product
+  ---
+  duration_ms: 1.0928
+  type: 'test'
+  ...
+# Subtest: actual aa2429fb publications drive controller gain, owner changes and Stop restoration
+ok 71 - actual aa2429fb publications drive controller gain, owner changes and Stop restoration
+  ---
+  duration_ms: 884.2313
+  type: 'test'
+  ...
+# Subtest: actual 15e5958f publications drive controller gain, owner changes and Stop restoration
+ok 72 - actual 15e5958f publications drive controller gain, owner changes and Stop restoration
+  ---
+  duration_ms: 910.1697
+  type: 'test'
+  ...
+# Subtest: actual 943ee537 publications drive controller gain, owner changes and Stop restoration
+ok 73 - actual 943ee537 publications drive controller gain, owner changes and Stop restoration
+  ---
+  duration_ms: 906.4702
+  type: 'test'
+  ...
+1..73
+# tests 73
+# suites 0
+# pass 73
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 36168.0747

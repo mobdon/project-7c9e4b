@@ -1,0 +1,42 @@
+{
+  "version": "0.38.10",
+  "kind": "independent narrow read-only delivery-script review",
+  "reviewer": "catchup_physics",
+  "checkedAt": "2026-11-11T04:11:29.557259+00:00",
+  "result": "passed",
+  "findings": [],
+  "deliveryScriptSha256": "527f6523a15e04f5dd0d6b8909d376d1b90586648b666ea499b37938e98f37f8",
+  "supportManifestSha256": "3ae52fabda0ff146df2912cea1abed767f984c3880572a8930c7e44886376417",
+  "receiptBindings": {
+    "nativeBuildSha256": "442ce7e828203bdbdf1c112679ad686187522859e8ea5a8148b1f1fa7d623f72",
+    "nativeBehaviorSha256": "094f6d2785db79e2e05c968360176416b924c7f06d276ed0d4be3424d24749e8",
+    "twelveModuleAuditSha256": "f094c70fe8733a9fcbd1fdeeb64cbcf9b98c4d805305a129c5dad5bfce025bf5"
+  },
+  "checks": {
+    "syntaxParsedWithoutMainExecution": true,
+    "readOnlyVerifyReleasePassed": true,
+    "canonicalReceipt2749Of2749Across143FilesBoundToCurrentInputs": true,
+    "historicalEightTestExclusionsPreserved": true,
+    "native63CaseBehaviorReceiptBoundToCurrentBuildVerifierAndSources": true,
+    "twelveModuleAuditBoundToCurrent57SourceFilesAndPreviousV0389": true,
+    "threeSupportedModulesChangeOnly3553FromV0389": true,
+    "stableV0389Source57Desktop59AndSupport1039MatchPinnedBaseline": true,
+    "priorV0389ArchiveAndUnchangedPackerGuidePinsVerified": true,
+    "exact28SupportEntriesPlusScriptManifestAndReviewRequired": true,
+    "noSupportRemovalsOrDatedHistoricalChanges": true,
+    "freshV03810ArchiveAndThreeV0389BackupDestinationsRequired": true,
+    "frozenInputsRecheckedBeforePackageAndDeliveryPhases": true,
+    "packageChecksumAndDesktopInventoryChecksRetained": true,
+    "runtimeCpuBoundaryCandidateRemainsDistinctFromLiveVerification": true,
+    "liveReloadRaceAndFullGameClaimsRemainFalse": true
+  },
+  "deliveryExecuted": false,
+  "stableFilesChanged": false,
+  "desktopFilesChanged": false,
+  "testsRerunByReviewer": false,
+  "liveGameTested": false,
+  "limitations": [
+    "This review checks the final delivery program, immutable inputs, and existing offline verification receipts; it does not execute delivery or rerun test suites.",
+    "The runtime CPU bounds change is supported by exact native provenance and controlled high-CPU regressions. No live .10 reload, race, handling efficacy, or streaming-autonomy result is established."
+  ]
+}

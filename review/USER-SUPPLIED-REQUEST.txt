@@ -1,0 +1,103 @@
+# 02 - HANDOFF: Repo Upload, Verification & Review-Bundle Creation
+Snapshot: November 2026 · Draft: v0.42.8 · Repo: github.com/mobdon/project-7c9e4b
+
+## PURPOSE
+This handoff covers three tasks: (1) complete and verify the repository upload,
+(2) create the FOR-REVIEW bundle that lets the external reviewer (the assistant)
+perform static code review and diagnosis, (3) run the first offline baseline
+once the reviewer's run-book arrives. The reviewer CANNOT execute anything —
+no browser, no Chrome, no game, no test environment. Reviewer roles: test
+design, code review, log analysis, fix drafting. Executor roles (GPT/human):
+running, capturing output, applying fixes, recording actual results.
+
+## PROJECT STATE (verified vs. claimed — keep distinction)
+VERIFIED / ESTABLISHED:
+- Repo live; extension source + both reference TXTs uploaded (claimed present;
+  full verification pass pending)
+- Offline test environment: history allocation + remote-car enrollment succeeded;
+  ZERO movement frames produced
+- Account 1: banned (insta). Exact trigger UNESTABLISHED — wrapper prime
+  suspect, not proven
+- IP-level enforcement CONFIRMED by VPN bypass success
+
+CLAIMED / UNVERIFIED (do not promote to "resolved" without a run):
+- v0.42.8 NOS award loop live behavior; synthetic near-miss award effect on
+  style points/combos
+- Power/limiter/grip freezes (reported, unresolved, cause unknown)
+- Full report encoding = serialization only; does NOT prove observations absent
+  or server accepts behavior
+- Complete valid startup; sustained extension-produced movement; that every
+  feature avoids reports; current draft installed in Chrome; online acceptance
+
+UNAVAILABLE ON BUILD 60946132: tuner/ECU, leased road geometry, per-target
+corner feedback, online car-category controls, race capture, destination travel.
+
+## TASK 1 — COMPLETE & VERIFY UPLOAD
+Finish remaining file transfer, then run this verification pass:
+[ ] /exports/NFSU2-EXTENSION-0.42.8-COMPLETE.txt present, exact filename
+[ ] /exports/01-CURRENT-HANDOFF.txt present, exact filename
+[ ] Index: every text export's referenced binaries actually landed alongside
+[ ] Test environment tree clearly separated & labeled as its own artifact
+    (its startup defects != extension bugs; fixtures explicitly marked artificial)
+[ ] Secrets sweep on FINAL as-uploaded state (endpoints, tokens, session IDs)
+[ ] No game-owned assets committed
+[ ] README: pinned reference paths, install steps, 60946132 availability matrix,
+    verification-state wording, testers-only issue policy
+
+OBSURITY RULES (do not break):
+- Repo name/description/topics stay neutral — no game/cheat/trainer keywords
+- No topics set; README first heading is not the game name
+- Historical ZIPs stay as binaries (code-search invisible)
+- Testers must not star the repo
+
+## TASK 2 — CREATE /review/FOR-REVIEW-0.42.8.md
+One plain-text bundle, clear ===== FILENAME ===== headers, chunked, verbatim.
+P0 (paste this to the reviewer immediately after creating):
+  1. Full 01-CURRENT-HANDOFF.txt
+  2. Complete source of power/limiter/grip tool family + entry points
+  3. Complete source of NOS award loop (one-outstanding-request rule,
+     session-only switch, wait-when-full)
+  4. Build-60946132 integration profile: bindings attempted, what fails at
+     preparation
+  5. manifest.json + full folder tree
+  6. Offline test environment startup log — VERBATIM including the
+     history-allocation + zero-movement-frames sessions, errors included
+  7. One sample report as encoded + encoder source or field list
+     (synthetic OK if labeled "synthetic")
+P1 (add when convenient):
+  8. Build-detection method; integrated-build list; address/function map
+     export for 60946132
+  9. Test-environment startup procedure (commands, expected sequence)
+  10. Fixture inventory, artificial items labeled
+P2:
+  11. Update 01-CURRENT-HANDOFF.txt with: account-1 ban event (unestablished
+      trigger), IP-level enforcement finding, account-2 discipline below
+
+FORMAT: plain text only, NO screenshots; logs verbatim, no summaries.
+
+## TASK 3 — FIRST BASELINE (after reviewer's run-book arrives)
+Execute tests only per reviewer run-book; paste all output back verbatim.
+Account-2 discipline for ALL live sessions:
+- VPN on BEFORE Chrome opens; same exit type every session; log exit region
+- Fresh browser profile per tier; one feature tier at a time; timestamps
+- Tiers: A0 vanilla+logger → A1 wrapper-only → B1 display-only →
+  C1..C4 (AI pace / rails / catch-up / NOS award) one at a time →
+  D1 power/limiter/grip ONLY after freeze fix
+- Test-log columns: feature active, start/end, exit IP/region, report notes,
+  ban (scope: account vs account+IP), result (no-ban = "no ban YET")
+
+## OPEN ISSUES LEDGER
+1. Power/limiter/grip freezes — cause unknown; blocks D-tier
+2. Baseline incomplete: valid startup + sustained movement unestablished
+3. NOS synthetic award: live behavior unverified
+4. Build-60946132: six features unavailable
+5. Account-1 ban cause unestablished (wrapper prime suspect)
+6. Online acceptance of extension behavior unestablished
+7. Reports/monitoring remain active — shaped-report proof pending
+
+## REFERENCE CHAIN
+- Current extension reference: /exports/NFSU2-EXTENSION-0.42.8-COMPLETE.txt
+- Exact findings & remaining work: /exports/01-CURRENT-HANDOFF.txt
+- This document: /02-HANDOFF-REVIEW-BUNDLE.md (repo root)
+- Review communication channel: paste bundle + logs to the assistant in-chat
+  (repo not yet web-indexed; do not rely on the reviewer fetching it)

@@ -1,0 +1,119 @@
+{
+  "format": 1,
+  "version": "0.38.7",
+  "kind": "independent optional post-sealed command3 corner correction review",
+  "checkedAt": "2026-11-11T00:56:42.145252+00:00",
+  "reviewer": "/root/locate_extension",
+  "result": "passed",
+  "findings": [],
+  "productSha256": "b77ad11ed360919ed346c934e6ea37c80bf482da18d2cec853ef78edf803608f",
+  "sealedPublisherSha256": "0505326e2b384b9918899efa936d2e2db3b3cc8ea0da2ddd6ee9ead4d1b6f3ca",
+  "sourceHashes": {
+    "native/build-corner-target.cjs": "60e4667c0bbc9fdc8f7887355cfaf5c65cbbfa31660368bef5953a0e27447519",
+    "native/native-corner-target.template.js": "87c22a6a1dd1e40784f55b597521cdf7da095baacfc641e3df22be68f190aae1",
+    "native/native-corner-target.js": "b77ad11ed360919ed346c934e6ea37c80bf482da18d2cec853ef78edf803608f",
+    "extension/native-corner-target.js": "b77ad11ed360919ed346c934e6ea37c80bf482da18d2cec853ef78edf803608f",
+    "native/corner-target-plans.json": "1e04502b45ece61813f88a185b3427e1028086456d8164429e77ee26266c49b0",
+    "native/corner-target-build.json": "876cd17158c3923ec6f10b772bdf748301f800817abf53bf95ea261e27df70d2",
+    "native/corner-target.test.cjs": "25680c1999e27c2fe45279472217df8b50f0272b2013e37cbf9ea70042ab78d8",
+    "native/corner-target-tests.json": "01c1f24e52121eff7fa3bd356990fb147c96467e14a881782944f0c1c359388e",
+    "integration/review-corner-target-v0387.cjs": "28b2d82c848c8b904d510691363fb9cae03072965677b6dca6afb950266911cd",
+    "integration/run-corner-target-independent-v0387.cjs": "1fc25e01156023dfcbddb6980252907f6cc20b50ab8c126fde422ad4a2fde120"
+  },
+  "scopeReceipt": "integration/native-corner-target-independent-scope-v0387.json",
+  "scopeReceiptSha256": "bcd693cf8605e4068b15969e44b098ba483fef16425b6d23eb9074c456fdc42e",
+  "independentBehaviorReceipt": "integration/native-corner-target-independent-behavior-v0387.json",
+  "independentBehaviorReceiptSha256": "9454573136f18775c5cbd7ea7dc914785c2f4fcf98f3953e0bc88bf65ad21be9",
+  "inputOutputPins": [
+    {
+      "revision": "aa2429fb",
+      "inputSha256": "8e9dad5c36a8d4e9de19656e37f15ac7a23886f6a4afaf710c010e4441d5c114",
+      "outputSha256": "cc8d3b46da22d6dad1a99de1e1c8c8a28d3782cfcd92d01fe722a7ee4c54baed",
+      "modifiedFunctions": [
+        4653
+      ],
+      "exactAuthoredExpressionOnly": true,
+      "publisherBody3553Preserved": true,
+      "otherBodiesAndNonCodeSectionsPreserved": true,
+      "inputUnchanged": true,
+      "unknownIdentityBypasses": true,
+      "wrongTamperedAndAlreadyPatchedInputsReject": true,
+      "valid": true,
+      "compiled": true,
+      "liveGameTested": false
+    },
+    {
+      "revision": "15e5958f",
+      "inputSha256": "4fb939201464f2fdcb117bbfa56ce5c9dff88387aa4fb81deb610cd489b3688b",
+      "outputSha256": "314b47584891c237f8ce7826c3424f3e2c2610131542fdda6564b6e22288db71",
+      "modifiedFunctions": [
+        4653
+      ],
+      "exactAuthoredExpressionOnly": true,
+      "publisherBody3553Preserved": true,
+      "otherBodiesAndNonCodeSectionsPreserved": true,
+      "inputUnchanged": true,
+      "unknownIdentityBypasses": true,
+      "wrongTamperedAndAlreadyPatchedInputsReject": true,
+      "valid": true,
+      "compiled": true,
+      "liveGameTested": false
+    },
+    {
+      "revision": "943ee537",
+      "inputSha256": "6d23a0a62c1d133eaf5b64581a213a136d08c47600ae1d298452712e873f8bc2",
+      "outputSha256": "73581fa5430fae6e6b2d7276b264deed29d0ec90232c4e6d0b6b402069e086fe",
+      "modifiedFunctions": [
+        4653
+      ],
+      "exactAuthoredExpressionOnly": true,
+      "publisherBody3553Preserved": true,
+      "otherBodiesAndNonCodeSectionsPreserved": true,
+      "inputUnchanged": true,
+      "unknownIdentityBypasses": true,
+      "wrongTamperedAndAlreadyPatchedInputsReject": true,
+      "valid": true,
+      "compiled": true,
+      "liveGameTested": false
+    }
+  ],
+  "checks": {
+    "allThreeSealedInputsAndFinalOutputsReconstructed": true,
+    "onlyFunction4653ChangedAfterSealedPublisher": true,
+    "exactCommand3ExpressionPrefixAndSuffixPreserved": true,
+    "originalNativeInstructionsContiguous": true,
+    "publisher3553AndOtherBodiesAndNonCodeSectionsUnchanged": true,
+    "replacementMatchesIndependentWatCompilation": true,
+    "unknownIdentityBypasses": true,
+    "wrongTamperedAndAlreadyPatchedInputReject": true,
+    "commandOneTwoCompleteMemoryParity": true,
+    "stopAndSafetyParity": true,
+    "onlinePermissionRetained": true,
+    "gentleBendsRetainNativeCeiling": true,
+    "lowerNativeResultsRemainAuthoritative": true,
+    "sourceUnchanged": true,
+    "authorProofPreservedByIndependentRun": true
+  },
+  "validation": {
+    "focusedTests": 2,
+    "passed": 2,
+    "failed": 0,
+    "totalNativeCases": 219,
+    "casesPerBuild": 73,
+    "actualNativeBodies": [
+      4653,
+      4576,
+      4577,
+      4578
+    ],
+    "builderWriteEntryInvoked": false,
+    "liveGameTested": false,
+    "fullGameInstantiated": false
+  },
+  "limits": [
+    "The matrix uses controlled ownership, route and ABI fixtures; it does not prove live route coverage, lap time, impacts or wins.",
+    "The original sealed publisher artifact and its three output pins remain unchanged; this is a separately pinned optional post-sealed patch.",
+    "The correction changes the authored target limit for command3, including explicit Adaptive mode on the three supported builds; commands1/2 and Street X are unchanged.",
+    "The current page commands the publisher observer Off/100 and selected pace1; dormant publisher substitution tests do not establish a native maximum."
+  ]
+}

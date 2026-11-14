@@ -1,0 +1,49 @@
+{
+  "actualNativeSearch": true,
+  "manualSeedPreserved": true,
+  "goal": "acceleration100",
+  "trials": 48,
+  "baselineMetrics": {
+    "zeroTo60Seconds": 3.807996988296509,
+    "zeroTo100Seconds": 10.187054634094238,
+    "topSpeedMps": 79.12384033203125,
+    "peakPowerKw": 242.98728942871094,
+    "powerRpm": 7100,
+    "peakTorqueNm": 326.835036277771,
+    "torqueRpm": 7100,
+    "nitrousSeconds": 6,
+    "nitrousTorque": 0.5000000596046448
+  },
+  "bestMetrics": {
+    "zeroTo60Seconds": 3.195997714996338,
+    "zeroTo100Seconds": 8.194374084472656,
+    "topSpeedMps": 79.12384033203125,
+    "peakPowerKw": 242.39251708984375,
+    "powerRpm": 7100,
+    "peakTorqueNm": 352.5562584400177,
+    "torqueRpm": 6200,
+    "nitrousSeconds": 11,
+    "nitrousTorque": 0.10000001639127731
+  },
+  "recordUnchanged": true
+}
+{
+  "actualNativePreview": true,
+  "actualFrameStageAndRestore": true,
+  "mode": 1,
+  "allowed": 40,
+  "metrics": {
+    "zeroTo60Seconds": 3.5189971923828125,
+    "zeroTo100Seconds": 11.041041374206543,
+    "topSpeedMps": 73.759521484375,
+    "peakPowerKw": 233.47105407714844,
+    "powerRpm": 7100,
+    "peakTorqueNm": 314.035028219223,
+    "torqueRpm": 7100,
+    "nitrousSeconds": 11,
+    "nitrousTorque": 0.10000001639127731
+  },
+  "changed": 15,
+  "recordUnchanged": true,
+  "separateVisitRestored": true
+}

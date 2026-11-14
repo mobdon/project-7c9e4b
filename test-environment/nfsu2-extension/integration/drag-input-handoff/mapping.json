@@ -1,0 +1,156 @@
+{
+  "latest": {
+    "moduleSha256": "df7b930bb293ffdf975f0735d93e0797d51bd137d0cbeabcaff87fc5a693c759",
+    "knownRelocations": [
+      [
+        "offset=677034944",
+        "offset=678298832"
+      ],
+      [
+        "call 21711",
+        "call 21726"
+      ],
+      [
+        "call 21710",
+        "call 21725"
+      ],
+      [
+        "call 22727",
+        "call 22477"
+      ],
+      [
+        "call 22719",
+        "call 22469"
+      ],
+      [
+        "call 22807",
+        "call 22886"
+      ],
+      [
+        "call 21354",
+        "call 21357"
+      ]
+    ],
+    "functions": {
+      "sub_005f3080": {
+        "functionIndex": 18419,
+        "exactWithEnumeratedRelocations": true,
+        "oldTextSha256": "7070f8615be279899901ed43e13fb6475662d79b25eb5c48a6374f271dbe5598",
+        "currentTextSha256": "8b7c13e480c4e929ceeb3c7df8009890b5754ca426acc874c60222c160e0ef81"
+      },
+      "sub_005ea650": {
+        "functionIndex": 4344,
+        "exactWithEnumeratedRelocations": true,
+        "oldTextSha256": "a387bfa47c333322fc9411576743dbb396273c5470cee4b632bd22cf482866e1",
+        "currentTextSha256": "02ca64552f23908411217d6018bcbe078570cbc43e5ab87ee13b7f932eccb2c6"
+      },
+      "sub_005f39d0": {
+        "functionIndex": 19197,
+        "exactWithEnumeratedRelocations": true,
+        "oldTextSha256": "25efb468a2f1dfae216e9c50ba6f91721c4b6dfceb927b908b8b87fe7f103faf",
+        "currentTextSha256": "e8de988f1abd0bd25acce5479463c2ee84fafac9db55d5e5cc78166f682158c4"
+      },
+      "sub_00602650": {
+        "functionIndex": 8414,
+        "exactWithEnumeratedRelocations": true,
+        "oldTextSha256": "f680217711d97543da5f3365f33e6ad6087c1952e67958e04dd76ec0d995e537",
+        "currentTextSha256": "91983e3bb1111efe3949d83b4372a0e8375b28e2304fe8cd77548c80ade2b280"
+      },
+      "sub_005f3010": {
+        "functionIndex": 18264,
+        "exactWithEnumeratedRelocations": true,
+        "oldTextSha256": "eb84b21847bf87c204caaab4704c4d203b25460db6397183fb3ad37b7c2c201e",
+        "currentTextSha256": "113b79f8e40c54ba1f71f774f3f4e8ea09dcbe418499b9aeacc24a0b33d48625"
+      },
+      "sub_00605c70": {
+        "functionIndex": 14982,
+        "exactWithEnumeratedRelocations": true,
+        "oldTextSha256": "5ab19b4a9ab283b7c9fa88266ee3cf70484ae91dd06e515d3e920003a88b8db0",
+        "currentTextSha256": "b48b718e09d10624de3e42717bf6a25ce90ea3445d586681ec1d6c0d38ed87da"
+      },
+      "sub_005fae20": {
+        "functionIndex": 14199,
+        "exactWithEnumeratedRelocations": true,
+        "oldTextSha256": "9e4a6237b5b20c90d5bf23516f88fd7bb316f27dc14a9fd4be8ced9e1a34b620",
+        "currentTextSha256": "90d3b3d3e094c401b9179ecce87e63b23ea68df839b1bfa11b7df1a268ce2eaa"
+      }
+    }
+  },
+  "next": {
+    "moduleSha256": "128e2b5816a8eace4b768aec920318a1613da8235801a361e2009e96550be1d6",
+    "knownRelocations": [
+      [
+        "offset=677034944",
+        "offset=678302400"
+      ],
+      [
+        "call 21711",
+        "call 21727"
+      ],
+      [
+        "call 21710",
+        "call 21726"
+      ],
+      [
+        "call 22727",
+        "call 22515"
+      ],
+      [
+        "call 22719",
+        "call 22507"
+      ],
+      [
+        "call 22807",
+        "call 22925"
+      ],
+      [
+        "call 21354",
+        "call 21357"
+      ]
+    ],
+    "functions": {
+      "sub_005f3080": {
+        "functionIndex": 18419,
+        "exactWithEnumeratedRelocations": true,
+        "oldTextSha256": "7070f8615be279899901ed43e13fb6475662d79b25eb5c48a6374f271dbe5598",
+        "currentTextSha256": "9ee36eb64f19d8b948adfd35ae116878d60e077f81680f7a32ec9863587b1778"
+      },
+      "sub_005ea650": {
+        "functionIndex": 4344,
+        "exactWithEnumeratedRelocations": true,
+        "oldTextSha256": "a387bfa47c333322fc9411576743dbb396273c5470cee4b632bd22cf482866e1",
+        "currentTextSha256": "3c1f7847bdb76da077dfd86c016b92131a809d2e924b4902e1a443a6f79dacc7"
+      },
+      "sub_005f39d0": {
+        "functionIndex": 19197,
+        "exactWithEnumeratedRelocations": true,
+        "oldTextSha256": "25efb468a2f1dfae216e9c50ba6f91721c4b6dfceb927b908b8b87fe7f103faf",
+        "currentTextSha256": "e1404477d4b7a5011e9fd3b4d859ffb4f3ce11b9561285bbf5a157f981d18f0a"
+      },
+      "sub_00602650": {
+        "functionIndex": 8414,
+        "exactWithEnumeratedRelocations": true,
+        "oldTextSha256": "f680217711d97543da5f3365f33e6ad6087c1952e67958e04dd76ec0d995e537",
+        "currentTextSha256": "91983e3bb1111efe3949d83b4372a0e8375b28e2304fe8cd77548c80ade2b280"
+      },
+      "sub_005f3010": {
+        "functionIndex": 18264,
+        "exactWithEnumeratedRelocations": true,
+        "oldTextSha256": "eb84b21847bf87c204caaab4704c4d203b25460db6397183fb3ad37b7c2c201e",
+        "currentTextSha256": "eb37533148794d4b40878c217aa82119d480009cbc0adc089e7b37f18770d941"
+      },
+      "sub_00605c70": {
+        "functionIndex": 14982,
+        "exactWithEnumeratedRelocations": true,
+        "oldTextSha256": "5ab19b4a9ab283b7c9fa88266ee3cf70484ae91dd06e515d3e920003a88b8db0",
+        "currentTextSha256": "e777e9f8047eea00428b511f50a9fa7fccdde8cdf14366e418207a81767825fd"
+      },
+      "sub_005fae20": {
+        "functionIndex": 14199,
+        "exactWithEnumeratedRelocations": true,
+        "oldTextSha256": "9e4a6237b5b20c90d5bf23516f88fd7bb316f27dc14a9fd4be8ced9e1a34b620",
+        "currentTextSha256": "bb74695289c357c64e23ff64dbd18e797b91567de1d66163377eefce46d5a755"
+      }
+    }
+  }
+}

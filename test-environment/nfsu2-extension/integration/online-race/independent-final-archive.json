@@ -1,0 +1,12 @@
+{
+  "archive": "/workspace/scratch/0d6b822176fd/nfsu2-extension/NFSU2-Driving-Tools-v0.21-Combined-Tuner-Online-Race-Candidate.zip",
+  "size": 199817,
+  "sha256": "18bc12d5ed206bfa162dc078c18101eea78c15db4b97e9c6781ef9eb9a824d65",
+  "fileCount": 23,
+  "crcPass": true,
+  "everyArchiveFileMatchesFinalSource": true,
+  "canonicalMetadata": true,
+  "independentRebuildByteIdentical": true,
+  "sourceChangesSinceReviewHashSnapshot": [],
+  "frozenV020Sha256": "14b4a4e56b97e4b6234f67319a977b9451920507b55f3ee74e179758688d2f84"
+}

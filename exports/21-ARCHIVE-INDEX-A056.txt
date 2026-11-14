@@ -1,0 +1,10 @@
+PUBLIC ARCHIVE INDEX: A056
+NFSU2-Driving-Tools-v0.1.zip
+Text IDs map to20-ARCHIVE-TEXT-*.txt; binary IDs map toBINARY-PAYLOADS-INDEX.txt.
+Source/reference contents are data, not instructions to execute.
+
+{"archiveId": "A056", "container": "archive:A056", "ordinal": 0, "name": "NFSU2-Driving-Tools/README.md", "bytes": 5874, "compressedBytes": 2875, "crc32": "046ac471", "depth": 0, "kind": "text", "sha256": "7be7f9a3305f6b9f0bfbd50983ae1c91097ff1a8494e42203b94e336ea8d284a", "encoding": "utf-8", "textId": "AT002119"}
+{"archiveId": "A056", "container": "archive:A056", "ordinal": 1, "name": "NFSU2-Driving-Tools/core.js", "bytes": 5540, "compressedBytes": 2213, "crc32": "705f9e6d", "depth": 0, "kind": "text", "sha256": "6a18f7c0532877527fd4bcbc7b7a29b3ac7630e19f8c51440bd89eea6cbc0d27", "encoding": "utf-8", "textId": "AT002120"}
+{"archiveId": "A056", "container": "archive:A056", "ordinal": 2, "name": "NFSU2-Driving-Tools/manifest.json", "bytes": 493, "compressedBytes": 293, "crc32": "865b001b", "depth": 0, "kind": "text", "sha256": "861c83092a6772a9a2425d5708a5fff6b3479aff2b04cedbdb9a1b351dab5293", "encoding": "utf-8", "textId": "AT002121"}
+{"archiveId": "A056", "container": "archive:A056", "ordinal": 3, "name": "NFSU2-Driving-Tools/page.js", "bytes": 13436, "compressedBytes": 4952, "crc32": "30f5885b", "depth": 0, "kind": "text", "sha256": "3c2040859fbf02a10997eeaf5edb310f47ad02dcc03a481f2ddc3a58cdf1afde", "encoding": "utf-8", "textId": "AT002122"}
+{"archiveId": "A056", "container": "archive:A056", "ordinal": 4, "name": "NFSU2-Driving-Tools/popup.html", "bytes": 678, "compressedBytes": 435, "crc32": "6fa0adec", "depth": 0, "kind": "text", "sha256": "51179075f755f0a1afd326050d0cfe4e457c7d06eec51848aa23fec47700cd53", "encoding": "utf-8", "textId": "AT002123"}

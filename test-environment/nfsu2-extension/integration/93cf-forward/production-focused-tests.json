@@ -1,0 +1,39 @@
+{
+  "startedAt": "2026-11-10T20:16:45.285Z",
+  "finishedAt": "2026-11-10T20:17:01.126Z",
+  "exitCode": 0,
+  "selectedFiles": [
+    "tests/forward-registry.test.cjs",
+    "tests/forward-native-policy.test.cjs",
+    "tests/forward-native-horizon.test.cjs",
+    "tests/forward-current-native-policy.test.cjs",
+    "tests/forward-current-native-horizon.test.cjs",
+    "tests/forward-current-compatibility.test.cjs",
+    "tests/rear-radar.test.cjs"
+  ],
+  "counts": {
+    "tests": 56,
+    "pass": 56,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "sourceHashes": {
+    "extension/forward-native-config.js": "ed7e4543240698e607a499cfdcfbe85ad43374aa768773b9f325d1edbc553373",
+    "extension/forward-geometry.js": "f0e78097e888b57d703ce5ae639aaa46eb66a2ae45d0a3bc75477a90d7f0792c",
+    "extension/forward-pacing.js": "d11eb219e566b4a5d8df256c6bddb7df2a019fa62c3851a000ccc253ef5463f9",
+    "tools/build-forward-registry.cjs": "e11562f7b7d4816895140dd2fd0c5b25bddd54e48aff21cb13535419ccafaa03",
+    "tools/native-route-policy.cjs": "06b6e95c54506878862b4cbd66ef973e4e6659ba07212d689ce914a0e985333b",
+    "tests/fixtures/forward-native-world.cjs": "e4ac2889dbf2e87b01f170b984056e9c12bf06ab33ba39071adc9cdb5478f75b",
+    "tests/forward-registry.test.cjs": "0557564deb28b52bf4f2375de211aa4e68d5891797aefeb47e5138fe02b8911c",
+    "tests/forward-native-policy.test.cjs": "5c36ed3764ef6dc40685100a300397540ab4067b6d035e28607282bb4781f36a",
+    "tests/forward-native-horizon.test.cjs": "4ccf1d14460996ee9e83e2062b4975149917cbfb01106ad4181fb88483736c3d",
+    "tests/forward-current-native-policy.test.cjs": "c4bd4d0fe7aed43cffdb260273ea544f6222cc33a0c6fd0bf2c9ec9d64096ea4",
+    "tests/forward-current-native-horizon.test.cjs": "6923de4757ac014a0bc02d98e22d1fbf62286d5389decbf18c22478ca65eae50",
+    "tests/forward-current-compatibility.test.cjs": "08c8411b326b94b7b0c52d1bf72042400550b4e2ff6e52d8ccec8badaffd645c",
+    "tests/rear-radar.test.cjs": "e9aabc07c38e674d223d6dcdbabeab701d9f9a741569a046cb18dd238a9fc602"
+  },
+  "sourceUnchanged": true,
+  "liveVerified": false
+}

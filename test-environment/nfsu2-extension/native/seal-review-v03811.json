@@ -1,0 +1,20 @@
+{
+  "version": "0.38.11",
+  "kind": "reconstructed unchanged authored publisher with reviewed upstream pins",
+  "unsealedProductSha256": "6d4d15782495ad9be35c062694021249f4be644c06e3568f5ed4321896a646dc",
+  "sealedProductSha256": "d145db175fadd9faac8582e91b55aef500a135f25f8a7b647bc7caeed62c7d82",
+  "onlyThreePlanSealedBooleansChanged": true,
+  "nativeCandidateOutputPinsUnchanged": true,
+  "preservedFormulaSources": {
+    "native/full-publisher.cjs": "93a6c5ab1cbcf511e72f34de51f8ea6ad68bbd7600233433a5feab21825ab6ab",
+    "native/paced-publisher.cjs": "3ac5d3c5a801933201e65d4d282973b8611e47bf47c06c0efb811cbcaf77a895",
+    "native/mode3-publisher.cjs": "1ae76609766f08cd7e93bb475b5e5d52a2283bff1901c306592b1596b60187b7",
+    "native/paced-guard.cjs": "94fb60e2c809ae6fbb86f51a4b475d16ed15fa0c32930ad9137b5f724409751f",
+    "native/paced-protocol.cjs": "ae233c1bac29965ea7260faa36aba48e4ab8859cb87d0ff7b9f063918b4e1755",
+    "native/free-braking.cjs": "748984ba13c5acaf7a232e04bc66787c487be0cbf0b140b8fc6b27ce79eba16b",
+    "native/native-rubberband.template.js": "1a0fd29a28a7a9dc26653de32efd4a8810e82a01ea119896fb97b639d6d8081a",
+    "native/native-corner-target.template.js": "87c22a6a1dd1e40784f55b597521cdf7da095baacfc641e3df22be68f190aae1",
+    "native/paced-catchup.template.js": "1b244b0bd495e8a1b543de5ab3fe1d28843416623bd24dedb7b93970b9b49bba"
+  },
+  "liveVerified": false
+}

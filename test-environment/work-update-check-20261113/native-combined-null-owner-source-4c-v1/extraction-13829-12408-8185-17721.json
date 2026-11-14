@@ -1,0 +1,71 @@
+{
+  "kind": "STATIC-COMBINED-ALLOCATOR-FAILURE-SOURCE-EXTRACTION",
+  "rawPath": "work-update-check-20261113/live-build-4c35f9f5/game.wasm",
+  "rawSha256": "40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8",
+  "candidatePath": "work-update-check-20261113/4c-private-composed-v2/candidate-composed.wasm",
+  "candidateSha256": "6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23",
+  "rows": [
+    {
+      "index": 13829,
+      "bodyBytes": 375,
+      "rawBodySha256": "450adc8076a27779a9e394cb47e3115fc7853e0a2e9a11aa7e5816eeb46c96f2",
+      "rawCandidateExact": true,
+      "sourceType": 0,
+      "directCallees": [
+        2256,
+        4446
+      ],
+      "isolatedSha256": "fc68df781be6446c3ee7f5e1ed43da97bf81cd4fd0f733e5cfe229e964b55891",
+      "decompilerStatus": 0,
+      "error": null,
+      "diagnostic": null,
+      "pseudocodeSha256": "f9f55aff173652ba7015999994269efb6e9b686da9dc3cb11c37769f8a2859f9"
+    },
+    {
+      "index": 12408,
+      "bodyBytes": 181,
+      "rawBodySha256": "1d1d346bcc5cef59f431c23e58d1cd4156cd48163608c7706504dc6ae0a95235",
+      "rawCandidateExact": true,
+      "sourceType": 0,
+      "directCallees": [],
+      "isolatedSha256": "b5adb05f2b0cd6a3b096c362b5ab8cfdb26c4844632e2c1ebabd674e03f35893",
+      "decompilerStatus": 0,
+      "error": null,
+      "diagnostic": null,
+      "pseudocodeSha256": "4de16669230495f3e4ed30ea8103feb7af830350554a28ca7e93bbe3fb1ed115"
+    },
+    {
+      "index": 8185,
+      "bodyBytes": 179,
+      "rawBodySha256": "c5798a3fdc4a9873aac14e114bcad27460af5c9cc38c772301d917dea66ed482",
+      "rawCandidateExact": true,
+      "sourceType": 0,
+      "directCallees": [],
+      "isolatedSha256": "509938bec5ab4b062a7d075ebe77b60a92fb6981083ec175b098ff644c8ebd52",
+      "decompilerStatus": 0,
+      "error": null,
+      "diagnostic": null,
+      "pseudocodeSha256": "e7c643fd82cb5d2ea76d8e4d8a837407e631683c89f0e645173284c79d17d758"
+    },
+    {
+      "index": 17721,
+      "bodyBytes": 159,
+      "rawBodySha256": "0c94587de9d5109f265f711cb02cf6351689c78a4ac77c6ae5917f3aa58e1d02",
+      "rawCandidateExact": true,
+      "sourceType": 0,
+      "directCallees": [
+        16781
+      ],
+      "isolatedSha256": "67c0e62991d05b0c5454ef4c6391eec9ba3f6aa509db23beeb4a98aa0627d111",
+      "decompilerStatus": 0,
+      "error": null,
+      "diagnostic": null,
+      "pseudocodeSha256": "490f089c7c13587c13a76050df2669446ffc4e6bedd1a8ffbb7e910b3924f688"
+    }
+  ],
+  "nativeExecuted": false,
+  "wasmCompiledValidatedOrInstantiated": false,
+  "memoryCreated": false,
+  "runtimeHarnessOrProviderImported": false,
+  "extractorSha256": "e52bb20cae56a81fe3b4a28f418caa2c6d88d2516647da3b5f38cb7f0a9984d0"
+}

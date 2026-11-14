@@ -1,0 +1,323 @@
+{
+  "kind": "VERBATIM-STATIC-REVIEW-BUNDLE",
+  "bundle": "review/FOR-REVIEW-0.42.8.md",
+  "bytes": 3181648,
+  "sha256": "9ceafe98369cb97094b7903a82ec3e6a3ccfeb9ffa592568dbb83d1591a283a9",
+  "sections": [
+    {
+      "file": "exports/01-CURRENT-HANDOFF.txt",
+      "bytes": 17568,
+      "sha256": "b4ef21f9c9f30f9bab817ab61007435ecebc8e04a754bced23803749156115c2",
+      "bodyOffset": 692,
+      "bodyLength": 17568
+    },
+    {
+      "file": "review/parts/01-EXTENSION-SOURCE.txt",
+      "bytes": 2710397,
+      "sha256": "2a2cf476c10c364f9471160ddcfe42e372f30aba6874cc3478fe591e6619d11f",
+      "bodyOffset": 18312,
+      "bodyLength": 2710397
+    },
+    {
+      "file": "review/parts/02-OFFLINE-EVIDENCE.txt",
+      "bytes": 444173,
+      "sha256": "884f5778f45e183e595b62719b68c01769dc09644f1ce481c4006138eaa1af29",
+      "bodyOffset": 2728761,
+      "bodyLength": 444173
+    },
+    {
+      "file": "02-HANDOFF-REVIEW-BUNDLE.md",
+      "bytes": 2991,
+      "sha256": "bc1d99858e9dc9163ead71b870b4cb64fa2858b0432eb20657c558ac6a838430",
+      "bodyOffset": 3172977,
+      "bodyLength": 2991
+    },
+    {
+      "file": "review/USER-SUPPLIED-REQUEST.txt",
+      "bytes": 5631,
+      "sha256": "00c6053266196460c9c3cbddd50454620bad399947887e17b3ebfded0a8fec14",
+      "bodyOffset": 3176016,
+      "bodyLength": 5631
+    }
+  ],
+  "chunks": [
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-001.txt",
+      "bytes": 120177,
+      "sha256": "19e7062c308618dda24d83045e8981dfd7f4f56d983683204730ddb066f7ff77",
+      "payloadOffset": 177,
+      "payloadBytes": 120000,
+      "bundleByteStart": 0,
+      "bundleByteEnd": 120000,
+      "payloadSha256": "b0812af7cb4acd60de8f77bff59c50509f1fc6326163c4748628200fc24f6678"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-002.txt",
+      "bytes": 120182,
+      "sha256": "9d5426b663b781dd3c9dbcecbeb70ab4363660ccf90cdb5ea0e1fa71e25bd92c",
+      "payloadOffset": 182,
+      "payloadBytes": 120000,
+      "bundleByteStart": 120000,
+      "bundleByteEnd": 240000,
+      "payloadSha256": "c9f02882ceb164ffa5ec4a2acba4dd97f3e03adf2028fb624c9a75805bb7bb53"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-003.txt",
+      "bytes": 120182,
+      "sha256": "6ae07e5c1db6480f14c896a69ebda524640d82172af133f891cad73e9ac6b977",
+      "payloadOffset": 182,
+      "payloadBytes": 120000,
+      "bundleByteStart": 240000,
+      "bundleByteEnd": 360000,
+      "payloadSha256": "5a138df743a9c16ab0c84d0202b4e56240c2e976df4a1e9eeaa5edda29930b43"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-004.txt",
+      "bytes": 120182,
+      "sha256": "098de13082f0e367443f3a7170cb12956b39eb4007d29d2f419fceadb98a4da8",
+      "payloadOffset": 182,
+      "payloadBytes": 120000,
+      "bundleByteStart": 360000,
+      "bundleByteEnd": 480000,
+      "payloadSha256": "9733c23108fd9d09ec398cf26ed2045f8911c69797bcc4d2a7ad8383bd9879dc"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-005.txt",
+      "bytes": 120182,
+      "sha256": "a4c5aa42109151bd907da69b4204ac1ef54a5b828ced02adaf50838244352205",
+      "payloadOffset": 182,
+      "payloadBytes": 120000,
+      "bundleByteStart": 480000,
+      "bundleByteEnd": 600000,
+      "payloadSha256": "5b19405856ebdf95bfd0cc7de80b195909812301f48d25077bcff53365022110"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-006.txt",
+      "bytes": 120182,
+      "sha256": "909faaa69cc720af52c3f70883f250c49f3944711d7a4b661f3e2376a3a729f9",
+      "payloadOffset": 182,
+      "payloadBytes": 120000,
+      "bundleByteStart": 600000,
+      "bundleByteEnd": 720000,
+      "payloadSha256": "bab1283bf174e05a88c4703c0575130319545cfce942967d402bdfbf3ff11437"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-007.txt",
+      "bytes": 120182,
+      "sha256": "9d9da8ef3eecfbafe975cb6d7101d7cd71c3c9f5ad9771970e2c86272ba905fd",
+      "payloadOffset": 182,
+      "payloadBytes": 120000,
+      "bundleByteStart": 720000,
+      "bundleByteEnd": 840000,
+      "payloadSha256": "2aaa7cf4b1282ed6784ff6ea872446f17b0422644626db6bb990239a1bcedf16"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-008.txt",
+      "bytes": 120182,
+      "sha256": "c7b1195ec3298fdb4f3f0c2388f3f40eb3f83d9ab5c9e197e14771d1863b2815",
+      "payloadOffset": 182,
+      "payloadBytes": 120000,
+      "bundleByteStart": 840000,
+      "bundleByteEnd": 960000,
+      "payloadSha256": "f92633f3f22f62fb06a4fa1f31966b55af84b2d51ed862de58773cf281a1e267"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-009.txt",
+      "bytes": 120183,
+      "sha256": "a35237efca1325c4978f8c8596e8bbd845b6874f9496310bd4bb921a622236f2",
+      "payloadOffset": 183,
+      "payloadBytes": 120000,
+      "bundleByteStart": 960000,
+      "bundleByteEnd": 1080000,
+      "payloadSha256": "b883845d98f26cfa58cdc1cbcfbd9eea4b5dde3f27f1c2f8976d0e58ba22f5d7"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-010.txt",
+      "bytes": 120184,
+      "sha256": "319de9d9aa3fae6d6df67aa8fb1318d18c07b60dfd58f94dd240de200c92cca3",
+      "payloadOffset": 184,
+      "payloadBytes": 120000,
+      "bundleByteStart": 1080000,
+      "bundleByteEnd": 1200000,
+      "payloadSha256": "2c14eb73053b59743d47ebb764563d797dc055199329018b60b7f93dae619268"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-011.txt",
+      "bytes": 120184,
+      "sha256": "c7300b9f222c25304ab1719f9398d701909e3e778f410c12039b9ffa7adacbb3",
+      "payloadOffset": 184,
+      "payloadBytes": 120000,
+      "bundleByteStart": 1200000,
+      "bundleByteEnd": 1320000,
+      "payloadSha256": "6659c5693fb0d102fd4d4391b12ce95fa83a56685f12f3c782866ca48942cffb"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-012.txt",
+      "bytes": 120184,
+      "sha256": "95f12c02d16af4025888a8b7a3e42e7eadad38ac69b66d128f951c43903408f2",
+      "payloadOffset": 184,
+      "payloadBytes": 120000,
+      "bundleByteStart": 1320000,
+      "bundleByteEnd": 1440000,
+      "payloadSha256": "870f3b392344c7f86f90f46adf6d9ea4d9d74b3fe964b47e199588f2c5233089"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-013.txt",
+      "bytes": 120184,
+      "sha256": "26ab2322fff9137f1cb6797cbe3f3e2aa2f614d9898a1968f48e8c323e1fab33",
+      "payloadOffset": 184,
+      "payloadBytes": 120000,
+      "bundleByteStart": 1440000,
+      "bundleByteEnd": 1560000,
+      "payloadSha256": "68c8e5ac0235a6fc1972913fa353d8a5eb89f3a21ae60e960265c35fefc5b4e4"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-014.txt",
+      "bytes": 120184,
+      "sha256": "e55f1f6ae8599288a51e66b8a5412935af32feb49c5f800d7d373ca6bd49cdfa",
+      "payloadOffset": 184,
+      "payloadBytes": 120000,
+      "bundleByteStart": 1560000,
+      "bundleByteEnd": 1680000,
+      "payloadSha256": "39a5a72b71ee3a2d33de98adec3ca3790270d20e7dde6e1ed2fbf41fe35080b0"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-015.txt",
+      "bytes": 120184,
+      "sha256": "db601df7396d0238dfc296448db52ec47709ef9898b5659c2a6a158d5d861394",
+      "payloadOffset": 184,
+      "payloadBytes": 120000,
+      "bundleByteStart": 1680000,
+      "bundleByteEnd": 1800000,
+      "payloadSha256": "08a953bce0799c56f686a3fbd689a974caabbba2da336e0850b1a2771796c150"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-016.txt",
+      "bytes": 120184,
+      "sha256": "04da16288e702042cdf264db8a09cc15d500018b19f9d19ff95530afc49d005f",
+      "payloadOffset": 184,
+      "payloadBytes": 120000,
+      "bundleByteStart": 1800000,
+      "bundleByteEnd": 1920000,
+      "payloadSha256": "84d12064116c1901384c4dccd71c70ffb255336bb130a8dbd7f84c3d0c5f7f7b"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-017.txt",
+      "bytes": 120184,
+      "sha256": "1d5f454a8d2e2ccd4b51e8eaea20c8756ea44737c7f458f2032298e2f83da6c5",
+      "payloadOffset": 184,
+      "payloadBytes": 120000,
+      "bundleByteStart": 1920000,
+      "bundleByteEnd": 2040000,
+      "payloadSha256": "d39d5641bdb601e52cc20c8c4317c1e71209afe4a5014a170d689a1324fbdc5d"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-018.txt",
+      "bytes": 120184,
+      "sha256": "11d22834899ba0ecdfc894d1bb73d25d782d16951abf52e99cf9e8bb34b5c8d1",
+      "payloadOffset": 184,
+      "payloadBytes": 120000,
+      "bundleByteStart": 2040000,
+      "bundleByteEnd": 2160000,
+      "payloadSha256": "d18fb6db9b8e94ff56dac8021bb393c74d7fc480df9fbeb25765e4283eba667c"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-019.txt",
+      "bytes": 120184,
+      "sha256": "45a17f3dc2370cb1e0ace8c8304b80c360968a9ee8a9427dfd6b8720fcd66b15",
+      "payloadOffset": 184,
+      "payloadBytes": 120000,
+      "bundleByteStart": 2160000,
+      "bundleByteEnd": 2280000,
+      "payloadSha256": "af88b942746fb443d055f2227d317378bcadc90a71f6e326ba880d1308a8ed7e"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-020.txt",
+      "bytes": 120184,
+      "sha256": "36992c61d9030a27596767371fcaa9ba253a389ba40ddf0d20d00b2396d9688b",
+      "payloadOffset": 184,
+      "payloadBytes": 120000,
+      "bundleByteStart": 2280000,
+      "bundleByteEnd": 2400000,
+      "payloadSha256": "99abb1c891a3b26655bf3baa2eadb1fca11ef212bfe24a51f73b779191172889"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-021.txt",
+      "bytes": 120184,
+      "sha256": "0c109e2cfc82efc929b10649d576e6e4e49770b87505546a12704e41b4f053a3",
+      "payloadOffset": 184,
+      "payloadBytes": 120000,
+      "bundleByteStart": 2400000,
+      "bundleByteEnd": 2520000,
+      "payloadSha256": "baecb53e891deabdb374c6c556ee3fbf278592513ca24d52c44548d658fea2ce"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-022.txt",
+      "bytes": 120184,
+      "sha256": "e4df0f82257202e5932c9eaff82e0ea1d0def7157649961141ec2f7b7ab51455",
+      "payloadOffset": 184,
+      "payloadBytes": 120000,
+      "bundleByteStart": 2520000,
+      "bundleByteEnd": 2640000,
+      "payloadSha256": "034b8d628a6ceda459016381da814569e7586a6051fde66a0491e1d9f57d8af7"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-023.txt",
+      "bytes": 120184,
+      "sha256": "160b0ef9f28e8d3f37a2185d73d3ccaedb3f112f49e1b0fd40a59d9fb7a6ce0e",
+      "payloadOffset": 184,
+      "payloadBytes": 120000,
+      "bundleByteStart": 2640000,
+      "bundleByteEnd": 2760000,
+      "payloadSha256": "4a8206a31cbe7f0cd6037cf88078b761f7e68d63581a8d31d4ab6092099408bc"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-024.txt",
+      "bytes": 120184,
+      "sha256": "5d0c0613942495e1e8d19fbcbc30f60a06817aea9c20db94b447a10e2cb79722",
+      "payloadOffset": 184,
+      "payloadBytes": 120000,
+      "bundleByteStart": 2760000,
+      "bundleByteEnd": 2880000,
+      "payloadSha256": "c55b5bb5b1f5c284a4309bf42915e8912cb10950c4fee4941be985f4420f22eb"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-025.txt",
+      "bytes": 120184,
+      "sha256": "6aab5d8c2ca5bdf46669d776a1eafed97bba545489af77690d89c6f20f114210",
+      "payloadOffset": 184,
+      "payloadBytes": 120000,
+      "bundleByteStart": 2880000,
+      "bundleByteEnd": 3000000,
+      "payloadSha256": "b4887063e0939c7e26805fba6359d2ec5d63f6da9983d79f84ed4de80e96f5c8"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-026.txt",
+      "bytes": 120184,
+      "sha256": "386281c962a839272d91ce03d20906345258625ee1640670b3b846139f22938d",
+      "payloadOffset": 184,
+      "payloadBytes": 120000,
+      "bundleByteStart": 3000000,
+      "bundleByteEnd": 3120000,
+      "payloadSha256": "acf19a584fab7e7b50bf2b55a96bfaa62a6daaaf035b1fc637c4689a30d85776"
+    },
+    {
+      "file": "review/chunks/FOR-REVIEW-0.42.8-027.txt",
+      "bytes": 61832,
+      "sha256": "debe680d051d4fe1e823e623ddb99b0a639c55c41f7b08d7303afd7e0de1d856",
+      "payloadOffset": 184,
+      "payloadBytes": 61648,
+      "bundleByteStart": 3120000,
+      "bundleByteEnd": 3181648,
+      "payloadSha256": "db0389f15ea10271522b274808ed72bc1cee50a63e2cbb57cd58f7ba23f94121"
+    }
+  ],
+  "extensionSourceBodies": 30,
+  "offlineEvidenceBodies": 37,
+  "sourceBodiesMatchOriginals": true,
+  "allChunksReassembleExactly": true,
+  "newNativeOrGameExecution": false,
+  "originalsModified": false,
+  "runBookReceived": false,
+  "nextBaselineExecuted": false
+}

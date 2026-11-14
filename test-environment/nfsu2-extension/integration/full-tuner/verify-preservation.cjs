@@ -1,0 +1,14 @@
+'use strict';
+const fs=require('fs'),path=require('path'),assert=require('node:assert/strict'),crypto=require('crypto');
+const root=path.resolve(__dirname,'../..'),base=path.join(root,'../combined-v018/extension'),now=path.join(root,'extension');
+const profile=require(now+'/next-profile.js'),old=require(base+'/next-profile.js'),{locals}=require(root+'/tools/compose-contact-prefixes.cjs'),prefix=require(root+'/tools/full-tuner-prefix.json');
+assert.deepEqual(profile.fullTuner.baseBridge,old.bridge);
+const comparable=JSON.parse(JSON.stringify(profile));delete comparable.fullTuner;delete comparable.capabilities.fullTuner;comparable.bridge=old.bridge;comparable.locals=old.locals;assert.deepEqual(comparable,old);
+assert.deepEqual(profile.bridge,[...prefix.newheader,...prefix.code,...old.bridge.slice(locals(old.bridge).end)]);
+assert.equal(profile.locals,170);assert.equal(profile.capabilities.nativeTuning,undefined);
+const fixed=['core.js','walls.js','cars.js','current-profile.js','latest-profile.js','signatures.js','signature-profile.js','signature-profile-latest.js','signature-profile-next.js','dyno.js'];
+for(const file of fixed)assert.deepEqual(fs.readFileSync(now+'/'+file),fs.readFileSync(base+'/'+file),file);
+const ai=fs.readFileSync(now+'/ai.js','utf8'),prev=fs.readFileSync(base+'/ai.js','utf8');
+assert.equal(ai.slice(ai.indexOf('  class Controller'),ai.indexOf('  const api=')),prev.slice(prev.indexOf('  class Controller'),prev.indexOf('  const api=')),'AI controller unchanged');
+const manifest=require(now+'/manifest.json');assert.ok(!manifest.content_scripts[0].js.includes('native-tuning.js'));
+console.log(JSON.stringify({preservedFiles:fixed,aiController:'byte-identical',profile:'only new tuner command prefix and metadata',streetX:'no driver/event/pace/corner physics changes',nativeGripDownforce:'not activated',pageSha256:crypto.createHash('sha256').update(fs.readFileSync(now+'/page.js')).digest('hex')},null,2));

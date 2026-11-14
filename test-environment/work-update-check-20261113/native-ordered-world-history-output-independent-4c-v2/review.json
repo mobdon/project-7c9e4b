@@ -1,0 +1,225 @@
+{
+  "kind": "INDEPENDENT-DATA-ONLY-ORDERED-WORLD-HISTORY-V2-OUTCOME-REVIEW",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "All136 frozen condition files match full inventory, hashes and byte lengths",
+      "pass": true,
+      "details": {
+        "files": 136,
+        "manifestSha256": "a6dfc058d52a34128f58e8bbd82dd7d95de551021278e1e08def15297814757b"
+      }
+    },
+    {
+      "name": "All665 execution pins and independently reviewed prepared source remain unchanged",
+      "pass": true,
+      "details": {
+        "pins": 665,
+        "preparationSha256": "2faa5c4f495b1937f1d8983f87f1e56c48e5e27fcf2c5d9d30512b2aed59ec42"
+      }
+    },
+    {
+      "name": "Every raw binary is covered by dense nonoverlapping independently hashed spans",
+      "pass": true,
+      "details": {
+        "rawCoverage": {
+          "named-observer-raw.bin": {
+            "bytes": 0,
+            "spans": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "native-legacy-enrollment-raw.bin": {
+            "bytes": 111164,
+            "spans": 139,
+            "sha256": "6615e3916f69af78ea483422cbb17724f25951f5fac43e00676482da6f2726e7"
+          },
+          "native-realtime-timing-raw.bin": {
+            "bytes": 117568,
+            "spans": 646,
+            "sha256": "3d1d0d68c492a6e0f9baf118298112e7a00653bd7720e4027ad876aa5574a1bd"
+          },
+          "platform-vlan-raw.bin": {
+            "bytes": 4208,
+            "spans": 88,
+            "sha256": "abeb09a5a5e9bd945c66d4673adf32df745ef7aa36b1946b6349a9077159769d"
+          },
+          "remote-admission-raw.bin": {
+            "bytes": 512962,
+            "spans": 26,
+            "sha256": "72c217f4a9667156c96887213fef6a94c913706aefcbd752fe8958e3222ab702"
+          },
+          "remote-application-raw.bin": {
+            "bytes": 93648,
+            "spans": 24,
+            "sha256": "25a9dc24f9782e71d10c2543d0579cf6cf51179c2c7be02f444c75cc9945071a"
+          },
+          "replay-context-diagnostics-raw.bin": {
+            "bytes": 118988,
+            "spans": 1295,
+            "sha256": "b8ae7cddcd110dab4ceedaa2fa3a3c0d28e521721d8560550a0cb82ac4a05123"
+          }
+        }
+      }
+    },
+    {
+      "name": "Single bounded native history/enrollment unit completed with no motion/getters/full-startup claim",
+      "pass": true,
+      "details": {
+        "exitCode": 0,
+        "elapsedMilliseconds": 1004,
+        "completedStages": 76,
+        "movementFrames": 0,
+        "typedMaximumGetters": 0,
+        "fullStartupQualified": false
+      }
+    },
+    {
+      "name": "Native pool header decodes as50×128B initial block inside its actual live102400B allocation",
+      "pass": true,
+      "details": {
+        "pool": 268980080,
+        "platformAllocation": 268920000,
+        "platformBytes": 102400,
+        "nativeInteriorOffset": 60080,
+        "label": 8020800,
+        "stride": 128,
+        "capacity": 50,
+        "allocatedBefore": 0,
+        "allocatedAfter": 1,
+        "initialFreeHead": 268980128,
+        "finalFreeHead": 268980256
+      }
+    },
+    {
+      "name": "Actual2243 entry/return pair corroborates original7944 history allocation rather than inferred success",
+      "pass": true,
+      "details": {
+        "event": 8717,
+        "returnEvent": 8718,
+        "callSite": 6261307,
+        "pool": 268980080,
+        "node": 268980128,
+        "returnEip": 6261307,
+        "calleeEspAdvance": 4
+      }
+    },
+    {
+      "name": "One actual returned aligned node is linked to the native controller sentinel and fits initial backing",
+      "pass": true,
+      "details": {
+        "controller": 269396016,
+        "sentinel": 269396020,
+        "node": 268980128,
+        "head": 268980128,
+        "tail": 268980128,
+        "nodeRawBytes": 128,
+        "independentHeaderOverlapBytes": 16,
+        "independentControllerLinks": true,
+        "growthObserved": false
+      }
+    },
+    {
+      "name": "Native serializer/decoder consumes288bits and enrolls the real remote car exactly once with original two observer setup calls",
+      "pass": true,
+      "details": {
+        "writtenBits": 288,
+        "readBits": 288,
+        "acceptedCountBefore": 0,
+        "acceptedCountAfter": 1,
+        "record": 703604128,
+        "remoteCar": 269380288,
+        "nativeName": "Fixture-Remote",
+        "setup22866Calls": 2,
+        "retainedMaximumGetterExcluded": true,
+        "actualSenderCaptureClaimed": false
+      }
+    },
+    {
+      "name": "All153 raw diagnostic snapshots corroborate native pool publication while replay/checksum/event contexts remain absent",
+      "pass": true,
+      "details": {
+        "snapshots": 153,
+        "spans": 1295,
+        "bytes": 118988,
+        "stagePairs": 76,
+        "nonzeroPoolSnapshots": 71,
+        "replay": 0,
+        "checksum": 0,
+        "eventManager": 0,
+        "eventPool": 0,
+        "lowMemoryIsNotAValidObject": true
+      }
+    },
+    {
+      "name": "Ordinary hub-report invocation is naturally unavailable, preserving its zero lobby/race guard",
+      "pass": true,
+      "details": {
+        "calls": 1,
+        "lobbyId": 0,
+        "racePointer": 0,
+        "reportContextAvailable": false,
+        "unavailableIsNotReportClearance": true
+      }
+    },
+    {
+      "name": "No movement replay/named observation was performed; all8726 recorded callbacks preserve CPU/stacks and network isolation",
+      "pass": true,
+      "details": {
+        "movementFrames": 0,
+        "namedObserverFrames": 0,
+        "markers": 8726,
+        "compactMarkers": 0,
+        "networkAttempts": 0,
+        "allLocksReleased": true
+      }
+    },
+    {
+      "name": "Actual completed stage order matches the independently reviewed unit and frozen parent remains unchanged",
+      "pass": true,
+      "details": {
+        "nativeStartupBeforeWorld": true,
+        "renderBeforeWorld": true,
+        "enrollmentAfterWorld": true,
+        "parentFrozenFiles": 138
+      }
+    }
+  ],
+  "checksPassed": 12,
+  "findings": [],
+  "actualOutcome": {
+    "complete": true,
+    "exitCode": 0,
+    "timedOut": false,
+    "elapsedMilliseconds": 1004,
+    "frozenFiles": 136,
+    "executionSourcePins": 665,
+    "pool": 268980080,
+    "platformAllocation": 268920000,
+    "platformAllocationBytes": 102400,
+    "nativeInteriorOffset": 60080,
+    "node": 268980128,
+    "controller": 269396016,
+    "sentinel": 269396020,
+    "nodeCount": 1,
+    "nativeLegacyAccepted": 1,
+    "legacyWrittenBits": 288,
+    "legacyReadBits": 288,
+    "movementFrames": 0,
+    "typedMaximumGetters": 0,
+    "fullStartupQualified": false,
+    "reportContextAvailable": false,
+    "replayChecksumEventContextsAvailable": false,
+    "networkAttempts": 0
+  },
+  "limits": [
+    "This completed only the native ordered startup/history allocation and legacy enrollment unit, with zero movement frames. It does not qualify movement, full startup or extension-feature A/B behavior.",
+    "Replay/checksum/event-manager/event-pool contexts remain zero. Literal low-memory words are preserved separately and are not detector output or valid object fields.",
+    "Hub report23139 returned through its natural unavailable guard because both lobbyId and racePointer were zero. No reports is not report clearance or online acceptance.",
+    "The128B node payload is emitted by the read-only witness. Independent diagnostic overlap corroborates its first16B and independent controller raw spans corroborate its list membership; a second independent full128B capture is not claimed.",
+    "Native serializer/decoder loopback uses disclosed ordinary caller event time and names. It is not an actual sender/datagram capture.",
+    "All verifier work was read-only hashing/parsing/byte decoding; no game/fixture/provider module import, guest Memory, native execution, frozen edit or rerun occurred."
+  ],
+  "manifestSha256": "a6dfc058d52a34128f58e8bbd82dd7d95de551021278e1e08def15297814757b",
+  "executionContractSha256": "9bc16ef1d29696c90a6a026a3a20adb0558e2da90051ffb3f078b55e1c1a620f",
+  "verifierSha256": "5be8335faa70496ff41f799f71cabef752007ac3a29128cd871bd8fb8c91c8d0"
+}

@@ -1,0 +1,719 @@
+--- a/extension/CHANGELOG.md
++++ b/extension/CHANGELOG.md
+@@ -1,3 +1,12 @@
++# v0.32.0 · Race-only AI and optional adaptive road pace
++
++- Adds a default-off, current-page race-only driver switch. It requests the existing native AI after GO in ordinary race contexts, including Street X/Drag/Drift, and releases outside races. It does not start or join events. Existing all-modes AI remains available separately.
++- Preserves online opt-in, native manual requests, OFF acknowledgement, finished/totaled states, failed-control latch and watchdog. F7/F9/Stop and race driving-key takeover disarm it; held controls delay acquisition. Free-roam steering leaves it armed. Reload and profile Load clear the new switch without changing saved-profile schema.
++- Adds default-off adaptive road-race speed using existing native route/corner/braking controls and a separate 1.00–2.00× target ceiling, default 1.30×. Street X retains exact prior effective controls; Drag, Drift, Outrun and free roam are excluded. No per-corner JavaScript control or new native hook.
++- HUD/status/logs use current effective requests and matching native observations, and clear on interruption. Neither selected settings nor hook counters prove safe corners or measured speed gains.
++- Combined suite: **1,907 passed, zero failures/skips/cancellations**. All four patched game module outputs remain identical to v0.31; no native code or permission change.
++- Retains all v0.31 features, including Shift+Insert/F8 menu, Info HUD, Drag retention, NOS fix, tuner and saved profiles. No hosted-race joining, unrelated lane patch or unverified grip/downforce activation is included. No live result is claimed.
++
+ # v0.31.0 · Retain owned Drag AI during settings publication
+ 
+ - Keeps an already-established, fresh, permitted Drag AI lease through incomplete same-value page publication. Exact ownership/current identity, input/request, race, driver, physics, permission and watchdog checks remain. Original native fallback remains for real rejection conditions.
+--- a/extension/README.md
++++ b/extension/README.md
+@@ -1,8 +1,40 @@
+-# NFSU2 Driving Tools: experimental v0.31.0
++# NFSU2 Driving Tools: experimental v0.32.0
+ 
+ Unpacked Chrome / Edge / Brave extension for https://nfsu2.xyz/. See `CHANGELOG.md` for this release's changes and verification limits.
+ 
+-## v0.31.0: Keep owned Drag AI through settings refreshes
++## v0.32.0: Race-only automatic driver
++
++In **AI driver**, enable **Race-only automatic driver** to arm the native driver for races you start or join yourself. It waits for the active race/GO state, includes Street X, Drag and Drift, and requests handback in free roam, outrun, results or other ineligible contexts. It does not find, join, start, replay or vote for events.
++
++The existing **Automatic driver** still includes free roam. Selecting either driver mode turns the other off. The race-only switch is **off by default**, stays armed between races on this page, and resets on page reload or profile Load. It is deliberately not added to saved profiles; existing saved choices and storage remain unchanged.
++
++**F7, F9/Stop, or driving-key takeover during a race disarms race-only AI.** Manual steering in free roam leaves it armed. If driving controls are still physically held when entering a race, acquisition waits until they are released. Turning the switch off requests native handback. A genuine native manual request, finished/totaled state, failed-control latch or watchdog is not forced back to AI.
++
++Online races still need the existing **Allow network tools** permission. Exact build, current ownership, race, focus/menu, native driver and handback guards are retained. A selected switch is not proof of active ownership; the HUD and local log show the effective request and native observations separately.
++
++Optional **Adaptive road-race speed** is also included below. It remains off by default and leaves Street X unchanged. Neither option changes steering, shifting, NOS, game saves or native AI code. Live race efficacy and browser appearance remain unverified.
++
++**Verification:** the complete combined release passes **1,907 automated tests, zero failures/skips/cancellations**, including race-only eligibility/lifecycle, optional adaptive mode, joint Street X/online/stop behavior and all retained features. Independent tests additionally cover production native handback and cached-route reconstruction. All four supported patched game module outputs remain byte-identical to v0.31.
++
++For an existing installation, replace matching files in the already loaded extension folder, click **Reload** on that extension's browser card, then refresh the game. Verify **0.32.0**. Do not remove/re-add the extension or create a different folder just for this update.
++
++## Optional adaptive road-race speed
++
++A new **default-off, session-only** option coordinates the existing native route planner. Its separate straight-target ceiling defaults to **1.30×** and ranges from 1.00× to 2.00×. The native route uses distance to known corners to lower its target in advance while retaining a higher target on sufficiently long straights. This is a planned target factor, not a physical speed cap or a measured speed increase.
++
++Enable either **Race-only automatic driver** or **Automatic driver**, then **Adaptive road-race speed** in AI driver → Road-race settings. Online use also requires **Allow network tools**. Adaptive mode uses the existing Race corner speed, Race sharp-turn margin and Race braking factor values, even when the separate Road-race hairpin assist switch is off. Lower braking factor requests earlier braking. It overrides the effective custom race pace only in eligible ordinary road races, without changing any saved switch or slider.
++
++**Street X keeps the exact existing pace, corner and braking selections.** Adaptive mode is dormant in actual/forced Street X and the known online Street X mode. Drag, Drift/forced variants, Outrun and free roam are also excluded. Selecting adaptive mode does not turn on Automatic driver or network permission.
++
++The optional ceiling stays constant while driving. The existing native route envelope varies by distance; JavaScript does not switch pace or reconstruct the driver at every corner. A deliberate setting or race-mode change may still require the existing OFF/acknowledgement/ON route reconstruction. Manual takeover, race end, permission withdrawal and the existing watchdog remain in force.
++
++F7/manual driving keys stop AI and leave the optional selection dormant. F9/Stop, profile Load and page reload turn adaptive mode off. It is not added to saved tool profiles or legacy session preferences. Blur, hidden page and menus pause it normally. Turn it off to return to the prior controls after native handoff.
++
++The HUD and local log distinguish a request, matching native pace acknowledgement, and observed corner/braking hook evidence. These counters do not measure braking success, safe corner entry or a clean lap. There is no new steering, obstacle avoidance, NOS control, added route horizon, opponent manipulation or collision protection. Higher targets can still cause crashes. Start at 1.30× and assess one change at a time.
++
++Only page orchestration, a pure selector and bounded diagnostics change. Native hooks, the AI controller, engine tuning, NOS clock correction, Drag-retention fix, tuner and saved-profile implementation remain byte-for-byte unchanged from v0.31. Exact-native synthetic tests support the route-speed envelope; live racing, lap times, wins and browser layout remain unverified.
++
++## Retained v0.31.0: Keep owned Drag AI through settings refreshes
+ 
+ A reproduced publication race could let the game's manual-Drag selector run while the extension refreshed the same active settings. The new guard retains an **already-owned, currently permitted native Drag AI lease** through that brief write. It does not acquire new control, force a real manual request back to AI, or change steering, shifting, NOS or damage.
+ 
+--- a/extension/core.js
++++ b/extension/core.js
+@@ -340,7 +340,21 @@
+     reset() {this.last=null;this.count=0;}
+     accept(value) {const key=JSON.stringify(value);if(key!==this.last){this.last=key;this.count=1;}else this.count++;return this.count>=this.samples;}
+   }
+-  const api = Object.freeze({ Engine, StableGate, A, supportedRevision: '6f4f1e4e' });
++  function adaptiveRaceSettings({enabled=false,ceiling=1.3,verified=false,ai=false,safe=false,network=false,allowNetwork=false,hud=0,raceType=-1,drag=false,drift=false,streetX=false}={}) {
++    // Session-only orchestration of the existing distance-based native route
++    // envelope. This is not a per-frame multiplier, steering or NOS controller.
++    const result=state=>({requested:state==='requested',state,ceiling});
++    if(enabled!==true)return result('off');
++    if(!Number.isFinite(ceiling)||ceiling<1||ceiling>2)return result('invalid');
++    if(verified!==true)return result('unsupported');
++    if(streetX)return result('street-x');
++    if(drag||drift||hud!==1||raceType!==1)return result('mode');
++    if(network&&allowNetwork!==true)return result('network-permission');
++    if(ai!==true)return result('ai-off');
++    if(safe!==true)return result('paused');
++    return result('requested');
++  }
++  const api = Object.freeze({ Engine, StableGate, adaptiveRaceSettings, A, supportedRevision: '6f4f1e4e' });
+   if (typeof module !== 'undefined' && module.exports) module.exports = api;
+   else Object.defineProperty(root, '__NFSU2_DRIVING_CORE__', { value: api, configurable: true });
+ })(globalThis);
+--- a/extension/diagnostics.js
++++ b/extension/diagnostics.js
+@@ -19,11 +19,12 @@
+   FLAGS.push('nosTelemetry','nosClockNetwork','nosTimestampActive');
+   Object.assign(NUMBERS,{nosClockTicks:[0,4294967295],nosSinceTicks:[0,4294967295],nosFullTicks:[0,9999999],nosRemainingTicks:[0,9999999],nosElapsedTicks:[-4294967295,4294967295]});
+   MOVING_FIELDS.push('nosClockTicks','nosSinceTicks','nosFullTicks','nosRemainingTicks','nosElapsedTicks');
+-  FLAGS.push('paceConfirmed');
+-  Object.assign(NUMBERS,{paceApplied:[0.75,3]});
++  FLAGS.push('paceConfirmed','adaptiveRaceRequested','raceOnlyEligible','raceOnlyRequested','raceOnlyInputClear');
++  Object.assign(NUMBERS,{paceApplied:[0.75,3],adaptiveRaceCeiling:[1,2]});
++  const ADAPTIVE_STATES=new Set(['off','invalid','unsupported','street-x','mode','network-permission','ai-off','paused','handoff','pace-pending','planner-pending','planner-observed']);
+   const POWER_STATUSES=new Set(['off','unsupported','not-ready','not-driving','network-permission','hidden','unfocused','menu','hud','drift-change','layout','settling','applied','neutral','changed','rejected','suspended','tuner-busy']);
+-  const TOOL_FLAGS = ['ai','aiPace','raceCornerAssist','cornerAssist','racePace','walls','cars','traffic','players','online','nos','drag','dragNoBlowout','tester','boost','unlimit','grip','drift','dynoEnabled'];
+-  const TOOL_NUMBERS = {raceCornerFactor:[0.6,0.95],raceCornerMargin:[0,25],raceBraking:[0.5,1],paceFactor:[0.75,3],racePaceFactor:[0.75,3],cornerFactor:[0.6,0.95],cornerMargin:[0,25],power:[1,3],gripFactor:[1,2],rpm:[3000,10000]};
++  const TOOL_FLAGS = ['ai','raceOnlyAI','aiPace','raceCornerAssist','cornerAssist','racePace','walls','cars','traffic','players','online','nos','drag','dragNoBlowout','tester','boost','unlimit','grip','drift','dynoEnabled','adaptiveRace'];
++  const TOOL_NUMBERS = {adaptiveRaceCeiling:[1,2],raceCornerFactor:[0.6,0.95],raceCornerMargin:[0,25],raceBraking:[0.5,1],paceFactor:[0.75,3],racePaceFactor:[0.75,3],cornerFactor:[0.6,0.95],cornerMargin:[0,25],power:[1,3],gripFactor:[1,2],rpm:[3000,10000]};
+   const DYNO_STATUSES=new Set([0,1,2,3,4,5,6,8]);
+   const DYNO_GUARDS=new Set([0,1,2,3,4,5,10,11,12,13,14,15,20,21,22,23,24,30,31,32,40,41,42,43,44,45,50,60,70,71,72,73,74]);
+   const DYNO_SOURCE_PAIRS=new Set([12,13,14,15,23,24,25,34,35,45]);
+@@ -63,6 +64,7 @@
+   }
+   function sanitize(value) {
+     const out = fields(value,FLAGS,NUMBERS);
++    if(ADAPTIVE_STATES.has(read(value,'adaptiveRaceState')))out.adaptiveRaceState=read(value,'adaptiveRaceState');
+     if(POWER_STATUSES.has(read(value,'powerStatus')))out.powerStatus=read(value,'powerStatus');
+     for(const key of ['revision','reportedRevision','candidateRevision','signatureReference']){
+       const revision=read(value,key);
+@@ -90,7 +92,7 @@
+     }
+     return out;
+   }
+-  function create({storage=null,clock=()=>Date.now(),version='0.31.0'}={}) {
++  function create({storage=null,clock=()=>Date.now(),version='0.32.0'}={}) {
+     let events=[],dropped=0,persistence=storage?'same-tab':'memory-only',lastSnapshot='',lastSample=0;
+     const bursts=new Map();
+     const now=()=>{try{const n=clock();return Number.isFinite(n)&&n>=0?Math.floor(n):0;}catch{return 0;}};
+@@ -109,7 +111,7 @@
+     } catch { persistence='memory-only'; }
+     const record=(event,data={})=>{try{if(!EVENTS.has(event))return false;const at=now();if(['page-error','promise-rejection','worker-error','engine-error','dyno-error'].includes(event)){const burst=bursts.get(event);if(burst&&at-burst.at<1000){if(burst.count++>=8){dropped++;return false;}}else bursts.set(event,{at,count:1});}events.push({at,event,data:sanitize(data)});persist();return true;}catch{return false;}};
+     const snapshot=(data={})=>{try{const clean=sanitize(data),stable={...clean};for(const key of MOVING_FIELDS)delete stable[key];const key=JSON.stringify(stable),t=now(),sampleMs=clean.nativeTelemetry||clean.driftRace||clean.forcedDrift||clean.driftVariant?2000:5000;if(lastSnapshot && t-lastSample < (key===lastSnapshot?sampleMs:250))return;lastSnapshot=key;lastSample=t;record('state',clean);}catch{}};
+-    const exportText=()=>JSON.stringify({format:'NFSU2 Driving Tools local diagnostics',schema:1,exporterVersion:sanitize({version}).version,exportedAt:now(),persistence,dropped,limits:{maxEvents:MAX_EVENTS,maxStoredBytes:MAX_BYTES},capture:'Tool selections, sampled game mode/status, bounded power application status and native pace acknowledgement, bounded native controller/skill/input-mode/speed, Drift scoring, sampled NOS clock/timestamp/resource fields and corner evidence, page and game-worker lifecycle, classified errors, bounded tuner rejection codes/counts, numeric wasm locations and known script line numbers. No raw logs, messages, URLs, credentials, saves, names, keyboard input or network traffic. Same-origin page scripts can access this same-tab storage. Browser/tab/GPU failures may prevent a final event; absence of an error does not show that the game was healthy. Not a game crash dump.',events},null,2)+'\n';
++    const exportText=()=>JSON.stringify({format:'NFSU2 Driving Tools local diagnostics',schema:1,exporterVersion:sanitize({version}).version,exportedAt:now(),persistence,dropped,limits:{maxEvents:MAX_EVENTS,maxStoredBytes:MAX_BYTES},capture:'Tool selections, sampled game mode/status, bounded power application status, native pace acknowledgement and session-only adaptive planner request/evidence, bounded native controller/skill/input-mode/speed, Drift scoring, sampled NOS clock/timestamp/resource fields and corner evidence, page and game-worker lifecycle, classified errors, bounded tuner rejection codes/counts, numeric wasm locations and known script line numbers. No raw logs, messages, URLs, credentials, saves, names, keyboard input or network traffic. Same-origin page scripts can access this same-tab storage. Browser/tab/GPU failures may prevent a final event; absence of an error does not show that the game was healthy. Not a game crash dump.',events},null,2)+'\n';
+     const clear=()=>{events=[];dropped=0;lastSnapshot='';lastSample=0;bursts.clear();record('clear');};
+     record('page-start',{version});
+     return Object.freeze({record,snapshot,exportText,clear,status:()=>({events:events.length,dropped,persistence})});
+--- a/extension/manifest.json
++++ b/extension/manifest.json
+@@ -1,8 +1,8 @@
+ {
+   "manifest_version": 3,
+   "name": "NFSU2 Driving Tools \u00b7 Combined Test",
+-  "version": "0.31.0",
+-  "description": "Compact info HUD, guarded Drag AI lifecycle, saved profiles and native tuner tools.",
++  "version": "0.32.0",
++  "description": "Race-only AI, optional adaptive road-race speed, compact info HUD and guarded driving tools.",
+   "minimum_chrome_version": "111",
+   "action": {
+     "default_title": "NFSU2 Driving Tools \u00b7 Combined Test",
+--- a/extension/page.js
++++ b/extension/page.js
+@@ -3,7 +3,7 @@
+   if (location.origin !== 'https://nfsu2.xyz' || window.top !== window || window.__nfsu2DrivingTools) return;
+   Object.defineProperty(window, '__nfsu2DrivingTools', { value: true });
+   let diagnostics = null;
+-  try { let storage = null; try { storage = sessionStorage; } catch {} diagnostics = globalThis.__NFSU2_DIAGNOSTICS__?.create({storage,version:'0.31.0'}) || null; } catch {}
++  try { let storage = null; try { storage = sessionStorage; } catch {} diagnostics = globalThis.__NFSU2_DIAGNOSTICS__?.create({storage,version:'0.32.0'}) || null; } catch {}
+   let diagnosticState = {}, diagnosticIdentity = null, diagnosticPatch = '';
+   // The log is observational only: no memory writes, upload, raw console capture or error text.
+   const recordDiagnostic = (event, extra = {}) => { try { diagnostics?.record(event,{...diagnosticState,...extra}); } catch {} };
+@@ -17,7 +17,7 @@
+   let wall = null, cars = null;
+   let dyno = null, dynoEnabled = false, dynoText = 'OFF · back up progress before testing';
+   let ai = null, dragTakenOver = false, dragRace = false;
+-  const { Engine, StableGate, supportedRevision } = globalThis.__NFSU2_DRIVING_CORE__;
++  const { Engine, StableGate, adaptiveRaceSettings, supportedRevision } = globalThis.__NFSU2_DRIVING_CORE__;
+   delete globalThis.__NFSU2_DRIVING_CORE__;
+   let engine = null, statusPtr = 0, inputPtr = 0, supported = false, revision = '', visible = false, moduleProfile = null, activeModule = null, activeWorker = null, sessionGeneration = 0;
+   const refreshCompatibility=()=>{supported=!!moduleProfile?.capabilities.legacy && moduleProfile.revision===revision;};
+@@ -26,6 +26,8 @@
+   let lastShift = 0, shiftTimer = 0, lastPulse = 0, lastScan = 0;
+   const held = new Set(), physicallyHeld = new Set();
+   const prefs = { raceCornerAssist: false, raceCornerFactor: 0.8, raceCornerMargin: 15, raceBraking: 0.75, cornerAssist: false, cornerFactor: 0.8, cornerMargin: 15, racePace: false, racePaceFactor: 1, walls: false, cars: false, traffic: false, players: false, online: false, ai: false, aiPace: false, paceFactor: 1, nos: false, dragNoBlowout: false, drag: false, rpm: 6500, tester: false, boost: false, power: 1.5, unlimit: false, grip: false, gripFactor: 1.3, drift: null };
++  // Session-only race arming is separate from existing saved driving profiles.
++  let raceOnlyAI=false;
+   // Display-only preference, deliberately outside saved driving-tool profiles.
+   const HUD_KEY='nfsu2-driving-tools-info-hud-v1';
+   let infoHudEnabled=true,infoHudSample=null;
+@@ -47,7 +49,9 @@
+   if(ToolProfiles){let storage=null;try{storage=localStorage;}catch{}profileStore=ToolProfiles.create(storage);profileStartup=profileSessionStopped?null:profileStore.startup();}
+   // A durable Stop suppresses legacy same-tab driving reapplication as well.
+   if(profileSessionStopped||profileStore?.snapshot().paused||(profileStore&&!profileStore.snapshot().available)){for(const k of ['raceCornerAssist','cornerAssist','racePace','walls','cars','traffic','players','online','ai','aiPace','nos','dragNoBlowout','drag','boost','unlimit','grip'])prefs[k]=false;}
+-  const diagnosticTools = () => ({...prefs,dynoEnabled});
++  // Intentionally outside saved profiles and legacy session preference storage.
++  let adaptiveRaceEnabled=false,adaptiveRaceCeiling=1.3;
++  const diagnosticTools = () => ({...prefs,raceOnlyAI,dynoEnabled,adaptiveRace:adaptiveRaceEnabled,adaptiveRaceCeiling});
+   const savePrefs=()=>{try{sessionStorage.setItem(STORAGE_KEY,JSON.stringify(prefs));}catch{}};
+   recordDiagnostic('tools',{tools:diagnosticTools()});
+   const message = text => { if (note) {note.textContent=text;const summary=ui.querySelector('#status-summary');summary.title=text;} };
+@@ -56,6 +60,7 @@
+   function infoHudView(sample,choices,now) {
+     const fresh=sample && Number.isFinite(sample.at) && now-sample.at>=0 && now-sample.at<=500;
+     const d=fresh?sample.data:{}, c=fresh?sample.context:{};
++    const aiSelected=!!choices.ai || (!!choices.raceOnlyAI && d.raceOnlyRequested===true);
+     const paused=!fresh?'Waiting for live sample':!d.supported?'Build not verified':!d.ready?'Waiting for car':d.hidden?'Tab hidden':d.focused===false?'Game unfocused':!d.hud?'Waiting for driving HUD':!d.driving?'Waiting for GO':c.menu?'Game menu open':c.suspended||'';
+     const live=!paused;
+     const blocked=paused||(d.network&&!choices.online?'Online tools paused':'');
+@@ -65,24 +70,26 @@
+     let driver=blocked||'Driver unavailable';
+     if(!blocked) {
+       if(d.handbackPending||c.switching)driver='AI handoff pending';
+-      else if(!choices.ai&&d.aiOwned)driver='Releasing native AI';
+-      else if(choices.ai&&d.aiActive)driver=c.drag?'Native Drag AI active':'Native AI active';
+-      else if(choices.ai)driver=c.aiAvailable===false?'AI unavailable':c.aiStatus==='failed'?'AI handoff failed':c.aiStatus==='retry'?'AI needs off / on':'AI requested · waiting';
++      else if(!aiSelected&&d.aiOwned)driver='Releasing native AI';
++      else if(aiSelected&&d.aiActive)driver=c.drag?'Native Drag AI active':'Native AI active';
++      else if(aiSelected)driver=c.aiAvailable===false?'AI unavailable':c.aiStatus==='failed'?'AI handoff failed':c.aiStatus==='retry'?'AI needs off / on':'AI requested · waiting';
+       else if(c.manual||d.driverKind===1)driver='Manual driver';
+       else if(d.aiDriverVerified)driver='Native AI · not tool-owned';
+       else driver='Driver unavailable';
+     }
+-    const selected=c.roam?choices.aiPace:c.race?choices.racePace:false;
+-    const factor=c.roam?choices.paceFactor:c.race?choices.racePaceFactor:1;
++    const adaptiveRequested=d.adaptiveRaceRequested===true;
++    const selected=adaptiveRequested|| (c.roam?choices.aiPace:c.race?choices.racePace:false);
++    const factor=adaptiveRequested?d.adaptiveRaceCeiling:c.roam?choices.paceFactor:c.race?choices.racePaceFactor:1;
+     let pace=blocked?'Not confirmed':c.paceAvailable===false?'Unavailable on this build':c.drag||c.drift?'Native · custom pace paused':!c.roam&&!c.race?'Unavailable in this mode':!selected?'Native target':Number.isFinite(factor)?factor.toFixed(2)+'× selected':'Unavailable';
+     if(live&&!blocked&&c.paceAvailable!==false&&!c.drag&&!c.drift&&(c.roam||c.race)) {
+       const target=selected?factor:1;
+-      if(choices.ai&&Number.isFinite(target)) {
++      if(aiSelected&&Number.isFinite(target)) {
+         // An older acknowledgement must not confirm a newly selected factor.
+         const confirmed=d.paceConfirmed===true && !c.switching && Number.isFinite(d.paceApplied) && d.paceApplied>=.75 && d.paceApplied<=3 && Math.abs(d.paceApplied-target)<.011;
+         pace=target.toFixed(2)+'× req · '+(confirmed?d.paceApplied.toFixed(2)+'× ack':'pending');
+       } else if(selected&&Number.isFinite(factor))pace=factor.toFixed(2)+'× selected · AI off';
+     }
++    if(adaptiveRequested&&!blocked&&Number.isFinite(factor))pace=`Adaptive ${factor.toFixed(2)}× ceiling · ${d.adaptiveRaceState==='planner-observed'?'planner observed':'pending'}`;
+     const req=choices.boost?choices.power:1;
+     const requested=Number.isFinite(req)?req.toFixed(1)+'× req':'Requested';
+     const states={'network-permission':'online paused',unsupported:'unavailable','not-ready':'waiting',hidden:'paused',unfocused:'paused',hud:'waiting','not-driving':'waiting',menu:'paused','drift-change':'waiting',layout:'unavailable',settling:'settling',suspended:'paused','tuner-busy':'tuner busy',neutral:'neutral',changed:'changed',rejected:'rejected'};
+@@ -97,7 +104,7 @@
+     hud.hidden=!infoHudEnabled||visible;
+     ui.querySelector('#info-hud-enable').checked=infoHudEnabled;
+     if(hud.hidden)return;
+-    const view=infoHudView(infoHudSample,prefs,performance.now());
++    const view=infoHudView(infoHudSample,{...prefs,raceOnlyAI},performance.now());
+     for(const field of ['speed','unit','context','driver','pace','power','governor','state']) {
+       const node=ui.querySelector('#hud-'+field);
+       if(node.textContent!==view[field])node.textContent=view[field];
+@@ -124,9 +131,12 @@
+   function clearPaceEvidence() {
+     // A stop request can precede native handback. Retain native ownership
+     // diagnostics, but never present an old acknowledgement as a current one.
+-    diagnosticState={...diagnosticState,paceConfirmed:false,paceApplied:undefined};
++    diagnosticState={...diagnosticState,raceOnlyRequested:false,adaptiveRaceRequested:false,adaptiveRaceState:adaptiveRaceEnabled?'paused':'off',paceConfirmed:false,paceApplied:undefined};
+     clearInfoHud();
+     if(ui){
++      const raceState=ui.querySelector('#race-only-state');raceState.textContent=raceOnlyAI?'Armed · waiting for current race evidence':'Off · current page only';raceState.title=raceState.textContent;
++      ui.querySelector('#adaptive-race-state').textContent=adaptiveRaceEnabled?'Selected · waiting for current planner evidence':'Off · session only';
++      if(adaptiveRaceEnabled)ui.querySelector('#race-corner-state').textContent='Adaptive selected · waiting for current planner evidence';
+       ui.querySelector('#ai-pace-state').textContent=prefs.aiPace?'Waiting for current AI acknowledgement':'Off · free roam only';
+       ui.querySelector('#race-pace-state').textContent=prefs.racePace?'Waiting for current AI acknowledgement':'Off · normal race pace';
+     }
+@@ -252,13 +262,33 @@
+       renderProfiles();
+     }
+     recordDiagnostic('stop',{tools:diagnosticTools()});
++    clearRaceOnlyAI();
+     dynoEnabled=false;dyno?.setEnabled(false);if(ui)ui.querySelector('#dyno-enable').checked=false;
++    adaptiveRaceEnabled=false;if(ui)ui.querySelector('#adaptive-race').checked=false;
+     prefs.raceCornerAssist=false;prefs.cornerAssist=false;prefs.racePace=false;prefs.walls=false;prefs.cars=false;prefs.traffic=false;prefs.players=false;prefs.online=false;prefs.ai=false;prefs.aiPace=false;prefs.nos=false;prefs.dragNoBlowout=false;prefs.drag=false;prefs.boost=false;prefs.unlimit=false;prefs.grip=false;savePrefs();suspend();
+     if(ui) for(const id of ['race-corner-assist','corner-assist','race-pace','walls','cars','traffic','players','online','ai','ai-pace','nos','drag-no-blowout','drag','boost','unlimit','grip']) ui.querySelector('#'+id).checked=false;
+     message(profileNotice&&persistProfilePause ? why+' '+profileNotice : why);
+   }
++  function clearRaceOnlyAI() {
++    raceOnlyAI=false;
++    if(ui){ui.querySelector('#race-only-ai').checked=false;ui.querySelector('#race-only-state').textContent='Off · current page only';}
++  }
++  function setRaceOnlyAI(enabled) {
++    raceOnlyAI=enabled===true;
++    if(raceOnlyAI){prefs.ai=false;if(ui)ui.querySelector('#ai').checked=false;}
++    ai?.stop();release();clearPaceEvidence();savePrefs();
++    if(ui){ui.querySelector('#race-only-ai').checked=raceOnlyAI;ui.querySelector('#race-only-state').textContent=raceOnlyAI?'Armed · waiting for an eligible race':'Off · current page only';}
++    message(raceOnlyAI?'Race-only AI armed on this page. Start or join races yourself. It waits for GO, releases in free roam/results, and needs online permission. F7/F9 or driving keys during a race disarm it. Reload or profile Load turns it off.':'Race-only AI off. Native handback may complete on the next game frame.');
++  }
++  function raceOnlyRaceContext() {
++    // Manual driving in free roam should not cancel arming for the next race.
++    // Read the current context so an old sample cannot ignore race takeover.
++    if(!supported||!engine||!statusPtr)return false;
++    try {const state=engine.state(),hud=engine.status(statusPtr)?.drive;return !!state.ready&&Number.isFinite(hud)&&(hud&3)===1&&engine.u32(0x89e7b0)===1;}catch{return false;}
++  }
+   function takeControl() {
+     recordDiagnostic('manual',{tools:diagnosticTools()});
++    clearRaceOnlyAI();
+     prefs.ai=false; ai?.stop(); dragTakenOver=true; release(); savePrefs();
+     try {clearPaceEvidence();} catch {}
+     if(ui) {ui.querySelector('#ai').checked=false;ui.querySelector('#ai-state').textContent='Manual control · native AI off';}
+@@ -287,7 +317,7 @@
+     if(e.code==='F6'){e.preventDefault();if(!e.repeat)setInfoHud(!infoHudEnabled);return;}
+     physicallyHeld.add(e.code);
+     if(e.code==='F7') {e.preventDefault();takeControl();}
+-    else if(prefs.ai && ['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','KeyW','KeyA','KeyS','KeyD','Space'].includes(e.code)) takeControl();
++    else if((prefs.ai || (raceOnlyAI && raceOnlyRaceContext())) && ['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','KeyW','KeyA','KeyS','KeyD','Space'].includes(e.code)) takeControl();
+     if (e.code === 'F8') { e.preventDefault(); setPanel(!visible); }
+     if (e.code === 'Escape' && visible) setPanel(false);
+     if (e.code === 'F9') { e.preventDefault(); stop(); }
+@@ -369,12 +399,21 @@
+       const raceProfile=!dragRace && (nativeRaceType===1 || nativeRaceType===7);
+       const roadRaceProfile=(!s.network || prefs.online) && !dragRace && driveStatus===1 && nativeRaceType===1 && !engine.u8(0x89e7d8) && !engine.u8(0x89e7d9) && !engine.u32(0x890108) && !engine.u32(0x890104) && !engine.u32(0x890114);
+       const nativeDriftPace=moduleProfile?.capabilities.nativeDriftPace===true && !dragRace && !engine.u32(0x890108) && !!(engine.u8(0x89e7d9)||engine.u32(0x890104)||engine.u32(0x890114));
+-      const requestedPace=nativeDriftPace?1:roamProfile && prefs.aiPace?prefs.paceFactor:raceProfile && prefs.racePace?prefs.racePaceFactor:1;
++      const raceOnlyInputClear=!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','KeyW','KeyA','KeyS','KeyD','Space'].some(code=>physicallyHeld.has(code));
++      const raceOnlyEligible=!!(safe && raceOnlyInputClear && driveStatus===1 && nativeRaceType===1 && moduleProfile?.capabilities.ai===true && (!dragRace||moduleProfile?.capabilities.dragAI===true));
++      const raceOnlyRequested=raceOnlyAI && raceOnlyEligible;
++      const aiRequested=prefs.ai || raceOnlyRequested;
++      const streetX=!!(engine.u8(0x89e7e3)||engine.u32(0x89010c)||(s.network&&engine.u32(0x850088)===10));
++      const adaptive=adaptiveRaceSettings({enabled:adaptiveRaceEnabled,ceiling:adaptiveRaceCeiling,verified:supported&&moduleProfile?.capabilities.nativeDragInputHandoff===true&&moduleProfile?.capabilities.corner===true&&moduleProfile?.capabilities.pace===true,ai:aiRequested,safe,network:s.network,allowNetwork:prefs.online,hud:driveStatus,raceType:nativeRaceType,drag:dragRace||!!engine.u32(0x890108),drift:!!(engine.u8(0x89e7d9)||engine.u32(0x890104)||engine.u32(0x890114)),streetX});
++      const requestedPace=adaptive.requested?adaptive.ceiling:nativeDriftPace?1:roamProfile && prefs.aiPace?prefs.paceFactor:raceProfile && prefs.racePace?prefs.racePaceFactor:1;
++      const effectiveRaceCorner=(prefs.raceCornerAssist||adaptive.requested)&&roadRaceProfile;
+       // Drop synthetic input before publishing a native drag handoff request.
+-      const dragAIRequested = prefs.ai && dragRace;
++      const dragAIRequested = aiRequested && dragRace;
+       if (dragAIRequested) release();
+-      const aiState = ai?.update({enabled:prefs.ai,safe,state:s,mode:driveStatus,pace:requestedPace,allowNetwork:prefs.online,allowDragAI:dragAIRequested,cornerAssist:prefs.cornerAssist,cornerFactor:prefs.cornerFactor,cornerMargin:prefs.cornerMargin,raceCornerAssist:prefs.raceCornerAssist && roadRaceProfile,raceCornerFactor:prefs.raceCornerFactor,raceCornerMargin:prefs.raceCornerMargin,raceBraking:prefs.raceBraking,dragNoBlowout:prefs.dragNoBlowout}) || {available:false,active:false,status:'Native game AI · experimental',reason:'Reload with the native AI module installed.'};
+-      const paceConfirmed=!!prefs.ai && safe && !ai?.handbackPending && !aiState.switching && !!aiState.active && Number.isFinite(aiState.paceApplied) && aiState.paceApplied>=.75 && aiState.paceApplied<=3;
++      const aiState = ai?.update({enabled:aiRequested,safe,state:s,mode:driveStatus,pace:requestedPace,allowNetwork:prefs.online,allowDragAI:dragAIRequested,cornerAssist:prefs.cornerAssist,cornerFactor:prefs.cornerFactor,cornerMargin:prefs.cornerMargin,raceCornerAssist:effectiveRaceCorner,raceCornerFactor:prefs.raceCornerFactor,raceCornerMargin:prefs.raceCornerMargin,raceBraking:prefs.raceBraking,dragNoBlowout:prefs.dragNoBlowout}) || {available:false,active:false,status:'Native game AI · experimental',reason:'Reload with the native AI module installed.'};
++      const paceConfirmed=!!aiRequested && safe && !ai?.handbackPending && !aiState.switching && !!aiState.active && Number.isFinite(aiState.paceApplied) && aiState.paceApplied>=.75 && aiState.paceApplied<=3;
++      const adaptiveState=!adaptive.requested?adaptive.state:ai?.handbackPending||aiState.switching||!aiState.active?'handoff':!paceConfirmed||Math.abs(aiState.paceApplied-adaptive.ceiling)>.011?'pace-pending':aiState.cornerMode===2&&Number.isFinite(aiState.cornerApplied)&&aiState.cornerHits>0&&aiState.brakingHits>0?'planner-observed':'planner-pending';
++      diagnosticState={...diagnosticState,adaptiveRaceRequested:adaptive.requested,adaptiveRaceState:adaptiveState,adaptiveRaceCeiling};
+       const wallState=wall?.update({enabled:prefs.walls,safe,state:s}) || {requested:false,hits:0,reason:'Reload with the wall-contact module installed.'};
+       const carState=cars?.update({enabled:prefs.cars,onlineTraffic:prefs.traffic,onlinePlayers:prefs.players,allowNetwork:prefs.online,safe,state:s}) || {requested:false,hits:0,reason:'Car no-clip is not verified for this build.'};
+       try {diagnosticState={...diagnosticState,...engine.nosDiagnostics(s,supported&&moduleProfile?.capabilities.driftDiagnostics===true)};} catch {}
+@@ -403,7 +442,7 @@
+           if(grip.changed){gripGate.reset();message(grip.reason);}
+         }
+       } else {engine.restoreGrip(s);gripGate.reset();}
+-      try {diagnosticState={...diagnosticState,...engine.nativeDiagnostics(s,supported&&moduleProfile?.capabilities.driftDiagnostics===true),...engine.dragEngineDiagnostics(s,supported&&moduleProfile?.capabilities.nativeDragOverheat===true),powerStatus,paceConfirmed,paceApplied:paceConfirmed?aiState.paceApplied:undefined,powerActive:!!tune.active,gripActive:!!grip.active,effectivePower:tune.power,effectiveGrip:grip.factor,limiterRemoved:!!tune.unlimit,aiActive:!!aiState.active,aiOwned:!!aiState.owned,handbackPending:!!ai?.handbackPending,pageHeartbeat:ai?.hb,nativeHeartbeatAck:aiState.ready&&typeof ai?.read==='function'?ai.read(44):undefined,aiRequestedMode:aiState.ready&&typeof ai?.read==='function'?ai.read(8):undefined,aiNativeStatus:aiState.ready&&typeof ai?.read==='function'?ai.read(52):undefined,aiStaleTicks:aiState.ready&&typeof ai?.read==='function'?ai.read(48):undefined,aiSkillSaved:aiState.ready&&typeof ai?.read==='function'?!!ai.read(64):undefined,savedNativeSkill:aiState.ready&&typeof ai?.read==='function'&&ai.read(64)?ai.read(68):undefined,requestedPace,cornerRequested:!!aiState.cornerRequested,cornerMemoryBlocked:!!aiState.cornerMemoryBlocked,cornerDriftBlocked:!!aiState.cornerDriftBlocked,cornerMode:aiState.cornerMode,cornerPace:aiState.cornerPace,cornerBraking:aiState.cornerBraking,brakingHits:aiState.brakingHits,cornerHits:aiState.cornerHits,cornerApplied:aiState.cornerApplied,cornerProbeStage:aiState.cornerProbeStage,cornerDriverValid:aiState.cornerDriverValid,cornerRouteOwned:aiState.cornerRouteOwned,cornerRouteNodes:aiState.cornerRouteNodes,cornerPlannerCorners:aiState.cornerPlannerCorners,cornerGuardMask:aiState.cornerGuardMask,wallRequested:!!wallState.requested,wallHits:wallState.hits,onlineTrafficRequested:!!carState.onlineTraffic,onlinePlayersRequested:!!carState.onlinePlayers,onlineRaceCarsRequested:!!carState.onlineRaceCars,trafficHits:carState.trafficHits,playerHits:carState.playerHits,carRequested:typeof carState!=='undefined'?!!carState.requested:false,carHits:typeof carState!=='undefined'?carState.hits:0};diagnostics?.snapshot(diagnosticState);} catch {}
++      try {diagnosticState={...diagnosticState,...engine.nativeDiagnostics(s,supported&&moduleProfile?.capabilities.driftDiagnostics===true),...engine.dragEngineDiagnostics(s,supported&&moduleProfile?.capabilities.nativeDragOverheat===true),powerStatus,raceOnlyInputClear,raceOnlyEligible,raceOnlyRequested,paceConfirmed,paceApplied:paceConfirmed?aiState.paceApplied:undefined,powerActive:!!tune.active,gripActive:!!grip.active,effectivePower:tune.power,effectiveGrip:grip.factor,limiterRemoved:!!tune.unlimit,aiActive:!!aiState.active,aiOwned:!!aiState.owned,handbackPending:!!ai?.handbackPending,pageHeartbeat:ai?.hb,nativeHeartbeatAck:aiState.ready&&typeof ai?.read==='function'?ai.read(44):undefined,aiRequestedMode:aiState.ready&&typeof ai?.read==='function'?ai.read(8):undefined,aiNativeStatus:aiState.ready&&typeof ai?.read==='function'?ai.read(52):undefined,aiStaleTicks:aiState.ready&&typeof ai?.read==='function'?ai.read(48):undefined,aiSkillSaved:aiState.ready&&typeof ai?.read==='function'?!!ai.read(64):undefined,savedNativeSkill:aiState.ready&&typeof ai?.read==='function'&&ai.read(64)?ai.read(68):undefined,requestedPace,cornerRequested:!!aiState.cornerRequested,cornerMemoryBlocked:!!aiState.cornerMemoryBlocked,cornerDriftBlocked:!!aiState.cornerDriftBlocked,cornerMode:aiState.cornerMode,cornerPace:aiState.cornerPace,cornerBraking:aiState.cornerBraking,brakingHits:aiState.brakingHits,cornerHits:aiState.cornerHits,cornerApplied:aiState.cornerApplied,cornerProbeStage:aiState.cornerProbeStage,cornerDriverValid:aiState.cornerDriverValid,cornerRouteOwned:aiState.cornerRouteOwned,cornerRouteNodes:aiState.cornerRouteNodes,cornerPlannerCorners:aiState.cornerPlannerCorners,cornerGuardMask:aiState.cornerGuardMask,wallRequested:!!wallState.requested,wallHits:wallState.hits,onlineTrafficRequested:!!carState.onlineTraffic,onlinePlayersRequested:!!carState.onlinePlayers,onlineRaceCarsRequested:!!carState.onlineRaceCars,trafficHits:carState.trafficHits,playerHits:carState.playerHits,carRequested:typeof carState!=='undefined'?!!carState.requested:false,carHits:typeof carState!=='undefined'?carState.hits:0};diagnostics?.snapshot(diagnosticState);} catch {}
+       infoHudSample={at:performance.now(),data:{...diagnosticState},context:{menu:!!document.querySelector('dialog[open]'),drag:dragRace,drift:nativeDriftPace,roam:roamProfile,race:raceProfile,paceAvailable:moduleProfile?.capabilities.pace===true,aiAvailable:aiState.available,aiStatus:aiState.status,manual:aiState.manual,switching:!!aiState.switching}};
+       renderInfoHud();
+       const manualDriver = s.ready && engine.u32(s.car+0x24)===1 && !aiState.active && (!ai || !aiState.available || (aiState.ready && !aiState.owned));
+@@ -426,7 +465,7 @@
+         for(const [id,feature] of [['ai-pace','pace'],['pace-factor','pace'],['race-pace','pace'],['race-pace-factor','pace'],['race-corner-assist','corner'],['race-corner-factor','corner'],['race-corner-margin','corner'],['race-braking','corner'],['corner-assist','corner'],['corner-factor','corner'],['corner-margin','corner'],['walls','walls'],['cars','cars'],['traffic','onlineTraffic'],['players','onlinePlayers'],['dyno-enable','dyno']]){const control=ui.querySelector('#'+id);if(control)control.disabled=(feature==='onlineTraffic'||feature==='onlinePlayers')?caps?.[feature]!==true:!!caps&&!caps[feature];}
+         if(live)live.title=live.textContent;
+         renderPowerStatus(powerStatus,tune);
+-        const enabled=[prefs.raceCornerAssist,prefs.cornerAssist,prefs.racePace,prefs.walls,prefs.cars,prefs.traffic,prefs.players,prefs.ai,prefs.aiPace,prefs.nos,prefs.boost,prefs.unlimit,prefs.grip,prefs.dragNoBlowout,prefs.drag,prefs.tester,!!(counters?.drift & 1)].filter(Boolean).length;
++        const enabled=[adaptiveRaceEnabled,prefs.raceCornerAssist,prefs.cornerAssist,prefs.racePace,prefs.walls,prefs.cars,prefs.traffic,prefs.players,prefs.ai,raceOnlyAI,prefs.aiPace,prefs.nos,prefs.boost,prefs.unlimit,prefs.grip,prefs.dragNoBlowout,prefs.drag,prefs.tester,!!(counters?.drift & 1)].filter(Boolean).length;
+         ui.querySelector('#enabled').textContent=enabled ? `${enabled} selected` : 'Ready';
+         ui.querySelector('#cars-state').textContent=caps&&!caps.cars?'Not verified for this build':prefs.cars?(carState.soloReason||carState.reason):'OFF · other cars only · solo';
+         ui.querySelector('#traffic-state').textContent=caps?.onlineTraffic!==true?'Not verified for this build':prefs.traffic?(carState.trafficReason||carState.reason):'OFF · traffic only · online free roam';
+@@ -435,12 +474,17 @@
+         ui.querySelector('#online-state').textContent = prefs.online ? 'ON this page · experimental · F9 disables' : 'OFF · profile restore needs saved permission';
+         const aiNode=ui.querySelector('#ai-state'),failure=moduleFailure();
+         aiNode.dataset.unavailable=String(!!failure);
+-        aiNode.textContent = failure ? `AI unavailable. ${failure}` : prefs.ai && s.network && !prefs.online ? 'Paused online · enable Session mode opt-in' : prefs.ai ? [dragRace ? 'Auto · drag AI' : 'Auto · native AI', aiState.status || 'Native game AI · experimental', aiState.reason].filter(Boolean).join(' · ') : 'Highest native skill · experimental · off';
+-        ui.querySelector('#ai-pace-state').textContent = caps&&!caps.pace?'Not yet verified for this build':!prefs.aiPace ? 'Off · free roam only' : nativeDriftPace ? 'Paused in Drift · native pace retained' : dragRace ? 'Paused in drag · native pace unchanged' : !roamProfile ? `${prefs.paceFactor.toFixed(2)}× saved · waiting for free roam` : !prefs.ai || !aiState.active ? `${prefs.paceFactor.toFixed(2)}× selected · waiting for AI` : paceConfirmed ? `${aiState.paceApplied.toFixed(2)}× confirmed` : `${prefs.paceFactor.toFixed(2)}× requested`;
+-        ui.querySelector('#race-pace-state').textContent = caps&&!caps.pace?'Not yet verified for this build':!prefs.racePace ? 'Off · normal race pace' : nativeDriftPace ? 'Paused in Drift · native pace retained' : !raceProfile ? `${prefs.racePaceFactor.toFixed(2)}× saved · waiting for race / outrun` : !prefs.ai || !aiState.active ? `${prefs.racePaceFactor.toFixed(2)}× selected · waiting for AI` : paceConfirmed ? `${aiState.paceApplied.toFixed(2)}× confirmed` : `${prefs.racePaceFactor.toFixed(2)}× requested`;
+-        ui.querySelector('#race-corner-state').textContent = caps&&!caps.corner?'Not yet verified for this build':!prefs.raceCornerAssist ? 'Off · road races; online needs opt-in' : s.network && !prefs.online ? 'Paused online · enable Session mode opt-in' : !roadRaceProfile ? 'Waiting for ordinary road race · excludes outrun, drag and drift' : !prefs.ai || !aiState.active ? 'Waiting for automatic AI' : aiState.cornerMemoryBlocked ? 'Blocked · corner command memory is occupied' : aiState.cornerMode===2 && Number.isFinite(aiState.cornerApplied) ? `${aiState.cornerApplied.toFixed(2)}× road-race corner cap observed · braking hits ${aiState.brakingHits ?? 0}` : aiState.cornerMode===2 && aiState.cornerRequested ? pendingCornerText(aiState) : 'Not armed · road-race command was not accepted';
+-        ui.querySelector('#corner-state').textContent = caps&&!caps.corner?'Not yet verified for this build':!prefs.cornerAssist ? 'Off · free roam only' : !roamProfile ? 'Waiting for free roam' : !prefs.ai || !aiState.active ? 'Waiting for automatic AI' : aiState.cornerMemoryBlocked ? 'Blocked · corner command memory is occupied' : aiState.cornerDriftBlocked ? 'Paused · drift mode excludes corner assist' : Number.isFinite(aiState.cornerApplied) ? `${aiState.cornerApplied.toFixed(2)}× corner-speed cap confirmed` : aiState.cornerRequested ? pendingCornerText(aiState) : 'Not armed · corner command was not accepted';
+-        ui.querySelector('#drag-ai-state').textContent = caps&&!caps.dragAI?'Not yet verified for this build':!prefs.ai ? 'Enable Automatic driver in AI driver' : dragRace ? aiState.active ? aiState.opponentDragSelected ? 'Opponent drag action confirmed · gameplay unverified' : aiState.dragSelection==='unsupported' ? 'Opponent selector unsupported on this build' : 'Native driver active · opponent action pending' : safe ? 'Auto-selected · waiting for native confirmation' : 'Auto-selected · waits for GO / supported driving state' : 'Automatic · waiting for a drag race';
++        ui.querySelector('#race-only-state').textContent=!raceOnlyAI?'Off · current page only':!supported||caps?.ai!==true?'Armed · waiting for a verified AI build':s.network&&!prefs.online?'Armed · paused online without permission':!raceOnlyInputClear?'Armed · release driving controls before takeover':!raceOnlyEligible?(ai?.handbackPending||aiState.owned?'Leaving race · native handback pending':'Armed · waiting for active race / GO'):aiState.active&&!ai?.handbackPending&&!aiState.switching?'Native race AI active':aiState.status==='retry'?'Native request preserved · switch off/on to retry':aiState.reason||'Race AI requested · waiting for native confirmation';
++        aiNode.textContent = failure ? `AI unavailable. ${failure}` : (prefs.ai||raceOnlyAI) && s.network && !prefs.online ? 'Paused online · enable Session mode opt-in' : aiRequested ? [dragRace ? 'Auto · drag AI' : 'Auto · native AI', aiState.status || 'Native game AI · experimental', aiState.reason].filter(Boolean).join(' · ') : 'Highest native skill · experimental · off';
++        ui.querySelector('#adaptive-race').disabled=!(supported&&caps?.nativeDragInputHandoff&&caps?.corner&&caps?.pace);
++        const adaptiveLabels={off:'Off · session only',invalid:'Invalid ceiling · not applied',unsupported:'Unavailable on this build','street-x':'Street X unchanged · using saved controls',mode:'Waiting for road race · not Drag, Drift, Outrun or free roam','network-permission':'Paused online · allow network tools first','ai-off':'Waiting for an automatic driver mode',paused:'Paused · waiting for safe active driving',handoff:'Rebuilding native route · waiting for handoff','pace-pending':'Requested · waiting for pace acknowledgment','planner-pending':'Pace acknowledged · awaiting corner/braking evidence','planner-observed':'Pace, corner and braking hooks observed'};
++        ui.querySelector('#adaptive-race-state').textContent=adaptiveLabels[adaptiveState];
++        ui.querySelector('#adaptive-race-state').title=adaptiveLabels[adaptiveState]+'. Planned target speed varies with native route distance; this is not measured speed or proof of a clean corner.';
++        ui.querySelector('#ai-pace-state').textContent = caps&&!caps.pace?'Not yet verified for this build':!prefs.aiPace ? 'Off · free roam only' : nativeDriftPace ? 'Paused in Drift · native pace retained' : dragRace ? 'Paused in drag · native pace unchanged' : !roamProfile ? `${prefs.paceFactor.toFixed(2)}× saved · waiting for free roam` : !aiRequested || !aiState.active ? `${prefs.paceFactor.toFixed(2)}× selected · waiting for AI` : paceConfirmed ? `${aiState.paceApplied.toFixed(2)}× confirmed` : `${prefs.paceFactor.toFixed(2)}× requested`;
++        ui.querySelector('#race-pace-state').textContent = adaptive.requested?`Adaptive ceiling ${adaptive.ceiling.toFixed(2)}× · saved race pace unchanged`: caps&&!caps.pace?'Not yet verified for this build':!prefs.racePace ? 'Off · normal race pace' : nativeDriftPace ? 'Paused in Drift · native pace retained' : !raceProfile ? `${prefs.racePaceFactor.toFixed(2)}× saved · waiting for race / outrun` : !aiRequested || !aiState.active ? `${prefs.racePaceFactor.toFixed(2)}× selected · waiting for AI` : paceConfirmed ? `${aiState.paceApplied.toFixed(2)}× confirmed` : `${prefs.racePaceFactor.toFixed(2)}× requested`;
++        ui.querySelector('#race-corner-state').textContent = adaptive.requested?adaptiveState==='planner-observed'?'Adaptive planner observed · corner and braking hooks active':`Adaptive requested · ${pendingCornerText(aiState)}`: caps&&!caps.corner?'Not yet verified for this build':!prefs.raceCornerAssist ? 'Off · road races; online needs opt-in' : s.network && !prefs.online ? 'Paused online · enable Session mode opt-in' : !roadRaceProfile ? 'Waiting for ordinary road race · excludes outrun, drag and drift' : !aiRequested || !aiState.active ? 'Waiting for automatic AI' : aiState.cornerMemoryBlocked ? 'Blocked · corner command memory is occupied' : aiState.cornerMode===2 && Number.isFinite(aiState.cornerApplied) ? `${aiState.cornerApplied.toFixed(2)}× road-race corner cap observed · braking hits ${aiState.brakingHits ?? 0}` : aiState.cornerMode===2 && aiState.cornerRequested ? pendingCornerText(aiState) : 'Not armed · road-race command was not accepted';
++        ui.querySelector('#corner-state').textContent = caps&&!caps.corner?'Not yet verified for this build':!prefs.cornerAssist ? 'Off · free roam only' : !roamProfile ? 'Waiting for free roam' : !aiRequested || !aiState.active ? 'Waiting for automatic AI' : aiState.cornerMemoryBlocked ? 'Blocked · corner command memory is occupied' : aiState.cornerDriftBlocked ? 'Paused · drift mode excludes corner assist' : Number.isFinite(aiState.cornerApplied) ? `${aiState.cornerApplied.toFixed(2)}× corner-speed cap confirmed` : aiState.cornerRequested ? pendingCornerText(aiState) : 'Not armed · corner command was not accepted';
++        ui.querySelector('#drag-ai-state').textContent = caps&&!caps.dragAI?'Not yet verified for this build':!aiRequested ? (raceOnlyAI?'Race-only AI armed · waiting for active race':'Enable Automatic driver or Race-only automatic driver') : dragRace ? aiState.active ? aiState.opponentDragSelected ? 'Opponent drag action confirmed · gameplay unverified' : aiState.dragSelection==='unsupported' ? 'Opponent selector unsupported on this build' : 'Native driver active · opponent action pending' : safe ? 'Auto-selected · waiting for native confirmation' : 'Auto-selected · waits for GO / supported driving state' : 'Automatic · waiting for a drag race';
+         ui.querySelector('#drag-no-blowout').disabled=moduleProfile?.capabilities.nativeDragOverheat!==true;
+         ui.querySelector('#drag-no-blowout-state').textContent=moduleProfile?.capabilities.nativeDragOverheat!==true?'Unavailable on this game build':prefs.dragNoBlowout?(s.network&&!prefs.online?'Paused online · enable Allow network tools':safe && s.drag?'Requested · current player engine only':'Waiting for active Drag'):'Off · normal Drag engine damage';
+         ui.querySelector('#drag-state').textContent = activeDrag ? dragCountdown ? 'Countdown throttle · shifts wait for GO' : 'Throttle + shifting active · you steer' : prefs.drag ? dragAIRequested ? 'Paused while automatic drag AI is requested' : dragTakenOver ? 'Paused by manual takeover · toggle to resume' : dragRace && !manualDriver ? 'Waiting for native AI to release the car' : s.network && !prefs.online ? 'Paused online · enable Session mode opt-in' : 'Waiting for drag driving state' : 'Throttle + shifting · you steer';
+@@ -464,7 +508,7 @@
+           ui.querySelector('#drift').checked=drift;
+           if(typeof prefs.drift==='boolean' && prefs.drift!==drift){prefs.drift=drift;savePrefs();}
+         }
+-        for(const id of ['ai-state','ai-pace-state','race-pace-state','race-corner-state','corner-state','grip-state','walls-state','cars-state','traffic-state','players-state','drag-state','drag-ai-state','online-state']) {const node=ui.querySelector('#'+id);node.title=node.textContent;}
++        for(const id of ['ai-state','race-only-state','ai-pace-state','race-pace-state','race-corner-state','corner-state','grip-state','walls-state','cars-state','traffic-state','players-state','drag-state','drag-ai-state','online-state']) {const node=ui.querySelector('#'+id);node.title=node.textContent;}
+         for(const [id,mode] of [['corner-state',1],['race-corner-state',2]]) if(aiState.cornerRequested && aiState.cornerMode===mode) {const node=ui.querySelector('#'+id);node.title=node.textContent+' · '+cornerEvidenceText(aiState);}
+         ui.querySelector('#drift-state').textContent = driftNeedsReapply ? 'Choice saved · waiting for solo free roam' : driftPending ? 'Waiting for confirmation…' : driftActive ? 'Game confirms drift handling ON' : drift ? 'Selected, but not active in this game mode' : 'Free roam only · not perfect-drift automation';
+       }
+@@ -589,6 +633,8 @@
+   function applyToolProfile(result,automatic=false){
+     if(driftPending)throw Error('Wait for the current drift request to confirm or time out, then Load again. No profile was loaded.');
+     if(dyno?.busy||dyno?.pending){dyno.cancel();throw Error('Tuner cancellation requested. Wait for the pending game request to finish, then Load again. A staged preset is not reverted.');}
++    clearRaceOnlyAI();
++    adaptiveRaceEnabled=false;if(ui)ui.querySelector('#adaptive-race').checked=false;
+     suspend();driftNeedsReapply=false;dragTakenOver=false;lastShift=0;lastPulse=0;
+     const choices=result.settings;
+     for(const key of Object.keys(prefs))prefs[key]=choices[key];
+@@ -689,7 +735,7 @@
+ <p class="hud-foot">req = requested · ack = native acknowledgement<br>set = power fields, not a measured speed gain<span id="hud-governor" hidden></span><span id="hud-state">Waiting for live sample</span></p>
+ </section>
+ <div id="tools-panel" class="panel" hidden>
+-<div class="toolbar"><button id="take-control" title="Return to manual control">Manual <kbd>F7</kbd></button><button id="stop" class="stop" title="Stop driving assists">Stop <kbd>F9</kbd></button><span class="version">0.31.0</span></div>
++<div class="toolbar"><button id="take-control" title="Return to manual control">Manual <kbd>F7</kbd></button><button id="stop" class="stop" title="Stop driving assists">Stop <kbd>F9</kbd></button><span class="version">0.32.0</span></div>
+ <label class="row hud-preference"><span>Info HUD <small>F6 · shown when this menu is closed</small></span><input id="info-hud-enable" type="checkbox" aria-label="Show driving information HUD"></label>
+ <details id="group-profiles" class="group"><summary><span class="section-icon" aria-hidden="true"></span>Saved tool profiles</summary><div class="group-body">
+ <label class="row"><span>Saved profile</span><select id="profile-select" aria-label="Saved tool profile"><option value="">Choose a saved profile</option></select></label>
+@@ -702,7 +748,9 @@
+ <details class="help"><summary>Profile storage &amp; safety</summary><p id="profile-help">Stores only these extension switches, numbers and tuner enable/search preference in this browser for nfsu2.xyz. No game setups, drafts, car data or diagnostic logs. Profiles do not Stage, Restore or Save game presets. Page scripts can access this local storage; it is not a private backup or browser sync. Up to 16 profiles, 48 characters per name.</p><p>Load stops old controllers and releases assisted input first. Saved choices still wait for the exact supported module, current car and each tool’s mode checks. Startup loading is optional and applies once per reload, never when another tab edits a profile. Updating an automatic profile disables its startup loading until selected again.</p><p>F9 stops driving tools, clears profile-requested drift reapplication and pauses startup loading; saved profiles stay intact. A drift toggle already sent to the game cannot be recalled, and native drift handling already on is not forcibly changed. Load manually to resume now, or select a profile and enable Load on startup to resume after reload. F7 takes manual control without deleting profiles.</p><p>Blowout protection is a saved user choice for the local current engine only. It does not repair an already blown engine or restore a lost race. Network use still requires this profile’s explicit network permission. Unless startup loading is enabled, normal per-tool reload defaults shown elsewhere still apply.</p></details>
+ </div></details>
+ <details id="group-driver" class="group"><summary><span class="section-icon" aria-hidden="true"></span>AI driver</summary><div class="group-body">
+-<label class="row row-main"><span>Automatic driver<small id="ai-state">Auto-swaps race / free-roam / drag AI</small></span><input id="ai" type="checkbox" aria-describedby="ai-auto-risk"></label>
++<label class="row row-main"><span>Automatic driver<small id="ai-state">All modes · includes free roam</small></span><input id="ai" type="checkbox" aria-describedby="ai-auto-risk"></label>
++<label class="row"><span>Race-only automatic driver<small id="race-only-state">Off · current page only</small></span><input id="race-only-ai" type="checkbox" aria-describedby="race-only-help"></label>
++<p id="race-only-help" class="fine">Starts native AI only in an active race, including Street X, Drag and Drift. Releases in free roam, outrun and results. Start/join events yourself. Online needs Allow network tools. This switch stays armed between races on this page; reload, profile Load, F7/F9 or race driving-key takeover turns it off. Not saved in profiles. Selecting either driver mode turns the other off.</p>
+ <details class="help"><summary>Free-roam tuning</summary>
+ <label class="row"><span>Free-roam corner assist<small id="corner-state">Off · experimental · free roam only</small></span><input id="corner-assist" type="checkbox" aria-describedby="corner-risk"></label>
+ <label class="slider"><span>Planned corner speed <output id="corner-value" for="corner-factor">0.80×</output></span><input id="corner-factor" aria-label="Planned corner speed" type="range" value="0.8" min="0.6" max="0.95" step="0.05"></label>
+@@ -712,6 +760,9 @@
+ <p id="corner-risk" class="fine">Lower factor = slower planned turns. Sharp-turn margin adds more slowing as upcoming bends tighten; 0% keeps the v0.13 calculation. Changes rebuild the native route. Not obstacle avoidance or new steering. Armed is not a confirmed reduction: straight plans, missing corner entries and rejected native checks do not add hits. Hover the status for route/check evidence. Free-roam corner assist does not tune road races; use the separate Road-race hairpin assist there. Diagnose at 1× pace; 0.95× means only 5% corner slowing.</p><p id="ai-pace-help" class="fine warn">Pace up to 3× is experimental; 2–3× can cause severe overspeed, missed turns or instability. Start at 1×. Neither control changes race or drag pace.</p>
+ </details>
+ <details class="help"><summary>Race / outrun tuning</summary>
++<label class="row"><span>Adaptive road-race speed<small id="adaptive-race-state">Off · session only</small></span><input id="adaptive-race" type="checkbox" disabled aria-describedby="adaptive-race-help"></label>
++<label class="slider"><span>Straight ceiling <output id="adaptive-race-value" for="adaptive-race-ceiling">1.30×</output></span><input id="adaptive-race-ceiling" aria-label="Adaptive race straight ceiling" type="range" value="1.3" min="1" max="2" step="0.05"></label>
++<p id="adaptive-race-help" class="fine">Optional native route-speed planning: higher targets on long straights, protected corner targets and earlier braking by distance. Uses the road-corner speed, sharp-turn margin and braking sliders below, even with their separate assist switch off. Existing saved switches and values stay unchanged. Street X keeps its existing controls; excludes Drag, Drift, Outrun and free roam. Online needs Allow network tools. Session only: off after reload, Stop or profile Load. No new steering, obstacle avoidance or NOS control. Start at 1.30×; higher targets can still cause crashes.</p>
+ <label class="row"><span>Road-race hairpin assist<small id="race-corner-state">Off · experimental · online needs opt-in</small></span><input id="race-corner-assist" type="checkbox" aria-describedby="race-corner-risk"></label>
+ <label class="slider"><span>Race corner speed <output id="race-corner-value" for="race-corner-factor">0.80×</output></span><input id="race-corner-factor" aria-label="Road-race corner speed" type="range" value="0.8" min="0.6" max="0.95" step="0.05"></label>
+ <label class="slider"><span>Race sharp-turn margin <output id="race-corner-margin-value" for="race-corner-margin">15%</output></span><input id="race-corner-margin" aria-label="Road-race sharp-turn margin" type="range" value="15" min="0" max="25" step="5"></label>
+@@ -794,8 +845,11 @@
+     ui.querySelector('#dyno-restore').addEventListener('click',()=>runDyno('restore'));
+     ui.querySelector('#dyno-cancel').addEventListener('click',()=>{dyno?.cancel();dynoText='Cancelling · waiting for the game';updateDynoUI();});
+     ui.querySelector('#online').addEventListener('change', e => {prefs.online=e.target.checked;if(!prefs.online)suspend();message(prefs.online ? 'Online/LAN tools allowed on this page. Experimental: server checks may flag changes or reject results. F9 disables this mode.' : 'Online/LAN tools paused. Other selections are kept for solo play.');});
+-    ui.querySelector('#ai').addEventListener('change', e => {prefs.ai=e.target.checked;release();if(!prefs.ai){ai?.stop();try{clearPaceEvidence();}catch{}}message(prefs.ai ? 'Automatic AI requested: native AI for other races/free roam, experimental drag AI for drag. Drag waits for GO. Start events yourself. F7 or driving keys take control; online still needs its separate opt-in.' : 'Native AI off.');});
++    ui.querySelector('#race-only-ai').addEventListener('change',e=>setRaceOnlyAI(e.target.checked));
++    ui.querySelector('#ai').addEventListener('change', e => {clearRaceOnlyAI();prefs.ai=e.target.checked;release();if(!prefs.ai){ai?.stop();try{clearPaceEvidence();}catch{}}message(prefs.ai ? 'Automatic AI requested: native AI for other races/free roam, experimental drag AI for drag. Drag waits for GO. Start events yourself. F7 or driving keys take control; online still needs its separate opt-in.' : 'Native AI off.');});
+     ui.querySelector('#take-control').addEventListener('click',takeControl);
++    ui.querySelector('#adaptive-race').addEventListener('change',e=>{adaptiveRaceEnabled=e.target.checked===true&&supported&&moduleProfile?.capabilities.nativeDragInputHandoff===true&&moduleProfile?.capabilities.corner===true&&moduleProfile?.capabilities.pace===true;e.target.checked=adaptiveRaceEnabled;clearPaceEvidence();message(adaptiveRaceEnabled?'Adaptive road-race speed requested. Native route planning uses the road-corner and braking sliders; Street X keeps its existing controls.':'Adaptive speed off. Existing saved driving settings resume after native handoff.');});
++    ui.querySelector('#adaptive-race-ceiling').addEventListener('input',e=>{const n=Number(e.target.value);adaptiveRaceCeiling=Number.isFinite(n)&&e.target.value!==''?Math.round(Math.max(1,Math.min(2,n))*20)/20:1.3;e.target.value=adaptiveRaceCeiling;ui.querySelector('#adaptive-race-value').textContent=adaptiveRaceCeiling.toFixed(2)+'×';e.target.setAttribute('aria-valuetext',adaptiveRaceCeiling.toFixed(2)+' times');clearPaceEvidence();recordDiagnostic('tools',{tools:diagnosticTools()});});
+     ui.querySelector('#ai-pace').addEventListener('change', e => { prefs.aiPace=e.target.checked; message(prefs.aiPace ? 'Custom AI pace enabled for native AI only. Higher pace may worsen cornering and cause crashes. Start at 1.00×.' : 'Custom AI pace off. Native AI will use its normal target-speed factor.'); });
+     ui.querySelector('#cars').addEventListener('change', e => {prefs.cars=e.target.checked;if(!prefs.cars)cars?.stop();message(prefs.cars?'Car no-clip requested. Other cars only, solo. Keep clear of other cars before switching it off.':'Car no-clip off. Normal car collisions resume.');});
+     ui.querySelector('#traffic').disabled=true;
+--- a/extension/popup.html
++++ b/extension/popup.html
+@@ -1,7 +1,7 @@
+ <!doctype html><html lang="en"><meta charset="utf-8"><title>NFSU2 Driving Tools</title>
+ <style>html{color-scheme:dark}body{width:244px;box-sizing:border-box;margin:0;padding:14px;background:#141e24;color:#c9dcd1;font:11px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}header{display:flex;align-items:center;gap:7px}h1{font-size:14px;font-weight:650;margin:0;color:#e2f1e7}.dot{width:7px;height:7px;border-radius:2px;background:#9be8bc}.version{margin-left:auto;color:#86a791;font-size:9px}p{margin:9px 0;color:#93af9f}.shortcuts{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:12px 0}.shortcuts span{padding:6px;border:1px solid #344f40;border-radius:3px;text-align:center;color:#87a993;font-size:9px}kbd{display:block;font:600 11px ui-monospace,monospace;color:#c5e5cf}.open{display:block;border:1px solid #709e7e;border-radius:4px;background:#233c2c;color:#d7f1df;padding:7px;text-align:center;font-weight:600;text-decoration:none}.open:hover{background:#2c4936}details{border-top:1px solid #2c4436;margin-top:12px;padding-top:7px;font-size:10px;color:#88a492}summary{cursor:pointer;color:#a8c4af}details p{margin:7px 0}a:focus-visible,summary:focus-visible{outline:2px solid #9be8bc;outline-offset:3px}</style>
+-<header><span class="dot" aria-hidden="true"></span><h1>Driving tools</h1><span class="version">v0.31.0</span></header>
+-<p>v0.31 fixes a reproduced unwanted Drag AI handback during settings refreshes and waits for native OFF acknowledgement before restarting. Manual takeover, F7/F9, race-end/totaled states and the watchdog remain effective.</p><p>All v0.30 features remain combined, including the Info HUD, tuner, NOS fix and saved profiles. Live prevention of the reported handoff is not yet verified; this does not prevent collisions or damage.</p>
++<header><span class="dot" aria-hidden="true"></span><h1>Driving tools</h1><span class="version">v0.32.0</span></header>
++<p>v0.32 adds Race-only automatic driver: waits for GO in races you start or join, then hands back outside races. F7/F9 and race driving-key takeover disarm it. The switch resets on reload or profile Load.</p><p>Optional adaptive road-race speed starts off and preserves Street X controls. It uses the existing native corner planner, not new steering or a guaranteed speed boost. All v0.31 tools remain; live results are unverified.</p>
+ <p>For online Drag protection, enable both Disable Drag engine blowouts and Allow network tools before the engine blows. Only your current local engine is eligible. It does not revive blown engines or alter NOS/shifting. F9 clears it; live online protection is unverified.</p>
+ <p>F8 or Shift+Insert shows/hides the menu. Shift+Insert keeps normal Paste behavior while typing.</p>
+ <p>Reload the game after installing. Use the small toolbar in the upper-right corner.</p>
+--- a/tools/package-release.py
++++ b/tools/package-release.py
+@@ -4,12 +4,12 @@
+ root = Path(__file__).resolve().parents[1]
+ source = root / 'extension'
+ manifest = json.loads((source / 'manifest.json').read_text())
+-assert manifest['version'] == '0.31.0'
+-folder = 'NFSU2-Driving-Tools-v0.31.0'
++assert manifest['version'] == '0.32.0'
++folder = 'NFSU2-Driving-Tools-v0.32.0'
+ parser = argparse.ArgumentParser()
+ parser.add_argument('--output', type=Path)
+ args = parser.parse_args()
+-out = args.output or root.parent / 'NFSU2-Driving-Tools-v0.31-Combined-Drag-Retention.zip'
++out = args.output or root.parent / 'NFSU2-Driving-Tools-v0.32-Combined-Race-Only-AI.zip'
+ files = ['README.md', 'CHANGELOG.md', 'manifest.json', 'popup.html', *manifest['content_scripts'][0]['js']]
+ assert len(files) == len(set(files))
+ assert sorted(files) == sorted(p.name for p in source.iterdir() if p.is_file())
+--- a/tests/adaptive-race.test.cjs
++++ b/tests/adaptive-race.test.cjs
+@@ -0,0 +1,89 @@
++'use strict';
++const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),{createRequire}=require('node:module');
++const {adaptiveRaceSettings:select}=require('../extension/core.js');
++const accepted={enabled:true,verified:true,ai:true,safe:true,hud:1,raceType:1,ceiling:1.3};
++test('adaptive request is default-off, literal, bounded and road-race only',()=>{
++ assert.equal(select().state,'off');assert.deepEqual(select(accepted),{requested:true,state:'requested',ceiling:1.3});
++ for(const value of [false,0,1,'true',null])assert.equal(select({...accepted,enabled:value}).requested,false);
++ for(const value of [NaN,Infinity,-Infinity,0,.99,2.01,'1.3',null])assert.equal(select({...accepted,ceiling:value}).state,'invalid');
++ for(const ceiling of [1,1.05,1.3,1.5,2])assert.equal(select({...accepted,ceiling}).requested,true);
++ for(const field of ['verified','ai','safe'])for(const value of [false,0,1,'true',null])assert.equal(select({...accepted,[field]:value}).requested,false);
++ for(const hud of [0,2,3,99])assert.equal(select({...accepted,hud}).state,'mode');
++ for(const raceType of [0,2,3,4,5,6,7,8,9,99,null])assert.equal(select({...accepted,raceType}).state,'mode');
++ for(const field of ['drag','drift','streetX'])assert.equal(select({...accepted,[field]:true}).requested,false);
++ for(const allowNetwork of [false,0,1,'true',null])assert.equal(select({...accepted,network:true,allowNetwork}).state,'network-permission');
++ assert.equal(select({...accepted,network:true,allowNetwork:true}).requested,true);
++});
++// Real page, Engine, profile store, and local logger. Only browser/worker/AI are doubles.
++const file=path.join(__dirname,'diagnostics-page.test.cjs'),baseRequire=createRequire(file),ctx={require:Object.assign(name=>name==='node:test'?{test(){}}:baseRequire(name),{resolve:baseRequire.resolve}),console,Buffer,WebAssembly,Blob,URL,setImmediate};
++vm.runInNewContext(fs.readFileSync(file,'utf8')+'\nthis.fixture=fixture;',ctx,{filename:file});
++const profile=require('../extension/next-profile.js'),Profiles=require('../extension/tool-profiles.js');
++const actual=(saved=null,opts={})=>ctx.fixture(saved,true,false,{revision:profile.revision,profile,...opts});
++const road=f=>{f.put(0x89e7b0,1);f.drive(1);f.change('ai',true);};
++const last=f=>f.aiLog.updates.at(-1),data=f=>f.log().events.filter(e=>e.event==='state').at(-1).data;
++const plain=v=>JSON.parse(JSON.stringify(v));
++function oldSettings(f){f.change('race-pace',true);f.input('race-pace-factor',1.65);f.change('race-corner-assist',true);f.input('race-corner-factor',.85);f.input('race-corner-margin',20);f.input('race-braking',.6);}
++function signature(f){const {pace,raceCornerAssist,raceCornerFactor,raceCornerMargin,raceBraking,enabled,allowNetwork,cornerAssist,cornerFactor,cornerMargin,allowDragAI,dragNoBlowout}=last(f);return {pace,raceCornerAssist,raceCornerFactor,raceCornerMargin,raceBraking,enabled,allowNetwork,cornerAssist,cornerFactor,cornerMargin,allowDragAI,dragNoBlowout};}
++test('optional UI starts off despite forged saved adaptive fields and old commands are unchanged',async()=>{
++ const f=await actual(JSON.stringify({adaptiveRace:true,adaptiveRaceCeiling:2}));road(f);oldSettings(f);f.run(8);
++ assert.equal(f.nodes['adaptive-race'].checked,false);assert.equal(last(f).pace,1.65);assert.equal(last(f).raceCornerAssist,true);assert.equal(data(f).adaptiveRaceState,'off');assert.equal(data(f).tools.adaptiveRace,false);assert.equal(data(f).adaptiveRaceCeiling,1.3);
++ assert.equal('adaptiveRace' in f.prefs(),false);assert.equal('adaptiveRaceCeiling' in f.prefs(),false);
++});
++test('eligible request combines constant ceiling and existing native planner controls without changing saved choices',async()=>{
++ const f=await actual();road(f);oldSettings(f);f.change('race-corner-assist',false);f.run(8);const prior=f.prefs(),before=Buffer.from(new Uint8Array(f.memory.buffer));
++ f.change('adaptive-race',true);f.run(8);assert.equal(last(f).pace,1.3);assert.equal(last(f).raceCornerAssist,true);assert.equal(last(f).raceCornerFactor,.85);assert.equal(last(f).raceCornerMargin,20);assert.equal(last(f).raceBraking,.6);assert.deepEqual(f.prefs(),prior);assert.deepEqual(Buffer.from(new Uint8Array(f.memory.buffer)),before);assert.deepEqual(Array.from(f.aiLog.keys),[]);
++ assert.equal(data(f).adaptiveRaceRequested,true);assert.equal(data(f).adaptiveRaceState,'pace-pending');assert.equal(data(f).tools.adaptiveRace,true);
++ // No per-tick multiplier changes; the native route, not JavaScript, varies target by distance.
++ assert.equal(new Set(f.aiLog.updates.slice(-8).map(v=>v.pace)).size,1);
++ f.change('adaptive-race',false);f.run();assert.equal(last(f).pace,1.65);assert.equal(last(f).raceCornerAssist,false);assert.deepEqual(f.prefs(),prior);
++});
++test('actual, forced and online Street X retain exact prior effective commands for both assist selections',async()=>{
++ for(const assist of [false,true])for(const mark of [f=>f.d.setUint8(0x89e7e3,1),f=>f.put(0x89010c,1),f=>{f.put(0x850078,8);f.put(0x850088,10);f.change('online',true);}]){
++  const f=await actual();road(f);oldSettings(f);f.change('race-corner-assist',assist);mark(f);f.run(8);const before=signature(f),prefs=f.prefs();f.change('adaptive-race',true);f.input('adaptive-race-ceiling',2);f.run(8);
++  assert.deepEqual(signature(f),before);assert.deepEqual(f.prefs(),prefs);assert.equal(data(f).adaptiveRaceState,'street-x');assert.match(f.nodes['adaptive-race-state'].textContent,/Street X unchanged/);assert.doesNotMatch(f.nodes['hud-pace'].textContent,/Adaptive/);
++ }
++});
++test('excluded free roam, Outrun, Drag, Drift, forced variants and unknown modes retain old commands',async()=>{
++ for(const mode of [f=>{f.put(0x89e7b0,0);f.drive(2);},f=>f.put(0x89e7b0,7),f=>f.put(0x89e7b0,99),f=>f.d.setUint8(0x89e7d8,1),f=>f.d.setUint8(0x89e7d9,1),f=>f.put(0x890108,1),f=>f.put(0x890104,1),f=>f.put(0x890114,1)]){
++  const f=await actual();road(f);oldSettings(f);f.change('ai-pace',true);f.input('pace-factor',1.45);mode(f);f.run(8);const before=signature(f);f.change('adaptive-race',true);f.run(8);assert.deepEqual(signature(f),before);assert.equal(data(f).adaptiveRaceRequested,false);assert.equal(data(f).adaptiveRaceState,'mode');
++ }
++});
++test('online gating and supported-build checks cannot be bypassed by new toggle',async()=>{
++ const f=await actual();road(f);f.put(0x850078,8);f.change('adaptive-race',true);f.run(8);assert.equal(last(f).safe,false);assert.equal(data(f).adaptiveRaceState,'network-permission');
++ f.change('online',true);f.run(8);assert.equal(last(f).safe,true);assert.equal(last(f).allowNetwork,true);assert.equal(last(f).pace,1.3);assert.equal(last(f).raceCornerAssist,true);assert.equal(data(f).adaptiveRaceRequested,true);
++ f.change('online',false);f.run(8);assert.equal(last(f).safe,false);assert.equal(data(f).adaptiveRaceRequested,false);assert.doesNotMatch(f.nodes['hud-pace'].textContent,/planner observed/);
++ for(const opts of [{verified:false},{revision:'2f0ddd3b',profile:require('../extension/current-profile.js')},{profile:{...profile,capabilities:{...profile.capabilities,corner:false}}}]){
++  const g=await actual(null,opts);road(g);g.run();assert.equal(g.nodes['adaptive-race'].disabled,true);g.change('adaptive-race',true);g.run(8);assert.equal(g.nodes['adaptive-race'].checked,false);assert.equal(data(g).adaptiveRaceRequested,false);
++ }
++});
++test('race transition applies adaptive only outside Street X and restores previous controls without edits',async()=>{
++ const f=await actual();road(f);oldSettings(f);f.change('adaptive-race',true);const prefs=f.prefs();
++ for(const street of [false,true,false,true]){f.d.setUint8(0x89e7e3,+street);f.run(8);assert.equal(last(f).pace,street?1.65:1.3);assert.equal(last(f).raceCornerAssist,true);assert.deepEqual(f.prefs(),prefs);assert.equal(data(f).adaptiveRaceRequested,!street);}
++});
++test('adaptive planner evidence requires current matching pace and both corner and braking observations',async()=>{
++ const f=await actual();road(f);f.change('adaptive-race',true);f.run(8);assert.equal(data(f).adaptiveRaceState,'pace-pending');
++ Object.assign(f.aiLog,{paceApplied:1.3,cornerMode:2,cornerApplied:.8,cornerHits:0,brakingHits:1});f.run(8);assert.equal(data(f).adaptiveRaceState,'planner-pending');
++ f.aiLog.cornerHits=3;f.aiLog.brakingHits=0;f.run(8);assert.equal(data(f).adaptiveRaceState,'planner-pending');
++ f.aiLog.brakingHits=2;f.run(8);assert.equal(data(f).adaptiveRaceState,'planner-observed');assert.match(f.nodes['hud-pace'].textContent,/1.30× ceiling.*planner observed/);
++ f.input('adaptive-race-ceiling',1.5);assert.doesNotMatch(f.nodes['hud-pace'].textContent,/planner observed/);f.run(8);assert.equal(data(f).adaptiveRaceState,'pace-pending');
++ f.aiLog.paceApplied=1.5;f.aiLog.cornerApplied=null;f.run(8);assert.equal(data(f).adaptiveRaceState,'planner-pending');
++});
++test('manual takeover, stop, pause, race finish and session replacement do not retain active evidence',async()=>{
++ for(const action of [f=>f.press('F7'),f=>f.press('ArrowLeft'),f=>f.press('F9'),f=>f.focus(false),f=>f.hidden(true),f=>f.put(f.race,6)]){
++  const f=await actual();road(f);f.change('adaptive-race',true);Object.assign(f.aiLog,{paceApplied:1.3,cornerMode:2,cornerApplied:.8,cornerHits:3,brakingHits:2});f.run(8);assert.equal(data(f).adaptiveRaceState,'planner-observed');action(f);f.run(8);assert.equal(data(f).adaptiveRaceRequested,false);assert.doesNotMatch(f.nodes['hud-pace'].textContent,/planner observed/);
++ }
++ const f=await actual();road(f);f.change('adaptive-race',true);f.run();f.press('F9');assert.equal(f.nodes['adaptive-race'].checked,false);f.run(8);assert.equal(data(f).adaptiveRaceState,'off');
++ const g=await actual();road(g);g.change('adaptive-race',true);g.run();g.focus(false);g.run();g.focus(true);g.run(8);assert.equal(data(g).adaptiveRaceRequested,true);g.worker.emit({t:'exit'});assert.doesNotMatch(g.nodes['hud-pace'].textContent,/planner observed/);
++});
++test('ceiling input is bounded and rounded, never added to named profiles or restored on load/reload',async()=>{
++ const f=await actual();road(f);oldSettings(f);f.change('adaptive-race',true);
++ for(const [input,want] of [['',1.3],['bad',1.3],[NaN,1.3],[Infinity,1.3],[0,1],[5,2],[1.327,1.35],[1.3,1.3]]){f.input('adaptive-race-ceiling',input);f.run(8);assert.equal(last(f).pace,want);assert.equal(data(f).adaptiveRaceCeiling,want);}
++ f.input('profile-name','Prior Street X');f.click('profile-save');const saved=JSON.parse(f.profileStorage.get(Profiles.KEY)),record=saved.profiles.at(-1);assert.doesNotMatch(JSON.stringify(record),/adaptiveRace/);assert.equal(record.settings.racePaceFactor,1.65);assert.equal(record.settings.raceCornerFactor,.85);
++ f.click('profile-load');assert.equal(f.nodes['adaptive-race'].checked,false);f.run(8);assert.equal(last(f).pace,1.65);assert.equal(data(f).adaptiveRaceState,'off');
++ const g=await actual(f.stored(),{profileStorage:f.profileStorage});assert.equal(g.nodes['adaptive-race'].checked,false);g.run(8);assert.equal(data(g).tools.adaptiveRace,false);assert.equal(data(g).adaptiveRaceCeiling,1.3);
++});
++test('local adaptive diagnostics accept only bounded fields and fixed state labels',()=>{
++ const d=require('../extension/diagnostics.js').create();d.record('state',{adaptiveRaceRequested:true,adaptiveRaceState:'planner-observed',adaptiveRaceCeiling:1.3,tools:{adaptiveRace:true,adaptiveRaceCeiling:2}});
++ let v=JSON.parse(d.exportText()).events.at(-1).data;assert.deepEqual(v,{adaptiveRaceRequested:true,adaptiveRaceCeiling:1.3,adaptiveRaceState:'planner-observed',tools:{adaptiveRace:true,adaptiveRaceCeiling:2}});
++ d.record('state',{adaptiveRaceRequested:'true',adaptiveRaceState:'private data',adaptiveRaceCeiling:3,tools:{adaptiveRace:1,adaptiveRaceCeiling:NaN}});v=JSON.parse(d.exportText()).events.at(-1).data;assert.deepEqual(v,{tools:{}});
++});
+--- a/tests/core.test.cjs
++++ b/tests/core.test.cjs
+@@ -229,6 +229,7 @@
+   worker.postMessage({mod:gameModule,memory:f.memory,slot:0});worker.emit({t:'register',kind:5,ptr:status});
+   return {...f,nodes,worker,status,physics,wheels,gameModule,createWorker:()=>new context.Worker('https://nfsu2.xyz/host/game-worker.js'),aiLog,wallLog,carLog,dynoLog,html:()=>shadow.html,stylesheets:()=>stylesheets,adoptedStylesheets:()=>shadow.adoptedStyleSheets,
+     uiFocus(node){shadow.activeElement=node;doc.activeElement=shadow;return shadow;},
++    gameDialog(open){doc.querySelector=selector=>selector==='dialog[open]'&&open?{}:null;},
+     profileStorage,sessions,storageEvent(key){context.dispatchEvent({type:'storage',key});},pageEvent(type,persisted=false){context.dispatchEvent({type,persisted});},
+     hidden(value){doc.hidden=value;for(const fn of listeners['doc:visibilitychange']||[])fn({});},
+     run(n=1){for(let i=0;i<n;i++){now+=50;interval();}},
+--- a/tests/package-release.test.cjs
++++ b/tests/package-release.test.cjs
+@@ -1,10 +1,10 @@
+ 'use strict';
+ const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os'),{spawnSync}=require('node:child_process');
+-test('v0.31 combined Drag tuner online package includes referenced docs and refuses to overwrite existing archives',()=>{
++test('v0.32 combined Drag tuner online package includes referenced docs and refuses to overwrite existing archives',()=>{
+  const root=path.resolve(__dirname,'..'),tmp=fs.mkdtempSync(path.join(os.tmpdir(),'combined-release-')),out=path.join(tmp,'release.zip');
+  try{
+-  const manifest=JSON.parse(fs.readFileSync(path.join(root,'extension/manifest.json'),'utf8'));assert.equal(manifest.version,'0.31.0');
+-  const source=fs.readFileSync(path.join(root,'tools/package-release.py'),'utf8');assert.match(source,/NFSU2-Driving-Tools-v0\.31-Combined-Drag-Retention\.zip/);assert.doesNotMatch(source,/v0\.13-Current-Build\.zip/);
++  const manifest=JSON.parse(fs.readFileSync(path.join(root,'extension/manifest.json'),'utf8'));assert.equal(manifest.version,'0.32.0');
++  const source=fs.readFileSync(path.join(root,'tools/package-release.py'),'utf8');assert.match(source,/NFSU2-Driving-Tools-v0\.32-Combined-Race-Only-AI\.zip/);assert.doesNotMatch(source,/v0\.13-Current-Build\.zip/);
+   const run=()=>spawnSync('python3',[path.join(root,'tools/package-release.py'),'--output',out],{encoding:'utf8'});
+   const first=run();assert.equal(first.status,0,first.stderr);const report=JSON.parse(first.stdout);assert.ok(report.files.includes('CHANGELOG.md'));assert.ok(report.files.includes('README.md'));
+   const bytes=fs.readFileSync(out),second=run();assert.notEqual(second.status,0);assert.deepEqual(fs.readFileSync(out),bytes);
+@@ -16,7 +16,7 @@
+  const root=path.resolve(__dirname,'..'),read=f=>fs.readFileSync(path.join(root,'extension',f),'utf8');
+  const manifest=JSON.parse(read('manifest.json'));
+  assert.deepEqual(manifest.content_scripts[0].js,['diagnostics.js','walls.js','cars.js','current-profile.js','latest-profile.js','next-profile.js','signatures.js','signature-profile.js','signature-profile-latest.js','signature-profile-next.js','dyno-native-profile.js','dyno-native.js','ai.js','core.js','dyno-core.js','dyno.js','dyno-evaluator.js','dyno-full.js','tool-profiles.js','page.js']);
+- assert.equal(manifest.version,'0.31.0');assert.match(read('page.js'),/version:'0\.31\.0'/);assert.match(read('page.js'),/class="version">0\.31\.0</);assert.match(read('popup.html'),/class="version">v0\.31\.0</);assert.match(read('diagnostics.js'),/version='0\.31\.0'/);
++ assert.equal(manifest.version,'0.32.0');assert.match(read('page.js'),/version:'0\.32\.0'/);assert.match(read('page.js'),/class="version">0\.32\.0</);assert.match(read('popup.html'),/class="version">v0\.32\.0</);assert.match(read('diagnostics.js'),/version='0\.32\.0'/);
+  assert.match(read('page.js'),/id="dyno-mode"/);assert.match(read('page.js'),/id="corner-margin"/);assert.match(read('page.js'),/id="diagnostic-export"/);assert.match(read('page.js'),/id="tester"/);
+ });
+ 
+--- a/tests/race-braking-native.test.cjs
++++ b/tests/race-braking-native.test.cjs
+@@ -46,11 +46,11 @@
+    const a=fixture(profiles[profile].original),b=fixture(profiles[profile].patched);for(const x of [a,b]){x.put(0x850078,8);x.put(A+84,1);change(x);}assert.deepEqual(b.run(),a.run());assert.equal(b.get(B+60),0);assert.deepEqual(Buffer.from(b.memory.buffer),Buffer.from(a.memory.buffer));
+   }
+  });
+- test(profile+': patched exact getter preserves ABI and only changes ST0 and B+60',()=>{for(const backward of [false,true])for(const pace of [75,100,150,200,300])for(const braking of [50,75,100]){
++ test(profile+': patched exact getter preserves ABI and only changes ST0 and B+60',()=>{for(const backward of [false,true])for(const pace of [75,100,130,150,200,300])for(const braking of [50,75,100]){
+  const a=fixture(profiles[profile].original,{pace,braking}),b=fixture(profiles[profile].patched,{pace,braking});a.prepareGetter(backward);b.prepareGetter(backward);const normal=a.getter(),actual=b.getter();assert.equal(actual,normal*(braking/100)/(Math.max(1,pace/100)**2));assert.equal(b.get(B+60),1);assert.equal(b.get(b.cpu+16),b.sp+4);assert.equal(b.get(b.cpu+32),backward?0x40a723:0x4227a1);
+  const slot=b.cpu+72+(b.get(b.cpu+136)&7)*8;const x=new Uint8Array(a.memory.buffer),y=new Uint8Array(b.memory.buffer);for(let i=0;i<y.length;i++)if(x[i]!==y[i])assert.ok((i>=slot&&i<slot+8)||(i>=B+60&&i<B+64),'unexpected write '+i.toString(16));
+  }});
+- test(profile+': actual backward propagation protects apex and preserves 3x long-straight cap',()=>{for(const pace of [100,150,200,300])for(const braking of [50,75,100]){
++ test(profile+': actual backward propagation protects apex and preserves 3x long-straight cap',()=>{for(const pace of [100,130,150,200,300])for(const braking of [50,75,100]){
+  const p=pace/100,b=fixture(profiles[profile].patched,{pace,braking,apex:20/p}),raw=b.run(),target=raw.map(v=>Math.fround(v*p));assert.ok(b.get(B+60)>0,'getter must actually apply inside propagation');
+  target.forEach((v,i)=>{const expected=Math.min(60*p,Math.sqrt(400+24*(braking/100)*(30-i)*150));assert.ok(Math.abs(v-expected)<.001,JSON.stringify({pace,braking,i,v,expected}));});assert.equal(target[0],60*p);assert.ok(Math.abs(target.at(-1)-20)<1e-5);assert.equal(b.get(b.cpu+32),0x422b2e);
+  }});
+@@ -67,15 +67,15 @@
+  for(const change of changes){const a=fixture(profiles[profile].original,{pace:300}),b=fixture(profiles[profile].patched,{pace:300});change(a);change(b);a.run();b.run();assert.equal(b.get(B+60),0);assert.deepEqual(Buffer.from(b.memory.buffer),Buffer.from(a.memory.buffer));}
+  });
+  test(profile+': stronger braking margin moves slowdown earlier monotonically',()=>{
+- for(const pace of [100,150,200,300]){let previous;for(const braking of [100,75,50]){const b=fixture(profiles[profile].patched,{pace,braking,apex:20/(pace/100),gap:10}),target=b.run().map(v=>v*pace/100);if(previous){target.forEach((v,i)=>assert.ok(v<=previous[i]+1e-5));assert.ok(target[15]<previous[15]);}previous=target;}}
++ for(const pace of [100,130,150,200,300]){let previous;for(const braking of [100,75,50]){const b=fixture(profiles[profile].patched,{pace,braking,apex:20/(pace/100),gap:10}),target=b.run().map(v=>v*pace/100);if(previous){target.forEach((v,i)=>assert.ok(v<=previous[i]+1e-5));assert.ok(target[15]<previous[15]);}previous=target;}}
+  });
+  test(profile+': exact f17087 boundary getter caller executes the production hook',()=>{
+- for(const pace of [100,150,300]){const opts={pace,planner:true},a=fixture(profiles[profile].original,opts),b=fixture(profiles[profile].patched,opts);const normal=a.planner(),modified=b.planner();assert.equal(modified.hits,1);assert.equal(modified.returnAddress,0x123456);assert.equal(modified.stack,b.sp+8);assert.ok(Math.abs(modified.boundaryDecel-normal.boundaryDecel*.75/((pace/100)**2))<1e-6,JSON.stringify({normal,modified}));assert.ok(normal.boundaryDecel>0);}
++ for(const pace of [100,130,150,200,300]){const opts={pace,planner:true},a=fixture(profiles[profile].original,opts),b=fixture(profiles[profile].patched,opts);const normal=a.planner(),modified=b.planner();assert.equal(modified.hits,1);assert.equal(modified.returnAddress,0x123456);assert.equal(modified.stack,b.sp+8);assert.ok(Math.abs(modified.boundaryDecel-normal.boundaryDecel*.75/((pace/100)**2))<1e-6,JSON.stringify({normal,modified}));assert.ok(normal.boundaryDecel>0);}
+  });
+  test(profile+': exact planner backward propagation integration',()=>{
+  // Controlled route-query, collision/boundary and curvature dependencies seed one
+  // corner. f17087, f4497 and f6454 themselves remain exact native instructions.
+- for(const pace of [100,150,300]){
++ for(const pace of [100,130,150,200,300]){
+  const a=fixture(profiles[profile].original,{planner:true,plannerCorners:true,pace}),b=fixture(profiles[profile].patched,{planner:true,plannerCorners:true,pace});const normal=a.planner(),result=b.planner();assert.ok(result.hits>1,JSON.stringify(result));assert.equal(result.returnAddress,0x123456);assert.equal(result.stack,b.sp+8);assert.equal(b.getterCalls[0].caller,0x4227a1);
+  const calls=b.getterCalls.filter(c=>c.caller===0x40a723&&c.direction===0);assert.ok(calls.length);for(const c of calls){assert.equal(c.outer,0x422b2e);assert.equal(c.direction,0);assert.equal(c.car,b.car);assert.equal(c.route,b.route);assert.ok(c.hitsBefore>=1);}
+  assert.equal(result.hits,1+calls.length);assert.equal(b.get(B+16),1,"actual native corner hook executed");assert.equal(b.get(B+52),pace);assert.equal(b.get(B+56),75);const protectedApex=b.d.getFloat32(B+24,true)*(pace/100);assert.ok(Math.abs(protectedApex-Math.sqrt(Math.fround(9.8)/Math.fround(.02))*.8)<1e-4);assert.ok(Math.abs(result.boundaryDecel-normal.boundaryDecel*.75/((pace/100)**2))<1e-6);
+--- a/tests/race-only-adaptive.test.cjs
++++ b/tests/race-only-adaptive.test.cjs
+@@ -0,0 +1,32 @@
++'use strict';
++const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),{createRequire}=require('node:module');
++const file=path.join(__dirname,'diagnostics-page.test.cjs'),baseRequire=createRequire(file),ctx={require:Object.assign(name=>name==='node:test'?{test(){}}:baseRequire(name),{resolve:baseRequire.resolve}),console,Buffer,WebAssembly,Blob,URL,setImmediate};
++vm.runInNewContext(fs.readFileSync(file,'utf8')+'\nthis.fixture=fixture;',ctx,{filename:file});
++const profile=require('../extension/next-profile.js'),TP=require('../extension/tool-profiles.js'),fixture=()=>ctx.fixture(null,true,false,{revision:profile.revision,profile});
++const road=f=>{f.put(0x89e7b0,1);f.drive(1);f.put(f.race,4);},last=f=>f.aiLog.updates.at(-1),state=f=>f.log().events.filter(e=>e.event==='state').at(-1).data;
++const arm=f=>{f.change('race-only-ai',true);f.change('adaptive-race',true);},plain=o=>JSON.parse(JSON.stringify(o)),copy=f=>Buffer.from(new Uint8Array(f.memory.buffer));
++test('adaptive works with race-only effective request without enabling all-modes AI or changing saved controls',async()=>{
++ const f=await fixture();road(f);f.change('race-pace',true);f.input('race-pace-factor',1.6);f.change('race-corner-assist',false);f.input('race-corner-factor',.85);f.input('race-braking',.6);arm(f);const old=f.prefs(),before=copy(f);f.run(8);
++ assert.equal(last(f).enabled,true);assert.equal(last(f).pace,1.3);assert.equal(last(f).raceCornerAssist,true);assert.equal(last(f).raceCornerFactor,.85);assert.equal(last(f).raceBraking,.6);assert.equal(f.nodes.ai.checked,false);assert.equal(state(f).raceOnlyRequested,true);assert.equal(state(f).adaptiveRaceRequested,true);assert.deepEqual(f.prefs(),old);assert.deepEqual(copy(f),before);
++ f.change('race-only-ai',false);f.run(8);assert.equal(last(f).enabled,false);assert.equal(state(f).adaptiveRaceRequested,false);assert.equal(state(f).adaptiveRaceState,'ai-off');assert.equal(f.nodes['adaptive-race'].checked,true);assert.equal(f.nodes.ai.checked,false);
++});
++test('combined Street X modes preserve exact old effective commands for both saved assist selections',async()=>{
++ for(const assist of [false,true])for(const mark of [f=>f.d.setUint8(0x89e7e3,1),f=>f.put(0x89010c,1),f=>{f.put(0x850078,8);f.put(0x850088,10);f.change('online',true);}]){
++  const f=await fixture();road(f);f.change('race-only-ai',true);f.change('race-pace',true);f.input('race-pace-factor',1.65);f.change('race-corner-assist',assist);f.input('race-corner-factor',.95);f.input('race-corner-margin',25);f.input('race-braking',1);mark(f);f.run(8);const before=plain(last(f));f.change('adaptive-race',true);f.input('adaptive-race-ceiling',2);f.run(8);assert.deepEqual(plain(last(f)),before);assert.equal(state(f).raceOnlyRequested,true);assert.equal(state(f).adaptiveRaceState,'street-x');assert.doesNotMatch(f.nodes['hud-pace'].textContent,/Adaptive/);
++ }
++});
++test('race-only and adaptive follow same-object roam/race/Drag/Drift/results transitions independently',async()=>{
++ const f=await fixture();arm(f);const cases=[{type:0,hud:2,phase:4,request:false,adaptive:false},{type:1,hud:1,phase:3,request:false,adaptive:false},{type:1,hud:1,phase:4,request:true,adaptive:true},{type:1,hud:1,phase:4,drag:1,request:true,adaptive:false},{type:1,hud:1,phase:4,drift:1,request:true,adaptive:false},{type:1,hud:1,phase:6,request:false,adaptive:false},{type:7,hud:1,phase:4,request:false,adaptive:false},{type:1,hud:1,phase:4,request:true,adaptive:true}];
++ for(const c of cases){f.put(0x89e7b0,c.type);f.drive(c.hud);f.put(f.race,c.phase);f.d.setUint8(0x89e7d8,c.drag||0);f.d.setUint8(0x89e7d9,c.drift||0);f.run(8);assert.equal(last(f).enabled,c.request,JSON.stringify(c));assert.equal(state(f).adaptiveRaceRequested,c.adaptive,JSON.stringify(c));assert.equal(f.nodes['race-only-ai'].checked,true);assert.equal(f.nodes.ai.checked,false);}
++});
++test('combined permission withdrawal and held controls cannot leave adaptive or race-only effective',async()=>{
++ const f=await fixture();road(f);f.put(0x850078,8);arm(f);f.run(8);assert.equal(last(f).enabled,false);assert.equal(state(f).adaptiveRaceRequested,false);f.change('online',true);f.run(8);assert.equal(last(f).enabled,true);assert.equal(state(f).adaptiveRaceRequested,true);f.change('online',false);f.run(8);assert.equal(last(f).enabled,false);assert.equal(state(f).adaptiveRaceRequested,false);
++ f.change('online',true);f.put(0x89e7b0,0);f.drive(2);f.press('ArrowUp');road(f);f.run(8);assert.equal(last(f).enabled,false);assert.equal(state(f).adaptiveRaceRequested,false);f.fire({type:'keyup',code:'ArrowUp',isTrusted:true});f.run(8);assert.equal(last(f).enabled,true);assert.equal(state(f).adaptiveRaceRequested,true);
++});
++test('manual takeover leaves adaptive dormant while Stop and profile Load clear both new session choices',async()=>{
++ const f=await fixture();road(f);arm(f);f.run(8);f.press('F7');f.run(8);assert.equal(f.nodes['race-only-ai'].checked,false);assert.equal(f.nodes['adaptive-race'].checked,true);assert.equal(last(f).enabled,false);assert.equal(state(f).adaptiveRaceRequested,false);
++ arm(f);f.press('F9');assert.equal(f.nodes['race-only-ai'].checked,false);assert.equal(f.nodes['adaptive-race'].checked,false);f.input('profile-name','Old schema');f.click('profile-save');const saved=JSON.parse(f.profileStorage.get(TP.KEY)),p=saved.profiles[0];assert.equal('raceOnlyAI' in p.settings,false);assert.equal('adaptiveRace' in p.settings,false);arm(f);f.change('profile-select',p.id);f.click('profile-load');assert.equal(f.nodes['race-only-ai'].checked,false);assert.equal(f.nodes['adaptive-race'].checked,false);f.run(8);assert.equal(last(f).enabled,false);
++});
++test('combined acknowledgement requires native pace and planner evidence, then clears immediately on exit',async()=>{
++ const f=await fixture();road(f);arm(f);f.run(8);assert.equal(state(f).adaptiveRaceState,'pace-pending');f.aiLog.paceApplied=1.3;f.run(8);assert.equal(state(f).adaptiveRaceState,'planner-pending');f.aiLog.cornerMode=2;f.aiLog.cornerHits=2;f.aiLog.brakingHits=1;f.aiLog.cornerApplied=.8;f.run(8);assert.equal(state(f).adaptiveRaceState,'planner-observed');assert.match(f.nodes['hud-pace'].textContent,/planner observed/);f.worker.emit({t:'exit'});f.click('diagnostic-export');const d=JSON.parse(await f.downloads.at(-1).text()).events.at(-1).data;assert.equal(d.raceOnlyRequested,false);assert.equal(d.adaptiveRaceRequested,false);assert.equal(d.paceConfirmed,false);assert.doesNotMatch(f.nodes['race-only-state'].textContent,/Native race AI active/);assert.doesNotMatch(f.nodes['adaptive-race-state'].textContent,/observed/);
++});
+--- a/tests/race-only-ai.test.cjs
++++ b/tests/race-only-ai.test.cjs
+@@ -0,0 +1,70 @@
++'use strict';
++const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),{createRequire}=require('node:module');
++const file=path.join(__dirname,'diagnostics-page.test.cjs'),baseRequire=createRequire(file),ctx={require:Object.assign(name=>name==='node:test'?{test(){}}:baseRequire(name),{resolve:baseRequire.resolve}),console,Buffer,WebAssembly,Blob,URL,setImmediate};
++vm.runInNewContext(fs.readFileSync(file,'utf8')+'\nthis.fixture=fixture;',ctx,{filename:file});
++const profile=require('../extension/next-profile.js'),TP=require('../extension/tool-profiles.js');
++const fixture=(extra={},dyno=false,saved=null)=>ctx.fixture(saved,true,dyno,{revision:profile.revision,profile,...extra});
++const copy=f=>Buffer.from(new Uint8Array(f.memory.buffer)),last=f=>f.aiLog.updates.at(-1),state=f=>f.log().events.filter(e=>e.event==='state').at(-1).data;
++const race=(f,{hud=1,type=1,phase=4,drag=false}={})=>{f.drive(hud);f.put(0x89e7b0,type);f.put(f.race,phase);f.d.setUint8(0x89e7d8,drag?1:0);};
++const arm=f=>f.change('race-only-ai',true),tick=f=>f.run(8),release=(f,code)=>f.fire({type:'keyup',code,isTrusted:true});
++test('race-only is off by default, keeps existing profiles/schema intact and never enables AI by itself',async()=>{
++ const f=await fixture();race(f);const before=copy(f);tick(f);assert.equal(last(f).enabled,false);assert.equal(f.nodes['race-only-ai'].checked,false);assert.equal(state(f).tools.raceOnlyAI,false);assert.deepEqual(copy(f),before);assert.equal('raceOnlyAI' in f.prefs(),false);
++});
++test('race-only acquires on active race and releases in roam/results while staying armed between races',async()=>{
++ const f=await fixture();race(f,{hud:2,type:0});arm(f);tick(f);assert.equal(last(f).enabled,false);assert.equal(f.nodes['race-only-ai'].checked,true);assert.equal(f.nodes.ai.checked,false);
++ race(f);tick(f);assert.equal(last(f).enabled,true);assert.equal(last(f).mode,1);assert.equal(state(f).raceOnlyRequested,true);assert.match(f.nodes['race-only-state'].textContent,/active/);
++ for(const config of [{phase:6},{hud:2,type:0},{type:7},{phase:3}]){race(f,config);tick(f);assert.equal(last(f).enabled,false);assert.equal(state(f).raceOnlyRequested,false);assert.equal(f.nodes['race-only-ai'].checked,true);race(f);tick(f);assert.equal(last(f).enabled,true);}
++});
++test('race-only eligibility is exact across race type, HUD and phase combinations',async()=>{
++ const f=await fixture();arm(f);for(const type of [0,1,2,7,255])for(const hud of [0,1,2,3])for(const phase of [0,3,4,5,6]){race(f,{type,hud,phase});f.run();assert.equal(last(f).enabled,type===1&&hud===1&&phase===4,JSON.stringify({type,hud,phase}));}
++});
++test('race-only preserves Street X and native Drag/Drift requests without substituting road settings',async()=>{
++ const modes=[()=>{},f=>f.d.setUint8(0x89e7e3,1),f=>f.put(0x89010c,1),f=>f.d.setUint8(0x89e7d8,1),f=>f.d.setUint8(0x89e7d9,1),f=>f.put(0x890104,1),f=>f.put(0x890114,1)];
++ for(const mode of modes){const outcomes=[];for(const only of [false,true]){const f=await fixture();race(f);mode(f);f.change('race-pace',true);f.input('race-pace-factor',1.5);f.change('race-corner-assist',true);f.input('race-corner-factor',.85);f.input('race-braking',.75);only?arm(f):f.change('ai',true);tick(f);outcomes.push(JSON.parse(JSON.stringify(last(f))));}assert.deepEqual(outcomes[1],outcomes[0]);}
++});
++test('race-only online permission gates every network signal and withdrawal keeps arm but releases request',async()=>{
++ for(const signal of [f=>f.put(0x850078,8),f=>f.put(0x866a14,1),f=>f.put(0x8669f4,1),f=>f.d.setUint8(0x89cf69,1)]){const f=await fixture();race(f);signal(f);arm(f);tick(f);assert.equal(last(f).enabled,false);f.change('online',true);tick(f);assert.equal(last(f).enabled,true);assert.equal(last(f).allowNetwork,true);f.change('online',false);tick(f);assert.equal(last(f).enabled,false);assert.equal(f.nodes['race-only-ai'].checked,true);assert.equal(state(f).paceConfirmed,false);}
++});
++test('race-only fails closed for unsupported/unready or missing AI/Drag capability',async()=>{
++ for(const extra of [{verified:false},{profile:{...profile,capabilities:{...profile.capabilities,ai:false}}},{profile:{...profile,capabilities:{...profile.capabilities,dragAI:false}}}]){const f=await fixture(extra);race(f,{drag:true});arm(f);tick(f);assert.equal(last(f).enabled,false);}
++ const f=await fixture();race(f);arm(f);f.put(f.player+4,0);tick(f);assert.equal(last(f).enabled,false);
++});
++test('visibility, focus, dialog and tuner pauses suppress race-only request but do not forget arming',async()=>{
++ for(const [pause,resume] of [[f=>f.hidden(true),f=>f.hidden(false)],[f=>f.focus(false),f=>f.focus(true)],[f=>f.gameDialog(true),f=>f.gameDialog(false)]]){const f=await fixture();race(f);arm(f);tick(f);assert.equal(last(f).enabled,true);pause(f);tick(f);assert.equal(last(f).enabled,false);assert.equal(f.nodes['race-only-ai'].checked,true);resume(f);tick(f);assert.equal(last(f).enabled,true);}
++ const f=await fixture({},true);race(f);arm(f);tick(f);f.change('dyno-enable',true);f.click('dyno-find');await new Promise(r=>setImmediate(r));const n=f.aiLog.updates.length;tick(f);assert.equal(f.aiLog.updates.length,n);assert.equal(state(f).raceOnlyRequested,false);assert.equal(f.nodes['race-only-ai'].checked,true);f.dynoLog.instance.finish();await new Promise(r=>setImmediate(r));tick(f);assert.equal(last(f).enabled,true);
++});
++test('F7 F9 and Stop always disarm race-only while waiting or active',async()=>{
++ for(const mode of [{hud:2,type:0},{phase:3},{}])for(const action of [f=>f.press('F7'),f=>f.press('F9'),f=>f.click('stop')]){const f=await fixture();race(f,mode);arm(f);tick(f);action(f);assert.equal(f.nodes['race-only-ai'].checked,false);race(f);tick(f);assert.equal(last(f).enabled,false);assert.equal(f.nodes.ai.checked,false);}
++});
++test('race driving keys disarm in countdown/active race, but free-roam and outrun manual driving preserve arm',async()=>{
++ for(const code of ['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','KeyW','KeyA','KeyS','KeyD','Space'])for(const phase of [3,4]){const f=await fixture();race(f,{phase});arm(f);f.press(code);assert.equal(f.nodes['race-only-ai'].checked,false,code);release(f,code);race(f);tick(f);assert.equal(last(f).enabled,false);}
++ for(const type of [0,7]){const f=await fixture();race(f,{type,hud:2});arm(f);f.press('ArrowLeft');assert.equal(f.nodes['race-only-ai'].checked,true);release(f,'ArrowLeft');race(f);tick(f);assert.equal(last(f).enabled,true);}
++});
++test('held free-roam driving input prevents race acquisition until release without changing manual AI mode',async()=>{
++ const f=await fixture();race(f,{type:0,hud:2});arm(f);f.press('ArrowUp');race(f);tick(f);assert.equal(last(f).enabled,false);assert.equal(state(f).raceOnlyInputClear,false);assert.equal(f.nodes['race-only-ai'].checked,true);release(f,'ArrowUp');tick(f);assert.equal(last(f).enabled,true);
++});
++test('UI range keys do not disarm race-only, but F7 from UI does',async()=>{
++ const f=await fixture();race(f);arm(f);for(const key of ['ArrowLeft','ArrowRight','Space']){f.press(key,true);assert.equal(f.nodes['race-only-ai'].checked,true);tick(f);assert.equal(last(f).enabled,true);}f.press('F7',true);assert.equal(f.nodes['race-only-ai'].checked,false);
++});
++test('selecting either AI mode disables the other and race-only off does not re-enable all-modes AI',async()=>{
++ const f=await fixture();race(f,{type:0,hud:2});f.change('ai',true);tick(f);assert.equal(last(f).enabled,true);arm(f);tick(f);assert.equal(last(f).enabled,false);assert.equal(f.nodes.ai.checked,false);f.change('ai',true);tick(f);assert.equal(last(f).enabled,true);assert.equal(f.nodes['race-only-ai'].checked,false);arm(f);race(f);tick(f);f.change('race-only-ai',false);tick(f);assert.equal(last(f).enabled,false);assert.equal(f.nodes.ai.checked,false);
++});
++test('race-only HUD and exported pace confirmation use effective request rather than all-modes checkbox',async()=>{
++ const f=await fixture();race(f);f.change('race-pace',true);f.input('race-pace-factor',1.5);f.aiLog.paceApplied=1.5;arm(f);tick(f);assert.equal(f.nodes.ai.checked,false);assert.equal(state(f).paceConfirmed,true);assert.match(f.nodes['hud-driver'].textContent,/AI active/);assert.match(f.nodes['hud-pace'].textContent,/ack/);f.aiLog.owned=true;race(f,{type:0,hud:2});tick(f);assert.equal(state(f).paceConfirmed,false);assert.equal('paceApplied' in state(f),false);assert.doesNotMatch(f.nodes['hud-driver'].textContent,/AI active/);assert.doesNotMatch(f.nodes['hud-pace'].textContent,/ack/);
++});
++test('race-only survives game reload within page only as arming, never exports old request on replacement',async()=>{
++ const f=await fixture();race(f);arm(f);tick(f);f.worker.postMessage({mod:new WebAssembly.Module(Uint8Array.from([0,97,115,109,1,0,0,0])),memory:f.memory,slot:0});f.click('diagnostic-export');const d=JSON.parse(await f.downloads.at(-1).text()).events.at(-1).data;assert.equal(d.raceOnlyRequested,false);assert.equal('aiOwned' in d,false);assert.equal(f.nodes['race-only-ai'].checked,true);race(f,{type:0,hud:2});tick(f);assert.equal(last(f).enabled,false);
++ const reload=await fixture({},false,f.stored());race(reload);tick(reload);assert.equal(reload.nodes['race-only-ai'].checked,false);assert.equal(last(reload).enabled,false);
++});
++test('named profile saves remain old schema and profile load explicitly clears race-only arming',async()=>{
++ const f=await fixture();race(f);arm(f);f.input('profile-name','Race choices');f.click('profile-save');const saved=JSON.parse(f.profileStorage.get(TP.KEY)),p=saved.profiles[0];assert.equal('raceOnlyAI' in p.settings,false);assert.equal(p.settings.ai,false);const store=TP.create({getItem:k=>f.profileStorage.get(k)??null,setItem:(k,v)=>f.profileStorage.set(k,v),removeItem:k=>f.profileStorage.delete(k)});assert.equal(store.snapshot().available,true);
++ f.change('profile-select',p.id);f.click('profile-load');tick(f);assert.equal(f.nodes['race-only-ai'].checked,false);assert.equal(last(f).enabled,false);assert.equal(f.profileStorage.get(TP.KEY),JSON.stringify(saved));
++});
++test('race-only observations reject non-boolean or unknown exported data',()=>{
++ const log=require('../extension/diagnostics.js').create();log.record('state',{raceOnlyEligible:'true',raceOnlyRequested:1,raceOnlyInputClear:{},tools:{raceOnlyAI:'true'}});const d=JSON.parse(log.exportText()).events.at(-1).data;for(const k of ['raceOnlyEligible','raceOnlyRequested','raceOnlyInputClear'])assert.equal(k in d,false);assert.equal('raceOnlyAI' in d.tools,false);
++});
++
++test('race-only active row clears immediately on stop/trap/exit/tuner suspension without losing arm',async()=>{
++ for(const pause of [f=>f.worker.emit({t:'exit'}),f=>f.worker.emit({t:'trap'}),f=>f.hidden(true),f=>f.focus(false)]){const f=await fixture();race(f);arm(f);tick(f);assert.match(f.nodes['race-only-state'].textContent,/Native race AI active/);pause(f);assert.doesNotMatch(f.nodes['race-only-state'].textContent,/Native race AI active/);tick(f);assert.doesNotMatch(f.nodes['race-only-state'].textContent,/Native race AI active/);assert.equal(f.nodes['race-only-ai'].checked,true);}
++ const f=await fixture({},true);race(f);arm(f);tick(f);f.change('dyno-enable',true);f.click('dyno-find');await new Promise(r=>setImmediate(r));tick(f);assert.doesNotMatch(f.nodes['race-only-state'].textContent,/Native race AI active/);assert.equal(f.nodes['race-only-ai'].checked,true);f.dynoLog.instance.finish();await new Promise(r=>setImmediate(r));
++});

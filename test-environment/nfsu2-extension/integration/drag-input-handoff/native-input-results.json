@@ -1,0 +1,130 @@
+{
+  "legacyOn": {
+    "driver": 3,
+    "physics": 1,
+    "mode": 3,
+    "requested": 3
+  },
+  "legacyAfterUpdate": {
+    "driver": 2,
+    "physics": 1,
+    "mode": 3,
+    "requested": 3
+  },
+  "guardedAcquired": {
+    "driver": 3,
+    "physics": 1,
+    "mode": 4,
+    "requested": 4
+  },
+  "retainedPlayerUpdates": 180,
+  "productionBridgeNativeCycles": 180,
+  "rejectedGuardsWithByteExactNativeFallback": 33,
+  "handbackChecks": [
+    {
+      "name": "OFF",
+      "state": {
+        "driver": 1,
+        "physics": 1,
+        "mode": 3,
+        "requested": 3
+      },
+      "skill": 4
+    },
+    {
+      "name": "permission",
+      "state": {
+        "driver": 1,
+        "physics": 1,
+        "mode": 3,
+        "requested": 3
+      },
+      "skill": 4
+    },
+    {
+      "name": "pause",
+      "state": {
+        "driver": 1,
+        "physics": 1,
+        "mode": 3,
+        "requested": 3
+      },
+      "skill": 4
+    },
+    {
+      "name": "requestedManual",
+      "state": {
+        "driver": 1,
+        "physics": 1,
+        "mode": 3,
+        "requested": 2
+      },
+      "skill": 4
+    },
+    {
+      "name": "requestedSpecial",
+      "state": {
+        "driver": 1,
+        "physics": 1,
+        "mode": 3,
+        "requested": 7
+      },
+      "skill": 4
+    },
+    {
+      "name": "nativeDriverOverwrite",
+      "state": {
+        "driver": 1,
+        "physics": 1,
+        "mode": 3,
+        "requested": 3
+      },
+      "skill": 4
+    },
+    {
+      "name": "nativeModeChange",
+      "state": {
+        "driver": 1,
+        "physics": 1,
+        "mode": 6,
+        "requested": 7
+      },
+      "skill": 4
+    },
+    {
+      "name": "heartbeat180",
+      "state": {
+        "driver": 1,
+        "physics": 1,
+        "mode": 3,
+        "requested": 3
+      },
+      "skill": 4
+    },
+    {
+      "name": "actualNative4To5ReplacementPreserved",
+      "state": {
+        "driver": 3,
+        "physics": 3,
+        "mode": 5,
+        "requested": 5
+      },
+      "skill": 4
+    },
+    {
+      "name": "interveningSkillPreserved",
+      "skill": 6
+    }
+  ],
+  "manualAfterNativeUpdate": {
+    "driver": 2,
+    "physics": 1,
+    "mode": 3,
+    "requested": 3
+  },
+  "driverRebuildsDuringRetainedUpdates": 1,
+  "limitations": [
+    "Synthetic memory fixture. Native allocator, low-level physics switching, event registration and unrelated callbacks are controlled leaf stubs.",
+    "Exact Player::Update, input reconcile, SetInputMode, AutoPilotOn, AutoPilotOff, manual driver switches and drag selection bodies execute. No live race/visual test performed."
+  ]
+}

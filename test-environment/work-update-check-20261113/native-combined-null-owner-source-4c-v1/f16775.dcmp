@@ -1,0 +1,238 @@
+import memory env_memory;
+
+global g_a:int = 734004784;
+global g_b:int = 0;
+global g_c:int = 18408;
+global g_d:int = 16;
+global g_e:int = 0;
+
+table T_a:funcref(min: 20927, max: 20927);
+
+import function nfsu2_wall_ms():double; // func0
+
+import function nfsu2_movie_open(a:int, b:int):int; // func1
+
+import function nfsu2_now_ms():double; // func2
+
+import function nfsu2_movie_decode(a:int, b:int, c:int, d:int, e:int, f:int, g:int, h:int):int; // func3
+
+import function nfsu2_movie_close(a:int):int; // func4
+
+import function nfsu2_register(a:int, b:int, c:int):int; // func5
+
+import function nfsu2_stack_frames():int; // func6
+
+import function nfsu2_blocked_ms():double; // func7
+
+import function wasi_snapshot_preview1_args_get(a:int, b:int):int; // func8
+
+import function wasi_snapshot_preview1_args_sizes_get(a:int, b:int):int; // func9
+
+import function wasi_snapshot_preview1_environ_get(a:int, b:int):int; // func10
+
+import function wasi_snapshot_preview1_environ_sizes_get(a:int, b:int):int; // func11
+
+import function wasi_snapshot_preview1_clock_time_get(a:int, b:long, c:int):int; // func12
+
+import function wasi_snapshot_preview1_fd_close(a:int):int; // func13
+
+import function wasi_snapshot_preview1_fd_fdstat_get(a:int, b:int):int; // func14
+
+import function wasi_snapshot_preview1_fd_fdstat_set_flags(a:int, b:int):int; // func15
+
+import function wasi_snapshot_preview1_fd_filestat_get(a:int, b:int):int; // func16
+
+import function wasi_snapshot_preview1_fd_filestat_set_size(a:int, b:long):int; // func17
+
+import function wasi_snapshot_preview1_fd_pread(a:int, b:int, c:int, d:long, e:int):int; // func18
+
+import function wasi_snapshot_preview1_fd_prestat_get(a:int, b:int):int; // func19
+
+import function wasi_snapshot_preview1_fd_prestat_dir_name(a:int, b:int, c:int):int; // func20
+
+import function wasi_snapshot_preview1_fd_read(a:int, b:int, c:int, d:int):int; // func21
+
+import function wasi_snapshot_preview1_fd_readdir(a:int, b:int, c:int, d:long, e:int):int; // func22
+
+import function wasi_snapshot_preview1_fd_seek(a:int, b:long, c:int, d:int):int; // func23
+
+import function wasi_snapshot_preview1_fd_sync(a:int):int; // func24
+
+import function wasi_snapshot_preview1_fd_tell(a:int, b:int):int; // func25
+
+import function wasi_snapshot_preview1_fd_write(a:int, b:int, c:int, d:int):int; // func26
+
+import function wasi_snapshot_preview1_path_create_directory(a:int, b:int, c:int):int; // func27
+
+import function wasi_snapshot_preview1_path_filestat_get(a:int, b:int, c:int, d:int, e:int):int; // func28
+
+import function wasi_snapshot_preview1_path_open(a:int, b:int, c:int, d:int, e:int, f:long, g:long, h:int, i:int):int; // func29
+
+import function wasi_snapshot_preview1_path_remove_directory(a:int, b:int, c:int):int; // func30
+
+import function wasi_snapshot_preview1_path_rename(a:int, b:int, c:int, d:int, e:int, f:int):int; // func31
+
+import function wasi_snapshot_preview1_path_unlink_file(a:int, b:int, c:int):int; // func32
+
+import function wasi_snapshot_preview1_poll_oneoff(a:int, b:int, c:int, d:int):int; // func33
+
+import function wasi_snapshot_preview1_proc_exit(a:int); // func34
+
+import function wasi_snapshot_preview1_sched_yield():int; // func35
+
+import function wasi_snapshot_preview1_random_get(a:int, b:int):int; // func36
+
+import function wasi_thread_spawn(a:int):int; // func37
+
+import function isolated_direct_f1296(a:int); // func38
+
+import function isolated_direct_f5205(a:int); // func39
+
+import function isolated_direct_f5867(a:int); // func40
+
+import function isolated_direct_f19427(a:int); // func41
+
+export function f16775(a:int) { // func42
+  var b:int;
+  var d:int_ptr@1;
+  var g:float;
+  var h:int;
+  var i:int;
+  var j:float;
+  var c:int = 0 + (b = a[4]:int);
+  (c + -4)[0]:int@1 = a[3]:int;
+  (c + -8)[0]:int@1 = a[6]:int;
+  (0 + (d = a[1]:int) + 16)[0]:int@1 = 0;
+  a[6]:int = d;
+  a[3]:int = 0;
+  a[4]:int = (d = b + -20);
+  b = 8966680[0]:int@1;
+  (c + -12)[0]:int@1 = a[7]:int;
+  d[0] = 4291084;
+  a[0]:int = b;
+  (c + -16)[0]:int@1 = (c = b << 2);
+  a[1]:int = c;
+  isolated_direct_f5867(a);
+  c = a[4]:int;
+  c[0]:int@1 = 1;
+  (c + 0 + -4)[0]:int@1 = (b = a[0]:int);
+  (0 + (d = a[6]:int) + 24)[0]:int@1 = b;
+  a[1]:int = d;
+  a[4]:int = (c = c + -8);
+  c[0]:int@1 = 4291100;
+  isolated_direct_f1296(a);
+  c = a[6]:int;
+  var e:int = a[4]:int;
+  var f:float = a[2]:float;
+  if (9037784[0]:ubyte != ((b = a[3]:int) & 255)) goto B_f;
+  if (8978696[0]:int@1 == b) goto B_e;
+  label B_f:
+  c[0]:float@1 = (g = 7879588[0]:float@1);
+  a[71]:short = (d = (h = a[71]:ushort) & -17665);
+  (a + (((i = a[34]:int) + -1 & 7) << 3) + 72)[0]:double =
+    f64_promote_f32(g);
+  if (g == g & (j = 7879596[0]:float@1) == j) goto B_i;
+  d = h | 17664;
+  goto B_h;
+  label B_i:
+  if (g > j) goto B_g;
+  if (eqz(g < j)) goto B_j;
+  d = d | 256;
+  goto B_h;
+  label B_j:
+  d = d | 16384;
+  label B_h:
+  a[71]:short = d;
+  label B_g:
+  a[34]:int = i & 7;
+  if ((d >> 10 & 1) != (d >> 8 & 1)) goto B_d;
+  goto B_c;
+  label B_e:
+  c[0]:float@1 = (g = 7879584[0]:float@1);
+  a[71]:short = (d = (i = a[71]:ushort) & -17665);
+  if (g == g & (j = 7879596[0]:float@1) == j) goto B_m;
+  d = i | 17664;
+  goto B_l;
+  label B_m:
+  if (g > j) goto B_k;
+  if (eqz(g < j)) goto B_n;
+  d = d | 256;
+  goto B_l;
+  label B_n:
+  d = d | 16384;
+  label B_l:
+  a[71]:short = d;
+  label B_k:
+  if ((d >> 10 & 1) == (d >> 8 & 1)) goto B_c;
+  label B_d:
+  c[0]:float@1 = j;
+  c = 0 + c;
+  (c + 12)[0]:int@1 = b;
+  (c + 8)[0]:byte = 1;
+  (c + 4)[0]:int@1 = b;
+  c = 0;
+  d = 8928712[0]:int@1;
+  if (d != b) goto B_o;
+  d = b;
+  goto B_a;
+  label B_o:
+  i = d - b;
+  if ((((i ^ d) & (d ^ b)) ^ i) <= -1) goto B_a;
+  goto B_b;
+  label B_c:
+  c = 0 + c;
+  (c + 12)[0]:int@1 = b;
+  (c + 8)[0]:byte = 1;
+  (c + 4)[0]:int@1 = b;
+  c = 0;
+  d = 8928712[0]:int@1;
+  if (d != b) goto B_p;
+  j = f;
+  d = b;
+  goto B_a;
+  label B_p:
+  c = 0;
+  j = f;
+  i = d - b;
+  if ((((i ^ d) & (d ^ b)) ^ i) >= 0) goto B_b;
+  j = f;
+  goto B_a;
+  label B_b:
+  c = 0;
+  loop L_q {
+    a[7]:int = c;
+    a[3]:int = b;
+    a[2]:float = j;
+    a[4]:int = (c = e + -4);
+    a[0]:int = (d = 8928708[0]:int@1);
+    c[0]:int@1 = 4291197;
+    a[1]:int = d + b;
+    isolated_direct_f19427(a);
+    b = a[3]:int + 264;
+    e = a[4]:int;
+    j = a[2]:float;
+    c = a[7]:int + 1;
+    i = c - (d = 8928712[0]:int@1);
+    if ((((i ^ c) & (c ^ d)) ^ i) < 0) continue L_q;
+  }
+  label B_a:
+  a[7]:int = c;
+  a[3]:int = b;
+  a[2]:float = j;
+  a[1]:int = 8513552;
+  a[0]:int = d;
+  a[4]:int = (c = e + -4);
+  c[0]:int@1 = 4291223;
+  isolated_direct_f5205(a);
+  c = a[4]:int;
+  b = c[0]:int@1;
+  (0 + (d = a[6]:int) + 16)[0]:int@1 = (e = 8802700[0]:int@1);
+  a[1]:int = e;
+  a[0]:int = d;
+  a[7]:int = b;
+  a[4]:int = c + 16;
+  a[8]:int = ((c = c + 0) + 12)[0]:int@1;
+  a[6]:int = (c + 4)[0]:int@1;
+  a[3]:int = (c + 8)[0]:int@1;
+}
+

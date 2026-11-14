@@ -1,0 +1,390 @@
+{
+  "kind": "VERBATIM-OFFLINE-EVIDENCE-REVIEW-PART",
+  "status": "PASS",
+  "file": "review/parts/02-OFFLINE-EVIDENCE.txt",
+  "bytes": 444173,
+  "sha256": "884f5778f45e183e595b62719b68c01769dc09644f1ce481c4006138eaa1af29",
+  "includedBodies": 37,
+  "bodies": [
+    {
+      "file": "artifacts/github-public-20261113-project-7c9e4b/review/parts/02-OFFLINE-EVIDENCE.README.md",
+      "bytes": 8321,
+      "sha256": "9ddc720583d73cec74bbe7e189898db059d15a87c40a48a4d566cd0e9dc56f68",
+      "bodyOffset": 103,
+      "bodyLength": 8321,
+      "artifactType": "editorial-static-procedure-and-fixture-inventory",
+      "scope": "Authored labels and source-derived procedure; not an execution log"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/bounded-started.json",
+      "bytes": 180,
+      "sha256": "3cade95f5dfc75bf4cce2619a1ca0321a91a555b201c777f1fef99b330a21a5a",
+      "bodyOffset": 8529,
+      "bodyLength": 180,
+      "artifactType": "runner-start-receipt",
+      "scope": "Latest history/enrollment unit; zero motion"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/bounded-receipt.json",
+      "bytes": 670,
+      "sha256": "e507f80de54b7863c941480fa16f8d9c31502c120a39279d924596ee78e894ca",
+      "bodyOffset": 8814,
+      "bodyLength": 670,
+      "artifactType": "runner-receipt-with-captured-stdout-stderr",
+      "scope": "Existing stdout/stderr JSON fields; no standalone transcript invented"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-World-static-CPP-proof.json",
+      "bytes": 19305,
+      "sha256": "5debe3b2dd4dadc9f5a24c03c43936ae9781858ce148297e41f31d1cf3b064d9",
+      "bodyOffset": 9603,
+      "bodyLength": 19305,
+      "artifactType": "diagnostic-json",
+      "scope": "Existing selected startup CPP proofs"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-World-required-pool-proof.json",
+      "bytes": 1992,
+      "sha256": "ce12645a496c37ac484bc65cc2a2d09c9dce27915f9a59ad11d6eb76c81ec3e9",
+      "bodyOffset": 29030,
+      "bodyLength": 1992,
+      "artifactType": "diagnostic-json",
+      "scope": "Existing required native pool proof"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-World-render-proof.json",
+      "bytes": 5400,
+      "sha256": "7ce3973c43df6c6b9d712282513d7245b4d2d0310ac404de5ebc6ed3abbd7790",
+      "bodyOffset": 31137,
+      "bodyLength": 5400,
+      "artifactType": "diagnostic-json",
+      "scope": "Existing render prerequisite proof"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-World-construction-proof.json",
+      "bytes": 6493,
+      "sha256": "0525f0d494a850746544fbef56725da5e21b53eb58bf755e617f26a91b47e92d",
+      "bodyOffset": 36658,
+      "bodyLength": 6493,
+      "artifactType": "diagnostic-json",
+      "scope": "Existing whole World return proof"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-World-post-return-dt-input.json",
+      "bytes": 1895,
+      "sha256": "c784e5dd85deed1da53732e6b72ae804eb77452f4bfe8ea26ecddcaf362c65b8",
+      "bodyOffset": 43274,
+      "bodyLength": 1895,
+      "artifactType": "diagnostic-json",
+      "scope": "Explicit disclosed dt caller input"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-ordered-history-pool-proof.json",
+      "bytes": 4439,
+      "sha256": "e460fdd2db9fd798d1b86af91742df6606d32ddf5c4d817541de3021ef78f1c9",
+      "bodyOffset": 45292,
+      "bodyLength": 4439,
+      "artifactType": "diagnostic-json",
+      "scope": "Actual native pool/node/list proof"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-hub-report-availability.json",
+      "bytes": 1015,
+      "sha256": "592b67999168d91832753c5e65200b428ebb9c05213cff7d34cbfe8b526dc24f",
+      "bodyOffset": 49851,
+      "bodyLength": 1015,
+      "artifactType": "diagnostic-json",
+      "scope": "Unavailable lobby/race context; not report clearance"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/replay-context-diagnostics-receipt.json",
+      "bytes": 947,
+      "sha256": "5bc766725273d5001579b737d7f115c3cd810ba16bf8f28cdfa2cd7f6c9c732c",
+      "bodyOffset": 50990,
+      "bodyLength": 947,
+      "artifactType": "diagnostic-receipt",
+      "scope": "Read-only diagnostic capture inventory"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/observer-frame-counts.jsonl",
+      "bytes": 79973,
+      "sha256": "13d5fb35c8578e98fe94a73238671dc9a9651a5579fdcab3a4e46f7dbd7c1dc8",
+      "bodyOffset": 52049,
+      "bodyLength": 79973,
+      "artifactType": "observation-count-journal",
+      "scope": "Verbatim existing per-stage callback counts; not stdout"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/isolation-receipt.json",
+      "bytes": 21,
+      "sha256": "e734d5d0959ce875042011a852db9034d201588636b6cb6fbde4ed37d41c678a",
+      "bodyOffset": 132129,
+      "bodyLength": 21,
+      "artifactType": "diagnostic-receipt",
+      "scope": "Observed local isolation receipt"
+    },
+    {
+      "file": "work-update-check-20261113/native-ordered-world-history-output-independent-4c-v2/review.json",
+      "bytes": 8166,
+      "sha256": "53a89771317d24541301c706846be40b5b85e169b18676e4e09150e875bd4af4",
+      "bodyOffset": 132257,
+      "bodyLength": 8166,
+      "artifactType": "independent-data-only-review",
+      "scope": "Corroboration and narrow limits"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-combined-observer-4c-v2/bounded-receipt.json",
+      "bytes": 647,
+      "sha256": "4bc08121229c5c7fcb8592bd68f29874300bdf5e12428a8e056470f54b3f20ba",
+      "bodyOffset": 140524,
+      "bodyLength": 647,
+      "artifactType": "historical-failed-runner-receipt",
+      "scope": "Invalid/disqualified earlier context; actual failed outcome"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-combined-observer-4c-v2/native-failure-snapshot.json",
+      "bytes": 34294,
+      "sha256": "2c125bf849fdaa1209a772897ce673285497c875fcb6786b9139759c65d006aa",
+      "bodyOffset": 141280,
+      "bodyLength": 34294,
+      "artifactType": "historical-failure-diagnostic-json",
+      "scope": "Actual frame2 OOB stack; not current successful baseline"
+    },
+    {
+      "file": "work-update-check-20261113/native-remote-world-replay-qualification-independent-4c-v3/qualification.json",
+      "bytes": 6346,
+      "sha256": "99b644ef8105e422cf19627a2d95a7c07648d7cac02ffd16c6b2f79222419408",
+      "bodyOffset": 175693,
+      "bodyLength": 6346,
+      "artifactType": "historical-disqualification-review",
+      "scope": "Earlier192-frame completion withdrawn as proper event baseline"
+    },
+    {
+      "file": "offline-report-lab/runs/encoder-verified/report.json",
+      "bytes": 85406,
+      "sha256": "f0206e5836ee12c1bcfc32b3b608832e4db8334c7c5ee72fad8902fc25741754",
+      "bodyOffset": 182106,
+      "bodyLength": 85406,
+      "artifactType": "historical-synthetic-encoded-report-json",
+      "scope": "Full existing JSON with actual encoded hex and failures; synthetic contexts"
+    },
+    {
+      "file": "offline-report-lab/lib/encoder-fixtures.cjs",
+      "bytes": 11692,
+      "sha256": "32436ed4a903a15900630a1890481393cdd4f963d8a8335f41b7fda55ece27d0",
+      "bodyOffset": 267570,
+      "bodyLength": 11692,
+      "artifactType": "complete-host-encoder-wrapper-source",
+      "scope": "Wrapper source; not itself the native body"
+    },
+    {
+      "file": "offline-report-lab/lib/native-fixtures.cjs",
+      "bytes": 13915,
+      "sha256": "becac158a405ef48aa0cbfd9e72f92ce105acab6f537b7b230052ed8b5294f5e",
+      "bodyOffset": 279319,
+      "bodyLength": 13915,
+      "artifactType": "complete-fixture-field-builder-source",
+      "scope": "Synthetic native envelope inputs and fields"
+    },
+    {
+      "file": "offline-report-lab/test/encoder-fixtures.test.cjs",
+      "bytes": 6091,
+      "sha256": "76d12b9a1a398aec627eebc031740e97aa7c50dbfd5c0493573016286788df02",
+      "bodyOffset": 293298,
+      "bodyLength": 6091,
+      "artifactType": "complete-source-field-assertions",
+      "scope": "Encoded header/statistics/checksum layout; no tests run"
+    },
+    {
+      "file": "offline-report-lab/fixtures/encoder/manifest.json",
+      "bytes": 6584,
+      "sha256": "63c9e1bfcc3c382e881079ac8c0de6ce7cb618dee4c85944b48353c27a3408c9",
+      "bodyOffset": 299453,
+      "bodyLength": 6584,
+      "artifactType": "fixture-provenance-manifest",
+      "scope": "Selected native encoder and leaf identity pins"
+    },
+    {
+      "file": "offline-report-lab/fixtures/native/manifest.json",
+      "bytes": 6623,
+      "sha256": "6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99",
+      "bodyOffset": 306100,
+      "bodyLength": 6623,
+      "artifactType": "fixture-provenance-manifest",
+      "scope": "Selected native helper provenance"
+    },
+    {
+      "file": "offline-report-lab/fixtures/host/provenance.json",
+      "bytes": 2322,
+      "sha256": "7f1becb3854e8e3a80bd546cfe4eff9d22a5d5c05bbd838688b02e767724fefd",
+      "bodyOffset": 312786,
+      "bodyLength": 2322,
+      "artifactType": "fixture-provenance-manifest",
+      "scope": "Host/page source and minimal fixture provenance"
+    },
+    {
+      "file": "offline-report-lab/README.txt",
+      "bytes": 3668,
+      "sha256": "8e40b07dc003cf45cc9ac124ad00606fc33a5ba372f582bbba4101d2acfb39de",
+      "bodyOffset": 315152,
+      "bodyLength": 3668,
+      "artifactType": "existing-startup-documentation",
+      "scope": "Existing commands and limitations; not newly executed"
+    },
+    {
+      "file": "offline-report-lab/package.json",
+      "bytes": 313,
+      "sha256": "041f2029d2eaf36f0d557cf5ad9fc1ef3be7e49a2470fdaeb50b8680bf16a33b",
+      "bodyOffset": 318866,
+      "bodyLength": 313,
+      "artifactType": "existing-package-source",
+      "scope": "Existing commands and runtime metadata"
+    },
+    {
+      "file": "offline-report-lab/lab.cjs",
+      "bytes": 7672,
+      "sha256": "ce9bbd4cd1488141b3e14caa72088798e0f76622e9480af4abb3604470bdec8f",
+      "bodyOffset": 319220,
+      "bodyLength": 7672,
+      "artifactType": "complete-startup-source",
+      "scope": "Existing isolated lab CLI flow; not executed"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/run-bounded.cjs",
+      "bytes": 2295,
+      "sha256": "e2c82f2de51ba5ef2384c1537afba26f75f5bed4cc494dd90cf259fec5c8f380",
+      "bodyOffset": 326992,
+      "bodyLength": 2295,
+      "artifactType": "complete-historical-runner-source",
+      "scope": "Frozen historical entrypoint; never rerun"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/probe-current-native-ai.cjs",
+      "bytes": 39153,
+      "sha256": "ea33bf8bccd7d0fe1374e549b73b7e49f96f8547635097afdde961d6ee848d3e",
+      "bodyOffset": 329399,
+      "bodyLength": 39153,
+      "artifactType": "complete-historical-startup-source",
+      "scope": "Exact caller subset and zero-movement receipt construction"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/world-initializer-stages.cjs",
+      "bytes": 11824,
+      "sha256": "0e8e1a49754f9022ac82d8f089819c5ac3850ff3d31cde888523e86b7e17ea65",
+      "bodyOffset": 368665,
+      "bodyLength": 11824,
+      "artifactType": "complete-historical-startup-source",
+      "scope": "Selected prerequisite ordering and read-only witness"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/combined-observer-source-addendum.json",
+      "bytes": 1948,
+      "sha256": "aac8fc33c46eb46c78dbfd1d1ff8927d012fef0493a5b316bfea7f01e5b49b9f",
+      "bodyOffset": 380612,
+      "bodyLength": 1948,
+      "artifactType": "source-preparation-scope-json",
+      "scope": "Unresolved prerequisites and history-only scope"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/disclosed-inputs.json",
+      "bytes": 7092,
+      "sha256": "790a14b439e9def191f108fac144ee553ae86d559a859ec6807051b9f89a56d3",
+      "bodyOffset": 382666,
+      "bodyLength": 7092,
+      "artifactType": "artificial-fixture-inventory-json",
+      "scope": "Original declared native fixture inputs"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/flat-scene-input.cjs",
+      "bytes": 2710,
+      "sha256": "c5ac8b29bf5872404183494d5efa4f43db0abe7153b3393049cf1a8142e3b200",
+      "bodyOffset": 389863,
+      "bodyLength": 2710,
+      "artifactType": "complete-artificial-fixture-source",
+      "scope": "Generated flat diagnostic scene"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/real-ai-takeover-input.cjs",
+      "bytes": 2597,
+      "sha256": "10fbb665f28379307b65df30ce66188003fc55111e66e4b3fcd67772d8041594",
+      "bodyOffset": 392684,
+      "bodyLength": 2597,
+      "artifactType": "complete-artificial-fixture-source",
+      "scope": "Generated road loaders and action-pool stage"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-start-marker-input.cjs",
+      "bytes": 3219,
+      "sha256": "18e20c9ef68a06be6aa26c4a05f478b38b02023417433535ef469ac46af48f9e",
+      "bodyOffset": 395395,
+      "bodyLength": 3219,
+      "artifactType": "complete-artificial-fixture-source",
+      "scope": "Generated declared marker inputs"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-difficulty-input.cjs",
+      "bytes": 2400,
+      "sha256": "2c0fe191edd9456fea5962013cc3cf1091c57b28b1ce1273e67fbdb31f625b3d",
+      "bodyOffset": 398726,
+      "bodyLength": 2400,
+      "artifactType": "complete-fixture-input-source",
+      "scope": "Pinned difficulty input provenance"
+    },
+    {
+      "file": "work-update-check-20261113/generated-road-speed-input-4c-v1/input-receipt.json",
+      "bytes": 42952,
+      "sha256": "27f9e5770e17fc38bdce642127ab5e909c12d47e12e7f05859b53570cb3eb2f3",
+      "bodyOffset": 401219,
+      "bodyLength": 42952,
+      "artifactType": "artificial-fixture-provenance-json",
+      "scope": "Generated road groups/links; no authentic track claim"
+    }
+  ],
+  "referencedButNotPasted": [
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/remote-condition-receipt.json",
+      "bytes": 1619904,
+      "sha256": "124c027351d962b90681d9ab65a5e441c58d6c5d3bb70a25f5d8b8ded3666286",
+      "included": false,
+      "reason": "Large repeated full diagnostic/receipt data; explicitly referenced rather than pasted"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-legacy-enrollment-receipt.json",
+      "bytes": 566675,
+      "sha256": "3f63daf578ee9bc5e5e5b70ca0d18b80ffa3592c7d0dda37d8b7799017c5c1cd",
+      "included": false,
+      "reason": "Large repeated full diagnostic/receipt data; explicitly referenced rather than pasted"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-ordered-world-history-4c-v2/replay-context-diagnostics.jsonl",
+      "bytes": 382121,
+      "sha256": "4a175b3ab3b7a563f53385b1d48ad37e9fa763b9c9b28bf358ba72f8342efb21",
+      "included": false,
+      "reason": "Large repeated full diagnostic/receipt data; explicitly referenced rather than pasted"
+    }
+  ],
+  "sourceBodiesPreservedByteForByte": true,
+  "sourceGameFixtureScriptsExecuted": false,
+  "frozenConditionsChangedOrRerun": false,
+  "screenshotsIncluded": false,
+  "standaloneStdoutStderrFilesInvented": false,
+  "syntheticEncodedExample": {
+    "report": "offline-report-lab/runs/encoder-verified/report.json",
+    "case": "encoder-race",
+    "capture": "captures/encoder-race-1.bin",
+    "bytes": 40,
+    "captureSha256": "1b0519e142e4c61b14ccc57efb7352e4a6c7477af4f3c5b6cbb766d3b4873342",
+    "originalBinaryMatchesExistingHex": true,
+    "build": "60946132",
+    "context": "synthetic controlled fixture; no transport",
+    "current4cReportClaimed": false
+  },
+  "latestNativeScope": "History allocation/enrollment only; zero movement frames; hub report unavailable",
+  "oldCombinedScope": "Actual failed earlier context; disqualified as valid startup/movement baseline",
+  "banAndIpClaimsVerified": false,
+  "writes": [
+    "review/parts/02-OFFLINE-EVIDENCE.txt",
+    "review/parts/02-OFFLINE-EVIDENCE.inventory.json",
+    "review/parts/02-OFFLINE-EVIDENCE.README.md"
+  ]
+}

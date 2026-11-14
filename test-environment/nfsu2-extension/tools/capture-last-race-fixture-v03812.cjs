@@ -1,0 +1,23 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),crypto=require('node:crypto'),{createRequire}=require('node:module');
+const root=path.resolve(__dirname,'..'),prior=path.resolve(root,'../work-paced-v03811/extension'),baseline=JSON.parse(fs.readFileSync(path.join(root,'verification/log-retention-baseline-v03812.json'),'utf8'));
+const sha=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+for(const name of ['page.js','diagnostics.js','core.js'])assert.equal(sha(path.join(prior,name)),baseline.sourceHashes[name],name+' must match delivered .11');
+assert.equal(sha(path.join(root,'extension/page.js')),baseline.sourceHashes['page.js']);
+assert.equal(sha(path.join(root,'extension/core.js')),baseline.sourceHashes['core.js']);
+const file=path.join(root,'tests/diagnostics-page.test.cjs'),baseRequire=createRequire(file);
+let source=fs.readFileSync(file,'utf8');
+const old="require('../extension/diagnostics.js').create(";
+assert.equal(source.split(old).length,2);
+source=source.replace(old,"require('../../work-paced-v03811/extension/diagnostics.js').create(");
+const context={require:Object.assign(name=>name==='node:test'?{test(){}}:baseRequire(name),{resolve:baseRequire.resolve}),console,Buffer,WebAssembly,Blob,URL,setImmediate};
+vm.runInNewContext(source+'\nthis.fixture=fixture;',context,{filename:file});
+(async()=>{
+ const AA=require(path.join(root,'extension/aa-profile.js')),f=await context.fixture(null,true,false,{revision:AA.revision,profile:AA});
+ f.put(0x89e7b0,1);f.put(0x89e7a0,4014);f.drive(1);f.put(f.race,4);f.change('ai',true);f.run(45);f.click('diagnostic-export');
+ const data=JSON.parse(await f.downloads.at(-1).text()),trace=data.raceTrace;
+ assert.equal(data.exporterVersion,'0.38.11');assert.equal(trace.rows.length,9);assert.equal(data.lastRaceTrace,undefined);
+ const receipt={kind:'controlled-production-v03811-road-race-trace-fixture',liveGame:false,boundary:'Delivered .11 page/core/logger with authored UI, AI and shared-memory fixture doubles; no real race or race result observed.',sourceLockSha256:baseline.sourceLockSha256,sourceHashes:Object.fromEntries(['page.js','core.js','diagnostics.js'].map(name=>[name,sha(path.join(prior,name))])),raceTrace:{format:trace.format,schema:trace.schema,columns:trace.columns,dropped:trace.dropped,rows:trace.rows}};
+ const output=path.join(root,'tests/fixtures/last-race-trace-v03811-for-v03812.json');fs.writeFileSync(output,JSON.stringify(receipt,null,2)+'\n');
+ process.stdout.write(JSON.stringify({output,sha256:sha(output),samples:trace.rows.length,columns:trace.columns.length,liveGame:false})+'\n');
+})().catch(error=>{process.stderr.write(error.stack+'\n');process.exitCode=1;});

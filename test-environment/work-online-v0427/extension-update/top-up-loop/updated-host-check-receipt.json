@@ -1,0 +1,2172 @@
+{
+  "at": "2026-11-13T04:28:00.320Z",
+  "sourceFreeze": "source-freeze.json",
+  "sourceFreezeSha256": "322291fd0fc7551d7f7d2e00a39d9bc26931f9087af169a6b11734ac596ee545",
+  "runtime": "v26.13.0",
+  "fullGameInstantiated": false,
+  "realWorkerCreated": false,
+  "networkUsed": false,
+  "reportTransportAvailable": false,
+  "originalModuleCompileOnly": true,
+  "settingsKeys": [
+    "nfsu2TrainerBinds",
+    "nfsu2TrainerPanel",
+    "nfsu2m_settings",
+    "nfsu2m_saved",
+    "nfsu2m_favs",
+    "nfsu2m_fps",
+    "nfsu2m_modhud"
+  ],
+  "harnessSourceSha256": "935e1c0e3410b0ac64dce5d5176b9c6bf3151188b5008ff391dca05f137f8893",
+  "domFixtureSourceSha256": "21a93e9107a8408f46e0a0f53205034155f2b083fd1fc051fd0cdf03a059a4cc",
+  "adaptedDOMFixtureSha256": "a072f7b604a5d48b3837a369df9c7dbf1182853089a6a9bf544a4ddfb233628e",
+  "exactCapturedSource": {
+    "path": "work-functions-20261112\\host-review\\main.js",
+    "sha256": "64700139309ee9d4f46a3f93d5b47c8f5d1b25434726d07e2f47923fdeef3510",
+    "helpers": {
+      "startUTF16": 706781,
+      "endUTF16": 711354,
+      "sha256": "0216832bd80f386d5d983cf68ec4714760fbeaaa3b78410cd6f482e273f9bbbd"
+    },
+    "guard": {
+      "startUTF16": 711354,
+      "endUTF16": 712252,
+      "sha256": "be7b473848fa48ec7ca8c20dc3ad7e35906e2226e538f251a04ef70462ec399a"
+    },
+    "settingsKeys": [
+      "nfsu2TrainerBinds",
+      "nfsu2TrainerPanel",
+      "nfsu2m_settings",
+      "nfsu2m_saved",
+      "nfsu2m_favs",
+      "nfsu2m_fps",
+      "nfsu2m_modhud"
+    ]
+  },
+  "cases": [
+    {
+      "label": "updated-all-manifest-actual-page",
+      "version": "0.42.8",
+      "manifestSha256": "5124ee09395795dafc5b4ee1975741b372c3978953ceae662e1df7db81ebca2e",
+      "stages": [
+        {
+          "name": "clean-browser-baseline",
+          "marks": 0,
+          "categories": [],
+          "selectedAPI": {
+            "WebAssembly.Memory": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Module": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Instance": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiate": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiateStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.compileStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "SharedArrayBuffer": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "MessagePort.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            }
+          },
+          "memoryPrototypeIsHostFunctionPrototype": true,
+          "compileStreamingIdentityUnchanged": true,
+          "compileIdentityUnchanged": true,
+          "workerConstructorIdentityUnchanged": true,
+          "instancePostMessage": null,
+          "helperFlags": {
+            "publicHelper": false,
+            "moduleHelper": false
+          },
+          "knownGlobals": [],
+          "knownSettings": [],
+          "extensionGlobalNames": [],
+          "patchPhase": "absent"
+        },
+        {
+          "name": "all-manifest-scripts-before-page",
+          "marks": 0,
+          "categories": [],
+          "selectedAPI": {
+            "WebAssembly.Memory": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Module": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Instance": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiate": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiateStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.compileStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "SharedArrayBuffer": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "MessagePort.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            }
+          },
+          "memoryPrototypeIsHostFunctionPrototype": true,
+          "compileStreamingIdentityUnchanged": true,
+          "compileIdentityUnchanged": true,
+          "workerConstructorIdentityUnchanged": true,
+          "instancePostMessage": null,
+          "helperFlags": {
+            "publicHelper": false,
+            "moduleHelper": false
+          },
+          "knownGlobals": [],
+          "knownSettings": [],
+          "extensionGlobalNames": [
+            "__NFSU2_102C_PROFILE__",
+            "__NFSU2_609_PROFILE__",
+            "__NFSU2_AA_PROFILE__",
+            "__NFSU2_ABF_PROFILE__",
+            "__NFSU2_AI__",
+            "__NFSU2_AUTONOMY_DRIVE__",
+            "__NFSU2_AUTONOMY_HOSTED__",
+            "__NFSU2_AUTONOMY_LOOP__",
+            "__NFSU2_AUTONOMY_ROAD__",
+            "__NFSU2_B1_PROFILE__",
+            "__NFSU2_BDC_PROFILE__",
+            "__NFSU2_CARS__",
+            "__NFSU2_CD5_PROFILE__",
+            "__NFSU2_CF_PROFILE__",
+            "__NFSU2_CITY_CONTACT_PREVIEW__",
+            "__NFSU2_CITY_PACING__",
+            "__NFSU2_CURRENT_PROFILE__",
+            "__NFSU2_D2FA_PROFILE__",
+            "__NFSU2_DIAGNOSTICS__",
+            "__NFSU2_DRIVING_CORE__",
+            "__NFSU2_DYNAMIC_PACING__",
+            "__NFSU2_DYNO_CORE__",
+            "__NFSU2_DYNO_EVALUATOR__",
+            "__NFSU2_DYNO_FULL__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_102C__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_943__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_B1__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_BDC9__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_ED8__",
+            "__NFSU2_DYNO_NATIVE_PROFILE__",
+            "__NFSU2_DYNO_NATIVE__",
+            "__NFSU2_DYNO__",
+            "__NFSU2_ECU_RECIPE_B1_PROFILE__",
+            "__NFSU2_ECU_RECIPE_BDC_PROFILE__",
+            "__NFSU2_ECU_RECIPE_ED8_PROFILE__",
+            "__NFSU2_ECU_RECIPE_PROFILE__",
+            "__NFSU2_ECU_RECIPE__",
+            "__NFSU2_ECU_SCOPED_PATCHER_B1__",
+            "__NFSU2_ECU_SCOPED_PATCHER_BDC9__",
+            "__NFSU2_ECU_SCOPED_PATCHER_ED8__",
+            "__NFSU2_ECU_SCOPED_PATCHER__",
+            "__NFSU2_ECU_SCOPE_B1_PROFILE__",
+            "__NFSU2_ECU_SCOPE_BDC_PROFILE__",
+            "__NFSU2_ECU_SCOPE_ED8_PROFILE__",
+            "__NFSU2_ECU_SCOPE_PROFILE__",
+            "__NFSU2_ECU_SCOPE_UI__",
+            "__NFSU2_ECU_SCOPE__",
+            "__NFSU2_ED8_PROFILE__",
+            "__NFSU2_FAMILY_PROFILES__",
+            "__NFSU2_FORWARD_CLAMP__",
+            "__NFSU2_FORWARD_DRIVING__",
+            "__NFSU2_FORWARD_GEOMETRY__",
+            "__NFSU2_FORWARD_NATIVE_CONFIG__",
+            "__NFSU2_FORWARD_NATIVE_PATCHER__",
+            "__NFSU2_FORWARD_PACING__",
+            "__NFSU2_GODLY_CATCHUP__",
+            "__NFSU2_HUD_LAYOUT__",
+            "__NFSU2_LATEST_PROFILE__",
+            "__NFSU2_MODERN_PROFILE__",
+            "__NFSU2_NATIVE_CITY_CORNER_102C__",
+            "__NFSU2_NATIVE_CORNER_TARGET__",
+            "__NFSU2_NATIVE_FORWARD_LEASE_102C__",
+            "__NFSU2_NATIVE_ONLINE_102C__",
+            "__NFSU2_NATIVE_ONLINE_609__",
+            "__NFSU2_NATIVE_RUBBERBAND__",
+            "__NFSU2_NATIVE_SYNTHETIC_NEAR_MISS_609__",
+            "__NFSU2_NATIVE_TARGET_FEEDBACK_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_609__",
+            "__NFSU2_NATIVE_TUNER_102C__",
+            "__NFSU2_NEAR_MISS_CONTROL__",
+            "__NFSU2_NEAR_MISS_EVENTS__",
+            "__NFSU2_NEAR_MISS_TOP_UP__",
+            "__NFSU2_NEXT_PROFILE__",
+            "__NFSU2_PACED_CATCHUP_CONTROLLER__",
+            "__NFSU2_PACED_CATCHUP__",
+            "__NFSU2_PITWALL__",
+            "__NFSU2_RACE_CAPTURE_CONFIG__",
+            "__NFSU2_RACE_CAPTURE__",
+            "__NFSU2_RACE_CATALOG__",
+            "__NFSU2_RACE_HUB__",
+            "__NFSU2_RACE_SHOWCASE__",
+            "__NFSU2_RACE_STATS__",
+            "__NFSU2_RACE_TELEMETRY__",
+            "__NFSU2_RACE_WINDOW_GEOMETRY__",
+            "__NFSU2_REAR_RADAR__",
+            "__NFSU2_ROUTE_PROBE__",
+            "__NFSU2_RUBBERBAND_CONTROLLER__",
+            "__NFSU2_SHORTCUT_POLICY__",
+            "__NFSU2_SIGNATURES__",
+            "__NFSU2_SIGNATURE_PROFILE_LATEST__",
+            "__NFSU2_SIGNATURE_PROFILE_NEXT__",
+            "__NFSU2_SIGNATURE_PROFILE__",
+            "__NFSU2_SOURCE_INTERFACES__",
+            "__NFSU2_STREAM_HUD__",
+            "__NFSU2_TARGET_FEEDBACK_STATE__",
+            "__NFSU2_TARGET_FEEDBACK__",
+            "__NFSU2_TOOL_PROFILES__",
+            "__NFSU2_TUNER_943_PROFILE__",
+            "__NFSU2_TUNER_B1_PROFILE__",
+            "__NFSU2_TUNER_BDC_PROFILE__",
+            "__NFSU2_TUNER_ED8_PROFILE__",
+            "__NFSU2_WALLS__",
+            "__NFSU2_WORKER_MODULE_LOADER__"
+          ],
+          "patchPhase": "idle"
+        },
+        {
+          "name": "actual-page-startup",
+          "marks": 0,
+          "categories": [],
+          "selectedAPI": {
+            "WebAssembly.Memory": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Module": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Instance": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiate": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiateStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.compileStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "SharedArrayBuffer": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "MessagePort.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            }
+          },
+          "memoryPrototypeIsHostFunctionPrototype": true,
+          "compileStreamingIdentityUnchanged": true,
+          "compileIdentityUnchanged": true,
+          "workerConstructorIdentityUnchanged": false,
+          "instancePostMessage": null,
+          "helperFlags": {
+            "publicHelper": false,
+            "moduleHelper": false
+          },
+          "knownGlobals": [],
+          "knownSettings": [],
+          "extensionGlobalNames": [
+            "__NFSU2_102C_PROFILE__",
+            "__NFSU2_609_PROFILE__",
+            "__NFSU2_AA_PROFILE__",
+            "__NFSU2_ABF_PROFILE__",
+            "__NFSU2_AI__",
+            "__NFSU2_AUTONOMY_DRIVE__",
+            "__NFSU2_AUTONOMY_HOSTED__",
+            "__NFSU2_AUTONOMY_LOOP__",
+            "__NFSU2_AUTONOMY_ROAD__",
+            "__NFSU2_B1_PROFILE__",
+            "__NFSU2_BDC_PROFILE__",
+            "__NFSU2_CARS__",
+            "__NFSU2_CD5_PROFILE__",
+            "__NFSU2_CF_PROFILE__",
+            "__NFSU2_CITY_CONTACT_PREVIEW__",
+            "__NFSU2_CITY_PACING__",
+            "__NFSU2_CURRENT_PROFILE__",
+            "__NFSU2_D2FA_PROFILE__",
+            "__NFSU2_DIAGNOSTICS__",
+            "__NFSU2_DYNAMIC_PACING__",
+            "__NFSU2_DYNO_CORE__",
+            "__NFSU2_DYNO_EVALUATOR__",
+            "__NFSU2_DYNO_FULL__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_102C__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_943__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_B1__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_BDC9__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_ED8__",
+            "__NFSU2_DYNO_NATIVE_PROFILE__",
+            "__NFSU2_DYNO_NATIVE__",
+            "__NFSU2_DYNO__",
+            "__NFSU2_ECU_RECIPE_B1_PROFILE__",
+            "__NFSU2_ECU_RECIPE_BDC_PROFILE__",
+            "__NFSU2_ECU_RECIPE_ED8_PROFILE__",
+            "__NFSU2_ECU_RECIPE_PROFILE__",
+            "__NFSU2_ECU_RECIPE__",
+            "__NFSU2_ECU_SCOPED_PATCHER_B1__",
+            "__NFSU2_ECU_SCOPED_PATCHER_BDC9__",
+            "__NFSU2_ECU_SCOPED_PATCHER_ED8__",
+            "__NFSU2_ECU_SCOPED_PATCHER__",
+            "__NFSU2_ECU_SCOPE_B1_PROFILE__",
+            "__NFSU2_ECU_SCOPE_BDC_PROFILE__",
+            "__NFSU2_ECU_SCOPE_ED8_PROFILE__",
+            "__NFSU2_ECU_SCOPE_PROFILE__",
+            "__NFSU2_ECU_SCOPE_UI__",
+            "__NFSU2_ECU_SCOPE__",
+            "__NFSU2_ED8_PROFILE__",
+            "__NFSU2_FAMILY_PROFILES__",
+            "__NFSU2_FORWARD_CLAMP__",
+            "__NFSU2_FORWARD_DRIVING__",
+            "__NFSU2_FORWARD_GEOMETRY__",
+            "__NFSU2_FORWARD_NATIVE_CONFIG__",
+            "__NFSU2_FORWARD_NATIVE_PATCHER__",
+            "__NFSU2_FORWARD_PACING__",
+            "__NFSU2_GODLY_CATCHUP__",
+            "__NFSU2_HUD_LAYOUT__",
+            "__NFSU2_LATEST_PROFILE__",
+            "__NFSU2_MODERN_PROFILE__",
+            "__NFSU2_NATIVE_CITY_CORNER_102C__",
+            "__NFSU2_NATIVE_CORNER_TARGET__",
+            "__NFSU2_NATIVE_FORWARD_LEASE_102C__",
+            "__NFSU2_NATIVE_ONLINE_102C__",
+            "__NFSU2_NATIVE_ONLINE_609__",
+            "__NFSU2_NATIVE_RUBBERBAND__",
+            "__NFSU2_NATIVE_SYNTHETIC_NEAR_MISS_609__",
+            "__NFSU2_NATIVE_TARGET_FEEDBACK_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_609__",
+            "__NFSU2_NATIVE_TUNER_102C__",
+            "__NFSU2_NEAR_MISS_CONTROL__",
+            "__NFSU2_NEAR_MISS_EVENTS__",
+            "__NFSU2_NEAR_MISS_TOP_UP__",
+            "__NFSU2_NEXT_PROFILE__",
+            "__NFSU2_PACED_CATCHUP_CONTROLLER__",
+            "__NFSU2_PACED_CATCHUP__",
+            "__NFSU2_PITWALL__",
+            "__NFSU2_RACE_CAPTURE_CONFIG__",
+            "__NFSU2_RACE_CAPTURE__",
+            "__NFSU2_RACE_CATALOG__",
+            "__NFSU2_RACE_HUB__",
+            "__NFSU2_RACE_SHOWCASE__",
+            "__NFSU2_RACE_STATS__",
+            "__NFSU2_RACE_TELEMETRY__",
+            "__NFSU2_RACE_WINDOW_GEOMETRY__",
+            "__NFSU2_REAR_RADAR__",
+            "__NFSU2_ROUTE_PROBE__",
+            "__NFSU2_RUBBERBAND_CONTROLLER__",
+            "__NFSU2_SHORTCUT_POLICY__",
+            "__NFSU2_SIGNATURES__",
+            "__NFSU2_SIGNATURE_PROFILE_LATEST__",
+            "__NFSU2_SIGNATURE_PROFILE_NEXT__",
+            "__NFSU2_SIGNATURE_PROFILE__",
+            "__NFSU2_SOURCE_INTERFACES__",
+            "__NFSU2_STREAM_HUD__",
+            "__NFSU2_TARGET_FEEDBACK_STATE__",
+            "__NFSU2_TARGET_FEEDBACK__",
+            "__NFSU2_TOOL_PROFILES__",
+            "__NFSU2_TUNER_943_PROFILE__",
+            "__NFSU2_TUNER_B1_PROFILE__",
+            "__NFSU2_TUNER_BDC_PROFILE__",
+            "__NFSU2_TUNER_ED8_PROFILE__",
+            "__NFSU2_WALLS__",
+            "__NFSU2_WORKER_MODULE_LOADER__",
+            "__nfsu2DrivingTools"
+          ],
+          "patchPhase": "idle"
+        },
+        {
+          "name": "actual-game-worker-created",
+          "marks": 0,
+          "categories": [],
+          "selectedAPI": {
+            "WebAssembly.Memory": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Module": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Instance": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiate": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiateStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.compileStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "SharedArrayBuffer": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "MessagePort.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            }
+          },
+          "memoryPrototypeIsHostFunctionPrototype": true,
+          "compileStreamingIdentityUnchanged": true,
+          "compileIdentityUnchanged": true,
+          "workerConstructorIdentityUnchanged": false,
+          "instancePostMessage": {
+            "predicatePasses": false,
+            "ownProperty": true,
+            "checkedByCapturedGuard": false
+          },
+          "helperFlags": {
+            "publicHelper": false,
+            "moduleHelper": false
+          },
+          "knownGlobals": [],
+          "knownSettings": [],
+          "extensionGlobalNames": [
+            "__NFSU2_102C_PROFILE__",
+            "__NFSU2_609_PROFILE__",
+            "__NFSU2_AA_PROFILE__",
+            "__NFSU2_ABF_PROFILE__",
+            "__NFSU2_AI__",
+            "__NFSU2_AUTONOMY_DRIVE__",
+            "__NFSU2_AUTONOMY_HOSTED__",
+            "__NFSU2_AUTONOMY_LOOP__",
+            "__NFSU2_AUTONOMY_ROAD__",
+            "__NFSU2_B1_PROFILE__",
+            "__NFSU2_BDC_PROFILE__",
+            "__NFSU2_CARS__",
+            "__NFSU2_CD5_PROFILE__",
+            "__NFSU2_CF_PROFILE__",
+            "__NFSU2_CITY_CONTACT_PREVIEW__",
+            "__NFSU2_CITY_PACING__",
+            "__NFSU2_CURRENT_PROFILE__",
+            "__NFSU2_D2FA_PROFILE__",
+            "__NFSU2_DIAGNOSTICS__",
+            "__NFSU2_DYNAMIC_PACING__",
+            "__NFSU2_DYNO_CORE__",
+            "__NFSU2_DYNO_EVALUATOR__",
+            "__NFSU2_DYNO_FULL__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_102C__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_943__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_B1__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_BDC9__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_ED8__",
+            "__NFSU2_DYNO_NATIVE_PROFILE__",
+            "__NFSU2_DYNO_NATIVE__",
+            "__NFSU2_DYNO__",
+            "__NFSU2_ECU_RECIPE_B1_PROFILE__",
+            "__NFSU2_ECU_RECIPE_BDC_PROFILE__",
+            "__NFSU2_ECU_RECIPE_ED8_PROFILE__",
+            "__NFSU2_ECU_RECIPE_PROFILE__",
+            "__NFSU2_ECU_RECIPE__",
+            "__NFSU2_ECU_SCOPED_PATCHER_B1__",
+            "__NFSU2_ECU_SCOPED_PATCHER_BDC9__",
+            "__NFSU2_ECU_SCOPED_PATCHER_ED8__",
+            "__NFSU2_ECU_SCOPED_PATCHER__",
+            "__NFSU2_ECU_SCOPE_B1_PROFILE__",
+            "__NFSU2_ECU_SCOPE_BDC_PROFILE__",
+            "__NFSU2_ECU_SCOPE_ED8_PROFILE__",
+            "__NFSU2_ECU_SCOPE_PROFILE__",
+            "__NFSU2_ECU_SCOPE_UI__",
+            "__NFSU2_ECU_SCOPE__",
+            "__NFSU2_ED8_PROFILE__",
+            "__NFSU2_FAMILY_PROFILES__",
+            "__NFSU2_FORWARD_CLAMP__",
+            "__NFSU2_FORWARD_DRIVING__",
+            "__NFSU2_FORWARD_GEOMETRY__",
+            "__NFSU2_FORWARD_NATIVE_CONFIG__",
+            "__NFSU2_FORWARD_NATIVE_PATCHER__",
+            "__NFSU2_FORWARD_PACING__",
+            "__NFSU2_GODLY_CATCHUP__",
+            "__NFSU2_HUD_LAYOUT__",
+            "__NFSU2_LATEST_PROFILE__",
+            "__NFSU2_MODERN_PROFILE__",
+            "__NFSU2_NATIVE_CITY_CORNER_102C__",
+            "__NFSU2_NATIVE_CORNER_TARGET__",
+            "__NFSU2_NATIVE_FORWARD_LEASE_102C__",
+            "__NFSU2_NATIVE_ONLINE_102C__",
+            "__NFSU2_NATIVE_ONLINE_609__",
+            "__NFSU2_NATIVE_RUBBERBAND__",
+            "__NFSU2_NATIVE_SYNTHETIC_NEAR_MISS_609__",
+            "__NFSU2_NATIVE_TARGET_FEEDBACK_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_609__",
+            "__NFSU2_NATIVE_TUNER_102C__",
+            "__NFSU2_NEAR_MISS_CONTROL__",
+            "__NFSU2_NEAR_MISS_EVENTS__",
+            "__NFSU2_NEAR_MISS_TOP_UP__",
+            "__NFSU2_NEXT_PROFILE__",
+            "__NFSU2_PACED_CATCHUP_CONTROLLER__",
+            "__NFSU2_PACED_CATCHUP__",
+            "__NFSU2_PITWALL__",
+            "__NFSU2_RACE_CAPTURE_CONFIG__",
+            "__NFSU2_RACE_CAPTURE__",
+            "__NFSU2_RACE_CATALOG__",
+            "__NFSU2_RACE_HUB__",
+            "__NFSU2_RACE_SHOWCASE__",
+            "__NFSU2_RACE_STATS__",
+            "__NFSU2_RACE_TELEMETRY__",
+            "__NFSU2_RACE_WINDOW_GEOMETRY__",
+            "__NFSU2_REAR_RADAR__",
+            "__NFSU2_ROUTE_PROBE__",
+            "__NFSU2_RUBBERBAND_CONTROLLER__",
+            "__NFSU2_SHORTCUT_POLICY__",
+            "__NFSU2_SIGNATURES__",
+            "__NFSU2_SIGNATURE_PROFILE_LATEST__",
+            "__NFSU2_SIGNATURE_PROFILE_NEXT__",
+            "__NFSU2_SIGNATURE_PROFILE__",
+            "__NFSU2_SOURCE_INTERFACES__",
+            "__NFSU2_STREAM_HUD__",
+            "__NFSU2_TARGET_FEEDBACK_STATE__",
+            "__NFSU2_TARGET_FEEDBACK__",
+            "__NFSU2_TOOL_PROFILES__",
+            "__NFSU2_TUNER_943_PROFILE__",
+            "__NFSU2_TUNER_B1_PROFILE__",
+            "__NFSU2_TUNER_BDC_PROFILE__",
+            "__NFSU2_TUNER_ED8_PROFILE__",
+            "__NFSU2_WALLS__",
+            "__NFSU2_WORKER_MODULE_LOADER__",
+            "__nfsu2DrivingTools"
+          ],
+          "patchPhase": "idle"
+        },
+        {
+          "name": "actual-boot-forwarded",
+          "marks": 0,
+          "categories": [],
+          "selectedAPI": {
+            "WebAssembly.Memory": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Module": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Instance": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiate": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiateStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.compileStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "SharedArrayBuffer": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "MessagePort.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            }
+          },
+          "memoryPrototypeIsHostFunctionPrototype": true,
+          "compileStreamingIdentityUnchanged": true,
+          "compileIdentityUnchanged": true,
+          "workerConstructorIdentityUnchanged": false,
+          "instancePostMessage": {
+            "predicatePasses": false,
+            "ownProperty": true,
+            "checkedByCapturedGuard": false
+          },
+          "helperFlags": {
+            "publicHelper": false,
+            "moduleHelper": false
+          },
+          "knownGlobals": [],
+          "knownSettings": [],
+          "extensionGlobalNames": [
+            "__NFSU2_102C_PROFILE__",
+            "__NFSU2_609_PROFILE__",
+            "__NFSU2_AA_PROFILE__",
+            "__NFSU2_ABF_PROFILE__",
+            "__NFSU2_AI__",
+            "__NFSU2_AUTONOMY_DRIVE__",
+            "__NFSU2_AUTONOMY_HOSTED__",
+            "__NFSU2_AUTONOMY_LOOP__",
+            "__NFSU2_AUTONOMY_ROAD__",
+            "__NFSU2_B1_PROFILE__",
+            "__NFSU2_BDC_PROFILE__",
+            "__NFSU2_CARS__",
+            "__NFSU2_CD5_PROFILE__",
+            "__NFSU2_CF_PROFILE__",
+            "__NFSU2_CITY_CONTACT_PREVIEW__",
+            "__NFSU2_CITY_PACING__",
+            "__NFSU2_CURRENT_PROFILE__",
+            "__NFSU2_D2FA_PROFILE__",
+            "__NFSU2_DIAGNOSTICS__",
+            "__NFSU2_DYNAMIC_PACING__",
+            "__NFSU2_DYNO_CORE__",
+            "__NFSU2_DYNO_EVALUATOR__",
+            "__NFSU2_DYNO_FULL__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_102C__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_943__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_B1__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_BDC9__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_ED8__",
+            "__NFSU2_DYNO_NATIVE_PROFILE__",
+            "__NFSU2_DYNO_NATIVE__",
+            "__NFSU2_DYNO__",
+            "__NFSU2_ECU_RECIPE_B1_PROFILE__",
+            "__NFSU2_ECU_RECIPE_BDC_PROFILE__",
+            "__NFSU2_ECU_RECIPE_ED8_PROFILE__",
+            "__NFSU2_ECU_RECIPE_PROFILE__",
+            "__NFSU2_ECU_RECIPE__",
+            "__NFSU2_ECU_SCOPED_PATCHER_B1__",
+            "__NFSU2_ECU_SCOPED_PATCHER_BDC9__",
+            "__NFSU2_ECU_SCOPED_PATCHER_ED8__",
+            "__NFSU2_ECU_SCOPED_PATCHER__",
+            "__NFSU2_ECU_SCOPE_B1_PROFILE__",
+            "__NFSU2_ECU_SCOPE_BDC_PROFILE__",
+            "__NFSU2_ECU_SCOPE_ED8_PROFILE__",
+            "__NFSU2_ECU_SCOPE_PROFILE__",
+            "__NFSU2_ECU_SCOPE_UI__",
+            "__NFSU2_ECU_SCOPE__",
+            "__NFSU2_ED8_PROFILE__",
+            "__NFSU2_FAMILY_PROFILES__",
+            "__NFSU2_FORWARD_CLAMP__",
+            "__NFSU2_FORWARD_DRIVING__",
+            "__NFSU2_FORWARD_GEOMETRY__",
+            "__NFSU2_FORWARD_NATIVE_CONFIG__",
+            "__NFSU2_FORWARD_NATIVE_PATCHER__",
+            "__NFSU2_FORWARD_PACING__",
+            "__NFSU2_GODLY_CATCHUP__",
+            "__NFSU2_HUD_LAYOUT__",
+            "__NFSU2_LATEST_PROFILE__",
+            "__NFSU2_MODERN_PROFILE__",
+            "__NFSU2_NATIVE_CITY_CORNER_102C__",
+            "__NFSU2_NATIVE_CORNER_TARGET__",
+            "__NFSU2_NATIVE_FORWARD_LEASE_102C__",
+            "__NFSU2_NATIVE_ONLINE_102C__",
+            "__NFSU2_NATIVE_ONLINE_609__",
+            "__NFSU2_NATIVE_RUBBERBAND__",
+            "__NFSU2_NATIVE_SYNTHETIC_NEAR_MISS_609__",
+            "__NFSU2_NATIVE_TARGET_FEEDBACK_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_609__",
+            "__NFSU2_NATIVE_TUNER_102C__",
+            "__NFSU2_NEAR_MISS_CONTROL__",
+            "__NFSU2_NEAR_MISS_EVENTS__",
+            "__NFSU2_NEAR_MISS_TOP_UP__",
+            "__NFSU2_NEXT_PROFILE__",
+            "__NFSU2_PACED_CATCHUP_CONTROLLER__",
+            "__NFSU2_PACED_CATCHUP__",
+            "__NFSU2_PITWALL__",
+            "__NFSU2_RACE_CAPTURE_CONFIG__",
+            "__NFSU2_RACE_CAPTURE__",
+            "__NFSU2_RACE_CATALOG__",
+            "__NFSU2_RACE_HUB__",
+            "__NFSU2_RACE_SHOWCASE__",
+            "__NFSU2_RACE_STATS__",
+            "__NFSU2_RACE_TELEMETRY__",
+            "__NFSU2_RACE_WINDOW_GEOMETRY__",
+            "__NFSU2_REAR_RADAR__",
+            "__NFSU2_ROUTE_PROBE__",
+            "__NFSU2_RUBBERBAND_CONTROLLER__",
+            "__NFSU2_SHORTCUT_POLICY__",
+            "__NFSU2_SIGNATURES__",
+            "__NFSU2_SIGNATURE_PROFILE_LATEST__",
+            "__NFSU2_SIGNATURE_PROFILE_NEXT__",
+            "__NFSU2_SIGNATURE_PROFILE__",
+            "__NFSU2_SOURCE_INTERFACES__",
+            "__NFSU2_STREAM_HUD__",
+            "__NFSU2_TARGET_FEEDBACK_STATE__",
+            "__NFSU2_TARGET_FEEDBACK__",
+            "__NFSU2_TOOL_PROFILES__",
+            "__NFSU2_TUNER_943_PROFILE__",
+            "__NFSU2_TUNER_B1_PROFILE__",
+            "__NFSU2_TUNER_BDC_PROFILE__",
+            "__NFSU2_TUNER_ED8_PROFILE__",
+            "__NFSU2_WALLS__",
+            "__NFSU2_WORKER_MODULE_LOADER__",
+            "__nfsu2DrivingTools"
+          ],
+          "patchPhase": "ready"
+        },
+        {
+          "name": "four-page-ticks",
+          "marks": 0,
+          "categories": [],
+          "selectedAPI": {
+            "WebAssembly.Memory": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Module": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Instance": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiate": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiateStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.compileStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "SharedArrayBuffer": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "MessagePort.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            }
+          },
+          "memoryPrototypeIsHostFunctionPrototype": true,
+          "compileStreamingIdentityUnchanged": true,
+          "compileIdentityUnchanged": true,
+          "workerConstructorIdentityUnchanged": false,
+          "instancePostMessage": {
+            "predicatePasses": false,
+            "ownProperty": true,
+            "checkedByCapturedGuard": false
+          },
+          "helperFlags": {
+            "publicHelper": false,
+            "moduleHelper": false
+          },
+          "knownGlobals": [],
+          "knownSettings": [],
+          "extensionGlobalNames": [
+            "__NFSU2_102C_PROFILE__",
+            "__NFSU2_609_PROFILE__",
+            "__NFSU2_AA_PROFILE__",
+            "__NFSU2_ABF_PROFILE__",
+            "__NFSU2_AI__",
+            "__NFSU2_AUTONOMY_DRIVE__",
+            "__NFSU2_AUTONOMY_HOSTED__",
+            "__NFSU2_AUTONOMY_LOOP__",
+            "__NFSU2_AUTONOMY_ROAD__",
+            "__NFSU2_B1_PROFILE__",
+            "__NFSU2_BDC_PROFILE__",
+            "__NFSU2_CARS__",
+            "__NFSU2_CD5_PROFILE__",
+            "__NFSU2_CF_PROFILE__",
+            "__NFSU2_CITY_CONTACT_PREVIEW__",
+            "__NFSU2_CITY_PACING__",
+            "__NFSU2_CURRENT_PROFILE__",
+            "__NFSU2_D2FA_PROFILE__",
+            "__NFSU2_DIAGNOSTICS__",
+            "__NFSU2_DYNAMIC_PACING__",
+            "__NFSU2_DYNO_CORE__",
+            "__NFSU2_DYNO_EVALUATOR__",
+            "__NFSU2_DYNO_FULL__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_102C__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_943__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_B1__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_BDC9__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_ED8__",
+            "__NFSU2_DYNO_NATIVE_PROFILE__",
+            "__NFSU2_DYNO_NATIVE__",
+            "__NFSU2_DYNO__",
+            "__NFSU2_ECU_RECIPE_B1_PROFILE__",
+            "__NFSU2_ECU_RECIPE_BDC_PROFILE__",
+            "__NFSU2_ECU_RECIPE_ED8_PROFILE__",
+            "__NFSU2_ECU_RECIPE_PROFILE__",
+            "__NFSU2_ECU_RECIPE__",
+            "__NFSU2_ECU_SCOPED_PATCHER_B1__",
+            "__NFSU2_ECU_SCOPED_PATCHER_BDC9__",
+            "__NFSU2_ECU_SCOPED_PATCHER_ED8__",
+            "__NFSU2_ECU_SCOPED_PATCHER__",
+            "__NFSU2_ECU_SCOPE_B1_PROFILE__",
+            "__NFSU2_ECU_SCOPE_BDC_PROFILE__",
+            "__NFSU2_ECU_SCOPE_ED8_PROFILE__",
+            "__NFSU2_ECU_SCOPE_PROFILE__",
+            "__NFSU2_ECU_SCOPE_UI__",
+            "__NFSU2_ECU_SCOPE__",
+            "__NFSU2_ED8_PROFILE__",
+            "__NFSU2_FAMILY_PROFILES__",
+            "__NFSU2_FORWARD_CLAMP__",
+            "__NFSU2_FORWARD_DRIVING__",
+            "__NFSU2_FORWARD_GEOMETRY__",
+            "__NFSU2_FORWARD_NATIVE_CONFIG__",
+            "__NFSU2_FORWARD_NATIVE_PATCHER__",
+            "__NFSU2_FORWARD_PACING__",
+            "__NFSU2_GODLY_CATCHUP__",
+            "__NFSU2_HUD_LAYOUT__",
+            "__NFSU2_LATEST_PROFILE__",
+            "__NFSU2_MODERN_PROFILE__",
+            "__NFSU2_NATIVE_CITY_CORNER_102C__",
+            "__NFSU2_NATIVE_CORNER_TARGET__",
+            "__NFSU2_NATIVE_FORWARD_LEASE_102C__",
+            "__NFSU2_NATIVE_ONLINE_102C__",
+            "__NFSU2_NATIVE_ONLINE_609__",
+            "__NFSU2_NATIVE_RUBBERBAND__",
+            "__NFSU2_NATIVE_SYNTHETIC_NEAR_MISS_609__",
+            "__NFSU2_NATIVE_TARGET_FEEDBACK_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_609__",
+            "__NFSU2_NATIVE_TUNER_102C__",
+            "__NFSU2_NEAR_MISS_CONTROL__",
+            "__NFSU2_NEAR_MISS_EVENTS__",
+            "__NFSU2_NEAR_MISS_TOP_UP__",
+            "__NFSU2_NEXT_PROFILE__",
+            "__NFSU2_PACED_CATCHUP_CONTROLLER__",
+            "__NFSU2_PACED_CATCHUP__",
+            "__NFSU2_PITWALL__",
+            "__NFSU2_RACE_CAPTURE_CONFIG__",
+            "__NFSU2_RACE_CAPTURE__",
+            "__NFSU2_RACE_CATALOG__",
+            "__NFSU2_RACE_HUB__",
+            "__NFSU2_RACE_SHOWCASE__",
+            "__NFSU2_RACE_STATS__",
+            "__NFSU2_RACE_TELEMETRY__",
+            "__NFSU2_RACE_WINDOW_GEOMETRY__",
+            "__NFSU2_REAR_RADAR__",
+            "__NFSU2_ROUTE_PROBE__",
+            "__NFSU2_RUBBERBAND_CONTROLLER__",
+            "__NFSU2_SHORTCUT_POLICY__",
+            "__NFSU2_SIGNATURES__",
+            "__NFSU2_SIGNATURE_PROFILE_LATEST__",
+            "__NFSU2_SIGNATURE_PROFILE_NEXT__",
+            "__NFSU2_SIGNATURE_PROFILE__",
+            "__NFSU2_SOURCE_INTERFACES__",
+            "__NFSU2_STREAM_HUD__",
+            "__NFSU2_TARGET_FEEDBACK_STATE__",
+            "__NFSU2_TARGET_FEEDBACK__",
+            "__NFSU2_TOOL_PROFILES__",
+            "__NFSU2_TUNER_943_PROFILE__",
+            "__NFSU2_TUNER_B1_PROFILE__",
+            "__NFSU2_TUNER_BDC_PROFILE__",
+            "__NFSU2_TUNER_ED8_PROFILE__",
+            "__NFSU2_WALLS__",
+            "__NFSU2_WORKER_MODULE_LOADER__",
+            "__nfsu2DrivingTools"
+          ],
+          "patchPhase": "ready"
+        }
+      ],
+      "boot": {
+        "cfgBefore": {
+          "env": {
+            "NFSU2_PAGE_MARKS": "0",
+            "FIXTURE_INERT_VALUE": "unchanged"
+          },
+          "pool": 3
+        },
+        "cfgAfter": {
+          "env": {
+            "NFSU2_PAGE_MARKS": "0",
+            "FIXTURE_INERT_VALUE": "unchanged"
+          },
+          "pool": 3
+        },
+        "originalModuleWasReplaced": true,
+        "compiledProfileRevision": "60946132",
+        "compiledProfileHash": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+        "nativeSyntheticNearMiss": true,
+        "patchState": {
+          "phase": "ready",
+          "reason": "Verified game module · native AI bridge loaded.",
+          "loader": "explicit",
+          "moduleBytes": 38933227,
+          "candidateRevision": "60946132",
+          "moduleHash": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+          "signatureReference": "2f0ddd3b",
+          "signatureExact": false,
+          "signatureTotal": 34,
+          "signatureUnique": 8,
+          "signatureAmbiguous": 0,
+          "signatureMissing": 26,
+          "godlyCatchup": true,
+          "transplant": "102c8d92",
+          "nativeSyntheticNearMiss": true,
+          "nativeRubberband": true,
+          "nativeCornerTarget": true,
+          "nativePacedCatchup": true,
+          "nativeOnlineAI": true,
+          "nativeCityCornerReduction": false,
+          "nativeTuner": false,
+          "nativeTargetFeedback": false,
+          "nativeRouteChoice": true,
+          "nativeRails": true,
+          "soloOnly": false,
+          "nativeForwardLease": false,
+          "nativeForwardGeometry": false,
+          "nativeForwardClamp": false,
+          "revision": "60946132"
+        },
+        "cfgPreserved": true,
+        "reportMarkerPreserved": true
+      },
+      "fetches": [
+        {
+          "url": "/game.json",
+          "cache": "no-store",
+          "credentials": "omit"
+        },
+        {
+          "url": "/game.json",
+          "cache": "no-store",
+          "credentials": "omit"
+        },
+        {
+          "url": "/game.wasm?v=gdLjLX7me7k6j6_uTbwXVw",
+          "cache": "default",
+          "credentials": "omit"
+        }
+      ],
+      "storage": {
+        "local": [],
+        "session": [
+          "nfsu2-driving-tools-diagnostics-v1"
+        ]
+      },
+      "hostHelperWarnings": 0
+    },
+    {
+      "label": "baseline0426-all-manifest-actual-page",
+      "version": "0.42.6",
+      "manifestSha256": "7ff0067d80138119afc0f45ca089f24aa6f8b079f0621c84680363f10310da7d",
+      "stages": [
+        {
+          "name": "clean-browser-baseline",
+          "marks": 0,
+          "categories": [],
+          "selectedAPI": {
+            "WebAssembly.Memory": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Module": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Instance": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiate": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiateStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.compileStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "SharedArrayBuffer": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "MessagePort.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            }
+          },
+          "memoryPrototypeIsHostFunctionPrototype": true,
+          "compileStreamingIdentityUnchanged": true,
+          "compileIdentityUnchanged": true,
+          "workerConstructorIdentityUnchanged": true,
+          "instancePostMessage": null,
+          "helperFlags": {
+            "publicHelper": false,
+            "moduleHelper": false
+          },
+          "knownGlobals": [],
+          "knownSettings": [],
+          "extensionGlobalNames": [],
+          "patchPhase": "absent"
+        },
+        {
+          "name": "all-manifest-scripts-before-page",
+          "marks": 0,
+          "categories": [],
+          "selectedAPI": {
+            "WebAssembly.Memory": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Module": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Instance": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiate": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiateStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.compileStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "SharedArrayBuffer": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "MessagePort.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            }
+          },
+          "memoryPrototypeIsHostFunctionPrototype": true,
+          "compileStreamingIdentityUnchanged": true,
+          "compileIdentityUnchanged": true,
+          "workerConstructorIdentityUnchanged": true,
+          "instancePostMessage": null,
+          "helperFlags": {
+            "publicHelper": false,
+            "moduleHelper": false
+          },
+          "knownGlobals": [],
+          "knownSettings": [],
+          "extensionGlobalNames": [
+            "__NFSU2_102C_PROFILE__",
+            "__NFSU2_609_PROFILE__",
+            "__NFSU2_AA_PROFILE__",
+            "__NFSU2_ABF_PROFILE__",
+            "__NFSU2_AI__",
+            "__NFSU2_AUTONOMY_DRIVE__",
+            "__NFSU2_AUTONOMY_HOSTED__",
+            "__NFSU2_AUTONOMY_LOOP__",
+            "__NFSU2_AUTONOMY_ROAD__",
+            "__NFSU2_B1_PROFILE__",
+            "__NFSU2_BDC_PROFILE__",
+            "__NFSU2_CARS__",
+            "__NFSU2_CD5_PROFILE__",
+            "__NFSU2_CF_PROFILE__",
+            "__NFSU2_CITY_CONTACT_PREVIEW__",
+            "__NFSU2_CITY_PACING__",
+            "__NFSU2_CURRENT_PROFILE__",
+            "__NFSU2_D2FA_PROFILE__",
+            "__NFSU2_DIAGNOSTICS__",
+            "__NFSU2_DRIVING_CORE__",
+            "__NFSU2_DYNAMIC_PACING__",
+            "__NFSU2_DYNO_CORE__",
+            "__NFSU2_DYNO_EVALUATOR__",
+            "__NFSU2_DYNO_FULL__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_102C__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_943__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_B1__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_BDC9__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_ED8__",
+            "__NFSU2_DYNO_NATIVE_PROFILE__",
+            "__NFSU2_DYNO_NATIVE__",
+            "__NFSU2_DYNO__",
+            "__NFSU2_ECU_RECIPE_B1_PROFILE__",
+            "__NFSU2_ECU_RECIPE_BDC_PROFILE__",
+            "__NFSU2_ECU_RECIPE_ED8_PROFILE__",
+            "__NFSU2_ECU_RECIPE_PROFILE__",
+            "__NFSU2_ECU_RECIPE__",
+            "__NFSU2_ECU_SCOPED_PATCHER_B1__",
+            "__NFSU2_ECU_SCOPED_PATCHER_BDC9__",
+            "__NFSU2_ECU_SCOPED_PATCHER_ED8__",
+            "__NFSU2_ECU_SCOPED_PATCHER__",
+            "__NFSU2_ECU_SCOPE_B1_PROFILE__",
+            "__NFSU2_ECU_SCOPE_BDC_PROFILE__",
+            "__NFSU2_ECU_SCOPE_ED8_PROFILE__",
+            "__NFSU2_ECU_SCOPE_PROFILE__",
+            "__NFSU2_ECU_SCOPE_UI__",
+            "__NFSU2_ECU_SCOPE__",
+            "__NFSU2_ED8_PROFILE__",
+            "__NFSU2_FAMILY_PROFILES__",
+            "__NFSU2_FORWARD_CLAMP__",
+            "__NFSU2_FORWARD_DRIVING__",
+            "__NFSU2_FORWARD_GEOMETRY__",
+            "__NFSU2_FORWARD_NATIVE_CONFIG__",
+            "__NFSU2_FORWARD_NATIVE_PATCHER__",
+            "__NFSU2_FORWARD_PACING__",
+            "__NFSU2_GODLY_CATCHUP__",
+            "__NFSU2_HUD_LAYOUT__",
+            "__NFSU2_LATEST_PROFILE__",
+            "__NFSU2_MODERN_PROFILE__",
+            "__NFSU2_NATIVE_CITY_CORNER_102C__",
+            "__NFSU2_NATIVE_CORNER_TARGET__",
+            "__NFSU2_NATIVE_FORWARD_LEASE_102C__",
+            "__NFSU2_NATIVE_ONLINE_102C__",
+            "__NFSU2_NATIVE_ONLINE_609__",
+            "__NFSU2_NATIVE_RUBBERBAND__",
+            "__NFSU2_NATIVE_TARGET_FEEDBACK_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_609__",
+            "__NFSU2_NATIVE_TUNER_102C__",
+            "__NFSU2_NEXT_PROFILE__",
+            "__NFSU2_PACED_CATCHUP_CONTROLLER__",
+            "__NFSU2_PACED_CATCHUP__",
+            "__NFSU2_PITWALL__",
+            "__NFSU2_RACE_CAPTURE_CONFIG__",
+            "__NFSU2_RACE_CAPTURE__",
+            "__NFSU2_RACE_CATALOG__",
+            "__NFSU2_RACE_HUB__",
+            "__NFSU2_RACE_SHOWCASE__",
+            "__NFSU2_RACE_STATS__",
+            "__NFSU2_RACE_TELEMETRY__",
+            "__NFSU2_RACE_WINDOW_GEOMETRY__",
+            "__NFSU2_REAR_RADAR__",
+            "__NFSU2_ROUTE_PROBE__",
+            "__NFSU2_RUBBERBAND_CONTROLLER__",
+            "__NFSU2_SHORTCUT_POLICY__",
+            "__NFSU2_SIGNATURES__",
+            "__NFSU2_SIGNATURE_PROFILE_LATEST__",
+            "__NFSU2_SIGNATURE_PROFILE_NEXT__",
+            "__NFSU2_SIGNATURE_PROFILE__",
+            "__NFSU2_SOURCE_INTERFACES__",
+            "__NFSU2_STREAM_HUD__",
+            "__NFSU2_TARGET_FEEDBACK_STATE__",
+            "__NFSU2_TARGET_FEEDBACK__",
+            "__NFSU2_TOOL_PROFILES__",
+            "__NFSU2_TUNER_943_PROFILE__",
+            "__NFSU2_TUNER_B1_PROFILE__",
+            "__NFSU2_TUNER_BDC_PROFILE__",
+            "__NFSU2_TUNER_ED8_PROFILE__",
+            "__NFSU2_WALLS__",
+            "__NFSU2_WORKER_MODULE_LOADER__"
+          ],
+          "patchPhase": "idle"
+        },
+        {
+          "name": "actual-page-startup",
+          "marks": 0,
+          "categories": [],
+          "selectedAPI": {
+            "WebAssembly.Memory": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Module": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Instance": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiate": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiateStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.compileStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "SharedArrayBuffer": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "MessagePort.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            }
+          },
+          "memoryPrototypeIsHostFunctionPrototype": true,
+          "compileStreamingIdentityUnchanged": true,
+          "compileIdentityUnchanged": true,
+          "workerConstructorIdentityUnchanged": false,
+          "instancePostMessage": null,
+          "helperFlags": {
+            "publicHelper": false,
+            "moduleHelper": false
+          },
+          "knownGlobals": [],
+          "knownSettings": [],
+          "extensionGlobalNames": [
+            "__NFSU2_102C_PROFILE__",
+            "__NFSU2_609_PROFILE__",
+            "__NFSU2_AA_PROFILE__",
+            "__NFSU2_ABF_PROFILE__",
+            "__NFSU2_AI__",
+            "__NFSU2_AUTONOMY_DRIVE__",
+            "__NFSU2_AUTONOMY_HOSTED__",
+            "__NFSU2_AUTONOMY_LOOP__",
+            "__NFSU2_AUTONOMY_ROAD__",
+            "__NFSU2_B1_PROFILE__",
+            "__NFSU2_BDC_PROFILE__",
+            "__NFSU2_CARS__",
+            "__NFSU2_CD5_PROFILE__",
+            "__NFSU2_CF_PROFILE__",
+            "__NFSU2_CITY_CONTACT_PREVIEW__",
+            "__NFSU2_CITY_PACING__",
+            "__NFSU2_CURRENT_PROFILE__",
+            "__NFSU2_D2FA_PROFILE__",
+            "__NFSU2_DIAGNOSTICS__",
+            "__NFSU2_DYNAMIC_PACING__",
+            "__NFSU2_DYNO_CORE__",
+            "__NFSU2_DYNO_EVALUATOR__",
+            "__NFSU2_DYNO_FULL__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_102C__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_943__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_B1__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_BDC9__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_ED8__",
+            "__NFSU2_DYNO_NATIVE_PROFILE__",
+            "__NFSU2_DYNO_NATIVE__",
+            "__NFSU2_DYNO__",
+            "__NFSU2_ECU_RECIPE_B1_PROFILE__",
+            "__NFSU2_ECU_RECIPE_BDC_PROFILE__",
+            "__NFSU2_ECU_RECIPE_ED8_PROFILE__",
+            "__NFSU2_ECU_RECIPE_PROFILE__",
+            "__NFSU2_ECU_RECIPE__",
+            "__NFSU2_ECU_SCOPED_PATCHER_B1__",
+            "__NFSU2_ECU_SCOPED_PATCHER_BDC9__",
+            "__NFSU2_ECU_SCOPED_PATCHER_ED8__",
+            "__NFSU2_ECU_SCOPED_PATCHER__",
+            "__NFSU2_ECU_SCOPE_B1_PROFILE__",
+            "__NFSU2_ECU_SCOPE_BDC_PROFILE__",
+            "__NFSU2_ECU_SCOPE_ED8_PROFILE__",
+            "__NFSU2_ECU_SCOPE_PROFILE__",
+            "__NFSU2_ECU_SCOPE_UI__",
+            "__NFSU2_ECU_SCOPE__",
+            "__NFSU2_ED8_PROFILE__",
+            "__NFSU2_FAMILY_PROFILES__",
+            "__NFSU2_FORWARD_CLAMP__",
+            "__NFSU2_FORWARD_DRIVING__",
+            "__NFSU2_FORWARD_GEOMETRY__",
+            "__NFSU2_FORWARD_NATIVE_CONFIG__",
+            "__NFSU2_FORWARD_NATIVE_PATCHER__",
+            "__NFSU2_FORWARD_PACING__",
+            "__NFSU2_GODLY_CATCHUP__",
+            "__NFSU2_HUD_LAYOUT__",
+            "__NFSU2_LATEST_PROFILE__",
+            "__NFSU2_MODERN_PROFILE__",
+            "__NFSU2_NATIVE_CITY_CORNER_102C__",
+            "__NFSU2_NATIVE_CORNER_TARGET__",
+            "__NFSU2_NATIVE_FORWARD_LEASE_102C__",
+            "__NFSU2_NATIVE_ONLINE_102C__",
+            "__NFSU2_NATIVE_ONLINE_609__",
+            "__NFSU2_NATIVE_RUBBERBAND__",
+            "__NFSU2_NATIVE_TARGET_FEEDBACK_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_609__",
+            "__NFSU2_NATIVE_TUNER_102C__",
+            "__NFSU2_NEXT_PROFILE__",
+            "__NFSU2_PACED_CATCHUP_CONTROLLER__",
+            "__NFSU2_PACED_CATCHUP__",
+            "__NFSU2_PITWALL__",
+            "__NFSU2_RACE_CAPTURE_CONFIG__",
+            "__NFSU2_RACE_CAPTURE__",
+            "__NFSU2_RACE_CATALOG__",
+            "__NFSU2_RACE_HUB__",
+            "__NFSU2_RACE_SHOWCASE__",
+            "__NFSU2_RACE_STATS__",
+            "__NFSU2_RACE_TELEMETRY__",
+            "__NFSU2_RACE_WINDOW_GEOMETRY__",
+            "__NFSU2_REAR_RADAR__",
+            "__NFSU2_ROUTE_PROBE__",
+            "__NFSU2_RUBBERBAND_CONTROLLER__",
+            "__NFSU2_SHORTCUT_POLICY__",
+            "__NFSU2_SIGNATURES__",
+            "__NFSU2_SIGNATURE_PROFILE_LATEST__",
+            "__NFSU2_SIGNATURE_PROFILE_NEXT__",
+            "__NFSU2_SIGNATURE_PROFILE__",
+            "__NFSU2_SOURCE_INTERFACES__",
+            "__NFSU2_STREAM_HUD__",
+            "__NFSU2_TARGET_FEEDBACK_STATE__",
+            "__NFSU2_TARGET_FEEDBACK__",
+            "__NFSU2_TOOL_PROFILES__",
+            "__NFSU2_TUNER_943_PROFILE__",
+            "__NFSU2_TUNER_B1_PROFILE__",
+            "__NFSU2_TUNER_BDC_PROFILE__",
+            "__NFSU2_TUNER_ED8_PROFILE__",
+            "__NFSU2_WALLS__",
+            "__NFSU2_WORKER_MODULE_LOADER__",
+            "__nfsu2DrivingTools"
+          ],
+          "patchPhase": "idle"
+        },
+        {
+          "name": "actual-game-worker-created",
+          "marks": 0,
+          "categories": [],
+          "selectedAPI": {
+            "WebAssembly.Memory": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Module": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Instance": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiate": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiateStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.compileStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "SharedArrayBuffer": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "MessagePort.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            }
+          },
+          "memoryPrototypeIsHostFunctionPrototype": true,
+          "compileStreamingIdentityUnchanged": true,
+          "compileIdentityUnchanged": true,
+          "workerConstructorIdentityUnchanged": false,
+          "instancePostMessage": {
+            "predicatePasses": false,
+            "ownProperty": true,
+            "checkedByCapturedGuard": false
+          },
+          "helperFlags": {
+            "publicHelper": false,
+            "moduleHelper": false
+          },
+          "knownGlobals": [],
+          "knownSettings": [],
+          "extensionGlobalNames": [
+            "__NFSU2_102C_PROFILE__",
+            "__NFSU2_609_PROFILE__",
+            "__NFSU2_AA_PROFILE__",
+            "__NFSU2_ABF_PROFILE__",
+            "__NFSU2_AI__",
+            "__NFSU2_AUTONOMY_DRIVE__",
+            "__NFSU2_AUTONOMY_HOSTED__",
+            "__NFSU2_AUTONOMY_LOOP__",
+            "__NFSU2_AUTONOMY_ROAD__",
+            "__NFSU2_B1_PROFILE__",
+            "__NFSU2_BDC_PROFILE__",
+            "__NFSU2_CARS__",
+            "__NFSU2_CD5_PROFILE__",
+            "__NFSU2_CF_PROFILE__",
+            "__NFSU2_CITY_CONTACT_PREVIEW__",
+            "__NFSU2_CITY_PACING__",
+            "__NFSU2_CURRENT_PROFILE__",
+            "__NFSU2_D2FA_PROFILE__",
+            "__NFSU2_DIAGNOSTICS__",
+            "__NFSU2_DYNAMIC_PACING__",
+            "__NFSU2_DYNO_CORE__",
+            "__NFSU2_DYNO_EVALUATOR__",
+            "__NFSU2_DYNO_FULL__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_102C__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_943__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_B1__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_BDC9__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_ED8__",
+            "__NFSU2_DYNO_NATIVE_PROFILE__",
+            "__NFSU2_DYNO_NATIVE__",
+            "__NFSU2_DYNO__",
+            "__NFSU2_ECU_RECIPE_B1_PROFILE__",
+            "__NFSU2_ECU_RECIPE_BDC_PROFILE__",
+            "__NFSU2_ECU_RECIPE_ED8_PROFILE__",
+            "__NFSU2_ECU_RECIPE_PROFILE__",
+            "__NFSU2_ECU_RECIPE__",
+            "__NFSU2_ECU_SCOPED_PATCHER_B1__",
+            "__NFSU2_ECU_SCOPED_PATCHER_BDC9__",
+            "__NFSU2_ECU_SCOPED_PATCHER_ED8__",
+            "__NFSU2_ECU_SCOPED_PATCHER__",
+            "__NFSU2_ECU_SCOPE_B1_PROFILE__",
+            "__NFSU2_ECU_SCOPE_BDC_PROFILE__",
+            "__NFSU2_ECU_SCOPE_ED8_PROFILE__",
+            "__NFSU2_ECU_SCOPE_PROFILE__",
+            "__NFSU2_ECU_SCOPE_UI__",
+            "__NFSU2_ECU_SCOPE__",
+            "__NFSU2_ED8_PROFILE__",
+            "__NFSU2_FAMILY_PROFILES__",
+            "__NFSU2_FORWARD_CLAMP__",
+            "__NFSU2_FORWARD_DRIVING__",
+            "__NFSU2_FORWARD_GEOMETRY__",
+            "__NFSU2_FORWARD_NATIVE_CONFIG__",
+            "__NFSU2_FORWARD_NATIVE_PATCHER__",
+            "__NFSU2_FORWARD_PACING__",
+            "__NFSU2_GODLY_CATCHUP__",
+            "__NFSU2_HUD_LAYOUT__",
+            "__NFSU2_LATEST_PROFILE__",
+            "__NFSU2_MODERN_PROFILE__",
+            "__NFSU2_NATIVE_CITY_CORNER_102C__",
+            "__NFSU2_NATIVE_CORNER_TARGET__",
+            "__NFSU2_NATIVE_FORWARD_LEASE_102C__",
+            "__NFSU2_NATIVE_ONLINE_102C__",
+            "__NFSU2_NATIVE_ONLINE_609__",
+            "__NFSU2_NATIVE_RUBBERBAND__",
+            "__NFSU2_NATIVE_TARGET_FEEDBACK_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_609__",
+            "__NFSU2_NATIVE_TUNER_102C__",
+            "__NFSU2_NEXT_PROFILE__",
+            "__NFSU2_PACED_CATCHUP_CONTROLLER__",
+            "__NFSU2_PACED_CATCHUP__",
+            "__NFSU2_PITWALL__",
+            "__NFSU2_RACE_CAPTURE_CONFIG__",
+            "__NFSU2_RACE_CAPTURE__",
+            "__NFSU2_RACE_CATALOG__",
+            "__NFSU2_RACE_HUB__",
+            "__NFSU2_RACE_SHOWCASE__",
+            "__NFSU2_RACE_STATS__",
+            "__NFSU2_RACE_TELEMETRY__",
+            "__NFSU2_RACE_WINDOW_GEOMETRY__",
+            "__NFSU2_REAR_RADAR__",
+            "__NFSU2_ROUTE_PROBE__",
+            "__NFSU2_RUBBERBAND_CONTROLLER__",
+            "__NFSU2_SHORTCUT_POLICY__",
+            "__NFSU2_SIGNATURES__",
+            "__NFSU2_SIGNATURE_PROFILE_LATEST__",
+            "__NFSU2_SIGNATURE_PROFILE_NEXT__",
+            "__NFSU2_SIGNATURE_PROFILE__",
+            "__NFSU2_SOURCE_INTERFACES__",
+            "__NFSU2_STREAM_HUD__",
+            "__NFSU2_TARGET_FEEDBACK_STATE__",
+            "__NFSU2_TARGET_FEEDBACK__",
+            "__NFSU2_TOOL_PROFILES__",
+            "__NFSU2_TUNER_943_PROFILE__",
+            "__NFSU2_TUNER_B1_PROFILE__",
+            "__NFSU2_TUNER_BDC_PROFILE__",
+            "__NFSU2_TUNER_ED8_PROFILE__",
+            "__NFSU2_WALLS__",
+            "__NFSU2_WORKER_MODULE_LOADER__",
+            "__nfsu2DrivingTools"
+          ],
+          "patchPhase": "idle"
+        },
+        {
+          "name": "actual-boot-forwarded",
+          "marks": 0,
+          "categories": [],
+          "selectedAPI": {
+            "WebAssembly.Memory": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Module": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Instance": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiate": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiateStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.compileStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "SharedArrayBuffer": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "MessagePort.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            }
+          },
+          "memoryPrototypeIsHostFunctionPrototype": true,
+          "compileStreamingIdentityUnchanged": true,
+          "compileIdentityUnchanged": true,
+          "workerConstructorIdentityUnchanged": false,
+          "instancePostMessage": {
+            "predicatePasses": false,
+            "ownProperty": true,
+            "checkedByCapturedGuard": false
+          },
+          "helperFlags": {
+            "publicHelper": false,
+            "moduleHelper": false
+          },
+          "knownGlobals": [],
+          "knownSettings": [],
+          "extensionGlobalNames": [
+            "__NFSU2_102C_PROFILE__",
+            "__NFSU2_609_PROFILE__",
+            "__NFSU2_AA_PROFILE__",
+            "__NFSU2_ABF_PROFILE__",
+            "__NFSU2_AI__",
+            "__NFSU2_AUTONOMY_DRIVE__",
+            "__NFSU2_AUTONOMY_HOSTED__",
+            "__NFSU2_AUTONOMY_LOOP__",
+            "__NFSU2_AUTONOMY_ROAD__",
+            "__NFSU2_B1_PROFILE__",
+            "__NFSU2_BDC_PROFILE__",
+            "__NFSU2_CARS__",
+            "__NFSU2_CD5_PROFILE__",
+            "__NFSU2_CF_PROFILE__",
+            "__NFSU2_CITY_CONTACT_PREVIEW__",
+            "__NFSU2_CITY_PACING__",
+            "__NFSU2_CURRENT_PROFILE__",
+            "__NFSU2_D2FA_PROFILE__",
+            "__NFSU2_DIAGNOSTICS__",
+            "__NFSU2_DYNAMIC_PACING__",
+            "__NFSU2_DYNO_CORE__",
+            "__NFSU2_DYNO_EVALUATOR__",
+            "__NFSU2_DYNO_FULL__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_102C__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_943__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_B1__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_BDC9__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_ED8__",
+            "__NFSU2_DYNO_NATIVE_PROFILE__",
+            "__NFSU2_DYNO_NATIVE__",
+            "__NFSU2_DYNO__",
+            "__NFSU2_ECU_RECIPE_B1_PROFILE__",
+            "__NFSU2_ECU_RECIPE_BDC_PROFILE__",
+            "__NFSU2_ECU_RECIPE_ED8_PROFILE__",
+            "__NFSU2_ECU_RECIPE_PROFILE__",
+            "__NFSU2_ECU_RECIPE__",
+            "__NFSU2_ECU_SCOPED_PATCHER_B1__",
+            "__NFSU2_ECU_SCOPED_PATCHER_BDC9__",
+            "__NFSU2_ECU_SCOPED_PATCHER_ED8__",
+            "__NFSU2_ECU_SCOPED_PATCHER__",
+            "__NFSU2_ECU_SCOPE_B1_PROFILE__",
+            "__NFSU2_ECU_SCOPE_BDC_PROFILE__",
+            "__NFSU2_ECU_SCOPE_ED8_PROFILE__",
+            "__NFSU2_ECU_SCOPE_PROFILE__",
+            "__NFSU2_ECU_SCOPE_UI__",
+            "__NFSU2_ECU_SCOPE__",
+            "__NFSU2_ED8_PROFILE__",
+            "__NFSU2_FAMILY_PROFILES__",
+            "__NFSU2_FORWARD_CLAMP__",
+            "__NFSU2_FORWARD_DRIVING__",
+            "__NFSU2_FORWARD_GEOMETRY__",
+            "__NFSU2_FORWARD_NATIVE_CONFIG__",
+            "__NFSU2_FORWARD_NATIVE_PATCHER__",
+            "__NFSU2_FORWARD_PACING__",
+            "__NFSU2_GODLY_CATCHUP__",
+            "__NFSU2_HUD_LAYOUT__",
+            "__NFSU2_LATEST_PROFILE__",
+            "__NFSU2_MODERN_PROFILE__",
+            "__NFSU2_NATIVE_CITY_CORNER_102C__",
+            "__NFSU2_NATIVE_CORNER_TARGET__",
+            "__NFSU2_NATIVE_FORWARD_LEASE_102C__",
+            "__NFSU2_NATIVE_ONLINE_102C__",
+            "__NFSU2_NATIVE_ONLINE_609__",
+            "__NFSU2_NATIVE_RUBBERBAND__",
+            "__NFSU2_NATIVE_TARGET_FEEDBACK_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_609__",
+            "__NFSU2_NATIVE_TUNER_102C__",
+            "__NFSU2_NEXT_PROFILE__",
+            "__NFSU2_PACED_CATCHUP_CONTROLLER__",
+            "__NFSU2_PACED_CATCHUP__",
+            "__NFSU2_PITWALL__",
+            "__NFSU2_RACE_CAPTURE_CONFIG__",
+            "__NFSU2_RACE_CAPTURE__",
+            "__NFSU2_RACE_CATALOG__",
+            "__NFSU2_RACE_HUB__",
+            "__NFSU2_RACE_SHOWCASE__",
+            "__NFSU2_RACE_STATS__",
+            "__NFSU2_RACE_TELEMETRY__",
+            "__NFSU2_RACE_WINDOW_GEOMETRY__",
+            "__NFSU2_REAR_RADAR__",
+            "__NFSU2_ROUTE_PROBE__",
+            "__NFSU2_RUBBERBAND_CONTROLLER__",
+            "__NFSU2_SHORTCUT_POLICY__",
+            "__NFSU2_SIGNATURES__",
+            "__NFSU2_SIGNATURE_PROFILE_LATEST__",
+            "__NFSU2_SIGNATURE_PROFILE_NEXT__",
+            "__NFSU2_SIGNATURE_PROFILE__",
+            "__NFSU2_SOURCE_INTERFACES__",
+            "__NFSU2_STREAM_HUD__",
+            "__NFSU2_TARGET_FEEDBACK_STATE__",
+            "__NFSU2_TARGET_FEEDBACK__",
+            "__NFSU2_TOOL_PROFILES__",
+            "__NFSU2_TUNER_943_PROFILE__",
+            "__NFSU2_TUNER_B1_PROFILE__",
+            "__NFSU2_TUNER_BDC_PROFILE__",
+            "__NFSU2_TUNER_ED8_PROFILE__",
+            "__NFSU2_WALLS__",
+            "__NFSU2_WORKER_MODULE_LOADER__",
+            "__nfsu2DrivingTools"
+          ],
+          "patchPhase": "ready"
+        },
+        {
+          "name": "four-page-ticks",
+          "marks": 0,
+          "categories": [],
+          "selectedAPI": {
+            "WebAssembly.Memory": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Module": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.Instance": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiate": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.instantiateStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "WebAssembly.compileStreaming": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "Worker.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "SharedArrayBuffer": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            },
+            "MessagePort.prototype.postMessage": {
+              "exists": true,
+              "type": "function",
+              "predicatePasses": true
+            }
+          },
+          "memoryPrototypeIsHostFunctionPrototype": true,
+          "compileStreamingIdentityUnchanged": true,
+          "compileIdentityUnchanged": true,
+          "workerConstructorIdentityUnchanged": false,
+          "instancePostMessage": {
+            "predicatePasses": false,
+            "ownProperty": true,
+            "checkedByCapturedGuard": false
+          },
+          "helperFlags": {
+            "publicHelper": false,
+            "moduleHelper": false
+          },
+          "knownGlobals": [],
+          "knownSettings": [],
+          "extensionGlobalNames": [
+            "__NFSU2_102C_PROFILE__",
+            "__NFSU2_609_PROFILE__",
+            "__NFSU2_AA_PROFILE__",
+            "__NFSU2_ABF_PROFILE__",
+            "__NFSU2_AI__",
+            "__NFSU2_AUTONOMY_DRIVE__",
+            "__NFSU2_AUTONOMY_HOSTED__",
+            "__NFSU2_AUTONOMY_LOOP__",
+            "__NFSU2_AUTONOMY_ROAD__",
+            "__NFSU2_B1_PROFILE__",
+            "__NFSU2_BDC_PROFILE__",
+            "__NFSU2_CARS__",
+            "__NFSU2_CD5_PROFILE__",
+            "__NFSU2_CF_PROFILE__",
+            "__NFSU2_CITY_CONTACT_PREVIEW__",
+            "__NFSU2_CITY_PACING__",
+            "__NFSU2_CURRENT_PROFILE__",
+            "__NFSU2_D2FA_PROFILE__",
+            "__NFSU2_DIAGNOSTICS__",
+            "__NFSU2_DYNAMIC_PACING__",
+            "__NFSU2_DYNO_CORE__",
+            "__NFSU2_DYNO_EVALUATOR__",
+            "__NFSU2_DYNO_FULL__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_102C__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_943__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_B1__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_BDC9__",
+            "__NFSU2_DYNO_NATIVE_PROFILE_ED8__",
+            "__NFSU2_DYNO_NATIVE_PROFILE__",
+            "__NFSU2_DYNO_NATIVE__",
+            "__NFSU2_DYNO__",
+            "__NFSU2_ECU_RECIPE_B1_PROFILE__",
+            "__NFSU2_ECU_RECIPE_BDC_PROFILE__",
+            "__NFSU2_ECU_RECIPE_ED8_PROFILE__",
+            "__NFSU2_ECU_RECIPE_PROFILE__",
+            "__NFSU2_ECU_RECIPE__",
+            "__NFSU2_ECU_SCOPED_PATCHER_B1__",
+            "__NFSU2_ECU_SCOPED_PATCHER_BDC9__",
+            "__NFSU2_ECU_SCOPED_PATCHER_ED8__",
+            "__NFSU2_ECU_SCOPED_PATCHER__",
+            "__NFSU2_ECU_SCOPE_B1_PROFILE__",
+            "__NFSU2_ECU_SCOPE_BDC_PROFILE__",
+            "__NFSU2_ECU_SCOPE_ED8_PROFILE__",
+            "__NFSU2_ECU_SCOPE_PROFILE__",
+            "__NFSU2_ECU_SCOPE_UI__",
+            "__NFSU2_ECU_SCOPE__",
+            "__NFSU2_ED8_PROFILE__",
+            "__NFSU2_FAMILY_PROFILES__",
+            "__NFSU2_FORWARD_CLAMP__",
+            "__NFSU2_FORWARD_DRIVING__",
+            "__NFSU2_FORWARD_GEOMETRY__",
+            "__NFSU2_FORWARD_NATIVE_CONFIG__",
+            "__NFSU2_FORWARD_NATIVE_PATCHER__",
+            "__NFSU2_FORWARD_PACING__",
+            "__NFSU2_GODLY_CATCHUP__",
+            "__NFSU2_HUD_LAYOUT__",
+            "__NFSU2_LATEST_PROFILE__",
+            "__NFSU2_MODERN_PROFILE__",
+            "__NFSU2_NATIVE_CITY_CORNER_102C__",
+            "__NFSU2_NATIVE_CORNER_TARGET__",
+            "__NFSU2_NATIVE_FORWARD_LEASE_102C__",
+            "__NFSU2_NATIVE_ONLINE_102C__",
+            "__NFSU2_NATIVE_ONLINE_609__",
+            "__NFSU2_NATIVE_RUBBERBAND__",
+            "__NFSU2_NATIVE_TARGET_FEEDBACK_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_102C__",
+            "__NFSU2_NATIVE_TRANSPLANT_609__",
+            "__NFSU2_NATIVE_TUNER_102C__",
+            "__NFSU2_NEXT_PROFILE__",
+            "__NFSU2_PACED_CATCHUP_CONTROLLER__",
+            "__NFSU2_PACED_CATCHUP__",
+            "__NFSU2_PITWALL__",
+            "__NFSU2_RACE_CAPTURE_CONFIG__",
+            "__NFSU2_RACE_CAPTURE__",
+            "__NFSU2_RACE_CATALOG__",
+            "__NFSU2_RACE_HUB__",
+            "__NFSU2_RACE_SHOWCASE__",
+            "__NFSU2_RACE_STATS__",
+            "__NFSU2_RACE_TELEMETRY__",
+            "__NFSU2_RACE_WINDOW_GEOMETRY__",
+            "__NFSU2_REAR_RADAR__",
+            "__NFSU2_ROUTE_PROBE__",
+            "__NFSU2_RUBBERBAND_CONTROLLER__",
+            "__NFSU2_SHORTCUT_POLICY__",
+            "__NFSU2_SIGNATURES__",
+            "__NFSU2_SIGNATURE_PROFILE_LATEST__",
+            "__NFSU2_SIGNATURE_PROFILE_NEXT__",
+            "__NFSU2_SIGNATURE_PROFILE__",
+            "__NFSU2_SOURCE_INTERFACES__",
+            "__NFSU2_STREAM_HUD__",
+            "__NFSU2_TARGET_FEEDBACK_STATE__",
+            "__NFSU2_TARGET_FEEDBACK__",
+            "__NFSU2_TOOL_PROFILES__",
+            "__NFSU2_TUNER_943_PROFILE__",
+            "__NFSU2_TUNER_B1_PROFILE__",
+            "__NFSU2_TUNER_BDC_PROFILE__",
+            "__NFSU2_TUNER_ED8_PROFILE__",
+            "__NFSU2_WALLS__",
+            "__NFSU2_WORKER_MODULE_LOADER__",
+            "__nfsu2DrivingTools"
+          ],
+          "patchPhase": "ready"
+        }
+      ],
+      "boot": {
+        "cfgBefore": {
+          "env": {
+            "NFSU2_PAGE_MARKS": "0",
+            "FIXTURE_INERT_VALUE": "unchanged"
+          },
+          "pool": 3
+        },
+        "cfgAfter": {
+          "env": {
+            "NFSU2_PAGE_MARKS": "0",
+            "FIXTURE_INERT_VALUE": "unchanged"
+          },
+          "pool": 3
+        },
+        "originalModuleWasReplaced": true,
+        "compiledProfileRevision": "60946132",
+        "compiledProfileHash": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+        "nativeSyntheticNearMiss": false,
+        "patchState": {
+          "phase": "ready",
+          "reason": "Verified game module · native AI bridge loaded.",
+          "loader": "explicit",
+          "moduleBytes": 38933227,
+          "candidateRevision": "60946132",
+          "moduleHash": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+          "signatureReference": "2f0ddd3b",
+          "signatureExact": false,
+          "signatureTotal": 34,
+          "signatureUnique": 8,
+          "signatureAmbiguous": 0,
+          "signatureMissing": 26,
+          "godlyCatchup": true,
+          "transplant": "102c8d92",
+          "nativeRubberband": true,
+          "nativeCornerTarget": true,
+          "nativePacedCatchup": true,
+          "nativeOnlineAI": true,
+          "nativeCityCornerReduction": false,
+          "nativeTuner": false,
+          "nativeTargetFeedback": false,
+          "nativeRouteChoice": true,
+          "nativeRails": true,
+          "soloOnly": false,
+          "nativeForwardLease": false,
+          "nativeForwardGeometry": false,
+          "nativeForwardClamp": false,
+          "revision": "60946132"
+        },
+        "cfgPreserved": true,
+        "reportMarkerPreserved": true
+      },
+      "fetches": [
+        {
+          "url": "/game.json",
+          "cache": "no-store",
+          "credentials": "omit"
+        },
+        {
+          "url": "/game.json",
+          "cache": "no-store",
+          "credentials": "omit"
+        },
+        {
+          "url": "/game.wasm?v=gdLjLX7me7k6j6_uTbwXVw",
+          "cache": "default",
+          "credentials": "omit"
+        }
+      ],
+      "storage": {
+        "local": [],
+        "session": [
+          "nfsu2-driving-tools-diagnostics-v1"
+        ]
+      },
+      "hostHelperWarnings": 0
+    }
+  ],
+  "controls": [
+    {
+      "name": "known-global",
+      "marks": 4,
+      "helperFlags": {
+        "publicHelper": false,
+        "moduleHelper": false
+      },
+      "warnings": 0,
+      "scope": "Independent synthetic positive control using exact captured getter/predicate source; not extension behavior"
+    },
+    {
+      "name": "known-setting",
+      "marks": 8,
+      "helperFlags": {
+        "publicHelper": false,
+        "moduleHelper": false
+      },
+      "warnings": 0,
+      "scope": "Independent synthetic positive control using exact captured getter/predicate source; not extension behavior"
+    },
+    {
+      "name": "public-helper-getter",
+      "marks": 16,
+      "helperFlags": {
+        "publicHelper": true,
+        "moduleHelper": false
+      },
+      "warnings": 1,
+      "scope": "Independent synthetic positive control using exact captured getter/predicate source; not extension behavior"
+    },
+    {
+      "name": "module-helper-getter",
+      "marks": 32,
+      "helperFlags": {
+        "publicHelper": false,
+        "moduleHelper": true
+      },
+      "warnings": 1,
+      "scope": "Independent synthetic positive control using exact captured getter/predicate source; not extension behavior"
+    },
+    {
+      "name": "passive-helper-read",
+      "marks": 0,
+      "helperFlags": {
+        "publicHelper": false,
+        "moduleHelper": false
+      },
+      "warnings": 0,
+      "scope": "Independent synthetic positive control using exact captured getter/predicate source; not extension behavior"
+    }
+  ],
+  "limitations": [
+    "Controlled Node DOM/browser stand-ins are not an actual Chrome session or an account record.",
+    "Worker and MessagePort constructors/prototype methods are explicitly native-callable proxy stand-ins. Function.prototype.toString and API toString methods are not overridden.",
+    "The captured guard runs in the host Function realm so native Memory prototype comparison does not create a VM realm false positive.",
+    "Known settings use the exact captured key list and default predicate; its B.get provider is a synthetic localStorage adapter.",
+    "Actual captured helper getters set their own observational flags. No report markers are removed or rewritten.",
+    "The current original WASM and actual transformed module are compiled and forwarded only. No game module instance or original sender exists.",
+    "Tools remain at startup defaults. Four page ticks use synthetic16MiB fixture memory without an original game data image; this does not exercise active driving, user tool actions or JOIN.",
+    "The synthetic memory would not satisfy the original full module memory import minimum if instantiated. The Worker stand-in only records forwarded arguments.",
+    "Captured predicate observations do not establish server acceptance, an account sanction or multiplayer safety."
+  ]
+}

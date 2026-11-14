@@ -1,0 +1,1357 @@
+VERBATIM REVIEW CHUNK 023
+Canonical bundle byte range [2640000, 2760000). Read chunks in numeric order.
+Only the payload below belongs to the canonical bundle; headers are generated.
+
+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HAiSMByPIAiSNByPJAiSOByPKAiSPByPLAiSQByPMAiSRByPNAiSSByPOAiSTByPPAiSUByPQAiSVByPRAiSWByPSAiSXByPTAiSYByPUAiSZByPVAiSaByPWAiSbByPXAiScByPYAiSdByPZAiSeByPaAiSfByPbAiSgByPcAiShByPdAiSiByPeAiSjByPfAiSkByPgAiSlByPhAiSmByPiAiSnByPjAiSoByPkAiSpByPlAiSqByPmAiSrByPnAiSsByPoAiStByPpAiSuByPqAiSvByPrAiSwByPsAiSxByPtAiSyByPuAiSzByPvAiS0ByPwAiS1ByPxAiS2ByPyAiS3ByPzAiS4ByP0AiS5ByP1AiS6ByP2AiS7ByP3AiS8ByP4AiS9ByP5AiS+ByP6AiS/ByP7AiTAByP8AiTBByP9AiTCByP+AiTDByP/AiTEByOAAyTFByOBAyTGByOCAyTHByODAyTIByOEAyTJByOFAyTKByOGAyTLByOHAyTMByOIAyTNByOJAyTOByOKAyTPByOLAyTQByOMAyTRByONAyTSByOOAyTTByOPAyTUByOQAyTVByORAyTWByOSAyTXByOTAyTYByOUAyTZByOVAyTaByOWAyTbByOXAyTcByOYAyTdByOZAyTeByOaAyTfByObAyTgByOcAyThByOdAyTiByOeAyTjByOfAyTkByOgAyTlByOhAyTmByOiAyTnByOjAyToByOkAyTpByOlAyTqByOmAyTrByOnAyTsByOoAyTtByOpAyTuByOqAyTvByOrAyTwByOsAyTxByOtAyTyByOuAyTzByOvAyT0ByOwAyT1ByOxAyT2ByOyAyT3ByOzAyT4ByO0AyT5ByO1AyT6ByO2AyT7ByO3AyT8ByO4AyT9ByO5AyT+ByO6AyT/ByO7AySACCO8AySBCCO9AySCCCO+AySDCCO/AySECCPAAySFCCPBAySGCCPCAySHCCPDAySICCPEAySJCCPFAySKCCPGAySLCCPHAySMCCPIAySNCCPJAySOCCPKAySPCCPLAySQCCPMAySRCCPNAySSCCPOAySTCCPPAySUCCPQAySVCCPRAySWCCPSAySXCCPTAySYCCPUAySZCCPVAySaCCPWAySbCCPXAyScCCPYAySdCCPZAySeCCPaAySfCCPbAySgCCPcAyShCCPdAySiCCPeAySjCCPfAySkCCPgAySlCCPhAySmCCPiAySnCCPjAySoCCPkAySpCCPlAySqCCPmAySrCCPnAySsCCPoAyStCCPpAySuCCPqAySvCCPrAySwCCPsAySxCCPtAySyCCPuAySzCCPvAyS0CCPwAyS1CCPxAyS2CCPyAyS3CCPzAyS4CCP0AyS5CCP1AyS6CCP2AyS7CCP3AyS8CCP4AyS9CCP5AyS+CCP6AyS/CCP7AyTACCP8AyTBCCP9AyTCCCP+AyTDCCP/AyTECCOABCTFCCOBBCTGCCOCBCTHCCODBCTICCOEBCTJCCOFBCTKCCOGBCTLCCOHBCTMCCOIBCTNCCOJBCTOCCOKBCTPCCOLBCTQCCOMBCTRCCONBCTSCCOOBCTTCCOPBCTUCCOQBCTVCCORBCTWCCOSBCTXCCOTBCTYCCOUBCTZCCOVBCTaCCOWBCTbCCOXBCTcCCOYBCTdCCOZBCTeCCOaBCTfCCObBCTgCCOcBCThCCOdBCTiCCOeBCTjCCOfBCTkCCOgBCTlCCOhBCTmCCOiBCTnCCOjBCToCCOkBCTpCCOlBCTqCCOmBCTrCCOnBCTsCCOoBCTtCCOpBCTuCCOqBCTvCCOrBCTwCCOsBCTxCCOtBCTyCCOuBCTzCCOvBCT0CCOwBCT1CCOxBCT2CCOyBCT3CCOzBCT4CCO0BCT5CCO1BCT6CCO2BCT7CCO3BCT8CCO4BCT9CCO5BCT+CCO6BCT/CCO7BCSACSO8BCSBCSO9BCSCCSO+BCSDCSO/BCSECSPABCSFCSPBBCSGCSPCBCSHCSPDBCSICSPEBCSJCSPFBCSKCSPGBCSLCSPHBCSMCSPIBCSNCSPJBCSOCUGAsMMG/hEDACSPCUGIsMMG/hEDACSQCUGQsMMG/hEDACSRCUGYsMMG/hEDACSSCUGgsMMG/hEDACSTCUGosMMG/hEDACSUCUGwsMMG/hEDACSVCUG4sMMG/hEDACSWCUHAsMMG/hEDACSXCUHIsMMG/hEDACSYCUHQsMMG/hEDACSZCUHYsMMG/hEDACSaCUHgsMMG/hEDACSbCUHosMMG/hEDACScCUHwsMMG/hEDACSdCUH4sMMG/hEDACSeCUGAscMG/hEDACSfCUGIscMG/hEDACSgCUGQscMG/hEDACShCUGYscMG/hEDACSiCUGgscMG/hEDACSjCUGoscMG/hEDACSkCUGwscMG/hEDACSlCUG4scMG/hEDACSmCUHAscMG/hEDACSnCUHIscMG/hEDACSoCUHQscMG/hEDACSpCUHYscMG/hEDACSqCUHgscMG/hEDACSrCUHoscMG/hEDACSsCUHwscMG/hEDACStCUH4scMG/hEDACSuCUGAssMG/hEDACSvCUGIssMG/hEDACSwCUGQssMG/hEDACSxCUGYssMG/hEDACSyCUGgssMG/hEDACSzCUGossMG/hEDACS0CUGwssMG/hEDACS1CUG4ssMG/hEDACS2CUHAssMG/hEDACS3CUHIssMG/hEDACS4CUHQssMG/hEDACS5CUHYssMG/hEDACS6CUHgssMG/hEDACS7CUHossMG/hEDACS8CUHwssMG/hEDACS9CUH4ssMG/hEDACS+CUGAs8MG/hEDACS/CUGIs8MG/hEDACTACUGQs8MG/hEDACTBCUGYs8MG/hEDACTCCUGgs8MG/hEDACTDCUGos8MG/hEDACTECUGws8MG/hEDACTFCUG4s8MG/hEDACTGCUHAs8MG/hEDACTHCUHIs8MG/hEDACTICUHQs8MG/hEDACTJCUHYs8MG/hEDACTKCUHgs8MG/hEDACTLCUHos8MG/hEDACTMCUHws8MG/hEDACTNCUH4s8MG/hEDACTOCUGAtMMG/hEDACTPCUGItMMG/hEDACTQCUGQtMMG/hEDACTRCUGYtMMG/hEDACTSCUGgtMMG/hEDACTTCUGotMMG/hEDACTUCUGwtMMG/hEDACTVCUG4tMMG/hEDACTWCUHAtMMG/hEDACTXCUHItMMG/hEDACTYCUHQtMMG/hEDACTZCUHYtMMG/hEDACTaCUHgtMMG/hEDACTbCUHotMMG/hEDACTcCUHwtMMG/hEDACTdCUH4tMMG/hEDACTeCUGAtcMG/hEDACTfCUGItcMG/hEDACTgCUGQtcMG/hEDACThCUGYtcMG/hEDACTiCUGgtcMG/hEDACTjCUGotcMG/hEDACTkCUGwtcMG/hEDACTlCUG4tcMG/hEDACTmCUHAtcMG/hEDACTnCUHItcMG/hEDACToCUHQtcMG/hEDACTpCUHYtcMG/hEDACTqCUHgtcMG/hEDACTrCUHotcMG/hEDACTsCUHwtcMG/hEDACTtCUH4tcMG/hEDACTuCUGAtsMG/hEDACTvCUGItsMG/hEDACTwCUGQtsMG/hEDACTxCUGYtsMG/hEDACTyCUGgtsMG/hEDACTzCUGotsMG/hEDACT0CUGwtsMG/hEDACT1CUG4tsMG/hEDACT2CUHAtsMG/hEDACT3CUHItsMG/hEDACT4CUHQtsMG/hEDACT5CUHYtsMG/hEDACT6CUHgtsMG/hEDACT7CUHotsMG/hEDACT8CUHwtsMG/hEDACT9CUH4tsMG/hEDACT+CUGAt8MG/hEDACT/CUGIt8MG/hEDACSACkGQt8MG/hEDACSBCkGYt8MG/hEDACSCCkGgt8MG/hEDACSDCkGot8MG/hEDACSECkGwt8MG/hEDACSFCkG4t8MG/hEDACSGCkHAt8MG/hEDACSHCkHIt8MG/hEDACSICkHQt8MG/hEDACSJCkHYt8MG/hEDACSKCkHgt8MG/hEDACSLCkHot8MG/hEDACSMCkHwt8MG/hEDACSNCkH4t8MG/hEDACSOCkGAuMMG/hEDACSPCkGIuMMG/hEDACSQCkGQuMMG/hEDACSRCkGYuMMG/hEDACSSCkGguMMG/hEDACSTCkGouMMG/hEDACSUCkGwuMMG/hEDACSVCkG4uMMG/hEDACSWCkHAuMMG/hEDACSXCkHIuMMG/hEDACSYCkHQuMMG/hEDACSZCkHYuMMG/hEDACSaCkHguMMG/hEDACSbCkHouMMG/hEDACScCkHwuMMG/hEDACSdCkH4uMMG/hEDACSeCkGAucMG/hEDACSfCkGIucMG/hEDACSgCkGQucMG/hEDACShCkGYucMG/hEDACSiCkGgucMG/hEDACSjCkGoucMG/hEDACSkCkGwucMG/hEDACSlCkG4ucMG/hEDACSmCkHAucMG/hEDACSnCkHIucMG/hEDACSoCkHQucMG/hEDACSpCkHYucMG/hEDACSqCkHgucMG/hEDACSrCkHoucMG/hEDACSsCkHwucMG/hEDACStCkH4ucMG/hEDACSuCkGAusMG/hEDACSvCkGIusMG/hEDACSwCkGQusMG/hEDACSxCkGYusMG/hEDACSyCkGgusMG/hEDACSzCkGousMG/hEDACS0CkGwusMG/hEDACS1CkG4usMG/hEDACS2CkHAusMG/hEDACS3CkHIusMG/hEDACS4CkHQusMG/hE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"});
+ const fail=message=>{throw Error('Native forward lease102c: '+message);};
+ const sha=async bytes=>Array.from(new Uint8Array(await root.crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join('');
+ const decode=s=>Uint8Array.from(root.atob(s),c=>c.charCodeAt(0));
+ const leb=n=>{const out=[];do{const b=n&127;n=Math.floor(n/128);out.push(b|(n?128:0));}while(n);return Uint8Array.from(out);};
+ const cat=parts=>{const out=new Uint8Array(parts.reduce((n,p)=>n+p.length,0));let i=0;for(const p of parts){out.set(p,i);i+=p.length;}return out;};
+ const read=(bytes,p)=>{let n=0;for(let k=0;k<5;k++){if(p.i>=bytes.length)fail('integer bounds');const b=bytes[p.i++];if(k===4&&b>15)fail('integer overflow');n+=(b&127)*2**(7*k);if(!(b&128))return n;}fail('integer width');};
+ const supports=hash=>hash===PLAN.rawHash;
+ async function patchModule(input,{verifiedOriginalHash}={}){
+  if(!supports(verifiedOriginalHash))fail('unsupported game');const bytes=new Uint8Array(input);
+  if(bytes.length!==PLAN.inputBytes||await sha(bytes)!==PLAN.inputHash)fail('input pin');
+  const parts=[bytes.subarray(0,8)],p={i:8};let sections=0,changed=0;
+  while(p.i<bytes.length){const begin=p.i,id=bytes[p.i++],size=read(bytes,p),end=p.i+size;if(end>bytes.length)fail('section bounds');
+   if(PLAN.additions[id]){const a=PLAN.additions[id],count=read(bytes,p);if(count!==a.count)fail('section count');const payload=cat([leb(count+a.added),bytes.subarray(p.i,end),decode(a.bytes)]);parts.push(Uint8Array.of(id),leb(payload.length),payload);sections++;}
+   else if(id===10){const count=read(bytes,p);if(count!==PLAN.originalBodies)fail('code count');const code=[leb(count+PLAN.extraFunctions)];for(let i=0;i<count;i++){const length=read(bytes,p),stop=p.i+length;if(stop>end)fail('body bounds');let body=bytes.subarray(p.i,stop);if(i+38===PLAN.target){if(await sha(body)!==PLAN.bodyHash)fail('original guard');body=decode(PLAN.newBody);changed++;}code.push(leb(body.length),body);p.i=stop;}if(p.i!==end)fail('code end');code.push(decode(PLAN.newFunctions));const payload=cat(code);parts.push(Uint8Array.of(id),leb(payload.length),payload);}
+   else parts.push(bytes.subarray(begin,end));p.i=end;
+  }
+  if(changed!==1||sections!==3)fail('patch structure');const result=cat(parts);
+  if(result.length!==PLAN.outputBytes||await sha(result)!==PLAN.outputHash||!WebAssembly.validate(result))fail('output pin');return result;
+ }
+ const api=Object.freeze({supports,patchModule,inputHash:PLAN.inputHash,outputHash:PLAN.outputHash,leaseReceipt:Object.freeze({base:0xd0d170,magic:0x314c5346,sequenceOffset:4,requestOffset:8,captureTickOffset:12})});
+ root.__NFSU2_NATIVE_FORWARD_LEASE_102C__=api;if(typeof module==='object'&&module.exports)module.exports=api;
+})(globalThis);
+
+
+===== nfsu2-extension/extension/native-target-feedback-102c.js =====
+/* Exact102c target feedback. Payloads contain authored instructions only;
+ * proof functions are derived from hash-pinned installed guards at runtime.
+ * No telemetry mailbox, guest-memory write, native driving change or new import. */
+(function(root){'use strict';
+ const PLAN=Object.freeze({"inputHash":"842f84cdac800f39a292b0d82c3182f4e225a3e1663541473bdc76f10528aae2","outputHash":"6005ed0fe49b641542e9e2909cf38d10108959f2d2ed2ac74144866281ad8cfc","rawHash":"2ba0b075721d80e75fc3fb9a3b0e4d2acae835d21fcc406d009669b83f81858d","inputBytes":39106629,"outputBytes":39120771,"originalBodies":24531,"additions":{"1":{"count":147,"added":0,"bytes":""},"3":{"count":24531,"added":5,"bytes":"BAQACQI="},"6":{"count":1426,"added":27,"bytes":"fwFBAQt/AUEAC38BQQALfwFBAAt/AUEAC38BQQALfwFBAAt/AUEAC38BQQALfwFBAAt/AUEAC38BQQALfwFBAAt/AUEAC38BQQALfwFBAAt/AUEAC38BQQALfwFBAAt/AUEAC38BQQALfwFBAAt/AUEAC38BQQALfwFBAAt/AUEAC38BQQAL"},"7":{"count":3,"added":24,"bytes":"HV9fbmZzdTJUYXJnZXRGZWVkYmFja192ZXJzaW9uA5ILHl9fbmZzdTJUYXJnZXRGZWVkYmFja19zZXF1ZW5jZQOTCyBfX25mc3UyVGFyZ2V0RmVlZGJhY2tfY29udHJvbGxlcgOUCyJfX25mc3UyVGFyZ2V0RmVlZGJhY2tfaW5jb21pbmdCaXRzA5ULI19fbmZzdTJUYXJnZXRGZWVkYmFja19yZXF1ZXN0ZWRCaXRzA5YLI19fbmZzdTJUYXJnZXRGZWVkYmFja19lZmZlY3RpdmVCaXRzA5cLIF9fbmZzdTJUYXJnZXRGZWVkYmFja19yZXN1bHRCaXRzA5gLH19fbmZzdTJUYXJnZXRGZWVkYmFja19hdmFpbGFibGUDmQshX19uZnN1MlRhcmdldEZlZWRiYWNrX2NhcFNlcXVlbmNlA5oLHV9fbmZzdTJUYXJnZXRGZWVkYmFja19yZXF1ZXN0A5sLI19fbmZzdTJUYXJnZXRGZWVkYmFja19vd25lclNlcXVlbmNlA5wLIV9fbmZzdTJUYXJnZXRGZWVkYmFja19jYXB0dXJlVGljawOdCyBfX25mc3UyVGFyZ2V0RmVlZGJhY2tfc2V0dGVyVGljawOeCxlfX25mc3UyVGFyZ2V0RmVlZGJhY2tfYWdlA58LHF9fbmZzdTJUYXJnZXRGZWVkYmFja19wbGF5ZXIDoAsZX19uZnN1MlRhcmdldEZlZWRiYWNrX2NhcgOhCxxfX25mc3UyVGFyZ2V0RmVlZGJhY2tfZHJpdmVyA6ILGl9fbmZzdTJUYXJnZXRGZWVkYmFja19yYWNlA6MLG19fbmZzdTJUYXJnZXRGZWVkYmFja19yb3V0ZQOkCyNfX25mc3UyVGFyZ2V0RmVlZGJhY2tfcHJpbWFyeVJlYXNvbgOlCyJfX25mc3UyVGFyZ2V0RmVlZGJhY2tfY2FjaGVkUmVhc29uA6YLHV9fbmZzdTJUYXJnZXRGZWVkYmFja19vdXRjb21lA6cLG19fbmZzdTJUYXJnZXRGZWVkYmFja19wcm9vZgOoCyNfX25mc3UyVGFyZ2V0RmVlZGJhY2tfY29tbWFuZFN0YWJsZQOpCw=="}},"changes":{"24531":{"replace":"AQF/IAAQ+78BIAAQ+L8BIQEgACABEPy/ASABCw==","hash":"51eda83ea7a469e65609c514465aaab602bc00d61d4105f284d0ef44cb7aeef3"},"24532":{"hash":"863cca298f0a1a8cf2f2a7800918908eca82251e51c8d2b8a6623c90c88e3bc6","edits":[{"at":34,"remove":0,"bytes":"I6oLBEBBCiSlCws="},{"at":47,"remove":0,"bytes":"I6oLBEBBCySlCws="},{"at":66,"remove":0,"bytes":"I6oLBEBBDCSlCws="},{"at":103,"remove":0,"bytes":"I6oLBEBBDSSlCws="},{"at":168,"remove":0,"bytes":"I6oLBEBBDiSlCws="},{"at":267,"remove":0,"bytes":"I6oLBEBBDySlCws="},{"at":493,"remove":0,"bytes":"I6oLBEBBECSlCws="},{"at":764,"remove":0,"bytes":"I6oLBEBBESSlCws="},{"at":829,"remove":0,"bytes":"I6oLBEBBEiSlCws="},{"at":851,"remove":0,"bytes":"I6oLBEBBEySlCws="},{"at":885,"remove":0,"bytes":"I6oLBEBBFCSlCws="},{"at":913,"remove":0,"bytes":"I6oLBEBBFSSlCws="},{"at":943,"remove":0,"bytes":"I6oLBEBBFiSlCws="},{"at":1032,"remove":0,"bytes":"I6oLBEBBFySlCws="},{"at":1054,"remove":0,"bytes":"I6oLBEBBGCSlCws="},{"at":1071,"remove":0,"bytes":"I6oLBEBBGSSlCws="},{"at":1089,"remove":0,"bytes":"I6oLBEBBGiSlCws="},{"at":1107,"remove":0,"bytes":"I6oLBEBBGySlCws="},{"at":1184,"remove":0,"bytes":"I6oLBEBBHCSlCws="},{"at":1195,"remove":0,"bytes":"I6oLBEBBHSSlCws="},{"at":1262,"remove":0,"bytes":"I6oLBEBBHiSlCws="},{"at":5323,"remove":0,"bytes":"I6oLBEAgBrwklwsL"},{"at":5364,"remove":0,"bytes":"I6oLBEBBHySlCws="},{"at":5399,"remove":0,"bytes":"I6oLBEBBICSlCws="},{"at":5492,"remove":0,"bytes":"I6oLBEBBISSlCws="},{"at":5504,"remove":0,"bytes":"I6oLBEBBASSlCws="}]},"24535":{"hash":"dd44ba208cd5e2465fb97129c0882cd1228056f55f42dcfcbf488e5c524ffa61","edits":[{"at":34,"remove":0,"bytes":"I6oLBEBBCiSmCws="},{"at":47,"remove":0,"bytes":"I6oLBEBBCySmCws="},{"at":66,"remove":0,"bytes":"I6oLBEBBDCSmCws="},{"at":109,"remove":0,"bytes":"I6oLBEBBDSSmCws="},{"at":174,"remove":0,"bytes":"I6oLBEBBDiSmCws="},{"at":273,"remove":0,"bytes":"I6oLBEBBDySmCws="},{"at":541,"remove":0,"bytes":"I6oLBEBBECSmCws="},{"at":875,"remove":0,"bytes":"I6oLBEBBESSmCws="},{"at":940,"remove":0,"bytes":"I6oLBEBBEiSmCws="},{"at":962,"remove":0,"bytes":"I6oLBEBBEySmCws="},{"at":996,"remove":0,"bytes":"I6oLBEBBFCSmCws="},{"at":1028,"remove":0,"bytes":"I6oLBEBBFSSmCws="},{"at":1066,"remove":0,"bytes":"I6oLBEBBFiSmCws="},{"at":1171,"remove":0,"bytes":"I6oLBEBBFySmCws="},{"at":1194,"remove":0,"bytes":"I6oLBEBBGCSmCws="},{"at":1215,"remove":0,"bytes":"I6oLBEBBGSSmCws="},{"at":1237,"remove":0,"bytes":"I6oLBEBBGiSmCws="},{"at":1255,"remove":0,"bytes":"I6oLBEBBGySmCws="},{"at":1356,"remove":0,"bytes":"I6oLBEBBHCSmCws="},{"at":1367,"remove":0,"bytes":"I6oLBEBBHSSmCws="},{"at":1438,"remove":0,"bytes":"I6oLBEBBHiSmCws="},{"at":5702,"remove":0,"bytes":"I6oLBEAgBrwklwsL"},{"at":5743,"remove":0,"bytes":"I6oLBEBBHySmCws="},{"at":5778,"remove":0,"bytes":"I6oLBEBBICSmCws="},{"at":5878,"remove":0,"bytes":"I6oLBEBBISSmCws="},{"at":5889,"remove":0,"bytes":"I6oLBEBBIiSmCws="},{"at":5901,"remove":0,"bytes":"I6oLBEBBASSmCws="}]}},"extra":[{"source":24532,"hash":"863cca298f0a1a8cf2f2a7800918908eca82251e51c8d2b8a6623c90c88e3bc6","edits":[{"at":5360,"remove":1,"bytes":"Xg=="},{"at":5496,"remove":8,"bytes":""}]},{"source":24535,"hash":"dd44ba208cd5e2465fb97129c0882cd1228056f55f42dcfcbf488e5c524ffa61","edits":[{"at":5739,"remove":1,"bytes":"Xg=="},{"at":5893,"remove":8,"bytes":""}]},{"authored":"AEEAJKoLIABB2AIQxL8BRSAAQdgCEMa/AUVyBEAPC0GAsMMGQYAQEMW/AUUEQA8LQYC0wwb+EAIAQcaGsYoDR0GstMMG/hACACAAKAIER3IEQA8LIAAoAgRBvQQQx78BRQRADwtBASSqCyOTC0EBakEBciSTC0EAJJQLQQAklQtBACSWC0EAJJcLQQAkmAtBACSZC0EAJJoLQQAkmwtBACScC0EAJJ0LQQAkngtBACSfC0EAJKALQQAkoQtBACSiC0EAJKMLQQAkpAtBACSlC0EAJKYLQQAkpwtBACSoC0EAJKkLIAAoAgQklAsjlAsoArAEJJULQYi0wwb+EAIAJJoLQZC0wwb+EAIAJJsLQZS0wwb+EAIAJJwLQZi0wwb+EAIAJJ0LQaC0wwb+EAIAJKALQaS0wwb+EAIAJKELQai0wwb+EAIAJKILQbS0wwb+EAIAJKMLQbC0wwb+EAIAJKQLQdi0wwb+EAIAJJYLQQEkmQtBjKOZBEEEEMW/AQRAQYyjmQQoAgAkngsjngsjnQtrJJ8LQQMkmQsLI5oLQYi0wwb+EAIARiOaC0H4tMMG/hACAEZxJKkLCw=="},{"authored":"ACOqC0UEQA8LI5QLQb0EEMe/ASOUCyAAKAIERnEEQCOUCygCsAQkmAsjmQtBBHIkmQsLQQQkpwsgAQRAQQJBASOmC0EBRhskpwsLIAFFI5cLQQBHcQRAI5ULviOXC75fI6YLQQBHBH8gABD6vwEFIAAQ+b8BC3EEQEEBJKgLQQMkpwsLCyOpCyOaC0GItMMG/hACAEYjmgtB+LTDBv4QAgBGcXEkqQsjqQtFBEBBBSSnC0EAJKgLCyOTC0EBaiSTC0EAJKoLEP2/AQs="},{"authored":"AQF/I5kLQQJxRQRADwsjrAtBAEcjngsjqwtrQegHSXEEQA8LI54LJKsLI5MLJKwLI5MLQQh0IQACQB9AAQIAQcaomfIEIABB/gFyQZiABBAFGkHGqJnyBCAAQQByI5ILEAUaQcaomfIEIABBAXIjkwsQBRpBxqiZ8gQgAEECciOUCxAFGkHGqJnyBCAAQQNyI5ULEAUaQcaomfIEIABBBHIjlgsQBRpBxqiZ8gQgAEEFciOXCxAFGkHGqJnyBCAAQQZyI5gLEAUaQcaomfIEIABBB3IjmQsQBRpBxqiZ8gQgAEEIciOaCxAFGkHGqJnyBCAAQQlyI5sLEAUaQcaomfIEIABBCnIjnAsQBRpBxqiZ8gQgAEELciOdCxAFGkHGqJnyBCAAQQxyI54LEAUaQcaomfIEIABBDXIjnwsQBRpBxqiZ8gQgAEEOciOgCxAFGkHGqJnyBCAAQQ9yI6ELEAUaQcaomfIEIABBEHIjogsQBRpBxqiZ8gQgAEERciOjCxAFGkHGqJnyBCAAQRJyI6QLEAUaQcaomfIEIABBE3IjpQsQBRpBxqiZ8gQgAEEUciOmCxAFGkHGqJnyBCAAQRVyI6cLEAUaQcaomfIEIABBFnIjqAsQBRpBxqiZ8gQgAEEXciOpCxAFGkHGqJnyBCAAQf8BciOTCxAFGgsLCw=="}]});
+ const fail=s=>{throw Error('Native target feedback102c: '+s);};
+ const sha=async b=>Array.from(new Uint8Array(await root.crypto.subtle.digest('SHA-256',b)),x=>x.toString(16).padStart(2,'0')).join('');
+ const decode=s=>Uint8Array.from(root.atob(s),c=>c.charCodeAt(0));
+ const leb=n=>{const a=[];do{const b=n&127;n=Math.floor(n/128);a.push(b|(n?128:0));}while(n);return Uint8Array.from(a);};
+ const cat=a=>{const b=new Uint8Array(a.reduce((n,x)=>n+x.length,0));let p=0;for(const x of a){b.set(x,p);p+=x.length;}return b;};
+ const read=(b,p)=>{let n=0;for(let k=0;k<5;k++){if(p.i>=b.length)fail('integer bounds');const c=b[p.i++];if(k===4&&c>15)fail('integer overflow');n+=(c&127)*2**(7*k);if(!(c&128))return n;}fail('integer width');};
+ const edit=(b,changes)=>{const out=[];let at=0;for(const e of changes){if(e.at<at||e.at+e.remove>b.length)fail('edit bounds');out.push(b.subarray(at,e.at),decode(e.bytes));at=e.at+e.remove;}out.push(b.subarray(at));return cat(out);};
+ async function patchModule(input,{verifiedOriginalHash}={}){
+  if(verifiedOriginalHash!==PLAN.rawHash)fail('unsupported game');const b=new Uint8Array(input);if(b.length!==PLAN.inputBytes||await sha(b)!==PLAN.inputHash)fail('input pin');
+  const out=[b.subarray(0,8)],p={i:8};let additions=0,changes=0;
+  while(p.i<b.length){const begin=p.i,id=b[p.i++],size=read(b,p),end=p.i+size;if(end>b.length)fail('section bounds');
+   if(PLAN.additions[id]){const a=PLAN.additions[id],n=read(b,p);if(n!==a.count)fail('section count');const data=cat([leb(n+a.added),b.subarray(p.i,end),decode(a.bytes)]);out.push(Uint8Array.of(id),leb(data.length),data);additions++;}
+   else if(id===10){const n=read(b,p);if(n!==PLAN.originalBodies)fail('code count');const originals=new Map(),code=[leb(n+PLAN.extra.length)];for(let i=0;i<n;i++){const len=read(b,p),stop=p.i+len;if(stop>end)fail('body bounds');const key=i+38,body=b.subarray(p.i,stop);originals.set(key,body);const rule=PLAN.changes[key];let next=body;if(rule){if(await sha(body)!==rule.hash)fail('body pin');next=rule.replace?decode(rule.replace):edit(body,rule.edits);changes++;}code.push(leb(next.length),next);p.i=stop;}if(p.i!==end)fail('code tail');for(const e of PLAN.extra){let next;if(e.authored)next=decode(e.authored);else{const body=originals.get(e.source);if(!body||await sha(body)!==e.hash)fail('proof source pin');next=edit(body,e.edits);}code.push(leb(next.length),next);}const data=cat(code);out.push(Uint8Array.of(id),leb(data.length),data);}
+   else out.push(b.subarray(begin,end));p.i=end;
+  }
+  if(additions!==4||changes!==3)fail('patch structure');const result=cat(out);if(result.length!==PLAN.outputBytes||await sha(result)!==PLAN.outputHash||!WebAssembly.validate(result))fail('output pin');return result;
+ }
+ const api=Object.freeze({supports:hash=>hash===PLAN.rawHash,patchModule,inputHash:PLAN.inputHash,outputHash:PLAN.outputHash,version:1,exportPrefix:'__nfsu2TargetFeedback_',fields:Object.freeze(["version","sequence","controller","incomingBits","requestedBits","effectiveBits","resultBits","available","capSequence","request","ownerSequence","captureTick","setterTick","age","player","car","driver","race","route","primaryReason","cachedReason","outcome","proof","commandStable"])});
+ root.__NFSU2_NATIVE_TARGET_FEEDBACK_102C__=api;if(typeof module==='object'&&module.exports)module.exports=api;
+})(globalThis);
+
+
+===== nfsu2-extension/extension/diagnostics.js =====
+/* Local, schema-only diagnostics. No console interception, requests or uploads. */
+(function (root) {
+  'use strict';
+  const KEY = 'nfsu2-driving-tools-diagnostics-v1';
+  const TRACE_KEY='nfsu2-driving-tools-race-trace-v1',TRACE_MS=250,TRACE_PERSIST_MS=2000,MAX_TRACE_SAMPLES=480,MAX_TRACE_BYTES=524288;
+  const LAST_RACE_TRACE_KEY='nfsu2-driving-tools-last-race-trace-v1',MAX_LAST_RACE_TRACE_SAMPLES=240,MAX_LAST_RACE_TRACE_BYTES=262144;
+  const MAX_EVENTS = 180, MAX_BYTES = 65536, MAX_ERROR_INPUT = 16384;
+  const MAX_DRIVING_SAMPLES=12,MAX_DRIVING_BYTES=16384;
+  const EVENTS = new Set(['page-start','game-boot','game-register','game-trap','game-exit','worker-error','page-error','promise-rejection','engine-error','identity-change','state','tools','pause','resume','page-hide','manual','stop','export','clear','build','build-error','patch-state','dyno-action','dyno-error']);
+  for(const action of ['start','preview','apply','undo','stop','error'])EVENTS.add('ecu-recipe-'+action);
+  EVENTS.add('autonomy-state');
+  EVENTS.add('rails-transition');
+  const FLAGS = ['ready','driving','network','safe','hidden','focused','aiActive','aiOwned','handbackPending','dynoBusy','dynoEnabled','dynoFullTuner','dynoSecondWindowCapture','dynoCurrentClamp','wallRequested','carRequested','onlineTrafficRequested','onlinePlayersRequested','onlineRaceCarsRequested','cornerRequested','cornerMemoryBlocked','cornerDriftBlocked','cornerDriverValid','cornerRouteOwned','powerActive','gripActive','limiterRemoved','carChanged','raceChanged','playerChanged','sessionCurrent','supported','signatureExact','signatureFailed','driftRace','forcedDrift','driftVariant','aiDriverVerified','aiGoalPending','nativeDriftBehavior','nativeRoadBehavior'];
+  const NUMBERS = {nativePaceFactor:[0,4],dragEngineHeat:[-1,2],dragEngineLimitRpm:[1000,30000],signatureTotal:[0,128],signatureUnique:[0,128],signatureMissing:[0,128],signatureAmbiguous:[0,128],moduleBytes:[0,4294967295],slot:[0,1024],tid:[0,1e6],code:[-2147483648,2147483647],kind:[0,100],generation:[0,1e6],memoryMiB:[0,65536],hud:[0,3],flow:[0,100],raceType:[0,100],racePhase:[0,100],driverKind:[0,100],physicsKind:[0,100],wallHits:[0,1e9],carHits:[0,1e9],trafficHits:[0,1e9],playerHits:[0,1e9],cornerMode:[0,3],cornerPace:[0.5,3],cornerBraking:[0.5,1],brakingHits:[0,4294967295],cornerHits:[0,4294967295],cornerApplied:[0,1],cornerProbeStage:[0,7],cornerRouteNodes:[0,40],cornerPlannerCorners:[0,40],cornerPlannerUsable:[0,5],cornerGuardMask:[0,255],effectivePower:[1,3],effectiveGrip:[1,2],requestedPace:[0.5,3],gameTicks:[0,4294967295],pageHeartbeat:[0,4294967295],nativeHeartbeatAck:[0,4294967295]};
+  Object.assign(NUMBERS,{trackId:[0,65535],carRpm:[0,30000],carGear:[0,10],speedMps:[0,500],forwardMps:[-500,500],nativeSkill:[0,255],aiGoalId:[0,255],driftTargetMps:[-200,200]});
+  FLAGS.push('dragHeatDisabled','dragEngineBlown','driftScoreLinked','driftCollisionLoss','aiGoalRecognized');
+  Object.assign(NUMBERS,{driftScoreState:[0,4],driftMultiplier:[1,5],driftNextPoints:[0,1e9],driftPendingPoints:[0,1e9],driftBankedPoints:[0,1e9],driftRawRate:[0,1e6],driftLatchedSlipRad:[-Math.PI,Math.PI],currentRawRouteProgress:[-1,1e7],driftBestRawRouteProgress:[-1,1e7]});
+  // Moving telemetry must not turn ordinary state sampling into per-tick
+  // storage writes. Keep native scalar samples at two seconds unless a
+  // discrete mode, controller, scoring-state or tool change needs a record.
+  const MOVING_FIELDS=['gameTicks','pageHeartbeat','nativeHeartbeatAck','carRpm','speedMps','forwardMps','driftTargetMps','driftPendingPoints','driftBankedPoints','driftRawRate','driftLatchedSlipRad','currentRawRouteProgress','driftBestRawRouteProgress'];
+  FLAGS.push('nativeTelemetry','dragRace','forcedDrag','nativeNavigationPresent','nativeNavigationValid','nativeConfigPresent','nativeConfigValid','nativeCompanionPresent','nativeCompanionValid','aiSkillSaved');
+  Object.assign(NUMBERS,{nativeInputMode:[0,10],nativeNextInputMode:[0,10],nativeThrottle:[0,1],nativeHandbrake:[0,1],nativeBrake:[0,1],nativeSteering:[-32768,32767],nativeGearCommand:[-1,10],aiRequestedMode:[0,2],aiNativeStatus:[0,3],aiStaleTicks:[0,4294967295],savedNativeSkill:[0,255]});
+  MOVING_FIELDS.push('cornerHits','brakingHits');
+  MOVING_FIELDS.push('nativeThrottle','nativeHandbrake','nativeBrake','nativeSteering','aiStaleTicks');
+  FLAGS.push('nosTelemetry','nosClockNetwork','nosTimestampActive');
+  Object.assign(NUMBERS,{nosClockTicks:[0,4294967295],nosSinceTicks:[0,4294967295],nosFullTicks:[0,9999999],nosRemainingTicks:[0,9999999],nosElapsedTicks:[-4294967295,4294967295]});
+  MOVING_FIELDS.push('nosClockTicks','nosSinceTicks','nosFullTicks','nosRemainingTicks','nosElapsedTicks');
+  FLAGS.push('paceConfirmed','adaptiveRaceRequested','raceOnlyEligible','raceOnlyRequested','raceOnlyInputClear');
+  Object.assign(NUMBERS,{paceApplied:[0.75,3],adaptiveRaceCeiling:[1,2],adaptiveRuntimePace:[.75,2],adaptiveClearanceM:[0,150]});
+  MOVING_FIELDS.push('adaptiveRuntimePace','adaptiveClearanceM');
+  FLAGS.push('forwardCaptured','nativeForwardGeometry','nativeForwardClamp','forwardUnavailable','forwardLeaseAcknowledged');
+  const FORWARD_LEASE_FIELDS=Object.freeze(['forwardLeaseState','forwardLeaseAcknowledged','forwardLeaseAgeTicks']);
+  const FORWARD_LEASE_STATES=new Set(['off','awaiting','acknowledged','renewing','expired','invalid']);
+  Object.assign(NUMBERS,{forwardLeaseAgeTicks:[0,400]});
+  MOVING_FIELDS.push(...FORWARD_LEASE_FIELDS);
+  Object.assign(NUMBERS,{forwardSamples:[0,48],forwardHorizon:[0,512.01],forwardPriorityTurns:[0,24],forwardRequestedTarget:[0,150],forwardLeaseTicks:[0,400],forwardFailureCode:[1,10]});
+  Object.assign(NUMBERS,{forwardGuardCode:[11,143]});
+  const FORWARD_GUARDS=new Set([11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,37,38,39,40,41,42,43,44,45,...Array.from({length:44},(_,i)=>100+i)]);
+  MOVING_FIELDS.push('forwardState','forwardCaptured','forwardSamples','forwardHorizon','forwardPriorityTurns','forwardRequestedTarget','forwardLeaseTicks','forwardFailureCode');
+  const FORWARD_STATES=new Set(['off','waiting','requested','unknown','armed','observed','native-fallback']);
+  const PACING_STATES=new Set(['off','invalid','native-route','native-fallback','coverage-unknown','clearance-limited']);
+  const ADAPTIVE_STATES=new Set(['off','invalid','unsupported','street-x','mode','network-permission','ai-off','paused','handoff','pace-pending','planner-pending','planner-observed','native-fallback','coverage-unknown','clearance-limited']);
+  const POWER_STATUSES=new Set(['off','unsupported','not-ready','not-driving','network-permission','hidden','unfocused','menu','hud','drift-change','layout','settling','applied','neutral','changed','rejected','suspended','tuner-busy']);
+  const TOOL_FLAGS = ['ai','raceOnlyAI','aiPace','raceCornerAssist','cornerAssist','racePace','walls','cars','traffic','players','online','nos','drag','dragNoBlowout','tester','boost','unlimit','grip','drift','dynoEnabled','adaptiveRace'];
+  const TOOL_NUMBERS = {adaptiveRaceCeiling:[1,2],raceCornerFactor:[0.6,0.95],raceCornerMargin:[0,25],raceBraking:[0.5,1],paceFactor:[0.75,3],racePaceFactor:[0.75,3],cornerFactor:[0.6,0.95],cornerMargin:[0,25],power:[1,3],gripFactor:[1,2],rpm:[3000,10000]};
+  const DYNO_STATUSES=new Set([0,1,2,3,4,5,6,8]);
+  const DYNO_GUARDS=new Set([0,1,2,3,4,5,10,11,12,13,14,15,20,21,22,23,24,30,31,32,40,41,42,43,44,45,50,60,70,71,72,73,74]);
+  const DYNO_SOURCE_PAIRS=new Set([12,13,14,15,23,24,25,34,35,45]);
+  const ERROR_KINDS = new Set(['memory-bounds','unreachable','indirect-call','integer-divide','invalid-conversion','stack-overflow','out-of-memory','type-error','reference-error','syntax-error','other']);
+  const PHASES = new Set(['idle','preparing','ready','unavailable','waiting','active','failed','unsupported']);
+  const PATCH_CODES = new Set(['module-size','module-hash','module-read','module-layout','module-compile']);
+  const REASONS = new Set(['blur','hidden','page-hide','manual','stop','game-stopped','build-unavailable','metadata','find','apply','restore','cancel','unknown']);
+  FLAGS.push('streetXRace','forcedStreetX','onlineStreetX','planCurrentCorners','planClearanceAvailable','planClearanceObserved','forwardPlanAvailable','forwardPlanOverride');
+  FLAGS.push('catchupDriverVerified','shortcutPolicyInstalled','shortcutPolicyRequested');
+  Object.assign(NUMBERS,{catchupDriverFactor:[0,32],catchupCarFactor:[0,32]});
+  MOVING_FIELDS.push('catchupDriverFactor','catchupCarFactor','catchupTelemetryStatus');
+  Object.assign(NUMBERS,{producerFailureCode:[0,3],producerStage:[0,3],nativeRoadTarget:[-500,500],nativePaceRequested:[.75,3],nativePaceApplied:[.75,3],nativePaceHits:[0,4294967295],planClearanceTarget:[0,60],planInputSpeedMps:[0,500],planSelectedPace:[.75,3],forwardPlanReasonCode:[0,40],forwardPlanTarget:[0,150],forwardPlanConstraints:[0,24],forwardPlanKnots:[0,24],forwardLimitingDistance:[0,512.01],forwardLimitingAngle:[0,180],forwardLimitingCurvature:[0,100],forwardLimitingCurveTarget:[0,1e6],forwardLimitingEntryTarget:[0,1e6],forwardPlanGrip:[0,100],forwardPlanLateral:[0,1000],forwardPlanBrake:[0,1000]});
+  MOVING_FIELDS.push('nativeRoadTarget','nativePaceHits','nativePaceRequested','nativePaceApplied','nativePaceFactor','paceApplied','cornerApplied','cornerRouteNodes','cornerPlannerCorners','cornerPlannerUsable','planClearanceTarget','planInputSpeedMps','planCurrentCorners','planClearanceAvailable','planClearanceObserved','planClearanceSource','forwardPlanAvailable','forwardPlanOverride','forwardPlanReasonCode','forwardPlanTarget','forwardPlanConstraints','forwardPlanKnots','forwardLimitingDistance','forwardLimitingAngle','forwardLimitingCurvature','forwardLimitingCurveTarget','forwardLimitingEntryTarget','forwardPlanGrip','forwardPlanLateral','forwardPlanBrake');
+  const TRACE_ENUMS={
+    autonomyBlockReason:['unsupported','active','starting','not-observed','read-blocked','not-free-roam','no-starts','choose-starts','ready'],
+    autonomyReadReason:['not-observed','none','exact-hosted-profile','shared-memory','bitmap','span','uncommitted','guest-window','window-changed','commit-changed','snapshot-changed','host-snapshot-changed','memory-changed','host-span','read-budget','city-free-roam','single-player-context','physical-sample','lobby-state','lobby-identity','game-clock-reset','clock','race-table','race-membership','catalog-context','trigger-chain','trigger-record','catalog-row','destination','offer-count','read-failed'],
+    pacedEvidenceKind:['four-tires','combined-grip'],
+    rubberbandState:['off','unsupported','unavailable','unverified','protocol-error','waiting','applied','reset-pending','guarded-native','blocked'],
+    traceStatus:['captured','unavailable'],
+    nativeTelemetryStatus:['sampled','profile-unverified','state-unavailable','context-stale','drift-ineligible','context-changed'],
+    nativeRoadTargetStatus:['sampled','driver-unverified','behavior-unverified','not-road','value-invalid'],
+    nativePaceTelemetryStatus:['unavailable','mailbox-unready','unsupported','context-unowned','mailbox-invalid','mailbox-changed','sampled'],
+    catchupTelemetryStatus:['unsupported','unavailable','mailbox-unready','context-invalid','context-changed','value-invalid','sampled'],
+    cornerPlannerTelemetryStatus:['unsupported','command-ineligible','route-unavailable','record-invalid','context-changed','sampled'],
+    planClearanceSource:['barrier','vehicle'],
+  };
+  FLAGS.push('autonomyAvailable','autonomyCatalogFresh','autonomyInRoam','autonomyStartEnabled');
+  FLAGS.push('autonomyCatalogCached');NUMBERS.autonomyCatalogAgeMs=[0,1000];TRACE_ENUMS.autonomyBlockReason.push('cached-ready');
+  TRACE_ENUMS.autonomyReadReason.push('career-stage','guided-event','catalog-count','catalog-generation','trigger-span');
+  FLAGS.push('autonomyVisitDrag','autonomyTargetLocked','autonomyCruiseSelected','autonomyCruiseRequested');TRACE_ENUMS.autonomyBlockReason.push('discover-ready');
+  Object.assign(NUMBERS,{autonomySelectedCount:[0,16],autonomyLocationCount:[0,160],autonomyOfferCount:[0,16]});
+  const AUTONOMY_PHASES=['off','stopped','handoff','discover','travel','waiting','joining','lobby','trip','quarantine','discovery-wait','coherence-wait'];
+  const AUTONOMY_REASON_CODES=["not-reported","off","stopped","start-quarantine","start-unavailable","solo-unsupported","cruise-needs-discovery","manual-handback","discovery-cruise","discovery-parked","target-unavailable","route-plan-failed","route-unavailable","travel-refused","travel","return-quarantine","observation-stalled","context-interrupted","host-owned-lobby","lobby-mismatch","race-driver-unconfirmed","race-loading-timeout","lobby-return-uncertain","join-timeout","join-pending","host-acceptance","lobby-wait","countdown","race-active","race-results","race-loading","unowned-event","world-changed","destination-changed","next-offer","travel-stopped","waiting-host","join-dispatch-uncertain","join-dispatched","offer-changed","solo-dispatch-uncertain","solo-requested","solo-refused","next-start","coherence-wait","coherence-revalidate","coherence-handback","coherence-frame","coherence-timeout","coherence-context-changed","coherence-tick-reset","travel-observation-stalled","travel-interrupted","road-changed","travel-sample-unavailable","game-clock-stopped","travel-timeout","travel-no-progress","arrival-lost","road-deviation","arrival-settling","arrival-braking"];
+  const AUTONOMY_STATUS_FIELDS=['autonomyActive','autonomyStartPending','autonomyJoinPending','autonomyPhase','autonomyReasonCode','autonomyDrivePhase','autonomyWaypointIndex','autonomyWaypointCount','autonomyCompletedTrips','autonomyRequestRaceAI','autonomyRequestCruiseAI','autonomyTravelKeyRequest','autonomyPauseReason','autonomyPauseRemainingMs','autonomyResumePhase'];
+  FLAGS.push('autonomyActive','autonomyStartPending','autonomyJoinPending','autonomyRequestRaceAI','autonomyRequestCruiseAI','autonomyTravelKeyRequest');
+  Object.assign(NUMBERS,{autonomyWaypointIndex:[0,514],autonomyWaypointCount:[0,514],autonomyCompletedTrips:[0,1000000],autonomyPauseRemainingMs:[0,1000]});
+  TRACE_ENUMS.autonomyPhase=AUTONOMY_PHASES;
+  TRACE_ENUMS.autonomyResumePhase=AUTONOMY_PHASES;
+  TRACE_ENUMS.autonomyReasonCode=AUTONOMY_REASON_CODES;
+  TRACE_ENUMS.autonomyDrivePhase=['off','stopped','following','braking','settling','waiting'];
+  TRACE_ENUMS.autonomyPauseReason=['snapshot-changed','host-snapshot-changed'];
+  MOVING_FIELDS.push('autonomyWaypointIndex','autonomyPauseRemainingMs');
+  FLAGS.push('ecuUndoAvailable','ecuRestored','ecuLiveVerified','ecuPersistenceVerified');
+  Object.assign(NUMBERS,{ecuBeforeKw:[0,100000],ecuAfterKw:[0,100000],ecuGainPercent:[-100,10000],ecuScopeHits:[0,4294967295],ecuActions:[0,128],ecuClicks:[0,1024]});
+  TRACE_ENUMS.ecuAction=['preview','apply','undo'];
+  const PLAN_REASONS=['verified-native-policy-required','verified-owned-native-capture-and-policy-required','bounded-policy-required','ordered-bounded-native-knots-required','incomplete-or-reversing-native-knots','unverified-native-unit-spacing','invalid-native-curve-policy','verified-exit-heading-required','measured-native-knot-bend','no-observed-speed-limiting-bend','verified-forward-centerline-required','bounded-physical-policy-required','verified-current-native-speed-required','bounded-forward-samples-required','invalid-distance-order-or-spacing','grade-outside-horizontal-policy','incomplete-or-reversing-geometry','no-observed-corner-constraint','insufficient-observed-reaction-horizon','no-supported-positive-corner-target','measured-corner-constraint'];
+  const PACED_PATH_FIELDS=['pacedAckRejectCode','pacedPhysicsKind','pacedEvidenceKind','pacedCombinedGripFactor','pacedNativeStage'];
+  const PACED_REJECT_CODES={0:'no rejection reported',1:'mailbox magic',2:'publication busy',3:'command not yet matched',4:'invalid command',5:'publisher status',6:'car bounds',7:'source factor',8:'physics receiver identity',9:'physics child graph',10:'local player binding',11:'owner generation',12:'nonfinite gain',13:'scalar output mismatch',14:'four tire inputs',15:'stacking eligibility',16:'receipt changed during read',18:'extra evidence block',19:'receipt payload',20:'combined grip input'};
+  const PACED_FIELDS=['nativePacedCatchup','pacedCatchupEligible','pacedRequestedStrength','pacedAppliedStrength','pacedSourceFactor','pacedPowerFactor','pacedTireFactor','pacedPowerGain','pacedTireGain','pacedWheelHits','pacedOutputsVerified',...PACED_PATH_FIELDS];
+  const RUBBERBAND_FIELDS=['rubberbandState','rubberbandActive','rubberbandResetPending','rubberbandResetAcknowledged','rubberbandRequestedPercent','rubberbandAppliedPercent','rubberbandPublication','rubberbandAckAgeMs','nativeRubberband','rubberbandUnavailable','nativeCalculatedEligible','nativeCatchupOn','nativeCornerTarget',...PACED_FIELDS];
+  FLAGS.push('rubberbandActive','rubberbandResetPending','rubberbandResetAcknowledged','nativeRubberband','rubberbandUnavailable','nativeCalculatedEligible','nativeCatchupOn','nativeCornerTarget');
+  FLAGS.push('nativePacedCatchup','pacedCatchupEligible','pacedOutputsVerified');
+  Object.assign(NUMBERS,{rubberbandRequestedPercent:[100,200],rubberbandAppliedPercent:[100,200],rubberbandPublication:[0,32767],rubberbandAckAgeMs:[0,1e9],pacedRequestedStrength:[1,10],pacedAppliedStrength:[1,10],pacedSourceFactor:[0,1e6],pacedPowerFactor:[0,1e6],pacedTireFactor:[0,1e6],pacedPowerGain:[1,20],pacedTireGain:[1,40],pacedWheelHits:[0,4]});
+  Object.assign(NUMBERS,{pacedAckRejectCode:[0,31],pacedPhysicsKind:[1,3],pacedCombinedGripFactor:[0,1e6],pacedNativeStage:[0,31]});
+  MOVING_FIELDS.push(...RUBBERBAND_FIELDS);
+  TOOL_FLAGS.push('rubberband');TOOL_NUMBERS.rubberbandPercent=[100,200];TOOL_NUMBERS.rubberbandStrength=[1,10];
+  const READ_PHASE_NAMES=['memory','commit-bitmap','owned-command','race-context','network-context','network-host','race-exclusions','player-pointer','player','car','race-pointer','race','driver','route-pointer','private-route','pace-cache','route-count','node-list','track-identity','track-info-pointer','track-info','event-context','career-event','career-heat','route-node','node-vtable','road-group-pointer','road-group','road-record','game-tick','window-control'];
+  const READ_SUBREASON_NAMES=['invalid-span','below-guest-minimum','runtime-gap','window-unavailable','span-end','linear-memory-end','uncommitted-page','unaligned-pointer','read-budget','memory-buffer-changed','commit-state-changed','snapshot-changed','host-span','window-state-changed','shared-memory-required','bitmap-unavailable'];
+  const CONTEXT_FIELDS=['forwardReadPhaseCode','forwardReadSubreasonCode','cityPacingEnabled','cityPacingState','citySelectedPace','cityRuntimePace','cityClearanceObserved','cityClearanceDistance','cityClearanceSource','cityClearanceTarget','cityTimingState','citySampleGapMs','onlineRivalsRequested','trafficHitsExact','nativeControlOverrideLatched','nativePreviousTarget','nativeThrottleHold','nativeWheelContactMask','gameTicks','nosTelemetry','nosClockNetwork','nosTimestampActive','nosClockTicks','nosSinceTicks','nosFullTicks','nosRemainingTicks','nosElapsedTicks','onlineTrafficRequested','onlinePlayersRequested','onlineRaceCarsRequested','onlinePlayerOutrunRequested','carRequested','carHits','trafficHits','playerHits','contactCounterScope','onlineRivalsSelected','onlineAllCarsSelected'];
+  FLAGS.push('cityPacingEnabled','cityClearanceObserved','onlineRivalsRequested','onlinePlayerOutrunRequested','trafficHitsExact','nativeControlOverrideLatched','onlineRivalsSelected','onlineAllCarsSelected');
+  Object.assign(NUMBERS,{forwardReadPhaseCode:[1,31],forwardReadSubreasonCode:[1,16],citySelectedPace:[.75,3],cityRuntimePace:[.75,3],cityClearanceDistance:[0,150],cityClearanceTarget:[0,500],citySampleGapMs:[0,1e9],nativePreviousTarget:[-500,500],nativeThrottleHold:[0,1],nativeWheelContactMask:[0,15]});
+  TRACE_ENUMS.cityPacingState=['off','unsupported','network-permission','not-online','mode','ai-off','paused','waiting-owner','invalid','clearance-limited','selected-native'];
+  TRACE_ENUMS.cityClearanceSource=['barrier','vehicle'];
+  TRACE_ENUMS.cityTimingState=['initial','continuous','gap','rollback','invalid'];
+  TRACE_ENUMS.contactCounterScope=['aggregate-car-contacts','separate-traffic-and-player','solo-car-contacts'];
+  MOVING_FIELDS.push(...CONTEXT_FIELDS.filter(key=>!['nosTelemetry','nosClockNetwork','nosTimestampActive'].includes(key)));
+  const TRACE_FIELDS=[
+    'version','revision','moduleHash','ready','driving','network','safe','hidden','focused','supported','hud','flow','trackId','raceType','racePhase',
+    'streetXRace','forcedStreetX','onlineStreetX','dragRace','forcedDrag','driftRace','forcedDrift','driverKind','physicsKind',
+    'aiActive','aiOwned','handbackPending','aiRequestedMode','aiNativeStatus','aiStaleTicks','nativeSkill',
+    'paceConfirmed','requestedPace','paceApplied','nativePaceFactor','nativePaceRequested','nativePaceApplied','nativePaceHits','nativePaceTelemetryStatus',
+    'speedMps','forwardMps','carGear','carRpm','nativeThrottle','nativeBrake','nativeHandbrake','nativeSteering','nativeRoadTarget','nativeRoadTargetStatus','nativeTelemetryStatus',
+    'cornerRequested','cornerMode','cornerPace','cornerBraking','cornerHits','brakingHits','cornerApplied','cornerDriverValid','cornerRouteOwned','cornerRouteNodes','cornerPlannerCorners','cornerPlannerUsable','cornerPlannerTelemetryStatus','cornerGuardMask','cornerMemoryBlocked','cornerDriftBlocked',
+    'adaptiveRaceRequested','adaptiveRaceCeiling','adaptiveRaceState','adaptivePacingState','adaptiveRuntimePace','adaptiveClearanceM',
+    'planCurrentCorners','planClearanceAvailable','planClearanceObserved','planClearanceTarget','planClearanceSource','planInputSpeedMps','planSelectedPace',
+    'nativeForwardGeometry','nativeForwardClamp','forwardUnavailable','forwardState','forwardCaptured','forwardSamples','forwardHorizon','forwardPriorityTurns','forwardRequestedTarget','forwardLeaseTicks','forwardFailureCode','forwardGuardCode','forwardNativeApplied','forwardLiveVerified',
+    'forwardPlanAvailable','forwardPlanOverride','forwardPlanReasonCode','forwardPlanTarget','forwardPlanConstraints','forwardPlanKnots','forwardLimitingDistance','forwardLimitingAngle','forwardLimitingCurvature','forwardLimitingCurveTarget','forwardLimitingEntryTarget','forwardPlanGrip','forwardPlanLateral','forwardPlanBrake',
+    'powerActive','effectivePower','powerStatus','gripActive','effectiveGrip','producerFailureCode','producerStage','traceStatus','pageHeartbeat','nativeHeartbeatAck',
+    'catchupDriverVerified','catchupDriverFactor','catchupCarFactor','catchupTelemetryStatus','shortcutPolicyInstalled','shortcutPolicyRequested',...RUBBERBAND_FIELDS,
+  ];
+  const V03810_TRACE_COLUMNS=Object.freeze(['at',...TRACE_FIELDS,...TOOL_FLAGS.map(k=>'tools.'+k),...Object.keys(TOOL_NUMBERS).map(k=>'tools.'+k)]);
+  const V03811_TRACE_COLUMNS=Object.freeze([...V03810_TRACE_COLUMNS,...CONTEXT_FIELDS]);
+  const CITY_CONTACT_FIELDS=['cityContactPreviewAvailable','cityContactPreviewState','cityObservedCars','cityExcludedCars'];
+  FLAGS.push('cityContactPreviewAvailable');
+  Object.assign(NUMBERS,{cityObservedCars:[0,96],cityExcludedCars:[0,96]});
+  TRACE_ENUMS.cityContactPreviewState=['unavailable','exact-build-required','scan-unavailable','context-unavailable','memory-unavailable','command-ineligible','mode-ineligible','special-mode','offline','owner-changed','local-body-unavailable','source-changed','source-unavailable','current-contact-policy'];
+  MOVING_FIELDS.push('cityObservedCars','cityExcludedCars');
+  const V03812_TRACE_COLUMNS=Object.freeze([...V03811_TRACE_COLUMNS,...CITY_CONTACT_FIELDS]);
+  const NUMERIC_FIELDS=['forwardNumericControlWord','forwardNumericFailureMask'];
+  Object.assign(NUMBERS,{forwardNumericControlWord:[0,65535],forwardNumericFailureMask:[0,15]});
+  MOVING_FIELDS.push(...NUMERIC_FIELDS);
+  const V03813_TRACE_COLUMNS=Object.freeze([...V03812_TRACE_COLUMNS,...NUMERIC_FIELDS]);
+  const V0420_TRACE_COLUMNS=Object.freeze([...V03813_TRACE_COLUMNS,...AUTONOMY_STATUS_FIELDS,'autonomyAvailable','autonomyCatalogFresh','autonomyInRoam','autonomyStartEnabled','autonomyVisitDrag','autonomyCruiseSelected','autonomyTargetLocked','autonomySelectedCount','autonomyLocationCount','autonomyOfferCount','autonomyBlockReason','autonomyReadReason']);
+  const ONLINE_AI_FIELDS=['nativeOnlineAI','onlineAIAllowed','railsWanted','railsRequested','railsOn','railsPins','railsPaceOnly','railsSuspended','railsRecoveryTrips','skillNine'];
+  FLAGS.push('nativeOnlineAI','onlineAIAllowed','railsWanted','railsRequested','railsOn','railsPaceOnly','railsSuspended','skillNine');
+  Object.assign(NUMBERS,{railsPins:[0,4294967295],railsRecoveryTrips:[0,2]});
+  TOOL_FLAGS.push('rails');MOVING_FIELDS.push('railsPins');
+  const V0422_TRACE_COLUMNS=Object.freeze([...V0420_TRACE_COLUMNS,...ONLINE_AI_FIELDS,'tools.rails']);
+  const V0424_TRACE_COLUMNS=Object.freeze([...V0422_TRACE_COLUMNS,...FORWARD_LEASE_FIELDS]);
+  const TARGET_FEEDBACK_FIELDS=["nativeTargetStatus","nativeTargetFresh","nativeTargetProof","nativeTargetCommandStable","nativeTargetReceiptAgeMs","nativeTargetSetterAgeTicks","nativeTargetIncoming","nativeTargetRequestedCap","nativeTargetEffectiveCap","nativeTargetResult","nativeTargetReceiptSequence","nativeTargetCapSequence","nativeTargetRequest","nativeTargetOwnerSequence","nativeTargetCaptureTick","nativeTargetSetterTick","nativeTargetCapAgeTicks","nativeTargetPrimaryReason","nativeTargetCachedReason","nativeTargetOutcome","nativeTargetCar","nativeTargetDriver","nativeTargetRace","nativeTargetRoute"];
+  FLAGS.push('nativeTargetFresh','nativeTargetProof','nativeTargetCommandStable');
+  Object.assign(NUMBERS,{"nativeTargetReceiptAgeMs":[0,1000],"nativeTargetSetterAgeTicks":[0,4294967295],"nativeTargetIncoming":[-1000000,1000000],"nativeTargetRequestedCap":[-1000000,1000000],"nativeTargetEffectiveCap":[-1000000,1000000],"nativeTargetResult":[-1000000,1000000],"nativeTargetReceiptSequence":[0,4294967295],"nativeTargetCapSequence":[0,4294967295],"nativeTargetRequest":[0,4294967295],"nativeTargetOwnerSequence":[0,4294967295],"nativeTargetCaptureTick":[0,4294967295],"nativeTargetSetterTick":[0,4294967295],"nativeTargetCapAgeTicks":[0,4294967295],"nativeTargetPrimaryReason":[0,4294967295],"nativeTargetCachedReason":[0,4294967295],"nativeTargetOutcome":[0,4294967295],"nativeTargetCar":[0,4294967295],"nativeTargetDriver":[0,4294967295],"nativeTargetRace":[0,4294967295],"nativeTargetRoute":[0,4294967295]});
+  TRACE_ENUMS.nativeTargetStatus=['unavailable','waiting','suspended','stale','owner-changed','invalid','observed'];
+  MOVING_FIELDS.push(...TARGET_FEEDBACK_FIELDS);
+  const TRACE_COLUMNS=Object.freeze([...V0424_TRACE_COLUMNS,...TARGET_FEEDBACK_FIELDS]);
+  const LAST_TRACE_COLUMNS=V03810_TRACE_COLUMNS.filter(k=>!PACED_PATH_FIELDS.includes(k));
+  const RECENT_TRACE_COLUMNS=V03810_TRACE_COLUMNS.filter(k=>![...PACED_FIELDS,'tools.rubberbandStrength'].includes(k));
+  const PREVIOUS_TRACE_COLUMNS=V03810_TRACE_COLUMNS.filter(k=>![...RUBBERBAND_FIELDS,'tools.rubberband','tools.rubberbandPercent','tools.rubberbandStrength'].includes(k));
+  const OLDER_TRACE_COLUMNS=PREVIOUS_TRACE_COLUMNS.filter(k=>!['catchupDriverVerified','catchupDriverFactor','catchupCarFactor','catchupTelemetryStatus','shortcutPolicyInstalled','shortcutPolicyRequested'].includes(k));
+  const cleanTraceRow=row=>{
+    const input={tools:{}};
+    for(let i=1;i<TRACE_COLUMNS.length;i++){const key=TRACE_COLUMNS[i];if(key.startsWith('tools.'))input.tools[key.slice(6)]=row[i];else input[key]=row[i];}
+    const clean=sanitize(input);
+    return [Math.floor(row[0]),...TRACE_COLUMNS.slice(1).map(key=>key.startsWith('tools.')?(clean.tools?.[key.slice(6)]??null):(clean[key]??null))];
+  };
+  const read = (value, key) => { try { return value == null ? undefined : value[key]; } catch { return undefined; } };
+  const str = value => typeof value === 'string' ? value.slice(0,MAX_ERROR_INPUT) : '';
+  const number = (value, limits) => typeof value === 'number' && Number.isFinite(value) && value >= limits[0] && value <= limits[1] ? Math.round(value*1000)/1000 : undefined;
+  function fields(value, flags, numbers) {
+    const out = {};
+    for (const key of flags) if (typeof read(value,key) === 'boolean') out[key] = read(value,key);
+    for (const [key,limits] of Object.entries(numbers)) { const v = number(read(value,key),limits); if (v !== undefined) out[key] = v; }
+    return out;
+  }
+  const MAX_RAILS_TRANSITIONS=24;
+  const RAILS_TRANSITION_FLAGS=['railsSelected','supported','ready','network','safe','hidden','focused','menuOpen','onlineAIAllowed','railsWanted','railsRequested','railsOn','railsSuspended','aiActive','aiOwned','handbackPending'];
+  const RAILS_TRANSITION_NUMBERS={hud:[0,3],raceType:[0,100],racePhase:[0,100],driverKind:[0,100],physicsKind:[0,100],railsRecoveryTrips:[0,2]};
+  const RAILS_TRANSITION_REASONS=new Set(['selection-off','build-unavailable','state-unavailable','tab-hidden','window-unfocused','game-menu','network-permission','mode-ineligible','not-driving','recovery-release','recovery-limit','handback-pending','simplified-physics-observed','owned-full-physics-observed','ownership-pending','rails-not-requested','context-changed']);
+  function railsTransitionState(value,fromPage=false){
+    const out={};
+    for(const key of RAILS_TRANSITION_FLAGS){
+      const v=fromPage&&key==='railsSelected'?read(read(value,'tools'),'rails'):read(value,fromPage&&key==='menuOpen'?'railsMenuOpen':key);
+      if(typeof v==='boolean')out[key]=v;
+    }
+    for(const [key,limits] of Object.entries(RAILS_TRANSITION_NUMBERS)){
+      const v=read(value,key);if(Number.isInteger(v)&&v>=limits[0]&&v<=limits[1])out[key]=v;
+    }
+    return out;
+  }
+  function railsTransitionReason(s){
+    // Describes page-observed context only, never why a native guard rejected.
+    return s.railsSelected===false?'selection-off':s.supported===false?'build-unavailable':s.ready===false?'state-unavailable':s.hidden===true?'tab-hidden':s.focused===false?'window-unfocused':s.menuOpen===true?'game-menu':s.network===true&&s.onlineAIAllowed===false?'network-permission':s.railsWanted===false?'mode-ineligible':s.safe===false?'not-driving':s.railsSuspended===true?(s.railsRecoveryTrips>=2?'recovery-limit':'recovery-release'):s.handbackPending===true?'handback-pending':s.railsOn===true?'simplified-physics-observed':s.railsRequested===true&&s.aiOwned===true&&s.aiActive===true&&s.physicsKind===1?'owned-full-physics-observed':s.railsRequested===true&&(s.aiOwned===false||s.aiActive===false)?'ownership-pending':s.railsWanted===true&&s.railsRequested===false?'rails-not-requested':'context-changed';
+  }
+  function cleanRailsTransition(value){
+    if(read(value,'source')!=='page-observation'||!RAILS_TRANSITION_REASONS.has(read(value,'reason')))return null;
+    const previous=railsTransitionState(read(value,'previous')),current=railsTransitionState(read(value,'current'));
+    if(!Object.keys(previous).length||!Object.keys(current).length)return null;
+    return {source:'page-observation',reason:read(value,'reason'),previous,current};
+  }
+  function errorInfo(error, stack) {
+    const message = str(typeof error === 'string' ? error : read(error,'message'));
+    const name = str(read(error,'name'));
+    const text = `${name} ${message}`.toLowerCase();
+    const errorKind = /out of bounds|bounds check|outside.*memory/.test(text) ? 'memory-bounds'
+      : /unreachable/.test(text) ? 'unreachable'
+      : /indirect call|signature mismatch|null function|table index/.test(text) ? 'indirect-call'
+      : /divide by zero|integer overflow/.test(text) ? 'integer-divide'
+      : /invalid conversion/.test(text) ? 'invalid-conversion'
+      : /call stack|stack overflow/.test(text) ? 'stack-overflow'
+      : /out of memory|allocation failed|memory allocation/.test(text) ? 'out-of-memory'
+      : /typeerror/.test(text) ? 'type-error'
+      : /referenceerror/.test(text) ? 'reference-error'
+      : /syntaxerror/.test(text) ? 'syntax-error' : 'other';
+    const source = str(stack === undefined ? read(error,'stack') : stack);
+    // Keep only numeric wasm locations and known local source basenames/line numbers.
+    // Never retain error text, URLs, arguments, file paths, arbitrary function names or query strings.
+    const wasmFrames = [...source.matchAll(/wasm-function\[(\d{1,7})\]:(0x[0-9a-f]{1,12}|\d{1,12})(?![\da-f])/gi)].slice(0,12).map(m=>`wasm-function[${m[1]}]:${m[2]}`);
+    const jsFrames = [...source.matchAll(/(?:^|[/\\\s(])((?:page|ai|core|diagnostics|current-profile|latest-profile|signatures|signature-profile|signature-profile-latest|dyno|dyno-core|dyno-full|dyno-evaluator|dyno-native|walls|cars|game-worker)\.js):(\d{1,7}):(\d{1,7})(?!\d)/g)].slice(0,8).map(m=>`${m[1]}:${m[2]}:${m[3]}`);
+    return {errorKind,wasmFrames,jsFrames};
+  }
+  function sanitize(value) {
+    const out = fields(value,FLAGS,NUMBERS);
+    const railsEvent=cleanRailsTransition(read(value,'railsTransition'));if(railsEvent)out.railsTransition=railsEvent;
+    for(const key of ['autonomyWaypointIndex','autonomyWaypointCount','autonomyCompletedTrips'])if(!Number.isInteger(read(value,key)))delete out[key];
+    for(const key of ['ecuScopeHits','ecuActions','ecuClicks'])if(!Number.isInteger(read(value,key)))delete out[key];
+    for(const [key,allowed] of Object.entries(TRACE_ENUMS))if(allowed.includes(read(value,key)))out[key]=read(value,key);
+    for(const key of ['autonomySelectedCount','autonomyLocationCount','autonomyOfferCount'])if(!Number.isInteger(read(value,key)))delete out[key];
+    for(const key of ['producerFailureCode','producerStage','forwardPlanReasonCode','nativePaceHits','forwardPlanConstraints','forwardPlanKnots','pacedAckRejectCode','pacedNativeStage','nativeWheelContactMask'])if(!Number.isInteger(read(value,key)))delete out[key];
+    if(![1,3].includes(read(value,'pacedPhysicsKind')))delete out.pacedPhysicsKind;
+    const curvature=read(value,'forwardLimitingCurvature');if(typeof curvature==='number'&&Number.isFinite(curvature)&&curvature>=0&&curvature<=100)out.forwardLimitingCurvature=Math.round(curvature*1e9)/1e9;
+    if(!Number.isInteger(read(value,'forwardFailureCode')))delete out.forwardFailureCode;
+    for(const key of NUMERIC_FIELDS)if(!Number.isInteger(read(value,key)))delete out[key];
+    if(!FORWARD_GUARDS.has(read(value,'forwardGuardCode')))delete out.forwardGuardCode;
+    if(!Number.isInteger(read(value,'forwardReadPhaseCode'))||!Number.isInteger(read(value,'forwardReadSubreasonCode'))||out.forwardReadPhaseCode===undefined||out.forwardReadSubreasonCode===undefined){delete out.forwardReadPhaseCode;delete out.forwardReadSubreasonCode;}
+    if(FORWARD_STATES.has(read(value,'forwardState')))out.forwardState=read(value,'forwardState');
+    const leaseState=read(value,'forwardLeaseState');
+    if(FORWARD_LEASE_STATES.has(leaseState))out.forwardLeaseState=leaseState;
+    if(!Number.isInteger(read(value,'forwardLeaseAgeTicks')))delete out.forwardLeaseAgeTicks;
+    if(out.forwardLeaseAcknowledged===true&&(!['acknowledged','renewing'].includes(leaseState)||out.forwardLeaseAgeTicks===undefined))delete out.forwardLeaseAcknowledged;
+    // The bounded native-cache receipt is reported separately above. It is
+    // not proof of continuous application or a live cornering improvement.
+    for(const key of ['forwardNativeApplied','forwardLiveVerified'])if(read(value,key)===false)out[key]=false;
+    if(ADAPTIVE_STATES.has(read(value,'adaptiveRaceState')))out.adaptiveRaceState=read(value,'adaptiveRaceState');
+    if(PACING_STATES.has(read(value,'adaptivePacingState')))out.adaptivePacingState=read(value,'adaptivePacingState');
+    if(POWER_STATUSES.has(read(value,'powerStatus')))out.powerStatus=read(value,'powerStatus');
+    for(const key of ['revision','reportedRevision','candidateRevision','signatureReference']){
+      const revision=read(value,key);
+      if(typeof revision==='string'&&/^(?:[a-f0-9]{8,40}|unknown)$/.test(revision))out[key]=revision;
+    }
+    const moduleHash=read(value,'moduleHash');
+    if(typeof moduleHash==='string'&&/^[a-f0-9]{64}$/.test(moduleHash))out.moduleHash=moduleHash;
+    if(PATCH_CODES.has(read(value,'patchCode')))out.patchCode=read(value,'patchCode');
+    const version = read(value,'version');
+    if (typeof version === 'string' && /^\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(version)) out.version = version;
+    for (const [key,allowed] of [['phase',PHASES],['reason',REASONS],['errorKind',ERROR_KINDS]]) if (allowed.has(read(value,key))) out[key] = read(value,key);
+    if (read(value,'tools')) out.tools = fields(read(value,'tools'),TOOL_FLAGS,TOOL_NUMBERS);
+    const dynoStatus=read(value,'dynoStatus'),dynoGuard=read(value,'dynoGuard'),dynoObserved=read(value,'dynoObserved');
+    if(DYNO_STATUSES.has(dynoStatus))out.dynoStatus=dynoStatus;
+    if(dynoStatus===8&&DYNO_GUARDS.has(dynoGuard)){
+      out.dynoGuard=dynoGuard;
+      if(Number.isInteger(dynoObserved)&&dynoObserved>=0&&dynoObserved<=4294967295&&
+        ([30,31,32,70].includes(dynoGuard)||(dynoGuard===50&&DYNO_SOURCE_PAIRS.has(dynoObserved))))out.dynoObserved=dynoObserved;
+    }
+
+    if (read(value,'error') !== undefined || read(value,'stack') !== undefined) Object.assign(out,errorInfo(read(value,'error'),read(value,'stack')));
+    // Revalidate persisted records too, never trust same-origin storage or its fields.
+    else for (const [key,re,max] of [['wasmFrames',/^wasm-function\[\d{1,7}\]:(?:0x[0-9a-f]{1,12}|\d{1,12})$/i,12],['jsFrames',/^(?:page|ai|core|diagnostics|current-profile|latest-profile|signatures|signature-profile|signature-profile-latest|dyno|dyno-core|dyno-full|dyno-evaluator|dyno-native|walls|cars|game-worker)\.js:\d{1,7}:\d{1,7}$/,8]]) {
+      const a=read(value,key);if(Array.isArray(a))out[key]=a.slice(0,max).filter(v=>typeof v==='string'&&re.test(v));
+    }
+    return out;
+  }
+  function create({storage=null,clock=()=>Date.now(),version='0.38.18'}={}) {
+    let events=[],drivingSamples=[],dropped=0,persistence=storage?'same-tab':'memory-only',lastSnapshot='',lastSample=0;
+    let traceRows=[],traceDropped=0,lastTraceAt=null,lastTracePersistAt=null,traceWasDriving=false,lastIdleFailure=null,tracePersistence=storage?'same-tab':'memory-only',traceRestored=false;
+    let lastRaceRows=[],lastRaceDropped=0,lastRacePersistAt=null,lastRaceDirty=false,lastRaceRestored=false,lastRacePersistence=storage?'same-tab':'memory-only';
+    const bursts=new Map();
+    let lastRailsTransition=null;
+    const now=()=>{try{const n=clock();return Number.isFinite(n)&&n>=0?Math.floor(n):0;}catch{return 0;}};
+    const tracePacked=()=>({format:'nfsu2-driving-trace-v1',schema:1,columns:TRACE_COLUMNS,dropped:traceDropped,rows:traceRows});
+    const boundTrace=()=>{while(traceRows.length>MAX_TRACE_SAMPLES||JSON.stringify(tracePacked()).length>MAX_TRACE_BYTES){traceRows.shift();traceDropped++;}};
+    const persistTrace=(force=false)=>{
+      const t=now();if(!force&&lastTracePersistAt!==null&&t>=lastTracePersistAt&&t-lastTracePersistAt<TRACE_PERSIST_MS)return;
+      lastTracePersistAt=t;boundTrace();
+      if(storage)try{storage.setItem(TRACE_KEY,JSON.stringify(tracePacked()));tracePersistence='same-tab';}catch{tracePersistence='memory-only';}
+    };
+    try{
+      const raw=storage?.getItem(TRACE_KEY);
+      if(typeof raw==='string'&&raw.length<=MAX_TRACE_BYTES){
+        const saved=JSON.parse(raw);
+        const currentColumns=JSON.stringify(saved?.columns)===JSON.stringify(TRACE_COLUMNS),previousColumns=JSON.stringify(saved?.columns)===JSON.stringify(V0424_TRACE_COLUMNS)||JSON.stringify(saved?.columns)===JSON.stringify(V0422_TRACE_COLUMNS)||JSON.stringify(saved?.columns)===JSON.stringify(V0420_TRACE_COLUMNS)||JSON.stringify(saved?.columns)===JSON.stringify(V03813_TRACE_COLUMNS)||JSON.stringify(saved?.columns)===JSON.stringify(V03812_TRACE_COLUMNS)||JSON.stringify(saved?.columns)===JSON.stringify(V03811_TRACE_COLUMNS)||JSON.stringify(saved?.columns)===JSON.stringify(V03810_TRACE_COLUMNS)||JSON.stringify(saved?.columns)===JSON.stringify(LAST_TRACE_COLUMNS)||JSON.stringify(saved?.columns)===JSON.stringify(RECENT_TRACE_COLUMNS)||JSON.stringify(saved?.columns)===JSON.stringify(PREVIOUS_TRACE_COLUMNS)||JSON.stringify(saved?.columns)===JSON.stringify(OLDER_TRACE_COLUMNS);
+        if(saved?.format==='nfsu2-driving-trace-v1'&&saved.schema===1&&(currentColumns||previousColumns)&&Array.isArray(saved.rows)){
+          traceDropped=Number.isSafeInteger(saved.dropped)&&saved.dropped>=0?saved.dropped:0;
+          const indexes=TRACE_COLUMNS.map(k=>saved.columns.indexOf(k));
+          traceRows=saved.rows.slice(-MAX_TRACE_SAMPLES).filter(r=>Array.isArray(r)&&r.length===saved.columns.length&&Number.isFinite(r[0])&&r[0]>=0&&r[0]<=8640000000000000).map(r=>cleanTraceRow(currentColumns?r:indexes.map(i=>i<0?null:r[i])));
+          boundTrace();traceRestored=traceRows.length>0;
+        }
+      }
+    }catch{tracePersistence='memory-only';}
+    // A separate bounded copy survives ordinary free-roam trace eviction.
+    // Reuse only already-sanitized trace rows; never collect new source data.
+    const lastRacePacked=()=>({format:'nfsu2-last-race-trace-v1',schema:1,columns:TRACE_COLUMNS,dropped:lastRaceDropped,rows:lastRaceRows});
+    const isRaceRow=row=>row[TRACE_COLUMNS.indexOf('ready')]===true&&row[TRACE_COLUMNS.indexOf('hud')]===1&&row[TRACE_COLUMNS.indexOf('raceType')]===1;
+    const boundLastRace=()=>{while(lastRaceRows.length>MAX_LAST_RACE_TRACE_SAMPLES||JSON.stringify(lastRacePacked()).length>MAX_LAST_RACE_TRACE_BYTES){lastRaceRows.shift();lastRaceDropped++;}};
+    const persistLastRace=(force=false)=>{
+      if(!lastRaceDirty)return;
+      const t=now();if(!force&&lastRacePersistAt!==null&&t>=lastRacePersistAt&&t-lastRacePersistAt<TRACE_PERSIST_MS)return;
+      lastRacePersistAt=t;boundLastRace();
+      if(storage)try{storage.setItem(LAST_RACE_TRACE_KEY,JSON.stringify(lastRacePacked()));lastRacePersistence='same-tab';lastRaceDirty=false;}catch{lastRacePersistence='memory-only';}
+    };
+    const retainLastRace=row=>{if(!isRaceRow(row))return;lastRaceRows.push(row.slice());boundLastRace();lastRaceDirty=true;persistLastRace();};
+    let lastRaceStored=false;
+    try{
+      const raw=storage?.getItem(LAST_RACE_TRACE_KEY);
+      if(typeof raw==='string'&&raw.length<=MAX_LAST_RACE_TRACE_BYTES){
+        const saved=JSON.parse(raw),known=[TRACE_COLUMNS,V0424_TRACE_COLUMNS,V0422_TRACE_COLUMNS,V0420_TRACE_COLUMNS,V03813_TRACE_COLUMNS,V03812_TRACE_COLUMNS,V03811_TRACE_COLUMNS,V03810_TRACE_COLUMNS,LAST_TRACE_COLUMNS,RECENT_TRACE_COLUMNS,PREVIOUS_TRACE_COLUMNS,OLDER_TRACE_COLUMNS];
+        if(saved?.format==='nfsu2-last-race-trace-v1'&&saved.schema===1&&known.some(columns=>JSON.stringify(saved.columns)===JSON.stringify(columns))&&Array.isArray(saved.rows)){
+          lastRaceStored=true;lastRaceDropped=Number.isSafeInteger(saved.dropped)&&saved.dropped>=0?saved.dropped:0;
+          const indexes=TRACE_COLUMNS.map(k=>saved.columns.indexOf(k));
+          lastRaceRows=saved.rows.slice(-MAX_LAST_RACE_TRACE_SAMPLES).filter(row=>Array.isArray(row)&&row.length===saved.columns.length&&Number.isFinite(row[0])&&row[0]>=0&&row[0]<=8640000000000000).map(row=>cleanTraceRow(indexes.map(i=>i<0?null:row[i]))).filter(isRaceRow);
+          boundLastRace();lastRaceRestored=lastRaceRows.length>0;
+        }
+      }
+    }catch{lastRacePersistence='memory-only';}
+    // Upgrade a pre-feature same-tab trace only after its existing strict
+    // column migration and sanitization have succeeded above.
+    if(!lastRaceStored){lastRaceRows=traceRows.filter(isRaceRow).map(row=>row.slice());boundLastRace();lastRaceRestored=lastRaceRows.length>0;lastRaceDirty=lastRaceRestored;}
+    const trace=(data={})=>{
+      try{
+        const clean=sanitize(data),active=clean.ready===true&&(clean.driving===true||clean.aiActive===true||clean.aiOwned===true)&&clean.safe!==false&&clean.hidden!==true&&clean.focused!==false;
+        const failure=clean.producerFailureCode>0?JSON.stringify([clean.producerFailureCode,clean.producerStage,clean.nativeTelemetryStatus,clean.nativeRoadTargetStatus,clean.traceStatus,clean.trackId,clean.raceType]):null;
+        const relevant=active||traceWasDriving||failure!==lastIdleFailure;
+        if(!relevant)return false;
+        const t=now();if(lastTraceAt!==null&&t>=lastTraceAt&&t-lastTraceAt<TRACE_MS)return false;lastTraceAt=t;
+        traceWasDriving=active;lastIdleFailure=active?null:failure;
+        clean.version=sanitize({version}).version;
+        const row=[t,...TRACE_COLUMNS.slice(1).map(key=>key.startsWith('tools.')?(clean.tools?.[key.slice(6)]??null):(clean[key]??null))];
+        traceRows.push(row);boundTrace();persistTrace();retainLastRace(row);return true;
+      }catch{return false;}
+    };
+    const traceExport=()=>{
+      const missing=Object.fromEntries(TRACE_COLUMNS.slice(1).map(k=>[k,0]));let maxGap=0,gaps=0,clockRollbacks=0;
+      for(let i=0;i<traceRows.length;i++){
+        const row=traceRows[i];for(let j=1;j<TRACE_COLUMNS.length;j++)if(row[j]===null)missing[TRACE_COLUMNS[j]]++;
+        if(i){const delta=row[0]-traceRows[i-1][0];maxGap=Math.max(maxGap,delta);if(delta>TRACE_MS*2)gaps++;if(delta<0)clockRollbacks++;}
+      }
+      return {...tracePacked(),restoredFromSameTab:traceRestored,persistence:tracePersistence,nominalCadenceMs:TRACE_MS,persistIntervalMs:TRACE_PERSIST_MS,
+        codebooks:{forwardNumericFailureBits:{1:'direction scale unavailable or changed',2:'first packed-road scale unavailable or changed',4:'second packed-road scale unavailable or changed',8:'unsupported x87 precision or rounding word'},pacedAckRejectCode:PACED_REJECT_CODES,forwardReadPhaseCode:Object.fromEntries(READ_PHASE_NAMES.map((name,i)=>[i+1,name])),forwardReadSubreasonCode:Object.fromEntries(READ_SUBREASON_NAMES.map((name,i)=>[i+1,name])),producerFailureCode:{0:'producer completed',1:'native/context read failed',2:'AI mailbox read failed',3:'forward diagnostics or trace sink failed'},producerStage:{0:'complete',1:'native/context',2:'AI mailbox',3:'forward diagnostics or sink'},forwardPlanReasonCode:{0:'not reported or unrecognized',...Object.fromEntries(PLAN_REASONS.map((name,i)=>[i+1,name]))},nativeUnits:['nativeRoadTarget','forwardRequestedTarget','forwardPlanTarget','forwardLimitingDistance','forwardLimitingCurveTarget','forwardLimitingEntryTarget','cityClearanceDistance','cityClearanceTarget'],statuses:TRACE_ENUMS},
+        coverage:{samples:traceRows.length,firstAt:traceRows[0]?.[0]??null,lastAt:traceRows.at(-1)?.[0]??null,spanMs:traceRows.length?Math.max(0,traceRows.at(-1)[0]-traceRows[0][0]):0,maxGapMs:maxGap,gapsOver500Ms:gaps,clockRollbacks,missingByColumn:missing},
+        notice:'Each row follows columns. null means unavailable or rejected, never zero. Desired cadence is 250ms; coverage reports actual retained timing. Samples are best-effort shared-memory observations, not atomic snapshots. Native target/geometry values use native units; cap requests are not application receipts. A loss of speed is not proof of an impact. Menus do not continuously evict driving evidence. Same-tab checkpoints are limited to one write per two seconds; a tab crash can lose recent samples.'};
+    };
+    const lastRaceExport=codebooks=>({...lastRacePacked(),historical:true,restoredFromSameTab:lastRaceRestored,persistence:lastRacePersistence,nominalCadenceMs:TRACE_MS,persistIntervalMs:TRACE_PERSIST_MS,codebooks,
+      coverage:{samples:lastRaceRows.length,firstAt:lastRaceRows[0]?.[0]??null,lastAt:lastRaceRows.at(-1)?.[0]??null,spanMs:lastRaceRows.length?Math.max(0,lastRaceRows.at(-1)[0]-lastRaceRows[0][0]):0},
+      notice:'Latest retained road-race samples with ready=true, HUD=1 and raceType=1. Mode flags preserve Street X, Drag and Drift context when reported. Free roam, Stop and manual takeover do not evict these historical rows. This is a bounded sample window, not a complete route, current ownership or proof of a race result. Rows follow columns; null means unavailable or rejected.'});
+    const isDriving=data=>data.ready===true&&data.driving===true&&data.aiActive===true&&data.aiOwned===true;
+    const retainDriving=sample=>{
+      if(!isDriving(sample.data))return;
+      drivingSamples.push(sample);
+      while(drivingSamples.length>MAX_DRIVING_SAMPLES||JSON.stringify(drivingSamples).length>MAX_DRIVING_BYTES)drivingSamples.shift();
+    };
+    const packed=()=>({schema:1,dropped,events,drivingSamples});
+    const bound=()=>{
+      for(let extra=events.filter(e=>e.event==='rails-transition').length-MAX_RAILS_TRANSITIONS;extra>0;extra--){events.splice(events.findIndex(e=>e.event==='rails-transition'),1);dropped++;}
+      while(events.length>MAX_EVENTS || JSON.stringify(packed()).length>MAX_BYTES){events.shift();dropped++;}
+    };
+    const persist=()=>{bound();if(storage)try{storage.setItem(KEY,JSON.stringify(packed()));persistence='same-tab';}catch{persistence='memory-only';}};
+    try {
+      const raw=storage?.getItem(KEY);
+      if(typeof raw==='string'&&raw.length<=MAX_BYTES){
+        const saved=JSON.parse(raw);
+        if(saved?.schema===1&&Array.isArray(saved.events)){
+          dropped=Number.isSafeInteger(saved.dropped)&&saved.dropped>=0?saved.dropped:0;
+          events=saved.events.slice(-MAX_EVENTS).filter(e=>EVENTS.has(read(e,'event'))).map(e=>({at:number(read(e,'at'),[0,8640000000000000])??0,event:read(e,'event'),data:sanitize(read(e,'data'))}));
+          // Historical driving evidence has its own small budget so a few
+          // minutes in the menus cannot replace every useful race sample.
+          // Revalidate stored values exactly like ordinary event records.
+          if(Array.isArray(saved.drivingSamples))for(const e of saved.drivingSamples.slice(-MAX_DRIVING_SAMPLES))retainDriving({at:number(read(e,'at'),[0,8640000000000000])??0,data:sanitize(read(e,'data'))});
+          if(!drivingSamples.length)for(const e of events)if(e.event==='state')retainDriving({at:e.at,data:e.data});
+        }
+      }
+    } catch { persistence='memory-only'; }
+    const record=(event,data={})=>{try{if(!EVENTS.has(event))return false;const at=now();if(['page-error','promise-rejection','worker-error','engine-error','dyno-error'].includes(event)){const burst=bursts.get(event);if(burst&&at-burst.at<1000){if(burst.count++>=8){dropped++;return false;}}else bursts.set(event,{at,count:1});}const clean=sanitize(data);events.push({at,event,data:clean});if(event==='state')retainDriving({at,data:clean});persist();return true;}catch{return false;}};
+    const railsTransition=(data={})=>{
+      try{
+        const current=railsTransitionState(data,true),previous=lastRailsTransition;
+        lastRailsTransition=current;
+        if(!previous||JSON.stringify(previous)===JSON.stringify(current))return false;
+        // Ordinary unrelated movement must not flood rails evidence. Pins,
+        // speeds, target factors and heartbeat changes are absent from this key.
+        if(![previous,current].some(s=>s.railsWanted===true||s.railsRequested===true||s.railsOn===true||s.railsSuspended===true))return false;
+        return record('rails-transition',{railsTransition:{source:'page-observation',reason:railsTransitionReason(current),previous,current}});
+      }catch{return false;}
+    };
+    const snapshot=(data={})=>{try{const clean=sanitize(data),stable={...clean};for(const key of MOVING_FIELDS)delete stable[key];const key=JSON.stringify(stable),t=now(),sampleMs=clean.nativeTelemetry||clean.driftRace||clean.forcedDrift||clean.driftVariant?2000:5000;if(lastSnapshot && t-lastSample < (key===lastSnapshot?sampleMs:250))return;lastSnapshot=key;lastSample=t;record('state',clean);}catch{}};
+    const exportText=()=>{persistTrace(true);persistLastRace(true);const currentTrace=traceExport();return JSON.stringify({format:'NFSU2 Driving Tools local diagnostics',schema:1,exporterVersion:sanitize({version}).version,exportedAt:now(),persistence,dropped,limits:{maxEvents:MAX_EVENTS,maxRailsTransitionEvents:MAX_RAILS_TRANSITIONS,maxStoredBytes:MAX_BYTES,maxHistoricalDrivingSamples:MAX_DRIVING_SAMPLES,maxHistoricalDrivingBytes:MAX_DRIVING_BYTES,maxTraceSamples:MAX_TRACE_SAMPLES,maxTraceBytes:MAX_TRACE_BYTES,maxLastRaceTraceSamples:MAX_LAST_RACE_TRACE_SAMPLES,maxLastRaceTraceBytes:MAX_LAST_RACE_TRACE_BYTES},capture:'Tool selections, sampled game mode/status, bounded power application status, native pace acknowledgement and session-only adaptive planner request/evidence, bounded native controller/skill/input-mode/speed, Drift scoring, sampled NOS clock/timestamp/resource fields and corner evidence, page and game-worker lifecycle, classified errors, bounded tuner rejection codes/counts, numeric wasm locations and known script line numbers. No raw logs, messages, URLs, credentials, saves, names, keyboard input or network traffic. Same-origin page scripts can access this same-tab storage. Browser/tab/GPU failures may prevent a final event; absence of an error does not show that the game was healthy. Not a game crash dump. Native target receipts record actual setter observations, cap decisions and age in uncalibrated native units; they do not change driving. Rails transition reasons describe page observations, not native rejection causes.',historicalDriving:{historical:true,notice:'Previous sampled driving states; not current ownership, a complete route, or proof of a race result.',samples:drivingSamples},raceTrace:currentTrace,lastRaceTrace:lastRaceExport(currentTrace.codebooks),events},null,2)+'\n';};
+    const clear=()=>{lastRailsTransition=null;events=[];drivingSamples=[];dropped=0;lastSnapshot='';lastSample=0;traceRows=[];traceDropped=0;lastTraceAt=null;traceWasDriving=false;lastIdleFailure=null;traceRestored=false;persistTrace(true);lastRaceRows=[];lastRaceDropped=0;lastRaceRestored=false;lastRacePersistAt=null;lastRaceDirty=true;persistLastRace(true);bursts.clear();record('clear');};
+    record('page-start',{version});
+    return Object.freeze({record,snapshot,trace,railsTransition,exportText,clear,status:()=>({events:events.length,dropped,persistence,traceSamples:traceRows.length,traceDropped,tracePersistence,lastRaceTraceSamples:lastRaceRows.length,lastRaceTraceDropped:lastRaceDropped,lastRaceTracePersistence:lastRacePersistence})});
+  }
+  const api=Object.freeze({create,errorInfo,KEY,MAX_EVENTS,MAX_BYTES,TRACE_KEY,TRACE_MS,MAX_TRACE_SAMPLES,MAX_TRACE_BYTES,TRACE_COLUMNS,LAST_RACE_TRACE_KEY,MAX_LAST_RACE_TRACE_SAMPLES,MAX_LAST_RACE_TRACE_BYTES});
+  root.__NFSU2_DIAGNOSTICS__=api;
+  if(typeof module==='object'&&module.exports)module.exports=api;
+})(globalThis);
+
+
+===== END COMPLETE VERBATIM SOURCE FILES =====
+
+
+
+===== review/parts/02-OFFLINE-EVIDENCE.txt =====
+===== artifacts/github-public-20261113-project-7c9e4b/review/parts/02-OFFLINE-EVIDENCE.README.md =====
+OFFLINE EVIDENCE: P0 ITEMS6/7 AND P1 STARTUP/FIXTURES
+
+This is a static review bundle assembled from existing files. Nothing in this task started a game, native fixture, browser, encoder, test or workspace script. Frozen conditions were read without changes or reruns. Original source/log bodies follow their workspace-relative filename headers byte for byte. The inventory records each original length, SHA256 and exact body byte offset in this part.
+
+Evidence types and scope
+
+1. The November13 ordered history/enrollment unit is the latest successful narrow native unit. Its bounded-receipt.json is a runner receipt containing the actual captured stdout/stderr as JSON string fields. There is no separate full console-transcript capture being asserted. World/static/history proof JSON and count journals are existing diagnostic artifacts, not stdout logs. The successful unit requested and produced ZERO movement frames and ZERO typed maximum getter calls; fullStartupQualified remains false. reportAvailabilityReady means the availability-call stage completed. The actual hub context has lobbyId0 and racePointer0 and is unavailable.
+
+2. The older combined-observer V2 receipt and native-failure-snapshot.json preserve the actual frame2 out-of-bounds error after one completed frame. Its setup was invalid and it is not a cleared startup/movement baseline. The qualification.json separately withdraws the older192-frame V3 as a proper initialized-event baseline because190 queued-event allocations used null pool/result. These earlier artifacts remain evidence of what occurred, not successful feature-clearance results.
+
+3. The encoded example is from the separate November12 encoder-verified report lab on build60946132, not the4c native-history unit. The entire existing report.json is copied verbatim. Its encoder-race capture is the actual40byte output stored as hex in that JSON and in captures/encoder-race-1.bin; encoder-freeroam is32bytes. Source contexts, session identifiers and observation values were SYNTHETIC controlled fixture inputs. The report also preserves short/zero-capacity failures. No sender, live session, account query or server receipt was present. Successful encoding/CRC is serialization evidence only, not absence of monitoring or online acceptance.
+
+4. encoder-fixtures.cjs is the complete host wrapper source. native-fixtures.cjs supplies the artificial input fields. encoder-fixtures.test.cjs contains the independently asserted encoded-field layout. The native encoder/leaf provenance manifest names and pins the isolated original bodies; those binary files are not embedded in this plain-text evidence part. This supplies the requested encoder source/field-list context without claiming the wrapper itself is the native encoder implementation.
+
+5. Ban, VPN and IP-enforcement statements in the new user handoff are unverified user reports here. No account or network-enforcement investigation was performed in this task, and this evidence establishes no ban trigger or confirmed IP causation.
+
+STATIC STARTUP PROCEDURE: DOCUMENTATION ONLY, NOT EXECUTED
+
+No baseline may be started from this review bundle. Await the external reviewer's run-book and executor approval for a fresh condition. Never rerun, add files to, or overwrite an executed/frozen native condition.
+
+Existing isolated-report-lab command syntax (from README.txt and lab.cjs):
+  Set-Location <checkout>\test-environment\offline-report-lab
+  node lab.cjs --encode --out runs/<NEW-UNUSED-DIRECTORY> --json
+
+This is a documented future executor command, not a command run during bundle creation. It requires the separately supplied pinned fixture files and a genuinely new output directory. It creates report.json, index.html and local capture binaries; it does not start the complete game. No npm install is required by the existing lab README. The historical encoder-verified directory must not be reused as the output directory.
+
+Expected isolated-lab sequence from existing source: install local network/process isolation; verify pinned native/page/encoder source and import contracts; construct declared synthetic contexts; run isolated native helper cases; separately run the encoder on captured synthetic envelopes if --encode was selected; write local captures/report; restore the process hooks. This sequence is source-derived, not a new execution trace.
+
+Historical native-unit entry command (IDENTIFICATION ONLY; DO NOT EXECUTE AGAIN):
+  node work-update-check-20261113/current-native-ordered-world-history-4c-v2/run-bounded.cjs
+
+The included run-bounded.cjs and probe-current-native-ai.cjs show the actual historical entrypoint and selected startup sequence. That directory already contains bounded-started.json and outputs and must stay frozen. A future native baseline requires a separate freshly prepared sibling, exact source/input pins, independent review, a new executor-owned one-run contract, and the reviewer's run-book. No new runnable sibling or permission to execute one is created here.
+
+Selected native ordering shown by the existing source/proofs: declared stock/roster inputs; owned physics pools; CRT prelocks/onexit; session820/9037; component registries; selected CPP prefix; static query4880; selected CPP suffix; query manager15134; original LAN/start/pending-client block; required pool11167; render8715; World allocation5867; whole21991/1690; declared scene/road/action/start-marker inputs; explicit dt input; actual two-car enrollment/admission; report natural-availability call; allocator9348; name registration; first22866 setup; existing timing-only warmup; original serializer10600/decoder10443; second22866 setup; read-only history-node/list verification; STOP. It is a caller subset, not the complete game startup.
+
+Known source-only next-startup work remains unexecuted: selected CPP4722 and5349 and the later6000 backing producer; replay755 and event-manager5582/4972 plus queued-message pool remain unresolved. The source-only proposal is not an observed fix or a new baseline.
+
+ARTIFICIAL FIXTURE INVENTORY
+
+- The native car is generic Retail.seed(0) with explicitly synthetic installed flags/curve allocation. It is not the user's saved maxed Skyline. The two-car records, Fixture-Local/Fixture-Remote names and caller event time are disclosed test inputs.
+- The scene is a generated flat diagnostic scene. The road groups/links and start markers are generated diagnostic data, not an authentic StreetX track. Their source and input-receipt metadata are included below; binary asset bodies are not pasted as text.
+- Offline10.77.0.x peers, sockets, mailbox transport and session inputs are fixture/platform data, not captured real peers or wire traffic. The existing network isolation receipt remains the actual observed receipt.
+- CRT/heap/registry/thread/timing providers model selected platform boundaries. Real selected native bodies execute only in the historical runs; the helper lab is separate and instantiates isolated bodies with controlled memory. Synthetic inputs must not be mistaken for native-produced readiness or observation output.
+- The60946132 report lab has synthetic race/free-roam contexts, identifiers, frame statistics and watched-region descriptor. Its host/page cases use Node VM callable stand-ins, and its direct-loader case uses a pinned empty standalone module. Neither is a full browser/game session.
+- Native fixture/function manifests and disclosed-inputs.json identify exact provenance and bounds. Their copied preparation statements describe source preparation, while bounded receipts describe the historical executions. Do not read a preparation nativeExecuted:false field as a claim that the later separate run never occurred.
+
+Intentionally referenced but not pasted as repeated huge data: the1,619,904byte ordered remote-condition-receipt.json;566,675byte legacy receipt;382,121byte read-only diagnostic JSONL; full constructor journal and raw binaries. Their exact files remain in the original frozen condition. Their omission is explicit and does not turn this bundle into an exhaustive raw dump. No standalone stdout/stderr log files were manufactured.
+
+Each following source body is verbatim. Labels in the sidecar inventory distinguish source, runner receipt, diagnostic JSON, observation-count journal and independent review.
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/bounded-started.json =====
+{
+  "executionContractSha256": "9bc16ef1d29696c90a6a026a3a20adb0558e2da90051ffb3f078b55e1c1a620f",
+  "boundedMilliseconds": 8000,
+  "orderedWorldHistoryEnrollmentUnitOnly": true
+}
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/bounded-receipt.json =====
+{
+  "kind": "BOUNDED-NATIVE-ORDERED-WORLD-HISTORY-ENROLLMENT",
+  "exitCode": 0,
+  "timedOut": false,
+  "elapsedMilliseconds": 1004,
+  "boundedMilliseconds": 8000,
+  "stdout": "{\"complete\":true,\"initialized\":true,\"lastStage\":\"native-history-node-and-list-read-only-verification\",\"admissionFailure\":null,\"reportAvailabilityReady\":true,\"allocatorReady\":true,\"legacyComplete\":true,\"legacyUnavailable\":null,\"legacyFailure\":null,\"historyComplete\":true,\"nativeMovementFrames\":0,\"typedMaximumGetterCalls\":0,\"fullStartupQualified\":false}\n",
+  "stderr": "",
+  "error": null,
+  "complete": true,
+  "pinnedInputsUnchanged": true,
+  "pinnedFiles": 665
+}
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-World-static-CPP-proof.json =====
+{
+  "selectedRelativeOrder": [
+    13479,
+    16761,
+    11290,
+    4879,
+    5035,
+    5662,
+    6288,
+    7227,
+    8477,
+    13637,
+    17388,
+    4568,
+    4724,
+    4880,
+    6757,
+    6914,
+    11449,
+    11762,
+    12701,
+    16453,
+    976,
+    4102
+  ],
+  "completed": [
+    {
+      "initializer": 13479,
+      "beforeNativeHeaderHex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8513552,
+        "bytes": 37360,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268537936
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268537940,
+        "registeredCallback": 7870880
+      },
+      "heads": [
+        {
+          "address": 8515856,
+          "next": 8515856,
+          "previous": 8515856
+        }
+      ],
+      "headerHex": "00000000000000000000000000000000ffffffff000000010000000000000000ffffffffff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 16761,
+      "beforeNativeHeaderHex": "00000000000000000000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8551304,
+        "bytes": 16,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268537940
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268537944,
+        "registeredCallback": 7871328
+      },
+      "heads": [
+        {
+          "address": 8551308,
+          "next": 8551308,
+          "previous": 8551308
+        }
+      ],
+      "headerHex": "286378008c7b82008c7b820000000000",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 11290,
+      "beforeNativeHeaderHex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8554352,
+        "bytes": 7384,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268537944
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268537948,
+        "registeredCallback": 7871408
+      },
+      "heads": [],
+      "headerHex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 4879,
+      "beforeNativeHeaderHex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8607840,
+        "bytes": 96,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268537948
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268537952,
+        "registeredCallback": 7872128
+      },
+      "heads": [
+        {
+          "address": 8607840,
+          "next": 8607840,
+          "previous": 8607840
+        },
+        {
+          "address": 8607848,
+          "next": 8607848,
+          "previous": 8607848
+        }
+      ],
+      "headerHex": "605883006058830068588300685883000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 5035,
+      "beforeNativeHeaderHex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8607712,
+        "bytes": 96,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268537952
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268537956,
+        "registeredCallback": 7872032
+      },
+      "heads": [
+        {
+          "address": 8607712,
+          "next": 8607712,
+          "previous": 8607712
+        },
+        {
+          "address": 8607720,
+          "next": 8607720,
+          "previous": 8607720
+        }
+      ],
+      "headerHex": "e0578300e0578300e8578300e85783000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 5662,
+      "beforeNativeHeaderHex": "0000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8588572,
+        "bytes": 8,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268537956
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268537960,
+        "registeredCallback": 7872176
+      },
+      "heads": [
+        {
+          "address": 8588572,
+          "next": 8588572,
+          "previous": 8588572
+        }
+      ],
+      "headerHex": "1c0d83001c0d8300",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 6288,
+      "beforeNativeHeaderHex": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8575944,
+        "bytes": 56,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268537960
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268537964,
+        "registeredCallback": 7871920
+      },
+      "heads": [
+        {
+          "address": 8575968,
+          "next": 8575968,
+          "previous": 8575968
+        }
+      ],
+      "headerHex": "80000000404149009041490010b4480000da480010424900e0db8200e0db8200000000000000000000000000000000000000000000000000",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 7227,
+      "beforeNativeHeaderHex": "0000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8607936,
+        "bytes": 8,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268537964
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268537968,
+        "registeredCallback": 7871936
+      },
+      "heads": [
+        {
+          "address": 8607936,
+          "next": 8607936,
+          "previous": 8607936
+        }
+      ],
+      "headerHex": "c0588300c0588300",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 8477,
+      "beforeNativeHeaderHex": "0000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8588016,
+        "bytes": 8,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268537968
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268537972,
+        "registeredCallback": 7871984
+      },
+      "heads": [
+        {
+          "address": 8588016,
+          "next": 8588016,
+          "previous": 8588016
+        }
+      ],
+      "headerHex": "f00a8300f00a8300",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 13637,
+      "beforeNativeHeaderHex": "000000000000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8796080,
+        "bytes": 12,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268537972
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268537976,
+        "registeredCallback": 7872464
+      },
+      "heads": [
+        {
+          "address": 8796084,
+          "next": 8796084,
+          "previous": 8796084
+        }
+      ],
+      "headerHex": "10b97900b4378600b4378600",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 17388,
+      "beforeNativeHeaderHex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "beforeNativeArrayHeadWords": [
+        {
+          "address": 13631744,
+          "next": 0,
+          "previous": 0
+        },
+        {
+          "address": 13632200,
+          "next": 0,
+          "previous": 0
+        },
+        {
+          "address": 13632656,
+          "next": 0,
+          "previous": 0
+        },
+        {
+          "address": 13633112,
+          "next": 0,
+          "previous": 0
+        },
+        {
+          "address": 13633568,
+          "next": 0,
+          "previous": 0
+        },
+        {
+          "address": 13634024,
+          "next": 0,
+          "previous": 0
+        }
+      ],
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 13631744,
+        "bytes": 2736,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268537976
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268537980,
+        "registeredCallback": 7873168
+      },
+      "heads": [
+        {
+          "address": 13631744,
+          "next": 13631744,
+          "previous": 13631744
+        },
+        {
+          "address": 13632200,
+          "next": 13632200,
+          "previous": 13632200
+        },
+        {
+          "address": 13632656,
+          "next": 13632656,
+          "previous": 13632656
+        },
+        {
+          "address": 13633112,
+          "next": 13633112,
+          "previous": 13633112
+        },
+        {
+          "address": 13633568,
+          "next": 13633568,
+          "previous": 13633568
+        },
+        {
+          "address": 13634024,
+          "next": 13634024,
+          "previous": 13634024
+        }
+      ],
+      "headerHex": "0001d0000001d00000000000000000000000004300000043000000430000004300007f4300007f430801d000040000000000000000000000000000000000004300000043000000430000004300007f4300007f433401d0000400000000000000",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 4568,
+      "beforeNativeHeaderHex": "0000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8828048,
+        "bytes": 8,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268537980
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268537984,
+        "registeredCallback": 7873520
+      },
+      "heads": [
+        {
+          "address": 8828048,
+          "next": 8828048,
+          "previous": 8828048
+        }
+      ],
+      "headerHex": "90b4860090b48600",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 4724,
+      "beforeNativeHeaderHex": "0000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8828320,
+        "bytes": 8,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268537984
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268537988,
+        "registeredCallback": 7873552
+      },
+      "heads": [
+        {
+          "address": 8828320,
+          "next": 8828320,
+          "previous": 8828320
+        }
+      ],
+      "headerHex": "a0b58600a0b58600",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 6757,
+      "beforeNativeHeaderHex": "0000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8828328,
+        "bytes": 8,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268537992
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268537996,
+        "registeredCallback": 7873584
+      },
+      "heads": [
+        {
+          "address": 8828328,
+          "next": 8828328,
+          "previous": 8828328
+        }
+      ],
+      "headerHex": "a8b58600a8b58600",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 6914,
+      "beforeNativeHeaderHex": "0000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8828096,
+        "bytes": 8,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268537996
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268538000,
+        "registeredCallback": 7873568
+      },
+      "heads": [
+        {
+          "address": 8828096,
+          "next": 8828096,
+          "previous": 8828096
+        }
+      ],
+      "headerHex": "c0b48600c0b48600",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 11449,
+      "beforeNativeHeaderHex": "0000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8978328,
+        "bytes": 8,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268538000
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268538004,
+        "registeredCallback": 7874048
+      },
+      "heads": [
+        {
+          "address": 8978328,
+          "next": 8978328,
+          "previous": 8978328
+        }
+      ],
+      "headerHex": "98ff880098ff8800",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 11762,
+      "beforeNativeHeaderHex": "0000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8974780,
+        "bytes": 8,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268538004
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268538008,
+        "registeredCallback": 7874192
+      },
+      "heads": [
+        {
+          "address": 8974780,
+          "next": 8974780,
+          "previous": 8974780
+        }
+      ],
+      "headerHex": "bcf18800bcf18800",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 12701,
+      "beforeNativeHeaderHex": "0000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8976192,
+        "bytes": 8,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268538008
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268538012,
+        "registeredCallback": 7874080
+      },
+      "heads": [
+        {
+          "address": 8976192,
+          "next": 8976192,
+          "previous": 8976192
+        }
+      ],
+      "headerHex": "40f7880040f78800",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 16453,
+      "beforeNativeHeaderHex": "0000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8974856,
+        "bytes": 8,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268538012
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268538016,
+        "registeredCallback": 7874032
+      },
+      "heads": [
+        {
+          "address": 8974856,
+          "next": 8974856,
+          "previous": 8974856
+        }
+      ],
+      "headerHex": "08f2880008f28800",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 976,
+      "beforeNativeHeaderHex": "0000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 9055056,
+        "bytes": 8,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268538016
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268538020,
+        "registeredCallback": 7874624
+      },
+      "heads": [
+        {
+          "address": 9055056,
+          "next": 9055056,
+          "previous": 9055056
+        }
+      ],
+      "headerHex": "502b8a00502b8a00",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    {
+      "initializer": 4102,
+      "beforeNativeHeaderHex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 9055080,
+        "bytes": 308,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268538020
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268538024,
+        "registeredCallback": 7874640
+      },
+      "heads": [
+        {
+          "address": 9055080,
+          "next": 9055080,
+          "previous": 9055080
+        }
+      ],
+      "headerHex": "682b8a00682b8a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "nativeFieldsOrCallbacksAuthored": false
+    }
+  ],
+  "existing4880InvokedSeparatelyOnce": true
+}
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-World-required-pool-proof.json =====
+{
+  "initializer": 11167,
+  "wholeNativeReturned": true,
+  "eax": 268749744,
+  "esp": 1572868,
+  "eip": 305419896,
+  "before": 0,
+  "pool": 268749744,
+  "elementBytes": 24,
+  "count": 5000,
+  "nativePoolFactory": 23287,
+  "poolHeaderHex": "aaaaaaaaaaaaaaaa000000000cd97800e0cb04100b000000000000000000000000000000881300001800000088130000f8cb0410aaaaaaaaaaaaaaaaaaaaaaaa",
+  "actualHeapAllocations": [
+    {
+      "target": 2089944532,
+      "iat": 7877212,
+      "requestedHandle": 0,
+      "effectiveFixtureHeap": 1,
+      "flags": 0,
+      "bytes": 16,
+      "allocationBytes": 32,
+      "address": 268749664,
+      "alignment": 16,
+      "zeroRequested": false,
+      "returnAddress": 7718538,
+      "phase": "current-native-World-required-pool-initializer11167",
+      "headerAddress": 268749648,
+      "extentEnd": 268749680,
+      "beforeEsp": 1572624,
+      "afterEsp": 1572640,
+      "returnEip": 7718538,
+      "returnEax": 268749664,
+      "otherCpuBytesPreserved": true,
+      "wasmShadowStackPointerPreserved": true,
+      "zeroBytesVerifiedAtReturn": null,
+      "live": true
+    },
+    {
+      "target": 2089944532,
+      "iat": 7877212,
+      "requestedHandle": 0,
+      "effectiveFixtureHeap": 1,
+      "flags": 0,
+      "bytes": 120112,
+      "allocationBytes": 120128,
+      "address": 268749696,
+      "alignment": 16,
+      "zeroRequested": false,
+      "returnAddress": 7718538,
+      "phase": "current-native-World-required-pool-initializer11167",
+      "headerAddress": 268749680,
+      "extentEnd": 268869808,
+      "beforeEsp": 1572624,
+      "afterEsp": 1572640,
+      "returnEip": 7718538,
+      "returnEax": 268749696,
+      "otherCpuBytesPreserved": true,
+      "wasmShadowStackPointerPreserved": true,
+      "zeroBytesVerifiedAtReturn": null,
+      "live": true
+    }
+  ],
+  "sourceEdge": "Whole1690→1530 reads8575624 and passes it to2243 when8928760 is empty; this dependency is separate from the render-only8715 closure.",
+  "poolOrFreeListAuthored": false
+}
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-World-render-proof.json =====
+{
+  "initializer": 8715,
+  "wholeNativeReturned": true,
+  "eax": 268870784,
+  "esp": 1572868,
+  "eip":

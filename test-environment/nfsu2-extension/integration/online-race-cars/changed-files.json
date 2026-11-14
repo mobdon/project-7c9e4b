@@ -1,0 +1,28 @@
+{
+  "all": [
+    "extension/CHANGELOG.md",
+    "extension/README.md",
+    "extension/cars.js",
+    "extension/diagnostics.js",
+    "extension/manifest.json",
+    "extension/next-profile.js",
+    "extension/page.js",
+    "extension/popup.html",
+    "tools/add-online-race-cars.cjs",
+    "tools/build-next-profile.cjs",
+    "tools/car-next-body.json",
+    "tools/car-next-config.json",
+    "tools/contact-next-body.json",
+    "tools/package-release.py",
+    "tests/cars-next.wasm",
+    "tests/combined-profile-rebuild.test.cjs",
+    "tests/core.test.cjs",
+    "tests/diagnostics-page.test.cjs",
+    "tests/next-contact-native.test.cjs",
+    "tests/online-race-ui.browser.cjs",
+    "tests/package-release.test.cjs"
+  ],
+  "regeneratedBinary": [
+    "tests/cars-next.wasm"
+  ]
+}

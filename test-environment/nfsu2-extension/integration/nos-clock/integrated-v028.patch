@@ -1,0 +1,330 @@
+--- a/extension/CHANGELOG.md
++++ b/extension/CHANGELOG.md
+@@ -1,3 +1,10 @@
++# v0.28.0 · Correct online Unlimited NOS timing
++
++- Uses the exact native clock selector when refreshing an active NOS timestamp. Previously the world clock was always used; a controlled exact-native replay reproduces repeated online depletion/stop cycles with divergent clocks, while the corrected candidate stays active.
++- Retains literal network opt-in, current car/race/kit and clock-domain checks, inactive/sentinel state, and native cancellation. No held-key tapping loop, forced activation, native stop suppression, driver or lane changes.
++- Adds bounded pre-refill NOS clock/timestamp/resource observations to local diagnostics. These are sampled scalars, not native burst counters or proof of activation.
++- **Final combined suite: 1,740 passed, zero failures/skips/cancellations.** Preserves all native payloads/profiles, saved profiles, Street X, Drift, Drag, collision/corner controls and tuner diagnostics. No unrelated candidate is included. Live tapping resolution is unverified; the separate tuner capture issue still needs the reported S-code/log.
++
+ # v0.27.0 · Full tuner snapshot diagnostics
+ 
+ - Reports the specific rejected snapshot guard instead of collapsing every ownership/layout/count/alias failure into one message. Adds bounded failure fields to the existing local diagnostic export; no addresses, arbitrary game text or memory dump.
+--- a/extension/README.md
++++ b/extension/README.md
+@@ -1,8 +1,18 @@
+-# NFSU2 Driving Tools: experimental v0.27.0
++# NFSU2 Driving Tools: experimental v0.28.0
+ 
+ Unpacked Chrome / Edge / Brave extension for https://nfsu2.xyz/. See `CHANGELOG.md` for this release's changes and verification limits.
+ 
+-## v0.27.0: Identify rejected tuner snapshots
++## v0.28.0: Correct the online Unlimited NOS clock
++
++Unlimited NOS now refreshes an already-active NOS timestamp using the same clock the native game selected. The previous version always used the world clock; in an online fixture where the game's real clock was ahead, that made a full kit immediately appear depleted and caused repeated native stop/restart cycles. The corrected code retains the burst in that exact native test.
++
++This is a reproduced timing defect, **not proof of the clock values in your live run or a guarantee that NOS never stops**. Native AI can still cancel NOS for normal driving decisions. This update does not hold Alt, force activation, suppress native stops or change driving, shifting, steering or lane choice. Inactive and sentinel timestamps remain inactive; network permission and current-car/kit checks remain mandatory.
++
++For an online comparison, use the same ordinary driving situation with **Unlimited NOS** and **Allow network tools** enabled. If tapping remains, use **Export crash log** immediately. The new log samples the selected clock, active-since stamp and kit/resource accounting **before refill**; it contains no pointers. The timestamp flag does not prove successful activation, and sampled logs can miss short transitions.
++
++The final combined suite passes **1,740 tests, zero failures/skips/cancellations**. Saved tool profiles, working Street X behavior, reviewed Drift isolation, Drag protection, online collision/corner settings and the full tuner with snapshot diagnostics remain together. No native game code or profile was changed. The separate underlying tuner snapshot rejection still requires its S-code/log; this update does not claim to fix it. Live NOS behavior and game-save persistence remain unverified.
++
++## Retained v0.27.0: Identify rejected tuner snapshots
+ 
+ This update replaces the generic “Full tuner snapshot layout is unsupported” message with a specific **S-code and component** when the native capture guard rejects a snapshot. The local diagnostic export records only the bounded failure code and applicable counts, never raw pointers or a memory dump. Details are reset for each request so a previous failure is not shown as a new one.
+ 
+@@ -176,8 +186,8 @@
+ 
+ 1. Back up your save with the game's **Download backup** button.
+ 2. Keep your previous extension folder for rollback. Disable its extension card before loading this version.
+-3. Extract this ZIP. In `chrome://extensions` (Edge: `edge://extensions`), enable Developer mode and choose **Load unpacked**. Select **NFSU2-Driving-Tools-v0.27.0**, containing `manifest.json`.
+-4. Reload the game and check version **0.27.0**. Only one version should be enabled.
++3. Extract this ZIP. In `chrome://extensions` (Edge: `edge://extensions`), enable Developer mode and choose **Load unpacked**. Select **NFSU2-Driving-Tools-v0.28.0**, containing `manifest.json`.
++4. Reload the game and check version **0.28.0**. Only one version should be enabled.
+ 5. Start a solo event yourself. Open Driving tools with **F8**, then enable **Automatic driver** in a non-drag event. For your first drag test, leave power, grip, NOS, custom pace, collision filters and manual Drag assist off.
+ 6. Enter other supported events normally. AI requests native handback/reconstruction automatically when the event changes. Turn AI off before using manual drag assist. Other selected settings are kept.
+ 
+@@ -302,7 +312,7 @@
+ 
+ ## Validation and known limits
+ 
+-**Automated validation:** the final v0.27 suite passes **1,708 tests, zero failures/skips/cancellations**, including high-address runtime CPU cases. See `CHANGELOG.md`. The frozen v0.20 tuner baseline passed 1,599 tests. Coverage includes the retained v0.18 regressions, actual native isolated getter/setter/rebuild and metrics, all unlocked control offsets, exact game-thread capture/stage/restore, all five preset leases, stale-state/identity/cancellation/fuel guards, and end-to-end private preview with selected-preset-only writes. The end-to-end harness uses exact native game functions and a constructed car/catalog fixture, not a live user's game. Focused suites overlap and are not additive totals. These checks are not a full game simulation or live gameplay.
++**Automated validation:** the final v0.28 suite passes **1,740 tests, zero failures/skips/cancellations**, including high-address runtime CPU cases. See `CHANGELOG.md`. The frozen v0.20 tuner baseline passed 1,599 tests. Coverage includes the retained v0.18 regressions, actual native isolated getter/setter/rebuild and metrics, all unlocked control offsets, exact game-thread capture/stage/restore, all five preset leases, stale-state/identity/cancellation/fuel guards, and end-to-end private preview with selected-preset-only writes. The end-to-end harness uses exact native game functions and a constructed car/catalog fixture, not a live user's game. Focused suites overlap and are not additive totals. These checks are not a full game simulation or live gameplay.
+ 
+ All four exact supported modules validate and compile after patching. Both modern profiles change12 bodies: **2459, 3174, 4497, 4653, 7395, 8871, 17404, 19197, 19277, 21213, 21263**, plus contact wrapper **22508** on93af6ccb or **22470** on78e2bb69. On2f0ddd3b, only **4497, 4653, 21213, 21262 and22430** change; on6f4f1e4e, only **4497, 4653, 21213, 21262 and22720** change. Every other function body and non-code section is preserved byte-for-byte. Original planner instructions and contact-wrapper tails remain preserved. The native Drift recovery expression replacement retains its documented scope. Authored builders reproduce the shipped payloads.
+ 
+@@ -331,7 +341,7 @@
+ - The full tuner additionally grows the game memory by an owned 16 MiB snapshot buffer, records its module/memory identity and uses the existing dyno mailbox for commands. Snapshot growth is not undone until reload. Native evaluation runs in separate memory with guarded reads/writes and execution fuel. Staging does not call a game physics rebuild or save helper.
+ - Wall filtering prefixes `sub_005b2610` and preserves the full original resolver for every rejected contact. Body type/vtable, reciprocal car/face pointers, finite unit normals and pair identities are checked. Native `roam_game_online_here()` always blocks wall filtering during multiplayer free roam. The separate latest-build traffic path also calls the exact native read-only player-slot helper and excludes recognized player cars.
+ 
+-For rollback, disable v0.27.0, enable your preserved previous version and reload. The previous version remains subject to its own build-compatibility checks. Memory effects do not survive reload; saved ordinary preferences may. Never run both versions together.
++For rollback, disable v0.28.0, enable your preserved previous version and reload. The previous version remains subject to its own build-compatibility checks. Memory effects do not survive reload; saved ordinary preferences may. Never run both versions together.
+ 
+ ### Source references
+ 
+--- a/extension/core.js
++++ b/extension/core.js
+@@ -2,7 +2,7 @@
+ (function (root) {
+   'use strict';
+   const A = Object.freeze({ FLOW: 0x8654a4, MODE: 0x850078, PLAYER: 0xd00000,
+-    RACE: 0x890118, DRAG: 0x89e7d8, TICKS: 0x86518c,
++    RACE: 0x890118, DRAG: 0x89e7d8, TICKS: 0x86518c, NETWORK_TICKS: 0x8651ac,
+     NOS_FULL: 0x454, NOS_LEFT: 0x45c, NOS_SINCE: 0x460, RPM: 0x440, GEAR: 0x434,
+     HOST: 0x866a14, CLIENT: 0x8669f4, ONLINE: 0x89cf69 });
+   class Engine {
+@@ -36,18 +36,26 @@
+       if(before===after)return Atomics.load(this.words,p/4)===before;
+       return Atomics.compareExchange(this.words,p/4,before,after)===before;
+     }
++    nosNetworkClock() {
++      // Native 0x5f00f0 used by NOS start, remaining-time and stop. This is
++      // intentionally narrower than permission detection: mode bits alone
++      // do not select the native network clock, and host/client are signed.
++      return !!this.u8(A.ONLINE) || (this.u32(A.CLIENT)|0)>0 || (this.u32(A.HOST)|0)>0;
++    }
+     refill(s, allowNetwork = false) {
+       this.refresh();
+       if(!this.live(s,allowNetwork,true))return false;
+-      const full=this.u32(s.car+A.NOS_FULL);
++      const full=this.u32(s.car+A.NOS_FULL),networkClock=this.nosNetworkClock();
+       if(!full||full>=10000000)return false;
+-      const guard=()=>this.live(s,allowNetwork,true)&&this.u32(s.car+A.NOS_FULL)===full;
++      const guard=()=>this.live(s,allowNetwork,true)&&this.u32(s.car+A.NOS_FULL)===full&&this.nosNetworkClock()===networkClock;
+       const remaining=this.u32(s.car+A.NOS_LEFT);
+       if(!guard())return false;
+       if(remaining===full){if(Atomics.load(this.words,(s.car+A.NOS_LEFT)/4)!==(remaining|0))return false;}
+       else if(Atomics.compareExchange(this.words,(s.car+A.NOS_LEFT)/4,remaining,full)!==(remaining|0))return false;
+-      const since=this.u32(s.car+A.NOS_SINCE),ticks=this.u32(A.TICKS);
+-      if(since&&since!==0x7fffffff&&since!==(ticks||1)&&guard())Atomics.compareExchange(this.words,(s.car+A.NOS_SINCE)/4,since,ticks||1);
++      const since=this.u32(s.car+A.NOS_SINCE),ticks=this.u32(networkClock?A.NETWORK_TICKS:A.TICKS);
++      // Never mix clock domains or turn an active stamp into an inactive
++      // sentinel. Native starts/stops and all AI eligibility remain native.
++      if(since&&since!==0x7fffffff&&ticks&&ticks!==0x7fffffff&&since!==ticks&&guard())Atomics.compareExchange(this.words,(s.car+A.NOS_SINCE)/4,since,ticks);
+       return true;
+     }
+     performanceInfo(s) {
+@@ -195,6 +203,22 @@
+         if (distance >= 0 && distance < 150 && (barrierAhead === null || distance < barrierAhead)) barrierAhead = distance;
+       }
+       return { cars, scannedCars: seen.size, activeBarriers, barrierAhead };
++    }
++    nosDiagnostics(s, exactProfile = false) {
++      // Read before refill, so the export can show resource/timing state that
++      // the refill would otherwise mask. These are sampled raw state fields,
++      // not native activation/stop counters or proof of a successful burst.
++      this.refresh();
++      if (!exactProfile || !s?.ready || !this.live(s)) return {};
++      const networkClock=this.nosNetworkClock(),clock=this.u32(networkClock?A.NETWORK_TICKS:A.TICKS);
++      const since=this.u32(s.car+A.NOS_SINCE),full=this.u32(s.car+A.NOS_FULL),remaining=this.u32(s.car+A.NOS_LEFT);
++      const active=since!==0&&since!==0x7fffffff;
++      const out={nosTelemetry:true,nosClockNetwork:networkClock,nosClockTicks:clock,nosSinceTicks:since,nosTimestampActive:active};
++      if(full<10000000)out.nosFullTicks=full;
++      if(remaining<10000000)out.nosRemainingTicks=remaining;
++      if(active)out.nosElapsedTicks=(clock|0)-(since|0);
++      if(!this.live(s)||this.nosNetworkClock()!==networkClock||this.u32(s.car+A.NOS_FULL)!==full||this.u32(s.car+A.NOS_SINCE)!==since)return {};
++      return out;
+     }
+     dragEngineDiagnostics(s, exactProfile = false) {
+       this.refresh();
+--- a/extension/diagnostics.js
++++ b/extension/diagnostics.js
+@@ -16,6 +16,9 @@
+   FLAGS.push('nativeTelemetry','dragRace','forcedDrag','nativeNavigationPresent','nativeNavigationValid','nativeConfigPresent','nativeConfigValid','nativeCompanionPresent','nativeCompanionValid','aiSkillSaved');
+   Object.assign(NUMBERS,{nativeInputMode:[0,10],nativeNextInputMode:[0,10],nativeThrottle:[0,1],nativeHandbrake:[0,1],nativeBrake:[0,1],nativeSteering:[-32768,32767],nativeGearCommand:[-1,10],aiRequestedMode:[0,2],aiNativeStatus:[0,3],aiStaleTicks:[0,4294967295],savedNativeSkill:[0,255]});
+   MOVING_FIELDS.push('nativeThrottle','nativeHandbrake','nativeBrake','nativeSteering','aiStaleTicks');
++  FLAGS.push('nosTelemetry','nosClockNetwork','nosTimestampActive');
++  Object.assign(NUMBERS,{nosClockTicks:[0,4294967295],nosSinceTicks:[0,4294967295],nosFullTicks:[0,9999999],nosRemainingTicks:[0,9999999],nosElapsedTicks:[-4294967295,4294967295]});
++  MOVING_FIELDS.push('nosClockTicks','nosSinceTicks','nosFullTicks','nosRemainingTicks','nosElapsedTicks');
+   const TOOL_FLAGS = ['ai','aiPace','raceCornerAssist','cornerAssist','racePace','walls','cars','traffic','players','online','nos','drag','dragNoBlowout','tester','boost','unlimit','grip','drift','dynoEnabled'];
+   const TOOL_NUMBERS = {raceCornerFactor:[0.6,0.95],raceCornerMargin:[0,25],raceBraking:[0.5,1],paceFactor:[0.75,3],racePaceFactor:[0.75,3],cornerFactor:[0.6,0.95],cornerMargin:[0,25],power:[1,3],gripFactor:[1,2],rpm:[3000,10000]};
+   const DYNO_STATUSES=new Set([0,1,2,3,4,5,6,8]);
+@@ -83,7 +86,7 @@
+     }
+     return out;
+   }
+-  function create({storage=null,clock=()=>Date.now(),version='0.27.0'}={}) {
++  function create({storage=null,clock=()=>Date.now(),version='0.28.0'}={}) {
+     let events=[],dropped=0,persistence=storage?'same-tab':'memory-only',lastSnapshot='',lastSample=0;
+     const bursts=new Map();
+     const now=()=>{try{const n=clock();return Number.isFinite(n)&&n>=0?Math.floor(n):0;}catch{return 0;}};
+@@ -102,7 +105,7 @@
+     } catch { persistence='memory-only'; }
+     const record=(event,data={})=>{try{if(!EVENTS.has(event))return false;const at=now();if(['page-error','promise-rejection','worker-error','engine-error','dyno-error'].includes(event)){const burst=bursts.get(event);if(burst&&at-burst.at<1000){if(burst.count++>=8){dropped++;return false;}}else bursts.set(event,{at,count:1});}events.push({at,event,data:sanitize(data)});persist();return true;}catch{return false;}};
+     const snapshot=(data={})=>{try{const clean=sanitize(data),stable={...clean};for(const key of MOVING_FIELDS)delete stable[key];const key=JSON.stringify(stable),t=now(),sampleMs=clean.nativeTelemetry||clean.driftRace||clean.forcedDrift||clean.driftVariant?2000:5000;if(lastSnapshot && t-lastSample < (key===lastSnapshot?sampleMs:250))return;lastSnapshot=key;lastSample=t;record('state',clean);}catch{}};
+-    const exportText=()=>JSON.stringify({format:'NFSU2 Driving Tools local diagnostics',schema:1,exporterVersion:sanitize({version}).version,exportedAt:now(),persistence,dropped,limits:{maxEvents:MAX_EVENTS,maxStoredBytes:MAX_BYTES},capture:'Tool selections, sampled game mode/status, bounded native controller/skill/input-mode/speed, Drift scoring and corner evidence, page and game-worker lifecycle, classified errors, bounded tuner rejection codes/counts, numeric wasm locations and known script line numbers. No raw logs, messages, URLs, credentials, saves, names, keyboard input or network traffic. Same-origin page scripts can access this same-tab storage. Browser/tab/GPU failures may prevent a final event; absence of an error does not show that the game was healthy. Not a game crash dump.',events},null,2)+'\n';
++    const exportText=()=>JSON.stringify({format:'NFSU2 Driving Tools local diagnostics',schema:1,exporterVersion:sanitize({version}).version,exportedAt:now(),persistence,dropped,limits:{maxEvents:MAX_EVENTS,maxStoredBytes:MAX_BYTES},capture:'Tool selections, sampled game mode/status, bounded native controller/skill/input-mode/speed, Drift scoring, sampled NOS clock/timestamp/resource fields and corner evidence, page and game-worker lifecycle, classified errors, bounded tuner rejection codes/counts, numeric wasm locations and known script line numbers. No raw logs, messages, URLs, credentials, saves, names, keyboard input or network traffic. Same-origin page scripts can access this same-tab storage. Browser/tab/GPU failures may prevent a final event; absence of an error does not show that the game was healthy. Not a game crash dump.',events},null,2)+'\n';
+     const clear=()=>{events=[];dropped=0;lastSnapshot='';lastSample=0;bursts.clear();record('clear');};
+     record('page-start',{version});
+     return Object.freeze({record,snapshot,exportText,clear,status:()=>({events:events.length,dropped,persistence})});
+--- a/extension/manifest.json
++++ b/extension/manifest.json
+@@ -1,8 +1,8 @@
+ {
+   "manifest_version": 3,
+   "name": "NFSU2 Driving Tools \u00b7 Combined Test",
+-  "version": "0.27.0",
+-  "description": "Saved tool profiles, guarded Drift/Drag tools, and full tuner with detailed snapshot diagnostics.",
++  "version": "0.28.0",
++  "description": "Saved tool profiles, guarded Drift/Drag tools, full tuner diagnostics, and corrected online NOS timing.",
+   "minimum_chrome_version": "111",
+   "action": {
+     "default_title": "NFSU2 Driving Tools \u00b7 Combined Test",
+--- a/extension/page.js
++++ b/extension/page.js
+@@ -3,7 +3,7 @@
+   if (location.origin !== 'https://nfsu2.xyz' || window.top !== window || window.__nfsu2DrivingTools) return;
+   Object.defineProperty(window, '__nfsu2DrivingTools', { value: true });
+   let diagnostics = null;
+-  try { let storage = null; try { storage = sessionStorage; } catch {} diagnostics = globalThis.__NFSU2_DIAGNOSTICS__?.create({storage,version:'0.27.0'}) || null; } catch {}
++  try { let storage = null; try { storage = sessionStorage; } catch {} diagnostics = globalThis.__NFSU2_DIAGNOSTICS__?.create({storage,version:'0.28.0'}) || null; } catch {}
+   let diagnosticState = {}, diagnosticIdentity = null, diagnosticPatch = '';
+   // The log is observational only: no memory writes, upload, raw console capture or error text.
+   const recordDiagnostic = (event, extra = {}) => { try { diagnostics?.record(event,{...diagnosticState,...extra}); } catch {} };
+@@ -258,6 +258,7 @@
+       const aiState = ai?.update({enabled:prefs.ai,safe,state:s,mode:driveStatus,pace:requestedPace,allowNetwork:prefs.online,allowDragAI:dragAIRequested,cornerAssist:prefs.cornerAssist,cornerFactor:prefs.cornerFactor,cornerMargin:prefs.cornerMargin,raceCornerAssist:prefs.raceCornerAssist && roadRaceProfile,raceCornerFactor:prefs.raceCornerFactor,raceCornerMargin:prefs.raceCornerMargin,raceBraking:prefs.raceBraking,dragNoBlowout:prefs.dragNoBlowout}) || {available:false,active:false,status:'Native game AI · experimental',reason:'Reload with the native AI module installed.'};
+       const wallState=wall?.update({enabled:prefs.walls,safe,state:s}) || {requested:false,hits:0,reason:'Reload with the wall-contact module installed.'};
+       const carState=cars?.update({enabled:prefs.cars,onlineTraffic:prefs.traffic,onlinePlayers:prefs.players,allowNetwork:prefs.online,safe,state:s}) || {requested:false,hits:0,reason:'Car no-clip is not verified for this build.'};
++      try {diagnosticState={...diagnosticState,...engine.nosDiagnostics(s,supported&&moduleProfile?.capabilities.driftDiagnostics===true)};} catch {}
+       let nos = false;
+       if (safe && prefs.nos) nos = engine.refill(s,prefs.online);
+       let tune={active:false},grip={active:false};
+@@ -553,7 +554,7 @@
+     ui.innerHTML = `<div class="shell">
+ <button id="min" class="launcher" aria-expanded="false" aria-controls="tools-panel" title="Driving tools · F8"><span class="mark" aria-hidden="true"></span><span class="title">Driving tools</span><span id="enabled" class="badge">Ready</span><span id="chevron" class="arrow" aria-hidden="true">▾</span></button>
+ <div id="tools-panel" class="panel" hidden>
+-<div class="toolbar"><button id="take-control" title="Return to manual control">Manual <kbd>F7</kbd></button><button id="stop" class="stop" title="Stop driving assists">Stop <kbd>F9</kbd></button><span class="version">0.27.0</span></div>
++<div class="toolbar"><button id="take-control" title="Return to manual control">Manual <kbd>F7</kbd></button><button id="stop" class="stop" title="Stop driving assists">Stop <kbd>F9</kbd></button><span class="version">0.28.0</span></div>
+ <details id="group-profiles" class="group"><summary><span class="section-icon" aria-hidden="true"></span>Saved tool profiles</summary><div class="group-body">
+ <label class="row"><span>Saved profile</span><select id="profile-select" aria-label="Saved tool profile"><option value="">Choose a saved profile</option></select></label>
+ <label class="profile-name-label" for="profile-name">Profile name</label><input id="profile-name" type="text" maxlength="48" autocomplete="off" placeholder="e.g. Solo driving">
+--- a/extension/popup.html
++++ b/extension/popup.html
+@@ -1,7 +1,7 @@
+ <!doctype html><html lang="en"><meta charset="utf-8"><title>NFSU2 Driving Tools</title>
+ <style>html{color-scheme:dark}body{width:244px;box-sizing:border-box;margin:0;padding:14px;background:#141e24;color:#c9dcd1;font:11px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}header{display:flex;align-items:center;gap:7px}h1{font-size:14px;font-weight:650;margin:0;color:#e2f1e7}.dot{width:7px;height:7px;border-radius:2px;background:#9be8bc}.version{margin-left:auto;color:#86a791;font-size:9px}p{margin:9px 0;color:#93af9f}.shortcuts{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin:12px 0}.shortcuts span{padding:6px;border:1px solid #344f40;border-radius:3px;text-align:center;color:#87a993;font-size:9px}kbd{display:block;font:600 11px ui-monospace,monospace;color:#c5e5cf}.open{display:block;border:1px solid #709e7e;border-radius:4px;background:#233c2c;color:#d7f1df;padding:7px;text-align:center;font-weight:600;text-decoration:none}.open:hover{background:#2c4936}details{border-top:1px solid #2c4436;margin-top:12px;padding-top:7px;font-size:10px;color:#88a492}summary{cursor:pointer;color:#a8c4af}details p{margin:7px 0}a:focus-visible,summary:focus-visible{outline:2px solid #9be8bc;outline-offset:3px}</style>
+-<header><span class="dot" aria-hidden="true"></span><h1>Driving tools</h1><span class="version">v0.27.0</span></header>
+-<p>v0.27 identifies which safety check rejected a full-tuner snapshot. It keeps all capture protections and adds a bounded S-code to the local crash log. This does not yet prove the reported snapshot failure is fixed. Retry Load settings once, then share the exact error and exported log if it fails. All reviewed Drift, profiles, Street X, online and Drag features remain.</p><p>Handling and nitrous settings are manual, not automatic lap-time tuning. Native grip/downforce scaling is not activated. Live driving and save/reload persistence remain unverified.</p>
++<header><span class="dot" aria-hidden="true"></span><h1>Driving tools</h1><span class="version">v0.28.0</span></header>
++<p>v0.28 fixes a reproduced online Unlimited NOS clock mismatch that could trigger repeated stop/restart cycles. Native activation and cancellation decisions remain unchanged. If tapping persists, export the new pre-refill NOS diagnostics. All profiles, Street X, Drift, online/Drag controls and tuner diagnostics remain. Live results are unverified.</p><p>Handling and nitrous settings are manual, not automatic lap-time tuning. Native grip/downforce scaling is not activated. Live driving and save/reload persistence remain unverified.</p>
+ <p>For online Drag protection, enable both Disable Drag engine blowouts and Allow network tools before the engine blows. Only your current local engine is eligible. It does not revive blown engines or alter NOS/shifting. F9 clears it; live online protection is unverified.</p>
+ <p>Reload the game after installing. Use the small toolbar in the upper-right corner.</p>
+ <div class="shortcuts"><span><kbd>F8</kbd>Menu</span><span><kbd>F7</kbd>Manual</span><span><kbd>F9</kbd>Stop</span></div>
+--- a/tools/package-release.py
++++ b/tools/package-release.py
+@@ -4,12 +4,12 @@
+ root = Path(__file__).resolve().parents[1]
+ source = root / 'extension'
+ manifest = json.loads((source / 'manifest.json').read_text())
+-assert manifest['version'] == '0.27.0'
+-folder = 'NFSU2-Driving-Tools-v0.27.0'
++assert manifest['version'] == '0.28.0'
++folder = 'NFSU2-Driving-Tools-v0.28.0'
+ parser = argparse.ArgumentParser()
+ parser.add_argument('--output', type=Path)
+ args = parser.parse_args()
+-out = args.output or root.parent / 'NFSU2-Driving-Tools-v0.27-Combined-Tuner-Diagnostics.zip'
++out = args.output or root.parent / 'NFSU2-Driving-Tools-v0.28-Combined-NOS-Clock-Fix.zip'
+ files = ['README.md', 'CHANGELOG.md', 'manifest.json', 'popup.html', *manifest['content_scripts'][0]['js']]
+ assert len(files) == len(set(files))
+ assert sorted(files) == sorted(p.name for p in source.iterdir() if p.is_file())
+--- a/tests/diagnostics-page.test.cjs
++++ b/tests/diagnostics-page.test.cjs
+@@ -100,3 +100,18 @@
+  const error=f.log().events.find(e=>e.event==='dyno-error');assert.ok(error);assert.equal(error.data.dynoStatus,8);assert.equal(error.data.dynoGuard,32);assert.equal(error.data.dynoObserved,0);assert.doesNotMatch(f.storedLog(),/SECRET|sample count/);
+  f.click('diagnostic-export');const exported=JSON.parse(await f.downloads[0].text());assert.equal(exported.events.find(e=>e.event==='dyno-error').data.dynoGuard,32);
+ });
++
++test('verified page samples NOS before refill, then uses the native online clock',async()=>{
++ const profile=require('../extension/next-profile.js'),f=await fixture(null,true,false,{revision:profile.revision,profile});
++ f.put(0x86518c,100000);f.put(0x8651ac,140000);f.d.setUint8(0x89cf69,1);f.put(f.car+0x454,20000);f.put(f.car+0x45c,500);f.put(f.car+0x460,100000);
++ f.change('online',true);f.change('nos',true);f.run(6);
++ const states=f.log().events.filter(e=>e.event==='state').map(e=>e.data),first=states.find(s=>s.nosTelemetry&&s.nosSinceTicks===100000);
++ assert.ok(first);assert.equal(first.nosClockNetwork,true);assert.equal(first.nosClockTicks,140000);assert.equal(first.nosRemainingTicks,500);assert.equal(first.nosElapsedTicks,40000);
++ assert.equal(f.d.getUint32(f.car+0x460,true),140000);assert.equal(f.d.getUint32(f.car+0x45c,true),20000);
++ assert.equal(f.prefs().ai,false);assert.equal(f.prefs().drag,false);assert.equal(f.prefs().nos,true);assert.equal(f.prefs().online,true);
++});
++test('unknown and older profile pages do not log new NOS state from metadata alone',async()=>{
++ for(const options of [{revision:'93af6ccb',profile:require('../extension/next-profile.js'),verified:false},{revision:'2f0ddd3b',profile:require('../extension/current-profile.js')}]){
++  const f=await fixture(null,true,false,options);f.run(8);for(const e of f.log().events.filter(e=>e.event==='state'))assert.equal('nosTelemetry' in e.data,false);
++ }
++});
+--- a/tests/nos-clock.test.cjs
++++ b/tests/nos-clock.test.cjs
+@@ -0,0 +1,50 @@
++'use strict';
++const {test}=require('node:test'),assert=require('node:assert/strict');
++const {Engine,A}=require('../extension/core.js'),{create}=require('../extension/diagnostics.js');
++function fixture(){
++ const memory=new WebAssembly.Memory({initial:256,maximum:300,shared:true}),e=new Engine(memory),d=new DataView(memory.buffer),player=0xe00000,car=0xe01000,race=0xe04000;
++ const put=(a,v)=>d.setUint32(a,v,true);
++ for(const[a,v]of [[A.FLOW,6],[A.MODE,1],[A.PLAYER,player],[player+4,car],[A.RACE,race],[race,4],[car+A.GEAR,3],[car+A.NOS_FULL,20000],[car+A.NOS_LEFT,500],[car+A.NOS_SINCE,90000],[A.TICKS,100000],[A.NETWORK_TICKS,140000]])put(a,v);
++ d.setFloat32(car+A.RPM,6000,true);e.refresh();
++ return {memory,e,d,put,player,car,race};
++}
++const cases=[
++ ['offline',{},false],['online byte',{online:1},true],['online non-one byte',{online:255},true],['LAN client',{client:1},true],['LAN host',{host:2},true],
++ ['mode bit 8 only',{mode:8},false],['mode bit 512 only',{mode:512},false],['negative client',{client:0xffffffff},false],['negative host',{host:0x80000000},false],
++ ['negative client and positive host',{client:0xffffffff,host:1},true],['online and negative host',{online:1,host:0xffffffff},true]
++];
++for(const[name,flags,network]of cases)test('NOS clock follows exact native selector: '+name,()=>{
++ const f=fixture();if(flags.mode!==undefined)f.put(A.MODE,flags.mode);if(flags.online!==undefined)f.d.setUint8(A.ONLINE,flags.online);if(flags.client!==undefined)f.put(A.CLIENT,flags.client);if(flags.host!==undefined)f.put(A.HOST,flags.host);
++ const before=Buffer.from(new Uint8Array(f.memory.buffer));assert.equal(f.e.nosNetworkClock(),network);assert.equal(f.e.refill(f.e.state(),true),true);assert.equal(f.e.u32(f.car+A.NOS_SINCE),network?140000:100000);assert.equal(f.e.u32(f.car+A.NOS_LEFT),20000);
++ const after=Buffer.from(new Uint8Array(f.memory.buffer));before.copy(after,f.car+A.NOS_LEFT,f.car+A.NOS_LEFT,f.car+A.NOS_LEFT+4);before.copy(after,f.car+A.NOS_SINCE,f.car+A.NOS_SINCE,f.car+A.NOS_SINCE+4);assert.deepEqual(after,before,'only existing refill fields may change');
++});
++for(const permission of [false,undefined,1,'true'])test('clock correction keeps literal network permission: '+permission,()=>{const f=fixture();f.d.setUint8(A.ONLINE,1);const before=Buffer.from(new Uint8Array(f.memory.buffer));assert.equal(f.e.refill(f.e.state(),permission),false);assert.deepEqual(Buffer.from(new Uint8Array(f.memory.buffer)),before);});
++for(const since of [0,0x7fffffff])test('clock correction does not activate inactive/sentinel NOS '+since,()=>{const f=fixture();f.d.setUint8(A.ONLINE,1);f.put(f.car+A.NOS_SINCE,since);assert.equal(f.e.refill(f.e.state(),true),true);assert.equal(f.e.u32(f.car+A.NOS_SINCE),since);});
++for(const clock of [0,0x7fffffff])test('invalid clock does not clear or invent active timestamp '+clock,()=>{const f=fixture();f.d.setUint8(A.ONLINE,1);f.put(A.NETWORK_TICKS,clock);assert.equal(f.e.refill(f.e.state(),true),true);assert.equal(f.e.u32(f.car+A.NOS_SINCE),90000);});
++for(const change of ['domain','car','phase','kit'])test('fresh guard prevents timestamp write after '+change+' changes',()=>{
++ const f=fixture();f.d.setUint8(A.ONLINE,1);const read=f.e.u32.bind(f.e);let changed=false;
++ f.e.u32=p=>{const v=read(p);if(p===A.NETWORK_TICKS&&!changed){changed=true;if(change==='domain')f.d.setUint8(A.ONLINE,0);if(change==='car')f.put(f.player+4,f.car+0x1000);if(change==='phase')f.put(f.race,6);if(change==='kit')f.put(f.car+A.NOS_FULL,25000);}return v;};
++ f.e.refill(f.e.state(),true);assert.equal(changed,true);assert.equal(read(f.car+A.NOS_SINCE),90000);
++});
++test('native stop racing the timestamp CAS is not reversed',()=>{
++ const f=fixture();f.d.setUint8(A.ONLINE,1);const original=Atomics.compareExchange;let stopped=false;
++ Atomics.compareExchange=(array,index,old,value)=>{if(index===(f.car+A.NOS_SINCE)/4){f.put(f.car+A.NOS_SINCE,0);stopped=true;}return original(array,index,old,value);};
++ try{f.e.refill(f.e.state(),true);}finally{Atomics.compareExchange=original;}
++ assert.equal(stopped,true);assert.equal(f.e.u32(f.car+A.NOS_SINCE),0);
++});
++test('read-only pre-refill NOS sample preserves exact clocks and resource evidence without pointers',()=>{
++ const f=fixture();f.d.setUint8(A.ONLINE,1);const before=Buffer.from(new Uint8Array(f.memory.buffer)),s=f.e.nosDiagnostics(f.e.state(),true);
++ assert.deepEqual(s,{nosTelemetry:true,nosClockNetwork:true,nosClockTicks:140000,nosSinceTicks:90000,nosTimestampActive:true,nosFullTicks:20000,nosRemainingTicks:500,nosElapsedTicks:50000});assert.deepEqual(Buffer.from(new Uint8Array(f.memory.buffer)),before);
++ const log=create();log.record('state',{...s,car:f.car,clockAddress:A.NETWORK_TICKS,raw:'SECRET'});assert.deepEqual(JSON.parse(log.exportText()).events.at(-1).data,s);
++});
++test('NOS sample is exact-profile gated and drops stale context',()=>{const f=fixture(),s=f.e.state();assert.deepEqual(f.e.nosDiagnostics(s),{});assert.deepEqual(f.e.nosDiagnostics(s,false),{});f.put(f.player+4,0);assert.deepEqual(f.e.nosDiagnostics(s,true),{});});
++test('NOS sample rejects changing stamp and clock domain',()=>{
++ for(const domain of [false,true]){const f=fixture(),read=f.e.u32.bind(f.e);let changed=false;f.e.u32=p=>{const v=read(p);if(p===f.car+A.NOS_LEFT&&!changed){changed=true;if(domain)f.d.setUint8(A.ONLINE,1);else f.put(f.car+A.NOS_SINCE,0);}return v;};assert.deepEqual(f.e.nosDiagnostics(f.e.state(),true),{});assert.equal(changed,true);}
++});
++test('NOS sample omits malformed resource, distinguishes sentinel, handles growth',()=>{const f=fixture();f.put(f.car+A.NOS_FULL,0x7fffffff);f.put(f.car+A.NOS_LEFT,10000000);f.put(f.car+A.NOS_SINCE,0x7fffffff);let s=f.e.nosDiagnostics(f.e.state(),true);assert.equal(s.nosTimestampActive,false);for(const k of ['nosElapsedTicks','nosFullTicks','nosRemainingTicks'])assert.equal(k in s,false);f.memory.grow(1);assert.equal(f.e.nosDiagnostics(f.e.state(),true).nosSinceTicks,0x7fffffff);});
++test('moving NOS fields do not flood storage; sampled on/off changes remain prompt',()=>{
++ let now=1000;const log=create({clock:()=>now});log.snapshot({nativeTelemetry:true,nosTelemetry:true,nosTimestampActive:true,nosClockTicks:1000,nosSinceTicks:900,nosRemainingTicks:20000,nosElapsedTicks:100});const n=log.status().events;
++ for(let i=1;i<=10;i++){now+=100;log.snapshot({nativeTelemetry:true,nosTelemetry:true,nosTimestampActive:true,nosClockTicks:1000+i,nosSinceTicks:900+i,nosRemainingTicks:20000-i,nosElapsedTicks:100+i});}assert.equal(log.status().events,n);
++ now+=250;log.snapshot({nativeTelemetry:true,nosTelemetry:true,nosTimestampActive:false,nosClockTicks:2000,nosSinceTicks:0});assert.equal(log.status().events,n+1);
++});
++test('NOS diagnostic schema rejects non-scalars, nonfinite and out-of-range data',()=>{const log=create();log.record('state',{nosTelemetry:'true',nosClockNetwork:1,nosTimestampActive:'yes',nosClockTicks:Infinity,nosSinceTicks:-1,nosElapsedTicks:4294967296,nosFullTicks:10000000,nosRemainingTicks:{secret:1}});assert.deepEqual(JSON.parse(log.exportText()).events.at(-1).data,{});});
+--- a/tests/package-release.test.cjs
++++ b/tests/package-release.test.cjs
+@@ -1,10 +1,10 @@
+ 'use strict';
+ const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os'),{spawnSync}=require('node:child_process');
+-test('v0.27 combined Drag tuner online package includes referenced docs and refuses to overwrite existing archives',()=>{
++test('v0.28 combined Drag tuner online package includes referenced docs and refuses to overwrite existing archives',()=>{
+  const root=path.resolve(__dirname,'..'),tmp=fs.mkdtempSync(path.join(os.tmpdir(),'combined-release-')),out=path.join(tmp,'release.zip');
+  try{
+-  const manifest=JSON.parse(fs.readFileSync(path.join(root,'extension/manifest.json'),'utf8'));assert.equal(manifest.version,'0.27.0');
+-  const source=fs.readFileSync(path.join(root,'tools/package-release.py'),'utf8');assert.match(source,/NFSU2-Driving-Tools-v0\.27-Combined-Tuner-Diagnostics\.zip/);assert.doesNotMatch(source,/v0\.13-Current-Build\.zip/);
++  const manifest=JSON.parse(fs.readFileSync(path.join(root,'extension/manifest.json'),'utf8'));assert.equal(manifest.version,'0.28.0');
++  const source=fs.readFileSync(path.join(root,'tools/package-release.py'),'utf8');assert.match(source,/NFSU2-Driving-Tools-v0\.28-Combined-NOS-Clock-Fix\.zip/);assert.doesNotMatch(source,/v0\.13-Current-Build\.zip/);
+   const run=()=>spawnSync('python3',[path.join(root,'tools/package-release.py'),'--output',out],{encoding:'utf8'});
+   const first=run();assert.equal(first.status,0,first.stderr);const report=JSON.parse(first.stdout);assert.ok(report.files.includes('CHANGELOG.md'));assert.ok(report.files.includes('README.md'));
+   const bytes=fs.readFileSync(out),second=run();assert.notEqual(second.status,0);assert.deepEqual(fs.readFileSync(out),bytes);
+@@ -16,7 +16,7 @@
+  const root=path.resolve(__dirname,'..'),read=f=>fs.readFileSync(path.join(root,'extension',f),'utf8');
+  const manifest=JSON.parse(read('manifest.json'));
+  assert.deepEqual(manifest.content_scripts[0].js,['diagnostics.js','walls.js','cars.js','current-profile.js','latest-profile.js','next-profile.js','signatures.js','signature-profile.js','signature-profile-latest.js','signature-profile-next.js','dyno-native-profile.js','dyno-native.js','ai.js','core.js','dyno-core.js','dyno.js','dyno-evaluator.js','dyno-full.js','tool-profiles.js','page.js']);
+- assert.equal(manifest.version,'0.27.0');assert.match(read('page.js'),/version:'0\.27\.0'/);assert.match(read('page.js'),/class="version">0\.27\.0</);assert.match(read('popup.html'),/class="version">v0\.27\.0</);assert.match(read('diagnostics.js'),/version='0\.27\.0'/);
++ assert.equal(manifest.version,'0.28.0');assert.match(read('page.js'),/version:'0\.28\.0'/);assert.match(read('page.js'),/class="version">0\.28\.0</);assert.match(read('popup.html'),/class="version">v0\.28\.0</);assert.match(read('diagnostics.js'),/version='0\.28\.0'/);
+  assert.match(read('page.js'),/id="dyno-mode"/);assert.match(read('page.js'),/id="corner-margin"/);assert.match(read('page.js'),/id="diagnostic-export"/);assert.match(read('page.js'),/id="tester"/);
+ });
+ 

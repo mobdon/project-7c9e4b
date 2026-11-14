@@ -1,0 +1,16 @@
+{
+  "inputSha256": "e03eca29aa8cba3ac4a96836ad3d86dd5eb8258704c0e6260ecc5ef955536a03",
+  "inputBytes": 38615704,
+  "outputSha256": "69545a4c461192b22f699d8c7387936dbab7f9f6072f3a4b127317ca224146c6",
+  "outputBytes": 38639517,
+  "valid": true,
+  "compiled": true,
+  "changedFunctions": [
+    1298,
+    6140,
+    13185
+  ],
+  "otherNativeFunctionsPreserved": true,
+  "importsExportsDataAndTablePreserved": true,
+  "liveVerified": false
+}

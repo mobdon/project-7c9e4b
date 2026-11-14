@@ -1,0 +1,12 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const root=path.resolve(__dirname,'..'),sha=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+const baseline=JSON.parse(fs.readFileSync(path.join(root,'verification/log-retention-baseline-v03812.json'),'utf8'));
+const changed=[];
+for(const [name,expected]of Object.entries(baseline.sourceHashes))if(sha(path.join(root,'extension',name))!==expected)changed.push(name);
+assert.deepEqual(changed,['diagnostics.js']);
+const owned=['extension/diagnostics.js','tests/last-race-retention-v03812.test.cjs','tests/fixtures/last-race-trace-v03811-for-v03812.json','tools/capture-last-race-fixture-v03812.cjs','tools/verify-last-race-contract-v03812.cjs','tools/freeze-last-race-retention-v03812.cjs','verification/log-retention-baseline-v03812.json','verification/last-race-contract-v03812.json','verification/last-race-retention-focused-v03812.json','integration/LAST-RACE-RETENTION-v03812-HANDOFF.md'];
+const focused=JSON.parse(fs.readFileSync(path.join(root,'verification/last-race-retention-focused-v03812.json'),'utf8'));
+assert.equal(focused.candidateSourceSha256,sha(path.join(root,'extension/diagnostics.js')));assert.equal(focused.tests,153);assert.equal(focused.pass,153);assert.equal(focused.fail+focused.cancelled+focused.skipped+focused.todo,0);
+const receipt={kind:'last-race-retention-v03812-frozen-handoff',baselineVersion:'0.38.11',baselineSourceLockSha256:baseline.sourceLockSha256,sourceChanges:changed,unchangedExtensionFiles:Object.keys(baseline.sourceHashes).length-1,tests:153,pass:153,fail:0,liveGame:false,integrate:'Merge diagnostics additions with city/tuner diagnostics; keep both current TRACE_COLUMNS and immutable V03811_TRACE_COLUMNS as known migration schemas. Copy exact owned support files only. Root owns final version/canonical checks/delivery.',ownedFiles:Object.fromEntries(owned.map(file=>[file,sha(path.join(root,file))]))};
+const output=path.join(root,'verification/last-race-retention-v03812-handoff.json');fs.writeFileSync(output,JSON.stringify(receipt,null,2)+'\n');process.stdout.write(JSON.stringify({output,sha256:sha(output),owned:owned.length,runtimeSha256:receipt.ownedFiles['extension/diagnostics.js'],pass:receipt.pass})+'\n');

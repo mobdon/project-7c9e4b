@@ -1,0 +1,127 @@
+{
+  "kind": "READ-ONLY-ORDERED-WORLD-EXTRAPOLATED-STATE-POOL-WITNESS",
+  "before": {
+    "pool": 0,
+    "client": 1,
+    "host": 0,
+    "online": 0,
+    "nativeWorld": 0
+  },
+  "world": {
+    "wholeProducer": 1690,
+    "wrapper": 21991,
+    "receiver": 268913632,
+    "pool": 268980080,
+    "header": {
+      "address": 268980080,
+      "rawHex": "aaaaaaaaaaaaaaaa0000000040637a00a04f08100b00000000000000000000000000000032000000800000003200000020500810aaaaaaaaaaaaaaaaaaaaaaaa",
+      "label": 8020800,
+      "freeHead": 268980128,
+      "flags": 11,
+      "allocated": 0,
+      "highWater": 0,
+      "allocationFlags": 0,
+      "blockCapacity": 50,
+      "stride": 128,
+      "totalCapacity": 50
+    },
+    "allocation": {
+      "target": 2089944532,
+      "iat": 7877212,
+      "requestedHandle": 0,
+      "effectiveFixtureHeap": 1,
+      "flags": 0,
+      "bytes": 102400,
+      "allocationBytes": 102416,
+      "address": 268920000,
+      "alignment": 16,
+      "zeroRequested": false,
+      "returnAddress": 7718538,
+      "phase": "current-native-whole-World-constructor21991-1690",
+      "headerAddress": 268919984,
+      "extentEnd": 269022400,
+      "beforeEsp": 1572584,
+      "afterEsp": 1572600,
+      "returnEip": 7718538,
+      "returnEax": 268920000,
+      "otherCpuBytesPreserved": true,
+      "wasmShadowStackPointerPreserved": true,
+      "zeroBytesVerifiedAtReturn": null,
+      "live": true
+    },
+    "nativeAllocatorInteriorOffset": 60080,
+    "nativeAllocatorPrefixHex": "30f5081080cb04104486000033334444eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "nativePublicationObservedAfterWholeReturn": true,
+    "poolMetadataOrLinksAuthored": false
+  },
+  "result": {
+    "complete": true,
+    "pool": 268980080,
+    "header": {
+      "address": 268980080,
+      "rawHex": "aaaaaaaaaaaaaaaa0000000040637a00205008100b00000001000000010000000000000032000000800000003200000034a80e1034a80e100000803f00000000",
+      "label": 8020800,
+      "freeHead": 268980256,
+      "flags": 11,
+      "allocated": 1,
+      "highWater": 1,
+      "allocationFlags": 0,
+      "blockCapacity": 50,
+      "stride": 128,
+      "totalCapacity": 50
+    },
+    "initialNodeArea": {
+      "start": 268980128,
+      "end": 268986528,
+      "stride": 128,
+      "relativeAlignmentVerified": true,
+      "growthObserved": false
+    },
+    "controller": 269396016,
+    "sentinel": 269396020,
+    "head": 268980128,
+    "tail": 268980128,
+    "nodes": [
+      {
+        "address": 268980128,
+        "next": 269396020,
+        "previous": 269396020,
+        "rawHex": "34a80e1034a80e100000803f0000000007f85f4206803f403200cc3e000000000100c83b0100c83b0000c83b00000000eefe003ceefe003ce8f97f3f0002013c061020bc061020bc061020bc000000000000c83b0000c83b0000c83b00000000000000000000000000000000000000006edddd3e00004c330000000000000000"
+      }
+    ],
+    "nativeAllocations": [
+      {
+        "event": 8717,
+        "activeStage": "native-legacy-whole-receiver10443-actual-remote-slot",
+        "pool": 268980080,
+        "entryEsp": 1572788,
+        "returnAddress": 6261307,
+        "poolHeaderHex": "aaaaaaaaaaaaaaaa0000000040637a00a04f08100b00000000000000000000000000000032000000800000003200000020500810aaaaaaaaaaaaaaaaaaaaaaaa",
+        "returnEvent": 8718,
+        "result": 268980128,
+        "returnedEip": 6261307,
+        "returnedEsp": 1572792,
+        "poolHeaderAfterHex": "aaaaaaaaaaaaaaaa0000000040637a00205008100b00000001000000010000000000000032000000800000003200000000000000000000000000000000000000"
+      }
+    ],
+    "nativeLegacyAccepted": 1,
+    "nativeObserverRecord": {
+      "address": 703604128,
+      "raw": {
+        "file": "native-legacy-enrollment-raw.bin",
+        "address": 703604128,
+        "length": 208,
+        "offset": 85876,
+        "sha256": "cad93534bc732b3dc84f89b2fb44f84ff165c31ecba9fd5d26ead46fb7c7d438",
+        "role": "native-enrolled-observer-record"
+      },
+      "nameHex": "466978747572652d52656d6f74650000"
+    },
+    "requestedMovementFrames": 0,
+    "typedMaximumGettersCalled": 0,
+    "scope": "Only ordered World/history allocation and legacy receiver enrollment. Other known startup omissions remain unresolved."
+  },
+  "nativeCallsAdded": 0,
+  "nativeMemoryAuthored": false,
+  "properStartupBaselineClaimed": false
+}

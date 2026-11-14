@@ -1,0 +1,29 @@
+{
+  "kind": "SOURCE-ONLY-NARROW-ORDERED-WORLD-HISTORY-UNIT",
+  "parent": "current-native-combined-observer-4c-v2",
+  "parentFrozenManifest": "work-update-check-20261113/native-combined-observer-output-4c-v2/frozen-output-manifest.json",
+  "condition": "current-native-ordered-world-history-4c-v2",
+  "scope": [
+    "Move the exact existing4454→10442→9490/17624 native LAN/request/pending-client block to before the existing wholeWorld construction, after existing CRT/session/runtime/platform prerequisites.",
+    "Preserve the exact original fixture/WASM, metadata, entry hooks, scene/road/roster inputs, native factories, names, native warmup schedule, serializer and10443 decoder.",
+    "Keep the original two setup22866 calls; omit legacy22873 getter and all World replay/final retained getters.",
+    "Read native historypool8978732/header64 at every diagnostic stage. Verify its genuine1690 publication, actual2243 node allocation, and native controller list links without writing those values."
+  ],
+  "branchDifference": "1690 network branch adds23287([128,50,8020800,0])→8978732 and12460 reciprocal setter8803672.10121, both RideInfo+20636 writes, both7321 calls,12794/4499 and tail allocation are shared with the frozen offline branch.",
+  "inputsAuthoredOrChanged": {
+    "networkStartupOrder": true,
+    "typedGetterExcluded": true,
+    "requestedMovementFrames": 0,
+    "fixtureOrHooks": false,
+    "clockValuesOrWarmup": false,
+    "packetBytesTimestamps": false,
+    "nativePoolFlagHeaderLinksOrNames": false
+  },
+  "unresolved": [
+    "Missing5349 sentinel initialization and4722/6000 backing remain as disclosed prior errors.",
+    "Replay755/event-manager5582 and queued-message pool prerequisites remain absent.",
+    "A history-unit pass cannot qualify full startup, prior192-frame baseline, movement, detector/client report or online acceptance."
+  ],
+  "nativeExecuted": false,
+  "rootExecutionApprovalPresent": false
+}

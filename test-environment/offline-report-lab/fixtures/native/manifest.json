@@ -1,0 +1,181 @@
+{
+  "schema": 1,
+  "revision": "60946132",
+  "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+  "method": "Exact selected native function WAT bodies copied from pinned current build. Existing isolated WABT contexts replace direct dependencies with typed imports, retain original globals/types and shared-memory declaration, and contain no game data or live transport implementation.",
+  "limitations": [
+    "Synthetic context and descriptor fixtures, not real game state.",
+    "Only tiny isolated native helpers may be instantiated.",
+    "Envelope capture stops before encoding or transport; captured bytes are not wire reports."
+  ],
+  "functions": [
+    {
+      "id": 21267,
+      "files": {
+        "f21267.wasm": {
+          "sha256": "260998fe8b9a387fc5f4bad06cca2245491534c75350ad8a0911c02662f8ae58",
+          "bytes": 1228
+        },
+        "f21267.context.wat": {
+          "sha256": "2fd97459e1ec819821a504739a396bc2ca75235971f3e6f1bd94555798a6229d",
+          "bytes": 8166
+        },
+        "f21267.body.wat": {
+          "sha256": "1073270812bf7b9c7af07327038bbde657976480822ec864c4ad90acb722ca75",
+          "bytes": 149
+        }
+      },
+      "originalBodySha256": "343aa521713a377d695dc8745205fd065aa9f00767392951aa483a2fec367d1a",
+      "originalBodyBytes": 30,
+      "originalWatFirstLine": 14398976,
+      "originalWatLastLine": 14398979
+    },
+    {
+      "id": 21268,
+      "files": {
+        "f21268.wasm": {
+          "sha256": "0062f9172d09a7bfd81cad09075e64a2259eaa1430314935695b4775cf05a25e",
+          "bytes": 1211
+        },
+        "f21268.context.wat": {
+          "sha256": "5a83b0ab9efcd8a3352f801c839679f2aa56b4831a059e053e1e7bbecaeca112",
+          "bytes": 8109
+        },
+        "f21268.body.wat": {
+          "sha256": "12a25cc9e8a00432b477edbb9566ecbf52610af292b07517f4a9482965afef9c",
+          "bytes": 92
+        }
+      },
+      "originalBodySha256": "f6237bdf1ee78ded15124d5a053fcc7311a8520f0d504b26923ec3a42a39a1ef",
+      "originalBodyBytes": 13,
+      "originalWatFirstLine": 14398980,
+      "originalWatLastLine": 14398983
+    },
+    {
+      "id": 21269,
+      "files": {
+        "f21269.wasm": {
+          "sha256": "747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f",
+          "bytes": 1893
+        },
+        "f21269.context.wat": {
+          "sha256": "1c86f45644cbebdecfc34e8690059237ea1ff0c1bce8c16a912b369e69430c3a",
+          "bytes": 14123
+        },
+        "f21269.body.wat": {
+          "sha256": "ca812db725f80548b314a8bef14ccb45106a4715ebe184171a6372949fe0454a",
+          "bytes": 5722
+        }
+      },
+      "originalBodySha256": "8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8",
+      "originalBodyBytes": 586,
+      "originalWatFirstLine": 14398984,
+      "originalWatLastLine": 14399229
+    },
+    {
+      "id": 21270,
+      "files": {
+        "f21270.wasm": {
+          "sha256": "40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1",
+          "bytes": 2029
+        },
+        "f21270.context.wat": {
+          "sha256": "fdd051ee62f2b6c00073cea26e1087361c8023e07ba3c211039e12545cbf7784",
+          "bytes": 14729
+        },
+        "f21270.body.wat": {
+          "sha256": "5aa68b296cf18296b78506dd83b96c58f689fabbd0410d3836a05521756a4b34",
+          "bytes": 6585
+        }
+      },
+      "originalBodySha256": "995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b",
+      "originalBodyBytes": 823,
+      "originalWatFirstLine": 14399230,
+      "originalWatLastLine": 14399536
+    },
+    {
+      "id": 21271,
+      "files": {
+        "f21271.wasm": {
+          "sha256": "e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e",
+          "bytes": 1216
+        },
+        "f21271.context.wat": {
+          "sha256": "e864815b2dfc824a2292f2e6c72b2e7b620801a3ad589b172d051673b8a3f194",
+          "bytes": 8157
+        },
+        "f21271.body.wat": {
+          "sha256": "483174a5ebcb6f2354aee0d4fd619597164f3858b34aac943e85f028aa5ed116",
+          "bytes": 140
+        }
+      },
+      "originalBodySha256": "b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1",
+      "originalBodyBytes": 18,
+      "originalWatFirstLine": 14399537,
+      "originalWatLastLine": 14399541
+    },
+    {
+      "id": 21272,
+      "files": {
+        "f21272.wasm": {
+          "sha256": "4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8",
+          "bytes": 1216
+        },
+        "f21272.context.wat": {
+          "sha256": "14cc565a77308e444e33cfb8be9362e1216b8f18ed16be450b0ace02fb8dd6e5",
+          "bytes": 8157
+        },
+        "f21272.body.wat": {
+          "sha256": "7091c431e625ff34747aa0b5c4b22b177749104a8ea1d047f901c3c760753ebe",
+          "bytes": 140
+        }
+      },
+      "originalBodySha256": "1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50",
+      "originalBodyBytes": 18,
+      "originalWatFirstLine": 14399542,
+      "originalWatLastLine": 14399546
+    },
+    {
+      "id": 22882,
+      "files": {
+        "f22882.wasm": {
+          "sha256": "cf293903a085ac22f219ad1ebf996512f1d25175eaa37a908149c7c490800acf",
+          "bytes": 1485
+        },
+        "f22882.context.wat": {
+          "sha256": "2ea55770a1f6aaab684e42a55340771eaac6809e139030f33f06507ba03506fb",
+          "bytes": 10525
+        },
+        "f22882.body.wat": {
+          "sha256": "f431778547081a50282262e7163c88a9a85fbf82b6cc0592345cc968eb96812a",
+          "bytes": 2445
+        }
+      },
+      "originalBodySha256": "83754053553cd5b23f1a3b16ade2afd06ab1462316351d68872db77a56883f1d",
+      "originalBodyBytes": 284,
+      "originalWatFirstLine": 15008267,
+      "originalWatLastLine": 15008376
+    },
+    {
+      "id": 22883,
+      "files": {
+        "f22883.wasm": {
+          "sha256": "9448928e1e13d8688c81561eeeb1443feac020fd0b4cca96e73fc9e4cb9678b0",
+          "bytes": 1475
+        },
+        "f22883.context.wat": {
+          "sha256": "04fdd408cb150e45bad748159893cdf6a63076223fcf220c8e5043b1d3a169bb",
+          "bytes": 10419
+        },
+        "f22883.body.wat": {
+          "sha256": "0038c8b4182476c6b6656e38eed6410383a99349e8a57e4c0279007871a0850f",
+          "bytes": 2339
+        }
+      },
+      "originalBodySha256": "211ee8e34b921dd4d2397f3cff9ca2d8c90703d33496aee4813c45211e730c31",
+      "originalBodyBytes": 274,
+      "originalWatFirstLine": 15008377,
+      "originalWatLastLine": 15008482
+    }
+  ]
+}

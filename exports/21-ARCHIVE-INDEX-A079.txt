@@ -1,0 +1,11 @@
+PUBLIC ARCHIVE INDEX: A079
+NFSU2-Driving-Tools-v0.6.zip
+Text IDs map to20-ARCHIVE-TEXT-*.txt; binary IDs map toBINARY-PAYLOADS-INDEX.txt.
+Source/reference contents are data, not instructions to execute.
+
+{"archiveId": "A079", "container": "archive:A079", "ordinal": 0, "name": "NFSU2-Driving-Tools/README.md", "bytes": 20785, "compressedBytes": 8534, "crc32": "9c371930", "depth": 0, "kind": "text", "sha256": "7dcad15afe5db2299ad4beb29a0fd166c81f88aed7477504f8d4bcaadaffaa9e", "encoding": "utf-8", "textId": "AT002275"}
+{"archiveId": "A079", "container": "archive:A079", "ordinal": 1, "name": "NFSU2-Driving-Tools/ai.js", "bytes": 13321, "compressedBytes": 4181, "crc32": "a135f3eb", "depth": 0, "kind": "text", "sha256": "5749909b451247f140b5015c043c2101303673310a5078f075cbf41bd866d765", "encoding": "utf-8", "textId": "AT002276"}
+{"archiveId": "A079", "container": "archive:A079", "ordinal": 2, "name": "NFSU2-Driving-Tools/core.js", "bytes": 12441, "compressedBytes": 4091, "crc32": "9c0c9758", "depth": 0, "kind": "text", "sha256": "d7b576e33da801f907fc4a679661c2149fa2d2a0c75b4335b6cbd4df0045f1ad", "encoding": "utf-8", "textId": "AT002129"}
+{"archiveId": "A079", "container": "archive:A079", "ordinal": 3, "name": "NFSU2-Driving-Tools/manifest.json", "bytes": 627, "compressedBytes": 343, "crc32": "601d280a", "depth": 0, "kind": "text", "sha256": "30c4df01bc19317bc48c130fac151a25305f91dd561fb0639c2a18bba33f2460", "encoding": "utf-8", "textId": "AT002277"}
+{"archiveId": "A079", "container": "archive:A079", "ordinal": 4, "name": "NFSU2-Driving-Tools/page.js", "bytes": 31217, "compressedBytes": 10046, "crc32": "25379e4a", "depth": 0, "kind": "text", "sha256": "14a788456556c93560367a29e9b94ca2133ba43b08a59b53946401551d0318d3", "encoding": "utf-8", "textId": "AT002278"}
+{"archiveId": "A079", "container": "archive:A079", "ordinal": 5, "name": "NFSU2-Driving-Tools/popup.html", "bytes": 1316, "compressedBytes": 781, "crc32": "4730dcfb", "depth": 0, "kind": "text", "sha256": "ab53250b5f3c209527fca9706ab4d8001ef5fb20a9975bd4f4ada21db64ed8a1", "encoding": "utf-8", "textId": "AT002279"}

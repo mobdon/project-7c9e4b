@@ -1,0 +1,2592 @@
+VERBATIM REVIEW CHUNK 027
+Canonical bundle byte range [3120000, 3181648). Read chunks in numeric order.
+Only the payload below belongs to the canonical bundle; headers are generated.
+
+eUInt16LE(0,4);packed.writeInt16LE(-1,6);points.forEach((p,i)=>{packed.writeInt16LE(p[0]*8,8+i*2);packed.writeInt16LE(p[1]*8,16+i*2);packed.writeInt16LE(0,24+i*2);});
+ const indices=Buffer.alloc(4),membership=Buffer.alloc(4),cells=Buffer.alloc(64*4);membership.writeUInt16LE(0,0);membership.writeUInt16LE(0xffff,2);for(let i=0;i<64;i++){cells.writeUInt16LE(0,i*4);cells.writeUInt16LE(1,i*4+2);}
+ const geometry=chunk(0x80034130,Buffer.concat([chunk(0x34131,header),chunk(0x34134,packed),chunk(0x34135,indices),chunk(0x34136,membership),chunk(0x34137,cells)]));
+ assert.equal(geometry.readUInt32LE(8),0x34131);assert.equal(geometry.readUInt16LE(16),111);assert.equal(packed.readInt16LE(6),-1);
+ return{metadata,geometry,description:{kind:'authored-256m-square-flat-quad-input',authenticTrack:false,streetXTrack4602:false,directoryBase:10,polygonId:101,geometryId:111,lookupSlotExpectedFromSource:1,grid:{width:8,height:8,origin:[-128,-128],cellWidthFromNativeConstant:32,coarseCells:64,membershipEntries:1},points:points.map(p=>[...p,0]),packedInput:{attribute:0,boundsIndices:0x90,flags:0x10,baseZ:0,cacheIndexInitially:-1},unseeded:['native triangle cache','native normal/plane','context section pointer','native contact flags/counts','chassis forces/integration outputs','car pose/velocity after setup']}};
+}
+module.exports={make};
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/real-ai-takeover-input.cjs =====
+'use strict';
+// Current production Controller inputs and complete real native entry calls.
+// Importing this helper never runs constructors, bridge, Controller or game.
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const ROOT=path.resolve(__dirname,'../..');
+function loadCanonicalRoadInputs({q,stage,abi}){
+ return stage('current-native-generated-road-loaders10506-and17476-16383-2623',()=>{
+  const dir=path.join(ROOT,'work-update-check-20261113/generated-road-speed-input-4c-v1'),receiptBytes=fs.readFileSync(path.join(dir,'input-receipt.json'));
+  assert.equal(q.C.sha(receiptBytes),'27f9e5770e17fc38bdce642127ab5e909c12d47e12e7f05859b53570cb3eb2f3');
+  const inputReceipt=JSON.parse(receiptBytes),inputs=[],manager=0x88a320;
+  q.rawCall(10506,0);abi(4);
+  for(const[name,address]of[['canonical-links-34122.bin',0x4020000],['canonical-groups-34121.bin',0x4030000]]){
+   const data=fs.readFileSync(path.join(dir,name)),pin=inputReceipt.files.find(row=>row.file===name);assert(pin);assert.equal(q.C.sha(data),pin.sha256);assert.equal(data.length,pin.bytes);q.commit(address,data.length);new Uint8Array(q.f.memory.buffer).set(data,address);fs.writeFileSync(path.join(__dirname,name),data);
+   const result=q.rawCall(17476,0,[address]);abi(4);assert.equal(result.eax,1);inputs.push({file:name,address,bytes:data.length,sha256:pin.sha256,result});
+  }
+  const group=0x4030000+8;assert.equal(q.f.get(manager+20),group);assert.equal(q.f.get(manager+6020),1);assert.equal(q.f.get(manager+12024),1);assert.equal(q.f.get(manager+12028),group);
+  return{nativeEntries:[10506,17476,16383,2623],inputs,inputReceiptSha256:q.C.sha(receiptBytes),manager,managerHeaderHex:q.f.bytes(manager,20).toString('hex'),nativeGroup:group,counts:{all:q.f.get(manager+6020),main:q.f.get(manager+12024),secondary:q.f.get(manager+17228)},tangentScale:q.f.view.getFloat32(8513532,true),generatedAssetDescription:inputReceipt.description,authenticStreetX:false,canonicalPointerOrRouteOutputsAuthored:false};
+ });
+}
+function initializeActionPools({q,stage,abi}){
+ return stage('current-native-action-pool-initializer18958',()=>{
+  const before=q.f.get(0x81cb70),result=q.rawCall(18958,0);abi(4);
+  const pool=q.f.get(0x81cb70);assert(pool>=0x10000&&pool+64<0x28000000,'Native initializer must publish a valid action pool');
+  return{...result,nativeEntry:18958,before,pool,poolHeaderHex:q.f.bytes(pool,64).toString('hex'),nativeActionAllocator:17091,poolPointerAuthored:false,freeListOrActionAuthored:false};
+ });
+}
+module.exports={loadCanonicalRoadInputs,initializeActionPools};
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-start-marker-input.cjs =====
+'use strict';
+// Immutable track asset input only. Native loaders and spawn code own outputs.
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),ROOT=path.resolve(__dirname,'../..');
+const inputScope=Object.freeze({kind:'disclosed-synthetic-interior-start-marker-grid',chunkId:0x34146,nativeLoader:17632,guestEntry:0x5d8470,inputAddress:0x4050000,assetReceiptSha256:'39b6f68989e7c5dedd060be5094d5102b2ad5d2871c56cab159c78c8ca199c1a',expectedContextFilter:0,nativePoseRouteDirectionOrControlAuthored:false});
+function loadStartMarkers({q,stage,abi,writeJson}){return stage('current-native-generated-start-markers-loader17632-before9503',()=>{
+ const dir=path.join(ROOT,'work-update-check-20261113/generated-start-marker-input-4c-v2/'),receiptBytes=fs.readFileSync(path.join(dir,'input-receipt.json'));assert.equal(q.C.sha(receiptBytes),inputScope.assetReceiptSha256);const receipt=JSON.parse(receiptBytes),data=fs.readFileSync(path.join(dir,receipt.chunk.file));assert.equal(q.C.sha(data),receipt.chunk.sha256);assert.equal(data.length,304);assert.equal(data.readUInt32LE(0),0x34146);assert.equal(data.readUInt32LE(4),296);
+ const f=q.f,head=0x88f740,contextPointer=f.get(0x883dac),actualFilter=contextPointer?f.view.getInt16(contextPointer+0x8a,true):0,before={head:f.get(head),tail:f.get(head+4),contextPointer,contextFilter:actualFilter,contextFilterType:'signed16 sign-extended for full32 marker comparison'};assert.equal(actualFilter,0,'Observe expected native context; do not repair it');assert.equal(before.head,head);assert.equal(before.tail,head);assert(q.metadata.real.includes(17632));
+ const address=inputScope.inputAddress;assert.equal(address%16,0);q.commit(address,data.length);new Uint8Array(f.memory.buffer).set(data,address);fs.writeFileSync(path.join(__dirname,receipt.chunk.file),data,{flag:'wx'});const result=q.rawCall(17632,0,[address]);abi(4);assert.equal(result.eax,1,'Whole native17632 must recognize the input');
+ const expected=new Set(receipt.records.map(r=>address+r.offset)),nodes=[];let cursor=f.get(head),previous=head;while(cursor!==head){assert(expected.has(cursor),'Native list record must belong to supplied asset');assert(!nodes.some(r=>r.pointer===cursor),'No duplicate native list member');assert.equal(f.get(cursor+4),previous);nodes.push({pointer:cursor,next:f.get(cursor),previous:f.get(cursor+4),hash:f.get(cursor+8),ordinal:f.get(cursor+12),xyz:[0x10,0x14,0x18].map(o=>f.view.getFloat32(cursor+o,true)),heading:f.view.getUint16(cursor+0x20,true),contextFilter:f.get(cursor+0x24)});previous=cursor;cursor=f.get(cursor);assert(nodes.length<=6);}assert.equal(nodes.length,6);assert.equal(f.get(head+4),previous);
+ const proof={...inputScope,...result,wholeNativeReturned:true,callingConvention:'cdecl',nativeRetImmediate:0,nativeEspAdvance:4,callerArgumentBytes:4,inputSha256:receipt.chunk.sha256,before,after:{head:f.get(head),tail:f.get(head+4),contextPointer:f.get(0x883dac)},nodes,nativeListOutputsAuthored:false,nativePoseOrDirectionOutputsAuthored:false};assert.equal(proof.after.contextPointer,contextPointer);writeJson('native-start-marker-input-proof.json',proof);return proof;
+});}
+module.exports={inputScope,loadStartMarkers};
+
+
+===== work-update-check-20261113/current-native-ordered-world-history-4c-v2/native-difficulty-input.cjs =====
+'use strict';
+// Original asset loader owns the native global pointer; host supplies immutable input bytes only.
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),ROOT=path.resolve(__dirname,'../..');
+const inputScope=Object.freeze({source:'exact-local-retail-GLOBALB-DifficultyInfo-34b00',chunkId:215808,chunkBytes:2792,assetReceiptSha256:'7d7695796b5bd491d88433859ce5ceb5d26eaf21b9ccdf2ea08a054f14b7a23b',nativeLoader:14427,guestEntry:4227584,inputAddress:0x4040000,wholeChunkUnmodified:true,nativeProfilePointerAuthored:false,nativeTargetOrControlAuthored:false});
+function loadDifficultyInput({q,stage,abi,writeJson}){return stage('current-native-authentic-DifficultyInfo-chunk-loader14427',()=>{const dir=path.join(ROOT,'work-update-check-20261113/native-ai-profile-input-4c-v1/'),receiptBytes=fs.readFileSync(path.join(dir,'input-receipt.json'));assert.equal(q.C.sha(receiptBytes),inputScope.assetReceiptSha256);const receipt=JSON.parse(receiptBytes),data=fs.readFileSync(path.join(dir,receipt.chunk.file));assert.equal(q.C.sha(data),receipt.chunk.sha256);assert.equal(data.length,2792);assert.equal(data.readUInt32LE(0),215808);assert.equal(data.readUInt32LE(4),2784);const address=inputScope.inputAddress;q.commit(address,data.length);q.commit(0x81cb60,4);new Uint8Array(q.f.memory.buffer).set(data,address);fs.writeFileSync(path.join(__dirname,receipt.chunk.file),data,{flag:'wx'});const before=q.f.get(0x81cb60);assert.equal(before,0,'Fresh passive global DifficultyInfo pointer; no repair supplied');const result=q.rawCall(14427,0,[address]);abi(4);assert.equal(result.eax,1,'Whole original loader must recognize actual asset');const published=q.f.get(0x81cb60);assert.equal(published,address+8,'Original native14427 must publish chunk+8');const proof={...inputScope,wholeNativeReturned:true,...result,callingConvention:'cdecl',nativeRetImmediate:0,nativeEspAdvance:4,callerArgumentBytes:4,inputSha256:receipt.chunk.sha256,inputReceiptSha256:q.C.sha(receiptBytes),beforeNativePointer:before,afterNativePointer:published,nativePointerOrMultiplierOutputAuthored:false,profileFactorsObserved:Array.from({length:10},(_,index)=>({index,address:published+0x538+104*index,value:q.f.view.getFloat32(published+0x538+104*index,true)}))};writeJson('native-difficulty-input-proof.json',proof);return proof;});}
+module.exports={inputScope,loadDifficultyInput};
+
+
+===== work-update-check-20261113/generated-road-speed-input-4c-v1/input-receipt.json =====
+{
+  "kind": "DISCLOSED-GENERATED-ROAD-SPEED-INPUT-4C-V1",
+  "nativeCodeExecuted": false,
+  "wasmCompiled": false,
+  "wasmInstantiated": false,
+  "memoryCreated": false,
+  "harnessImported": false,
+  "productionEdited": false,
+  "frozenFilesEdited": false,
+  "builder": {
+    "file": "prepare-input.cjs",
+    "sha256": "5d95485f6f7377927cd0e04fc6f1a203c79feb3c9d586af1d6a3cbd4371d18e9"
+  },
+  "parentReceipt": {
+    "path": "work-online-v0427/extension-movement/native/generated-road-input-v1/input-receipt.json",
+    "sha256": "f4bf4674058a1d79e39993a371e929d22777db75eb17ae692d4335f5e259a4fa"
+  },
+  "description": {
+    "kind": "generated-straight-canonical-road-with-explicit-speed-bytes",
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "tangent": [
+      1,
+      0
+    ],
+    "slot": 0,
+    "nodeCount": 64,
+    "nodeStride": 56,
+    "groupHeaderBytes": 140,
+    "spacing": 8,
+    "halfLength": 4.25,
+    "halfWidth": 8,
+    "elevation": 0,
+    "centrelineExtent": 504,
+    "bounds": {
+      "xMin": -16,
+      "xMax": 520,
+      "yMin": -16,
+      "yMax": 16
+    },
+    "groupFlags": 65,
+    "nodeFlags": 201328640,
+    "groupFilterSets": [
+      1,
+      1
+    ],
+    "scalarInterval": [
+      0,
+      0
+    ],
+    "linkCount": 0,
+    "openEndpoints": true,
+    "diagnosticNativeSpeedValue": 20,
+    "speedFieldOffsets": [
+      45,
+      50,
+      51,
+      52,
+      53
+    ],
+    "speedUnits": "Native numeric scalar only; no retail physical-unit or authentic track claim"
+  },
+  "files": [
+    {
+      "file": "canonical-groups-34121.bin",
+      "sha256": "eb91e5202357229929957b7450651f0acd0174922824a3a6c75102bcb88b4146",
+      "bytes": 3732
+    },
+    {
+      "file": "canonical-links-34122.bin",
+      "sha256": "69d8fb6cc8592d0aabd0d65e206f139fe06fa8e8f41351ec2743bcc58a6eea24",
+      "bytes": 12
+    }
+  ],
+  "changedBytes": 320,
+  "changes": [
+    {
+      "node": 0,
+      "fieldOffset": 45,
+      "fileOffset": 193,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 0,
+      "fieldOffset": 50,
+      "fileOffset": 198,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 0,
+      "fieldOffset": 51,
+      "fileOffset": 199,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 0,
+      "fieldOffset": 52,
+      "fileOffset": 200,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 0,
+      "fieldOffset": 53,
+      "fileOffset": 201,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 1,
+      "fieldOffset": 45,
+      "fileOffset": 249,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 1,
+      "fieldOffset": 50,
+      "fileOffset": 254,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 1,
+      "fieldOffset": 51,
+      "fileOffset": 255,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 1,
+      "fieldOffset": 52,
+      "fileOffset": 256,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 1,
+      "fieldOffset": 53,
+      "fileOffset": 257,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 2,
+      "fieldOffset": 45,
+      "fileOffset": 305,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 2,
+      "fieldOffset": 50,
+      "fileOffset": 310,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 2,
+      "fieldOffset": 51,
+      "fileOffset": 311,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 2,
+      "fieldOffset": 52,
+      "fileOffset": 312,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 2,
+      "fieldOffset": 53,
+      "fileOffset": 313,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 3,
+      "fieldOffset": 45,
+      "fileOffset": 361,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 3,
+      "fieldOffset": 50,
+      "fileOffset": 366,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 3,
+      "fieldOffset": 51,
+      "fileOffset": 367,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 3,
+      "fieldOffset": 52,
+      "fileOffset": 368,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 3,
+      "fieldOffset": 53,
+      "fileOffset": 369,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 4,
+      "fieldOffset": 45,
+      "fileOffset": 417,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 4,
+      "fieldOffset": 50,
+      "fileOffset": 422,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 4,
+      "fieldOffset": 51,
+      "fileOffset": 423,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 4,
+      "fieldOffset": 52,
+      "fileOffset": 424,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 4,
+      "fieldOffset": 53,
+      "fileOffset": 425,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 5,
+      "fieldOffset": 45,
+      "fileOffset": 473,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 5,
+      "fieldOffset": 50,
+      "fileOffset": 478,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 5,
+      "fieldOffset": 51,
+      "fileOffset": 479,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 5,
+      "fieldOffset": 52,
+      "fileOffset": 480,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 5,
+      "fieldOffset": 53,
+      "fileOffset": 481,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 6,
+      "fieldOffset": 45,
+      "fileOffset": 529,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 6,
+      "fieldOffset": 50,
+      "fileOffset": 534,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 6,
+      "fieldOffset": 51,
+      "fileOffset": 535,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 6,
+      "fieldOffset": 52,
+      "fileOffset": 536,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 6,
+      "fieldOffset": 53,
+      "fileOffset": 537,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 7,
+      "fieldOffset": 45,
+      "fileOffset": 585,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 7,
+      "fieldOffset": 50,
+      "fileOffset": 590,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 7,
+      "fieldOffset": 51,
+      "fileOffset": 591,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 7,
+      "fieldOffset": 52,
+      "fileOffset": 592,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 7,
+      "fieldOffset": 53,
+      "fileOffset": 593,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 8,
+      "fieldOffset": 45,
+      "fileOffset": 641,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 8,
+      "fieldOffset": 50,
+      "fileOffset": 646,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 8,
+      "fieldOffset": 51,
+      "fileOffset": 647,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 8,
+      "fieldOffset": 52,
+      "fileOffset": 648,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 8,
+      "fieldOffset": 53,
+      "fileOffset": 649,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 9,
+      "fieldOffset": 45,
+      "fileOffset": 697,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 9,
+      "fieldOffset": 50,
+      "fileOffset": 702,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 9,
+      "fieldOffset": 51,
+      "fileOffset": 703,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 9,
+      "fieldOffset": 52,
+      "fileOffset": 704,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 9,
+      "fieldOffset": 53,
+      "fileOffset": 705,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 10,
+      "fieldOffset": 45,
+      "fileOffset": 753,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 10,
+      "fieldOffset": 50,
+      "fileOffset": 758,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 10,
+      "fieldOffset": 51,
+      "fileOffset": 759,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 10,
+      "fieldOffset": 52,
+      "fileOffset": 760,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 10,
+      "fieldOffset": 53,
+      "fileOffset": 761,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 11,
+      "fieldOffset": 45,
+      "fileOffset": 809,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 11,
+      "fieldOffset": 50,
+      "fileOffset": 814,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 11,
+      "fieldOffset": 51,
+      "fileOffset": 815,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 11,
+      "fieldOffset": 52,
+      "fileOffset": 816,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 11,
+      "fieldOffset": 53,
+      "fileOffset": 817,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 12,
+      "fieldOffset": 45,
+      "fileOffset": 865,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 12,
+      "fieldOffset": 50,
+      "fileOffset": 870,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 12,
+      "fieldOffset": 51,
+      "fileOffset": 871,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 12,
+      "fieldOffset": 52,
+      "fileOffset": 872,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 12,
+      "fieldOffset": 53,
+      "fileOffset": 873,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 13,
+      "fieldOffset": 45,
+      "fileOffset": 921,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 13,
+      "fieldOffset": 50,
+      "fileOffset": 926,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 13,
+      "fieldOffset": 51,
+      "fileOffset": 927,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 13,
+      "fieldOffset": 52,
+      "fileOffset": 928,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 13,
+      "fieldOffset": 53,
+      "fileOffset": 929,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 14,
+      "fieldOffset": 45,
+      "fileOffset": 977,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 14,
+      "fieldOffset": 50,
+      "fileOffset": 982,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 14,
+      "fieldOffset": 51,
+      "fileOffset": 983,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 14,
+      "fieldOffset": 52,
+      "fileOffset": 984,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 14,
+      "fieldOffset": 53,
+      "fileOffset": 985,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 15,
+      "fieldOffset": 45,
+      "fileOffset": 1033,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 15,
+      "fieldOffset": 50,
+      "fileOffset": 1038,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 15,
+      "fieldOffset": 51,
+      "fileOffset": 1039,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 15,
+      "fieldOffset": 52,
+      "fileOffset": 1040,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 15,
+      "fieldOffset": 53,
+      "fileOffset": 1041,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 16,
+      "fieldOffset": 45,
+      "fileOffset": 1089,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 16,
+      "fieldOffset": 50,
+      "fileOffset": 1094,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 16,
+      "fieldOffset": 51,
+      "fileOffset": 1095,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 16,
+      "fieldOffset": 52,
+      "fileOffset": 1096,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 16,
+      "fieldOffset": 53,
+      "fileOffset": 1097,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 17,
+      "fieldOffset": 45,
+      "fileOffset": 1145,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 17,
+      "fieldOffset": 50,
+      "fileOffset": 1150,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 17,
+      "fieldOffset": 51,
+      "fileOffset": 1151,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 17,
+      "fieldOffset": 52,
+      "fileOffset": 1152,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 17,
+      "fieldOffset": 53,
+      "fileOffset": 1153,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 18,
+      "fieldOffset": 45,
+      "fileOffset": 1201,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 18,
+      "fieldOffset": 50,
+      "fileOffset": 1206,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 18,
+      "fieldOffset": 51,
+      "fileOffset": 1207,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 18,
+      "fieldOffset": 52,
+      "fileOffset": 1208,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 18,
+      "fieldOffset": 53,
+      "fileOffset": 1209,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 19,
+      "fieldOffset": 45,
+      "fileOffset": 1257,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 19,
+      "fieldOffset": 50,
+      "fileOffset": 1262,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 19,
+      "fieldOffset": 51,
+      "fileOffset": 1263,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 19,
+      "fieldOffset": 52,
+      "fileOffset": 1264,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 19,
+      "fieldOffset": 53,
+      "fileOffset": 1265,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 20,
+      "fieldOffset": 45,
+      "fileOffset": 1313,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 20,
+      "fieldOffset": 50,
+      "fileOffset": 1318,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 20,
+      "fieldOffset": 51,
+      "fileOffset": 1319,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 20,
+      "fieldOffset": 52,
+      "fileOffset": 1320,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 20,
+      "fieldOffset": 53,
+      "fileOffset": 1321,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 21,
+      "fieldOffset": 45,
+      "fileOffset": 1369,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 21,
+      "fieldOffset": 50,
+      "fileOffset": 1374,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 21,
+      "fieldOffset": 51,
+      "fileOffset": 1375,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 21,
+      "fieldOffset": 52,
+      "fileOffset": 1376,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 21,
+      "fieldOffset": 53,
+      "fileOffset": 1377,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 22,
+      "fieldOffset": 45,
+      "fileOffset": 1425,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 22,
+      "fieldOffset": 50,
+      "fileOffset": 1430,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 22,
+      "fieldOffset": 51,
+      "fileOffset": 1431,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 22,
+      "fieldOffset": 52,
+      "fileOffset": 1432,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 22,
+      "fieldOffset": 53,
+      "fileOffset": 1433,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 23,
+      "fieldOffset": 45,
+      "fileOffset": 1481,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 23,
+      "fieldOffset": 50,
+      "fileOffset": 1486,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 23,
+      "fieldOffset": 51,
+      "fileOffset": 1487,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 23,
+      "fieldOffset": 52,
+      "fileOffset": 1488,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 23,
+      "fieldOffset": 53,
+      "fileOffset": 1489,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 24,
+      "fieldOffset": 45,
+      "fileOffset": 1537,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 24,
+      "fieldOffset": 50,
+      "fileOffset": 1542,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 24,
+      "fieldOffset": 51,
+      "fileOffset": 1543,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 24,
+      "fieldOffset": 52,
+      "fileOffset": 1544,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 24,
+      "fieldOffset": 53,
+      "fileOffset": 1545,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 25,
+      "fieldOffset": 45,
+      "fileOffset": 1593,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 25,
+      "fieldOffset": 50,
+      "fileOffset": 1598,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 25,
+      "fieldOffset": 51,
+      "fileOffset": 1599,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 25,
+      "fieldOffset": 52,
+      "fileOffset": 1600,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 25,
+      "fieldOffset": 53,
+      "fileOffset": 1601,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 26,
+      "fieldOffset": 45,
+      "fileOffset": 1649,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 26,
+      "fieldOffset": 50,
+      "fileOffset": 1654,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 26,
+      "fieldOffset": 51,
+      "fileOffset": 1655,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 26,
+      "fieldOffset": 52,
+      "fileOffset": 1656,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 26,
+      "fieldOffset": 53,
+      "fileOffset": 1657,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 27,
+      "fieldOffset": 45,
+      "fileOffset": 1705,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 27,
+      "fieldOffset": 50,
+      "fileOffset": 1710,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 27,
+      "fieldOffset": 51,
+      "fileOffset": 1711,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 27,
+      "fieldOffset": 52,
+      "fileOffset": 1712,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 27,
+      "fieldOffset": 53,
+      "fileOffset": 1713,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 28,
+      "fieldOffset": 45,
+      "fileOffset": 1761,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 28,
+      "fieldOffset": 50,
+      "fileOffset": 1766,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 28,
+      "fieldOffset": 51,
+      "fileOffset": 1767,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 28,
+      "fieldOffset": 52,
+      "fileOffset": 1768,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 28,
+      "fieldOffset": 53,
+      "fileOffset": 1769,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 29,
+      "fieldOffset": 45,
+      "fileOffset": 1817,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 29,
+      "fieldOffset": 50,
+      "fileOffset": 1822,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 29,
+      "fieldOffset": 51,
+      "fileOffset": 1823,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 29,
+      "fieldOffset": 52,
+      "fileOffset": 1824,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 29,
+      "fieldOffset": 53,
+      "fileOffset": 1825,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 30,
+      "fieldOffset": 45,
+      "fileOffset": 1873,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 30,
+      "fieldOffset": 50,
+      "fileOffset": 1878,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 30,
+      "fieldOffset": 51,
+      "fileOffset": 1879,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 30,
+      "fieldOffset": 52,
+      "fileOffset": 1880,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 30,
+      "fieldOffset": 53,
+      "fileOffset": 1881,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 31,
+      "fieldOffset": 45,
+      "fileOffset": 1929,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 31,
+      "fieldOffset": 50,
+      "fileOffset": 1934,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 31,
+      "fieldOffset": 51,
+      "fileOffset": 1935,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 31,
+      "fieldOffset": 52,
+      "fileOffset": 1936,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 31,
+      "fieldOffset": 53,
+      "fileOffset": 1937,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 32,
+      "fieldOffset": 45,
+      "fileOffset": 1985,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 32,
+      "fieldOffset": 50,
+      "fileOffset": 1990,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 32,
+      "fieldOffset": 51,
+      "fileOffset": 1991,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 32,
+      "fieldOffset": 52,
+      "fileOffset": 1992,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 32,
+      "fieldOffset": 53,
+      "fileOffset": 1993,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 33,
+      "fieldOffset": 45,
+      "fileOffset": 2041,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 33,
+      "fieldOffset": 50,
+      "fileOffset": 2046,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 33,
+      "fieldOffset": 51,
+      "fileOffset": 2047,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 33,
+      "fieldOffset": 52,
+      "fileOffset": 2048,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 33,
+      "fieldOffset": 53,
+      "fileOffset": 2049,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 34,
+      "fieldOffset": 45,
+      "fileOffset": 2097,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 34,
+      "fieldOffset": 50,
+      "fileOffset": 2102,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 34,
+      "fieldOffset": 51,
+      "fileOffset": 2103,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 34,
+      "fieldOffset": 52,
+      "fileOffset": 2104,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 34,
+      "fieldOffset": 53,
+      "fileOffset": 2105,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 35,
+      "fieldOffset": 45,
+      "fileOffset": 2153,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 35,
+      "fieldOffset": 50,
+      "fileOffset": 2158,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 35,
+      "fieldOffset": 51,
+      "fileOffset": 2159,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 35,
+      "fieldOffset": 52,
+      "fileOffset": 2160,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 35,
+      "fieldOffset": 53,
+      "fileOffset": 2161,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 36,
+      "fieldOffset": 45,
+      "fileOffset": 2209,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 36,
+      "fieldOffset": 50,
+      "fileOffset": 2214,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 36,
+      "fieldOffset": 51,
+      "fileOffset": 2215,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 36,
+      "fieldOffset": 52,
+      "fileOffset": 2216,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 36,
+      "fieldOffset": 53,
+      "fileOffset": 2217,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 37,
+      "fieldOffset": 45,
+      "fileOffset": 2265,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 37,
+      "fieldOffset": 50,
+      "fileOffset": 2270,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 37,
+      "fieldOffset": 51,
+      "fileOffset": 2271,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 37,
+      "fieldOffset": 52,
+      "fileOffset": 2272,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 37,
+      "fieldOffset": 53,
+      "fileOffset": 2273,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 38,
+      "fieldOffset": 45,
+      "fileOffset": 2321,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 38,
+      "fieldOffset": 50,
+      "fileOffset": 2326,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 38,
+      "fieldOffset": 51,
+      "fileOffset": 2327,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 38,
+      "fieldOffset": 52,
+      "fileOffset": 2328,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 38,
+      "fieldOffset": 53,
+      "fileOffset": 2329,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 39,
+      "fieldOffset": 45,
+      "fileOffset": 2377,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 39,
+      "fieldOffset": 50,
+      "fileOffset": 2382,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 39,
+      "fieldOffset": 51,
+      "fileOffset": 2383,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 39,
+      "fieldOffset": 52,
+      "fileOffset": 2384,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 39,
+      "fieldOffset": 53,
+      "fileOffset": 2385,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 40,
+      "fieldOffset": 45,
+      "fileOffset": 2433,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 40,
+      "fieldOffset": 50,
+      "fileOffset": 2438,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 40,
+      "fieldOffset": 51,
+      "fileOffset": 2439,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 40,
+      "fieldOffset": 52,
+      "fileOffset": 2440,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 40,
+      "fieldOffset": 53,
+      "fileOffset": 2441,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 41,
+      "fieldOffset": 45,
+      "fileOffset": 2489,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 41,
+      "fieldOffset": 50,
+      "fileOffset": 2494,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 41,
+      "fieldOffset": 51,
+      "fileOffset": 2495,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 41,
+      "fieldOffset": 52,
+      "fileOffset": 2496,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 41,
+      "fieldOffset": 53,
+      "fileOffset": 2497,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 42,
+      "fieldOffset": 45,
+      "fileOffset": 2545,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 42,
+      "fieldOffset": 50,
+      "fileOffset": 2550,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 42,
+      "fieldOffset": 51,
+      "fileOffset": 2551,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 42,
+      "fieldOffset": 52,
+      "fileOffset": 2552,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 42,
+      "fieldOffset": 53,
+      "fileOffset": 2553,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 43,
+      "fieldOffset": 45,
+      "fileOffset": 2601,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 43,
+      "fieldOffset": 50,
+      "fileOffset": 2606,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 43,
+      "fieldOffset": 51,
+      "fileOffset": 2607,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 43,
+      "fieldOffset": 52,
+      "fileOffset": 2608,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 43,
+      "fieldOffset": 53,
+      "fileOffset": 2609,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 44,
+      "fieldOffset": 45,
+      "fileOffset": 2657,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 44,
+      "fieldOffset": 50,
+      "fileOffset": 2662,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 44,
+      "fieldOffset": 51,
+      "fileOffset": 2663,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 44,
+      "fieldOffset": 52,
+      "fileOffset": 2664,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 44,
+      "fieldOffset": 53,
+      "fileOffset": 2665,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 45,
+      "fieldOffset": 45,
+      "fileOffset": 2713,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 45,
+      "fieldOffset": 50,
+      "fileOffset": 2718,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 45,
+      "fieldOffset": 51,
+      "fileOffset": 2719,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 45,
+      "fieldOffset": 52,
+      "fileOffset": 2720,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 45,
+      "fieldOffset": 53,
+      "fileOffset": 2721,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 46,
+      "fieldOffset": 45,
+      "fileOffset": 2769,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 46,
+      "fieldOffset": 50,
+      "fileOffset": 2774,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 46,
+      "fieldOffset": 51,
+      "fileOffset": 2775,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 46,
+      "fieldOffset": 52,
+      "fileOffset": 2776,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 46,
+      "fieldOffset": 53,
+      "fileOffset": 2777,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 47,
+      "fieldOffset": 45,
+      "fileOffset": 2825,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 47,
+      "fieldOffset": 50,
+      "fileOffset": 2830,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 47,
+      "fieldOffset": 51,
+      "fileOffset": 2831,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 47,
+      "fieldOffset": 52,
+      "fileOffset": 2832,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 47,
+      "fieldOffset": 53,
+      "fileOffset": 2833,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 48,
+      "fieldOffset": 45,
+      "fileOffset": 2881,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 48,
+      "fieldOffset": 50,
+      "fileOffset": 2886,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 48,
+      "fieldOffset": 51,
+      "fileOffset": 2887,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 48,
+      "fieldOffset": 52,
+      "fileOffset": 2888,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 48,
+      "fieldOffset": 53,
+      "fileOffset": 2889,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 49,
+      "fieldOffset": 45,
+      "fileOffset": 2937,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 49,
+      "fieldOffset": 50,
+      "fileOffset": 2942,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 49,
+      "fieldOffset": 51,
+      "fileOffset": 2943,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 49,
+      "fieldOffset": 52,
+      "fileOffset": 2944,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 49,
+      "fieldOffset": 53,
+      "fileOffset": 2945,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 50,
+      "fieldOffset": 45,
+      "fileOffset": 2993,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 50,
+      "fieldOffset": 50,
+      "fileOffset": 2998,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 50,
+      "fieldOffset": 51,
+      "fileOffset": 2999,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 50,
+      "fieldOffset": 52,
+      "fileOffset": 3000,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 50,
+      "fieldOffset": 53,
+      "fileOffset": 3001,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 51,
+      "fieldOffset": 45,
+      "fileOffset": 3049,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 51,
+      "fieldOffset": 50,
+      "fileOffset": 3054,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 51,
+      "fieldOffset": 51,
+      "fileOffset": 3055,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 51,
+      "fieldOffset": 52,
+      "fileOffset": 3056,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 51,
+      "fieldOffset": 53,
+      "fileOffset": 3057,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 52,
+      "fieldOffset": 45,
+      "fileOffset": 3105,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 52,
+      "fieldOffset": 50,
+      "fileOffset": 3110,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 52,
+      "fieldOffset": 51,
+      "fileOffset": 3111,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 52,
+      "fieldOffset": 52,
+      "fileOffset": 3112,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 52,
+      "fieldOffset": 53,
+      "fileOffset": 3113,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 53,
+      "fieldOffset": 45,
+      "fileOffset": 3161,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 53,
+      "fieldOffset": 50,
+      "fileOffset": 3166,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 53,
+      "fieldOffset": 51,
+      "fileOffset": 3167,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 53,
+      "fieldOffset": 52,
+      "fileOffset": 3168,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 53,
+      "fieldOffset": 53,
+      "fileOffset": 3169,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 54,
+      "fieldOffset": 45,
+      "fileOffset": 3217,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 54,
+      "fieldOffset": 50,
+      "fileOffset": 3222,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 54,
+      "fieldOffset": 51,
+      "fileOffset": 3223,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 54,
+      "fieldOffset": 52,
+      "fileOffset": 3224,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 54,
+      "fieldOffset": 53,
+      "fileOffset": 3225,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 55,
+      "fieldOffset": 45,
+      "fileOffset": 3273,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 55,
+      "fieldOffset": 50,
+      "fileOffset": 3278,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 55,
+      "fieldOffset": 51,
+      "fileOffset": 3279,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 55,
+      "fieldOffset": 52,
+      "fileOffset": 3280,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 55,
+      "fieldOffset": 53,
+      "fileOffset": 3281,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 56,
+      "fieldOffset": 45,
+      "fileOffset": 3329,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 56,
+      "fieldOffset": 50,
+      "fileOffset": 3334,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 56,
+      "fieldOffset": 51,
+      "fileOffset": 3335,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 56,
+      "fieldOffset": 52,
+      "fileOffset": 3336,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 56,
+      "fieldOffset": 53,
+      "fileOffset": 3337,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 57,
+      "fieldOffset": 45,
+      "fileOffset": 3385,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 57,
+      "fieldOffset": 50,
+      "fileOffset": 3390,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 57,
+      "fieldOffset": 51,
+      "fileOffset": 3391,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 57,
+      "fieldOffset": 52,
+      "fileOffset": 3392,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 57,
+      "fieldOffset": 53,
+      "fileOffset": 3393,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 58,
+      "fieldOffset": 45,
+      "fileOffset": 3441,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 58,
+      "fieldOffset": 50,
+      "fileOffset": 3446,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 58,
+      "fieldOffset": 51,
+      "fileOffset": 3447,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 58,
+      "fieldOffset": 52,
+      "fileOffset": 3448,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 58,
+      "fieldOffset": 53,
+      "fileOffset": 3449,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 59,
+      "fieldOffset": 45,
+      "fileOffset": 3497,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 59,
+      "fieldOffset": 50,
+      "fileOffset": 3502,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 59,
+      "fieldOffset": 51,
+      "fileOffset": 3503,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 59,
+      "fieldOffset": 52,
+      "fileOffset": 3504,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 59,
+      "fieldOffset": 53,
+      "fileOffset": 3505,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 60,
+      "fieldOffset": 45,
+      "fileOffset": 3553,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 60,
+      "fieldOffset": 50,
+      "fileOffset": 3558,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 60,
+      "fieldOffset": 51,
+      "fileOffset": 3559,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 60,
+      "fieldOffset": 52,
+      "fileOffset": 3560,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 60,
+      "fieldOffset": 53,
+      "fileOffset": 3561,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 61,
+      "fieldOffset": 45,
+      "fileOffset": 3609,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 61,
+      "fieldOffset": 50,
+      "fileOffset": 3614,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 61,
+      "fieldOffset": 51,
+      "fileOffset": 3615,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 61,
+      "fieldOffset": 52,
+      "fileOffset": 3616,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 61,
+      "fieldOffset": 53,
+      "fileOffset": 3617,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 62,
+      "fieldOffset": 45,
+      "fileOffset": 3665,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 62,
+      "fieldOffset": 50,
+      "fileOffset": 3670,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 62,
+      "fieldOffset": 51,
+      "fileOffset": 3671,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 62,
+      "fieldOffset": 52,
+      "fileOffset": 3672,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 62,
+      "fieldOffset": 53,
+      "fileOffset": 3673,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 63,
+      "fieldOffset": 45,
+      "fileOffset": 3721,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 63,
+      "fieldOffset": 50,
+      "fileOffset": 3726,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 63,
+      "fieldOffset": 51,
+      "fileOffset": 3727,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 63,
+      "fieldOffset": 52,
+      "fileOffset": 3728,
+      "before": 0,
+      "after": 20
+    },
+    {
+      "node": 63,
+      "fieldOffset": 53,
+      "fileOffset": 3729,
+      "before": 0,
+      "after": 20
+    }
+  ],
+  "initializerSource": {
+    "function": 6610,
+    "bodySha256": "7c18efb9b3d518dd41a7e7ad4bcfad430c4d5c26f7107fd569ea4d21010004e6",
+    "candidateEqualsRaw": true,
+    "raw": {
+      "path": "work-update-check-20261113/live-build-4c35f9f5/game.wasm",
+      "sha256": "40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8"
+    },
+    "candidate": {
+      "path": "work-update-check-20261113/4c-private-composed-v2/candidate-composed.wasm",
+      "sha256": "6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23"
+    },
+    "nativeLogic": "Native 6610 resolves the canonical group/node, reads byte at canonical+0x2c+virtual offset, shifts by 16, multiplies by 1/65536, and fills private-node caps. Vtable 0x784aa0 returns offset 1 for the base cap and offsets 6..9 for selectors 2..5.",
+    "selectedInputOffsets": [
+      45,
+      50,
+      51,
+      52,
+      53
+    ],
+    "nativeDestinationOffsets": [
+      64,
+      68,
+      72,
+      76,
+      80
+    ]
+  },
+  "existingWitness": {
+    "path": "work-update-check-20261113/current-native-ai-world-4c-witness-v1/minimum-branch-witness.jsonl",
+    "sha256": "3c9542d339426157e0af7cceeabde050656bb8ac5dd18e6eb2cf329e6092412f",
+    "interpretation": "Actual driver canonical pointer 0x4030094 identifies the first generated input record; observed private-route node selector indices are 0/0 and its cap fields are zero. New native before/after initializer observations are still required."
+  },
+  "originalInputConsumption": {
+    "initialTangentScale": 10506,
+    "loadOrder": [
+      {
+        "file": "canonical-links-34122.bin",
+        "function": 17476
+      },
+      {
+        "file": "canonical-groups-34121.bin",
+        "function": 17476
+      }
+    ],
+    "groupLoaderChain": [
+      17476,
+      16383,
+      2623
+    ]
+  },
+  "declaredMetadata": {
+    "ownerAndClass": "Slot0/main group. Active borrowed canonical asset.",
+    "nodeFilterBits": "Bits11,26,27 satisfy the original node tests for acquisition flags4,512,1024; these are declared generated asset metadata, not substituted predicate results.",
+    "groupFilterSets": "The two original3716 byte sets are each declared nonempty.",
+    "scalarInterval": "Equal endpoints0/0 select the full finite domain under original3873.",
+    "otherAssetBytes": "Zero-filled unspecified canonical input bytes; no native code/data/output pointers are embedded.",
+    "speedInputs": "Every generated node explicitly declares the same diagnostic native cap 20 in five source-identified bytes. All geometry/topology and other metadata are byte-exact copies of the parent input."
+  },
+  "limits": [
+    "Generated offline diagnostic road only; not an authentic Street X track or the saved Skyline.",
+    "This is a fresh asset input, loaded by the original native loader; no live memory, driver/private-route/control or reporting output is edited.",
+    "No native execution or movement success is claimed by this preparation. A separate fresh reviewed condition must consume these bytes.",
+    "No detector result, recipient replay, feature clearance or online readiness is established."
+  ]
+}
+
+
+
+
+
+===== 02-HANDOFF-REVIEW-BUNDLE.md =====
+# 02 - Handoff: upload, verification and static review
+
+Snapshot: November 13, 2026. Draft: v0.42.8. Repository: mobdon/project-7c9e4b.
+
+The extension source and both authoritative references are published. At commit e79200873afa11f2dfbac532fdfe0abc69bcaace, independent anonymous HTTP verification checked the README, all 112 extension files and both TXT references: all 115 matched staging bytes and SHA-256, with no missing or extra extension files. Supporting material and this later review documentation are separate additions; consult the final publication receipt for their verification.
+
+Authoritative paths:
+
+- Extension: exports/NFSU2-EXTENSION-0.42.8-COMPLETE.txt
+- Findings and remaining work: exports/01-CURRENT-HANDOFF.txt
+- Verbatim static-review bundle: review/FOR-REVIEW-0.42.8.md
+- Original user-supplied review request: review/USER-SUPPLIED-REQUEST.txt
+
+The review bundle contains source and existing evidence. Each filename header identifies the original file; inventories record byte ranges and hashes. Artificial fixtures and synthetic encoded examples are labeled. A receipt containing captured stdout/stderr is identified as a receipt, rather than presented as a separate transcript. No screenshot replaces source or logs. No original frozen condition is changed or rerun by this publication.
+
+The user clarified the final asset rule after supplying the request: keep game binaries and exclude saves and game ISOs. That clarification supersedes the request's conflicting "No game-owned assets committed" checklist item. Binary payloads and original-path mappings are under exports/; excluded save/ISO entries remain indexed without their contents.
+
+The external reviewer provides static review, test design, log analysis and fix drafts. The executor runs only a later concrete run-book, captures actual output and records results. No new baseline or live session has run for this review bundle.
+
+The supplied request's account-1 ban and VPN observations are user reports. Their exact trigger and enforcement scope have not been independently established. Do not promote a suspected wrapper cause or claimed IP-level enforcement to a confirmed finding. The account-2 plan is proposed, not an executed outcome. Existing history/enrollment success still contains zero movement frames; the earlier 192-frame run remains disqualified as a valid startup baseline.
+
+The open issues remain unresolved power/limiter/grip freezes, incomplete startup and sustained movement, live-unverified synthetic NOS behavior, the unavailable 60946132 features, unknown enforcement cause and unestablished online acceptance. Native monitoring/reporting remains active. Encoding success establishes serialization only.
+
+The repository name and description remain neutral and no topics are requested. Historical ZIPs remain comparison material. These naming choices do not make public files confidential. Testers should not star the repository; issues should contain only sanitized evidence.
+
+
+
+===== review/USER-SUPPLIED-REQUEST.txt =====
+# 02 - HANDOFF: Repo Upload, Verification & Review-Bundle Creation
+Snapshot: November 2026 · Draft: v0.42.8 · Repo: github.com/mobdon/project-7c9e4b
+
+## PURPOSE
+This handoff covers three tasks: (1) complete and verify the repository upload,
+(2) create the FOR-REVIEW bundle that lets the external reviewer (the assistant)
+perform static code review and diagnosis, (3) run the first offline baseline
+once the reviewer's run-book arrives. The reviewer CANNOT execute anything —
+no browser, no Chrome, no game, no test environment. Reviewer roles: test
+design, code review, log analysis, fix drafting. Executor roles (GPT/human):
+running, capturing output, applying fixes, recording actual results.
+
+## PROJECT STATE (verified vs. claimed — keep distinction)
+VERIFIED / ESTABLISHED:
+- Repo live; extension source + both reference TXTs uploaded (claimed present;
+  full verification pass pending)
+- Offline test environment: history allocation + remote-car enrollment succeeded;
+  ZERO movement frames produced
+- Account 1: banned (insta). Exact trigger UNESTABLISHED — wrapper prime
+  suspect, not proven
+- IP-level enforcement CONFIRMED by VPN bypass success
+
+CLAIMED / UNVERIFIED (do not promote to "resolved" without a run):
+- v0.42.8 NOS award loop live behavior; synthetic near-miss award effect on
+  style points/combos
+- Power/limiter/grip freezes (reported, unresolved, cause unknown)
+- Full report encoding = serialization only; does NOT prove observations absent
+  or server accepts behavior
+- Complete valid startup; sustained extension-produced movement; that every
+  feature avoids reports; current draft installed in Chrome; online acceptance
+
+UNAVAILABLE ON BUILD 60946132: tuner/ECU, leased road geometry, per-target
+corner feedback, online car-category controls, race capture, destination travel.
+
+## TASK 1 — COMPLETE & VERIFY UPLOAD
+Finish remaining file transfer, then run this verification pass:
+[ ] /exports/NFSU2-EXTENSION-0.42.8-COMPLETE.txt present, exact filename
+[ ] /exports/01-CURRENT-HANDOFF.txt present, exact filename
+[ ] Index: every text export's referenced binaries actually landed alongside
+[ ] Test environment tree clearly separated & labeled as its own artifact
+    (its startup defects != extension bugs; fixtures explicitly marked artificial)
+[ ] Secrets sweep on FINAL as-uploaded state (endpoints, tokens, session IDs)
+[ ] No game-owned assets committed
+[ ] README: pinned reference paths, install steps, 60946132 availability matrix,
+    verification-state wording, testers-only issue policy
+
+OBSURITY RULES (do not break):
+- Repo name/description/topics stay neutral — no game/cheat/trainer keywords
+- No topics set; README first heading is not the game name
+- Historical ZIPs stay as binaries (code-search invisible)
+- Testers must not star the repo
+
+## TASK 2 — CREATE /review/FOR-REVIEW-0.42.8.md
+One plain-text bundle, clear ===== FILENAME ===== headers, chunked, verbatim.
+P0 (paste this to the reviewer immediately after creating):
+  1. Full 01-CURRENT-HANDOFF.txt
+  2. Complete source of power/limiter/grip tool family + entry points
+  3. Complete source of NOS award loop (one-outstanding-request rule,
+     session-only switch, wait-when-full)
+  4. Build-60946132 integration profile: bindings attempted, what fails at
+     preparation
+  5. manifest.json + full folder tree
+  6. Offline test environment startup log — VERBATIM including the
+     history-allocation + zero-movement-frames sessions, errors included
+  7. One sample report as encoded + encoder source or field list
+     (synthetic OK if labeled "synthetic")
+P1 (add when convenient):
+  8. Build-detection method; integrated-build list; address/function map
+     export for 60946132
+  9. Test-environment startup procedure (commands, expected sequence)
+  10. Fixture inventory, artificial items labeled
+P2:
+  11. Update 01-CURRENT-HANDOFF.txt with: account-1 ban event (unestablished
+      trigger), IP-level enforcement finding, account-2 discipline below
+
+FORMAT: plain text only, NO screenshots; logs verbatim, no summaries.
+
+## TASK 3 — FIRST BASELINE (after reviewer's run-book arrives)
+Execute tests only per reviewer run-book; paste all output back verbatim.
+Account-2 discipline for ALL live sessions:
+- VPN on BEFORE Chrome opens; same exit type every session; log exit region
+- Fresh browser profile per tier; one feature tier at a time; timestamps
+- Tiers: A0 vanilla+logger → A1 wrapper-only → B1 display-only →
+  C1..C4 (AI pace / rails / catch-up / NOS award) one at a time →
+  D1 power/limiter/grip ONLY after freeze fix
+- Test-log columns: feature active, start/end, exit IP/region, report notes,
+  ban (scope: account vs account+IP), result (no-ban = "no ban YET")
+
+## OPEN ISSUES LEDGER
+1. Power/limiter/grip freezes — cause unknown; blocks D-tier
+2. Baseline incomplete: valid startup + sustained movement unestablished
+3. NOS synthetic award: live behavior unverified
+4. Build-60946132: six features unavailable
+5. Account-1 ban cause unestablished (wrapper prime suspect)
+6. Online acceptance of extension behavior unestablished
+7. Reports/monitoring remain active — shaped-report proof pending
+
+## REFERENCE CHAIN
+- Current extension reference: /exports/NFSU2-EXTENSION-0.42.8-COMPLETE.txt
+- Exact findings & remaining work: /exports/01-CURRENT-HANDOFF.txt
+- This document: /02-HANDOFF-REVIEW-BUNDLE.md (repo root)
+- Review communication channel: paste bundle + logs to the assistant in-chat
+  (repo not yet web-indexed; do not rely on the reviewer fetching it)
+

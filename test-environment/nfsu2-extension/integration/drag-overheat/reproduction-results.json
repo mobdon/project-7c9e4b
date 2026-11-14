@@ -1,0 +1,14 @@
+{
+  "baseline": "combined-v022-integration",
+  "patchWithoutConflicts": true,
+  "threeBuildersReproduced": true,
+  "allChangedFilesMatch": 32,
+  "regeneratedBinaries": [
+    "tests/ai-latest-bridge.wasm",
+    "tests/ai-next-bridge.wasm",
+    "tests/drag-overheat-prefix.wasm"
+  ],
+  "archiveByteIdentical": true,
+  "sha256": "1d174047d023e9ec12d90d6314910703e1a3d039ae1c90fbf5f36650c1a403e6",
+  "size": 203887
+}

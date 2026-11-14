@@ -1,0 +1,124 @@
+{
+  "schema": "nfsu2-native-free-roam-braking-proof-v1",
+  "version": "0.38.8",
+  "passed": true,
+  "tests": {
+    "command": "node --test --test-reporter=tap work-paced-v0388/native/free-braking.test.cjs",
+    "total": 16,
+    "passed": 16,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "canonicalCommand": "node --test work-paced-v0388/tests/free-roam-braking-native.test.cjs",
+    "canonicalIncluded": true
+  },
+  "gainIntegration": {
+    "command": "node --test work-paced-v0388/tests/forward-paced-gain.test.cjs work-paced-v0388/tests/forward-driving.test.cjs work-paced-v0388/tests/forward-pacing.test.cjs work-paced-v0388/tests/forward-plan-diagnostics.test.cjs",
+    "total": 50,
+    "passed": 50,
+    "failed": 0,
+    "skipped": 0,
+    "staleSharedOwnerPublicationRejected": true
+  },
+  "productSha256": "eac924d8447ade2ba0166d10019fda8c4ec9860dfde08bf282dec246b8d8153a",
+  "sourceHashes": {
+    "native/free-braking.cjs": "748984ba13c5acaf7a232e04bc66787c487be0cbf0b140b8fc6b27ce79eba16b",
+    "native/free-braking-fixture.cjs": "e74cae38eeb3388aa8a75958d03d8c5f8111782f7d4bb8aac3dcb0713c418611",
+    "native/free-braking.test.cjs": "0dfecbd33b81637f0640516eaf22737709318fba7f995cd120a2869902a07957",
+    "native/paced-catchup.js": "eac924d8447ade2ba0166d10019fda8c4ec9860dfde08bf282dec246b8d8153a",
+    "extension/paced-catchup.js": "eac924d8447ade2ba0166d10019fda8c4ec9860dfde08bf282dec246b8d8153a",
+    "native/paced-plans.json": "9c5a20356c9a4cbae5720122ba1995bbe48fa115e4e9ddbf3dd5289d31fb224d",
+    "extension/ai.js": "39547b4c8b296a2e414f97e3314deb7cd0a83bf307fe96a4fe50fde2f4cfc5ea",
+    "../nfsu2-extension/tools/braking-hook.wat": "3bdb6564aa0bdc4bc86dd4865f9d9092b1d081a5dbcfece601676b462ddd09b5",
+    "tests/free-roam-braking-native.test.cjs": "42fdfae0dc57495904b58eb8d1402afb6350bdb108b9d1a80cf38c781f5a330b",
+    "native/paced-profile-config.cjs": "146fac1b386fb8598417770800200253e32101f0b9bc62c9029cf9436c5cbaba"
+  },
+  "modules": [
+    {
+      "revision": "aa2429fb",
+      "sourceModuleHash": "a220e667d38c0a6509c1507ad3ca9c6fddeb2220b429bf28707d7ca8cbbc42c8",
+      "inputAuthoredGetterHash": "70647546bc711041e6630a1e70ae1a0c98ebbad9cb18bcc2854c9858f1b88737",
+      "outputAuthoredGetterHash": "f8b8bd6c7b3470f426072a21d892fcd254b722c087ea38647ec90e04f1e452a6",
+      "outputModuleHash": "d04b19c0ec88b0b5ec7c57a4bfb34c04289ce216fc55cf215306121aa53b3b1b",
+      "nativeClosureHashes": {
+        "4497": "0420516913f8f2513c82e748caa9446684d358afb259b3f6978d278372073044",
+        "6454": "de2dff0f1ce396b28375215eb90e41dd6f81395ede9bbede2d01979e4bd9fb6f",
+        "6455": "30c194cf2b701bd9147126a18cffa0630fd1118931ba757de6d2eae9f18ce1de",
+        "6456": "1c0f18d691bcd812c7af763ffd490b72f7dbadb2b10716e279e9f2b6c00d053e",
+        "6468": "db999ccd157eb28b1f151092b290c8cb40ed38e4e56dc63ee8a515a65067bc5f"
+      }
+    },
+    {
+      "revision": "15e5958f",
+      "sourceModuleHash": "f88fc7a0fe3082e20814f705635410d046fcdfe053eb70d65c49dec7583105b9",
+      "inputAuthoredGetterHash": "70647546bc711041e6630a1e70ae1a0c98ebbad9cb18bcc2854c9858f1b88737",
+      "outputAuthoredGetterHash": "f8b8bd6c7b3470f426072a21d892fcd254b722c087ea38647ec90e04f1e452a6",
+      "outputModuleHash": "c57349e87fe7e7b98abfe80ed22aa0c05eacb082588961eece31f6c9ea8d57c7",
+      "nativeClosureHashes": {
+        "4497": "0420516913f8f2513c82e748caa9446684d358afb259b3f6978d278372073044",
+        "6454": "de2dff0f1ce396b28375215eb90e41dd6f81395ede9bbede2d01979e4bd9fb6f",
+        "6455": "30c194cf2b701bd9147126a18cffa0630fd1118931ba757de6d2eae9f18ce1de",
+        "6456": "1c0f18d691bcd812c7af763ffd490b72f7dbadb2b10716e279e9f2b6c00d053e",
+        "6468": "db999ccd157eb28b1f151092b290c8cb40ed38e4e56dc63ee8a515a65067bc5f"
+      }
+    },
+    {
+      "revision": "943ee537",
+      "sourceModuleHash": "c000f8f9002762f4274f173c81678772c456b1a696f3b69751fc6e91118fe391",
+      "inputAuthoredGetterHash": "70647546bc711041e6630a1e70ae1a0c98ebbad9cb18bcc2854c9858f1b88737",
+      "outputAuthoredGetterHash": "a2f29efe2f9a3a1c95e9295196dd1400ec1e8b030dc4bd455c1bd56347433970",
+      "outputModuleHash": "02b0b494f74940265e0cc0d8222bdf9b4a9bb7154c175b74a1e861abc89c79b8",
+      "nativeClosureHashes": {
+        "4497": "0420516913f8f2513c82e748caa9446684d358afb259b3f6978d278372073044",
+        "6454": "de2dff0f1ce396b28375215eb90e41dd6f81395ede9bbede2d01979e4bd9fb6f",
+        "6455": "30c194cf2b701bd9147126a18cffa0630fd1118931ba757de6d2eae9f18ce1de",
+        "6456": "1c0f18d691bcd812c7af763ffd490b72f7dbadb2b10716e279e9f2b6c00d053e",
+        "6468": "db999ccd157eb28b1f151092b290c8cb40ed38e4e56dc63ee8a515a65067bc5f"
+      }
+    }
+  ],
+  "physicalApproachProof": {
+    "paceValues": [
+      1,
+      1.5,
+      2,
+      3
+    ],
+    "nativeBrakingClosure": true,
+    "formula": "min(nativeStraightCeiling*P, sqrt(c*c + 2*a*d))",
+    "syntheticApex": 20,
+    "syntheticNodeCount": 31,
+    "syntheticNodeGap": 10,
+    "controlledBoundaries": [
+      "Native grade-method return only; original f4497 table lookup executes",
+      "Synthetic route nodes and seeded apex c/P; original f6454 backward propagation executes"
+    ]
+  },
+  "preservationProof": {
+    "subNativeAndOnePaces": [
+      0.75,
+      0.8,
+      0.99,
+      1
+    ],
+    "raceCommands": [
+      2,
+      3
+    ],
+    "comparedMemoryBytes": 16777216,
+    "straightOutputCeilingPreserved": true,
+    "sameSequenceCommandChangesRejected": [
+      0,
+      2,
+      3
+    ],
+    "stopAndOwnershipStateChangesRejected": true,
+    "nativeTableAndNetworkPermissionGuards": true
+  },
+  "fullGameInstantiated": false,
+  "liveVerified": false,
+  "limitations": [
+    "No measured live braking, tire/contact force, steering, traffic avoidance or collision guarantee",
+    "No claim that this mismatch caused a particular recorded crash or that the change recovers an already crashed car"
+  ]
+}

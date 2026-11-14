@@ -1,0 +1,42 @@
+{
+  "kind": "ADDITIONAL-PUBLIC-HARNESS-DEPENDENCY-BYTE-QA",
+  "status": "PASS",
+  "findings": [],
+  "previousPublicManifestSha256": "5342099c5b1adc8110cecef0b56769ecfb43ea95862de109c11160f7fcca5e76",
+  "manifestSha256": "82802c14441a25cc83aa991b0bdc98d3f6695ec6618adc2dcee51639c6a59161",
+  "binaryIndexSha256": "7ef5d435cb73ce023dc3dbe8c6d26607f11593e47337daf147d3e4f70682aef6",
+  "dependencyMapSha256": "2e53de9658cc2667f3dbcb11e097e21050e21aafcb3da33f3e01e78c0f3e9f3f",
+  "addedDependencyFiles": 9,
+  "newBinaryPayloadFiles": 9,
+  "binaryEntryReferences": 409,
+  "uniqueBinaryPayloads": 56,
+  "uniqueBinaryPayloadBytes": 137746128,
+  "newDependencyOriginalBytes": 83828043,
+  "all56PayloadHashesVerified": true,
+  "all9AddedDependenciesMatchOriginalBytes": true,
+  "sourceFilesUnchanged": true,
+  "existingReadableTextPartsUnchanged": true,
+  "untouchedTextPartCount": 51,
+  "txtFiles": 148,
+  "secretPatternHits": [],
+  "noSaveOrIsoPayloadReferences": true,
+  "nativeSourceFixtureExecutionByReviewer": false,
+  "newFiles": [
+    "binary-payloads/6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23.bin",
+    "binary-payloads/f9dd86c054878ce6276beb07c1fd61874f7a1e4bf1f241b084c65b73e24168a7.bin",
+    "binary-payloads/40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8.bin",
+    "binary-payloads/41b05da067786848b3e19721a6d0d100aff9462dd09f66fcf8783cd74693036f.bin",
+    "binary-payloads/f1d967e618bdbde513db10f95efa1ddc358b1ccaf8fc6659fda2b4e285e9b495.bin",
+    "binary-payloads/6ad3ca9c3f5f199b22f230a13908d019913c64f8901e695d43ae30b1e57196ab.bin",
+    "binary-payloads/27f9e5770e17fc38bdce642127ab5e909c12d47e12e7f05859b53570cb3eb2f3.bin",
+    "binary-payloads/eb91e5202357229929957b7450651f0acd0174922824a3a6c75102bcb88b4146.bin",
+    "binary-payloads/69d8fb6cc8592d0aabd0d65e206f139fe06fa8e8f41351ec2743bcc58a6eea24.bin",
+    "ADDITIONAL-HARNESS-DEPENDENCIES.json",
+    "README.md",
+    "ADDITIONAL-HARNESS-DEPENDENCIES-QA.json"
+  ],
+  "changedExistingFiles": [
+    "BINARY-PAYLOADS-INDEX.txt",
+    "EXPORT-MANIFEST.txt"
+  ]
+}

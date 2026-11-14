@@ -1,0 +1,172 @@
+{
+  "candidate": "drag-input-handoff-v018",
+  "base": "combined-v017",
+  "profiles": [
+    "78e2bb69",
+    "93af6ccb"
+  ],
+  "changedFiles": [
+    {
+      "path": "extension/ai.js",
+      "sha256": "6935baae96e5d279ba6bb0e0b1fe09e9ea64d9fdf0997b7eb69cfc15385f6189",
+      "bytes": 49327
+    },
+    {
+      "path": "extension/latest-profile.js",
+      "sha256": "32d80455af3f032e2cb3a73d92de7b989bc5e5dd447faaccc7d89506c6d79013",
+      "bytes": 52471
+    },
+    {
+      "path": "extension/next-profile.js",
+      "sha256": "9a386633edb204d71a395049c3c53a70aa806a0272f221a044387b8768d5f69e",
+      "bytes": 52489
+    },
+    {
+      "path": "tools/ai-next-body.json",
+      "sha256": "74fbb315b373006dea505dee9780842164b986d8ebf140364ff9689dc5a3d7e1",
+      "bytes": 27346
+    },
+    {
+      "path": "tools/next-build-swap-probe.cjs",
+      "sha256": "00267677ab7608724793f4be2cd39d5a672c462aa11610dad40437ae7290b050",
+      "bytes": 1106
+    },
+    {
+      "path": "tools/drag-input-guard.json",
+      "sha256": "6beabcdbea3cfbc12d810ef3e718ade4829752817ed8a40d4f2b15892e2ab231",
+      "bytes": 2761
+    },
+    {
+      "path": "tools/build-next-profile.cjs",
+      "sha256": "50220b57b9ae7ebde748e32914c31c674896acd92ed486f185886f6e4aee5b93",
+      "bytes": 5533
+    },
+    {
+      "path": "tools/build-drag-input-guard.cjs",
+      "sha256": "fca523d5b56194b92ebe89517456c042db868912022cd134f44462567440a3c4",
+      "bytes": 3137
+    },
+    {
+      "path": "tools/drag-input-guard.wat",
+      "sha256": "0cc64a58e72ba69878f17851e2163cd88d89586163f3067249c9af025ef42918",
+      "bytes": 6014
+    },
+    {
+      "path": "tools/build-latest-profile.cjs",
+      "sha256": "752b50f9dba87d63eb81139e676ae48a1bb321ee710c7122940c633f546fd16a",
+      "bytes": 5543
+    },
+    {
+      "path": "tools/ai-latest-body.json",
+      "sha256": "d99e6a786b20b374aa77a1c7bc52d185559417a8c26325d2cc35aa6981e1a90d",
+      "bytes": 27346
+    },
+    {
+      "path": "tools/latest-build-swap-probe.cjs",
+      "sha256": "473993274b51d66997c16af0d85b124a26f35e44bb848d59bb12a389ab4f95e4",
+      "bytes": 1110
+    },
+    {
+      "path": "tools/add-drag-input-handoff.cjs",
+      "sha256": "b2bfee28e68dc04fcc6054a4f889530b1a12bb89b00f33049809a2c307bfe348",
+      "bytes": 4083
+    },
+    {
+      "path": "tests/next-profile.test.cjs",
+      "sha256": "532b6b460c60f68bc619c6b8f668f5ec83b11c5ee606af9c31f30e334cd1979f",
+      "bytes": 15883
+    },
+    {
+      "path": "tests/latest-profile.test.cjs",
+      "sha256": "aee12e5447d9973d7f3874be0ac22c06f1f7a683661f439c4f73e184321ef026",
+      "bytes": 15903
+    },
+    {
+      "path": "tests/drag-input-native.test.cjs",
+      "sha256": "e48f190b1914fa98f068f3acaa6550a1e0f6bd3bad17f611fe409101db85036b",
+      "bytes": 1018
+    },
+    {
+      "path": "tests/ai-next-swap-probe.wasm",
+      "sha256": "1033a6095fda4b7464b04d5fd858660845f28cbd99f5036386259f3ee97fbd56",
+      "bytes": 8954
+    },
+    {
+      "path": "tests/next-replay.test.cjs",
+      "sha256": "a050f9e047608cb0a2b5503cf73ba20331da8f57ecbd2e91eb32907e0daa08b1",
+      "bytes": 2682
+    },
+    {
+      "path": "tests/ai.test.cjs",
+      "sha256": "2599c41c99ec5e3cb7f8635d0fe5201c593d1dd928182c0aac4682107b1f42e0",
+      "bytes": 20822
+    },
+    {
+      "path": "tests/latest-replay.test.cjs",
+      "sha256": "0ddd900fdef5f2bfc8cdb0af5e47d23ee05a33f165a34baeb1436c0b009813f0",
+      "bytes": 2706
+    },
+    {
+      "path": "tests/ai-latest-swap-probe.wasm",
+      "sha256": "1033a6095fda4b7464b04d5fd858660845f28cbd99f5036386259f3ee97fbd56",
+      "bytes": 8954
+    },
+    {
+      "path": "tests/ai-next-bridge.wasm",
+      "sha256": "7ab4eb8ac10e6e459376711c18bc7654ccda82dd2cc0ce0bb17f59e3333907e0",
+      "bytes": 9156
+    },
+    {
+      "path": "tests/ai-latest-bridge.wasm",
+      "sha256": "7ab4eb8ac10e6e459376711c18bc7654ccda82dd2cc0ce0bb17f59e3333907e0",
+      "bytes": 9156
+    },
+    {
+      "path": "tests/drag-input-guard.test.cjs",
+      "sha256": "061d012ca64c980209cb5cbd3093743edcceb411e8790080ecca01e5c65a57fc",
+      "bytes": 1504
+    }
+  ],
+  "evidence": [
+    {
+      "path": "FINDINGS.md",
+      "sha256": "0e0075decc236b85084699db3c7d37d24c54ec934edc4dfbdb83949310f603de",
+      "bytes": 5843
+    },
+    {
+      "path": "mapping.json",
+      "sha256": "3ae04813051e9d8f601b59c951f4aa3fe3afaf97476f2bd36e259f885a5d3642",
+      "bytes": 5415
+    },
+    {
+      "path": "verify-mapping.py",
+      "sha256": "754ba8678ccace3e266b4ef64d16a8032beb225ef2463e428bf33e4fc8613ae2",
+      "bytes": 1424
+    },
+    {
+      "path": "probe-native-input.cjs",
+      "sha256": "a8f05cd82d7c023c5ab43a86c3d5028712a6a9bfac1c11771fe3bd9ded4c50dd",
+      "bytes": 16156
+    },
+    {
+      "path": "native-input-results.json",
+      "sha256": "21afffcf8cf2987122db2056aca294b9eae6870bdb0f722f118b57abe16958c5",
+      "bytes": 2578
+    },
+    {
+      "path": "integration-source.patch",
+      "sha256": "bcf001feb40bd3a10064028a20d6a59d22287371e3621314691ca081cdb14c0d",
+      "bytes": 57853
+    },
+    {
+      "path": "final-all-tests.txt",
+      "sha256": "b20e138609cd3f9b3778d4a1414260fb342a466c2d286ae9057ae5ecbeb5e517",
+      "bytes": 122495
+    },
+    {
+      "path": "final-focused-tests.txt",
+      "sha256": "c5fade9b527d6465fc473bdb1d2a2fb33e4b3b24e4f57b78e01f5df23f9d70d8",
+      "bytes": 23110
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "format": 1,
+  "version": "0.38.7",
+  "kind": "read-only page, core and AI assist lifecycle review",
+  "checkedAt": "2026-11-11T00:36:23.553343+00:00",
+  "sourceHashes": {
+    "page.js": "415600873664406ab2eaac7f7624818da22b01959037e41f5df328908b9b5bab",
+    "core.js": "a418e603393bbe9d275ed848c8b0b393d31c284e1081b5c21111684cdc856061",
+    "ai.js": "2b80a10194f715599c5c865744cc89e282ecab82da09afddf9eacb7dc1e7b7df"
+  },
+  "result": "passed",
+  "findings": [],
+  "sourceFilesEditedByThisReview": [],
+  "checks": {
+    "defaultFollowsExistingAutomaticOrRaceOnlyAI": true,
+    "defaultDoesNotStartManualDriver": true,
+    "stopUsesExistingDurableSessionStopFlag": true,
+    "explicitSwitchOnArmsRaceOnlyAIWhenNeeded": true,
+    "manualTakeoverRequestsOffImmediately": true,
+    "profileLoadRequestsOff": true,
+    "suspendAndTunerAndNoEnginePathsRequestOff": true,
+    "earlyPathDiagnosticsUseFreshRubberbandEvidence": true,
+    "moduleReplacementStartsWithoutInheritedAppliedStatus": true,
+    "legacyControlsParkWhileOwnedCommandOrResetPending": true,
+    "restorationOriginalsRetainedAfterPatchObjectCleared": true,
+    "actualPostRestoreReadbackRequiredBeforeStackingReady": true,
+    "foreignValueChangesVetoAssistWithoutForcedOverwrite": true,
+    "optionalNativeFailurePreservesVerifiedForwardAdapter": true,
+    "native150IsAuthoredExperimentalAssistCeiling": true,
+    "nativeUniversalMaximumClaimed": false
+  },
+  "validation": {
+    "type": "source inspection; focused implementation tests owned by root and test agent",
+    "newTestsRunByThisReview": 0,
+    "liveGameTested": false
+  },
+  "limits": [
+    "Full native publication scheduling during pause, manual takeover, car changes and race completion remains a live-game verification requirement.",
+    "Default assist follows an already selected automatic driver; it does not take control from a manual driver.",
+    "Foreign or unverified restoration values keep assist ineligible until the original context is confirmed or a different car/physics context replaces it."
+  ]
+}

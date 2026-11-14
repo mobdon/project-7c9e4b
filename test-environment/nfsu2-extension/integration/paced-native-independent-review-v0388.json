@@ -1,0 +1,161 @@
+{
+  "version": "0.38.8",
+  "kind": "independent native authored-byte scope and actual-fixture review",
+  "result": "passed",
+  "findings": [],
+  "startedAt": "2026-11-11T01:59:16.635Z",
+  "finishedAt": "2026-11-11T01:59:55.184Z",
+  "productSha256": "eac924d8447ade2ba0166d10019fda8c4ec9860dfde08bf282dec246b8d8153a",
+  "sourceUnchanged": true,
+  "sourceHashes": {
+    "extension/forward-clamp.js": "ff79595291886faf3ccbd9804476fa2e0ad48226dae4dee70049d1087c0eae8a",
+    "extension/forward-driving.js": "bb53c826fb422170140e5fa3b17142f54a912b5639ad003c00e36f53cacdc3c4",
+    "extension/forward-geometry.js": "da3d6a13446677bee8c7edd5174c63c3ae5ed45635a9f6c7629c9052c6413e09",
+    "extension/forward-native-config.js": "ef86fcf34a03a3e55bdf0535c5729d73cf8d53d888623ea95bb1000bdf514037",
+    "extension/forward-pacing.js": "387185dbd41c426badc44d07291597a353843467f17a427c2d32b87d09617c2c",
+    "extension/paced-catchup-controller.js": "9968db7b5168b9cd8a638484581948952b004915a37b13684796685e1187de7e",
+    "extension/paced-catchup.js": "eac924d8447ade2ba0166d10019fda8c4ec9860dfde08bf282dec246b8d8153a",
+    "integration/review-native-paced-v0388.cjs": "bc81b941e15f97ba37f69bf6e2a9937e4f2273609db32a8e8322b5266f136e0e",
+    "native/build-paced.cjs": "36d4dce41513af6eff57c243cb24510baf837fdf6955cf1199b85ed23ca28d94",
+    "native/free-braking-fixture.cjs": "e74cae38eeb3388aa8a75958d03d8c5f8111782f7d4bb8aac3dcb0713c418611",
+    "native/free-braking-tests-v0388.json": "8ff281afe911122a81dac723b58936a400933a030348b440c2de9c83bf0557cd",
+    "native/free-braking.cjs": "748984ba13c5acaf7a232e04bc66787c487be0cbf0b140b8fc6b27ce79eba16b",
+    "native/free-braking.test.cjs": "0dfecbd33b81637f0640516eaf22737709318fba7f995cd120a2869902a07957",
+    "native/paced-build.json": "f177d5834dd3d612289d96a5d6a9029344f349fb392a76e7439d217cccf394f2",
+    "native/paced-catchup.js": "eac924d8447ade2ba0166d10019fda8c4ec9860dfde08bf282dec246b8d8153a",
+    "native/paced-catchup.template.js": "09f000a1fe04a6829833b7b637c1e9f50a64fea42cc11c21ee8ba1fce2364568",
+    "native/paced-fixture.cjs": "06f728c811ae5f50e244f0010e007c2919139610f967305844c672a7d528b702",
+    "native/paced-guard.cjs": "2485e752179d2d786773af7ecf9b842617710e09395fdc3f1958a906183a9e08",
+    "native/paced-plans.json": "9c5a20356c9a4cbae5720122ba1995bbe48fa115e4e9ddbf3dd5289d31fb224d",
+    "native/paced-profile-config.cjs": "146fac1b386fb8598417770800200253e32101f0b9bc62c9029cf9436c5cbaba",
+    "native/paced-protocol.cjs": "90b6e4ea52d5f21cd8b8b0825fd9c08e833fe1bc7c02c9144fae191fc7a4cd2e",
+    "native/paced-publisher.cjs": "469d19842298ef472167ac4038cf68e0daaf68091f347227243fc99d860d7e6c",
+    "native/paced-tests-v0388.json": "a583ab2e0d6abfbd1589b9354f26d30dc070b47c70c1d6e87a8b22ad9e04bac0",
+    "native/paced.test.cjs": "4bbb99b2bd3766e1e2ac2869ead6f0f7147c9b7a5a378e3186fe4c1169ca760a",
+    "tests/catchup-shortcut-loader.test.cjs": "de67a35eebfe3ad8e50e74b5e0b3d2b50e05127ab3815d3ccedd19e2379f6d23",
+    "tests/fixtures/forward-native-world.cjs": "2d3c48aed30c3d13355448eb5e7d00f66590e82ee596faf5cfc543125f9e566c",
+    "tests/paced-catchup-controller.test.cjs": "26b397611c5ecd9cba5903e1b6cbeb3fcbf1e7836680582ebcb2cc9818731fae",
+    "tests/paced-catchup-integration.test.cjs": "bff8f8754515e212d9817f3fb633a384bd7c62819bd0de5c41645637fa87ce28"
+  },
+  "inputOutputPins": [
+    {
+      "revision": "aa2429fb",
+      "inputSha256": "cc8d3b46da22d6dad1a99de1e1c8c8a28d3782cfcd92d01fe722a7ee4c54baed",
+      "outputSha256": "d04b19c0ec88b0b5ec7c57a4bfb34c04289ce216fc55cf215306121aa53b3b1b",
+      "modifiedFunctions": [
+        3553,
+        4497,
+        4653,
+        13653,
+        13962,
+        24259,
+        24268
+      ],
+      "independentAuthoredBytesReconstructed": true,
+      "allOtherFunctionsPreserved": true,
+      "allNonCodeSectionsPreserved": true,
+      "appendedPrivateGlobals": 0,
+      "valid": true,
+      "compiled": true
+    },
+    {
+      "revision": "15e5958f",
+      "inputSha256": "314b47584891c237f8ce7826c3424f3e2c2610131542fdda6564b6e22288db71",
+      "outputSha256": "c57349e87fe7e7b98abfe80ed22aa0c05eacb082588961eece31f6c9ea8d57c7",
+      "modifiedFunctions": [
+        3553,
+        4497,
+        4653,
+        13653,
+        13962,
+        24259,
+        24268
+      ],
+      "independentAuthoredBytesReconstructed": true,
+      "allOtherFunctionsPreserved": true,
+      "allNonCodeSectionsPreserved": true,
+      "appendedPrivateGlobals": 0,
+      "valid": true,
+      "compiled": true
+    },
+    {
+      "revision": "943ee537",
+      "inputSha256": "73581fa5430fae6e6b2d7276b264deed29d0ec90232c4e6d0b6b402069e086fe",
+      "outputSha256": "02b0b494f74940265e0cc0d8222bdf9b4a9bb7154c175b74a1e861abc89c79b8",
+      "modifiedFunctions": [
+        3553,
+        4497,
+        4653,
+        13653,
+        13962,
+        24257,
+        24266
+      ],
+      "independentAuthoredBytesReconstructed": true,
+      "allOtherFunctionsPreserved": true,
+      "allNonCodeSectionsPreserved": true,
+      "appendedPrivateGlobals": 0,
+      "valid": true,
+      "compiled": true
+    }
+  ],
+  "validation": {
+    "testFiles": [
+      "native/paced.test.cjs",
+      "native/free-braking.test.cjs",
+      "tests/paced-catchup-integration.test.cjs",
+      "tests/catchup-shortcut-loader.test.cjs",
+      "tests/paced-catchup-controller.test.cjs"
+    ],
+    "counts": {
+      "tests": 73,
+      "pass": 73,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "log": "integration/paced-native-independent-2026-11-11T01-59-16-635Z.txt",
+    "logSha256": "a6ac389d3427a5a58e3756d5c9ea78b51b14a3a6bb1857ef78c2422ad197e8bb",
+    "liveGameTested": false,
+    "fullGameInstantiated": false
+  },
+  "contract": {
+    "paceRange": [
+      1,
+      2
+    ],
+    "strengthRange": [
+      1,
+      10
+    ],
+    "strengthStep": 0.25,
+    "power": "f32(f32(M*Pf32)*S)",
+    "tire": "f32(E*Pf32)",
+    "sourceCachesUnchanged": true,
+    "cornerGain": "P*sqrt(S)",
+    "nativeBrakingAssumptionUnscaled": true,
+    "sharedPublishedOwnerWord": 244,
+    "privateWasmPublicationStateAdded": false,
+    "coldExtraPaceRequiresPhysicalOutputs": true,
+    "freeRoamBrakingCompensation": "a/P^2 only for owned command1 above1x; native getter and propagation preserved"
+  },
+  "checks": {
+    "exactThreeV0387InputsBound": true,
+    "sevenFunctionScopeOnly": true,
+    "nativeSourceCacheWritesAbsent": true,
+    "physicalFourWheelAndPowerChassisProof": true,
+    "currentAISharedOwnerBound": true,
+    "nativeTargetAndCapUseTimeGuards": true,
+    "repeatedWithdrawalFallbackVerified": true,
+    "freeEntrySnapshotAndPostCommitFencesReviewed": true,
+    "ordinaryNetworkPermissionAndProtectedModesRetained": true,
+    "optionalPacedAndCornerLoaderFailureFallbacksVerified": true,
+    "stopNeedsAdvancingPhysicalRestoration": true
+  },
+  "limits": [
+    "Offline actual-function fixtures use controlled planner/cap providers and are not a full game.",
+    "No live driving, win, speed, grip, downforce, shortcut or collision fix is established.",
+    "Known v0.38.7 track4014 wall/shortcut/corner observations remain unresolved by live v0.38.8 verification."
+  ]
+}

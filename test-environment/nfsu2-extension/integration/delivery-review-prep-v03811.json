@@ -1,0 +1,44 @@
+{
+  "version": "0.38.11",
+  "kind": "delivery review preparation; not an independent approval",
+  "state": "final-receipts-bound-awaiting-independent-review",
+  "syntaxParsedWithoutMainExecution": true,
+  "baselinePinsVerifiedReadOnly": true,
+  "requiredExpectedModuleDeltas": {
+    "8abf9be8": [
+      24222
+    ],
+    "93cfc6e9": [
+      24251
+    ],
+    "aa2429fb": [
+      22957,
+      24259
+    ],
+    "15e5958f": [
+      22957,
+      24259
+    ],
+    "943ee537": [
+      22957,
+      24257
+    ]
+  },
+  "olderUnchangedBuilds": 7,
+  "nativeBehaviorCasesRequired": 63,
+  "sourceFilesRequired": 57,
+  "desktopFilesRequired": 59,
+  "stableFolder": "C:/Users/Admin/Desktop/NFSU2-Driving-Tools",
+  "deliveryExecuted": false,
+  "archiveCreated": false,
+  "browserMutated": false,
+  "liveGameTested": false,
+  "earlierDraftDeliveryScriptSha256": "4b8983627497e4324afb0f2c33328f1d97339f1a089dd816dedfe5f64152efa8",
+  "earlierDraftSupportPlanSha256": "e5cf73660df8106dee77a7b8a6667ae594efa6a6237ba3e1718684fb62cd83ae",
+  "canonicalReceiptSha256": "6b692af2d93d60f34fc82c603206900d7360014910e6a418638cbef6933a6c0e",
+  "sourceLockSha256": "12434dfbc61d4a07d0950abc4310e466ac84a20a7e07844dc090e136c7f87cc5",
+  "nativeModuleReceiptSha256": "86b25d06134eee73c62f725658c8776de120f5038e5c57e9c7eeec233c556696",
+  "finalCanonicalTests": 2823,
+  "finalCanonicalFailures": 0,
+  "finalCanonicalSkipped": 0
+}

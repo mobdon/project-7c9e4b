@@ -1,0 +1,62 @@
+{
+  "kind": "DECLARED-PLATFORM-TIMING-INPUT-SCHEDULE",
+  "frequencyHz": 1000000,
+  "initialHostMicroseconds": "10000000",
+  "steps": [
+    {
+      "frameId": 1,
+      "hostMicroseconds": "10016666"
+    },
+    {
+      "frameId": 2,
+      "hostMicroseconds": "10033333"
+    },
+    {
+      "frameId": 3,
+      "hostMicroseconds": "10050000"
+    },
+    {
+      "frameId": 4,
+      "hostMicroseconds": "10066666"
+    },
+    {
+      "frameId": 5,
+      "hostMicroseconds": "10083333"
+    },
+    {
+      "frameId": 6,
+      "hostMicroseconds": "10100000"
+    },
+    {
+      "frameId": 7,
+      "hostMicroseconds": "10116666"
+    },
+    {
+      "frameId": 8,
+      "hostMicroseconds": "10133333"
+    },
+    {
+      "frameId": 9,
+      "hostMicroseconds": "10150000"
+    },
+    {
+      "frameId": 10,
+      "hostMicroseconds": "10166666"
+    },
+    {
+      "frameId": 11,
+      "hostMicroseconds": "10183333"
+    },
+    {
+      "frameId": 12,
+      "hostMicroseconds": "10200000"
+    }
+  ],
+  "provenance": {
+    "journal": "work-update-check-20261113/current-native-remote-world-replay-4c-v3/remote-world-replay-observations.jsonl",
+    "journalSha256": "af8144a271120723f0517ddfae72e38200f821ee19e065c9e3096dc472e5dc12",
+    "freeze": "work-update-check-20261113/native-remote-world-replay-output-4c-v3/frozen-output-manifest.json",
+    "freezeSha256": "08ebb1987dc311967c576b37507033cf1cf2a69b5e9a5a53e23e629ceebdb647"
+  },
+  "semantics": "First12 frozen replay60Hz host input timestamps are reused as disclosed platform inputs. They are not native clock/dt/tick/sample/flag outputs. Host time is monotonic; exact native poll waits may advance it and are never reversed."
+}

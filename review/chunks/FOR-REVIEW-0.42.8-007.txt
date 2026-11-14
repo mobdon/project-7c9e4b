@@ -1,0 +1,716 @@
+VERBATIM REVIEW CHUNK 007
+Canonical bundle byte range [720000, 840000). Read chunks in numeric order.
+Only the payload below belongs to the canonical bundle; headers are generated.
+
+ength-1]!==11||replacement[replacement.length-1]!==11)throw Error('Current wall hook layout changed.');
+            const fn=join(replacement.subarray(0,replacement.length-1),old.subarray(a.end));pieces.push(leb(fn.length),fn);changed++;
+          }else pieces.push(bytes.subarray(at,stop));
+          p.i=stop;
+        }
+        if(changed!==1+Number(!!profile.capabilities.nativeDragOverheat)+Number(!!profile.capabilities.nativeDragInputHandoff)+Number(!!profile.capabilities.nativeDriftRecovery)+(profile.capabilities.ownedNativeNos?profile.ownedNos.length:0)+Number(!!profile.capabilities.opponentDrag)+Number(profile.capabilities.pace)+2*Number(profile.capabilities.corner)+Number(profile.capabilities.walls)||p.i!==end)throw Error('Current AI hook was not found.');
+        const section=join(...pieces);return join(bytes.subarray(0,start),Uint8Array.of(10),leb(section.length),section,bytes.subarray(end));
+      }
+      p.i=end;
+    }
+    throw Error('Current code section was not found.');
+  }
+  // Shared compiler: callers own their input source and unchanged-module fallback.
+  // Explicit loading does not install or replace any browser API.
+  async function prepareModule(readBytes,fallback,nativeCompile,options,loader) {
+      const generation=++loadGeneration,state={phase:'preparing',reason:'Preparing native AI bridge.',loader};
+      // Concurrent loads keep independent facts; only the newest observed load publishes diagnostics.
+      const publish=()=>{if(generation!==loadGeneration)return;for(const key of Object.keys(patchState))delete patchState[key];Object.assign(patchState,state);};
+      publish();
+      let stage='module-read';
+      try{
+        const bytes=await readBytes();
+        state.moduleBytes=bytes.byteLength;
+        const candidate=profileForSize(bytes.byteLength);
+        if(candidate)state.candidateRevision=candidate.revision;
+        // Read-only fingerprint coverage. It never grants compatibility or changes hooks.
+        const scanner=root.__NFSU2_SIGNATURES__,references=[root.__NFSU2_SIGNATURE_PROFILE__,root.__NFSU2_SIGNATURE_PROFILE_LATEST__,root.__NFSU2_SIGNATURE_PROFILE_NEXT__].filter(Boolean);
+        if(scanner?.scanAll&&references.length)try{
+          const result=await scanner.scanAll(bytes,references),summary=result.bestReference;
+          state.moduleHash=summary.moduleSha256;
+          Object.assign(state,{signatureReference:summary.referenceRevision,signatureExact:summary.referenceModuleMatches,signatureTotal:summary.anchors,signatureUnique:summary.unique,signatureAmbiguous:summary.ambiguous,signatureMissing:summary.missing});
+        }catch{state.signatureFailed=true;}
+        stage='module-layout';
+        let changed=await patchBytes(bytes);
+        let captureInstalled=false;
+        const capture=root.__NFSU2_RACE_CAPTURE__,captureProfile=profileForSize(bytes.byteLength);
+        if(capture&&captureProfile?.hash===capture.PIN){
+          try{const candidateBytes=await capture.patchModule(changed,captureProfile);if(!WebAssembly.validate(candidateBytes))throw Error('Capture module validation failed');changed=candidateBytes;captureInstalled=true;}
+          catch{state.captureUnavailable=true;}
+        }
+        stage='module-compile';
+        const profile=profileForSize(bytes.byteLength),forward=root.__NFSU2_FORWARD_NATIVE_PATCHER__;
+        let module,forwardInstalled=false,routeChoiceInstalled=false,rubberbandInstalled=false,nativeCornerInstalled=false,pacedCatchupInstalled=false,nativeOnlineInstalled=false,nativeCityInstalled=false,nativeTunerInstalled=false,nativeTunerPrepared=null,nativeTunerInput=changed,nativeForwardCurrentVerified=false,nativeTargetFeedbackInstalled=false,nativeNearMissInstalled=false,nativeNearMissAdapter=null;
+        const rubberband=root.__NFSU2_NATIVE_RUBBERBAND__;
+        const compileCandidate=async input=>{
+          try{
+            if(rubberband?.supports?.(profile.hash)===true){
+              const assisted=await rubberband.patchModule(Uint8Array.from(input),{verifiedOriginalHash:profile.hash});
+              if(!WebAssembly.validate(assisted))throw Error('Catch-up module validation failed.');
+              try{
+                const cornerTarget=root.__NFSU2_NATIVE_CORNER_TARGET__;
+                if(cornerTarget?.supports?.(profile.hash)===true){
+                  const cornerBytes=await cornerTarget.patchModule(Uint8Array.from(assisted),{verifiedOriginalHash:profile.hash});
+                  if(!WebAssembly.validate(cornerBytes))throw Error('Corner target module validation failed.');
+                  try{
+                    const paced=root.__NFSU2_PACED_CATCHUP__;
+                    if(paced?.supports?.(profile.hash)===true){
+                      const pacedBytes=await paced.patchModule(Uint8Array.from(cornerBytes),{verifiedOriginalHash:profile.hash});
+                      if(!WebAssembly.validate(pacedBytes))throw Error('Paced catch-up module validation failed.');
+                      let finalBytes=pacedBytes;
+                      const godly=root.__NFSU2_GODLY_CATCHUP__;
+                      if(godly?.supports?.(profile.hash)===true){try{const g=await godly.patchModule(Uint8Array.from(pacedBytes),{verifiedOriginalHash:profile.hash});if(WebAssembly.validate(g)){finalBytes=g;state.godlyCatchup=true;}}catch{state.godlyCatchupUnavailable=true;}}
+                      const compiled=await nativeCompile.call(WebAssembly,finalBytes,options);
+                      rubberbandInstalled=true;nativeCornerInstalled=true;pacedCatchupInstalled=true;return compiled;
+                    }
+                  }catch{state.pacedCatchupUnavailable=true;}
+                  const compiled=await nativeCompile.call(WebAssembly,cornerBytes,options);
+                  rubberbandInstalled=true;nativeCornerInstalled=true;return compiled;
+                }
+              }catch{state.nativeCornerUnavailable=true;}
+              const compiled=await nativeCompile.call(WebAssembly,assisted,options);
+              rubberbandInstalled=true;return compiled;
+            }
+          }catch{state.rubberbandUnavailable=true;}
+          return nativeCompile.call(WebAssembly,input,options);
+        };
+        const transplanted=!!profile.transplant;
+        const forwardSupported=transplanted||forward?.supports?.(profile.hash)===true;
+        if(transplanted){
+          // The pinned transform already holds the forward, route-choice, catch-up, corner-target, paced and skill hooks.
+          const online=onlineAdapterFor(profile.hash);
+          try{
+            if(online?.supports?.(profile.hash)===true){
+              const candidateBytes=await online.patchModule(Uint8Array.from(changed),{verifiedOriginalHash:profile.hash});
+              if(!WebAssembly.validate(candidateBytes))throw Error('Online native module validation failed.');
+              module=await nativeCompile.call(WebAssembly,candidateBytes,options);
+              nativeOnlineInstalled=true;nativeTunerInput=candidateBytes;
+              // Optional city correction cannot take away a working online driver.
+              const city=root.__NFSU2_NATIVE_CITY_CORNER_102C__;
+              try{
+                if(city?.supports?.(profile.hash)===true){
+                  const cityBytes=await city.patchModule(Uint8Array.from(candidateBytes),{verifiedOriginalHash:profile.hash});
+                  if(!WebAssembly.validate(cityBytes))throw Error('City corner module validation failed.');
+                  const cityModule=await nativeCompile.call(WebAssembly,cityBytes,options);
+                  module=cityModule;nativeCityInstalled=true;nativeTunerInput=cityBytes;
+                }
+              }catch(e){state.nativeCityUnavailable=true;state.nativeCityReason=String(e?.message||'City corner adapter could not be prepared.');}
+            }
+          }catch(e){state.nativeOnlineUnavailable=true;state.nativeOnlineReason=String(e?.message||'Online native adapter could not be prepared.');}
+          if(!module)module=await nativeCompile.call(WebAssembly,changed,options);
+          // Tuner support belongs to this compiled module only. Prepare the private
+          // evaluator first; any failure retains the already compiled driving module.
+          const tuner=root.__NFSU2_NATIVE_TUNER_102C__,evaluator=root.__NFSU2_DYNO_NATIVE__,tunerMeta=root.__NFSU2_DYNO_NATIVE_PROFILE_102C__;
+          try{
+            if(tuner?.supports?.(profile.hash)===true&&tuner.nativePolicyInitialization===true&&typeof evaluator?.build==='function'&&tunerMeta?.moduleHash===profile.hash&&tunerMeta.moduleSize===profile.size&&tunerMeta.revision===profile.revision){
+              const prepared=await evaluator.build(bytes,tunerMeta);
+              if(prepared?.meta!==tunerMeta||!prepared.module)throw Error('Current private tuner evaluator did not compile.');
+              const tunedBytes=await tuner.patchModule(Uint8Array.from(nativeTunerInput),{verifiedOriginalHash:profile.hash});
+              if(!WebAssembly.validate(tunedBytes))throw Error('Current native tuner module validation failed.');
+              const tunedModule=await nativeCompile.call(WebAssembly,tunedBytes,options);
+              module=tunedModule;nativeTunerPrepared=Promise.resolve(prepared);nativeTunerInstalled=true;
+              // The optional immutable lease adapter is required for current road
+              // geometry. Failure retains the compiled driving/tuner module.
+              if(profile.hash==='2ba0b075721d80e75fc3fb9a3b0e4d2acae835d21fcc406d009669b83f81858d'&&nativeOnlineInstalled&&nativeCityInstalled){
+                try{
+                  const lease=root.__NFSU2_NATIVE_FORWARD_LEASE_102C__;
+                  if(lease?.supports?.(profile.hash)!==true)throw Error('Current forward lease adapter unavailable.');
+                  const leaseBytes=await lease.patchModule(Uint8Array.from(tunedBytes),{verifiedOriginalHash:profile.hash});
+                  if(!WebAssembly.validate(leaseBytes))throw Error('Current forward lease module validation failed.');
+                  const leaseHash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',leaseBytes)),b=>b.toString(16).padStart(2,'0')).join('');
+                  if(leaseHash!=='842f84cdac800f39a292b0d82c3182f4e225a3e1663541473bdc76f10528aae2')throw Error('Current forward lease module fingerprint mismatch.');
+                  const leaseModule=await nativeCompile.call(WebAssembly,leaseBytes,options);
+                  module=leaseModule;nativeForwardCurrentVerified=true;
+                  // Read-only receipts are optional; any failure retains the
+                  // already compiled, verified driving/tuner/lease module.
+                  try{
+                    const feedback=root.__NFSU2_NATIVE_TARGET_FEEDBACK_102C__;
+                    if(feedback?.supports?.(profile.hash)!==true)throw Error('Native target feedback unavailable.');
+                    const observedBytes=await feedback.patchModule(Uint8Array.from(leaseBytes),{verifiedOriginalHash:profile.hash});
+                    if(!WebAssembly.validate(observedBytes))throw Error('Native target feedback validation failed.');
+                    const observedHash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',observedBytes)),b=>b.toString(16).padStart(2,'0')).join('');
+                    if(observedHash!=='6005ed0fe49b641542e9e2909cf38d10108959f2d2ed2ac74144866281ad8cfc')throw Error('Native target feedback output pin failed.');
+                    module=await nativeCompile.call(WebAssembly,observedBytes,options);nativeTargetFeedbackInstalled=true;
+                  }catch(e){state.nativeTargetFeedbackUnavailable=true;state.nativeTargetFeedbackError=String(e?.message||e).slice(0,200);}
+                }catch(e){state.nativeForwardLeaseUnavailable=true;state.nativeForwardLeaseReason=String(e?.message||'Current forward lease adapter could not be prepared.');}
+              }
+            }
+          }catch(e){state.nativeTunerUnavailable=true;state.nativeTunerReason=String(e?.message||'Current native tuner could not be prepared.');}
+          // The synthetic award adapter is optional and specific to the complete
+          // 609 online candidate. Compile/register it before granting capability.
+          const synthetic=root.__NFSU2_NATIVE_SYNTHETIC_NEAR_MISS_609__;
+          if(profile===P609&&nativeOnlineInstalled&&synthetic?.supports?.(profile.hash)===true){
+            try{
+              const awardBytes=await synthetic.patchModule(Uint8Array.from(nativeTunerInput),{verifiedOriginalHash:profile.hash});
+              if(!WebAssembly.validate(awardBytes))throw Error('Synthetic near-miss module validation failed.');
+              const outputHash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',awardBytes)),b=>b.toString(16).padStart(2,'0')).join('');
+              if(outputHash!==synthetic.outputModuleHash)throw Error('Synthetic near-miss output fingerprint mismatch.');
+              const awardModule=await nativeCompile.call(WebAssembly,awardBytes,options);
+              if(synthetic.registerInstalledModule(awardModule,{outputModuleHash:outputHash})!==true)throw Error('Synthetic near-miss module registration failed.');
+              module=awardModule;nativeNearMissInstalled=true;nativeNearMissAdapter=synthetic;
+            }catch(e){state.nativeSyntheticNearMissUnavailable=true;state.nativeSyntheticNearMissReason=String(e?.message||'Synthetic near-miss adapter could not be prepared.');}
+          }
+          forwardInstalled=routeChoiceInstalled=rubberbandInstalled=nativeCornerInstalled=pacedCatchupInstalled=true;
+          state.godlyCatchup=true;state.transplant=profile.transplant.from;
+        }else if(forwardSupported){
+          try{
+            const candidateBytes=await forward.patchModule(Uint8Array.from(changed),{verifiedOriginalHash:profile.hash});
+            if(!WebAssembly.validate(candidateBytes))throw Error('Forward native module validation failed.');
+            const shortcut=root.__NFSU2_SHORTCUT_POLICY__;
+            if(shortcut?.supports?.(profile.hash)===true||shortcut?.sourceModuleHash===profile.hash){
+              try{
+                const routeInput=Uint8Array.from(candidateBytes);
+                const routeBytes=await shortcut.patchModule(routeInput,{verifiedOriginalHash:profile.hash});
+                module=await compileCandidate(routeBytes);
+                routeChoiceInstalled=routeBytes!==routeInput;
+              }catch{state.routeChoiceUnavailable=true;}
+            }
+            // Retain the already verified forward adapter on optional failure.
+            if(!module)module=await compileCandidate(candidateBytes);
+            forwardInstalled=true;
+          }catch(e){state.forwardUnavailable=true;state.forwardReason=String(e?.message||'Forward native adapter could not be prepared.');}
+        }
+        if(!module)module=await nativeCompile.call(WebAssembly,changed,options);
+        const capabilities={...profile.capabilities};
+        capabilities.nativeSyntheticNearMiss=nativeNearMissInstalled;state.nativeSyntheticNearMiss=nativeNearMissInstalled;
+        capabilities.nativeRubberband=rubberbandInstalled;state.nativeRubberband=rubberbandInstalled;
+        capabilities.nativeCornerTarget=nativeCornerInstalled;state.nativeCornerTarget=nativeCornerInstalled;
+        capabilities.nativePacedCatchup=pacedCatchupInstalled;state.nativePacedCatchup=pacedCatchupInstalled;
+        capabilities.godlyModes=state.godlyCatchup===true;
+        capabilities.godlySkill=state.godlyCatchup===true;
+        // Online support is a fact about the compiled module, never just a profile flag.
+        capabilities.nativeOnlineAI=nativeOnlineInstalled;state.nativeOnlineAI=nativeOnlineInstalled;
+        capabilities.nativeCityCornerReduction=nativeCityInstalled;state.nativeCityCornerReduction=nativeCityInstalled;
+        const carCategories=['onlineTraffic','onlinePlayers','onlineRaceCars','onlineRivals','onlinePlayerOutrun'];
+        const onlineAdapter=onlineAdapterFor(profile.hash);
+        const onlineCarCapabilities=Array.isArray(onlineAdapter?.onlineCarCapabilities)?onlineAdapter.onlineCarCapabilities.filter(key=>carCategories.includes(key)):carCategories;
+        if(nativeOnlineInstalled){
+          capabilities.soloOnly=false;
+          for(const key of onlineCarCapabilities)capabilities[key]=true;
+        }
+        if(nativeTunerInstalled){
+          for(const key of ['dyno','fullTuner','tunerSecondGuestWindow','tunerCurrentNativeClamp','tunerCapturedNativePolicy','tunerNativePolicyInitialization'])capabilities[key]=true;
+        }
+        state.nativeTuner=nativeTunerInstalled;
+        capabilities.nativeTargetFeedback=nativeTargetFeedbackInstalled;state.nativeTargetFeedback=nativeTargetFeedbackInstalled;
+        if(captureInstalled)capabilities.nativeRaceCapture=true;
+        if(routeChoiceInstalled){capabilities.nativeRouteChoice=true;state.nativeRouteChoice=true;}
+        if(transplanted){state.nativeRails=capabilities.nativeRails===true;state.soloOnly=capabilities.soloOnly===true;}
+        if(profile.capabilities.nativePaceTargetConsumers){
+          capabilities.nativePaceTargetConsumers=forwardInstalled;
+          capabilities.pace=forwardInstalled;
+        }
+        if(forwardSupported){
+          // Current relocated geometry is proved only for the exact complete
+          // compiled image. Earlier profiles retain their existing capabilities.
+          capabilities.nativeForwardGeometry=forwardInstalled&&(!transplanted||nativeForwardCurrentVerified);
+          capabilities.nativeForwardClamp=forwardInstalled&&(!transplanted||nativeForwardCurrentVerified);
+          capabilities.nativeRailsForwardGeometry=transplanted&&nativeForwardCurrentVerified;
+          capabilities.nativeForwardLease=transplanted&&nativeForwardCurrentVerified;
+          state.nativeForwardLease=capabilities.nativeForwardLease;
+          state.nativeForwardGeometry=capabilities.nativeForwardGeometry;state.nativeForwardClamp=capabilities.nativeForwardClamp;
+        }
+        const cars=nativeOnlineInstalled?Object.freeze({...profile.cars,...Object.fromEntries(onlineCarCapabilities.map(key=>[key,true]))}):profile.cars;
+        patched.set(module,captureInstalled||forwardSupported?Object.freeze({...profile,cars,capabilities:Object.freeze(capabilities)}):profile);
+        if(nativeNearMissInstalled)nearMissAdapters.set(module,{adapter:nativeNearMissAdapter,moduleHash:profile.hash});
+        if(nativeTunerInstalled)nativeEvaluators.set(module,nativeTunerPrepared);
+        else if(profile.capabilities.fullTuner&&root.__NFSU2_DYNO_NATIVE__){const prepared=(async()=>{const recipeProfile=profile.revision==='ed8d3359'?root.__NFSU2_ECU_RECIPE_ED8_PROFILE__:profile.revision==='b1efa173'?root.__NFSU2_ECU_RECIPE_B1_PROFILE__:profile.revision==='bdc9cbc2'?root.__NFSU2_ECU_RECIPE_BDC_PROFILE__:root.__NFSU2_ECU_RECIPE_PROFILE__,baseMeta=profile.revision==='ed8d3359'?root.__NFSU2_DYNO_NATIVE_PROFILE_ED8__:profile.revision==='b1efa173'?root.__NFSU2_DYNO_NATIVE_PROFILE_B1__:profile.revision==='bdc9cbc2'?root.__NFSU2_DYNO_NATIVE_PROFILE_BDC9__:root.__NFSU2_DYNO_NATIVE_PROFILE_943__;const meta=profile.ecuScope?await recipeProfile?.compose(baseMeta):undefined;if(profile.ecuScope&&!meta)throw Error('Verified ECU native slider metadata unavailable');return root.__NFSU2_DYNO_NATIVE__.build(bytes,meta);})();prepared.catch(()=>{});nativeEvaluators.set(module,prepared);}
+        state.phase='ready';state.revision=profile.revision;state.reason='Verified game module · native AI bridge loaded.';
+        publish();return module;
+      }catch(e){
+        state.phase='unavailable';state.reason=String(e?.message || 'Native AI could not be prepared.');
+        state.patchCode=['module-size','module-hash'].includes(e?.patchCode)?e.patchCode:stage;
+        if(typeof e?.moduleHash==='string'&&/^[a-f0-9]{64}$/.test(e.moduleHash))state.moduleHash=e.moduleHash;
+        // Fail open to the unchanged game, closed to AI control. All memory-writing tools still require a verified module profile.
+        publish();return fallback();
+      }
+  }
+  function compileLocal(input,options) {
+    let source;
+    if(ArrayBuffer.isView(input))source=new Uint8Array(input.buffer,input.byteOffset,input.byteLength);
+    else {
+      let size;
+      try { size=Object.getOwnPropertyDescriptor(ArrayBuffer.prototype,'byteLength').get.call(input); }
+      catch { throw new TypeError('Explicit compilation requires an ArrayBuffer or typed buffer view.'); }
+      source=new Uint8Array(input,0,size);
+    }
+    // Use a fresh intrinsic buffer, including for cross-realm buffers and subclasses.
+    const copy=new Uint8Array(source.byteLength);copy.set(source);
+    const bytes=copy.buffer;
+    const nativeCompile=WebAssembly.compile;
+    return prepareModule(async()=>bytes.slice(0),()=>nativeCompile.call(WebAssembly,bytes,options),nativeCompile,options,'explicit');
+  }
+  function install() {
+    if(installed || typeof WebAssembly.compileStreaming!=='function')return;
+    const nativeStreaming=WebAssembly.compileStreaming,nativeCompile=WebAssembly.compile;
+    const streamingLoader=async function(source,options){
+      const response=await source;
+      let url;try{url=new URL(response.url);}catch{return nativeStreaming.call(WebAssembly,response,options);}
+      if(url.origin!==location.origin || url.pathname!=='/game.wasm')return nativeStreaming.call(WebAssembly,response,options);
+      return prepareModule(()=>response.clone().arrayBuffer(),()=>nativeStreaming.call(WebAssembly,response,options),nativeCompile,options,'streaming');
+    };
+    WebAssembly.compileStreaming=streamingLoader;
+    installed=true;
+  }
+  class Controller {
+    constructor(memory,available=false,capabilities=LEGACY.capabilities,{moduleHash=null}={}){this.memory=memory;this.available=!!available;this.capabilities=capabilities;this.forwardRuntime=FORWARD_CONFIG?.select?.(moduleHash)?.runtime||null;const online=onlineAdapterFor(moduleHash);this.onlineAddresses=capabilities.nativeOnlineAI===true&&online?.supports?.(moduleHash)===true?online.onlineAddresses:null;this.hb=0;this.words=null;this.view=null;this.requestTarget=null;this.handbackPending=false;this.handbackHeartbeat=0;this.forwardNetworkKey=null;}
+    refresh(){const b=this.memory.buffer;if(!this.view || this.view.buffer!==b){this.view=new DataView(b);this.words=new Int32Array(b);}return b.byteLength>=(this.capabilities.corner?CORNER.commandBase+64:BASE+92);}
+    u32(p){return p>=0x10000 && p+4<=Math.min(this.view.byteLength,0x28000000)?this.view.getUint32(p,true):0;}
+    read(off){return Atomics.load(this.words,(BASE+off)/4)>>>0;}
+    write(off,v){Atomics.store(this.words,(BASE+off)/4,v|0);}
+    forwardContext(allowNetwork){
+      const addresses=this.forwardRuntime?.onlineAddresses||this.onlineAddresses;
+      if(!addresses)return null;
+      const nativeContext=addresses.map((p,i)=>p+(i===1?1:4)<=this.view.byteLength?(i===1?this.view.getUint8(p):this.view.getUint32(p,true)):null);
+      if(nativeContext.includes(null))return null;
+      const tuple=[this.u32(0x850078),this.u32(0x866a14),this.u32(0x8669f4),this.view.getUint8(0x89cf69),this.u32(0x850088)];
+      return {key:JSON.stringify([...tuple,...nativeContext,allowNetwork===true]),network:!!((tuple[0]&520)||tuple[1]||tuple[2]||tuple[3]||(nativeContext[0]&&nativeContext[1]&&nativeContext[2]))};
+    }
+    cornerSettings(mode,pace,cornerAssist,cornerFactor,cornerMargin,raceCornerAssist,raceCornerFactor,raceCornerMargin,raceBraking,allowNetwork=false,adaptiveCorners=false){
+      const raceType=this.u32(0x89e7b0),drag=!!this.view.getUint8(0x89e7d8);
+      const special=drag||this.view.getUint8(0x89e7d9)||this.u32(0x890104)||this.u32(0x890108)||this.u32(0x890114);
+      const network=(this.u32(0x850078)&520)||this.u32(0x866a14)||this.u32(0x8669f4)||this.view.getUint8(0x89cf69);
+      const streetX=this.view.getUint8(0x89e7e3)||this.u32(0x89010c)||network&&this.u32(0x850088)===10;
+      const command=!this.capabilities.corner?0:raceCornerAssist===true&&mode===1&&raceType===1&&!special&&(!network||allowNetwork===true)?adaptiveCorners===true&&this.capabilities.nativeDragInputHandoff===true&&!streetX&&Number.isFinite(pace)&&pace>=1&&pace<=2?3:2:cornerAssist===true&&mode===2&&raceType===0&&!drag?1:0;
+      const factor=command>=2?raceCornerFactor:cornerFactor,sharp=command>=2?raceCornerMargin:cornerMargin;
+      const percent=Number.isFinite(factor)&&factor>=.6&&factor<=.95?Math.round(factor*100):80;
+      const margin=Number.isFinite(sharp)&&sharp>=0&&sharp<=25?Math.round(sharp):command>=2?15:0;
+      const braking=command>=2?(Number.isFinite(raceBraking)&&raceBraking>=.5&&raceBraking<=1?Math.round(raceBraking*100):75):100;
+      const pacePercent=command>=1&&this.capabilities.pace&&Number.isFinite(pace)&&pace>=.75&&pace<=3?Math.round((command===1?Math.max(1,pace):pace)*100):100;
+      return {command,percent,margin,braking,pacePercent};
+    }
+    nativeDriftPace() {
+      return this.capabilities.nativeDriftPace===true && !this.view.getUint8(0x89e7d8) && !this.u32(0x890108) && !!(this.view.getUint8(0x89e7d9)||this.u32(0x890104)||this.u32(0x890114));
+    }
+    publish(wanted=0,player=0,car=0,race=0,pace=1,allowNetwork=false,allowDragAI=false,cornerAssist=false,cornerFactor=0.8,cornerMargin=0,raceCornerAssist=false,raceCornerFactor=.8,raceCornerMargin=15,raceBraking=.75,dragNoBlowout=false,adaptiveCorners=false,adaptivePace=null,cityPace=null,rails=false){
+      if(!this.available || !this.refresh() || this.read(28)!==MAGIC)return false;
+      if(this.capabilities.soloOnly===true)allowNetwork=false;
+      // Written only after the bridge published its magic (checked above), so its zero-check of this block still holds.
+      const railsWord=this.capabilities.nativeRails===true&&rails===true&&wanted===1?RAILS_MAGIC:0;
+      pace=this.capabilities.pace&&!this.nativeDriftPace()?pace:1;allowDragAI=this.capabilities.dragAI&&allowDragAI;cornerAssist=this.capabilities.corner&&cornerAssist;
+      // OFF is a command the native loop must process, not merely a page
+      // state. A quick same-event restart must not overwrite an unseen OFF.
+      if(wanted===0 && this.read(8)!==0)this.handbackPending=true;
+      // A geometry response is bound to this command generation. For the
+      // separately installed exact-build forward sampler, identical adaptive
+      // commands need a new heartbeat without inventing a new generation.
+      // Changed settings and every OFF still use the full sequence protocol.
+      const forwardContext=this.capabilities.nativeForwardGeometry===true?this.forwardContext(allowNetwork):null;
+      if(forwardContext&&wanted===1&&adaptiveCorners===true&&!this.handbackPending&&(!forwardContext.network||allowNetwork===true)&&this.forwardNetworkKey===forwardContext.key){
+        const settings=this.cornerSettings(wanted,pace,cornerAssist,cornerFactor,cornerMargin,raceCornerAssist,raceCornerFactor,raceCornerMargin,raceBraking,allowNetwork,adaptiveCorners);
+        const live=settings.command===3&&Number.isFinite(adaptivePace)&&adaptivePace>=.75&&adaptivePace<=pace?adaptivePace:pace;
+        const percent=Number.isFinite(live)&&live>=.75&&live<=3?Math.round(live*100):100;
+        const cr=off=>Atomics.load(this.words,(CORNER.commandBase+off)/4)>>>0;
+        if(settings.command===3&&!(this.read(4)&1)&&this.read(0)===MAGIC&&this.read(8)===wanted&&this.read(12)===player&&this.read(16)===car&&this.read(20)===race&&this.read(60)===percent&&this.read(84)===(allowNetwork===true?1:0)&&this.read(88)===(allowDragAI===true?1:0)&&(this.capabilities.nativeRails!==true||this.read(104)===railsWord)&&(!this.capabilities.nativeDragOverheat||this.read(100)===(dragNoBlowout===true?1:0))&&cr(0)===CORNER.commandMagic&&cr(4)===settings.command&&cr(8)===settings.percent&&cr(36)===settings.margin&&cr(44)===settings.braking&&cr(48)===settings.pacePercent&&(!cr(12)||cr(12)===car)){
+          this.write(24,++this.hb);return true;
+        }
+      }
+      let seq=this.read(4);if(seq&1)seq++;
+      this.write(4,seq+1);this.write(0,MAGIC);this.write(8,wanted);this.write(12,player);this.write(16,car);this.write(20,race);
+      // The cached corner envelope uses the selected planning ceiling. A lower
+      // live pace request must not rebuild that route or change compensation.
+      // Adaptive command 3 and explicitly selected ordinary online city
+      // slowing admit separate bounded runtime reductions. City reductions
+      // retain the selected corner ceiling and never request command 3.
+      const adaptiveCommand=adaptiveCorners===true&&this.cornerSettings(wanted,pace,cornerAssist,cornerFactor,cornerMargin,raceCornerAssist,raceCornerFactor,raceCornerMargin,raceBraking,allowNetwork,adaptiveCorners).command===3;
+      const cityContext=wanted===2?(forwardContext||this.forwardContext(allowNetwork)):null;
+      const cityCommand=wanted===2&&allowNetwork===true&&(cityContext?.network===true||(this.u32(0x850078)&520)||this.u32(0x866a14)||this.u32(0x8669f4)||this.view.getUint8(0x89cf69))&&this.u32(0x89e7b0)===0&&
+        ![0x89e7d8,0x89e7d9,0x89e7e3].some(p=>this.view.getUint8(p))&&![0x890104,0x890108,0x89010c,0x890114].some(p=>this.u32(p))&&this.u32(0x850088)!==10;
+      const livePace=adaptiveCommand&&Number.isFinite(adaptivePace)&&adaptivePace>=.75&&adaptivePace<=pace?adaptivePace:
+        cityCommand&&Number.isFinite(cityPace)&&cityPace>=.75&&cityPace<=pace?cityPace:pace;
+      this.write(60,Number.isFinite(livePace) && livePace>=0.75 && livePace<=3 ? Math.round(livePace*100) : 100);
+      if(this.capabilities.nativeDragOverheat)this.write(100,dragNoBlowout===true?1:0);
+      this.write(84,allowNetwork === true ? 1 : 0);this.write(88,allowDragAI === true ? 1 : 0);
+      if(this.capabilities.nativeRails===true)this.write(104,railsWord);
+      if(this.capabilities.corner){
+      const {command,percent,margin,braking,pacePercent}=this.cornerSettings(wanted,pace,cornerAssist,cornerFactor,cornerMargin,raceCornerAssist,raceCornerFactor,raceCornerMargin,raceBraking,allowNetwork,adaptiveCorners);
+      const cr=off=>Atomics.load(this.words,(CORNER.commandBase+off)/4)>>>0,cw=(off,v)=>Atomics.store(this.words,(CORNER.commandBase+off)/4,v|0);
+      const cornerOwned=cr(0)===CORNER.commandMagic,cornerEmpty=Array.from({length:16},(_,i)=>cr(i*4)).every(v=>v===0);
+      if(cornerOwned||cornerEmpty){
+      if(cr(0)!==CORNER.commandMagic || cr(4)!==command || cr(8)!==percent || cr(36)!==margin || cr(44)!==braking || cr(48)!==pacePercent || (cr(12)&&cr(12)!==car)){
+        for(let off=12;off<36;off+=4)cw(off,0);cw(40,0);cw(52,0);cw(56,0);cw(60,0);
+      }
+      cw(0,CORNER.commandMagic);cw(4,command);cw(8,percent);cw(36,margin);cw(44,braking);cw(48,pacePercent);}}
+      this.write(24,++this.hb);this.write(4,seq+2);this.forwardNetworkKey=wanted===1&&adaptiveCorners===true?forwardContext?.key||null:null;
+      if(wanted===0 && this.handbackPending)this.handbackHeartbeat=this.hb;
+      return true;
+    }
+    handbackObserved(){
+      const current=this.status();
+      // Heartbeat observation precedes processing: latch and ownership must
+      // also be cleared, and the current driver must be safely manual.
+      return current.ready && !current.owned && current.manual && this.read(72)===0 && this.read(44)===(this.handbackHeartbeat>>>0);
+    }
+    stop(){this.publish(0);return this.status();}
+    releaseForSwap(){
+      this.publish(0);this.handbackHeartbeat=this.hb;
+      const current=this.status();
+      return current.available ? {...current,switching:true,status:'switching',reason:'Changing native event behavior or corner settings · waiting for native handback.'} : current;
+    }
+    update({enabled=false,safe=false,state=null,mode=0,pace=1,allowNetwork=false,allowDragAI=false,cornerAssist=false,cornerFactor=0.8,cornerMargin=0,raceCornerAssist=false,raceCornerFactor=.8,raceCornerMargin=15,raceBraking=.75,dragNoBlowout=false,adaptiveCorners=false,adaptivePace=null,cityPace=null,rails=false}={}){
+      this.refresh();
+      if(this.capabilities.soloOnly===true)allowNetwork=false;
+      // A rails change needs a fresh native takeover (AutoPilotOn selects the simplified mode), so it is part of the target.
+      const railsRequested=this.capabilities.nativeRails===true&&rails===true&&mode===1;
+      allowDragAI=this.capabilities.dragAI&&allowDragAI;cornerAssist=this.capabilities.corner&&cornerAssist;pace=this.capabilities.pace?pace:1;
+      raceCornerAssist=this.capabilities.corner&&raceCornerAssist===true&&(!state?.network||allowNetwork===true)&&!state?.drag;
+      const player=this.u32(0xd00000);
+      const wanted=enabled===true && safe===true && state?.ready===true && state.driving===true && typeof state.network==='boolean' && (!state.network || allowNetwork === true) && (!state.drag || allowDragAI === true) && (mode===1 || mode===2) && this.u32(player+4)===state.car;
+      if(!wanted||mode!==2||state.network!==true||state.drag||allowNetwork!==true)cityPace=null;
+      // A completed OFF should stop displaying as pending even while the
+      // user leaves AI disabled. Do not create another handshake for idle OFF.
+      if(!wanted && this.handbackPending && this.handbackObserved())this.handbackPending=false;
+      // A race can change type while reusing player/car/race pointers. Never
+      // retain the previous mode's physics: release our native driver first.
+      // Keep the remembered target across pause/stop, so a quick re-enable or
+      // transition cannot hide an unprocessed native handback request.
+      if(wanted){
+        const raceType=this.u32(0x89e7b0);
+        const corner=this.cornerSettings(mode,pace,cornerAssist,cornerFactor,cornerMargin,raceCornerAssist,raceCornerFactor,raceCornerMargin,raceBraking,allowNetwork,adaptiveCorners);
+        // Native planned caps are cached: rebuild the private route on every
+        // effective corner-profile/category change, never merely reissue ON.
+        // These native race parameter / forced-mode flags select or specialize
+        // the game's driver. Track identity also catches a new event reusing
+        // every object pointer. We request reconstruction; never fake an
+        // opponent racer type or substitute an extension steering algorithm.
+        const event=[this.u32(0x89e7a0),this.u32(0x89e7b4),
+          ...[0x89e7d8,0x89e7d9,0x89e7e1,0x89e7e3].map(a=>this.view.getUint8(a)),
+          this.u32(0x890104),this.u32(0x890108),this.u32(0x89010c),this.u32(0x890114)];
+        const networkTarget=this.capabilities.nativeOnlineAI===true?[this.forwardContext(allowNetwork)?.key||JSON.stringify([this.u32(0x850078),this.u32(0x866a14),this.u32(0x8669f4),this.view.getUint8(0x89cf69),this.u32(0x850088),state.network===true,allowNetwork===true])]:[];
+        const target=[player,state.car,state.race,state.drag?'drag':'native',mode,raceType,...event,corner.command,corner.command?corner.percent:0,corner.command?corner.margin:0,corner.command>=2?corner.braking:0,corner.command===1?Math.max(100,corner.pacePercent):corner.command>=2?corner.pacePercent:0,...(this.capabilities.nativeRails===true?[railsRequested?'rails':'full']:[]),...networkTarget].join(':');
+        const changed=this.requestTarget!==null && this.requestTarget!==target;
+        if(changed)this.handbackPending=true;
+        this.requestTarget=target;
+        if(changed)return this.releaseForSwap();
+        if(this.handbackPending){
+          if(!this.handbackObserved())return this.releaseForSwap();
+          this.handbackPending=false;
+        }
+      }
+      this.publish(wanted?mode:0,player,state?.car||0,state?.race||0,pace,allowNetwork,allowDragAI,cornerAssist,cornerFactor,cornerMargin,raceCornerAssist,raceCornerFactor,raceCornerMargin,raceBraking,this.capabilities.nativeDragOverheat&&dragNoBlowout===true&&safe===true&&state?.ready&&state.driving&&state.drag&&(!state.network||allowNetwork===true),adaptiveCorners,adaptivePace,cityPace,railsRequested);
+      return this.status();
+    }
+    catchupDiagnostics(){
+      // Exact-AA read-only observations. These measure current native fields,
+      // not extra assist application, grip effectiveness or a frame lock.
+      const unavailable=catchupTelemetryStatus=>({catchupTelemetryStatus});
+      if(this.capabilities.nativePaceCacheFix!==true)return unavailable('unsupported');
+      if(!this.available||!this.refresh())return unavailable('unavailable');
+      if(this.read(0)!==MAGIC||this.read(28)!==MAGIC)return unavailable('mailbox-unready');
+      const seq=this.read(4);
+      if(!seq||(seq&1))return unavailable('mailbox-unready');
+      const valid=(p,n)=>Number.isInteger(p)&&!(p&3)&&p>=0x10000&&p+n<=Math.min(this.view.byteLength,0x28000000);
+      const player=this.u32(0xd00000),car=this.u32(player+4),race=this.u32(0x890118);
+      if(this.u32(0x8654a4)!==6||this.u32(0xd00030)!==1||!valid(player,0x234)||this.u32(player+16)!==0||!valid(car,0x9e4)||!valid(race,4)||this.u32(race)!==4)return unavailable('context-invalid');
+      const driver=this.u32(car+0x2c),kind=this.u32(car+0x24);
+      const driverOK=kind===3&&valid(driver,0x800)&&this.u32(driver)===0x785370&&this.u32(driver+4)===car;
+      const driverBits=driverOK?this.u32(driver+0x770):null,carBits=this.u32(car+0x468);
+      const out={catchupTelemetryStatus:'sampled',catchupDriverVerified:driverOK};
+      const factor=bits=>{const b=new ArrayBuffer(4),d=new DataView(b);d.setUint32(0,bits,true);const value=d.getFloat32(0,true);return Number.isFinite(value)&&value>=0&&value<=32?value:null;};
+      const carFactor=factor(carBits),driverFactor=driverOK?factor(driverBits):null;
+      if(carFactor!==null)out.catchupCarFactor=carFactor;
+      if(driverFactor!==null)out.catchupDriverFactor=driverFactor;
+      if(carFactor===null||(driverOK&&driverFactor===null))out.catchupTelemetryStatus='value-invalid';
+      // Wider observation bounds expose runaway values; they never authorize
+      // a write. Reject mixed identities/publications instead of logging them.
+      if(this.read(4)!==seq||this.read(0)!==MAGIC||this.read(28)!==MAGIC)return unavailable('context-changed');
+      if(this.u32(0xd00000)!==player||this.u32(player+4)!==car||this.u32(player+16)!==0||this.u32(0x890118)!==race||this.u32(race)!==4||this.u32(car+0x2c)!==driver||this.u32(car+0x24)!==kind||this.u32(car+0x468)!==carBits||this.u32(0x8654a4)!==6||this.u32(0xd00030)!==1)return unavailable('context-changed');
+      if(driverOK&&(this.u32(driver)!==0x785370||this.u32(driver+4)!==car||this.u32(driver+0x770)!==driverBits))return unavailable('context-changed');
+      return out;
+    }
+    status(){
+      if(!this.available)return {available:false,ready:false,active:false,level:null,nativePaceTelemetryStatus:'unavailable',cornerPlannerTelemetryStatus:'unsupported',status:'unavailable',reason:patchState.reason==='Waiting for game module.'?'Reload the game after updating the extension.':patchState.reason};
+      if(!this.refresh() || this.read(28)!==MAGIC)return {available:true,ready:false,active:false,level:null,nativePaceTelemetryStatus:'mailbox-unready',cornerPlannerTelemetryStatus:'route-unavailable',status:'waiting',reason:'Waiting for the native game loop.'};
+      const nativePaceSequence=this.read(4);
+      const owned=this.read(36),player=this.u32(0xd00000),car=this.u32(player+4),code=this.read(52);
+      const drag=!!this.view.getUint8(0x89e7d8),dragEnabled=this.read(88)===1;
+      const valid=p=>p>=0x10000 && p+4096<Math.min(this.view.byteLength,0x28000000);
+      const record=this.u32(car+20);
+      const driftPhysicsRequired=!!this.capabilities.nativeDriftPhysics&&!drag&&!this.u32(0x890108)&&!!(this.u32(0x890114)||this.view.getUint8(0x89e7d9)||this.u32(0x890104))&&valid(record)&&this.u32(record+4)===1&&this.view.getUint8(record+0x900)===0;
+      const candidateDriver=this.u32(car+44);
+      const driftDriverValid=valid(candidateDriver)&&this.u32(candidateDriver)===0x785370&&this.u32(candidateDriver+4)===car;
+      const dragInputOwned=!this.capabilities.nativeDragInputHandoff||!drag||(this.read(92)===1&&this.u32(player+556)===4&&this.u32(player+560)===4);
+      const active=dragInputOwned&&(!driftPhysicsRequired||driftDriverValid)&&(!(drag||driftPhysicsRequired) || this.u32(car+0x28)===1) && !!owned && owned===car && this.read(32)===player && this.u32(car+0x24)===3 && code===1;
+      const driver=active?this.u32(car+0x2c):0;
+      const action=valid(driver)&&this.u32(driver)===0x785370&&this.u32(driver+4)===car?this.u32(driver+0x6fc):0;
+      const actionId=valid(action)?this.u32(action+20):null;
+      const opponentDragSelected=active&&drag&&actionId===2&&this.u32(action)===0x7847d0;
+      const dragConfigUnavailable=active&&drag&&actionId===3&&valid(action)&&this.u32(action)===0x784830&&(!valid(driver)||!valid(this.u32(driver+0x6e0)));
+      const dragSelection=opponentDragSelected?'opponent':!this.capabilities.opponentDrag?'unsupported':actionId===3?'player':actionId===null?'pending':'native-temporary';
+      const manualDrag=!!this.capabilities.nativeDragInputHandoff&&this.u32(car+0x24)===2&&this.u32(player+16)===0&&this.u32(player+556)===3&&[2,3].includes(this.u32(player+560))&&valid(record)&&this.u32(record+4)===1&&this.view.getUint8(record+0x900)===0;
+      const controlModeRetry=!!this.capabilities.nativeDragInputHandoff&&!!car&&!owned&&code===0&&[1,2].includes(this.read(8))&&this.read(72)===car;
+      const rec=active?this.u32(car+0x14):0,manual=!!car && (this.u32(car+0x24)===1 || manualDrag);
+      const cr=off=>this.capabilities.corner?Atomics.load(this.words,(CORNER.commandBase+off)/4)>>>0:0;
+      const cornerMemoryBlocked=!!this.capabilities.corner && cr(0)!==CORNER.commandMagic && Array.from({length:16},(_,i)=>cr(i*4)).some(v=>v!==0);
+      const cornerDriftBlocked=!!this.capabilities.corner && !!(this.view.getUint8(0x89e7d9)||this.u32(0x890104));
+      const cornerMode=cr(0)===CORNER.commandMagic&&[1,2,3].includes(cr(4))?cr(4):0;
+      const raceCornerBlocked=(cornerMode===3&&(this.view.getUint8(0x89e7e3)||this.u32(0x89010c)||this.u32(0x850088)===10&&((this.u32(0x850078)&520)||this.u32(0x866a14)||this.u32(0x8669f4)||this.view.getUint8(0x89cf69))))||drag||cornerDriftBlocked||this.u32(0x890108)||this.u32(0x890114)||(this.read(84)!==1&&((this.u32(0x850078)&520)||this.u32(0x866a14)||this.u32(0x8669f4)||this.view.getUint8(0x89cf69)));
+      const cornerRequested=cornerMode===1&&this.read(8)===2&&this.u32(0x89e7b0)===0&&!drag||cornerMode>=2&&this.read(8)===1&&this.u32(0x89e7b0)===1&&!raceCornerBlocked;
+      const cornerPace=cornerMode===1?Math.max(1,cr(48)/100):cornerMode>=2?cr(48)/100:1,cornerBraking=cornerMode>=2?cr(44)/100:1,brakingHits=active&&cornerRequested&&cornerMode>=2?cr(60):0;
+      const cornerHits=cornerRequested && cr(12)===car?cr(16):0,cornerFactor=cr(8)/100;
+      const cornerMargin=cr(36),cornerConfirmed=active && cornerRequested && cornerHits && cr(32)===cr(8) && cr(40)===cornerMargin && (cornerMode<2||cr(52)===cr(48)&&cr(56)===cr(44));
+      const before=this.capabilities.corner?this.view.getFloat32(CORNER.commandBase+20,true):0,after=this.capabilities.corner?this.view.getFloat32(CORNER.commandBase+24,true):0;
+      const actualFactor=Number.isFinite(before)&&Number.isFinite(after)&&before>0&&after>0&&after<=before?after/before:null;
+      const lastCornerCurvature=this.capabilities.corner?this.view.getFloat32(CORNER.commandBase+28,true):0;
+      const cornerProbeStage=cornerHits?7:cornerRequested&&Number.isInteger(lastCornerCurvature)&&lastCornerCurvature>=-6&&lastCornerCurvature<=-1?-lastCornerCurvature:0;
+      const cornerApplied=cornerConfirmed?(cornerMode===1&&cornerMargin===0?cr(32)/100:actualFactor):null;
+      // Read-only page-side evidence. These are sampled guard inputs, NOT a
+      // claim that the native helper ran; only cornerHits confirms application.
+      // No guest pointers, names, save data or location data enter the logger.
+      const cornerDriverValid=active&&valid(candidateDriver)&&this.u32(candidateDriver+4)===car;
+      const cornerRoute=cornerDriverValid?this.u32(candidateDriver+0x6e8):0;
+      const cornerRouteOwned=cornerDriverValid&&valid(cornerRoute)&&cornerRoute===candidateDriver+0x370;
+      const routeNodes=cornerRouteOwned?this.u32(cornerRoute+4):null;
+      const routeCorners=cornerRouteOwned?this.u32(cornerRoute+0xd0):null;
+      const cornerRouteNodes=Number.isInteger(routeNodes)&&routeNodes<=40?routeNodes:null;
+      const cornerPlannerCorners=Number.isInteger(routeCorners)&&routeCorners<=40?routeCorners:null;
+      // A nonempty list can contain only a tail record that f17087 bypasses.
+      // Historical hook hits do not establish that a current sampled bend has
+      // a protected cap. This readout never changes native records or guards.
+      let cornerPlannerUsable=null,cornerPlannerTelemetryStatus=!this.capabilities.corner?'unsupported':cornerMode<2?'command-ineligible':!cornerRouteOwned?'route-unavailable':'record-invalid';
+      // Commands2 and3 use the same native0x422780 private-route records:
+      // +0xd0 count, +0xd4 inline128-byte records, signed index+116 and eight
+      // side markers+117. Command2 includes the preserved Street X path.
+      if(cornerMode>=2&&cornerRouteOwned&&cornerRouteNodes>=2&&cornerRouteNodes<=40&&Number.isInteger(routeCorners)&&routeCorners<=5){
+        const bytes=Uint8Array.from(new Uint8Array(this.view.buffer,cornerRoute+0xd4,routeCorners*128)),v=new DataView(bytes.buffer),sampleNodes=new Map();
+        let usable=0,invalid=false;
+        for(let i=0;i<routeCorners&&!invalid;i++){
+          const at=i*128,index=v.getInt8(at+116);
+          if(index< -1||index>=routeNodes){invalid=true;break;}
+          // The native comparison admits -1, but that sentinel does not prove
+          // a current forward sample. Native processing remains unchanged.
+          if(index<0||index>routeNodes-2)continue;
+          for(let j=0;j<8;j++){
+            const marker=v.getInt8(at+117+j);
+            if(marker<0||marker>=routeNodes){invalid=true;break;}
+            const node=this.u32(cornerRoute+8+marker*4);
+            if(!valid(node)||this.u32(node+0x64)!==cornerRoute){invalid=true;break;}
+            sampleNodes.set(marker,node);
+          }
+          const points=Array.from({length:5},(_,j)=>[v.getFloat32(at+j*8,true),v.getFloat32(at+j*8+4,true)]),distances=Array.from({length:5},(_,j)=>v.getFloat32(at+40+j*4,true)),cap=v.getFloat32(at+0x60,true);
+          if(!points.flat().every(Number.isFinite)||!distances.every((x,j)=>Number.isFinite(x)&&(j===0||x>distances[j-1]))||!Number.isFinite(cap)||cap<0||cap>60){invalid=true;break;}
+          if(invalid||cap===0||cap===60)continue;
+          const [a,b,c]=points.slice(1,4),ux=b[0]-a[0],uy=b[1]-a[1],vx=c[0]-b[0],vy=c[1]-b[1],la=Math.hypot(ux,uy),lb=Math.hypot(vx,vy),chord=Math.hypot(c[0]-a[0],c[1]-a[1]);
+          if(la<1e-5||lb<1e-5||chord<1e-5)continue;
+          const curvature=2*Math.abs(ux*vy-uy*vx)/(la*lb*chord);
+          if(Number.isFinite(curvature)&&curvature>0)usable++;
+        }
+        // Reject observed changes during this best-effort shared-memory read.
+        // Matching reads do not prove an atomic snapshot or a fresh native pass.
+        const same=bytes.every((x,j)=>x===this.view.getUint8(cornerRoute+0xd4+j))&&this.u32(cornerRoute+4)===routeNodes&&this.u32(cornerRoute+0xd0)===routeCorners&&this.u32(candidateDriver+0x6e8)===cornerRoute&&this.u32(candidateDriver+4)===car&&[...sampleNodes].every(([marker,node])=>this.u32(cornerRoute+8+marker*4)===node&&this.u32(node+0x64)===cornerRoute);
+        if(!invalid&&same){cornerPlannerUsable=usable;cornerPlannerTelemetryStatus='sampled';}
+        else cornerPlannerTelemetryStatus=invalid?'record-invalid':'context-changed';
+      }
+      // Bits: 1 command/profile, 2 active owner, 4 game/player context,
+      // 8 race identity/state, 16 drag/drift, 32 online opt-in,
+      // 64 driver identity, 128 private route identity.
+      const cornerGuardMask=(cornerRequested?0:1)|(active?0:2)|
+        ((this.u32(0x8654a4)===6&&this.u32(0xd00030)===1&&valid(player)&&this.u32(player+16)===0&&this.read(48)<180)?0:4)|
+        ((valid(this.u32(0x890118))&&this.u32(0x890118)===this.read(20)&&this.u32(0x890118)===this.read(40)&&this.u32(this.u32(0x890118))===4)?0:8)|
+        ((drag||cornerDriftBlocked)?16:0)|
+        ((this.read(84)===1||!(this.u32(0x850078)&520)&&!this.u32(0x866a14)&&!this.u32(0x8669f4)&&!this.view.getUint8(0x89cf69))?0:32)|
+        (cornerDriverValid?0:64)|(cornerRouteOwned?0:128);
+      const level=rec>=0x10000 && rec+0x902<Math.min(this.view.byteLength,0x28000000)?this.view.getUint8(rec+0x901):null;
+      // 0.41: the racer record keeps the player's marker (254). The replaced native GetSkill wrapper answers 9 at the AI's
+      // clamp sites while this car is owned; online requires the compiled online adapter and live opt-in.
+      // This mirrors eligibility for status text only; it is not a native skill-use receipt.
+      const skillNetwork=this.forwardContext(this.read(84)===1)?.network===true||!!((this.u32(0x850078)&520)||this.u32(0x866a14)||this.u32(0x8669f4)||this.view.getUint8(0x89cf69));
+      const skillNine=this.capabilities.godlySkill===true&&level===254&&active&&this.read(48)<180&&[1,2].includes(this.read(8))&&this.u32(0x8654a4)===6&&this.u32(0xd00030)===1&&(!skillNetwork||this.capabilities.nativeOnlineAI===true&&this.read(84)===1);
+      // Authored pace hooks publish B+60 requested percent, B+76 applied
+      // percent and B+80 application count. These are distinct mailbox facts;
+      // none measures physical speed. AA counts target-factor consumption; older
+      // builds count wrapper updates. Sample only a stable native generation.
+      let nativePaceRequested=null,nativePaceApplied=null,nativePaceHits=null,nativePaceTelemetryStatus='unsupported';
+      if(this.capabilities.pace){
+        const requested=this.read(60),applied=this.read(76),hits=this.read(80);
+        const publication=this.read(0)===MAGIC&&this.read(28)===MAGIC&&nativePaceSequence!==0&&!(nativePaceSequence&1)&&requested>=75&&requested<=300&&(!hits||applied>=75&&applied<=300);
+        const paceRace=this.read(40),paceNetwork=(this.u32(0x850078)&520)||this.u32(0x866a14)||this.u32(0x8669f4)||this.view.getUint8(0x89cf69);
+        const currentOwner=active&&[1,2].includes(this.read(8))&&this.u32(0x8654a4)===6&&this.u32(0xd00030)===1&&valid(player)&&this.u32(player+16)===0&&valid(car)&&valid(driver)&&this.u32(driver)===0x785370&&this.u32(driver+4)===car&&this.u32(car+0x2c)===driver&&this.u32(0xd00000)===player&&this.u32(player+4)===car&&this.read(12)===player&&this.read(32)===player&&this.read(16)===car&&this.read(36)===car&&valid(paceRace)&&this.read(20)===paceRace&&this.u32(0x890118)===paceRace&&this.u32(paceRace)===4&&this.read(48)<180&&(!paceNetwork||this.read(84)===1);
+        if(this.read(4)!==nativePaceSequence)nativePaceTelemetryStatus='mailbox-changed';
+        else if(!publication)nativePaceTelemetryStatus='mailbox-invalid';
+        else{
+          nativePaceRequested=requested/100;nativePaceHits=hits;
+          nativePaceTelemetryStatus=currentOwner?'sampled':'context-unowned';
+          if(currentOwner&&!drag&&!this.nativeDriftPace()&&hits)nativePaceApplied=applied/100;
+        }
+      }
+      // Rails: requested = the page's opt-in word is published; on = the owned AI car is on simplified physics now.
+      const railsRequested=this.capabilities.nativeRails===true&&this.read(104)===RAILS_MAGIC,railsPins=this.capabilities.nativeRails===true?this.read(108):0,railsOn=railsRequested&&active&&!drag&&this.u32(car+0x28)===3;
+      return {...this.catchupDiagnostics(),available:true,ready:true,active,railsRequested,railsPins,railsOn,owned:!!owned,manual,controlModeRetry,driftPhysicsRequired,actionId,opponentDragSelected,dragSelection,dragConfigUnavailable,cornerRequested,cornerMode,cornerPace,cornerBraking,brakingHits,cornerMemoryBlocked,cornerDriftBlocked,cornerFactor,cornerMargin,cornerApplied,cornerHits,cornerDriverValid,cornerRouteOwned,cornerRouteNodes,cornerPlannerCorners,cornerPlannerUsable,cornerPlannerTelemetryStatus,cornerGuardMask,cornerProbeStage,nativePaceRequested,nativePaceApplied,nativePaceHits,nativePaceTelemetryStatus,dragUnsupported:drag && !dragEnabled,dragExperimental:drag && dragEnabled,level,skillNine,paceRequested:this.read(60)/100,paceApplied:active && !drag && !this.nativeDriftPace() && this.read(80) && this.read(76)>=75 && this.read(76)<=300 ? this.read(76)/100 : null,status:drag && !dragEnabled?'unsupported':active?'active':code===3?'failed':controlModeRetry?'retry':'ready',reason:drag && !this.capabilities.dragAI?'Automatic drag AI is not verified for this build. Use manual control.':drag && !dragEnabled?'Drag AI is not requested. Enable Automatic AI driver; manual drag assist is available.':active && drag?`Experimental drag AI${level===9?' · level 9':skillNine?' · skill 9 for launch and nitrous decisions':' · unusual skill left unchanged'} · ${opponentDragSelected?'opponent drag action confirmed':dragSelection==='unsupported'?'opponent selector unsupported on this build':dragConfigUnavailable?'player drag action; config unavailable, opponent selection pending':actionId===3?'player drag action; opponent selection pending':'native action '+(actionId??'pending')+'; opponent selection pending'}, gameplay unverified.`:active&&driftPhysicsRequired?`Native drift driver and physics 1 confirmed${level===9?' · level 9':skillNine?' · skill 9 decisions':''}${this.capabilities.nativeDriftRecovery?' · native recovery guard installed':''}; gameplay unverified.`:active?`Native game AI driving${level===9?' · level 9':skillNine?' · skill 9 for nitrous and race decisions':' · unusual skill value left unchanged'}${railsOn?' · on rails':''}.`:code===3?'The game did not hand over the car. Turn AI off before retrying.':controlModeRetry?'The game changed control mode. Turn Automatic AI off, then on to retry.':drag?'Experimental drag AI waiting for full driving physics after GO.':'Ready for automatic native/drag selection; online needs its separate opt-in.'};
+    }
+  }
+  const api={Controller,install,compileLocal,getSourceProfile,patchState,getNativeEvaluator:module=>nativeEvaluators.get(module)||null,getNearMissBridge,isPatchedModule:module=>patched.has(module),getModuleProfile:module=>patched.get(module)||null,patchBytes,patchCornerBody,patchBrakingBody,patchDragSelector,patchDragInputBody,patchDragOverheatBody,patchOwnedNosBody,patchDriftRecoveryBody,BASE,MAGIC,RAILS_MAGIC,CORNER_BASE:CORNER.commandBase,CORNER_MAGIC:CORNER.commandMagic};
+  root.__NFSU2_AI__=api;
+  if(typeof module==='object' && module.exports)module.exports=api;
+})(globalThis);
+
+
+===== nfsu2-extension/extension/worker-module-loader.js =====
+/* Ordered game-worker boot adaptation. The caller verifies source bytes and
+ * capabilities; failures retain the original module and process configuration. */
+(function(root){
+  'use strict';
+  function create({prepare,timeoutMs=10000,onError=()=>{},clone=root.structuredClone}={}){
+    if(typeof prepare!=='function'||typeof clone!=='function')throw new Error('Worker module preparation is unavailable.');
+    if(!Number.isFinite(timeoutMs)||timeoutMs<=0||timeoutMs>10000)throw new Error('Invalid worker module preparation timeout.');
+    const decisions=new WeakMap();
+    let primaryGeneration=0,primaryFamily=null;
+    const report=error=>{try{onError(error);}catch{}};
+    function decision(originalModule){
+      if(decisions.has(originalModule))return decisions.get(originalModule);
+      const abort=new AbortController();let timer;
+      const pending=Promise.race([
+        Promise.resolve().then(()=>prepare(originalModule,{signal:abort.signal})).catch(error=>{report(error);return null;}),
+        new Promise(resolve=>{timer=setTimeout(()=>{abort.abort();report(new Error('Worker module preparation timed out.'));resolve(null);},timeoutMs);})
+      ]).then(value=>value?.module instanceof WebAssembly.Module&&value.profile?value:null)
+        .catch(error=>{report(error);return null;})
+        .finally(()=>clearTimeout(timer));
+      decisions.set(originalModule,pending);return pending;
+    }
+    function snapshot(message,rest){
+      const arg=rest[0];
+      const object=value=>value!==null&&(typeof value==='object'||typeof value==='function');
+      if(arg!=null&&!object(arg))throw new TypeError('Worker message options must be an object.');
+      const iterator=arg?.[Symbol.iterator];
+      if(iterator!=null&&typeof iterator!=='function')throw new TypeError('Worker transfer sequence is not iterable.');
+      const sequence=typeof iterator==='function',transfer=sequence?arg:arg?.transfer;
+      if(transfer!==undefined&&(!object(transfer)||typeof transfer[Symbol.iterator]!=='function'))throw new TypeError('Worker transfer sequence is not iterable.');
+      const list=transfer===undefined?[]:Array.from(transfer);
+      // Include the list itself so even transferred objects not reachable from
+      // message have corresponding owned clones available for the later send.
+      const copied=clone.call(root,{message,transfers:list},{transfer:list});
+      const copiedRest=rest.slice();
+      if(rest.length&&arg!=null)copiedRest[0]=sequence?copied.transfers:{transfer:copied.transfers};
+      return {message:copied.message,rest:copiedRest,transfers:copied.transfers};
+    }
+    function generation(originalModule,originalMemory,slot){
+      // A delayed older primary may still boot its own native worker, but it
+      // cannot replace the page's newest session. Same-family secondaries can.
+      if(slot===0){primaryFamily={originalModule,originalMemory};return ++primaryGeneration;}
+      return primaryFamily?.originalModule===originalModule&&primaryFamily.originalMemory===originalMemory?primaryGeneration:null;
+    }
+    const close=entry=>{for(const transfer of entry.transfers||[])try{transfer.close?.();}catch{}};
+    function attach(worker,{onForward=()=>{}}={}){
+      const send=worker.postMessage,terminate=worker.terminate;
+      if(typeof send!=='function')throw new Error('Worker message channel is unavailable.');
+      const originalPost=Object.getOwnPropertyDescriptor(worker,'postMessage');
+      const originalTerminate=Object.getOwnPropertyDescriptor(worker,'terminate');
+      const queue=[];let alive=true,draining=false;
+      const notify=(message,meta)=>{try{onForward(message,meta);}catch(error){report(error);}};
+      const discard=()=>{for(const entry of queue)close(entry);queue.length=0;};
+      async function drain(){
+        if(draining)return;draining=true;
+        try{
+          while(alive&&queue.length){
+            const entry=queue[0],prepared=entry.init?await entry.prepared:null;
+            if(!alive)return;
+            if(prepared)entry.message.mod=prepared.module;
+            if(entry.boot&&entry.generation===primaryGeneration)notify(entry.message,{originalModule:entry.originalModule,originalMemory:entry.originalMemory,verified:!!prepared,profile:prepared?.profile||null});
+            try{Reflect.apply(send,worker,[entry.message,...entry.rest]);}
+            catch(error){report(error);alive=false;discard();return;}
+            queue.shift();
+          }
+        }finally{draining=false;}
+      }
+      function postMessage(message,...rest){
+        if(this!==worker)return Reflect.apply(send,this,[message,...rest]);
+        if(!alive)return Reflect.apply(send,this,[message,...rest]);
+        const boot=message?.mod instanceof WebAssembly.Module&&Number.isSafeInteger(message.slot)&&message.slot>=0;
+        const init=boot&&message?.memory instanceof WebAssembly.Memory;
+        // Memory-port boots remain native and unverified. Current page controls
+        // require an actual shared Memory in the page, not a transferred port.
+        if(!init&&!draining&&!queue.length){
+          if(boot&&generation(message.mod,null,message.slot)===primaryGeneration)notify(message,{originalModule:message.mod,originalMemory:null,verified:false,profile:null});
+          return Reflect.apply(send,this,[message,...rest]);
+        }
+        const originalModule=boot?message.mod:null,originalMemory=init?message.memory:null;
+        const entry={...snapshot(message,rest),boot,init,originalModule,originalMemory};
+        if(boot)entry.generation=generation(originalModule,originalMemory,message.slot);
+        if(init)entry.prepared=decision(originalModule);
+        queue.push(entry);void drain().catch(error=>{report(error);alive=false;discard();});
+      }
+      function terminateWorker(...args){
+        if(this!==worker)return Reflect.apply(terminate,this,args);
+        alive=false;discard();return Reflect.apply(terminate,this,args);
+      }
+      try{
+        worker.postMessage=postMessage;
+        if(typeof terminate==='function')worker.terminate=terminateWorker;
+      }catch(error){
+        alive=false;discard();
+        try{if(originalPost)Object.defineProperty(worker,'postMessage',originalPost);else delete worker.postMessage;}catch{}
+        try{if(originalTerminate)Object.defineProperty(worker,'terminate',originalTerminate);else delete worker.terminate;}catch{}
+        throw error;
+      }
+      return {cancel(){alive=false;discard();}};
+    }
+    return Object.freeze({attach});
+  }
+  const api=Object.freeze({create});
+  root.__NFSU2_WORKER_MODULE_LOADER__=api;
+  if(typeof module==='object'&&module.exports)module.exports=api;
+})(globalThis);
+
+
+===== nfsu2-extension/extension/source-interfaces.js =====
+/* Interfaces from exact pinned source modules; metadata only, no native game code. */
+(function(root){'use strict';const interfaces={"81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945":{"imports":[{"module":"env","name":"memory","kind":"memory"},{"module":"nfsu2","name":"wall_ms","kind":"function"},{"module":"nfsu2","name":"movie_open","kind":"function"},{"module":"nfsu2","name":"now_ms","kind":"function"},{"module":"nfsu2","name":"movie_decode","kind":"function"},{"module":"nfsu2","name":"movie_close","kind":"function"},{"module":"nfsu2","name":"register","kind":"function"},{"module":"nfsu2","name":"stack_frames","kind":"function"},{"module":"nfsu2","name":"blocked_ms","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"clock_time_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_close","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_set_flags","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_set_size","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_pread","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_dir_name","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_read","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_readdir","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_seek","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_sync","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_tell","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_write","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_create_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_open","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_remove_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_rename","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_unlink_file","kind":"function"},{"module":"wasi_snapshot_preview1","name":"poll_oneoff","kind":"function"},{"module":"wasi_snapshot_preview1","name":"proc_exit","kind":"function"},{"module":"wasi_snapshot_preview1","name":"sched_yield","kind":"function"},{"module":"wasi_snapshot_preview1","name":"random_get","kind":"function"},{"module":"wasi","name":"thread-spawn","kind":"function"}],"exports":[{"name":"memory","kind":"memory"},{"name":"_start","kind":"function"},{"name":"wasi_thread_start","kind":"function"}]},"ee5d281a3109240d5db25dc3921e1044672cf6d650eb58c3baa089b54fe2941f":{"imports":[{"module":"env","name":"memory","kind":"memory"},{"module":"nfsu2","name":"movie_open","kind":"function"},{"module":"nfsu2","name":"now_ms","kind":"function"},{"module":"nfsu2","name":"movie_decode","kind":"function"},{"module":"nfsu2","name":"movie_close","kind":"function"},{"module":"nfsu2","name":"register","kind":"function"},{"module":"nfsu2","name":"stack_frames","kind":"function"},{"module":"nfsu2","name":"blocked_ms","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"clock_time_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_close","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_set_flags","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_set_size","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_pread","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_dir_name","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_read","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_readdir","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_seek","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_sync","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_tell","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_write","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_create_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_open","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_remove_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_rename","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_unlink_file","kind":"function"},{"module":"wasi_snapshot_preview1","name":"poll_oneoff","kind":"function"},{"module":"wasi_snapshot_preview1","name":"proc_exit","kind":"function"},{"module":"wasi_snapshot_preview1","name":"sched_yield","kind":"function"},{"module":"wasi_snapshot_preview1","name":"random_get","kind":"function"},{"module":"wasi","name":"thread-spawn","kind":"function"}],"exports":[{"name":"memory","kind":"memory"},{"name":"_start","kind":"function"},{"name":"wasi_thread_start","kind":"function"}]},"5e33ad2cb4c4cc6893dee7cbd4d6e9bfb0f59a349d218fddbb5e3331ca69bc34":{"imports":[{"module":"env","name":"memory","kind":"memory"},{"module":"nfsu2","name":"movie_open","kind":"function"},{"module":"nfsu2","name":"now_ms","kind":"function"},{"module":"nfsu2","name":"movie_decode","kind":"function"},{"module":"nfsu2","name":"movie_close","kind":"function"},{"module":"nfsu2","name":"register","kind":"function"},{"module":"nfsu2","name":"stack_frames","kind":"function"},{"module":"nfsu2","name":"blocked_ms","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"clock_time_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_close","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_set_flags","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_set_size","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_pread","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_dir_name","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_read","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_readdir","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_seek","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_sync","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_tell","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_write","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_create_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_open","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_remove_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_rename","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_unlink_file","kind":"function"},{"module":"wasi_snapshot_preview1","name":"poll_oneoff","kind":"function"},{"module":"wasi_snapshot_preview1","name":"proc_exit","kind":"function"},{"module":"wasi_snapshot_preview1","name":"sched_yield","kind":"function"},{"module":"wasi_snapshot_preview1","name":"random_get","kind":"function"},{"module":"wasi","name":"thread-spawn","kind":"function"}],"exports":[{"name":"memory","kind":"memory"},{"name":"_start","kind":"function"},{"name":"wasi_thread_start","kind":"function"}]},"df7b930bb293ffdf975f0735d93e0797d51bd137d0cbeabcaff87fc5a693c759":{"imports":[{"module":"env","name":"memory","kind":"memory"},{"module":"nfsu2","name":"movie_open","kind":"function"},{"module":"nfsu2","name":"now_ms","kind":"function"},{"module":"nfsu2","name":"movie_decode","kind":"function"},{"module":"nfsu2","name":"movie_close","kind":"function"},{"module":"nfsu2","name":"register","kind":"function"},{"module":"nfsu2","name":"stack_frames","kind":"function"},{"module":"nfsu2","name":"blocked_ms","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"clock_time_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_close","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_set_flags","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_set_size","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_pread","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_dir_name","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_read","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_readdir","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_seek","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_sync","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_tell","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_write","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_create_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_open","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_remove_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_rename","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_unlink_file","kind":"function"},{"module":"wasi_snapshot_preview1","name":"poll_oneoff","kind":"function"},{"module":"wasi_snapshot_preview1","name":"proc_exit","kind":"function"},{"module":"wasi_snapshot_preview1","name":"sched_yield","kind":"function"},{"module":"wasi_snapshot_preview1","name":"random_get","kind":"function"},{"module":"wasi","name":"thread-spawn","kind":"function"}],"exports":[{"name":"memory","kind":"memory"},{"name":"_start","kind":"function"},{"name":"wasi_thread_start","kind":"function"}]},"128e2b5816a8eace4b768aec920318a1613da8235801a361e2009e96550be1d6":{"imports":[{"module":"env","name":"memory","kind":"memory"},{"module":"nfsu2","name":"movie_open","kind":"function"},{"module":"nfsu2","name":"now_ms","kind":"function"},{"module":"nfsu2","name":"movie_decode","kind":"function"},{"module":"nfsu2","name":"movie_close","kind":"function"},{"module":"nfsu2","name":"register","kind":"function"},{"module":"nfsu2","name":"stack_frames","kind":"function"},{"module":"nfsu2","name":"blocked_ms","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"clock_time_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_close","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_set_flags","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_set_size","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_pread","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_dir_name","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_read","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_readdir","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_seek","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_sync","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_tell","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_write","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_create_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_open","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_remove_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_rename","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_unlink_file","kind":"function"},{"module":"wasi_snapshot_preview1","name":"poll_oneoff","kind":"function"},{"module":"wasi_snapshot_preview1","name":"proc_exit","kind":"function"},{"module":"wasi_snapshot_preview1","name":"sched_yield","kind":"function"},{"module":"wasi_snapshot_preview1","name":"random_get","kind":"function"},{"module":"wasi","name":"thread-spawn","kind":"function"}],"exports":[{"name":"memory","kind":"memory"},{"name":"_start","kind":"function"},{"name":"wasi_thread_start","kind":"function"}]},"ed47e9bdd94a336d8d6bd52bebcc6f130b40ffb6d692f0fc728b8785db02178c":{"imports":[{"module":"env","name":"memory","kind":"memory"},{"module":"nfsu2","name":"movie_open","kind":"function"},{"module":"nfsu2","name":"now_ms","kind":"function"},{"module":"nfsu2","name":"movie_decode","kind":"function"},{"module":"nfsu2","name":"movie_close","kind":"function"},{"module":"nfsu2","name":"register","kind":"function"},{"module":"nfsu2","name":"stack_frames","kind":"function"},{"module":"nfsu2","name":"blocked_ms","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"clock_time_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_close","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_set_flags","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_set_size","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_pread","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_dir_name","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_read","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_readdir","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_seek","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_sync","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_tell","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_write","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_create_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_open","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_remove_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_rename","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_unlink_file","kind":"function"},{"module":"wasi_snapshot_preview1","name":"poll_oneoff","kind":"function"},{"module":"wasi_snapshot_preview1","name":"proc_exit","kind":"function"},{"module":"wasi_snapshot_preview1","name":"sched_yield","kind":"function"},{"module":"wasi_snapshot_preview1","name":"random_get","kind":"function"},{"module":"wasi","name":"thread-spawn","kind":"function"}],"exports":[{"name":"memory","kind":"memory"},{"name":"_start","kind":"function"},{"name":"wasi_thread_start","kind":"function"}]},"e41d71453cecba5ee2cd3cbf70af1c84180020644151f5f9bc2fa828fa5123bb":{"imports":[{"module":"env","name":"memory","kind":"memory"},{"module":"nfsu2","name":"movie_open","kind":"function"},{"module":"nfsu2","name":"now_ms","kind":"function"},{"module":"nfsu2","name":"movie_decode","kind":"function"},{"module":"nfsu2","name":"movie_close","kind":"function"},{"module":"nfsu2","name":"register","kind":"function"},{"module":"nfsu2","name":"stack_frames","kind":"function"},{"module":"nfsu2","name":"blocked_ms","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"clock_time_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_close","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_set_flags","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_set_size","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_pread","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_dir_name","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_read","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_readdir","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_seek","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_sync","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_tell","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_write","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_create_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_open","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_remove_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_rename","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_unlink_file","kind":"function"},{"module":"wasi_snapshot_preview1","name":"poll_oneoff","kind":"function"},{"module":"wasi_snapshot_preview1","name":"proc_exit","kind":"function"},{"module":"wasi_snapshot_preview1","name":"sched_yield","kind":"function"},{"module":"wasi_snapshot_preview1","name":"random_get","kind":"function"},{"module":"wasi","name":"thread-spawn","kind":"function"}],"exports":[{"name":"memory","kind":"memory"},{"name":"_start","kind":"function"},{"name":"wasi_thread_start","kind":"function"}]},"32b09c8bfea0c23aff21e5edac8f3b99b4d3fe143e8b479b9bea506091ab2174":{"imports":[{"module":"env","name":"memory","kind":"memory"},{"module":"nfsu2","name":"movie_open","kind":"function"},{"module":"nfsu2","name":"now_ms","kind":"function"},{"module":"nfsu2","name":"movie_decode","kind":"function"},{"module":"nfsu2","name":"movie_close","kind":"function"},{"module":"nfsu2","name":"register","kind":"function"},{"module":"nfsu2","name":"stack_frames","kind":"function"},{"module":"nfsu2","name":"blocked_ms","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"clock_time_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_close","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_set_flags","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_set_size","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_pread","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_dir_name","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_read","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_readdir","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_seek","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_sync","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_tell","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_write","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_create_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_open","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_remove_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_rename","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_unlink_file","kind":"function"},{"module":"wasi_snapshot_preview1","name":"poll_oneoff","kind":"function"},{"module":"wasi_snapshot_preview1","name":"proc_exit","kind":"function"},{"module":"wasi_snapshot_preview1","name":"sched_yield","kind":"function"},{"module":"wasi_snapshot_preview1","name":"random_get","kind":"function"},{"module":"wasi","name":"thread-spawn","kind":"function"}],"exports":[{"name":"memory","kind":"memory"},{"name":"_start","kind":"function"},{"name":"wasi_thread_start","kind":"function"}]},"14074507a84d43365610feae3a8fad80f4637b891e2ed03239460b104f986cbd":{"imports":[{"module":"env","name":"memory","kind":"memory"},{"module":"nfsu2","name":"movie_open","kind":"function"},{"module":"nfsu2","name":"now_ms","kind":"function"},{"module":"nfsu2","name":"movie_decode","kind":"function"},{"module":"nfsu2","name":"movie_close","kind":"function"},{"module":"nfsu2","name":"register","kind":"function"},{"module":"nfsu2","name":"stack_frames","kind":"function"},{"module":"nfsu2","name":"blocked_ms","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"clock_time_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_close","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_set_flags","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_set_size","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_pread","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_dir_name","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_read","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_readdir","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_seek","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_sync","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_tell","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_write","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_create_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_open","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_remove_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_rename","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_unlink_file","kind":"function"},{"module":"wasi_snapshot_preview1","name":"poll_oneoff","kind":"function"},{"module":"wasi_snapshot_preview1","name":"proc_exit","kind":"function"},{"module":"wasi_snapshot_preview1","name":"sched_yield","kind":"function"},{"module":"wasi_snapshot_preview1","name":"random_get","kind":"function"},{"module":"wasi","name":"thread-spawn","kind":"function"}],"exports":[{"name":"memory","kind":"memory"},{"name":"_start","kind":"function"},{"name":"wasi_thread_start","kind":"function"}]},"e03eca29aa8cba3ac4a96836ad3d86dd5eb8258704c0e6260ecc5ef955536a03":{"imports":[{"module":"env","name":"memory","kind":"memory"},{"module":"nfsu2","name":"movie_open","kind":"function"},{"module":"nfsu2","name":"now_ms","kind":"function"},{"module":"nfsu2","name":"movie_decode","kind":"function"},{"module":"nfsu2","name":"movie_close","kind":"function"},{"module":"nfsu2","name":"register","kind":"function"},{"module":"nfsu2","name":"stack_frames","kind":"function"},{"module":"nfsu2","name":"blocked_ms","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"clock_time_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_close","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_set_flags","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_set_size","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_pread","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_dir_name","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_read","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_readdir","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_seek","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_sync","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_tell","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_write","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_create_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_open","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_remove_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_rename","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_unlink_file","kind":"function"},{"module":"wasi_snapshot_preview1","name":"poll_oneoff","kind":"function"},{"module":"wasi_snapshot_preview1","name":"proc_exit","kind":"function"},{"module":"wasi_snapshot_preview1","name":"sched_yield","kind":"function"},{"module":"wasi_snapshot_preview1","name":"random_get","kind":"function"},{"module":"wasi","name":"thread-spawn","kind":"function"}],"exports":[{"name":"memory","kind":"memory"},{"name":"_start","kind":"function"},{"name":"wasi_thread_start","kind":"function"}]},"a220e667d38c0a6509c1507ad3ca9c6fddeb2220b429bf28707d7ca8cbbc42c8":{"imports":[{"module":"env","name":"memory","kind":"memory"},{"module":"nfsu2","name":"movie_open","kind":"function"},{"module":"nfsu2","name":"now_ms","kind":"function"},{"module":"nfsu2","name":"movie_decode","kind":"function"},{"module":"nfsu2","name":"movie_close","kind":"function"},{"module":"nfsu2","name":"register","kind":"function"},{"module":"nfsu2","name":"stack_frames","kind":"function"},{"module":"nfsu2","name":"blocked_ms","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"clock_time_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_close","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_set_flags","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_set_size","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_pread","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_dir_name","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_read","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_readdir","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_seek","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_sync","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_tell","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_write","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_create_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_open","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_remove_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_rename","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_unlink_file","kind":"function"},{"module":"wasi_snapshot_preview1","name":"poll_oneoff","kind":"function"},{"module":"wasi_snapshot_preview1","name":"proc_exit","kind":"function"},{"module":"wasi_snapshot_preview1","name":"sched_yield","kind":"function"},{"module":"wasi_snapshot_preview1","name":"random_get","kind":"function"},{"module":"wasi","name":"thread-spawn","kind":"function"}],"exports":[{"name":"memory","kind":"memory"},{"name":"_start","kind":"function"},{"name":"wasi_thread_start","kind":"function"}]},"f88fc7a0fe3082e20814f705635410d046fcdfe053eb70d65c49dec7583105b9":{"imports":[{"module":"env","name":"memory","kind":"memory"},{"module":"nfsu2","name":"movie_open","kind":"function"},{"module":"nfsu2","name":"now_ms","kind":"function"},{"module":"nfsu2","name":"movie_decode","kind":"function"},{"module":"nfsu2","name":"movie_close","kind":"function"},{"module":"nfsu2","name":"register","kind":"function"},{"module":"nfsu2","name":"stack_frames","kind":"function"},{"module":"nfsu2","name":"blocked_ms","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"clock_time_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_close","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_set_flags","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_set_size","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_pread","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_dir_name","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_read","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_readdir","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_seek","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_sync","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_tell","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_write","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_create_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_open","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_remove_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_rename","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_unlink_file","kind":"function"},{"module":"wasi_snapshot_preview1","name":"poll_oneoff","kind":"function"},{"module":"wasi_snapshot_preview1","name":"proc_exit","kind":"function"},{"module":"wasi_snapshot_preview1","name":"sched_yield","kind":"function"},{"module":"wasi_snapshot_preview1","name":"random_get","kind":"function"},{"module":"wasi","name":"thread-spawn","kind":"function"}],"exports":[{"name":"memory","kind":"memory"},{"name":"_start","kind":"function"},{"name":"wasi_thread_start","kind":"function"}]},"c000f8f9002762f4274f173c81678772c456b1a696f3b69751fc6e91118fe391":{"imports":[{"module":"env","name":"memory","kind":"memory"},{"module":"nfsu2","name":"movie_open","kind":"function"},{"module":"nfsu2","name":"now_ms","kind":"function"},{"module":"nfsu2","name":"movie_decode","kind":"function"},{"module":"nfsu2","name":"movie_close","kind":"function"},{"module":"nfsu2","name":"register","kind":"function"},{"module":"nfsu2","name":"stack_frames","kind":"function"},{"module":"nfsu2","name":"blocked_ms","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"clock_time_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_close","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_set_flags","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_set_size","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_pread","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_dir_name","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_read","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_readdir","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_seek","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_sync","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_tell","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_write","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_create_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_open","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_remove_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_rename","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_unlink_file","kind":"function"},{"module":"wasi_snapshot_preview1","name":"poll_oneoff","kind":"function"},{"module":"wasi_snapshot_preview1","name":"proc_exit","kind":"function"},{"module":"wasi_snapshot_preview1","name":"sched_yield","kind":"function"},{"module":"wasi_snapshot_preview1","name":"random_get","kind":"function"},{"module":"wasi","name":"thread-spawn","kind":"function"}],"exports":[{"name":"memory","kind":"memory"},{"name":"_start","kind":"function"},{"name":"wasi_thread_start","kind":"function"}]},"395d7d34809be586e9ec80866914179247e96df7cb5729c7b8c7e4650c6dee3e":{"imports":[{"module":"env","name":"memory","kind":"memory"},{"module":"nfsu2","name":"wall_ms","kind":"function"},{"module":"nfsu2","name":"movie_open","kind":"function"},{"module":"nfsu2","name":"now_ms","kind":"function"},{"module":"nfsu2","name":"movie_decode","kind":"function"},{"module":"nfsu2","name":"movie_close","kind":"function"},{"module":"nfsu2","name":"register","kind":"function"},{"module":"nfsu2","name":"stack_frames","kind":"function"},{"module":"nfsu2","name":"blocked_ms","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"clock_time_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_close","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_set_flags","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_set_size","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_pread","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_dir_name","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_read","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_readdir","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_seek","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_sync","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_tell","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_write","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_create_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_open","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_remove_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_rename","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_unlink_file","kind":"function"},{"module":"wasi_snapshot_preview1","name":"poll_oneoff","kind":"function"},{"module":"wasi_snapshot_preview1","name":"proc_exit","kind":"function"},{"module":"wasi_snapshot_preview1","name":"sched_yield","kind":"function"},{"module":"wasi_snapshot_preview1","name":"random_get","kind":"function"},{"module":"wasi","name":"thread-spawn","kind":"function"}],"exports":[{"name":"memory","kind":"memory"},{"name":"_start","kind":"function"},{"name":"wasi_thread_start","kind":"function"}]},"3152b96dbd39c9aaac00f47cb63afff46969d88cd7470166478c9663c9abb1bb":{"imports":[{"module":"env","name":"memory","kind":"memory"},{"module":"nfsu2","name":"wall_ms","kind":"function"},{"module":"nfsu2","name":"movie_open","kind":"function"},{"module":"nfsu2","name":"now_ms","kind":"function"},{"module":"nfsu2","name":"movie_decode","kind":"function"},{"module":"nfsu2","name":"movie_close","kind":"function"},{"module":"nfsu2","name":"register","kind":"function"},{"module":"nfsu2","name":"stack_frames","kind":"function"},{"module":"nfsu2","name":"blocked_ms","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"clock_time_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_close","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_set_flags","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_set_size","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_pread","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_dir_name","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_read","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_readdir","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_seek","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_sync","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_tell","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_write","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_create_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_open","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_remove_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_rename","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_unlink_file","kind":"function"},{"module":"wasi_snapshot_preview1","name":"poll_oneoff","kind":"function"},{"module":"wasi_snapshot_preview1","name":"proc_exit","kind":"function"},{"module":"wasi_snapshot_preview1","name":"sched_yield","kind":"function"},{"module":"wasi_snapshot_preview1","name":"random_get","kind":"function"},{"module":"wasi","name":"thread-spawn","kind":"function"}],"exports":[{"name":"memory","kind":"memory"},{"name":"_start","kind":"function"},{"name":"wasi_thread_start","kind":"function"}]},"f9e0002e8a04a88355b3cc62235010e19479e0cf2ab05d8916975d68abf5706b":{"imports":[{"module":"env","name":"memory","kind":"memory"},{"module":"nfsu2","name":"wall_ms","kind":"function"},{"module":"nfsu2","name":"movie_open","kind":"function"},{"module":"nfsu2","name":"now_ms","kind":"function"},{"module":"nfsu2","name":"movie_decode","kind":"function"},{"module":"nfsu2","name":"movie_close","kind":"function"},{"module":"nfsu2","name":"register","kind":"function"},{"module":"nfsu2","name":"stack_frames","kind":"function"},{"module":"nfsu2","name":"blocked_ms","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"clock_time_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_close","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_set_flags","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_set_size","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_pread","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_dir_name","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_read","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_readdir","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_seek","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_sync","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_tell","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_write","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_create_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_open","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_remove_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_rename","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_unlink_file","kind":"function"},{"module":"wasi_snapshot_preview1","name":"poll_oneoff","kind":"function"},{"module":"wasi_snapshot_preview1","name":"proc_exit","kind":"function"},{"module":"wasi_snapshot_preview1","name":"sched_yield","kind":"function"},{"module":"wasi_snapshot_preview1","name":"random_get","kind":"function"},{"module":"wasi","name":"thread-spawn","kind":"function"}],"exports":[{"name":"memory","kind":"memory"},{"name":"_start","kind":"function"},{"name":"wasi_thread_start","kind":"function"}]},"2ba0b075721d80e75fc3fb9a3b0e4d2acae835d21fcc406d009669b83f81858d":{"imports":[{"module":"env","name":"memory","kind":"memory"},{"module":"nfsu2","name":"wall_ms","kind":"function"},{"module":"nfsu2","name":"movie_open","kind":"function"},{"module":"nfsu2","name":"now_ms","kind":"function"},{"module":"nfsu2","name":"movie_decode","kind":"function"},{"module":"nfsu2","name":"movie_close","kind":"function"},{"module":"nfsu2","name":"register","kind":"function"},{"module":"nfsu2","name":"stack_frames","kind":"function"},{"module":"nfsu2","name":"blocked_ms","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"args_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"environ_sizes_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"clock_time_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_close","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_fdstat_set_flags","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_filestat_set_size","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_pread","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_prestat_dir_name","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_read","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_readdir","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_seek","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_sync","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_tell","kind":"function"},{"module":"wasi_snapshot_preview1","name":"fd_write","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_create_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_filestat_get","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_open","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_remove_directory","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_rename","kind":"function"},{"module":"wasi_snapshot_preview1","name":"path_unlink_file","kind":"function"},{"module":"wasi_snapshot_preview1","name":"poll_oneoff","kind":"function"},{"module":"wasi_snapshot_preview1","name":"proc_exit","kind":"function"},{"module":"wasi_snapshot_preview1","name":"sched_yield","kind":"function"},{"module":"wasi_snapshot_preview1","name":"random_get","kind":"function"},{"module":"wasi","name":"thread-spawn","kind":"function"}],"exports":[{"name":"memory","kind":"memory"},{"name":"_start","kind":"function"},{"name":"wasi_thread_start","kind":"function"}]}};const freeze=value=>{if(value&&typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);}return value;};freeze(interfaces);root.__NFSU2_SOURCE_INTERFACES__=interfaces;if(typeof module==='object'&&module.exports)module.exports=interfaces;})(globalThis);
+
+
+===== nfsu2-extension/extension/102c-profile.js =====
+/* Exact 102c8d92 driving profile.
+ * This build's native hooks are not assembled here. native-transplant-102c.js applies the whole
+ * reviewed ed8d3359 hook set to this build as one pinned transform (input and output SHA-256),
+ * and ai.js routes this profile to it. The values below are the page-side facts for this build:
+ * the three host cells of the site's "online free roam" predicate (wasm function 23017), the
+ * contact-hook mailboxes, and the capability flags.
+ *
+ * Solo/offline only: network permission, online no-clip and the hosted race loop are not
+ * available on this build (soloOnly). The preset tuner / dyno / ECU panel is not ported.
+ * nativeRails: the pinned transform also holds the "rails" guard in Car::SetPhysicsMode
+ * (wasm function 23116), which the page switches on per race through the AI mailbox. */
+(function(root){'use strict';
+  const online=[704980184,707408368,707392980];
+  const freeze=o=>{if(o&&typeof o==='object'){Object.values(o).forEach(freeze);Object.freeze(o);}return o;};
+  const profile=freeze({
+    revision:'102c8d92',
+    size:38867137,
+    hash:'2ba0b075721d80e75fc3fb9a3b0e4d2acae835d21fcc406d009669b83f81858d',
+    statusCapacity:64,
+    importFunctions:38,
+    transplant:{from:'ed8d3359',outputBytes:39052721,outputModuleHash:'f113eb5dcd1292b6aac0e97837e653c9821b8a0a0efdfa221331d2fbf58fbe29'},
+    wall:{functionIndex:23117,helper:23017,onlineAddresses:online.slice()},
+    cars:{functionIndex:23117,helper:23017,slotKind:23019,onlineAddresses:online.slice(),
+      onlineTraffic:false,onlinePlayers:false,onlineRaceCars:false,onlineRivals:false,onlinePlayerOutrun:false,
+      contactCounters:2,base:13685184,bytes:40,magic:826491214,primaryCounterScope:'aggregate-non-player-with-rivals'},
+    capabilities:{legacy:true,ai:true,pace:true,corner:true,walls:true,cars:true,
+      onlineTraffic:false,onlinePlayers:false,onlineRaceCars:false,onlineRivals:false,onlinePlayerOutrun:false,
+      dyno:false,fullTuner:false,tunerSecondGuestWindow:false,tunerCurrentNativeClamp:false,tunerCapturedNativePolicy:false,
+      nativeEcuScope:false,nativeEcuOrderedReplay:false,ecuRecipePrivatePreflight:false,
+      dragAI:true,opponentDrag:true,nativeDragInputHandoff:true,ownedNativeNos:true,
+      nativeDriftPhysics:true,nativeDriftRecovery:true,nativeDriftPace:true,driftDiagnostics:true,nativeDragOverheat:true,
+      nativeRaceCapture:false,travel:false,nativeRouteProbe:false,
+      nativeForwardClamp:false,nativeForwardGeometry:false,
+      nativePaceCacheFix:true,nativePaceTargetConsumers:true,
+      nativeRails:true,soloOnly:true}
+  });
+  root.__NFSU2_102C_PROFILE__=profile;
+  if(typeof module==='object'&&module.exports)module.exports=profile;
+})(globalThis);
+
+
+===== nfsu2-extension/extension/family-profiles.js =====
+/* Exact captured profiles; explicit943 host metadata override only. */
+(function(root){'use strict';const source=root.__NFSU2_AA_PROFILE__||(typeof require==='function'?require('./aa-profile.js'):null);const tuner=root.__NFSU2_TUNER_943_PROFILE__||(typeof require==='function'?require('./tuner-profile-943.js'):null);const ecu=root.__NFSU2_ECU_SCOPE_PROFILE__||(typeof require==='function'?require('./ecu-scope-profile.js'):null);const sourceHash="a220e667d38c0a6509c1507ad3ca9c6fddeb2220b429bf28707d7ca8cbbc42c8";const pins=[{"revision":"15e5958f","size":38619511,"hash":"f88fc7a0fe3082e20814f705635410d046fcdfe053eb70d65c49dec7583105b9"},{"revision":"943ee537","size":38618703,"hash":"c000f8f9002762f4274f173c81678772c456b1a696f3b69751fc6e91118fe391","onlineAddresses":[702898672,705326832,705311452]}];const ready=source?.hash===sourceHash&&source.statusCapacity===64&&source.capabilities?.nativePaceCacheFix===true&&source.capabilities?.nativePaceTargetConsumers===true;const profiles=Object.freeze(ready?pins.map(pin=>{const{onlineAddresses,...identity}=pin;const extra=onlineAddresses?{wall:Object.freeze({...source.wall,onlineAddresses:Object.freeze([...onlineAddresses])}),cars:Object.freeze({...source.cars,onlineAddresses:Object.freeze([...onlineAddresses])})}:{};const resolved={...source,...identity,...extra};return pin.revision==='943ee537'&&tuner?.compose?(ecu?.compose?ecu.compose(tuner.compose(resolved)):tuner.compose(resolved)):Object.freeze(resolved);}):[]);const api=Object.freeze({sourceHash,profiles,metadataOnly:true,liveVerified:false});root.__NFSU2_FAMILY_PROFILES__=api;if(typeof module==='object'&&module.exports)module.exports=api;})(globalThis);
+
+
+===== nfsu2-extension/extension/forward-native-config.js =====
+/* Reviewed authored native fragments and hashes only; exact-build registry. */
+(function(root){
+"use strict";
+const freeze=value=>{if(value&&typeof value==="object"){Object.values(value).forEach(freeze);Object.freeze(value);}return value;};
+const profiles=freeze(Object.assign(Object.create(null),{"ed47e9bdd94a336d8d6bd52bebcc6f130b40ffb6d692f0fc728b8785db02178c":{"schema":"nfsu2-forward-native-patch-v1","revision":"3bdd9959","moduleHash":"ed47e9bdd94a336d8d6bd52bebcc6f130b40ffb6d692f0fc728b8785db02178c","originalBytes":38494261,"importFunctions":37,"definedFunctions":24130,"originalTypes":134,"originalGlobals":5,"sectionHashes":{"1":"f55b10fab620c02fc3173a2dc840b7200c8e747694b4fd1f1a35d262585d70d1","2":"1eebe1cd11ebb658602faffb9a2aa16a8a37d1c7f39e02fe3291c87228038c27","3":"2bffc76f44ccf230274d053408bf337c00123090db8a98aef7648c99bbfec18e","4":"b2a21e5f02b877fdd49562d71fb9f528274eeb713d87d90681bcd24a666b2e4c","6":"0418b9fdf2b79fdb94e4f4ca1965198eeb091ceedef3a4de3e0fc34aa8d1a22f","7":"7884fb62ab090aec7f9cfb04f7fbbe894f73e5da27a1d1f2c8800b80de0396d8","8":"684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1","9":"d6149f877f9979550fa8d8d66372d0de275d84fc5afef361995ab76a84b063da","11":"014d3e6eda2969f5588b5200d7f5fd8a510e179176b1d3c8a91899310b94b130","12":"084fed08b978af4d7d196a7446a86b58009e636b611db16211b65a9aadff29c5","13":"fb50dc0717ff266cf9baf82b1ce7a1c2ef6d9247859680b11a19fb7077f5f222"},"types":{"count":0,"bytes":""},"globals":{"count":571,"i64":560,"i32":11,"bytes":"fwFBAAt/AUEAC38BQQALfwFBAAt/AUEAC38BQQALfwFBAAt/AUEAC38BQQALfwFBAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+

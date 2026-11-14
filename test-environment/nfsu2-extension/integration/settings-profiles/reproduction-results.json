@@ -1,0 +1,10 @@
+{
+  "baseline": "combined-v024-integration",
+  "patchWithoutConflicts": true,
+  "threeBuildersReproduced": true,
+  "allChangedFilesMatch": 12,
+  "regeneratedBinaries": [],
+  "archiveByteIdentical": true,
+  "sha256": "8166d0332eadcd7abe2b4fc9ecfc0fa5e17c76548c286e940deb4e6c0b617cc6",
+  "size": 214596
+}

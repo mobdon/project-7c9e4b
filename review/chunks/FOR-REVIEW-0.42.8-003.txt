@@ -1,0 +1,1037 @@
+VERBATIM REVIEW CHUNK 003
+Canonical bundle byte range [240000, 360000). Read chunks in numeric order.
+Only the payload below belongs to the canonical bundle; headers are generated.
+
+re}
+.slider{display:grid;grid-template-columns:1fr 40px;gap:0 6px;align-items:center;margin:0;padding:1px 0 5px;color:#9db6aa;font-size:9px}.slider>span{display:contents}.slider output{grid-column:2;grid-row:1;text-align:right;color:#bfe9cf;font:600 10px ui-monospace,SFMono-Regular,Consolas,monospace}.slider input{grid-column:1 / -1;width:100%;height:14px;margin:1px 0 0;accent-color:#91d3ad;cursor:pointer}.slider:has(input:disabled){opacity:.5}input:disabled,button:disabled,select:disabled{opacity:.4;cursor:default}
+.help{margin:3px 0 1px;border-top:1px solid #263737;padding-top:2px}.help>summary{font-size:9px;list-style:none;display:flex;gap:5px;align-items:center;padding:4px 0;color:#839f92}.help>summary::before{content:'+';font:11px ui-monospace,monospace;color:#a4c3b2}.help[open]>summary::before{content:'−'}.help[open]>summary{color:#adcfba}.help p,.fine{font-size:9px;line-height:1.45;color:#90a89c;margin:4px 0}.warn{color:#c3b391}.help .row{font-size:10px}.inline-readout{padding:5px 6px;margin:4px 0;background:#1a2a2b;border-radius:3px;font-size:9px;color:#a6c3b3}.inline-readout strong{font-size:9px;font-weight:500;color:#badbc8}.inline-readout .state{white-space:normal;line-height:1.4}
+select{max-width:140px;padding:4px 6px;border:1px solid #3c5549;border-radius:3px;background:#1c2e27;color:#c5dfce;font-size:10px}.dyno-buttons{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:6px 0}.dyno-buttons button{padding:5px 6px;border:1px solid #3e5b4c;border-radius:3px;background:#22372a;font-size:10px}.dyno-buttons button:nth-child(n+3){background:#192822;color:#a9c6b4}.dyno-buttons button:disabled{background:#192322}.tune-field{margin:8px 0}.tune-field label{display:flex;justify-content:space-between;gap:4px;font-size:10px}.tune-field input{width:100%}.tune-field output{color:#c5dfce;font-variant-numeric:tabular-nums}#tune-changes{white-space:pre-line;max-height:150px;overflow:auto;font-size:9px;line-height:1.45}#profile-name{width:100%;min-width:0;padding:5px 6px;margin:3px 0 6px;border:1px solid #3c5549;border-radius:3px;background:#1c2e27;color:#c5dfce;font-size:10px}.profile-name-label{font-size:10px;color:#b5cabe}#profile-state{white-space:normal;overflow-wrap:anywhere;font-size:10px;line-height:1.45;color:#b5d8c3}#dyno-state{white-space:normal;overflow-wrap:anywhere;max-height:62px;overflow:auto;font-size:9px;line-height:1.45;color:#a8c9b5}
+.status{margin:0;padding:0 8px;background:#121b20}.status>summary{display:flex;gap:6px;align-items:center;padding:5px 0;list-style:none;min-height:24px;cursor:pointer}.status>summary::before{content:'';width:4px;height:4px;border-radius:50%;background:#759d86;flex:none}.status>summary::after{content:'ⓘ';font-size:10px;margin-left:auto;color:#708d7b}.status[open]>summary{border-bottom:1px solid #293c32}#live{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:9px;color:#8fafa0;margin:0;flex:1;min-width:0}#note{margin:5px 0;color:#c5b591;font-size:10px;line-height:1.45;overflow-wrap:anywhere}.keys{font-size:9px;color:#708d7c;margin:4px 0 7px}.keys kbd{font:inherit;color:#a1c0ab}#hazards{font-size:9px;line-height:1.4;color:#a8c7b5;background:#1a2a23;padding:6px;border-radius:3px;overflow-wrap:anywhere}
+.info-hud{position:absolute;right:0;top:35px;width:226px;max-width:calc(100vw - 16px);padding:8px 10px;border:1px solid #50645e88;border-radius:5px;background:#101a20d9;color:#c3d5ce;pointer-events:none;font-variant-numeric:tabular-nums;contain:layout style}.hud-heading{display:flex;justify-content:space-between;color:#8ba99b;font-size:9px;letter-spacing:.08em}.hud-heading kbd{font:inherit;letter-spacing:0;color:#789289}.hud-speedline{display:flex;align-items:baseline;gap:5px;padding:2px 0 1px}#hud-speed{color:#dbf2e4;font-size:24px;font-weight:650;line-height:1.2;letter-spacing:-.03em}#hud-unit{font-size:10px;color:#9bb4aa}#hud-context{margin-left:auto;font-size:9px;text-align:right;max-width:110px}.hud-readouts{margin:5px 0 0;padding-top:4px;border-top:1px solid #50645e44;display:grid;grid-template-columns:33px 1fr;gap:3px 5px;font-size:10px;line-height:1.4}.hud-readouts dt{color:#8ba99b}.hud-readouts dd{margin:0;text-align:right;overflow-wrap:anywhere;color:#c7e0d2}.hud-foot{font-size:8px;color:#8ba99b;line-height:1.35;margin:5px 0 0}#hud-state,#hud-governor{display:block;color:#c3b391}.hud-preference{padding:4px 9px;border-bottom:1px solid #263737;font-size:10px}.hud-preference small{font-size:8px}.hud-readouts,.hud-foot{user-select:none}
+.info-hud{top:94px}.panel{max-height:min(390px,calc(100dvh - 109px))}
+@media(max-height:280px){.info-hud{padding:5px 8px}.hud-foot{display:none}.hud-readouts{gap:1px 5px}}
+@media(prefers-reduced-motion:no-preference){.row input[type=checkbox]::before{transition:transform .12s}.group>summary{transition:background .12s}}
+
+/* Readable menu; the launcher and streaming overlays retain their footprint. */
+.panel{position:absolute;right:0;top:100%;width:min(440px,calc(100vw - 16px));max-height:min(720px,calc(100dvh - 109px));font-size:13px}
+.panel .toolbar{padding:9px 12px;gap:8px}.panel .toolbar button{height:34px;font-size:12px}.panel .toolbar kbd{font-size:10px}.panel .version{font-size:10px}
+.panel .group>summary{min-height:42px;padding:10px 14px;font-size:14px}.panel .group-body{padding:7px 14px 12px}.panel .section-icon{width:5px;height:5px}
+.panel .row{min-height:40px;gap:12px;padding:7px 0;font-size:13px}.panel .row small{max-width:none;font-size:11px;white-space:normal;overflow:visible;text-overflow:clip;line-height:1.4}
+.panel .row input[type=checkbox]{width:34px;height:20px;border-radius:12px}.panel .row input[type=checkbox]::before{width:12px;height:12px;left:3px;top:3px}.panel .row input[type=checkbox]:checked::before{transform:translateX(14px)}
+.panel .slider{grid-template-columns:1fr 54px;gap:1px 8px;font-size:12px;padding:4px 0 9px}.panel .slider output{font-size:13px}.panel .slider input{height:22px}
+.panel .help>summary{min-height:34px;font-size:12px;padding:7px 0}.panel .help p,.panel .fine{font-size:11px;line-height:1.5}.panel .inline-readout,.panel .inline-readout strong,.panel .state{font-size:11px}
+.panel select{max-width:200px;font-size:12px;padding:7px}.panel .dyno-buttons{gap:8px}.panel .dyno-buttons button{min-height:36px;font-size:12px;padding:8px}.panel .hud-preference{padding:7px 0}.panel #autonomy-absence{max-width:185px}.panel #autonomy-list{max-height:180px}.panel #autonomy-wait{width:76px;font-size:12px}
+.panel .menu-feedback{padding:10px 14px;background:#19282c;border-bottom:1px solid #385048;display:grid;gap:7px}.menu-feedback>div{display:grid;grid-template-columns:65px 1fr;gap:9px;align-items:baseline}.menu-feedback strong{font-size:11px;color:#9bd1b3;font-weight:600}.menu-feedback span{font-size:11px;line-height:1.45;color:#d1e2d9;white-space:normal;overflow-wrap:anywhere}.panel .menu-feedback #ai-state,.panel .menu-feedback #autonomy-state,.panel .menu-feedback #dyno-state{font-size:11px;margin:0;max-height:none;overflow:visible;white-space:normal;text-overflow:clip;color:#d1e2d9}
+.tuner-dashboard{margin:4px 0 12px;padding:12px;border:1px solid #497560;border-radius:7px;background:linear-gradient(140deg,#1c3433,#131f29);font-variant-numeric:tabular-nums}.tuner-display-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#a9dbbf;font-size:11px;letter-spacing:.08em;font-weight:650}.tuner-display-heading span:last-child{letter-spacing:0;color:#d6e9df;font-size:11px;font-weight:500}.tuner-kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.tuner-kpis>div{padding:10px;border:1px solid #3e5c5666;border-radius:5px;background:#0f1d23b3;min-width:0}.tuner-kpis small{display:block;color:#98b5aa;font-size:10px;line-height:1.4}.tuner-kpis output{display:block;margin-top:3px;color:#e1f5e8;font:650 18px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:-.04em;overflow-wrap:anywhere}.panel #tune-display-note{font-size:10px;color:#96b5a7;margin:9px 0 0;line-height:1.45}
+.panel #profile-name,.panel .profile-name-label,.panel #profile-state,.panel .tune-field label,.panel #tune-changes{font-size:12px}.panel .status>summary{min-height:34px}.panel #live{font-size:11px}.panel #note{font-size:12px}.panel .keys{font-size:11px}
+@media(max-width:400px){.tuner-kpis output{font-size:16px;letter-spacing:-.045em}}
+@media(max-height:420px){.panel{max-height:calc(100dvh - 109px)}.panel .menu-feedback{padding:7px 12px;gap:4px}}
+${RaceHub?.styles||''}
+${StreamHud?.styles||''}
+${Pitwall?.styles||''}
+`);
+    ui.adoptedStyleSheets = [stylesheet];
+    ui.innerHTML = `<div class="shell">
+<button id="min" class="launcher" aria-expanded="false" aria-controls="tools-panel" title="Driving tools · F8 · Shift+Insert hides tools"><span class="mark" aria-hidden="true"></span><span class="title">Driving tools</span><span id="enabled" class="badge">Ready</span><span id="chevron" class="arrow" aria-hidden="true">▾</span></button>
+<button id="quick-stop" class="quick-stop" type="button" title="Stop all driving tools and return control">STOP / TAKE CONTROL <kbd>F9</kbd></button>
+<button id="race-hub-open" class="hub-launch" type="button" aria-expanded="false" aria-controls="race-hub">RACE HUB · R34</button>
+${RaceHub?.markup()||''}
+${StreamHud?.markup()?.replace('</section>',(Pitwall?.markup()||'')+'</section>')||''}
+<section id="info-hud" class="info-hud" aria-label="Driving information HUD" aria-live="off">
+<div class="hud-heading"><span>INFO HUD</span><kbd>F6 hide</kbd></div>
+<div class="hud-speedline"><strong id="hud-speed">Unavailable</strong><span id="hud-unit"></span><span id="hud-context">Waiting for game</span></div>
+<dl class="hud-readouts"><dt>Driver</dt><dd id="hud-driver">Waiting for live sample</dd><dt>Pace</dt><dd id="hud-pace">Not confirmed</dd><dt>Power</dt><dd id="hud-power">Off</dd></dl>
+<p class="hud-foot">req = requested · ack = native acknowledgement<br>set = power fields, not a measured speed gain<span id="hud-governor" hidden></span><span id="hud-state">Waiting for live sample</span></p>
+</section>
+<div id="tools-panel" class="panel" hidden>
+<div class="toolbar"><button id="take-control" title="Return to manual control">Manual <kbd>F7</kbd></button><button id="stop" class="stop" title="Stop driving assists">Stop <kbd>F9</kbd></button><span class="version">0.42.8</span></div>
+<section class="menu-feedback" aria-label="Live tool feedback">
+<div><strong>Driver</strong><span id="ai-state">Waiting for game</span></div>
+<div><strong>Race loop</strong><span id="autonomy-state" role="status">Off; choose race starts in free roam</span></div>
+<div><strong>Tuner</strong><span id="dyno-state" role="status">Off · original tune kept</span></div>
+</section>
+<details id="group-driver" class="group"><summary><span class="section-icon" aria-hidden="true"></span>Native AI driver</summary><div class="group-body">
+<label class="row row-main"><span>Automatic driver<small>Native AI · includes free roam and Drag</small></span><input id="ai" type="checkbox" aria-describedby="ai-auto-risk"></label>
+<label class="row"><span>Race-only automatic driver<small id="race-only-state">Off · current page only</small></span><input id="race-only-ai" type="checkbox" aria-describedby="race-only-help"></label>
+<p id="race-only-help" class="fine">Starts native AI only in an active race, including Street X, Drag and Drift. Releases in free roam, outrun and results. Start/join events yourself. Online needs Allow network tools. This switch stays armed between races on this page; reload, profile Load, F7/F9 or race driving-key takeover turns it off. Not saved in profiles. Selecting either driver mode turns the other off.</p>
+
+<details class="help"><summary>Free-roam tuning</summary>
+<label class="row"><span>City clearance pacing<small id="city-pace-state">Off · current page only</small></span><input id="city-pace" type="checkbox" disabled aria-describedby="city-pace-help"></label>
+<p id="city-pace-help" class="fine">Optional reductions for your already owned Automatic driver in ordinary online free roam. Requires Allow network tools. Your selected free-roam factor is the ceiling, including above 1×. Approximate observed wall/vehicle clearance can reduce the request; it recovers toward your selection after that reduction clears. Clear or unavailable observations retain your selection and do not prove the road is safe. No new steering, route following or collision guarantee. Session only: reload, Stop and profile Load turn it off; Manual leaves it dormant. Race, Street X, Drag, Drift and Outrun controls are unchanged.</p>
+<label class="row"><span>Free-roam corner assist<small id="corner-state">Off · experimental · free roam only</small></span><input id="corner-assist" type="checkbox" aria-describedby="corner-risk"></label>
+<label class="slider"><span>Planned corner speed <output id="corner-value" for="corner-factor">0.80×</output></span><input id="corner-factor" aria-label="Planned corner speed" type="range" value="0.8" min="0.6" max="0.95" step="0.05"></label>
+<label class="slider"><span>Sharp-turn margin <output id="corner-margin-value" for="corner-margin">15%</output></span><input id="corner-margin" aria-label="Extra sharp-turn margin" type="range" value="15" min="0" max="25" step="5"></label>
+<label class="row"><span>Free-roam pace<small id="ai-pace-state">Off · normal pace</small></span><input id="ai-pace" type="checkbox" aria-describedby="ai-pace-help"></label>
+<label class="slider"><span>Target-speed factor <output id="pace-value" for="pace-factor">1.00×</output></span><input id="pace-factor" aria-label="Free-roam pace factor" type="range" value="1" min="0.75" max="3" step="0.05"></label>
+<p id="corner-risk" class="fine">Lower factor = slower planned turns. Sharp-turn margin adds more slowing as upcoming bends tighten; 0% keeps the v0.13 calculation. Changes rebuild the native route. Not obstacle avoidance or new steering. Armed is not a confirmed reduction: straight plans, missing corner entries and rejected native checks do not add hits. Hover the status for route/check evidence. Free-roam corner assist does not tune road races; use the separate Road-race hairpin assist there. Diagnose at 1× pace; 0.95× means only 5% corner slowing.</p><p id="ai-pace-help" class="fine warn">Pace up to 3× is experimental; 2–3× can cause severe overspeed, missed turns or instability. Start at 1×. Neither control changes race or drag pace.</p>
+</details>
+<details class="help"><summary>Race / outrun tuning</summary>
+<label class="row"><span><span id="rubberband-label">Race pace + catch-up</span><small id="rubberband-state">Off · current page only</small></span><input id="rubberband-enable" type="checkbox" disabled aria-describedby="rubberband-help"></label>
+<label class="slider"><span>Paired race pace <output id="rubberband-value" for="rubberband-percent">1.00×</output></span><input id="rubberband-percent" aria-label="Paired race pace" type="range" value="100" min="100" max="200" step="5"></label>
+<label class="slider"><span>Catch-up strength <output id="rubberband-strength-value" for="rubberband-strength">1.50×</output></span><input id="rubberband-strength" aria-label="Catch-up assistance strength" aria-describedby="rubberband-strength-state" type="range" value="1.5" min="1" max="10" step="0.25"></label>
+<p id="rubberband-strength-state" class="fine" role="status">Strength applies to full physics and Drag. Rails uses pace only.</p>
+<p id="rubberband-help" class="fine">Circuit, Sprint and URL use the selected pace. With Stay on rails, this changes speed targets only; Catch-up strength is unused. Drag and Street X with rails off use strength at neutral paired pace. Full-physics assistance requires matching native handling inputs and scales the native catch-up source for your owned AI car, including with game Catch Up / Rubberbanding off. Online requires Allow network tools. Stop, manual takeover and profile Load release the request. Custom power/grip pause while paired handling is active or restoring, and while Street X rails AI owns the car. Street X with rails off uses 1.00× actual pace when paired handling is selected; your custom factor stays saved.</p>
+<label class="row"><span>Stay on rails<small id="rails-state">Selected · road races and Street X</small></span><input id="rails-enable" type="checkbox" disabled aria-describedby="rails-help"></label>
+<p id="rails-help" class="fine">Keeps your race AI car on the game's simplified AI physics, the mode the opponents drive in, instead of dropping to full physics after the first contact. Circuit, Sprint, URL and Street X; online requires Allow network tools. On rails, Race pace + catch-up only raises speed targets with the Paired race pace slider (default 1.30×, Street X at most 1.15× including Custom race pace); there is no power or grip boost, and Catch-up strength is not used. Drag keeps the paired boost. If the car stops for 3 seconds the rails release so normal physics can recover it. Turn this off for the earlier behaviour. Drift, Drag, free roam and manual driving use their existing modes. Online adaptation has offline checks; live race behavior still needs verification.</p>
+<label class="row"><span>Adaptive road-race speed<small id="adaptive-race-state">Off · session only</small></span><input id="adaptive-race" type="checkbox" disabled aria-describedby="adaptive-race-help"></label>
+<label class="slider"><span>Straight ceiling <output id="adaptive-race-value" for="adaptive-race-ceiling">1.30×</output></span><input id="adaptive-race-ceiling" aria-label="Adaptive race straight ceiling" type="range" value="1.3" min="1" max="2" step="0.05"></label>
+<p id="adaptive-race-help" class="fine">Optional continuous route-speed planning: every valid sampled nonzero bend gets a curvature-based target, with native distance-based braking. Exact straights keep the selected target ceiling. The native route can omit bends; this is not detection of every corner. With Race pace + catch-up off, uses the road-corner speed, sharp-turn margin and braking sliders below, even with their separate assist switch off. Existing saved switches and values stay unchanged. Street X keeps its existing controls; excludes Drag, Drift, Outrun and free roam. Online needs Allow network tools. Session only: off after reload, Stop or profile Load. No new steering, obstacle avoidance or NOS control. Start at 1.30×; higher targets can still cause crashes. Hook counters describe prior calls, not detection of the current corner.</p>
+<p id="forward-race-state" class="fine" role="status">Forward road preview off · follows Adaptive in permitted road races</p>
+<p id="native-target-state" class="fine" role="status" title="Observed setter input and output in uncalibrated native target units. The log includes cap request, guard reasons, sequence and age. This observation does not change driving.">Native target feedback · waiting for a road target</p>
+<p class="fine">On the current verified build, Adaptive uses the road ahead while your AI owns Circuit, Sprint or URL driving with Stay on rails enabled. Online also requires Allow network tools. It includes gradual bends and accumulated 75°+ turns when the special corner list is empty. Paired catch-up uses its own corner policy; otherwise the sliders below adjust target planning. A validated limit can remain active while the next sample arrives; late or missing samples still expire after 100 ms of game time. Route gaps can still leave a corner unmeasured. Preview targets use native world units, not measured braking or grip limits. Live cornering improvement remains unverified.</p>
+<label class="row"><span>Road-race hairpin assist<small id="race-corner-state">Off · experimental · online needs opt-in</small></span><input id="race-corner-assist" type="checkbox" aria-describedby="race-corner-risk"></label>
+<label class="slider"><span>Race corner speed <output id="race-corner-value" for="race-corner-factor">0.80×</output></span><input id="race-corner-factor" aria-label="Road-race corner speed" type="range" value="0.8" min="0.6" max="0.95" step="0.05"></label>
+<label class="slider"><span>Race sharp-turn margin <output id="race-corner-margin-value" for="race-corner-margin">15%</output></span><input id="race-corner-margin" aria-label="Road-race sharp-turn margin" type="range" value="15" min="0" max="25" step="5"></label>
+<label class="slider"><span>Race braking factor <output id="race-braking-value" for="race-braking">0.75×</output></span><input id="race-braking" aria-label="Road-race braking factor, lower means earlier braking" type="range" value="0.75" min="0.5" max="1" step="0.05"></label>
+<p id="race-corner-risk" class="fine warn">Experimental native race-AI tuning, not new steering. Lower corner speed and higher sharp-turn margin request slower turns; lower braking factor requests earlier braking. Keeps the selected straight-line race pace. Same settings for solo and opted-in online/LAN road races. Online/LAN requires Allow network tools; only your owned local AI car is eligible. Excludes outrun, drag and drift. Online cornering is unverified; follow server rules. Starts off after reload. Observed commands and counters are not proof of better live cornering; high pace can still miss turns.</p>
+<label class="row"><span>Custom race pace<small id="race-pace-state">Off · 1.00× is normal</small></span><input id="race-pace" type="checkbox"></label>
+<label class="slider"><span>Race target-speed factor <output id="race-pace-value" for="race-pace-factor">1.00×</output></span><input id="race-pace-factor" aria-label="Race and outrun pace factor" type="range" value="1" min="0.75" max="3" step="0.05"></label><p class="fine warn">2–3× pace is especially unstable and may cause crashes or missed turns. Default 1×. Street X rails limits the request to 1.15×; paired handling with rails off uses 1.00×. Your custom factor stays saved for other modes. Drag and Drift retain native pace.</p>
+</details>
+<details class="help"><summary>Driver limits &amp; takeover</summary><p id="ai-auto-risk">Automatic driving follows the current event. Drag uses the native Drag driver and engine protection; manual Drag assistance is under Advanced. Driving pauses in menus and when the game loses focus. F7 and driving keys return control; F9 stops all tools. Each race mode has its own supported pace and corner controls.</p><p>Start events yourself. F7 or driving keys outside this panel return control. Pauses in menus and when unfocused. No guaranteed routes, wins or career automation. Online/LAN requires its separate opt-in.</p></details>
+</div></details>
+<details id="group-autonomy" class="group"><summary><span class="section-icon" aria-hidden="true"></span>Race loop &amp; Drag lobbies</summary><div class="group-body">
+<label class="row"><span>Visit open Drag lobbies</span><input id="autonomy-drag-discovery" type="checkbox"></label>
+<label class="row"><span>Native AI cruise while finding Drag</span><input id="autonomy-cruise" type="checkbox" disabled></label>
+<div class="dyno-buttons"><button id="autonomy-runway15" type="button" disabled>Runway 15 only</button></div>
+<p id="autonomy-runway15-help" class="fine" aria-live="polite">Select normal Runway 15 only; wait there for an open lobby, race, return and repeat.</p>
+<div id="autonomy-list" aria-label="Choose up to sixteen race starts"></div>
+<label class="row"><span>When no host is available</span><select id="autonomy-absence"><option value="wait">Wait here</option><option value="rotate">Wait, then next start</option></select></label>
+<label class="row"><span>Wait seconds</span><input id="autonomy-wait" type="number" min="5" max="3600" step="5" value="60" aria-label="Host wait seconds"></label>
+<div class="toolbar"><button id="autonomy-start" type="button" disabled>Start selected loop</button><button id="autonomy-stop" class="stop" type="button" disabled>Stop / take control</button></div>
+<p class="fine">Drives to selected city starts, stops, waits for a matching player host, joins, uses your existing race AI, and repeats after the game returns. Network permission stays separate. No host means it waits; it never creates a lobby. Session only. F7, F9 or driving keys take control. Route following and the complete live loop still need game verification.</p>
+</div></details>
+<details id="group-dyno" class="group"><summary><span class="section-icon" aria-hidden="true"></span>Race tuner &amp; ECU</summary><div class="group-body">
+<section class="tuner-dashboard" aria-label="Native tune estimates">
+<div class="tuner-display-heading"><span>TUNE PREVIEW</span><span id="tune-display-state">No preview</span></div>
+<div class="tuner-kpis"><div><small>Peak power · kW</small><output id="tune-kpi-power">—</output></div><div><small>Peak torque · N·m</small><output id="tune-kpi-torque">—</output></div><div><small>0–60 estimate · seconds</small><output id="tune-kpi-accel">—</output></div><div><small>Top speed · km/h</small><output id="tune-kpi-speed">—</output></div></div>
+<p id="tune-display-note">Native estimates · load settings to begin.</p>
+</section>
+<label class="row"><span>Enable preset tuner<small>Solo · no automatic Stage/save</small></span><input id="dyno-enable" type="checkbox" aria-describedby="dyno-risk"></label>
+<p id="dyno-risk" class="fine warn">Back up progress first. Not live-tested.</p>
+<p id="dyno-mode" class="fine">Choose a race mode in the game, then open the Dyno main screen.</p>
+<label class="row"><span>Measured search</span><select id="dyno-goal" aria-label="Dyno tuning goal"><option value="peakPower">Peak power</option><option value="peakTorque">Peak torque</option><option value="acceleration60">0–60 estimate</option><option value="acceleration100">0–100 estimate</option><option value="topSpeed">Top-speed estimate</option></select></label>
+<div class="dyno-buttons"><button id="dyno-find" disabled>Find tune</button><button id="dyno-cancel" disabled>Cancel</button><button id="dyno-apply" disabled>Stage selected preset</button><button id="dyno-restore" disabled>Restore</button></div>
+<div id="ecu-recipe-controls"></div>
+<div class="dyno-buttons"><button id="tune-load" disabled>Load settings</button><button id="tune-reset" disabled>Reset draft</button></div>
+<details class="help" id="tune-editor"><summary>Full preset settings</summary>
+<p>Edit suspension, gearing, downforce, tires, brakes, nitrous, ECU and turbo for the race preset selected in the game. Values are native slider positions from −100 to +100. Locked settings remain disabled. Drafts and native previews stay in private memory.</p>
+
+<label class="row"><span>Category</span><select id="tune-group" aria-label="Tuning category" disabled><option value="suspension">Suspension</option><option value="gearing">Gearing</option><option value="aero">Downforce</option><option value="tires">Tires / brakes</option><option value="nos">Nitrous</option><option value="ecu">ECU</option><option value="turbo">Turbo</option></select></label>
+${Array.from({length:9},(_,i)=>`<div id="tune-row-${i}" class="tune-field" hidden><label for="tune-input-${i}"><span id="tune-label-${i}"></span><output id="tune-value-${i}" for="tune-input-${i}"></output></label><input id="tune-input-${i}" type="range" min="-100" max="100" step="1" value="0" disabled></div>`).join('')}
+<div class="dyno-buttons"><button id="tune-preview" disabled>Preview changes</button></div><p id="tune-changes">Load settings to begin.</p>
+</details>
+<details class="help"><summary>How it works</summary><p>Leave the game on the Performance Tuning main screen. The full editor supports all 41 fields. Peak search changes ECU/turbo; acceleration and speed searches include gearing, with up to 48 private trials. Suspension, grip, aero, brakes and nitrous are manual because these estimates do not measure their race benefit. No fastest-lap or automatic handling claim is made.</p><p>Cancel, close menu, blur, hidden tab or F9 stops search. A staged preset stays staged. Test Run refreshes the game’s driving physics. Use native Save Profile to persist; this extension does not confirm disk saves. Restore is only available for the same unchanged car, mode and parts. Driving effects pause during search.</p></details>
+</div></details>
+<details id="group-streaming" class="group"><summary><span class="section-icon" aria-hidden="true"></span>HUD &amp; cameras</summary><div class="group-body">
+<label class="row hud-preference"><span>Info HUD <small>F6 · shown when this menu is closed</small></span><input id="info-hud-enable" type="checkbox" aria-label="Show driving information HUD"></label>
+<label class="row hud-preference"><span>Pitwall display <small>Live driver and road feedback</small></span><input id="pitwall-enable" type="checkbox" aria-label="Show visual Pitwall feedback"></label>
+<label class="row hud-preference"><span>Streaming HUD <small>Across the screen · stays in clean view</small></span><input id="stream-hud-enable" type="checkbox" aria-label="Show streaming HUD"></label>
+<label class="row hud-preference"><span>Rotate camera <small>Random 45–120 seconds · Camera bound to C</small></span><input id="camera-rotate-enable" type="checkbox" aria-label="Rotate game camera every 45 to 120 seconds"></label>
+<label class="row hud-preference"><span>Rear car radar <small>Half-circle · loaded cars behind you</small></span><input id="rear-radar-enable" type="checkbox" aria-label="Show rear car radar"></label>
+<label class="row hud-preference"><span>Radar range <output id="radar-range-value">200 units</output></span><input id="radar-range" type="range" min="50" max="500" step="25" value="200" aria-label="Rear radar range in native units"></label>
+<label class="row hud-preference"><span>Edit HUD layout <small>Drag panels · use − / + to resize</small></span><input id="hud-layout-enable" type="checkbox" aria-label="Edit HUD layout"></label>
+<div class="dyno-buttons"><button id="hud-layout-reset" type="button">Reset HUD layout</button></div>
+<p class="fine stream-help">Shift+Insert hides all tools. Your selected streaming HUD stays. F8 reopens controls; F9 stops assists.</p>
+</div></details>
+<details id="group-profiles" class="group"><summary><span class="section-icon" aria-hidden="true"></span>Saved tool profiles</summary><div class="group-body">
+<label class="row"><span>Saved profile</span><select id="profile-select" aria-label="Saved tool profile"><option value="">Choose a saved profile</option></select></label>
+<label class="profile-name-label" for="profile-name">Profile name</label><input id="profile-name" type="text" maxlength="48" autocomplete="off" placeholder="e.g. Solo driving">
+<label class="row"><span>Restore network settings<small>Explicit permission for this profile</small></span><input id="profile-network" type="checkbox" aria-describedby="profile-network-help"></label>
+<p id="profile-network-help" class="fine warn">Default off. Save / Update records this permission. Without it, Load leaves Allow network tools, online traffic and player no-clip off, even if they are currently on. Network tools may affect others or lead to a ban; follow server rules.</p>
+<div class="dyno-buttons"><button id="profile-save" type="button">Save as new</button><button id="profile-update" type="button" disabled>Update selected</button><button id="profile-load" type="button" disabled>Load selected</button><button id="profile-delete" type="button" disabled>Delete selected</button></div>
+<label class="row"><span>Load on startup<small>Selected saved profile · default off</small></span><input id="profile-auto" type="checkbox" disabled aria-describedby="profile-help"></label>
+<p id="profile-state" role="status">Automatic loading is off.</p>
+<details class="help"><summary>Profile storage &amp; safety</summary><p id="profile-help">Stores only these extension switches, numbers and tuner enable/search preference in this browser for nfsu2.xyz. No game setups, drafts, car data or diagnostic logs. Profiles do not Stage, Restore or Save game presets. Page scripts can access this local storage; it is not a private backup or browser sync. Up to 16 profiles, 48 characters per name.</p><p>Load stops old controllers and releases assisted input first. Saved choices still wait for the exact supported module, current car and each tool’s mode checks. Startup loading is optional and applies once per reload, never when another tab edits a profile. Updating an automatic profile disables its startup loading until selected again.</p><p>F9 stops driving tools, clears profile-requested drift reapplication and pauses startup loading; saved profiles stay intact. A drift toggle already sent to the game cannot be recalled, and native drift handling already on is not forcibly changed. Load manually to resume now, or select a profile and enable Load on startup to resume after reload. F7 takes manual control without deleting profiles.</p><p>Blowout protection is a saved user choice for the local current engine only. It does not repair an already blown engine or restore a lost race. Network use still requires this profile’s explicit network permission. Unless startup loading is enabled, normal per-tool reload defaults shown elsewhere still apply.</p></details>
+</div></details>
+<details id="group-power" class="group"><summary><span class="section-icon" aria-hidden="true"></span>Power &amp; speed</summary><div class="group-body">
+<label class="row"><span>Automatic NOS refill<small id="nos-state">Refill unavailable · manual near miss is separate</small></span><input id="nos" type="checkbox" disabled aria-describedby="nos-state"></label>
+<div class="row"><span>Synthetic near miss<small id="near-miss-state" role="status">Synthetic near miss unavailable on this game build</small></span><button id="near-miss-request" type="button" disabled aria-describedby="near-miss-state near-miss-help">Award once</button></div>
+<label class="row"><span>Keep NOS topped up<small id="near-miss-top-up-state" role="status">Off · synthetic awards only below full NOS</small></span><input id="near-miss-top-up" type="checkbox" disabled aria-describedby="near-miss-top-up-state near-miss-help"></label>
+<p id="near-miss-help" class="fine">Uses synthetic near-miss awards without a speed threshold. Top-up checks current NOS before each request, waits for confirmation and stops requesting at full. Awards also change style points and multipliers. Session only; F7/F9 turns top-up off. Online also requires Allow network tools.</p>
+<label class="row"><span>Engine power boost<small id="power-state">Off · not a vehicle-speed multiplier</small></span><input id="boost" type="checkbox"></label>
+<label class="slider"><span>Power multiplier <output id="power-value" for="power">1.5×</output></span><input id="power" aria-label="Power multiplier" type="range" value="1.5" min="1" max="3" step="0.1"></label>
+<label class="row"><span>Remove stock limiter</span><input id="unlimit" type="checkbox"></label>
+<details class="help"><summary>Limits</summary><p>Power, limiter and grip reset off after reload. Their concurrent-write guards reduce known races but do not resolve the reported freezes. Test one at a time. More power may worsen wheelspin and handling. Gearing, drag and redline still limit speed. The power status reports field writes, not a measured speed increase. AI pace changes only its target speed and requires Automatic driver; it is separate from engine power. Online use requires Allow network tools. Automatic NOS refill is unavailable. Normal game NOS use and earned near-miss credit are unchanged.</p></details>
+</div></details>
+<details id="group-handling" class="group"><summary><span class="section-icon" aria-hidden="true"></span>Handling &amp; collisions</summary><div class="group-body">
+<label class="row"><span>Extra grip<small id="grip-state">Start at 1.3×</small></span><input id="grip" type="checkbox"></label>
+<label class="slider"><span>Grip multiplier <output id="grip-value" for="grip-factor">1.3×</output></span><input id="grip-factor" aria-label="Grip multiplier" type="range" value="1.3" min="1" max="2" step="0.1"></label>
+<label class="row"><span>Drift assist<small id="drift-state">Solo free roam only</small></span><input id="drift" type="checkbox"></label>
+<label class="row"><span>Wall pass-through<small id="walls-state">Off · solo only</small></span><input id="walls" type="checkbox" aria-describedby="walls-risk"></label>
+<label class="row"><span>Car no-clip<small id="cars-state">Off · other cars only · solo</small></span><input id="cars" type="checkbox" aria-describedby="cars-risk"></label>
+<label class="row"><span>Online car no-clip<small id="online-all-state">Off · traffic, players and NPC rivals</small></span><input id="online-all" type="checkbox" disabled aria-describedby="online-all-help"></label>
+<p class="help" id="online-all-help">Selects the three online car switches and Allow network tools together. Free roam covers verified traffic, players and NPC rivals. Outrun covers verified current challenge participants; online races cover verified race cars. Local contacts only. Resets on Stop, profile load and reload.</p>
+<label class="row"><span>Online traffic no-clip<small id="traffic-state">Off · traffic only · online free roam</small></span><input id="traffic" type="checkbox" disabled aria-describedby="traffic-risk"></label>
+<label class="row"><span>Online player / race no-clip<small id="players-state">Off · players, Outrun and race cars</small></span><input id="players" type="checkbox" disabled aria-describedby="players-risk"></label>
+<label class="row"><span>Online NPC rival no-clip<small id="rivals-state">Off · NPC rivals / Outrun</small></span><input id="rivals" type="checkbox" disabled aria-describedby="rivals-help"></label>
+<p class="help" id="rivals-help">Skips local contact with verified NPC rivals in online free roam and current NPC Outrun participants. Player contact uses its separate switch. Resets on Stop, profile load and reload.</p>
+<details class="help"><summary>Handling &amp; collision risks</summary><p id="traffic-risk">Separate opt-in for NPC traffic in online free roam only. Player cars keep native collisions unless Online player no-clip is also enabled. Racers, walls and props remain unchanged; native Ghost settings are unchanged. Races, outruns and LAN are excluded. Latest reviewed build only. Starts off after reload; F9 stops it. Follow server rules. No live network test is claimed.</p><p id="players-risk">Separate opt-in for identified players in online free roam and verified current player Outrun participants. On the current reviewed build it also filters confirmed Online/LAN race cars when Allow network tools is enabled. Race mode checks both cars against the active race roster. Traffic and walls stay separate. Only local contacts are skipped; another player's view, network corrections and live race behavior are unverified. Native Ghost settings stay unchanged. Starts off after reload; F9 stops it. Turn off only when clear of cars. Follow server rules.</p><p id="cars-risk">Car no-clip is separate from walls and works only with confirmed car bodies. Ground, walls and props keep normal collisions unless wall pass-through is enabled. Turn off only when clear of other cars. It resets after reload.</p><p id="walls-risk">Experimental · solo only. Near-vertical static walls and barriers only. Ground, slopes and movable props remain solid. Cars stay solid unless Car no-clip is also enabled. May leave the map or miss checkpoints. Turn off only when clear of walls. Back up progress. F9 stops it.</p><p>Extra grip resets off after reload. High grip can cause abrupt handling or rollover and pauses in drift. Drift uses the game’s mode, not perfect-drift automation. Wall pass-through starts off after reload.</p></details>
+</div></details>
+<details id="group-drag" class="group"><summary><span class="section-icon" aria-hidden="true"></span>Drag AI &amp; engine protection</summary><div class="group-body">
+<div class="inline-readout"><strong>Automatic drag AI</strong><span id="drag-ai-state" class="state">Use Automatic driver above</span></div>
+<label class="row"><span>Disable Drag engine blowouts<small id="drag-no-blowout-state">Off · current player engine only</small></span><input id="drag-no-blowout" type="checkbox" disabled aria-describedby="drag-no-blowout-help"></label>
+<p id="drag-no-blowout-help" class="fine">Stops your current engine overheating during active Drag. Online/LAN also requires Allow network tools; only your local engine is changed. No driving, shifting or NOS changes. Enable before the engine blows; does not restore a lost race.</p>
+<details id="advanced-drag" class="help"><summary>Advanced · manual Drag assist</summary>
+<label class="row"><span>Manual drag assist<small id="drag-state">Throttle + shifts · you steer</small></span><input id="drag" type="checkbox"></label>
+<label class="slider"><span>Shift at RPM <output id="rpm-value" for="rpm">6500</output></span><input id="rpm" aria-label="Shift RPM" type="range" value="6500" min="3000" max="10000" step="100"></label>
+<p>Manual assist stays paused while automatic AI is requested. It uses Arrow Up / Left Shift / Left Alt. You steer and avoid obstacles. Pick shift RPM for your car. F7 pauses assisted throttle until toggled again.</p>
+</details>
+<details class="help"><summary>Drag limits &amp; controls</summary><p id="drag-ai-risk">Automatic drag AI is not live-verified. Back up your progress. Starts after GO and full physics; may miss shifts, crash or stop. F7 takes control.</p></details>
+</div></details>
+<details id="group-diagnostics" class="group"><summary><span class="section-icon" aria-hidden="true"></span>Online &amp; diagnostics</summary><div class="group-body">
+<details id="advanced-research" class="help"><summary>Advanced · research tools</summary>
+<label class="row"><span>Traffic / barrier tester</span><input id="tester" type="checkbox"></label><p id="hazards" hidden></p>
+<p class="fine">Read-only, incomplete obstacle detection.</p>
+<details class="help"><summary>Native race geometry</summary>
+<label class="row"><span>Record route samples<small>Offline race AI · session only · no controls enabled</small></span><input id="race-capture-enable" type="checkbox" disabled></label>
+<p id="race-capture-state" role="status">Off · partial native windows</p><button id="race-capture-export" type="button">Export route samples</button>
+<p class="fine">Analyzes gradual bends and 75°+ turns in fresh native samples. Missing corner records remain unknown. This recorder does not supply a complete route or enable automatic braking. Exact 93af6ccb build only.</p></details>
+</details>
+<details class="help"><summary>Crash log</summary><p id="diagnostic-state" role="status">Local diagnostics starting</p><div class="dyno-buttons"><button id="diagnostic-export" type="button">Export crash log</button><button id="diagnostic-clear" type="button">Clear log</button></div><p>Recent tool choices, game mode and errors stay in this tab. A small set of past AI-driving samples survives time in menus; these are historical observations. Clear log removes them too. Nothing is uploaded. Page scripts can access this storage. Browser/tab crashes may leave no final error; also use the game’s Download log. Export before closing this tab.</p></details>
+<details id="group-session" class="help"><summary>Online / LAN opt-in</summary><label class="row"><span>Allow network tools<small id="online-state">Off · resets on reload</small></span><input id="online" type="checkbox" aria-describedby="online-risk"></label><p id="online-risk" class="fine warn">May affect other racers, trigger integrity checks, invalidate results or lead to a ban. Follow server rules. This does not bypass server restrictions.</p><p>Allows selected power, limiter, grip, AI/pace, road-race corner/braking assistance and drag tools. Wall pass-through and Car no-clip stay solo-only. Online traffic no-clip stays free-roam-only. Online player / race no-clip is a separate opt-in; current-build race filtering also needs this network permission. Drift stays free-roam-only.</p></details>
+</div></details>
+<details class="status" id="status-details"><summary id="status-summary" title="Show full status and notices"><span id="live" role="status">Waiting for game</span></summary><p id="note" role="status">Experimental. Back up progress before testing.</p><p class="keys"><kbd>F6</kbd> HUD · <kbd>F8</kbd> / <kbd>Shift+Insert</kbd> menu · <kbd>Esc</kbd> close<br>Drift and tester keep their own switches.</p></details>
+</div></div>
+`;
+    note = ui.querySelector('#note'); live = ui.querySelector('#live');
+    ui.querySelector('#race-capture-enable').addEventListener('change',e=>{try{if(e.target.checked)raceCapture?.start();else raceCapture?.stop();}catch(error){message(error.message);}updateRaceCapture();});
+    ui.querySelector('#race-capture-export').addEventListener('click',()=>{if(!raceCapture?.samples.length){message('No native race samples recorded yet.');return;}const blob=new Blob([JSON.stringify(raceCapture.export(),null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='nfsu2-race-geometry.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+    updateRaceCapture();
+    ui.querySelector('#info-hud-enable').addEventListener('change',e=>setInfoHud(e.target.checked));
+    ui.querySelector('#pitwall-enable').disabled=!Pitwall||!StreamHud;
+    ui.querySelector('#pitwall-enable').addEventListener('change',e=>{pitwallEnabled=!!Pitwall&&!!StreamHud&&e.target.checked===true;renderInfoHud();renderStreamHud(true);});
+    ui.querySelector('#stream-hud-enable').addEventListener('change',e=>{streamHudEnabled=e.target.checked===true;try{sessionStorage.setItem(STREAM_KEY,streamHudEnabled?'1':'0');}catch{}renderInfoHud();renderStreamHud(true);});
+    ui.querySelector('#camera-rotate-enable').addEventListener('change',e=>setCameraRotation(e.target.checked));
+    ui.querySelector('#rear-radar-enable').checked=rearRadarEnabled;
+    ui.querySelector('#rear-radar-enable').addEventListener('change',e=>{rearRadarEnabled=e.target.checked===true;radarSample=null;radarAt=-Infinity;saveRadar();renderInfoHud();renderStreamHud(true);});
+    ui.querySelector('#radar-range').value=radarRange;ui.querySelector('#radar-range-value').textContent=radarRange+' units';
+    ui.querySelector('#radar-range').addEventListener('input',e=>{const value=Number(e.target.value);radarRange=Number.isFinite(value)?Math.max(50,Math.min(500,Math.round(value/25)*25)):200;e.target.value=radarRange;ui.querySelector('#radar-range-value').textContent=radarRange+' units';radarSample=null;radarAt=-Infinity;saveRadar();renderStreamHud(true);});
+    ui.querySelector('#hud-layout-enable').addEventListener('change',e=>{hudEditing=e.target.checked===true;hudLayout?.setEditing(hudEditing);renderStreamHud(true);});
+    ui.querySelector('#hud-layout-reset').addEventListener('click',()=>hudLayout?.reset());
+    renderInfoHud();
+    ui.querySelector('#profile-select').addEventListener('change',selectProfile);
+    for(const action of ['save','update','load','delete'])ui.querySelector('#profile-'+action).addEventListener('click',()=>profileAction(action));
+    ui.querySelector('#profile-auto').addEventListener('change',()=>profileAction('auto'));
+    ui.querySelector('#diagnostic-export').addEventListener('click',exportDiagnostic);
+    ui.querySelector('#diagnostic-clear').addEventListener('click',()=>{diagnostics?.clear();message('Local diagnostic history cleared. New activity will be recorded.');});
+    ui.querySelector('#race-pace').addEventListener('change',e=>{prefs.racePace=e.target.checked;message(prefs.racePace?'Race / outrun pace enabled independently. Higher pace can worsen corners. Drag, Drift and dyno retain native pace.':'Race / outrun pace returned to normal.');});
+    ui.querySelector('#race-corner-assist').addEventListener('change',e=>{prefs.raceCornerAssist=e.target.checked;message(prefs.raceCornerAssist?'Road-race hairpin assist requested. Native race AI and selected straight pace are retained. Live improvement is unverified.':'Road-race hairpin assist off.');});
+    ui.querySelector('#corner-assist').addEventListener('change',e=>{prefs.cornerAssist=e.target.checked;message(prefs.cornerAssist?'Free-roam corner assist requested. The native driver will reset before using the new planned speed. This is experimental, not a proven steering fix.':'Free-roam corner assist off. Native driver reset requested.');});
+    ui.querySelector('#dyno-enable').addEventListener('change',e=>{dynoEnabled=e.target.checked;if(!dynoEnabled)stopEcu('Preset tuner disabled');dyno?.setEnabled(dynoEnabled);dynoText=dynoEnabled?'Open the solo Performance Tuning main screen.':(dyno?.applied?'OFF · applied tune kept. Re-enable to restore previous.':'OFF · back up progress before testing');updateDynoUI();});
+    ui.querySelector('#tune-load').addEventListener('click',()=>runDyno('load'));
+    ui.querySelector('#tune-preview').addEventListener('click',()=>runDyno('preview'));
+    ui.querySelector('#tune-reset').addEventListener('click',()=>{try{dyno?.resetDraft();dynoText='Draft reset to the loaded baseline. Game settings unchanged.';}catch(e){dynoText=e.message;}updateDynoUI();});
+    ui.querySelector('#tune-group').addEventListener('change',()=>updateDynoUI());
+    for(let i=0;i<9;i++)ui.querySelector('#tune-input-'+i).addEventListener('input',e=>{try{dyno?.setDraft(Number(e.target.dataset.offset),Number(e.target.value)+100);dynoText='Draft changed. Preview again before Apply.';}catch(error){dynoText=error.message;}updateDynoUI();});
+    ui.querySelector('#dyno-find').addEventListener('click',()=>runDyno('find'));
+    ui.querySelector('#dyno-apply').addEventListener('click',()=>runDyno('apply'));
+    ui.querySelector('#dyno-restore').addEventListener('click',()=>runDyno('restore'));
+    ui.querySelector('#dyno-cancel').addEventListener('click',()=>{dyno?.cancel();dynoText='Cancelling · waiting for the game';updateDynoUI();});
+    ui.querySelector('#online').addEventListener('change', e => {if(soloOnlyBuild()){enforceSolo();message('Network tools are not available on this game build. The driving tools here are solo/offline only.');return;}prefs.online=e.target.checked;if(!prefs.online)suspend();message(prefs.online ? 'Online/LAN tools allowed on this page. Experimental: server checks may flag changes or reject results. F9 disables this mode.' : 'Online/LAN tools paused. Other selections are kept for solo play.');});
+    ui.querySelector('#race-only-ai').addEventListener('change',e=>setRaceOnlyAI(e.target.checked));
+    ui.querySelector('#ai').addEventListener('change', e => {stopAutonomy('Automatic driver selected');clearRaceOnlyAI();prefs.ai=e.target.checked;release();if(!prefs.ai){ai?.stop();try{clearPaceEvidence();}catch{}}message(prefs.ai ? 'Automatic AI requested: native AI for other races/free roam, experimental drag AI for drag. Drag waits for GO. Start events yourself. F7 or driving keys take control; online still needs its separate opt-in.' : 'Native AI off.');});
+    ui.querySelector('#autonomy-runway15').addEventListener('click',()=>{
+      const a=autonomyAvailability();if(a.locked)return;
+      const choice=runway15Choice(a);if(!choice.destination){renderAutonomy();message(choice.reason);return;}
+      autonomySelected.clear();autonomySelected.add(choice.destination.key);autonomyVisitDrag=false;autonomyCruise=false;
+      ui.querySelector('#autonomy-absence').value='wait';renderAutonomy();publishAutonomyEvidence();
+      message('Runway 15 only selected. Press Start selected loop to wait at its start for an open lobby, race, return and repeat.');
+    });
+    ui.querySelector('#autonomy-drag-discovery').addEventListener('change',e=>{if(autonomySnapshot?.active||autonomyStartPending)return;autonomyVisitDrag=e.target.checked===true;if(!autonomyVisitDrag)autonomyCruise=false;renderAutonomy();});
+    ui.querySelector('#autonomy-cruise').addEventListener('change',e=>{if(autonomySnapshot?.active||autonomyStartPending||!autonomyVisitDrag)return;autonomyCruise=e.target.checked===true;renderAutonomy();});
+    ui.querySelector('#autonomy-start').addEventListener('click',()=>{if(!autonomyAvailability().enabled)return;prefs.ai=false;clearRaceOnlyAI();ai?.stop();release();savePrefs();ui.querySelector('#ai').checked=false;setPanel(false);autonomyStartPending=true;autonomyStartUntil=performance.now()+AUTONOMY_START_MS;renderAutonomy();publishAutonomyEvidence();message('Race loop requested; waiting for manual handback and current race starts.');});
+    ui.querySelector('#autonomy-stop').addEventListener('click',()=>takeControl());
+    ui.querySelector('#take-control').addEventListener('click',takeControl);
+    ui.querySelector('#race-hub-open').disabled=!RaceHub;
+    ui.querySelector('#race-hub-open').addEventListener('click',()=>setRaceHub(!hubOpen));
+    if(RaceHub){
+    if(RaceShowcase){
+    ui.querySelector('#showcase-mark')?.addEventListener('click',()=>{const age=performance.now()-(infoHudSample?.at??-Infinity),d=age>=0&&age<=500&&infoHudSample?.data?.ready===true&&infoHudSample?.data?.supported===true?infoHudSample.data:{},type=RaceCatalog?.classify(d.trackId,{drag:infoHudSample?.context?.drag===true,drift:infoHudSample?.context?.drift===true,roam:infoHudSample?.context?.roam===true,outrun:d.raceType===7});showcaseHighlights?.mark({trackId:d.trackId,raceType:type});renderRaceHub(true);});
+    ui.querySelector('#showcase-export')?.addEventListener('click',()=>{const data=RaceShowcase.exportData({...showcaseInput(),stats:raceStats?.snapshot()||{},state:hubRuntime}),blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='nfsu2-stream-scorecard.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+    ui.querySelector('#showcase-profile-mode')?.addEventListener('change',renderShowcaseProfiles);
+    ui.querySelector('#showcase-profile-select')?.addEventListener('change',renderShowcaseProfiles);
+    ui.querySelector('#showcase-profile-save')?.addEventListener('click',()=>{try{ui.querySelector('#profile-name').value=RaceShowcase.profileName(ui.querySelector('#showcase-profile-mode').value,ui.querySelector('#showcase-profile-name').value);ui.querySelector('#profile-network').checked=ui.querySelector('#showcase-profile-network').checked===true;profileAction('save');}catch(error){ui.querySelector('#showcase-profile-state').textContent=error.message;}});
+    ui.querySelector('#showcase-profile-load')?.addEventListener('click',()=>{const row=showcaseProfileRows.find(row=>row.id===ui.querySelector('#showcase-profile-select').value);if(!row)return;profileSelection={...row};profileAction('load');});
+    }
+    ui.querySelector('#race-hub-close')?.addEventListener('click',()=>setRaceHub(false));
+    ui.querySelector('#race-hub-stop')?.addEventListener('click',()=>stop());
+    ui.querySelector('#race-hub-clear')?.addEventListener('click',()=>{raceStats?.clear();renderRaceHub(true);const node=ui.querySelector('#hub-notice');if(node)node.textContent='Local driving statistics cleared.';});
+    ui.querySelector('#race-hub-export')?.addEventListener('click',()=>{
+      if(!raceStats)return;
+      const data={format:'NFSU2 Driving Tools observed race statistics',exportedAt:Date.now(),...raceStats.snapshot()},blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+      a.href=url;a.download='nfsu2-race-stats.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);const node=ui.querySelector('#hub-notice');if(node)node.textContent='Stats download requested.';
+    });
+    }
+    ui.querySelector('#quick-stop').addEventListener('click',()=>stop());
+    ui.querySelector('#city-pace').addEventListener('change',event=>{
+      cityPacingEnabled=event.target.checked===true&&!!cityPacer&&supported&&moduleProfile?.capabilities.ai===true&&moduleProfile?.capabilities.pace===true;
+      cityPacer?.reset();renderCityPace({state:!cityPacingEnabled?'off':prefs.online!==true?'network-permission':'not-online'});
+      message(cityPacingEnabled?'Online city clearance slowing selected. Requires current local Automatic AI ownership, ordinary online free roam and Allow network tools.':'Online city clearance slowing off. Saved driving settings are kept.');
+    });
+    renderCityPace();
+    ui.querySelector('#adaptive-race').addEventListener('change',e=>{adaptiveRaceEnabled=e.target.checked===true&&supported&&moduleProfile?.capabilities.nativeDragInputHandoff===true&&moduleProfile?.capabilities.corner===true&&moduleProfile?.capabilities.pace===true;e.target.checked=adaptiveRaceEnabled;clearPaceEvidence();message(adaptiveRaceEnabled?'Adaptive road-race speed requested. Native route planning uses the road-corner and braking sliders; Street X keeps its existing controls.':'Adaptive speed off. Existing saved driving settings resume after native handoff.');});
+    ui.querySelector('#rubberband-enable').addEventListener('change',e=>{rubberbandEnabled=e.target.checked===true&&supported&&moduleProfile?.capabilities.nativePacedCatchup===true;if(rubberbandEnabled&&!prefs.ai&&!raceOnlyAI)setRaceOnlyAI(true);if(!rubberbandEnabled)stopRubberband(true);clearPaceEvidence();renderRubberband();recordDiagnostic('tools',{tools:diagnosticTools()});message(rubberbandEnabled?(railsEnabled&&moduleProfile?.capabilities.nativeRails===true?'Race assistance selected. Rails road races use Paired race pace only; Catch-up strength is kept for full physics and Drag.':'Pace-linked native catch-up selected. Extra pace waits for matching tire-force publication.'):'Paired catch-up off requested; restoration remains pending until native publication.');});
+    ui.querySelector('#rubberband-percent').addEventListener('input',e=>{rubberbandPercentTouched=true;const n=Number(e.target.value);rubberbandPercent=Number.isFinite(n)&&e.target.value!==''?Math.round(Math.max(100,Math.min(200,n))/5)*5:100;e.target.value=rubberbandPercent;ui.querySelector('#rubberband-value').textContent=(rubberbandPercent/100).toFixed(2)+'×';clearPaceEvidence();recordDiagnostic('tools',{tools:diagnosticTools()});});
+    ui.querySelector('#rubberband-strength').addEventListener('input',e=>{if(e.target.disabled){e.target.value=rubberbandStrength;return;}const n=Number(e.target.value);rubberbandStrength=Number.isFinite(n)&&e.target.value!==''?Math.round(Math.max(1,Math.min(10,n))*4)/4:1.5;e.target.value=rubberbandStrength;ui.querySelector('#rubberband-strength-value').textContent=rubberbandStrength.toFixed(2)+'×';renderRubberband();clearPaceEvidence();recordDiagnostic('tools',{tools:diagnosticTools()});});
+    ui.querySelector('#rails-enable').addEventListener('change',e=>{railsEnabled=e.target.checked===true&&supported&&moduleProfile?.capabilities.nativeRails===true;e.target.checked=railsEnabled;railsWatch=newRailsWatch();if(!rubberbandPercentTouched&&moduleProfile?.capabilities.nativeRails===true){rubberbandPercent=railsEnabled?RAILS_DEFAULT_PERCENT:100;syncRubberbandControls();}clearPaceEvidence();renderRails();renderRubberband();recordDiagnostic('tools',{tools:diagnosticTools()});message(railsEnabled?'Stay on rails selected: your race AI car keeps the simplified AI physics in road races and Street X; online requires Allow network tools. Catch-up raises speed targets only.':'Rails off: the car uses full physics after its first contact, with the paired catch-up boost as before.');});
+    syncRubberbandControls();renderRails();
+    ui.querySelector('#adaptive-race-ceiling').addEventListener('input',e=>{const n=Number(e.target.value);adaptiveRaceCeiling=Number.isFinite(n)&&e.target.value!==''?Math.round(Math.max(1,Math.min(2,n))*20)/20:1.3;e.target.value=adaptiveRaceCeiling;ui.querySelector('#adaptive-race-value').textContent=adaptiveRaceCeiling.toFixed(2)+'×';e.target.setAttribute('aria-valuetext',adaptiveRaceCeiling.toFixed(2)+' times');clearPaceEvidence();recordDiagnostic('tools',{tools:diagnosticTools()});});
+    ui.querySelector('#ai-pace').addEventListener('change', e => { prefs.aiPace=e.target.checked; message(prefs.aiPace ? 'Custom AI pace enabled for native AI only. Higher pace may worsen cornering and cause crashes. Start at 1.00×.' : 'Custom AI pace off. Native AI will use its normal target-speed factor.'); });
+    ui.querySelector('#cars').addEventListener('change', e => {prefs.cars=e.target.checked;if(!prefs.cars)cars?.stop();message(prefs.cars?'Car no-clip requested. Other cars only, solo. Keep clear of other cars before switching it off.':'Car no-clip off. Normal car collisions resume.');});
+    ui.querySelector('#traffic').disabled=true;
+    ui.querySelector('#players').disabled=true;
+    ui.querySelector('#players').addEventListener('change', e => {prefs.players=e.target.checked===true&&moduleProfile?.capabilities?.onlinePlayers===true;e.target.checked=prefs.players;if(!prefs.players)cars?.stop();message(prefs.players?'Online player / race no-clip selected. Race filtering also needs Allow network tools and the current reviewed build. Local contacts only; other players may see collisions. Traffic and walls stay separate.':'Online player no-clip off. Native player-car collisions resume.');});
+    ui.querySelector('#online-all').addEventListener('change',e=>setAllOnlineCars(e.target.checked));
+    ui.querySelector('#rivals').addEventListener('change', e => {onlineRivalsEnabled=e.target.checked===true&&moduleProfile?.capabilities?.onlineRivals===true;e.target.checked=onlineRivalsEnabled;if(!onlineRivalsEnabled)cars?.stop();message(onlineRivalsEnabled?'NPC rival no-clip selected. Allow network tools is required.':'NPC rival no-clip off.');});
+    ui.querySelector('#traffic').addEventListener('change', e => {prefs.traffic=e.target.checked===true&&moduleProfile?.capabilities?.onlineTraffic===true;e.target.checked=prefs.traffic;if(!prefs.traffic)cars?.stop();message(prefs.traffic?'Online traffic no-clip requested for NPC traffic in online free roam only. Player cars need the separate player switch; AI racers keep native collisions. Follow server rules; turn off only when clear of traffic.':'Online traffic no-clip off. Normal traffic collisions resume.');});
+    ui.querySelector('#walls').addEventListener('change', e => {prefs.walls=e.target.checked;if(!prefs.walls)wall?.stop();message(prefs.walls?'Wall pass-through requested. Solo only: turn Free roam with others off, or use a solo race. Near-vertical static walls only; keep a save backup.':'Wall pass-through off. Normal wall collisions resume.');});
+    ui.querySelector('#drag-no-blowout').addEventListener('change',e=>{prefs.dragNoBlowout=e.target.checked===true&&moduleProfile?.capabilities.nativeDragOverheat===true;e.target.checked=prefs.dragNoBlowout;savePrefs();message(prefs.dragNoBlowout?'Drag engine blowout protection requested for your current car. Online/LAN also needs Allow network tools. Driving and NOS decisions are unchanged.':'Normal Drag engine overheating restored.');});
+    ui.querySelector('#nos').addEventListener('change', e => { prefs.nos=e.target.checked===true;renderNosRefill(); });
+    ui.querySelector('#near-miss-request').addEventListener('click',()=>{const loop=nearMissTopUp?.status();if(loop?.enabled||loop?.pending)return;nearMiss?.request();renderNearMiss();message(nearMiss?.status().text||'Synthetic near miss unavailable on this game build');});
+    ui.querySelector('#near-miss-top-up').addEventListener('change',e=>{nearMissTopUp?.setEnabled(e.target.checked);renderNearMiss();message(nearMissTopUp?.status().text||'NOS top-up unavailable');});
+    ui.querySelector('#grip').addEventListener('change', e => { prefs.grip=e.target.checked; message(prefs.grip ? 'Extra grip enabled. Start at 1.3×; it pauses during drift. Too much grip can cause abrupt handling or rollover.' : 'Extra grip off. Original wheel factors are restored.'); });
+    ui.querySelector('#boost').addEventListener('change', e => { prefs.boost=e.target.checked; message('Power boost is experimental. Start at 1.5×; turn it off if wheelspin or handling gets worse.'); });
+    ui.querySelector('#unlimit').addEventListener('change', e => { prefs.unlimit=e.target.checked; });
+    ui.querySelector('#drag').addEventListener('change', e => { prefs.drag = e.target.checked; dragTakenOver=false; if (!prefs.drag) release(); else message('Experimental drag assist enabled. You must steer. Default keyboard bindings required.'); });
+    ui.querySelector('#tester').addEventListener('change', e => { prefs.tester = e.target.checked; ui.querySelector('#hazards').hidden = !prefs.tester; ui.querySelector('#hazards').textContent = 'Waiting for a supported game and driving state…'; });
+    ui.querySelector('#drift').addEventListener('change', e => { const wanted = e.target.checked; profileDriftChoice=false;prefs.drift=wanted;savePrefs();const state=engine && statusPtr ? engine.status(statusPtr) : null;if(!state || (state.drive & 3)!==2){driftNeedsReapply=true;message('Drift choice saved. It will be requested when solo free roam is available.');}else setDrift(wanted); const status=engine && statusPtr ? engine.status(statusPtr) : null; e.target.checked=driftNeedsReapply ? !!prefs.drift : !!(status?.drift & 1); });
+    ui.querySelector('#stop').addEventListener('click', () => stop());
+    ui.querySelector('#min').addEventListener('click', () => setPanel(!visible));
+    const groupIds=["group-driver","group-autonomy","group-dyno","group-streaming","group-profiles","group-power","group-handling","group-drag","group-diagnostics"];
+    for(const id of groupIds) ui.querySelector('#'+id).addEventListener('toggle',()=>{
+      if(ui.querySelector('#'+id).open) for(const other of groupIds) if(other!==id) ui.querySelector('#'+other).open=false;
+    });
+    for(const id of ['nos','drag','tester','boost','unlimit','grip']) ui.querySelector('#'+id).checked=prefs[id];
+    renderNosRefill();
+    renderNearMiss();
+    ui.querySelector('#drag-no-blowout').checked=prefs.dragNoBlowout;
+    ui.querySelector('#ai-pace').checked=prefs.aiPace;
+    for(const [id,name,output,min,max,step,fallback,digits,suffix] of [
+      ['race-corner-factor','raceCornerFactor','race-corner-value',0.6,0.95,0.05,0.8,2,'×'],
+      ['race-corner-margin','raceCornerMargin','race-corner-margin-value',0,25,5,15,0,'%'],
+      ['race-braking','raceBraking','race-braking-value',0.5,1,0.05,0.75,2,'×'],
+      ['race-pace-factor','racePaceFactor','race-pace-value',0.75,3,0.05,1,2,'×'],
+      ['corner-factor','cornerFactor','corner-value',0.6,0.95,0.05,0.8,2,'×'],
+      ['corner-margin','cornerMargin','corner-margin-value',0,25,5,15,0,'%'],
+      ['pace-factor','paceFactor','pace-value',0.75,3,0.05,1,2,'×'],
+      ['power','power','power-value',1,3,0.1,1.5,1,'×'],
+      ['grip-factor','gripFactor','grip-value',1,2,0.1,1.3,1,'×'],
+      ['rpm','rpm','rpm-value',3000,10000,100,6500,0,'']
+    ]) {
+      const input=ui.querySelector('#'+id),value=ui.querySelector('#'+output);
+      const update=()=>{
+        const raw=Number(input.value),bounded=Number.isFinite(raw)&&input.value!==''?Math.max(min,Math.min(max,raw)):fallback;
+        prefs[name]=Number((min+Math.round((bounded-min)/step)*step).toFixed(digits));
+        input.value=prefs[name];value.textContent=prefs[name].toFixed(digits)+suffix;
+        input.setAttribute('aria-valuetext',prefs[name].toFixed(digits)+(suffix==='%'?' percent':suffix?' times':' RPM'));
+      };
+      input.value=prefs[name];update();
+      input.addEventListener('input',()=>{cancelForward();update();savePrefs();});
+      input.addEventListener('change',update);
+    }
+    if(typeof prefs.drift==='boolean') ui.querySelector('#drift').checked=prefs.drift;
+    ui.querySelector('#hazards').hidden=!prefs.tester;
+    ui.addEventListener('change',event=>{const displayOnly=['info-hud-enable','pitwall-enable','stream-hud-enable','camera-rotate-enable','rear-radar-enable','radar-range','hud-layout-enable'].some(id=>event.target===ui.querySelector('#'+id));if(!displayOnly)cancelForward();savePrefs();recordDiagnostic('tools',{tools:diagnosticTools()});if(!displayOnly)clearInfoHud('Settings changed · waiting for fresh sample');});
+    ui.addEventListener('input',event=>{if(event.target?.type==='range')clearInfoHud('Settings changed · waiting for fresh sample');});
+    const parent = document.fullscreenElement || document.body; parent.append(host);
+    ecuUi=globalThis.__NFSU2_ECU_SCOPE_UI__?.mount(ui.querySelector('#ecu-recipe-controls'),{getController:()=>ecu,beforeAction:()=>suspend(undefined,{keepEcu:true}),onDiagnostic:recordEcuDiagnostic})||null;
+    ui.querySelector('#group-dyno').addEventListener('toggle',()=>{if(!ui.querySelector('#group-dyno').open)stopEcu('Tuner section closed');});
+    try{let layoutStorage=null;try{layoutStorage=localStorage;}catch{}hudLayout=globalThis.__NFSU2_HUD_LAYOUT__?.create(ui,{storage:layoutStorage})||null;}catch{}
+    document.addEventListener('fullscreenchange', () => { (document.fullscreenElement || document.body).append(host); });
+    // Explicit startup profile is applied only once, after all controls exist.
+    if(profileStartup)profileStartup=profileSessionStopped?null:profileStore.startup();
+    if(profileStartup){profileSelection=profileStartup.profile;ui.querySelector('#profile-name').value=profileSelection.name;ui.querySelector('#profile-network').checked=profileSelection.networkConsent;applyToolProfile(profileStartup,true);profileStartup=null;}
+    renderProfiles();
+    updateDynoUI();
+    timer = setInterval(tick, 50);
+  }
+  if (document.body) mount(); else document.addEventListener('DOMContentLoaded', mount, { once: true });
+})();
+
+
+===== nfsu2-extension/extension/dynamic-pacing.js =====
+/* Session-only reductions of the owned adaptive driver's pace request.
+ * Distances are observations from the existing wall/car reader. They are not
+ * a road centerline, a physical speed limit, or proof of complete coverage. */
+(function(root){
+  'use strict';
+  const finite=(n,lo,hi)=>typeof n==='number'&&Number.isFinite(n)&&n>=lo&&n<=hi;
+  function clearanceEnvelope({hazards,speedMps,brakingMps2=4,reactionSeconds=.6,marginM=8}={}){
+    if(!finite(speedMps,0,500)||!finite(brakingMps2,.5,12)||!finite(reactionSeconds,0,2)||!finite(marginM,0,30))return {available:false};
+    if(!hazards||!Array.isArray(hazards.cars)||hazards.cars.length>96)return {available:false};
+    let distance=null,source=null;
+    const accept=(d,s)=>{if(finite(d,0,150)&&(distance===null||d<distance)){distance=d;source=s;}};
+    if(hazards.barrierAhead!==null&&hazards.barrierAhead!==undefined)accept(hazards.barrierAhead,'barrier');
+    for(const car of hazards.cars)if(car&&finite(car.side,-2.5,2.5))accept(car.ahead,'vehicle');
+    // No intersection gives no permission to accelerate: the reader's scan
+    // is partial and can miss road curvature, height, shapes and moving cars.
+    if(distance===null)return {available:true,observed:false};
+    const availableM=Math.max(0,distance-marginM-speedMps*reactionSeconds);
+    return {available:true,observed:true,source,distanceM:distance,targetMps:Math.sqrt(2*brakingMps2*availableM)};
+  }
+  class Pacing {
+    constructor(){this.reset();}
+    reset(){this.key=null;this.at=null;this.timingReady=false;this.pace=1;}
+    update({enabled=false,ceiling=1.3,identity,now,evidence={},speedMps,hazards,brakingMps2=4,nativeFallback=false,nativePaceSelected=false}={}){
+      if(enabled!==true){this.reset();return {active:false,state:'off',pace:null};}
+      const city=nativePaceSelected===true&&nativeFallback!==true;
+      if(!finite(ceiling,city ? .75 : 1,city ? 3 : 2)||typeof identity!=='string'||!identity||identity.length>256){this.reset();return {active:false,state:'invalid',pace:1};}
+      const sameOwner=this.key===identity,validTime=finite(now,0,Number.MAX_SAFE_INTEGER);
+      const continuous=sameOwner&&this.timingReady&&validTime&&this.at!==null&&now>=this.at&&now-this.at<=500;
+      const timingState=!validTime?'invalid':!sameOwner?'initial':this.at!==null&&now<this.at?'rollback':continuous?'continuous':'gap';
+      const sampleGapMs=sameOwner&&validTime&&this.at!==null&&now>=this.at?now-this.at:null;
+      if(!sameOwner){this.pace=city?ceiling:1;this.key=identity;this.at=null;this.timingReady=false;}
+      // A timing interruption discards race boost and earns no recovery. City
+      // keeps its selected ceiling and any existing same-owner slowdown.
+      else if(!continuous)this.pace=Math.min(this.pace,city?ceiling:1);
+      const dt=continuous?Math.min(500,now-this.at)/1000:0;
+      const currentRoute=evidence.active===true&&evidence.owned===true&&evidence.cornerMode===3&&evidence.cornerGuardMask===0&&evidence.cornerRouteOwned===true&&finite(evidence.cornerRouteNodes,2,40);
+      // Old hit counters cannot stand in for current route records. On 4715
+      // those counters remain zero while a 2x request otherwise stays active.
+      const currentCorners=currentRoute&&finite(evidence.cornerPlannerCorners,1,5)&&Number.isInteger(evidence.cornerPlannerUsable)&&evidence.cornerPlannerUsable>0&&evidence.cornerPlannerUsable<=evidence.cornerPlannerCorners&&finite(evidence.cornerApplied,0,1)&&evidence.cornerHits>0&&evidence.brakingHits>0;
+      // Road-race fallback keeps the user's selected native pace. Missing
+      // optional corner records are not a slower speed limit. The existing
+      // native driver still handles its route, braking and corner compensation;
+      // partial heading-ray observations remain diagnostics, not an additional
+      // uncalibrated physical speed controller. City slowing uses its own policy.
+      if(nativeFallback===true){
+        this.key=identity;this.at=null;this.timingReady=false;this.pace=ceiling;
+        return {active:true,state:currentCorners?'native-route':'native-fallback',pace:ceiling,ceiling,currentCorners,clearance:clearanceEnvelope({hazards,speedMps,brakingMps2})};
+      }
+      // In city mode the ceiling is the user's existing native pace choice.
+      // An empty partial scan does not create a new pace choice or route proof.
+      let target=city?ceiling:currentCorners?ceiling:1,state=city?'selected-native':currentCorners?'native-route':'coverage-unknown';
+      const clearance=clearanceEnvelope({hazards,speedMps,brakingMps2});
+      if(clearance.observed&&speedMps>1&&clearance.targetMps<speedMps){
+        // Convert the observed overspeed into an absolute pace request. Using
+        // the prior reduced request here compounds the same observation every
+        // page tick, before the physical car has had time to respond.
+        const reduction=Math.min(target,Math.max(.75,(city?ceiling:Math.min(1,target))*clearance.targetMps/speedMps));
+        if(reduction<target){target=reduction;state='clearance-limited';}
+      }
+      // Reduce immediately; city pace regains 0.35x/s toward the user's choice,
+      // while the existing race planner retains 0.10x/s. A delayed timer or
+      // replacement owner cannot jump straight back to the selected ceiling.
+      this.pace=Math.max(.75,Math.min(target,this.pace+(city ? .35 : .1)*dt));
+      // Invalid/backwards samples earn no recovery time. Keep the high-water
+      // timestamp so clock rollback cannot credit the same interval twice;
+      // the first fresh sample after an interruption only reestablishes time.
+      if(validTime&&(this.at===null||now>=this.at)){this.at=now;this.timingReady=true;}
+      else this.timingReady=false;
+      return {active:true,state,pace:Math.round(this.pace*100)/100,ceiling,currentCorners,clearance,...(city?{timingState,sampleGapMs}:{})};
+    }
+  }
+  const api=Object.freeze({Pacing,clearanceEnvelope});
+  root.__NFSU2_DYNAMIC_PACING__=api;
+  if(typeof module==='object'&&module.exports)module.exports=api;
+})(globalThis);
+
+
+===== nfsu2-extension/extension/tool-profiles.js =====
+/* Named extension choices only. Never stores game setups, car data or diagnostics.
+ * Synchronous storage core: page.js serializes save/remove/setAuto with Web Locks.
+ * Stop uses an independent marker and never waits for the profile-write lock. */
+(function(root) {
+  'use strict';
+  const KEY='nfsu2-driving-tools-profiles-v1', STOP_KEY=KEY+'-stop';
+  const MAX_PROFILES=16, MAX_NAME=48, MAX_BYTES=32768;
+  const FLAGS=['raceCornerAssist','cornerAssist','racePace','walls','cars','traffic','players','online','ai','aiPace','nos','dragNoBlowout','drag','tester','boost','unlimit','grip','dynoEnabled'];
+  const NUMBERS={raceCornerFactor:[0.6,0.95],raceCornerMargin:[0,25],raceBraking:[0.5,1],racePaceFactor:[0.75,3],cornerFactor:[0.6,0.95],cornerMargin:[0,25],paceFactor:[0.75,3],rpm:[3000,10000],power:[1,3],gripFactor:[1,2]};
+  const GOALS=['peakPower','peakTorque','acceleration60','acceleration100','topSpeed'];
+  const forbidden=new Set(['__proto__','constructor','prototype']);
+  const token=()=>Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,14);
+  const validToken=value=>typeof value==='string'&&/^[a-z0-9-]{1,64}$/.test(value);
+  function fail(text){throw Error(text);}
+  function exact(value,keys){
+    if(!value||typeof value!=='object'||Array.isArray(value))fail('Invalid profile storage.');
+    const proto=Object.getPrototypeOf(value);
+    if(proto!==null&&Object.getPrototypeOf(proto)!==null)fail('Invalid profile object.');
+    const own=Object.keys(value);
+    if(own.length!==keys.length||own.some(k=>forbidden.has(k)||!keys.includes(k)||!Object.hasOwn(Object.getOwnPropertyDescriptor(value,k),'value')))fail('Invalid profile fields.');
+  }
+  function settings(value){
+    exact(value,[...FLAGS,...Object.keys(NUMBERS),'drift','dynoGoal']);
+    const out={};
+    for(const k of FLAGS){if(typeof value[k]!=='boolean')fail('Invalid profile switch.');out[k]=value[k];}
+    for(const [k,[min,max]] of Object.entries(NUMBERS)){const n=value[k];if(!Number.isFinite(n)||n<min||n>max)fail('Invalid profile number.');out[k]=n;}
+    if(value.drift!==null&&typeof value.drift!=='boolean')fail('Invalid drift choice.');
+    if(!GOALS.includes(value.dynoGoal))fail('Invalid tuner preference.');
+    out.drift=value.drift;out.dynoGoal=value.dynoGoal;return out;
+  }
+  function name(value){
+    if(typeof value!=='string'||!value.trim()||value.length>MAX_NAME||/[\u0000-\u001f\u007f-\u009f]/.test(value)||forbidden.has(value.trim().toLowerCase()))fail('Use a profile name of 1–48 characters without control characters.');
+    return value.trim();
+  }
+  const empty=()=>({schema:1,profiles:[],auto:null});
+  function decode(raw){
+    if(raw===null)return empty();
+    if(typeof raw!=='string'||raw.length*2>MAX_BYTES)fail('Profile storage is too large. Nothing was loaded.');
+    let value;
+    try{value=JSON.parse(raw,(key,v)=>{if(forbidden.has(key))fail('Invalid profile key.');return v;});}catch{fail('Profile storage is damaged. Nothing was loaded or overwritten.');}
+    exact(value,['schema','profiles','auto']);
+    if(value.schema!==1||!Array.isArray(value.profiles)||value.profiles.length>MAX_PROFILES)fail('Unsupported or invalid profile storage.');
+    const ids=new Set(),names=new Set();
+    for(const p of value.profiles){
+      exact(p,['id','name','settings','networkConsent','revision']);
+      if(!validToken(p.id)||!validToken(p.revision)||typeof p.networkConsent!=='boolean')fail('Invalid saved profile.');
+      if(name(p.name)!==p.name||ids.has(p.id)||names.has(p.name.toLowerCase()))fail('Invalid or duplicate saved profile.');
+      ids.add(p.id);names.add(p.name.toLowerCase());p.settings=settings(p.settings);
+    }
+    if(value.auto!==null){exact(value.auto,['id','stopToken']);if(!ids.has(value.auto.id)||!validToken(value.auto.stopToken))fail('Invalid automatic profile choice.');}
+    return value;
+  }
+  function create(storage){
+    let current=empty(),lastRaw=null,stopToken='initial',error='',available=false;
+    function refresh(){
+      try{
+        if(!storage)fail('Local storage is unavailable. Profiles cannot be saved or automatically loaded.');
+        const raw=storage.getItem(KEY),stopped=storage.getItem(STOP_KEY);
+        if(stopped!==null&&!validToken(stopped))fail('Invalid profile Stop marker. Automatic loading is blocked.');
+        const next=decode(raw);
+        // Autoload also requires functioning writes, so read-only/blocked storage fails closed.
+        const probe=KEY+'-probe',value=token();storage.setItem(probe,value);
+        if(storage.getItem(probe)!==value)fail('Local storage could not be verified.');
+        storage.removeItem(probe);
+        if(storage.getItem(KEY)!==raw||storage.getItem(STOP_KEY)!==stopped)fail('Profiles changed while reading storage. Select the profile again.');
+        current=next;lastRaw=raw;stopToken=stopped||'initial';available=true;error='';
+      }catch(e){available=false;error=e.message||'Local storage is unavailable.';current=empty();}
+      return snapshot();
+    }
+    function snapshot(){return {data:JSON.parse(JSON.stringify(current)),stopToken,available,error,paused:stopToken!=='initial'&&(!current.auto||current.auto.stopToken!==stopToken)};}
+    function commit(next){
+      decode(JSON.stringify(next));
+      const raw=JSON.stringify(next);if(raw.length*2>MAX_BYTES)fail('Profile storage limit reached. Delete a profile first.');
+      if(storage.getItem(KEY)!==lastRaw)fail('Profiles changed in another tab. Select the profile again.');
+      storage.setItem(KEY,raw);if(storage.getItem(KEY)!==raw)fail('The profile write could not be verified.');
+      current=next;lastRaw=raw;error='';return snapshot();
+    }
+    function mutate(fn){
+      refresh();if(!available)fail(error);
+      const next=JSON.parse(JSON.stringify(current));fn(next);return commit(next);
+    }
+    function find(next,id,revision){const p=next.profiles.find(p=>p.id===id);if(!p||p.revision!==revision)fail('This profile changed in another tab. Select it again before continuing.');return p;}
+    function save({id=null,revision=null,name:label,settings:choices,networkConsent=false}){
+      const cleanName=name(label),cleanSettings=settings(choices);
+      if(typeof networkConsent!=='boolean')fail('Invalid network permission.');
+      let saved;
+      mutate(next=>{
+        const existing=id?find(next,id,revision):null;
+        if(next.profiles.some(p=>p.id!==id&&p.name.toLowerCase()===cleanName.toLowerCase()))fail('That name already exists. Select it and use Update, or choose a different name.');
+        if(!existing&&next.profiles.length>=MAX_PROFILES)fail('You can save up to 16 profiles. Delete one before adding another.');
+        saved={id:existing?.id||token(),name:cleanName,settings:cleanSettings,networkConsent,revision:token()};
+        if(existing)next.profiles[next.profiles.indexOf(existing)]=saved;else next.profiles.push(saved);
+        // Updating an automatically loaded profile is not permission to change the next startup.
+        if(next.auto?.id===saved.id)next.auto=null;
+      });return saved;
+    }
+    function load(id,revision){refresh();if(!available)fail(error);const p=find(current,id,revision),out=settings(p.settings);if(!p.networkConsent)out.online=out.traffic=out.players=false;return {profile:JSON.parse(JSON.stringify(p)),settings:out};}
+    function remove(id,revision){return mutate(next=>{const p=find(next,id,revision);next.profiles.splice(next.profiles.indexOf(p),1);if(next.auto?.id===id)next.auto=null;});}
+    function setAuto(id,revision){return mutate(next=>{if(id){
+      find(next,id,revision);
+      // Never authorize startup against an absent marker. Removing or clearing
+      // the marker later must not revive an old pre-Stop automatic profile.
+      if(stopToken==='initial'){const fresh=token();storage.setItem(STOP_KEY,fresh);if(storage.getItem(STOP_KEY)!==fresh)fail('Could not save startup permission.');stopToken=fresh;}
+      next.auto={id,stopToken};
+    }else next.auto=null;});}
+    function startup(){refresh();if(!available||stopToken==='initial'||!current.auto||current.auto.stopToken!==stopToken)return null;const p=current.profiles.find(p=>p.id===current.auto.id),out=settings(p.settings);if(!p.networkConsent)out.online=out.traffic=out.players=false;return {profile:JSON.parse(JSON.stringify(p)),settings:out};}
+    function pause(){
+      // The separate marker protects Stop from a stale settings-record write in another tab.
+      const marker=token();let durable=false;
+      try{if(!storage)fail('Storage unavailable');storage.setItem(STOP_KEY,marker);durable=storage.getItem(STOP_KEY)===marker;}catch{}
+      if(durable){stopToken=marker;refresh();return {durable:true,error:available?'':'Stop saved; '+error};}
+      // If possible, remove ONLY automatic loading, preserving all profiles.
+      try{const next=decode(storage.getItem(KEY));next.auto=null;const raw=JSON.stringify(next);storage.setItem(KEY,raw);durable=storage.getItem(KEY)===raw;}catch{}
+      available=false;error=durable?'Automatic loading disabled, but local storage is not fully available.':'Stop is active on this page, but could not be saved. Automatic loading may return after reload; restore storage, then press F9 / Stop again before reloading.';
+      return {durable,error};
+    }
+    refresh();return {refresh,snapshot,save,load,remove,setAuto,startup,pause};
+  }
+  const api=Object.freeze({KEY,STOP_KEY,MAX_PROFILES,MAX_NAME,MAX_BYTES,FLAGS:Object.freeze(FLAGS),NUMBERS:Object.freeze(NUMBERS),GOALS:Object.freeze(GOALS),settings,decode,create});
+  if(typeof module==='object'&&module.exports)module.exports=api;else Object.defineProperty(root,'__NFSU2_TOOL_PROFILES__',{value:api});
+})(globalThis);
+
+
+===== nfsu2-extension/extension/near-miss-events.js =====
+(function (root, factory) {
+  'use strict';
+  const api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  if (root) root.__NFSU2_NEAR_MISS_EVENTS__ = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+'use strict';
+// OFFLINE LAB ONLY. Read-only observations at native18088 entry/exit and at
+// native17146 entry while that18088 invocation is active. Outer deltas alone
+// cannot establish which pending pair the inner producer actually consumed.
+// Address identity in this bounded fixture does not prove production lifetime,
+// exclusion against physical acquisition, or a callable extension worker bridge.
+function assert(condition, message) { if (!condition) throw new TypeError(message); }
+
+const STATUS = Object.freeze({
+  VERIFIED: 'VERIFIED',
+  NATIVE_GATE: 'NATIVE_GATE',
+  EVENT_MISMATCH: 'EVENT_MISMATCH',
+  EVENT_UNVERIFIED: 'EVENT_UNVERIFIED'
+});
+const TARGET = Object.freeze(['token', 'generation', 'car', 'race', 'racer', 'manager', 'style']);
+const NATIVE = Object.freeze(['cpu', 'manager', 'style', 'pairA', 'pairB']);
+
+function uint32(value, label, allowZero = false) {
+  assert(Number.isInteger(value) && value >= (allowZero ? 0 : 1) && value <= 0xffffffff,
+    'Invalid uint32 ' + label);
+  return value;
+}
+function target(value) {
+  assert(value && typeof value === 'object', 'Missing target identity');
+  return Object.freeze(Object.fromEntries(TARGET.map(key => [key, uint32(value[key], 'target.' + key)])));
+}
+function request(value) {
+  assert(value && typeof value === 'object', 'Missing request identity');
+  return Object.freeze({
+    id: uint32(value.id, 'request.id'),
+    epoch: uint32(value.epoch, 'request.epoch', true),
+    target: target(value.target)
+  });
+}
+function sameTarget(a, b) { return TARGET.every(key => a[key] === b[key]); }
+function sameRequest(a, b) { return a.id === b.id && a.epoch === b.epoch && sameTarget(a.target, b.target); }
+function requestKey(r) { return [r.id, r.epoch, ...TARGET.map(key => r.target[key])].join(':'); }
+function nativeIdentity(value, allowZeroPair = false) {
+  assert(value && typeof value === 'object', 'Missing native observation');
+  return Object.fromEntries(NATIVE.map(key => [key,
+    uint32(value[key], 'native.' + key, allowZeroPair && (key === 'pairA' || key === 'pairB'))]));
+}
+function observation(value, isEntry) {
+  const native = nativeIdentity(value, !isEntry);
+  const pendingState = uint32(value.pendingState, 'native.pendingState', true);
+  assert(pendingState <= 0xff, 'Invalid native pending byte');
+  assert(Number.isFinite(value.stylePending), 'Invalid native pending style points');
+  const styleCount = uint32(value.styleCount, 'native.styleCount', true);
+  return Object.freeze({ ...native, pendingState, stylePending: value.stylePending, styleCount,
+    ...(isEntry ? { target: target(value.target) } : {}) });
+}
+function signedDelta(value, label) {
+  assert(Number.isInteger(value) && value >= -0x80000000 && value <= 0x7fffffff,
+    'Invalid signed int32 ' + label);
+  return value;
+}
+
+class EventWitness {
+  constructor() {
+    this.active = null;
+    this.finished = new Set();
+  }
+
+  queue(value, expected) {
+    const r = request(value), identity = nativeIdentity(expected);
+    assert(identity.manager === r.target.manager && identity.style === r.target.style,
+      'Queued manager/style must match request ownership');
+    assert(identity.pairA !== identity.pairB, 'Queued pair must contain distinct native objects');
+    assert(!this.active, 'An event witness is already pending');
+    assert(!this.finished.has(requestKey(r)), 'A finished event witness cannot be replayed');
+    this.active = { request: r, expected: Object.freeze(identity), entries: [], stack: [], issues: [] };
+    return Object.freeze({ request: r, expected: this.active.expected });
+  }
+
+  beforeNative(value) {
+    const a = this.active;
+    if (!a) return false;
+    try {
+      const before = observation(value, true), entry = { before, after: null, consumptions: [] };
+      a.entries.push(entry);
+      a.stack.push(entry);
+      if (a.entries.length !== 1) a.issues.push('multiple-native-invocations');
+      if (!sameTarget(before.target, a.request.target)) a.issues.push('entry-session-mismatch');
+      if (!NATIVE.every(key => before[key] === a.expected[key])) a.issues.push('consumed-event-mismatch');
+      if (before.pendingState === 0) a.issues.push('no-pending-event-at-entry');
+      return true;
+    } catch (error) {
+      a.issues.push('invalid-entry-observation');
+      return false;
+    }
+  }
+
+  observeConsumption(value) {
+    const a = this.active;
+    if (!a) return false;
+    const entry = a.stack[a.stack.length - 1];
+    if (!entry) { a.issues.push('consumption-outside-native-invocation'); return false; }
+    try {
+      // Original17146 uses CPU+4 as its style receiver. Requiring that actual
+      // register distinguishes this producer from another native style call.
+      const sample = Object.freeze({ ...observation(value, true),
+        receiver: uint32(value.receiver, 'native.producerReceiver') });
+      entry.consumptions.push(sample);
+      if (a.entries.reduce((count, event) => count + event.consumptions.length, 0) !== 1) {
+        a.issues.push('multiple-native-consumptions');
+      }
+      if (!sameTarget(sample.target, a.request.target)) a.issues.push('consumption-session-mismatch');
+      if (!NATIVE.every(key => sample[key] === a.expected[key])) a.issues.push('consumed-event-mismatch');
+      if (sample.receiver !== a.expected.style) a.issues.push('native-producer-receiver-mismatch');
+      if (sample.pendingState !== 2) a.issues.push('unexpected-pending-state-at-consumption');
+      if (sample.stylePending !== entry.before.stylePending || sample.styleCount !== entry.before.styleCount) {
+        a.issues.push('pre-consumption-style-change');
+      }
+      return true;
+    } catch (error) {
+      a.issues.push('invalid-consumption-observation');
+      return false;
+    }
+  }
+
+  afterNative(value) {
+    const a = this.active;
+    if (!a) return false;
+    const entry = a.stack.pop();
+    if (!entry) { a.issues.push('exit-without-entry'); return false; }
+    try {
+      const after = observation(value, false);
+      entry.after = after;
+      if (['cpu', 'manager', 'style'].some(key => after[key] !== entry.before[key])) {
+        a.issues.push('native-return-identity-mismatch');
+      }
+      return true;
+    } catch (error) {
+      a.issues.push('invalid-exit-observation');
+      return false;
+    }
+  }
+
+  abandon(value) {
+    const r = request(value), a = this.active;
+    if (!a) return Object.freeze({ abandoned: false, reason: 'no-pending-ticket' });
+    if (!sameRequest(r, a.request)) return Object.freeze({ abandoned: false, reason: 'request-mismatch' });
+    this.active = null;
+    this.finished.add(requestKey(a.request));
+    return Object.freeze({ abandoned: true, status: STATUS.EVENT_UNVERIFIED,
+      reason: 'abandoned-ticket', request: a.request });
+  }
+
+  finish(value, outcome) {
+    const r = request(value);
+    const points = signedDelta(outcome.points, 'tick points'), nos = signedDelta(outcome.nos, 'tick NOS');
+    // Completion reads live ownership: a car/session disappearing can produce
+    // null pointers. That is a failed observation, not an invalid new ticket.
+    // It must still close the old ticket without escaping the native callback.
+    let currentTarget = null;
+    try { currentTarget = target(outcome.target); } catch (error) {}
+    const a = this.active;
+    if (!a) return Object.freeze({ status: STATUS.EVENT_UNVERIFIED, reason: 'no-pending-ticket', points, nos,
+      producerPendingPoints: null, nativePendingPoints: null, nativeStyleCount: null, nativeInvocations: 0,
+      nativeConsumptions: 0, tickDeltasAreEventSpecific: false, pairIdentityIsAddressOnly: true });
+
+    // Close even failed/incomplete observations. A missing witness never retries
+    // an already consumed native event; mailbox durability is a separate layer.
+    this.active = null;
+    this.finished.add(requestKey(a.request));
+    const issues = a.issues.slice();
+    if (!sameRequest(r, a.request)) issues.push('completion-request-mismatch');
+    if (!currentTarget) issues.push('invalid-completion-target');
+    else if (!sameTarget(currentTarget, a.request.target)) issues.push('completion-session-mismatch');
+    const entry = a.entries.length === 1 ? a.entries[0] : null;
+    const complete = !!entry && !!entry.after && a.stack.length === 0;
+    let nativePendingPoints = null, producerPendingPoints = null, nativeStyleCount = null;
+    const nativeConsumptions = a.entries.reduce((count, event) => count + event.consumptions.length, 0);
+    if (complete) {
+      nativePendingPoints = entry.after.stylePending - entry.before.stylePending;
+      nativeStyleCount = entry.after.styleCount - entry.before.styleCount;
+      if (!Number.isFinite(nativePendingPoints)) issues.push('invalid-native-style-delta');
+      if (entry.after.pendingState !== 0 || entry.after.pairA !== 0 || entry.after.pairB !== 0) {
+        issues.push('pending-event-not-cleared');
+      }
+      if (nativePendingPoints < 0 || nativeStyleCount < 0) issues.push('native-style-regressed');
+      if (nativePendingPoints === 0 && nativeStyleCount !== 0) issues.push('no-native-style-advance');
+      if (entry.consumptions.length === 1) {
+        producerPendingPoints = entry.after.stylePending - entry.consumptions[0].stylePending;
+      } else if (nativePendingPoints === 0 && nativeStyleCount === 0 && nativeConsumptions === 0) {
+        producerPendingPoints = 0;
+      }
+      if (nativePendingPoints > 0 && nativeConsumptions !== 1) issues.push('missing-consumption-witness');
+    } else issues.push('missing-complete-native-invocation');
+
+    const mismatch = issues.find(issue => issue.endsWith('-mismatch'));
+    const status = mismatch ? STATUS.EVENT_MISMATCH : issues.length ? STATUS.EVENT_UNVERIFIED
+      : nativePendingPoints > 0 ? STATUS.VERIFIED : STATUS.NATIVE_GATE;
+    return Object.freeze({ status, reason: mismatch || issues[0] || (status === STATUS.NATIVE_GATE
+      ? 'matching-native-event-no-style-advance' : 'matching-native-event-style-advance'),
+      points, nos, producerPendingPoints, nativePendingPoints, nativeStyleCount,
+      nativeInvocations: a.entries.length, nativeConsumptions,
+      request: a.request, expected: a.expected,
+      observations: Object.freeze(a.entries.map(event => Object.freeze({ ...event,
+        consumptions: Object.freeze(event.consumptions.slice()) }))),
+      issues: Object.freeze(issues),
+      // Whole5598 tick deltas are reported intact; this witness correlates the
+      // queued event with17146 pending-style production, not all later NOS credit.
+      tickDeltasAreEventSpecific: false, pairIdentityIsAddressOnly: true });
+  }
+}
+
+return Object.freeze({ EventWitness, STATUS, TARGET, productionSupported: false,
+  productionBlocker: 'Only bounded test callbacks observe native18088/native17146; production object lifetime, event arbitration, owned mailbox allocation and extension worker access remain unverified.' });
+});
+
+
+===== nfsu2-extension/extension/near-miss-control.js =====
+(function(root,factory){
+  'use strict';
+  const api=factory();
+  if(typeof module==='object'&&module.exports)module.exports=api;
+  if(root)root.__NFSU2_NEAR_MISS_CONTROL__=api;
+})(typeof globalThis!=='undefined'?globalThis:this,function(){
+  'use strict';
+  // A page control consumes a verified worker service. It never edits native
+  // car/traffic/style memory or turns the offline fixture into a worker export.
+  const IDENTITY=Object.freeze(['id','epoch','token','generation','car','race','racer','manager','style']);
+  const uint=value=>Number.isInteger(value)&&value>0&&value<=0xffffffff;
+  const signed=value=>Number.isInteger(value)&&value>=-0x80000000&&value<=0x7fffffff;
+  const same=(a,b)=>!!a&&!!b&&IDENTITY.every(key=>a[key]===b[key]);
+  const sameContext=(a,b)=>!!a&&!!b&&['moduleIdentity','moduleHash','generation','car','race'].every(key=>a[key]===b[key]);
+  const sameSession=(a,b)=>!!a&&!!b&&['moduleIdentity','moduleHash','generation'].every(key=>a[key]===b[key]);
+  const unavailable='Synthetic near miss unavailable on this game build';
+  function create({getBridge=()=>null,getContext=()=>null,clock=()=>Date.now(),timeoutMs=3000}={}){
+    if(!Number.isFinite(timeoutMs)||timeoutMs<=0)throw new TypeError('Invalid near-miss timeout');
+    let pending=null,nextId=1,last={state:'unavailable',text:unavailable};
+    function current(){
+      let context,bridge;
+      try{
+        bridge=getBridge();
+        if(bridge?.verified!==true||bridge?.ownsMailbox!==true||bridge?.witnessedEvents!==true||bridge.protocolVersion!==4||
+          typeof bridge.request!=='function'||typeof bridge.poll!=='function'||typeof bridge.cancel!=='function')return{available:false};
+        if(typeof bridge.isCurrent==='function'&&bridge.isCurrent()!==true)return{available:false};
+        context=getContext();
+      }catch{return{available:false};}
+      const available=!!context&&bridge.moduleIdentity===context.moduleIdentity&&bridge.moduleHash===context.moduleHash;
+      return{available,bridge,context};
+    }
+    function eligibility(now){
+      if(!now.available)return'unavailable';
+      const c=now.context;
+      if(c.safe!==true||!uint(c.generation)||!uint(c.car)||!uint(c.race))return'paused';
+      if(c.network===true&&c.allowNetwork!==true)return'permission';
+      return null;
+    }
+    function status(){
+      const now=current(),reason=eligibility(now),state=reason||(last.state==='unavailable'?'idle':last.state);
+      const text=reason==='unavailable'?unavailable:reason==='paused'?'Near miss paused · drive with the game focused':
+        reason==='permission'?'Near miss needs Allow network tools online':last.state==='unavailable'?'Ready · one synthetic award per request':last.text;
+      return Object.freeze({...last,outcomeState:last.state,state,text,available:now.available,canRequest:!reason&&!pending&&nextId<0x7fffffff,pending:!!pending});
+    }
+    function request(){
+      const now=current(),reason=eligibility(now);
+      if(reason||pending||nextId>=0x7fffffff)return{published:false,reason:reason||(pending?'pending':'request-limit')};
+      const id=nextId++,context={...now.context};
+      let result;
+      try{result=now.bridge.request({id,generation:context.generation,car:context.car,race:context.race,allowNetwork:context.allowNetwork===true});}
+      catch{last={state:'unknown',text:'Near-miss request outcome unknown · waiting for confirmation'};pending={bridge:now.bridge,context,request:null,started:clock()};return{published:false,reason:'outcome-unknown'};}
+      if(result?.published!==true){last={state:'rejected',text:'Near-miss request was not queued'};return{published:false,reason:result?.reason||'not-queued'};}
+      const r=result.request;
+      const valid=!!r&&IDENTITY.every(key=>uint(r[key]))&&r.id===id&&r.generation===context.generation&&r.car===context.car&&r.race===context.race;
+      pending={bridge:now.bridge,context,request:valid?Object.freeze({...r}):null,started:clock()};
+      last={state:valid?'pending':'unknown',text:valid?'Near-miss request queued · waiting for native confirmation':'Near-miss request identity unknown · reload before another request'};
+      return{published:true,confirmed:false,...(valid?{request:pending.request}:{reason:'invalid-request-identity'})};
+    }
+    function poll(){
+      if(!pending)return status();
+      const now=current();
+      if(!now.available||now.bridge!==pending.bridge||!sameSession(now.context,pending.context)){invalidate('Game session changed · request outcome unconfirmed');return status();}
+      const previousCar=!sameContext(now.context,pending.context);
+      if(previousCar)pending.cancelWanted=true;
+      if((eligibility(now)||pending.cancelWanted)&&!pending.cancelRequested)cancel();
+      if(!pending||!pending.request)return status();
+      let receipt;
+      try{receipt=pending.bridge.poll(pending.request);}catch{last={state:'unknown',text:'Near-miss confirmation unavailable · request will not retry'};return status();}
+      if(receipt?.acknowledged===true&&same(receipt.request,pending.request)){
+        if(!signed(receipt.points)||!signed(receipt.nos)){last={state:'unknown',text:'Near-miss outcome is invalid · request will not retry'};return status();}
+        const event=receipt.event;
+        const eventRequest=event?.request&&{...event.request.target,id:event.request.id,epoch:event.request.epoch};
+        const verified=event?.status==='VERIFIED'&&same(eventRequest,pending.request)&&Number.isFinite(event.producerPendingPoints)&&event.producerPendingPoints>0;
+        const state=verified&&[1,9].includes(receipt.result)?'confirmed':receipt.result===6&&event?.status==='NATIVE_GATE'?'native-gate':
+          receipt.result===11||event?.status==='EVENT_MISMATCH'?'event-mismatch':'unconfirmed';
+        const labels={confirmed:'Synthetic near-miss award confirmed','native-gate':'Native near-miss gate · no award','event-mismatch':'Different native event observed · synthetic request unconfirmed',unconfirmed:'Synthetic near miss unconfirmed'};
+        last={state,result:receipt.result,text:(previousCar?'Previous car request · ':'')+labels[state]+` · tick style ${receipt.points} · tick NOS ${receipt.nos}`,points:receipt.points,nos:receipt.nos,eventPoints:verified?event.producerPendingPoints:null};
+        pending=null;
+      }else if(clock()-pending.started>=timeoutMs){last={state:'unknown',text:'Near-miss confirmation timed out · request will not retry'};}
+      return status();
+    }
+    function cancel(){
+      if(!pending)return status();
+      const now=current();
+      if(!now.available||now.bridge!==pending.bridge||!sameSession(now.context,pending.context))return invalidate();
+      if(pending.cancelRequested)return status();
+      pending.cancelWanted=true;
+      try{if(pending.request)pending.cancelRequested=pending.bridge.cancel(pending.request)?.requested===true;}catch{}
+      // Cancellation is a request, not proof that native work was withdrawn.
+      last={state:'unknown',text:'Near-miss cancellation requested · waiting for confirmation'};
+      return status();
+    }
+    function invalidate(text='Game session changed · request outcome unconfirmed'){
+      pending=null;last={state:'unconfirmed',text};
+      // Request IDs remain monotonic even when a module reuses its memory.
+      return status();
+    }
+    return Object.freeze({status,request,poll,cancel,invalidate});
+  }
+  return Object.freeze({create,unavailable});
+});
+
+
+===== nfsu2-extension/extension/near-miss-top-up.js =====
+(function(root,factory){
+  'use strict';
+  const api=factory();
+  if(typeof module==='object'&&module.exports)module.exports=api;
+  if(root)root.__NFSU2_NEAR_MISS_TOP_UP__=api;
+})(typeof globalThis!=='undefined'?globalThis:this,function(){
+  'use strict';
+  const KEYS=Object.freeze(['moduleIdentity','moduleHash','generation','car','race']);
+  const uint=n=>Number.isInteger(n)&&n>0&&n<=0xffffffff;
+  const same=(a,b)=>!!a&&!!b&&KEYS.every(key=>a[key]===b[key]);
+  const identity=s=>!!s&&s.moduleIdentity!=null&&typeof s.moduleHash==='string'&&s.moduleHash.length>0&&uint(s.generation)&&uint(s.car)&&uint(s.race);
+  const gates=new Set(['paused','permission','unavailable']);
+  const terminal=new Set(['confirmed','unconfirmed','native-gate','event-mismatch']);
+  function level(sample){
+    if(!sample||typeof sample.active!=='boolean'||!Number.isInteger(sample.full)||sample.full<=0||sample.full>=10000000||
+      !Number.isInteger(sample.remaining)||sample.remaining<0||sample.remaining>=10000000)return null;
+    const elapsedTicks=sample.active?sample.elapsedTicks:0;
+    if(!Number.isInteger(elapsedTicks)||elapsedTicks<0||elapsedTicks>=0x7fffffff)return null;
+    const effective=Math.max(0,sample.remaining-elapsedTicks);
+    return Object.freeze({full:sample.full,remaining:sample.remaining,effective,deficit:Math.max(0,sample.full-effective),atFull:effective>=sample.full,active:sample.active,elapsedTicks});
+  }
+  function create({control,getSample,clock=()=>Date.now(),intervalMs=250,timeoutMs=4000}={}){
+    if(!control||['status','request','poll','cancel'].some(key=>typeof control[key]!=='function'))throw new TypeError('A near-miss control is required');
+    if(typeof getSample!=='function'||typeof clock!=='function')throw new TypeError('Top-up readers are required');
+    if(!Number.isFinite(intervalMs)||intervalMs<250||!Number.isFinite(timeoutMs)||timeoutMs<=0)throw new TypeError('Invalid top-up timing');
+    let enabled=false,owner=null,flight=null,nextAt=0,lastTime=null,state='off',reason='off',paused=false,polling=false;
+    function read(){
+      let status=null,sample=null,error=null;
+      try{status=control.status();if(!status||typeof status.pending!=='boolean')error='control-error';}catch{error='control-error';}
+      try{sample=getSample();}catch{error=error||'sample-error';}
+      return{status,sample,quantity:level(sample),error};
+    }
+    function time(){
+      try{const now=clock();return Number.isFinite(now)&&now>=0&&(lastTime===null||now>=lastTime)?now:null;}catch{return null;}
+    }
+    function view(snapshot=read()){
+      const c=snapshot.status,pending=!!flight||c?.pending===true;
+      let shown=state,why=reason;
+      if(enabled){
+        if(gates.has(c?.state)){shown='paused';why=c.state;}
+        else if(!snapshot.quantity){shown='paused';why='nos-unavailable';}
+        else if(snapshot.quantity.atFull){shown='full';why='full';}
+      }
+      const texts={off:'NOS top-up off',armed:'NOS top-up armed',pending:'Waiting for native top-up confirmation',cooldown:'Waiting before the next top-up',paused:'NOS top-up paused',full:'NOS full · waiting for use',stopped:'NOS top-up stopped'};
+      return Object.freeze({enabled,state:shown,reason:why,text:texts[shown]||texts.stopped,pending,nextAt:enabled&&!flight?nextAt:null,level:snapshot.quantity,
+        canEnable:!enabled&&!pending&&!snapshot.error&&identity(snapshot.sample)&&!!snapshot.quantity&&c?.canRequest===true&&!gates.has(c.state)});
+    }
+    function halt(why){enabled=false;state='stopped';reason=why;paused=false;if(flight)flight.cancelReason='failure';}
+    function markCancellation(why){
+      if(!flight)return;
+      if(!flight.cancelReason||why==='disable'||why==='failure')flight.cancelReason=why;
+    }
+    function withdraw(){
+      if(!flight?.cancelReason)return;
+      try{control.cancel();}catch{halt('cancellation-error');}
+    }
+    function setEnabled(wanted){
+      if(wanted!==true){enabled=false;state='off';reason='off';paused=false;markCancellation('disable');withdraw();return view();}
+      if(enabled)return view();
+      const snapshot=read(),now=time(),c=snapshot.status;
+      if(flight||snapshot.error||now===null||!identity(snapshot.sample)||!snapshot.quantity||c?.pending===true||c?.canRequest!==true||gates.has(c.state))return view(snapshot);
+      enabled=true;owner=Object.freeze(Object.fromEntries(KEYS.map(key=>[key,snapshot.sample[key]])));nextAt=now;lastTime=now;paused=false;
+      state=snapshot.quantity.atFull?'full':'armed';reason=snapshot.quantity.atFull?'full':'armed';return view(snapshot);
+    }
+    function pause(why='paused'){
+      if(enabled){paused=true;state='paused';reason=typeof why==='string'?why:'paused';const now=time();if(now!==null&&!flight)nextAt=Math.max(nextAt,now+intervalMs);markCancellation('pause');withdraw();}
+      return view();
+    }
+    function settle(c){
+      const outcome=c.outcomeState||c.state;
+      if(c.pending)return false;
+      if(!terminal.has(outcome))return false;
+      const cancelled=!!flight.cancelReason&&outcome==='unconfirmed'&&c.result===12&&c.points===0&&c.nos===0;
+      const applied=outcome==='confirmed'&&c.result===1&&Number.isInteger(c.nos)&&c.nos>0&&c.nos<=0x7fffffff;
+      flight=null;
+      if(!applied&&!cancelled){halt(outcome==='confirmed'?'no-nos-progress':outcome);return true;}
+      if(enabled){
+        const completedAt=time();
+        if(completedAt===null){halt('clock-error');return true;}
+        lastTime=completedAt;nextAt=completedAt+intervalMs;state='cooldown';reason='cooldown';
+      }
+      return true;
+    }
+    function pump(snapshot,now){
+      const c=snapshot.status,outcome=c?.outcomeState||c?.state;
+      // An already unknown outcome is a failure even when eligibility masks
+      // it as paused. Expected cancellation is recorded before asking control.
+      if(outcome==='unknown'&&!flight.cancelReason)halt('unknown-outcome');
+      if(enabled&&gates.has(c?.state)){paused=true;markCancellation('pause');}
+      else if(enabled&&!snapshot.quantity){paused=true;markCancellation('pause');}
+      else if(enabled&&snapshot.quantity.atFull)markCancellation('full');
+      if(now-flight.started>=timeoutMs)halt('timeout');
+      if(!enabled&&!flight.cancelReason)markCancellation('disable');
+      withdraw();
+      let result;
+      try{result=control.poll();if(!result||typeof result.pending!=='boolean')throw Error('Invalid control status');}
+      catch{halt('confirmation-error');return;}
+      const nextOutcome=result.outcomeState||result.state;
+      if(nextOutcome==='unknown'&&!flight.cancelReason)halt('unknown-outcome');
+      if(!result.pending&&terminal.has(nextOutcome)){settle(result);return;}
+      if(enabled){state=paused?'paused':'pending';reason=paused?'paused':'pending';}
+    }
+    function publish(now){
+      // Re-read after cooldown. A sample read while observing the previous
+      // receipt never authorizes the next command.
+      const fresh=read(),c=fresh.status;
+      if(fresh.error){halt(fresh.error);return;}
+      if(identity(fresh.sample)&&!same(owner,fresh.sample)){halt('owner-changed');return;}
+      if(c?.pending){halt('independent-request');return;}
+      if(!identity(fresh.sample)||!fresh.quantity||gates.has(c?.state)||c?.canRequest!==true){state='paused';reason='not-ready';paused=true;return;}
+      if(fresh.quantity.atFull){state='full';reason='full';return;}
+      flight={started:now,cancelReason:null};
+      let result;
+      try{result=control.request();}catch{halt('publication-error');return;}
+      const after=read();
+      if(result?.published!==true){if(after.status?.pending!==true&&result?.reason!=='outcome-unknown')flight=null;halt('publication-rejected');return;}
+      if(after.error||(after.status?.outcomeState||after.status?.state)==='unknown'){halt(after.error||'unknown-outcome');return;}
+      if(after.status?.pending!==true){halt('publication-unconfirmed');return;}
+      state='pending';reason='pending';paused=false;
+    }
+    function poll(){
+      if(polling)return view();
+      polling=true;
+      try{
+        const snapshot=read(),now=time();
+        if(!enabled&&!flight)return view(snapshot);
+        if(now===null){halt('clock-error');markCancellation('failure');withdraw();return view(snapshot);}
+        lastTime=now;
+        if(snapshot.error){halt(snapshot.error);markCancellation('failure');withdraw();return view(snapshot);}
+        if(identity(snapshot.sample)&&owner&&!same(owner,snapshot.sample))halt('owner-changed');
+        if(flight){pump(snapshot,now);return view();}
+        if(!enabled)return view(snapshot);
+        if(snapshot.status.pending){halt('independent-request');return view(snapshot);}
+        if(!identity(snapshot.sample)||!snapshot.quantity||gates.has(snapshot.status.state)||snapshot.status.canRequest!==true){paused=true;state='paused';reason=gates.has(snapshot.status.state)?snapshot.status.state:'nos-unavailable';return view(snapshot);}
+        paused=false;
+        if(snapshot.quantity.atFull){state='full';reason='full';return view(snapshot);}
+        if(now<nextAt){state='cooldown';reason='cooldown';return view(snapshot);}
+        publish(now);return view();
+      }finally{polling=false;}
+    }
+    return Object.freeze({status:()=>view(),setEnabled,poll,pause});
+  }
+  return Object.freeze({create,level});
+});
+
+
+===== nfsu2-extension/extension/609-profile.js =====
+/* Exact60946132 profile. Capabilities require the pinned native transforms to compile. */
+(function(root){'use strict';const profile={"revision":"60946132","size":38933227,"hash":"81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945","statusCapacity":64,"importFunctions":38,"transplant":{"from":"102c8d92","outputBytes":39118811,"outputModuleHash":"1e43d233e69c7da4a8c664e3ba74c558084a5de18ab41c6f9f23825d29957dbb"},"wall":{"functionIndex":23209,"helper":23109,"onlineAddresses":[704993496,707422704,707407324]},"cars":{"functionIndex":23209,"helper":23109,"slotKind":23111,"onlineAddresses":[704993496,707422704,707407324],"onlineTraffic":false,"onlinePlayers":false,"onlineRaceCars":false,"onlineRivals":false,"onlinePlayerOutrun":false,"contactCounters":2,"base":13685184,"bytes":40,"magic":826491214,"primaryCounterScope":"aggregate-non-player-with-rivals"},"capabilities":{"legacy":true,"ai":true,"pace":true,"corner":true,"walls":true,"cars":true,"onlineTraffic":false,"onlinePlayers":false,"onlineRaceCars":false,"onlineRivals":false,"onlinePlayerOutrun":false,"dyno":false,"fullTuner":false,"tunerSecondGuestWindow":false,"tunerCurrentNativeClamp":false,"tunerCapturedNativePolicy":false,"nativeEcuScope":false,"nativeEcuOrderedReplay":false,"ecuRecipePrivatePreflight":false,"dragAI":true,"opponentDrag":true,"nativeDragInputHandoff":true,"ownedNativeNos":true,"nativeDriftPhysics":true,"nativeDriftRecovery":true,"nativeDriftPace":true,"driftDiagnostics":true,"nativeDragOverheat":true,"nativeRaceCapture":false,"travel":false,"nativeRouteProbe":false,"nativeForwardClamp":false,"nativeForwardGeometry":false,"nativePaceCacheFix":true,"nativePaceTargetConsumers":true,"nativeRails":true,"soloOnly":true,"nativeOnlineAI":false,"nativeCityCornerReduction":false,"nativeRailsForwardGeometry":false,"nativeForwardLease":false,"nativeTargetFeedback":false}};const freeze=value=>{if(value&&typeof value==='object'){Object.values(value).forEach(freeze);Object.freeze(value);}return value;};freeze(profile);root.__NFSU2_609_PROFILE__=profile;if(typeof module==='object'&&module.exports)module.exports=profile;})(globalThis);
+
+
+===== nfsu2-extension/extension/native-transplant-609.js =====
+/* Exact60946132 authored base adapter. Input, every target body and output pinned.
+ * Only authored locals/fragments/helpers/globals plus native byte offsets and hashes.
+ * All current native instruction bytes retained in order, including frame/reporting
+ * tails and current developer-context guards. No full game bytes embedded. */
+(function(root){
+  'use strict';
+  if(root.__NFSU2_NATIVE_TRANSPLANT_609__)return;
+  const PLAN=Object.freeze({"revision":"60946132","from":"102c8d92","input":{"size":38933227,"sha256":"81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945"},"output":{"size":39118811,"sha256":"1e43d233e69c7da4a8c664e3ba74c558084a5de18ab41c6f9f23825d29957dbb"},"importFunctions":38,"definedFunctions":24583,"originalGlobals":5,"functionTypes":[3,1,1,3,1,1,1,5,8,139,3,3,3,3,4,4,4,4,4,4,36,45,38,10,12,4],"globalsAdded":581,"globalTail":"fwFBAAt/AUEAC38BQQALfwFBAAt/AUEAC38BQQALfwFBAAt/AUEAC38BQQALfwFBAAt/AUEAC38BQQALfwFBAAt/AUEAC38BQQALfwFBAAt/AUEAC38BQQALfwFBAAt/AUEAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfgFCAAt+AUIAC34BQgALfg

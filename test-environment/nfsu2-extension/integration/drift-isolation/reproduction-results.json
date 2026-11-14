@@ -1,0 +1,13 @@
+{
+  "baseline": "combined-v025-integration",
+  "patchWithoutConflicts": true,
+  "threeBuildersReproduced": true,
+  "allChangedFilesMatch": 23,
+  "regeneratedBinaries": [
+    "tests/ai-latest-pace.wasm",
+    "tests/ai-next-pace.wasm"
+  ],
+  "archiveByteIdentical": true,
+  "sha256": "fa143dd48c7bf9478aece51768cc6939c6693144ea79f48cbb17cb7adae18a3f",
+  "size": 215601
+}

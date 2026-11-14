@@ -1,0 +1,63 @@
+{
+  "version": "0.38.7",
+  "kind": "actual-native offline command3 corner target matrix",
+  "passed": true,
+  "checkedAt": "2026-11-11T00:56:18.163Z",
+  "productSha256": "b77ad11ed360919ed346c934e6ea37c80bf482da18d2cec853ef78edf803608f",
+  "testSha256": "25680c1999e27c2fe45279472217df8b50f0272b2013e37cbf9ea70042ab78d8",
+  "modules": [
+    {
+      "revision": "aa2429fb",
+      "cases": 73,
+      "actualNativeBodies": [
+        4653,
+        4576,
+        4577,
+        4578
+      ],
+      "commandOneTwoCompleteMemoryParity": true,
+      "stopAndSafetyParity": true,
+      "onlinePermissionRetained": true,
+      "tinyBendCeilingRetained": true,
+      "thresholdTargetBeforeApprox": 27.55,
+      "thresholdTargetAfterApprox": 38,
+      "liveVerified": false
+    },
+    {
+      "revision": "15e5958f",
+      "cases": 73,
+      "actualNativeBodies": [
+        4653,
+        4576,
+        4577,
+        4578
+      ],
+      "commandOneTwoCompleteMemoryParity": true,
+      "stopAndSafetyParity": true,
+      "onlinePermissionRetained": true,
+      "tinyBendCeilingRetained": true,
+      "thresholdTargetBeforeApprox": 27.55,
+      "thresholdTargetAfterApprox": 38,
+      "liveVerified": false
+    },
+    {
+      "revision": "943ee537",
+      "cases": 73,
+      "actualNativeBodies": [
+        4653,
+        4576,
+        4577,
+        4578
+      ],
+      "commandOneTwoCompleteMemoryParity": true,
+      "stopAndSafetyParity": true,
+      "onlinePermissionRetained": true,
+      "tinyBendCeilingRetained": true,
+      "thresholdTargetBeforeApprox": 27.55,
+      "thresholdTargetAfterApprox": 38,
+      "liveVerified": false
+    }
+  ],
+  "totalCases": 219,
+  "liveVerified": false
+}

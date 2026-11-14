@@ -1,0 +1,7 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict'),crypto=require('node:crypto'),{createRequire}=require('node:module');
+const root=path.resolve(__dirname,'../..'),oldRoot=path.join(root,'../combined-v032-integration'),utils=require(path.join(root,'tools/latest-native-utils.cjs'));
+function load(dir){const file=path.join(dir,'extension/ai.js'),c={module:{exports:{}},require:createRequire(file),crypto:crypto.webcrypto,console,WebAssembly,Uint8Array,ArrayBuffer};vm.runInNewContext(fs.readFileSync(file,'utf8'),c,{filename:file});return c.module.exports;}
+(async()=>{const old=load(oldRoot),current=load(root),results=[];for(const name of ['legacy','current','latest','next']){
+ const bytes=name==='legacy'?fs.readFileSync(path.join(root,'research/game.wasm')):utils.readPinned(name);const a=Buffer.from(await old.patchBytes(bytes)),b=Buffer.from(await current.patchBytes(bytes));assert.equal(WebAssembly.validate(b),true);await WebAssembly.compile(b);const ab=utils.bodies(a),bb=utils.bodies(b),changed=[...ab].filter(([k,v])=>!v.equals(bb.get(k))).map(([k])=>k);assert.deepEqual(changed,[4497,4653]);results.push({profile:name,inputHash:crypto.createHash('sha256').update(bytes).digest('hex'),outputHash:crypto.createHash('sha256').update(b).digest('hex'),changedFunctions:changed,validated:true,compiled:true});
+}fs.writeFileSync(path.join(__dirname,'module-delta.json'),JSON.stringify(results,null,2)+'\n');console.log(results);})().catch(e=>{console.error(e);process.exitCode=1;});

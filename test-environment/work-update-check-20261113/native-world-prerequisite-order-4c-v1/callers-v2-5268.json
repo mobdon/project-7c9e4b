@@ -1,0 +1,38 @@
+{
+  "kind": "STATIC-CALLER-SCAN",
+  "sourceSha256": "40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8",
+  "targets": [
+    5268
+  ],
+  "rows": [
+    {
+      "id": 18768,
+      "bodyBytes": 3335,
+      "bodySha256": "1870764ceb09ec3c0b9de21a0fbf444e0c4622a525e174e13623523c21101514",
+      "calls": [
+        {
+          "at": 2861,
+          "callee": 5268
+        },
+        {
+          "at": 3047,
+          "callee": 5268
+        }
+      ]
+    }
+  ],
+  "decodeErrors": [
+    {
+      "id": 24154,
+      "bodyBytes": 383,
+      "decodeError": "Unsupported opcode 1f at 63"
+    },
+    {
+      "id": 24326,
+      "bodyBytes": 241,
+      "decodeError": "Unsupported opcode 1f at 134"
+    }
+  ],
+  "note": "Earlier canonical byte-needle prefilter receipt omitted padded LEB calls and is superseded by this complete instruction decode.",
+  "nativeExecuted": false
+}

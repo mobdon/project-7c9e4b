@@ -1,0 +1,21 @@
+[
+  "extension/CHANGELOG.md",
+  "extension/README.md",
+  "extension/ai.js",
+  "extension/diagnostics.js",
+  "extension/manifest.json",
+  "extension/page.js",
+  "extension/popup.html",
+  "tools/braking-hook.json",
+  "tools/braking-hook.wat",
+  "tools/build-braking-hook.cjs",
+  "tools/build-corner-hook.cjs",
+  "tools/corner-hook.json",
+  "tools/corner-hook.wat",
+  "tools/package-release.py",
+  "tests/adaptive-race.test.cjs",
+  "tests/continuous-braking.test.cjs",
+  "tests/continuous-corners.test.cjs",
+  "tests/package-release.test.cjs",
+  "tests/race-only-adaptive.test.cjs"
+]

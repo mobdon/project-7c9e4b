@@ -1,0 +1,20 @@
+✔ explicit network opt-in uses the same local owned race settings and restores the guard when removed (9.328568ms)
+✔ separate road request preserves selected pace and native AI ownership (1.336197ms)
+✔ race settings and effective selected pace changes rebuild cached route through OFF/manual/ON (1.845377ms)
+✔ disabled race option and same rounded selected pace do not force unnecessary resets (0.458165ms)
+✔ race option is literal opt-in and does not spill into excluded events or non-opted-in network play (1.923942ms)
+✔ race settings are bounded and full expanded mailbox ownership is preserved (2.6423ms)
+✔ braking entry counts and pace acknowledgments cannot masquerade as actual corner hits (0.666141ms)
+✔ opted-in online corner output equals solo output without changing network or foreign state (185.345016ms)
+✔ race corner output compensates post-route pace while preserving native controls and sharpness (6.009497ms)
+✔ race clear straights stay native and high-pace gentle curves are protected (1.425128ms)
+✔ road option rejects all non-road, foreign, special, malformed and network contexts (122.063143ms)
+✔ race hook only changes ST0 and dedicated diagnostic fields, never steering or identity (41.367847ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 548.483276

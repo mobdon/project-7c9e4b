@@ -1,0 +1,608 @@
+{
+  "kind": "STATIC-CURRENT4C-ONLINE-PENDING-CONN-API-PREREQUISITE-CONTRACT",
+  "rawSha256": "40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8",
+  "peSha256": "f9dd86c054878ce6276beb07c1fd61874f7a1e4bf1f241b084c65b73e24168a7",
+  "gameCodeExecuted": false,
+  "gameCompiled": false,
+  "gameInstantiated": false,
+  "memoryCreated": false,
+  "networkUsed": false,
+  "runnerOrProviderAuthored": false,
+  "productionOrFrozenConditionsModified": false,
+  "pendingConnectionApi": {
+    "function": 271,
+    "guestAddress": "0x588630",
+    "abi": {
+      "kind": "guest-thiscall",
+      "receiver": "ECX native Online session from4177",
+      "stackArguments": [
+        {
+          "offsetFromEntryEsp": 4,
+          "meaning": "Endpoint selector byte; existing native parent uses mode==512"
+        },
+        {
+          "offsetFromEntryEsp": 8,
+          "meaning": "User completion callback pointer"
+        },
+        {
+          "offsetFromEntryEsp": 12,
+          "meaning": "User completion context pointer"
+        }
+      ],
+      "retImmediateBytes": 12
+    },
+    "nativePrerequisites": [
+      "Session must have been constructed by13557/accessor4177",
+      "Session+68 is a nonzero native-owned transport",
+      "Session+76 pending request is zero",
+      "Session+60 request-list sentinel points to itself",
+      "Native allocation and guest SEH/TLS prerequisites must exist"
+    ],
+    "naturalFailure": "Returns-1 if the transport/pending/list preconditions fail; negative transport connect result returns naturally.",
+    "nativeActions": [
+      "Calls18609 with actual transport and0",
+      "Clears native byte8808348",
+      "Calls945 using selected existing host/port, actual transport, callback14808, actual session pointer and60000ms timeout",
+      "On nonnegative connect result, allocates44bytes via17813 and constructs native request via5583",
+      "Stores actual request in session+76 and transport result in request+40; returns actual native request identifier at+32"
+    ],
+    "requestConstructor": {
+      "function": 5583,
+      "command": 1668247150,
+      "commandText": "conn",
+      "bodyPointer": 0,
+      "requestCallbackAddress": "0x586b80",
+      "requestCallbackFunction": 14808,
+      "requestCallbackContext": "Actual session",
+      "userCompletionCallback": "Original271 argument2",
+      "userCompletionContext": "Original271 argument3"
+    },
+    "allocationLimit": "The original zero-allocation branch still accesses the request result. Allocation success is a prerequisite, never a reason to fabricate a pointer or repair native output."
+  },
+  "transportConnectApi": {
+    "function": 945,
+    "guestAddress": "0x745160",
+    "abi": "Guest cdecl: six stack arguments; native caller271 removes24argumentbytes after the return",
+    "arguments": [
+      "Actual native transport pointer",
+      "Native selected host string",
+      "Native selected port",
+      "Callback14808 at0x586b80",
+      "Actual native session callback context",
+      "Timeout60000ms"
+    ],
+    "sourceActions": "Sets native transport connection state and timeout; registers callback through476; actual larger transport updater is1413.",
+    "remainingBoundary": "This narrow source closure does not establish an offline network/platform construction contract or prove the full updater has no external effects."
+  },
+  "readinessCallback": {
+    "function": 14808,
+    "guestAddress": "0x586b80",
+    "abi": "Guest cdecl/plainRET; caller owns cleanup",
+    "inputBoundary": {
+      "argument1": "Opaque event source; not dereferenced by this body",
+      "argument2": "Reply descriptor pointer at entryESP+8",
+      "argument3": "Actual session pointer at entryESP+12",
+      "statusField": "Reply descriptor+12"
+    },
+    "guards": [
+      "Actual session+76 must contain native pending request",
+      "Pending request+8 must equal conn",
+      "Reply status+12 must equal0 for success"
+    ],
+    "nativeSuccessOutputs": [
+      "Sets actual session+72 byte to1",
+      "Builds native message through9852 and queues a native command through14493",
+      "Runs4487 to deliver original user callback and release pending request"
+    ],
+    "nonSuccess": "Natural failure/unavailable branches remain intact; status or readiness is never changed to force a native outcome.",
+    "futureSyntheticInputDistinction": "A separate callback-level API unit may disclose a synthetic reply descriptor as an input only after genuine native session/transport/pending construction is source-closed. Such an input is not a captured server response or native output."
+  },
+  "pendingCompletion": {
+    "function": 4487,
+    "receiver": "ECX actual session",
+    "argument": "Actual reply/event descriptor",
+    "nativeBehavior": "Invokes pending request+24 user callback using pending+28 context, then3706 destructor/6029 release and clears session+76.",
+    "doNotAuthor": [
+      "Pending request",
+      "Request callbacks or result identifiers",
+      "Session readiness",
+      "Native cleanup or callback return results"
+    ]
+  },
+  "nativeOwnership": {
+    "session": {
+      "accessor": 4177,
+      "singletonAddress": 8823688,
+      "constructor": 13557,
+      "initializer": 1050,
+      "initializerBehavior": "Creates native helper+152 and native transport through633, stores actual result in session+68, and registers native handlers through18765.",
+      "cleanup": 14651
+    },
+    "ordinaryGameStartup": {
+      "function": 894,
+      "order": [
+        "4177→1050 session initialization",
+        "18250→116 native game adapter initialization",
+        "18094→740 additional native adapter initialization",
+        "Remaining ordinary startup helpers"
+      ],
+      "claim": "Source call order only; none of these functions was executed by this review."
+    },
+    "gameAdapter": {
+      "accessor": 18250,
+      "initializer": 116,
+      "callback": 14652,
+      "callbackGuestAddress": "0x58dab0",
+      "registration": "116 registers14652 with actual adapter receiver as callback context via3863, then creates adapter native+8 object through19232.",
+      "cachePopulatingEvent": "play0x706c6179",
+      "recordOwnership": "Native adapter record associated with+28;20008 parser derives1248B record and native cache producers populate AUTH/WHEN/REPT/names.",
+      "remaining": "Accessor18250/constructor and registration3863 ownership closure were not expanded here; no adapter storage or GameInfo output may be authored."
+    },
+    "normalUpdater": {
+      "function": 13871,
+      "receiver": "Actual native session",
+      "behavior": "Runs normal helper polling then1413 transport update; processes native handlers and queued requests, assigns actual pending request and calls19854 for actual send work.",
+      "remaining": "1413 full response dispatch and transport callback ownership remain a prerequisite."
+    }
+  },
+  "smallestFutureUnitAssessment": {
+    "status": "CONCRETE-PENDING-CONN-API-IDENTIFIED-BUT-STANDALONE-REPORT-UNIT-STILL-BLOCKED",
+    "newClosure": [
+      "Genuine native pendingconn creation271, its3-argument thiscall ABI and44B native request ownership",
+      "Actual connection callback14808 registration from271/945",
+      "Session initializer1050 native+68 ownership route",
+      "Native game-adapter116 registration of14652 with its actual context",
+      "Pending completion4487 native callback/destructor/release lifecycle"
+    ],
+    "remainingBlockers": [
+      "Native transport633 construction, its platform/heap dependencies and offline boundary must be independently closed",
+      "Normal1413 response/callback dispatcher closure remains incomplete; WABT pseudocode derivation failed for that body",
+      "Native adapter18250/constructor plus3863 registration ownership still need closure before14652 receives a synthetic play event",
+      "Actual598 result-parent/input prerequisites and queue processing to893 remain from prior contract"
+    ],
+    "allowedNextStep": "Data-only source analysis or review of a separately authorized concrete fixture; this contract supplies no runner, provider, fabricated caches/readiness, report body or network action.",
+    "movementFixtureRelation": "No replay singleton8802488/checksum8802512 or event manager8978648/pool8978652 startup writer was identified by this separate Online chain. No causal relation or movement-fixture change is claimed."
+  },
+  "staticToolFailures": [
+    {
+      "function": 1413,
+      "rawBodySha256": "dfa334f92446e9beb1a71117014a01a9c3a579b83fb63b53622465f10818fec2",
+      "decompilerStatus": 1,
+      "diagnostic": "WABT wasm-decompile aborted while deriving pseudocode; original native body and isolated static bytes retained. No native execution occurred."
+    }
+  ],
+  "scanLimits": [
+    "Whole-module scanners still have two try_table decoder gaps24154/24326; decoded caller absence is not exhaustive across them.",
+    "PE pendingCandidate range includes bytes from an adjacent function after0x588770; pending API ABI claims use only0x588630..0x58876f.",
+    "WABT decompiler abort concerns the static analysis tool and is not a game runtime result."
+  ],
+  "bodies": [
+    {
+      "index": 116,
+      "rawBodySha256": "9109efd33adc073d869890300c8452026f060465ff825b1d19364f7e4782f94e",
+      "bodyBytes": 1230,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 271,
+      "rawBodySha256": "3d18e56e3fa725884c9ab506bc6dcd91b9013b862e21ddaa58003662701dcb91",
+      "bodyBytes": 1311,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 740,
+      "rawBodySha256": "ae40896aa7069807e30e4df57c4f9e2a26c7a3bfa5e522dd9be597efda7f7cb5",
+      "bodyBytes": 500,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 894,
+      "rawBodySha256": "62774df040d317df5ddf1615c0ead474ff7fc2c589e4517633fd406bc0364449",
+      "bodyBytes": 521,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 945,
+      "rawBodySha256": "acc49a99ffb3653379738e92bdb3ec404a9b747c1d1776e76c146cdedbb15de7",
+      "bodyBytes": 765,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 1050,
+      "rawBodySha256": "86ef4b3d3e96d1920a3231266e227debfb5d2ea1927fd74d7050fcec696a87c1",
+      "bodyBytes": 5017,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 1413,
+      "rawBodySha256": "dfa334f92446e9beb1a71117014a01a9c3a579b83fb63b53622465f10818fec2",
+      "bodyBytes": 45453,
+      "pseudocodeAvailable": false
+    },
+    {
+      "index": 3760,
+      "rawBodySha256": "1a0a078a082231b424633ed605a97b2c2b0d9e579eecf99b11fb2fb5dfaa8341",
+      "bodyBytes": 526,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 4487,
+      "rawBodySha256": "a49c1b4ddcf24b369f6402e1d06fe7c15c65d8005baf5c9c0fcdb0d282b40e9a",
+      "bodyBytes": 664,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 4644,
+      "rawBodySha256": "ad8310bc40dc83c614d9b540bb5e5f4f2912c8dec69d78759e340293d89cb6fe",
+      "bodyBytes": 634,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 4780,
+      "rawBodySha256": "9f555d5d9583d0f693e886fb5504086aef164193ae243dc34965fb26dc53f94c",
+      "bodyBytes": 114,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 4800,
+      "rawBodySha256": "0333e0fc223dd92278d73dcfcd330f0e7c1ed5cb30a1f22aeb424d4a6b82bd7a",
+      "bodyBytes": 1568,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 6990,
+      "rawBodySha256": "cdd814f857f8ce762034f5e0db5f3f27d2c9e17963134b1f4c5d2c9509b3262a",
+      "bodyBytes": 1022,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 7460,
+      "rawBodySha256": "b2070d47110f40b299319b314e78121f1a5ea39b1a7a6c63bfa739c2f5448bd4",
+      "bodyBytes": 1399,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 9852,
+      "rawBodySha256": "a44037e610eff46b27fb87d1d8cd98d410b4cb974f9e2752201e7247e72f3115",
+      "bodyBytes": 2402,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 11051,
+      "rawBodySha256": "3ad9d6020a006dfed861abf2a69f0363231728421a6d71c8d8beaf6e4cbbdb85",
+      "bodyBytes": 104,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 12201,
+      "rawBodySha256": "6e0e9af7b570f619fe831af44544d1b6e4387282cfa1dc609e3e6a9705e35e54",
+      "bodyBytes": 728,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 13871,
+      "rawBodySha256": "fbec6c6fad0d749195cadc842161c053ed747159290e31447c504b19afec35d8",
+      "bodyBytes": 1988,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 14651,
+      "rawBodySha256": "e968ac93f7629bceb75be1e8beaf0f8327377c5b1f7bd66768618368551fba00",
+      "bodyBytes": 2412,
+      "pseudocodeAvailable": true
+    },
+    {
+      "index": 18609,
+      "rawBodySha256": "0a28907cfe7daa61a6a61a7b1d9ce51697c947e5b08b529c5c5336c3738989d7",
+      "bodyBytes": 1489,
+      "pseudocodeAvailable": true
+    }
+  ],
+  "pins": [
+    {
+      "path": "nfsu2-extension/native/wasm-inspector-v0388.cjs",
+      "sha256": "32cc83a8cad4fa9b4805f44f06b1cc93c791d2c69d502c5d52033dcf2866965e",
+      "bytes": 2403
+    },
+    {
+      "path": "research/current-native-image/SPEED2.EXE",
+      "sha256": "f9dd86c054878ce6276beb07c1fd61874f7a1e4bf1f241b084c65b73e24168a7",
+      "bytes": 4800512
+    },
+    {
+      "path": "work-online-v0426/native-review/port-core.cjs",
+      "sha256": "381de0fcd29f2fd7bc257d0b04518b37f8f6575152e0a4d299bd6d832a8e454c",
+      "bytes": 4705
+    },
+    {
+      "path": "work-update-check-20261113/live-build-4c35f9f5/game.wasm",
+      "sha256": "40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8",
+      "bytes": 39330573
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-contract-4c-v1/contract.json",
+      "sha256": "4be73aa43402a3d3c42fdd574cb86e7939730f72c81f97f94e283f22258d598c",
+      "bytes": 36465
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-contract-4c-v1/publish.cjs",
+      "sha256": "0737dc4ecf4411a17ff1b1e58644eb3162a3e5acba5d9d706cb2a7fe384ba648",
+      "bytes": 11325
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v1/extract.cjs",
+      "sha256": "da537f64ff0207c5aed2ecacaee3efee770ea7543723663a6e0fed9e97c28733",
+      "bytes": 3683
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v1/f271.dcmp",
+      "sha256": "ecc5b30fcfe1506a0007665753af28563e724718f4c9ea050de4d71a9ffaa689",
+      "bytes": 6679
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v1/f3760.dcmp",
+      "sha256": "6755e86ba2b64a68825d452e4df04a5e0afe577adc1106253e8bcb0737164068",
+      "bytes": 4889
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v1/f4487.dcmp",
+      "sha256": "4e78091079e1c23580ad41e54a813fd1bcece9bda47c013224e1b91976ad185e",
+      "bytes": 5139
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v1/followup-references.json",
+      "sha256": "e3c0e0b3e2eb175f8a6938d25a694449966344c443c9d9b1686c8d2df40f927c",
+      "bytes": 4254
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v1/isolated-f271.wasm",
+      "sha256": "1d3bf4e7dae3f02eaf9f5c5eae37f438fc7c22f679b762ae53aac4a7e109c690",
+      "bytes": 4229
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v1/isolated-f3760.wasm",
+      "sha256": "46606d82520963f4336c1855038f82a7d5e79abe52cf9b8d38a052d06209f010",
+      "bytes": 3451
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v1/isolated-f4487.wasm",
+      "sha256": "db5093ad276835ba0dd656d07a505b041ed914760d4606e461ca4ae5de688d1d",
+      "bytes": 3567
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v1/online-builder-source-extraction.json",
+      "sha256": "93e33c20ce51c53c0fa8c334c85950d0657bb2ebf4a4ca67d081f9ccf777bf4d",
+      "bytes": 2204
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v1/pe-proof.json",
+      "sha256": "30e830c9055d14b889ea76edb12ebfbbe8cd46bb1831c1830161f9abd2ebbb22",
+      "bytes": 38884
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v1/pe-proof.py",
+      "sha256": "6a008f9766e866d200f16be3f9abddc3fbeeeb6782363f000f561d4720cf4681",
+      "bytes": 1451
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v1/references.json",
+      "sha256": "61dc34794be4c910263e607ab17c6d8e7e62ba51f772045a786d888ee64760b1",
+      "bytes": 11113
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v1/scan-followup.cjs",
+      "sha256": "47f9c85646b46c080156e722c3f1cd85d316f492bc4f9117849d57dcd259ca40",
+      "bytes": 2242
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v1/scan.cjs",
+      "sha256": "bfa774c5b146a8db3ca3b9a8d93c5e6e52867c26031baa5cdf93e4f00e6c6065",
+      "bytes": 2243
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/extract.cjs",
+      "sha256": "92e1199d382be60c29c3219982de17448293a9074bd314a15d73e333d0a84fb4",
+      "bytes": 3711
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/f13871.dcmp",
+      "sha256": "f8c771fa180d44d1f4b2406ed99621f8b99fa7841a6b07e4ac0ebf5fca6f6cc6",
+      "bytes": 8394
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/f14651.dcmp",
+      "sha256": "d2fff438423488bab497f85fb87808c40f0abd53d0d2e01347218d1dc04c84b0",
+      "bytes": 9763
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/f18609.dcmp",
+      "sha256": "4664d34ec21c13995d5ae3fb4d00f1b47fd9500d9f1c440593e88f9811edcf4e",
+      "bytes": 7648
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/f4644.dcmp",
+      "sha256": "2c1a11c3cad6ff80b77836e44940bb92346699f0ccc3d653584c296ecb39c28c",
+      "bytes": 4892
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/f4800.dcmp",
+      "sha256": "d22609bb593495cbe590c0d39cf494c96d551c87944e8e1072e8c80e07251db8",
+      "bytes": 7110
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/f6990.dcmp",
+      "sha256": "d150c57a718e4f5b7d40fe32604de324d59e57973cf0d810090593333af1f8fc",
+      "bytes": 6183
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/f7460.dcmp",
+      "sha256": "b5dd6be2b49fd689f8fcafdbb1ffaaa056daaf972fbcc0758ef1e1ec2bb6f74e",
+      "bytes": 7157
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/f945.dcmp",
+      "sha256": "43ca7190a4ed1a506c8d7db4cc484e363b57aa5bdecea8b8e6c6f8c65c14bbde",
+      "bytes": 5277
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/isolated-f13871.wasm",
+      "sha256": "793be64411324a0080be274031078afec387bc6826664044004420252987555e",
+      "bytes": 5008
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/isolated-f14651.wasm",
+      "sha256": "c0028cd0f5ea3aa12c26dce4061edb6fa5ecbf722d28e4eac73f25f4d7b6d16c",
+      "bytes": 5370
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/isolated-f18609.wasm",
+      "sha256": "07970b94eb5b41d2c1d9ebf639884b140794d4f07a7539a27955b2aad76eca23",
+      "bytes": 4423
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/isolated-f4644.wasm",
+      "sha256": "0bb23e5c7c0c012661027cae887158e33769b36680da0bacdae86c9a975a15ef",
+      "bytes": 3532
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/isolated-f4800.wasm",
+      "sha256": "3d0ac806cb23386f62780f34bbaecc5b8e3cc773d30bf9c304fa37979b23b47e",
+      "bytes": 4532
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/isolated-f6990.wasm",
+      "sha256": "8b1faf14638412af6f541024974c6ae997f3770fd5161bdf04fdaf7f113e0e86",
+      "bytes": 3982
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/isolated-f7460.wasm",
+      "sha256": "c888a78ffc4a4c2cd192b64863cd085fd0a3fecd0ac08e41a53c7210c0b780c9",
+      "bytes": 4375
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/isolated-f945.wasm",
+      "sha256": "440aaf5e46e8f7cf00f6dc8ddbb539ca4d09091c8d49020f0fdcf216ff4c1865",
+      "bytes": 3666
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v2/online-builder-source-extraction.json",
+      "sha256": "1c6b45288c6f479b59eaa0ffbefbfee66e863ffeb8e4b2887e281dba0c79d856",
+      "bytes": 5044
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v3/extract.cjs",
+      "sha256": "fa72f2dfa62266ed7f3903fbb8067d092dd989c2912bf486be119edeb7cedf5d",
+      "bytes": 3696
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v3/f11051.dcmp",
+      "sha256": "926badad26479f9cd39b5522bf335bed2f173ac1e065873783fb0f30a19a5993",
+      "bytes": 3624
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v3/f12201.dcmp",
+      "sha256": "15b3d2eefe72cb12b103513369ecef4d3fe3ae8bb217490109c35d031789ade9",
+      "bytes": 5347
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v3/f4780.dcmp",
+      "sha256": "9aa3107578260131d7b036c947dd9be800ff211389ecc38c0774f6a5fabb9b69",
+      "bytes": 3649
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v3/f9852.dcmp",
+      "sha256": "363e03a16830ecc626bac8b43201ca5c779f60f1bedcc1ad0843fd9d92e9a288",
+      "bytes": 10610
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v3/isolated-f11051.wasm",
+      "sha256": "3cd78b9a84c9f199c4e125c2552e004b0bc32df49819e7d0f1bb9abedee08e46",
+      "bytes": 2945
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v3/isolated-f12201.wasm",
+      "sha256": "05c841d9be314cf5810129f72cb7de1303a553b83bd504984856c41d8423f320",
+      "bytes": 3626
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v3/isolated-f1413.wasm",
+      "sha256": "6099a4dec4d3f260c214e184347d5a042dbba2a1f70822226e786df6ab12088b",
+      "bytes": 48289
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v3/isolated-f4780.wasm",
+      "sha256": "f56233e416b2d84a7a62dbac00c17193c6e1b2f38dbef8ab36a63f53bf361344",
+      "bytes": 2954
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v3/isolated-f9852.wasm",
+      "sha256": "45bde6e1e12b2ab1e18df96c7386021c037ad28ec1187b44f17031cba0817340",
+      "bytes": 5380
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v3/online-builder-source-extraction.json",
+      "sha256": "4cba13643d76e960409433caa6ba75bc9b5d14a8e356962b9f35aea87762e90f",
+      "bytes": 5857
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v4/extract.cjs",
+      "sha256": "9cfff1513f07c7311a72a3e7c6781ad5004de453f82bc636969c14140d91a488",
+      "bytes": 3673
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v4/f894.dcmp",
+      "sha256": "7f43d6942804a6344331732de018ddf7b754399e5e41b07ac9f69cc53e4d4388",
+      "bytes": 5105
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v4/isolated-f894.wasm",
+      "sha256": "2de3718ac4ab529acc3a2ee7d5d947bdbb5610b4aa1919edb1511491d256f15a",
+      "bytes": 3563
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v4/online-builder-source-extraction.json",
+      "sha256": "3afa8455568c7368110dc3e59ded6d4fb4c2bd1d071d4d9d6ac28033fd0d4d83",
+      "bytes": 1253
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v5/extract.cjs",
+      "sha256": "4bbcfe020072241e3e552b93817d72260bb51344281cc893d0bf423954569415",
+      "bytes": 3682
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v5/f1050.dcmp",
+      "sha256": "2eb0e65cc0d545b481f41fa6df5aff7b3cc13baa3dd6c7018a8d71395f5d58a8",
+      "bytes": 15654
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v5/f116.dcmp",
+      "sha256": "5457d61f0f1756fc51cebdc298ae5b1c8bc28f71a48941f042b508a568c08fab",
+      "bytes": 6618
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v5/f740.dcmp",
+      "sha256": "149700fee75ea7fc766adb111b8f653c6f75d5d622d8ec447818c2f265a001cd",
+      "bytes": 4683
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v5/isolated-f1050.wasm",
+      "sha256": "afdf7cb444b6c3610629f0e3727aa6923b17b7520b53f6af055cbec358185e77",
+      "bytes": 8051
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v5/isolated-f116.wasm",
+      "sha256": "3d6dc80f0da589adce100061473b63815be0639da6cbc1a451c8992a1172ef60",
+      "bytes": 4198
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v5/isolated-f740.wasm",
+      "sha256": "9bae4c5e3508b9857d466a03a7ac5072d851cb23fe88fc44f8848bcdf52f5387",
+      "bytes": 3399
+    },
+    {
+      "path": "work-update-check-20261113/native-online-session-closure-source-4c-v5/online-builder-source-extraction.json",
+      "sha256": "1b09750638cd7f3f519e030061762cd08e6f93a2b2d6fdce09d57be1d25e90c7",
+      "bytes": 2404
+    }
+  ]
+}

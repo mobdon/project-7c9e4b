@@ -1,0 +1,790 @@
+{
+  "kind": "FROZEN-V2-NULL-CONTEXT-LOW-MEMORY-SOURCE-INTERPRETATION",
+  "status": "SOURCE-AND-FROZEN-BYTES-CORRELATED-NO-CORRECTION-EXECUTED",
+  "verification": {
+    "snapshots": 166,
+    "spans": 1162,
+    "allFourGlobalsZeroAtEverySample": true,
+    "rawSha256": "606f8638f142187c376e11d83967b49809a3812aac7e9934fb9872b435823ad3",
+    "journalSha256": "f6df0be866b41541b78c5185edc5615d6271b005842bd8005804a26cf78371cd"
+  },
+  "lowMemoryTransitions": [
+    {
+      "sequence": 1,
+      "label": "fresh-harness-before-inputs",
+      "context": {},
+      "globals": {
+        "replay": 0,
+        "checksum": 0,
+        "eventManager": 0,
+        "eventPool": 0
+      },
+      "lowMemoryWords": {
+        "0": 0,
+        "4": 0,
+        "8": 0,
+        "12": 0,
+        "16": 0,
+        "20": 0,
+        "128": 0,
+        "140": 0
+      },
+      "changed": []
+    },
+    {
+      "sequence": 73,
+      "label": "current-native-whole-World-constructor21991-1690-after",
+      "context": {
+        "stage": "current-native-whole-World-constructor21991-1690",
+        "phase": "after"
+      },
+      "globals": {
+        "replay": 0,
+        "checksum": 0,
+        "eventManager": 0,
+        "eventPool": 0
+      },
+      "lowMemoryWords": {
+        "0": 268749792,
+        "4": 2,
+        "8": 0,
+        "12": 0,
+        "16": 0,
+        "20": 0,
+        "128": 0,
+        "140": 0
+      },
+      "changed": [
+        {
+          "address": 0,
+          "before": 0,
+          "after": 268749792
+        },
+        {
+          "address": 4,
+          "before": 0,
+          "after": 2
+        },
+        {
+          "address": 24,
+          "before": 0,
+          "after": 2
+        },
+        {
+          "address": 44,
+          "before": 0,
+          "after": 2
+        },
+        {
+          "address": 64,
+          "before": 0,
+          "after": 2
+        },
+        {
+          "address": 84,
+          "before": 0,
+          "after": 2
+        },
+        {
+          "address": 104,
+          "before": 0,
+          "after": 2
+        }
+      ]
+    },
+    {
+      "sequence": 103,
+      "label": "native-two-car-whole-enrollment16076-after",
+      "context": {
+        "stage": "native-two-car-whole-enrollment16076",
+        "phase": "after"
+      },
+      "globals": {
+        "replay": 0,
+        "checksum": 0,
+        "eventManager": 0,
+        "eventPool": 0
+      },
+      "lowMemoryWords": {
+        "0": 269372040,
+        "4": 2,
+        "8": 0,
+        "12": 0,
+        "16": 0,
+        "20": 0,
+        "128": 0,
+        "140": 0
+      },
+      "changed": [
+        {
+          "address": 0,
+          "before": 268749792,
+          "after": 269372040
+        }
+      ]
+    },
+    {
+      "sequence": 105,
+      "label": "native-local-only-Player-setup23721-after",
+      "context": {
+        "stage": "native-local-only-Player-setup23721",
+        "phase": "after"
+      },
+      "globals": {
+        "replay": 0,
+        "checksum": 0,
+        "eventManager": 0,
+        "eventPool": 0
+      },
+      "lowMemoryWords": {
+        "0": 269402416,
+        "4": 8597364,
+        "8": 0,
+        "12": 0,
+        "16": 0,
+        "20": 0,
+        "128": 0,
+        "140": 0
+      },
+      "changed": [
+        {
+          "address": 0,
+          "before": 269372040,
+          "after": 269402416
+        },
+        {
+          "address": 4,
+          "before": 2,
+          "after": 8597364
+        }
+      ]
+    },
+    {
+      "sequence": 149,
+      "label": "native-legacy-whole-receiver10443-actual-remote-slot-after",
+      "context": {
+        "stage": "native-legacy-whole-receiver10443-actual-remote-slot",
+        "phase": "after"
+      },
+      "globals": {
+        "replay": 0,
+        "checksum": 0,
+        "eventManager": 0,
+        "eventPool": 0
+      },
+      "lowMemoryWords": {
+        "0": 269396020,
+        "4": 269396020,
+        "8": 1065353216,
+        "12": 0,
+        "16": 1113585671,
+        "20": 1077903366,
+        "128": 0,
+        "140": 0
+      },
+      "changed": [
+        {
+          "address": 0,
+          "before": 269402416,
+          "after": 269396020
+        },
+        {
+          "address": 4,
+          "before": 8597364,
+          "after": 269396020
+        },
+        {
+          "address": 8,
+          "before": 0,
+          "after": 1065353216
+        },
+        {
+          "address": 16,
+          "before": 0,
+          "after": 1113585671
+        },
+        {
+          "address": 20,
+          "before": 0,
+          "after": 1077903366
+        },
+        {
+          "address": 24,
+          "before": 2,
+          "after": 1053556786
+        },
+        {
+          "address": 32,
+          "before": 0,
+          "after": 1002962945
+        },
+        {
+          "address": 36,
+          "before": 0,
+          "after": 1002962945
+        },
+        {
+          "address": 40,
+          "before": 0,
+          "after": 1002962944
+        },
+        {
+          "address": 48,
+          "before": 0,
+          "after": 1006698222
+        },
+        {
+          "address": 52,
+          "before": 0,
+          "after": 1006698222
+        },
+        {
+          "address": 56,
+          "before": 0,
+          "after": 1065351656
+        },
+        {
+          "address": 60,
+          "before": 0,
+          "after": 1006699008
+        },
+        {
+          "address": 64,
+          "before": 2,
+          "after": 3156217862
+        },
+        {
+          "address": 68,
+          "before": 0,
+          "after": 3156217862
+        },
+        {
+          "address": 72,
+          "before": 0,
+          "after": 3156217862
+        },
+        {
+          "address": 80,
+          "before": 0,
+          "after": 1002962944
+        },
+        {
+          "address": 84,
+          "before": 2,
+          "after": 1002962944
+        },
+        {
+          "address": 88,
+          "before": 0,
+          "after": 1002962944
+        },
+        {
+          "address": 104,
+          "before": 2,
+          "after": 0
+        },
+        {
+          "address": 112,
+          "before": 0,
+          "after": 1054727534
+        },
+        {
+          "address": 116,
+          "before": 0,
+          "after": 860618752
+        }
+      ]
+    },
+    {
+      "sequence": 154,
+      "label": "frame1-native22587-after",
+      "context": {
+        "frameId": 1,
+        "entry": 22587,
+        "phase": "after"
+      },
+      "globals": {
+        "replay": 0,
+        "checksum": 0,
+        "eventManager": 0,
+        "eventPool": 0
+      },
+      "lowMemoryWords": {
+        "0": 269396020,
+        "4": 0,
+        "8": 1065353216,
+        "12": 0,
+        "16": 1113585698,
+        "20": 1077903800,
+        "128": 1,
+        "140": 0
+      },
+      "changed": [
+        {
+          "address": 4,
+          "before": 269396020,
+          "after": 0
+        },
+        {
+          "address": 16,
+          "before": 1113585671,
+          "after": 1113585698
+        },
+        {
+          "address": 20,
+          "before": 1077903366,
+          "after": 1077903800
+        },
+        {
+          "address": 24,
+          "before": 1053556786,
+          "after": 1053559005
+        },
+        {
+          "address": 32,
+          "before": 1002962945,
+          "after": 1003181398
+        },
+        {
+          "address": 36,
+          "before": 1002962945,
+          "after": 1003181398
+        },
+        {
+          "address": 48,
+          "before": 1006698222,
+          "after": 1006654518
+        },
+        {
+          "address": 52,
+          "before": 1006698222,
+          "after": 1006741237
+        },
+        {
+          "address": 56,
+          "before": 1065351656,
+          "after": 1065351650
+        },
+        {
+          "address": 60,
+          "before": 1006699008,
+          "after": 1006743400
+        },
+        {
+          "address": 116,
+          "before": 860618752,
+          "after": 1015580834
+        },
+        {
+          "address": 128,
+          "before": 0,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "sequence": 164,
+      "label": "remote-whole-World22587-287-frame2-failed",
+      "context": {
+        "stage": "remote-whole-World22587-287-frame2",
+        "phase": "failed"
+      },
+      "globals": {
+        "replay": 0,
+        "checksum": 0,
+        "eventManager": 0,
+        "eventPool": 0
+      },
+      "lowMemoryWords": {
+        "0": 269396020,
+        "4": 0,
+        "8": 1065353216,
+        "12": 1,
+        "16": 1113585698,
+        "20": 1077903800,
+        "128": 1,
+        "140": 0
+      },
+      "changed": [
+        {
+          "address": 12,
+          "before": 0,
+          "after": 1
+        }
+      ]
+    }
+  ],
+  "legacyNullNode": {
+    "observedAllocation": {
+      "entryEvent": 8697,
+      "returnEvent": 8698,
+      "poolArgument": 0,
+      "nativeReturnEax": 0,
+      "returnAddress": 6261307
+    },
+    "sourceChain": [
+      10443,
+      17795,
+      22840,
+      7944,
+      2243,
+      7474
+    ],
+    "sourceOwner": "7944 loads history pool8978732, requests a node through2243, and on its null-result branch calls7474 withECX0;7474 has no null-receiver guard. The22840 extension wrapper calls original7944 at its tail.",
+    "decodedController": 269396016,
+    "sentinel": 269396020,
+    "observedDecodedFields": {
+      "positionXBitsAtController32": 1113585671,
+      "timestampBitsAtController156": 1065353216
+    },
+    "observedControllerList": {
+      "beforeNext": 269396020,
+      "beforePrevious": 269396020,
+      "afterNext": 0,
+      "afterPrevious": 0
+    },
+    "sourceWrites": "7474 copies argument[0]→node+16 and argument+124→node+8. With node0 and argument=controller+32, these exactly match low16 andlow8.7944 then appends node0:node.next=controller+4,node.previous=oldTail=controller+4, writing low0/4 and replacing controller sentinel next/previous with0.",
+    "lowMemoryAfter": {
+      "sequence": 149,
+      "label": "native-legacy-whole-receiver10443-actual-remote-slot-after",
+      "context": {
+        "stage": "native-legacy-whole-receiver10443-actual-remote-slot",
+        "phase": "after"
+      },
+      "globals": {
+        "replay": 0,
+        "checksum": 0,
+        "eventManager": 0,
+        "eventPool": 0
+      },
+      "lowMemoryWords": {
+        "0": 269396020,
+        "4": 269396020,
+        "8": 1065353216,
+        "12": 0,
+        "16": 1113585671,
+        "20": 1077903366,
+        "128": 0,
+        "140": 0
+      }
+    }
+  },
+  "replayAlias": {
+    "actuallyObserved": "8802488 is0 at all166samples; no valid replay object is present. Low bytes are unrelated literal memory, not valid replay mode flags.",
+    "frame1": {
+      "before": {
+        "sequence": 153,
+        "label": "frame1-native22587-before",
+        "context": {
+          "frameId": 1,
+          "entry": 22587,
+          "phase": "before"
+        },
+        "globals": {
+          "replay": 0,
+          "checksum": 0,
+          "eventManager": 0,
+          "eventPool": 0
+        },
+        "lowMemoryWords": {
+          "0": 269396020,
+          "4": 269396020,
+          "8": 1065353216,
+          "12": 0,
+          "16": 1113585671,
+          "20": 1077903366,
+          "128": 0,
+          "140": 0
+        }
+      },
+      "after": {
+        "sequence": 154,
+        "label": "frame1-native22587-after",
+        "context": {
+          "frameId": 1,
+          "entry": 22587,
+          "phase": "after"
+        },
+        "globals": {
+          "replay": 0,
+          "checksum": 0,
+          "eventManager": 0,
+          "eventPool": 0
+        },
+        "lowMemoryWords": {
+          "0": 269396020,
+          "4": 0,
+          "8": 1065353216,
+          "12": 0,
+          "16": 1113585698,
+          "20": 1077903800,
+          "128": 1,
+          "140": 0
+        }
+      },
+      "sourceInference": "12948 reads null+4 asnonzero and selects269.269 uses stream pointer null+140=0;3547 has an explicit null-stream return.269 then tests literal stream+8/+20 and disables receiver+4, also setting receiver+128 when previously0. This source path exactly matches observedlow4→0 andlow128→1.",
+      "sourceComparisonInputs": {
+        "streamPosition": 1065353216,
+        "streamCapacity": 1077903366,
+        "capacityBoundary": 33292268,
+        "difference": 1032060948,
+        "returnBeforeDisable": false
+      }
+    },
+    "frame2": {
+      "before": {
+        "sequence": 163,
+        "label": "frame2-native22587-before",
+        "context": {
+          "frameId": 2,
+          "entry": 22587,
+          "phase": "before"
+        },
+        "globals": {
+          "replay": 0,
+          "checksum": 0,
+          "eventManager": 0,
+          "eventPool": 0
+        },
+        "lowMemoryWords": {
+          "0": 269396020,
+          "4": 0,
+          "8": 1065353216,
+          "12": 0,
+          "16": 1113585698,
+          "20": 1077903800,
+          "128": 1,
+          "140": 0
+        }
+      },
+      "failure": {
+        "sequence": 164,
+        "label": "remote-whole-World22587-287-frame2-failed",
+        "context": {
+          "stage": "remote-whole-World22587-287-frame2",
+          "phase": "failed"
+        },
+        "globals": {
+          "replay": 0,
+          "checksum": 0,
+          "eventManager": 0,
+          "eventPool": 0
+        },
+        "lowMemoryWords": {
+          "0": 269396020,
+          "4": 0,
+          "8": 1065353216,
+          "12": 1,
+          "16": 1113585698,
+          "20": 1077903800,
+          "128": 1,
+          "140": 0
+        }
+      },
+      "sourceInference": "12948 now sees null+4=0 andnull+0nonzero, selects112.112 source would take its early-zero path because literalnull+8 isalready nonzero; this is source-derived, not an observed112return.12948 mismatch path writes null+12=1 and requests event12/payload0 through285, which requests2243(pool0)."
+    },
+    "trapMechanism": "With pool0,2243 reads freeHead from literal16. Legacy7474 filledthat wordwith positionX float bits, so2243 dereferences unrelated large address and traps. This is not ordinary exhaustion of an initialized pool.",
+    "native112ReturnObserved": false
+  },
+  "historyPoolStartup": {
+    "global": 8978732,
+    "wholeProducer": 1690,
+    "factory": 23287,
+    "sourceSimdConstants": [
+      {
+        "at": 203,
+        "hex": "fd0c50000000140000002053400030534000",
+        "words": [
+          80,
+          20,
+          4215584,
+          4215600
+        ]
+      },
+      {
+        "at": 2741,
+        "hex": "fd0c7cf65f00800000003200000040637a00",
+        "words": [
+          6289020,
+          128,
+          50,
+          8020800
+        ]
+      },
+      {
+        "at": 3280,
+        "hex": "fd0c42e1610002000000050000000000803f",
+        "words": [
+          6414658,
+          2,
+          5,
+          1065353216
+        ]
+      },
+      {
+        "at": 3948,
+        "hex": "fd0c42e1610002000000050000000000803f",
+        "words": [
+          6414658,
+          2,
+          5,
+          1065353216
+        ]
+      }
+    ],
+    "predicate": "1690 creates/publishes this pool when9031529 byte isnonzero OR8808948 signed state ispositive OR8808980 signed state ispositive. Its offline/allzero branch skips it.",
+    "currentOrder": "Session static820 precedesWorld, but actual LAN4454/session request10442/network9490/pendingclient17624 occur afterWorld/roads; the pendingclient flag8808948 istherefore absent at theWorld constructor prerequisite decision.",
+    "candidate": "Source-check moving the exact existing genuine LAN/request/pendingclient block before wholeWorld construction, while retaining roster/CRT/session static prerequisites and keeping23361/car/Player enrollment afterWorld. Do not seed8978732 orrerun1690 on an existingWorld.",
+    "remaining": "9490/17624 transitive dependencies are undergoing independent source review. Replay755/eventmanager5582 and the earlierWorld list-sentinel omission remain separate unclosed prerequisites."
+  },
+  "baselineQualification": {
+    "audit": "native-combined-diagnostics-source-4c-v1/null-pool-return-audit.json",
+    "correction": "SeparateV3 completing192frames doesnot establish valid native startup: its frozen allocation log records190returned2243 calls withpool0 andreturnaddress6242798, eachresult0. The same event allocator path was already present.",
+    "difference": "The combined legacy receiver writes a nonzero floatbitpattern into literal16 through its separate missing historypool. That makes a later null-event-pool allocation trap where a zero freeHead alias caninstead return0. Avoid claimingV3 didnot enter thechecksum path."
+  },
+  "safety": {
+    "nativeExecuted": false,
+    "wasmCompiledValidatedOrInstantiated": false,
+    "webAssemblyMemoryCreated": false,
+    "runtimeHarnessOrProviderImported": false,
+    "frozenFilesEdited": false,
+    "nativeFieldsModesStreamsPoolsNamesOrOutputsAuthored": false
+  },
+  "pins": [
+    {
+      "file": "work-update-check-20261113/current-native-combined-observer-4c-v2/replay-context-diagnostics-receipt.json",
+      "bytes": 947,
+      "sha256": "814c65486dbc3022b56e21d982bb78246b33a5d4225394e42a1dd5ea6580663d"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-combined-observer-4c-v2/replay-context-diagnostics.jsonl",
+      "bytes": 340567,
+      "sha256": "f6df0be866b41541b78c5185edc5615d6271b005842bd8005804a26cf78371cd"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-combined-observer-4c-v2/replay-context-diagnostics-raw.bin",
+      "bytes": 123504,
+      "sha256": "606f8638f142187c376e11d83967b49809a3812aac7e9934fb9872b435823ad3"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-combined-observer-4c-v2/native-legacy-enrollment-observations.jsonl",
+      "bytes": 32469,
+      "sha256": "757d631f51d3890d8688c2e820377d69cc55f2c834e805da1793568eb9212e51"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-combined-observer-4c-v2/native-legacy-enrollment-raw.bin",
+      "bytes": 121212,
+      "sha256": "348ad8b40a4936fc09d5c962879b899dc2f71648a1b5b9bf7a8b575c894f7117"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-combined-observer-4c-v2/constructor-events.jsonl",
+      "bytes": 16830927,
+      "sha256": "cfc706d64b8b396dfb540008c59176989ae5e3e7539d0d50068017337652ee5a"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-combined-observer-4c-v2/native-pool-allocations.jsonl",
+      "bytes": 32020,
+      "sha256": "937c3bc0537f69664f8f08331ae0e347b9953e27a75b30135947fb1adbad69ba"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-combined-observer-4c-v2/probe-current-native-ai.cjs",
+      "bytes": 39795,
+      "sha256": "45b04dafff5d1c82438c18daefefed3c33574ba9a4e41f3fe097272183c5479d"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-combined-observer-4c-v2/native-session-start-input.cjs",
+      "bytes": 1952,
+      "sha256": "3b7aa1a5ab4e4e280d7da2fb1b63bfef3f084d7a87cbfacbc9ae387976a89132"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-diagnostics-source-4c-v1/null-pool-return-audit.json",
+      "bytes": 48506,
+      "sha256": "138e690eb29727362e0da2db19e3bf16f7530e9bfb4fe30d24d4a5106ff4f5d2"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f112.dcmp",
+      "bytes": 4256,
+      "sha256": "f6d4edb4a2011eac49011da4bbee16403df5c9e3f8bc2b7a7567781ec0084543"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f269.dcmp",
+      "bytes": 4367,
+      "sha256": "9c40fb5750d050d90f4dfbc4e6872325c61fa4496dccbad5fbe17a5b0ecb2167"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f3547.dcmp",
+      "bytes": 7373,
+      "sha256": "4e1004ae0743d1df678d6c9ccf34abbbf909b45bc43a3ef33e40475087469c5d"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f2243.dcmp",
+      "bytes": 5518,
+      "sha256": "df55d32a385475c9f27e5d292b777eed74c3fa01d3385e0eeccb06e2be8f0938"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f12948.dcmp",
+      "bytes": 8076,
+      "sha256": "fb8593327d5894c79171f79728a52478a6a756cc59ad9bc8140887a9af2f61b3"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-null-context-analysis-4c-v1/f7944.dcmp",
+      "bytes": 15617,
+      "sha256": "5b948cf7a71c160c00ccff0e5ac579eb2c3ca83aec416421cefdde9a942109aa"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-null-context-analysis-4c-v1/f7474.dcmp",
+      "bytes": 6897,
+      "sha256": "0e841e9903e69ee8f72c6f94d7071f160ceed3f4c00cf9db488fbf1f369957dc"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-null-context-analysis-4c-v1/f7003.dcmp",
+      "bytes": 3944,
+      "sha256": "04edcfacd737601ce1f2489eba5e8a0788ea8e9f42e559657d8c2996023adfdd"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-null-context-analysis-4c-v1/f1690.dcmp",
+      "bytes": 14724,
+      "sha256": "0271ff33a38e1bd97845654e81facca807299932cdcbde3b2528a50d84a93f3c"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-null-context-analysis-4c-v1/f4454.dcmp",
+      "bytes": 4408,
+      "sha256": "d54568d6543509d2cd68e5260ab49c35dc3ef40e34678eec3f94f9439b77b68f"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-null-context-analysis-4c-v1/f6951.dcmp",
+      "bytes": 3870,
+      "sha256": "d2b00360c90f87baf76618f088365441cbf5c476a6905d5c84b7cfc3c01c510f"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-null-context-analysis-4c-v1/f14630.dcmp",
+      "bytes": 3731,
+      "sha256": "ad221ad8e0fcf305cc2e9796c4fbc49c0c37c727bb3c74eeb68b3e62ec7a9a5e"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-null-context-analysis-4c-v1/analyze-frozen.cjs",
+      "bytes": 11397,
+      "sha256": "ad0597b613257b3f485a0ea493e08b49b2cd08f8eded66f2c431db0078d0e7d0"
+    },
+    {
+      "file": "work-update-check-20261113/native-named-observer-report-source-4c-v1/f22840.dcmp",
+      "bytes": 13184,
+      "sha256": "52c4ef499275c72bf19ee97fbe8e9aec17eb15e6cac0d3854b784836a152a2c4"
+    },
+    {
+      "file": "work-update-check-20261113/native-named-observer-report-source-4c-v1/f17795.dcmp",
+      "bytes": 30938,
+      "sha256": "f7d2977752118adffc1d9a25dfdd67d1f6103e9f064bd17d14bc0d5866857731"
+    },
+    {
+      "file": "work-update-check-20261113/native-named-observer-report-source-4c-v1/f10443.dcmp",
+      "bytes": 8809,
+      "sha256": "fae2f57c4952a544e17977e01fd882ff9d1e2202692b6106b51e31e57c7f2bb6"
+    },
+    {
+      "file": "work-update-check-20261113/native-lan-start-request-source-4c-v1/f10442.dcmp",
+      "bytes": 3519,
+      "sha256": "c4eeaaa4cf2041d3904756f641c6de57e44bc6f7a456513884b45078fa76fc98"
+    }
+  ]
+}

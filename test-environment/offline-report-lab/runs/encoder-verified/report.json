@@ -1,0 +1,1740 @@
+{
+  "schemaVersion": 1,
+  "name": "Offline Report Lab",
+  "generatedAt": "2026-11-12T22:58:52.389Z",
+  "sourceBuild": "60946132",
+  "run": {
+    "id": "2026-11-12T22-58-52-389Z-e5dbb2",
+    "node": "v26.13.0",
+    "kind": "controlled-offline-fixtures",
+    "fullGameStarted": false,
+    "accountQueried": false,
+    "installedExtensionModified": false,
+    "encoderExecuted": true,
+    "inputs": "Locally constructed scenarios, pinned isolated native helpers and pinned page/extension source."
+  },
+  "networkIsolation": {
+    "activeDuringRun": true,
+    "attemptCount": 0,
+    "attempts": [],
+    "transport": "Envelope builders stop at the encoder boundary. Captured inputs are replayed through the isolated encoder with no sender present.",
+    "scope": "Process-local API guard, deny-by-default fixture imports, and restricted VM contexts; no OS firewall changes."
+  },
+  "cases": [
+    {
+      "id": "native-clean",
+      "label": "Clean synthetic race frame",
+      "kind": "native-fixture",
+      "input": {
+        "race": true,
+        "freeRoam": false,
+        "changed": false,
+        "developer": false,
+        "watchedRegion": "one artificial four-byte region"
+      },
+      "observed": {
+        "race": {
+          "sampledFrames": 1,
+          "changedFrames": 0,
+          "developerEvents": 0,
+          "observationFlags": 0
+        },
+        "freeRoam": {
+          "sampledFrames": 0,
+          "changedFrames": 0,
+          "developerEvents": 0,
+          "observationFlags": 0
+        },
+        "developerMarkerConsumed": true
+      },
+      "captures": [],
+      "interpretation": "Original native compare/accumulator/export helpers applied to controlled local fixture data.",
+      "limitations": [
+        "Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.",
+        "Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.",
+        "Envelope-builder cases stop before encoding: inputs are captured locally and the replacement returns zero. Optional encoder replay is a separate case.",
+        "Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.",
+        "These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline."
+      ],
+      "evidence": {
+        "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+        "revision": "60946132",
+        "fixtureManifestSha256": "6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99",
+        "functions": [
+          {
+            "id": 21268,
+            "originalBodySha256": "f6237bdf1ee78ded15124d5a053fcc7311a8520f0d504b26923ec3a42a39a1ef",
+            "isolatedWasmSha256": "0062f9172d09a7bfd81cad09075e64a2259eaa1430314935695b4775cf05a25e"
+          },
+          {
+            "id": 21269,
+            "originalBodySha256": "8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8",
+            "isolatedWasmSha256": "747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f"
+          },
+          {
+            "id": 21270,
+            "originalBodySha256": "995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b",
+            "isolatedWasmSha256": "40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1"
+          },
+          {
+            "id": 21271,
+            "originalBodySha256": "b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1",
+            "isolatedWasmSha256": "e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e"
+          },
+          {
+            "id": 21272,
+            "originalBodySha256": "1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50",
+            "isolatedWasmSha256": "4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8"
+          }
+        ],
+        "fixtureDirectory": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native"
+      }
+    },
+    {
+      "id": "native-race-change",
+      "label": "Changed synthetic race frame",
+      "kind": "native-fixture",
+      "input": {
+        "race": true,
+        "freeRoam": false,
+        "changed": true,
+        "developer": false,
+        "watchedRegion": "one artificial four-byte region"
+      },
+      "observed": {
+        "race": {
+          "sampledFrames": 1,
+          "changedFrames": 1,
+          "developerEvents": 0,
+          "observationFlags": 1
+        },
+        "freeRoam": {
+          "sampledFrames": 0,
+          "changedFrames": 0,
+          "developerEvents": 0,
+          "observationFlags": 0
+        },
+        "developerMarkerConsumed": true
+      },
+      "captures": [],
+      "interpretation": "Original native compare/accumulator/export helpers applied to controlled local fixture data.",
+      "limitations": [
+        "Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.",
+        "Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.",
+        "Envelope-builder cases stop before encoding: inputs are captured locally and the replacement returns zero. Optional encoder replay is a separate case.",
+        "Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.",
+        "These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline."
+      ],
+      "evidence": {
+        "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+        "revision": "60946132",
+        "fixtureManifestSha256": "6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99",
+        "functions": [
+          {
+            "id": 21268,
+            "originalBodySha256": "f6237bdf1ee78ded15124d5a053fcc7311a8520f0d504b26923ec3a42a39a1ef",
+            "isolatedWasmSha256": "0062f9172d09a7bfd81cad09075e64a2259eaa1430314935695b4775cf05a25e"
+          },
+          {
+            "id": 21269,
+            "originalBodySha256": "8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8",
+            "isolatedWasmSha256": "747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f"
+          },
+          {
+            "id": 21270,
+            "originalBodySha256": "995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b",
+            "isolatedWasmSha256": "40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1"
+          },
+          {
+            "id": 21271,
+            "originalBodySha256": "b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1",
+            "isolatedWasmSha256": "e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e"
+          },
+          {
+            "id": 21272,
+            "originalBodySha256": "1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50",
+            "isolatedWasmSha256": "4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8"
+          }
+        ],
+        "fixtureDirectory": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native"
+      }
+    },
+    {
+      "id": "native-freeroam-change",
+      "label": "Changed synthetic free-roam frame",
+      "kind": "native-fixture",
+      "input": {
+        "race": false,
+        "freeRoam": true,
+        "changed": true,
+        "developer": false,
+        "watchedRegion": "one artificial four-byte region"
+      },
+      "observed": {
+        "race": {
+          "sampledFrames": 0,
+          "changedFrames": 0,
+          "developerEvents": 0,
+          "observationFlags": 0
+        },
+        "freeRoam": {
+          "sampledFrames": 1,
+          "changedFrames": 1,
+          "developerEvents": 0,
+          "observationFlags": 1
+        },
+        "developerMarkerConsumed": true
+      },
+      "captures": [],
+      "interpretation": "Original native compare/accumulator/export helpers applied to controlled local fixture data.",
+      "limitations": [
+        "Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.",
+        "Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.",
+        "Envelope-builder cases stop before encoding: inputs are captured locally and the replacement returns zero. Optional encoder replay is a separate case.",
+        "Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.",
+        "These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline."
+      ],
+      "evidence": {
+        "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+        "revision": "60946132",
+        "fixtureManifestSha256": "6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99",
+        "functions": [
+          {
+            "id": 21268,
+            "originalBodySha256": "f6237bdf1ee78ded15124d5a053fcc7311a8520f0d504b26923ec3a42a39a1ef",
+            "isolatedWasmSha256": "0062f9172d09a7bfd81cad09075e64a2259eaa1430314935695b4775cf05a25e"
+          },
+          {
+            "id": 21269,
+            "originalBodySha256": "8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8",
+            "isolatedWasmSha256": "747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f"
+          },
+          {
+            "id": 21270,
+            "originalBodySha256": "995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b",
+            "isolatedWasmSha256": "40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1"
+          },
+          {
+            "id": 21271,
+            "originalBodySha256": "b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1",
+            "isolatedWasmSha256": "e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e"
+          },
+          {
+            "id": 21272,
+            "originalBodySha256": "1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50",
+            "isolatedWasmSha256": "4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8"
+          }
+        ],
+        "fixtureDirectory": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native"
+      }
+    },
+    {
+      "id": "native-developer-event",
+      "label": "Synthetic developer event in both accumulator contexts",
+      "kind": "native-fixture",
+      "input": {
+        "race": true,
+        "freeRoam": true,
+        "changed": false,
+        "developer": true,
+        "watchedRegion": "one artificial four-byte region"
+      },
+      "observed": {
+        "race": {
+          "sampledFrames": 1,
+          "changedFrames": 0,
+          "developerEvents": 1,
+          "observationFlags": 128
+        },
+        "freeRoam": {
+          "sampledFrames": 1,
+          "changedFrames": 0,
+          "developerEvents": 1,
+          "observationFlags": 128
+        },
+        "developerMarkerConsumed": true
+      },
+      "captures": [],
+      "interpretation": "Original native compare/accumulator/export helpers applied to controlled local fixture data.",
+      "limitations": [
+        "Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.",
+        "Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.",
+        "Envelope-builder cases stop before encoding: inputs are captured locally and the replacement returns zero. Optional encoder replay is a separate case.",
+        "Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.",
+        "These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline."
+      ],
+      "evidence": {
+        "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+        "revision": "60946132",
+        "fixtureManifestSha256": "6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99",
+        "functions": [
+          {
+            "id": 21268,
+            "originalBodySha256": "f6237bdf1ee78ded15124d5a053fcc7311a8520f0d504b26923ec3a42a39a1ef",
+            "isolatedWasmSha256": "0062f9172d09a7bfd81cad09075e64a2259eaa1430314935695b4775cf05a25e"
+          },
+          {
+            "id": 21269,
+            "originalBodySha256": "8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8",
+            "isolatedWasmSha256": "747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f"
+          },
+          {
+            "id": 21270,
+            "originalBodySha256": "995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b",
+            "isolatedWasmSha256": "40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1"
+          },
+          {
+            "id": 21271,
+            "originalBodySha256": "b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1",
+            "isolatedWasmSha256": "e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e"
+          },
+          {
+            "id": 21272,
+            "originalBodySha256": "1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50",
+            "isolatedWasmSha256": "4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8"
+          }
+        ],
+        "fixtureDirectory": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native"
+      }
+    },
+    {
+      "id": "native-no-context",
+      "label": "Changed frame with both accumulators inactive",
+      "kind": "native-fixture",
+      "input": {
+        "race": false,
+        "freeRoam": false,
+        "changed": true,
+        "developer": true,
+        "watchedRegion": "one artificial four-byte region"
+      },
+      "observed": {
+        "race": {
+          "sampledFrames": 0,
+          "changedFrames": 0,
+          "developerEvents": 0,
+          "observationFlags": 0
+        },
+        "freeRoam": {
+          "sampledFrames": 0,
+          "changedFrames": 0,
+          "developerEvents": 0,
+          "observationFlags": 0
+        },
+        "developerMarkerConsumed": true
+      },
+      "captures": [],
+      "interpretation": "Original native compare/accumulator/export helpers applied to controlled local fixture data.",
+      "limitations": [
+        "Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.",
+        "Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.",
+        "Envelope-builder cases stop before encoding: inputs are captured locally and the replacement returns zero. Optional encoder replay is a separate case.",
+        "Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.",
+        "These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline."
+      ],
+      "evidence": {
+        "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+        "revision": "60946132",
+        "fixtureManifestSha256": "6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99",
+        "functions": [
+          {
+            "id": 21268,
+            "originalBodySha256": "f6237bdf1ee78ded15124d5a053fcc7311a8520f0d504b26923ec3a42a39a1ef",
+            "isolatedWasmSha256": "0062f9172d09a7bfd81cad09075e64a2259eaa1430314935695b4775cf05a25e"
+          },
+          {
+            "id": 21269,
+            "originalBodySha256": "8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8",
+            "isolatedWasmSha256": "747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f"
+          },
+          {
+            "id": 21270,
+            "originalBodySha256": "995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b",
+            "isolatedWasmSha256": "40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1"
+          },
+          {
+            "id": 21271,
+            "originalBodySha256": "b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1",
+            "isolatedWasmSha256": "e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e"
+          },
+          {
+            "id": 21272,
+            "originalBodySha256": "1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50",
+            "isolatedWasmSha256": "4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8"
+          }
+        ],
+        "fixtureDirectory": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native"
+      }
+    },
+    {
+      "id": "native-missing-snapshot",
+      "label": "Developer marker without a matching synthetic snapshot",
+      "kind": "native-fixture",
+      "input": {
+        "race": true,
+        "freeRoam": true,
+        "changed": false,
+        "developer": true,
+        "available": false,
+        "watchedRegion": "one artificial four-byte region"
+      },
+      "observed": {
+        "race": {
+          "sampledFrames": 0,
+          "changedFrames": 0,
+          "developerEvents": 1,
+          "observationFlags": 128
+        },
+        "freeRoam": {
+          "sampledFrames": 0,
+          "changedFrames": 0,
+          "developerEvents": 1,
+          "observationFlags": 128
+        },
+        "developerMarkerConsumed": true
+      },
+      "captures": [],
+      "interpretation": "Original native compare/accumulator/export helpers applied to controlled local fixture data.",
+      "limitations": [
+        "Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.",
+        "Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.",
+        "Envelope-builder cases stop before encoding: inputs are captured locally and the replacement returns zero. Optional encoder replay is a separate case.",
+        "Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.",
+        "These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline."
+      ],
+      "evidence": {
+        "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+        "revision": "60946132",
+        "fixtureManifestSha256": "6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99",
+        "functions": [
+          {
+            "id": 21268,
+            "originalBodySha256": "f6237bdf1ee78ded15124d5a053fcc7311a8520f0d504b26923ec3a42a39a1ef",
+            "isolatedWasmSha256": "0062f9172d09a7bfd81cad09075e64a2259eaa1430314935695b4775cf05a25e"
+          },
+          {
+            "id": 21269,
+            "originalBodySha256": "8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8",
+            "isolatedWasmSha256": "747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f"
+          },
+          {
+            "id": 21270,
+            "originalBodySha256": "995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b",
+            "isolatedWasmSha256": "40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1"
+          },
+          {
+            "id": 21271,
+            "originalBodySha256": "b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1",
+            "isolatedWasmSha256": "e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e"
+          },
+          {
+            "id": 21272,
+            "originalBodySha256": "1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50",
+            "isolatedWasmSha256": "4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8"
+          }
+        ],
+        "fixtureDirectory": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native"
+      }
+    },
+    {
+      "id": "native-race-reset",
+      "label": "Native race reset preserves the separate free-roam record",
+      "kind": "native-fixture",
+      "input": {
+        "contexts": "both",
+        "changed": true,
+        "developer": true
+      },
+      "observed": {
+        "before": {
+          "race": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          },
+          "freeRoam": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          }
+        },
+        "after": {
+          "race": {
+            "sampledFrames": 0,
+            "changedFrames": 0,
+            "developerEvents": 0,
+            "observationFlags": 0
+          },
+          "freeRoam": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          }
+        }
+      },
+      "captures": [],
+      "interpretation": "The original reset helper clears the race record; the separate free-roam record is retained.",
+      "limitations": [
+        "Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.",
+        "Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.",
+        "Envelope-builder cases stop before encoding: inputs are captured locally and the replacement returns zero. Optional encoder replay is a separate case.",
+        "Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.",
+        "These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline."
+      ],
+      "evidence": {
+        "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+        "revision": "60946132",
+        "fixtureManifestSha256": "6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99",
+        "functions": [
+          {
+            "id": 21267,
+            "originalBodySha256": "343aa521713a377d695dc8745205fd065aa9f00767392951aa483a2fec367d1a",
+            "isolatedWasmSha256": "260998fe8b9a387fc5f4bad06cca2245491534c75350ad8a0911c02662f8ae58"
+          },
+          {
+            "id": 21269,
+            "originalBodySha256": "8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8",
+            "isolatedWasmSha256": "747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f"
+          },
+          {
+            "id": 21270,
+            "originalBodySha256": "995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b",
+            "isolatedWasmSha256": "40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1"
+          },
+          {
+            "id": 21271,
+            "originalBodySha256": "b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1",
+            "isolatedWasmSha256": "e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e"
+          },
+          {
+            "id": 21272,
+            "originalBodySha256": "1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50",
+            "isolatedWasmSha256": "4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8"
+          }
+        ],
+        "fixtureDirectory": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native"
+      }
+    },
+    {
+      "id": "native-race-capture",
+      "label": "Race helper: local pre-encoding capture",
+      "kind": "native-fixture",
+      "input": {
+        "ready": true,
+        "session": "synthetic",
+        "sourceStatistics": {
+          "race": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          },
+          "freeRoam": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          }
+        }
+      },
+      "observed": {
+        "helperReturn": 0,
+        "encoderCalls": 1,
+        "sentCount": 0,
+        "sentBytes": 0,
+        "encoderResult": 0,
+        "wireEncodingPerformed": false,
+        "senderImplementationPresent": false
+      },
+      "captures": [
+        {
+          "stage": "pre-encoding",
+          "channel": "synthetic-race-envelope",
+          "bytes": 1640,
+          "hex": "0015000040302010000000008877665501000000010000000100000001000000810000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "description": "Actual native envelope-builder input to encoder; synthetic session/context. Encoder returned zero; no encoding or transport occurred.",
+          "file": "captures/native-race-capture-1.bin"
+        }
+      ],
+      "interpretation": "Original native helper constructed a pre-encoding envelope. Local interception returned zero, so native transport was not reached.",
+      "limitations": [
+        "Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.",
+        "Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.",
+        "Envelope-builder cases stop before encoding: inputs are captured locally and the replacement returns zero. Optional encoder replay is a separate case.",
+        "Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.",
+        "These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline."
+      ],
+      "evidence": {
+        "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+        "revision": "60946132",
+        "fixtureManifestSha256": "6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99",
+        "functions": [
+          {
+            "id": 22882,
+            "originalBodySha256": "83754053553cd5b23f1a3b16ade2afd06ab1462316351d68872db77a56883f1d",
+            "isolatedWasmSha256": "cf293903a085ac22f219ad1ebf996512f1d25175eaa37a908149c7c490800acf"
+          },
+          {
+            "id": 21271,
+            "originalBodySha256": "b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1",
+            "isolatedWasmSha256": "e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e"
+          }
+        ],
+        "fixtureDirectory": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native"
+      }
+    },
+    {
+      "id": "native-freeroam-capture",
+      "label": "Free-roam helper: local pre-encoding capture",
+      "kind": "native-fixture",
+      "input": {
+        "ready": true,
+        "session": "synthetic",
+        "sourceStatistics": {
+          "race": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          },
+          "freeRoam": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          }
+        }
+      },
+      "observed": {
+        "helperReturn": 0,
+        "encoderCalls": 1,
+        "sentCount": 0,
+        "sentBytes": 0,
+        "encoderResult": 0,
+        "wireEncodingPerformed": false,
+        "senderImplementationPresent": false
+      },
+      "captures": [
+        {
+          "stage": "pre-encoding",
+          "channel": "synthetic-free-roam-envelope",
+          "bytes": 1640,
+          "hex": "0016000040302010000000000100000001000000010000008100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "description": "Actual native envelope-builder input to encoder; synthetic session/context. Encoder returned zero; no encoding or transport occurred.",
+          "file": "captures/native-freeroam-capture-1.bin"
+        }
+      ],
+      "interpretation": "Original native helper constructed a pre-encoding envelope. Local interception returned zero, so native transport was not reached.",
+      "limitations": [
+        "Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.",
+        "Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.",
+        "Envelope-builder cases stop before encoding: inputs are captured locally and the replacement returns zero. Optional encoder replay is a separate case.",
+        "Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.",
+        "These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline."
+      ],
+      "evidence": {
+        "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+        "revision": "60946132",
+        "fixtureManifestSha256": "6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99",
+        "functions": [
+          {
+            "id": 22883,
+            "originalBodySha256": "211ee8e34b921dd4d2397f3cff9ca2d8c90703d33496aee4813c45211e730c31",
+            "isolatedWasmSha256": "9448928e1e13d8688c81561eeeb1443feac020fd0b4cca96e73fc9e4cb9678b0"
+          },
+          {
+            "id": 21272,
+            "originalBodySha256": "1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50",
+            "isolatedWasmSha256": "4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8"
+          }
+        ],
+        "fixtureDirectory": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native"
+      }
+    },
+    {
+      "id": "native-unready-envelope",
+      "label": "Unready synthetic session: no capture",
+      "kind": "native-fixture",
+      "input": {
+        "ready": false,
+        "session": "synthetic",
+        "sourceStatistics": {
+          "race": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          },
+          "freeRoam": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          }
+        }
+      },
+      "observed": {
+        "helperReturn": 0,
+        "encoderCalls": 0,
+        "sentCount": 0,
+        "sentBytes": 0,
+        "encoderResult": 0,
+        "wireEncodingPerformed": false,
+        "senderImplementationPresent": false
+      },
+      "captures": [],
+      "interpretation": "Original helper rejected the synthetic unready context before encoder interception.",
+      "limitations": [
+        "Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.",
+        "Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.",
+        "Envelope-builder cases stop before encoding: inputs are captured locally and the replacement returns zero. Optional encoder replay is a separate case.",
+        "Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.",
+        "These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline."
+      ],
+      "evidence": {
+        "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+        "revision": "60946132",
+        "fixtureManifestSha256": "6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99",
+        "functions": [
+          {
+            "id": 22883,
+            "originalBodySha256": "211ee8e34b921dd4d2397f3cff9ca2d8c90703d33496aee4813c45211e730c31",
+            "isolatedWasmSha256": "9448928e1e13d8688c81561eeeb1443feac020fd0b4cca96e73fc9e4cb9678b0"
+          },
+          {
+            "id": 21272,
+            "originalBodySha256": "1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50",
+            "isolatedWasmSha256": "4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8"
+          }
+        ],
+        "fixtureDirectory": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native"
+      }
+    },
+    {
+      "id": "encoder-race",
+      "label": "Actual native encoder: synthetic race report",
+      "kind": "native-fixture",
+      "input": {
+        "sourceCaseId": "native-race-capture",
+        "sourceType": 21,
+        "sourceCaptureBytes": 1640,
+        "capacity": 1200,
+        "statistics": {
+          "race": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          },
+          "freeRoam": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          }
+        },
+        "context": "synthetic and local only"
+      },
+      "observed": {
+        "encoderResult": 40,
+        "sourceType": 21,
+        "sourceCaptureBytes": 1640,
+        "encodedBytes": 40,
+        "capacity": 1200,
+        "redZonesIntact": true,
+        "inputUnchanged": true,
+        "crcValid": true,
+        "crcStoredHex": "078277a9",
+        "crcCalculatedHex": "078277a9",
+        "corruptedFrameRejectedByCrc": true,
+        "decodedHeader": {
+          "signature": "N2FR",
+          "version": 1,
+          "type": 21
+        },
+        "sourceStatistics": {
+          "race": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          },
+          "freeRoam": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          }
+        },
+        "wireSent": false,
+        "transportImports": 0
+      },
+      "captures": [
+        {
+          "stage": "encoded",
+          "channel": "synthetic-race-envelope:encoded",
+          "bytes": 40,
+          "hex": "4e3246520115280040302010000000008877665501000000010000000100000001008100a9778207",
+          "description": "Actual original native encoder output from a synthetic offline envelope. Retained locally; no sender or live session exists.",
+          "file": "captures/encoder-race-1.bin"
+        }
+      ],
+      "interpretation": "The original encoder ran with seven original leaf helpers linked and produced this local binary frame; JavaScript independently checked its CRC.",
+      "limitations": [
+        "The actual bounded encoder runs with seven original leaf helpers linked; individual paths may not invoke every helper. No full game or transport is instantiated.",
+        "Inputs are the two known synthetic native-envelope snapshots from the offline native scenarios.",
+        "These report branches contain inline values, so no original game data, external pointers or passive data segments are supplied.",
+        "Encoded bytes stay in local fixture memory and the generated report. No socket, sender callback or network capability exists.",
+        "Successful encoding and CRC verification do not establish server acceptance, account decisions or compatibility with other message schemas."
+      ],
+      "evidence": {
+        "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+        "revision": "60946132",
+        "fixtureManifestSha256": "63c9e1bfcc3c382e881079ac8c0de6ce7cb618dee4c85944b48353c27a3408c9",
+        "fixtureDirectory": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\encoder",
+        "functions": [
+          {
+            "id": 22860,
+            "originalBodySha256": "1ca449e3823a0c93d6f3fc95191b025691a01dccc4f51b214ba469663b42bb01",
+            "isolatedWasmSha256": "5867b53703e6d5e6c2847c47da5447e22eed15b606d75110fd9f3e9dc343f78d"
+          },
+          {
+            "id": 22832,
+            "originalBodySha256": "e862790d6cea3929282b1a09a0e0ba62f46ce376753eaf40eee5bdc501a539c3",
+            "isolatedWasmSha256": "dd49be9bcc4755ea7df5e3dd1ec0671249bbc66363f8e22a958ebece902611d5"
+          },
+          {
+            "id": 22854,
+            "originalBodySha256": "5ece2b036e7b3c1147bfa38c5b383f0a492fd8e3e3b304ab94e76a3e5ba36a16",
+            "isolatedWasmSha256": "019d0a0c93f5df43dff982a9de29d6b4384e9bdaccc8360458d4956c806f4c66"
+          },
+          {
+            "id": 22855,
+            "originalBodySha256": "8f118040db85f2acfc5fcab2da78b54f4d3d2353f8c1a0634a98e54dd246be5d",
+            "isolatedWasmSha256": "aaacc9ed99affd915b26f1c9ade455733f5a055493b8a40ca43517fb84867250"
+          },
+          {
+            "id": 22861,
+            "originalBodySha256": "29d58ce982a834fc53cc52ed63104346b4b376daf6b6a1d6a9931d2bbc4851ae",
+            "isolatedWasmSha256": "d55e27671587de3d2ab16b26451521a43c354dea67808c018b1fba94b08ed4de"
+          },
+          {
+            "id": 22862,
+            "originalBodySha256": "0a8727a7480fd540f030a4aa084cd793ab32c80b83a2eb11a80ead81fb4ea8fe",
+            "isolatedWasmSha256": "16559398dcb31ecdb3a2d72d721a07287263430199855f2be068ca7a0f0d58b4"
+          },
+          {
+            "id": 22863,
+            "originalBodySha256": "d4963ae47a49e17d30997f44790e9095a8377b92e69b244882e622cfb018eefb",
+            "isolatedWasmSha256": "b82c0141f9da6508fb3445467ffbb8d9e99d9844f15e6c9aa0a3d1d318b07825"
+          },
+          {
+            "id": 24560,
+            "originalBodySha256": "4f63b82a4393813d7ea5fc5892a767864cde887745f40e84e4dc9a29ecde0889",
+            "isolatedWasmSha256": "821ad8ecf3190dc0435440a958f341f8c7395c49bfbae1c0b2428a20291c41d6"
+          }
+        ],
+        "sourceCaseId": "native-race-capture",
+        "sourceCaptureSha256": "de010285431518a9ee99778629a1ee3900965537e761259a9489e04d6414086e"
+      }
+    },
+    {
+      "id": "encoder-freeroam",
+      "label": "Actual native encoder: synthetic free-roam report",
+      "kind": "native-fixture",
+      "input": {
+        "sourceCaseId": "native-freeroam-capture",
+        "sourceType": 22,
+        "sourceCaptureBytes": 1640,
+        "capacity": 1200,
+        "statistics": {
+          "race": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          },
+          "freeRoam": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          }
+        },
+        "context": "synthetic and local only"
+      },
+      "observed": {
+        "encoderResult": 32,
+        "sourceType": 22,
+        "sourceCaptureBytes": 1640,
+        "encodedBytes": 32,
+        "capacity": 1200,
+        "redZonesIntact": true,
+        "inputUnchanged": true,
+        "crcValid": true,
+        "crcStoredHex": "30c17023",
+        "crcCalculatedHex": "30c17023",
+        "corruptedFrameRejectedByCrc": true,
+        "decodedHeader": {
+          "signature": "N2FR",
+          "version": 1,
+          "type": 22
+        },
+        "sourceStatistics": {
+          "race": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          },
+          "freeRoam": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          }
+        },
+        "wireSent": false,
+        "transportImports": 0
+      },
+      "captures": [
+        {
+          "stage": "encoded",
+          "channel": "synthetic-free-roam-envelope:encoded",
+          "bytes": 32,
+          "hex": "4e3246520116200040302010000000000100000001000000010081002370c130",
+          "description": "Actual original native encoder output from a synthetic offline envelope. Retained locally; no sender or live session exists.",
+          "file": "captures/encoder-freeroam-1.bin"
+        }
+      ],
+      "interpretation": "The original encoder ran with seven original leaf helpers linked and produced this local binary frame; JavaScript independently checked its CRC.",
+      "limitations": [
+        "The actual bounded encoder runs with seven original leaf helpers linked; individual paths may not invoke every helper. No full game or transport is instantiated.",
+        "Inputs are the two known synthetic native-envelope snapshots from the offline native scenarios.",
+        "These report branches contain inline values, so no original game data, external pointers or passive data segments are supplied.",
+        "Encoded bytes stay in local fixture memory and the generated report. No socket, sender callback or network capability exists.",
+        "Successful encoding and CRC verification do not establish server acceptance, account decisions or compatibility with other message schemas."
+      ],
+      "evidence": {
+        "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+        "revision": "60946132",
+        "fixtureManifestSha256": "63c9e1bfcc3c382e881079ac8c0de6ce7cb618dee4c85944b48353c27a3408c9",
+        "fixtureDirectory": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\encoder",
+        "functions": [
+          {
+            "id": 22860,
+            "originalBodySha256": "1ca449e3823a0c93d6f3fc95191b025691a01dccc4f51b214ba469663b42bb01",
+            "isolatedWasmSha256": "5867b53703e6d5e6c2847c47da5447e22eed15b606d75110fd9f3e9dc343f78d"
+          },
+          {
+            "id": 22832,
+            "originalBodySha256": "e862790d6cea3929282b1a09a0e0ba62f46ce376753eaf40eee5bdc501a539c3",
+            "isolatedWasmSha256": "dd49be9bcc4755ea7df5e3dd1ec0671249bbc66363f8e22a958ebece902611d5"
+          },
+          {
+            "id": 22854,
+            "originalBodySha256": "5ece2b036e7b3c1147bfa38c5b383f0a492fd8e3e3b304ab94e76a3e5ba36a16",
+            "isolatedWasmSha256": "019d0a0c93f5df43dff982a9de29d6b4384e9bdaccc8360458d4956c806f4c66"
+          },
+          {
+            "id": 22855,
+            "originalBodySha256": "8f118040db85f2acfc5fcab2da78b54f4d3d2353f8c1a0634a98e54dd246be5d",
+            "isolatedWasmSha256": "aaacc9ed99affd915b26f1c9ade455733f5a055493b8a40ca43517fb84867250"
+          },
+          {
+            "id": 22861,
+            "originalBodySha256": "29d58ce982a834fc53cc52ed63104346b4b376daf6b6a1d6a9931d2bbc4851ae",
+            "isolatedWasmSha256": "d55e27671587de3d2ab16b26451521a43c354dea67808c018b1fba94b08ed4de"
+          },
+          {
+            "id": 22862,
+            "originalBodySha256": "0a8727a7480fd540f030a4aa084cd793ab32c80b83a2eb11a80ead81fb4ea8fe",
+            "isolatedWasmSha256": "16559398dcb31ecdb3a2d72d721a07287263430199855f2be068ca7a0f0d58b4"
+          },
+          {
+            "id": 22863,
+            "originalBodySha256": "d4963ae47a49e17d30997f44790e9095a8377b92e69b244882e622cfb018eefb",
+            "isolatedWasmSha256": "b82c0141f9da6508fb3445467ffbb8d9e99d9844f15e6c9aa0a3d1d318b07825"
+          },
+          {
+            "id": 24560,
+            "originalBodySha256": "4f63b82a4393813d7ea5fc5892a767864cde887745f40e84e4dc9a29ecde0889",
+            "isolatedWasmSha256": "821ad8ecf3190dc0435440a958f341f8c7395c49bfbae1c0b2428a20291c41d6"
+          }
+        ],
+        "sourceCaseId": "native-freeroam-capture",
+        "sourceCaptureSha256": "dfb1f9a449658e72131fc99a98c82134f8ee03b380dc427a0a15bf9870781338"
+      }
+    },
+    {
+      "id": "encoder-exact-capacity",
+      "label": "Actual encoder: exactly sized output buffer",
+      "kind": "native-fixture",
+      "input": {
+        "sourceCaseId": "native-race-capture",
+        "sourceType": 21,
+        "sourceCaptureBytes": 1640,
+        "capacity": 40,
+        "statistics": {
+          "race": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          },
+          "freeRoam": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          }
+        },
+        "context": "synthetic and local only"
+      },
+      "observed": {
+        "encoderResult": 40,
+        "sourceType": 21,
+        "sourceCaptureBytes": 1640,
+        "encodedBytes": 40,
+        "capacity": 40,
+        "redZonesIntact": true,
+        "inputUnchanged": true,
+        "crcValid": true,
+        "crcStoredHex": "078277a9",
+        "crcCalculatedHex": "078277a9",
+        "corruptedFrameRejectedByCrc": true,
+        "decodedHeader": {
+          "signature": "N2FR",
+          "version": 1,
+          "type": 21
+        },
+        "sourceStatistics": {
+          "race": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          },
+          "freeRoam": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          }
+        },
+        "wireSent": false,
+        "transportImports": 0
+      },
+      "captures": [
+        {
+          "stage": "encoded",
+          "channel": "synthetic-race-envelope:encoded",
+          "bytes": 40,
+          "hex": "4e3246520115280040302010000000008877665501000000010000000100000001008100a9778207",
+          "description": "Actual original native encoder output from a synthetic offline envelope. Retained locally; no sender or live session exists.",
+          "file": "captures/encoder-exact-capacity-1.bin"
+        }
+      ],
+      "interpretation": "The output buffer exactly matches the successful native frame length. Red zones detect writes outside the permitted range.",
+      "limitations": [
+        "The actual bounded encoder runs with seven original leaf helpers linked; individual paths may not invoke every helper. No full game or transport is instantiated.",
+        "Inputs are the two known synthetic native-envelope snapshots from the offline native scenarios.",
+        "These report branches contain inline values, so no original game data, external pointers or passive data segments are supplied.",
+        "Encoded bytes stay in local fixture memory and the generated report. No socket, sender callback or network capability exists.",
+        "Successful encoding and CRC verification do not establish server acceptance, account decisions or compatibility with other message schemas."
+      ],
+      "evidence": {
+        "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+        "revision": "60946132",
+        "fixtureManifestSha256": "63c9e1bfcc3c382e881079ac8c0de6ce7cb618dee4c85944b48353c27a3408c9",
+        "fixtureDirectory": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\encoder",
+        "functions": [
+          {
+            "id": 22860,
+            "originalBodySha256": "1ca449e3823a0c93d6f3fc95191b025691a01dccc4f51b214ba469663b42bb01",
+            "isolatedWasmSha256": "5867b53703e6d5e6c2847c47da5447e22eed15b606d75110fd9f3e9dc343f78d"
+          },
+          {
+            "id": 22832,
+            "originalBodySha256": "e862790d6cea3929282b1a09a0e0ba62f46ce376753eaf40eee5bdc501a539c3",
+            "isolatedWasmSha256": "dd49be9bcc4755ea7df5e3dd1ec0671249bbc66363f8e22a958ebece902611d5"
+          },
+          {
+            "id": 22854,
+            "originalBodySha256": "5ece2b036e7b3c1147bfa38c5b383f0a492fd8e3e3b304ab94e76a3e5ba36a16",
+            "isolatedWasmSha256": "019d0a0c93f5df43dff982a9de29d6b4384e9bdaccc8360458d4956c806f4c66"
+          },
+          {
+            "id": 22855,
+            "originalBodySha256": "8f118040db85f2acfc5fcab2da78b54f4d3d2353f8c1a0634a98e54dd246be5d",
+            "isolatedWasmSha256": "aaacc9ed99affd915b26f1c9ade455733f5a055493b8a40ca43517fb84867250"
+          },
+          {
+            "id": 22861,
+            "originalBodySha256": "29d58ce982a834fc53cc52ed63104346b4b376daf6b6a1d6a9931d2bbc4851ae",
+            "isolatedWasmSha256": "d55e27671587de3d2ab16b26451521a43c354dea67808c018b1fba94b08ed4de"
+          },
+          {
+            "id": 22862,
+            "originalBodySha256": "0a8727a7480fd540f030a4aa084cd793ab32c80b83a2eb11a80ead81fb4ea8fe",
+            "isolatedWasmSha256": "16559398dcb31ecdb3a2d72d721a07287263430199855f2be068ca7a0f0d58b4"
+          },
+          {
+            "id": 22863,
+            "originalBodySha256": "d4963ae47a49e17d30997f44790e9095a8377b92e69b244882e622cfb018eefb",
+            "isolatedWasmSha256": "b82c0141f9da6508fb3445467ffbb8d9e99d9844f15e6c9aa0a3d1d318b07825"
+          },
+          {
+            "id": 24560,
+            "originalBodySha256": "4f63b82a4393813d7ea5fc5892a767864cde887745f40e84e4dc9a29ecde0889",
+            "isolatedWasmSha256": "821ad8ecf3190dc0435440a958f341f8c7395c49bfbae1c0b2428a20291c41d6"
+          }
+        ],
+        "sourceCaseId": "native-race-capture",
+        "sourceCaptureSha256": "de010285431518a9ee99778629a1ee3900965537e761259a9489e04d6414086e"
+      }
+    },
+    {
+      "id": "encoder-short-buffer",
+      "label": "Actual encoder: one byte less than the successful frame",
+      "kind": "native-fixture",
+      "input": {
+        "sourceCaseId": "native-race-capture",
+        "sourceType": 21,
+        "sourceCaptureBytes": 1640,
+        "capacity": 39,
+        "statistics": {
+          "race": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          },
+          "freeRoam": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          }
+        },
+        "context": "synthetic and local only"
+      },
+      "observed": {
+        "encoderResult": -1,
+        "sourceType": 21,
+        "sourceCaptureBytes": 1640,
+        "encodedBytes": 0,
+        "capacity": 39,
+        "redZonesIntact": true,
+        "inputUnchanged": true,
+        "crcValid": false,
+        "crcStoredHex": null,
+        "crcCalculatedHex": null,
+        "corruptedFrameRejectedByCrc": null,
+        "decodedHeader": null,
+        "sourceStatistics": {
+          "race": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          },
+          "freeRoam": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          }
+        },
+        "wireSent": false,
+        "transportImports": 0
+      },
+      "captures": [],
+      "interpretation": "A failed call may write a prefix inside its supplied buffer. No successful frame is captured; red zones check the external boundary.",
+      "limitations": [
+        "The actual bounded encoder runs with seven original leaf helpers linked; individual paths may not invoke every helper. No full game or transport is instantiated.",
+        "Inputs are the two known synthetic native-envelope snapshots from the offline native scenarios.",
+        "These report branches contain inline values, so no original game data, external pointers or passive data segments are supplied.",
+        "Encoded bytes stay in local fixture memory and the generated report. No socket, sender callback or network capability exists.",
+        "Successful encoding and CRC verification do not establish server acceptance, account decisions or compatibility with other message schemas."
+      ],
+      "evidence": {
+        "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+        "revision": "60946132",
+        "fixtureManifestSha256": "63c9e1bfcc3c382e881079ac8c0de6ce7cb618dee4c85944b48353c27a3408c9",
+        "fixtureDirectory": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\encoder",
+        "functions": [
+          {
+            "id": 22860,
+            "originalBodySha256": "1ca449e3823a0c93d6f3fc95191b025691a01dccc4f51b214ba469663b42bb01",
+            "isolatedWasmSha256": "5867b53703e6d5e6c2847c47da5447e22eed15b606d75110fd9f3e9dc343f78d"
+          },
+          {
+            "id": 22832,
+            "originalBodySha256": "e862790d6cea3929282b1a09a0e0ba62f46ce376753eaf40eee5bdc501a539c3",
+            "isolatedWasmSha256": "dd49be9bcc4755ea7df5e3dd1ec0671249bbc66363f8e22a958ebece902611d5"
+          },
+          {
+            "id": 22854,
+            "originalBodySha256": "5ece2b036e7b3c1147bfa38c5b383f0a492fd8e3e3b304ab94e76a3e5ba36a16",
+            "isolatedWasmSha256": "019d0a0c93f5df43dff982a9de29d6b4384e9bdaccc8360458d4956c806f4c66"
+          },
+          {
+            "id": 22855,
+            "originalBodySha256": "8f118040db85f2acfc5fcab2da78b54f4d3d2353f8c1a0634a98e54dd246be5d",
+            "isolatedWasmSha256": "aaacc9ed99affd915b26f1c9ade455733f5a055493b8a40ca43517fb84867250"
+          },
+          {
+            "id": 22861,
+            "originalBodySha256": "29d58ce982a834fc53cc52ed63104346b4b376daf6b6a1d6a9931d2bbc4851ae",
+            "isolatedWasmSha256": "d55e27671587de3d2ab16b26451521a43c354dea67808c018b1fba94b08ed4de"
+          },
+          {
+            "id": 22862,
+            "originalBodySha256": "0a8727a7480fd540f030a4aa084cd793ab32c80b83a2eb11a80ead81fb4ea8fe",
+            "isolatedWasmSha256": "16559398dcb31ecdb3a2d72d721a07287263430199855f2be068ca7a0f0d58b4"
+          },
+          {
+            "id": 22863,
+            "originalBodySha256": "d4963ae47a49e17d30997f44790e9095a8377b92e69b244882e622cfb018eefb",
+            "isolatedWasmSha256": "b82c0141f9da6508fb3445467ffbb8d9e99d9844f15e6c9aa0a3d1d318b07825"
+          },
+          {
+            "id": 24560,
+            "originalBodySha256": "4f63b82a4393813d7ea5fc5892a767864cde887745f40e84e4dc9a29ecde0889",
+            "isolatedWasmSha256": "821ad8ecf3190dc0435440a958f341f8c7395c49bfbae1c0b2428a20291c41d6"
+          }
+        ],
+        "sourceCaseId": "native-race-capture",
+        "sourceCaptureSha256": "de010285431518a9ee99778629a1ee3900965537e761259a9489e04d6414086e"
+      }
+    },
+    {
+      "id": "encoder-zero-capacity",
+      "label": "Actual encoder: zero output capacity",
+      "kind": "native-fixture",
+      "input": {
+        "sourceCaseId": "native-race-capture",
+        "sourceType": 21,
+        "sourceCaptureBytes": 1640,
+        "capacity": 0,
+        "statistics": {
+          "race": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          },
+          "freeRoam": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          }
+        },
+        "context": "synthetic and local only"
+      },
+      "observed": {
+        "encoderResult": -1,
+        "sourceType": 21,
+        "sourceCaptureBytes": 1640,
+        "encodedBytes": 0,
+        "capacity": 0,
+        "redZonesIntact": true,
+        "inputUnchanged": true,
+        "crcValid": false,
+        "crcStoredHex": null,
+        "crcCalculatedHex": null,
+        "corruptedFrameRejectedByCrc": null,
+        "decodedHeader": null,
+        "sourceStatistics": {
+          "race": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          },
+          "freeRoam": {
+            "sampledFrames": 1,
+            "changedFrames": 1,
+            "developerEvents": 1,
+            "observationFlags": 129
+          }
+        },
+        "wireSent": false,
+        "transportImports": 0
+      },
+      "captures": [],
+      "interpretation": "Zero output capacity tests the native failure path while preserving both adjacent red zones.",
+      "limitations": [
+        "The actual bounded encoder runs with seven original leaf helpers linked; individual paths may not invoke every helper. No full game or transport is instantiated.",
+        "Inputs are the two known synthetic native-envelope snapshots from the offline native scenarios.",
+        "These report branches contain inline values, so no original game data, external pointers or passive data segments are supplied.",
+        "Encoded bytes stay in local fixture memory and the generated report. No socket, sender callback or network capability exists.",
+        "Successful encoding and CRC verification do not establish server acceptance, account decisions or compatibility with other message schemas."
+      ],
+      "evidence": {
+        "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+        "revision": "60946132",
+        "fixtureManifestSha256": "63c9e1bfcc3c382e881079ac8c0de6ce7cb618dee4c85944b48353c27a3408c9",
+        "fixtureDirectory": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\encoder",
+        "functions": [
+          {
+            "id": 22860,
+            "originalBodySha256": "1ca449e3823a0c93d6f3fc95191b025691a01dccc4f51b214ba469663b42bb01",
+            "isolatedWasmSha256": "5867b53703e6d5e6c2847c47da5447e22eed15b606d75110fd9f3e9dc343f78d"
+          },
+          {
+            "id": 22832,
+            "originalBodySha256": "e862790d6cea3929282b1a09a0e0ba62f46ce376753eaf40eee5bdc501a539c3",
+            "isolatedWasmSha256": "dd49be9bcc4755ea7df5e3dd1ec0671249bbc66363f8e22a958ebece902611d5"
+          },
+          {
+            "id": 22854,
+            "originalBodySha256": "5ece2b036e7b3c1147bfa38c5b383f0a492fd8e3e3b304ab94e76a3e5ba36a16",
+            "isolatedWasmSha256": "019d0a0c93f5df43dff982a9de29d6b4384e9bdaccc8360458d4956c806f4c66"
+          },
+          {
+            "id": 22855,
+            "originalBodySha256": "8f118040db85f2acfc5fcab2da78b54f4d3d2353f8c1a0634a98e54dd246be5d",
+            "isolatedWasmSha256": "aaacc9ed99affd915b26f1c9ade455733f5a055493b8a40ca43517fb84867250"
+          },
+          {
+            "id": 22861,
+            "originalBodySha256": "29d58ce982a834fc53cc52ed63104346b4b376daf6b6a1d6a9931d2bbc4851ae",
+            "isolatedWasmSha256": "d55e27671587de3d2ab16b26451521a43c354dea67808c018b1fba94b08ed4de"
+          },
+          {
+            "id": 22862,
+            "originalBodySha256": "0a8727a7480fd540f030a4aa084cd793ab32c80b83a2eb11a80ead81fb4ea8fe",
+            "isolatedWasmSha256": "16559398dcb31ecdb3a2d72d721a07287263430199855f2be068ca7a0f0d58b4"
+          },
+          {
+            "id": 22863,
+            "originalBodySha256": "d4963ae47a49e17d30997f44790e9095a8377b92e69b244882e622cfb018eefb",
+            "isolatedWasmSha256": "b82c0141f9da6508fb3445467ffbb8d9e99d9844f15e6c9aa0a3d1d318b07825"
+          },
+          {
+            "id": 24560,
+            "originalBodySha256": "4f63b82a4393813d7ea5fc5892a767864cde887745f40e84e4dc9a29ecde0889",
+            "isolatedWasmSha256": "821ad8ecf3190dc0435440a958f341f8c7395c49bfbae1c0b2428a20291c41d6"
+          }
+        ],
+        "sourceCaseId": "native-race-capture",
+        "sourceCaptureSha256": "de010285431518a9ee99778629a1ee3900965537e761259a9489e04d6414086e"
+      }
+    },
+    {
+      "kind": "host-guard",
+      "captures": [],
+      "evidence": {
+        "fixtureId": "nfsu2-60946132-host-guard-extension-0.42.5",
+        "sourceGameRevision": "60946132",
+        "extensionVersion": "0.42.5",
+        "integrityVerified": true,
+        "sourceFiles": [
+          {
+            "file": "fixtures/host/extension-ai.js",
+            "sha256": "f407444e5e723ca9c0235cf981630354554e10aff01faa05fa19042f2f0122e6",
+            "bytes": 96640
+          },
+          {
+            "file": "fixtures/host/extension-current-profile.js",
+            "sha256": "4249fc980c6281cd790121aef68dc25d6ff50b901a1eaeff8c77a4b1c05b836f",
+            "bytes": 32268
+          },
+          {
+            "file": "fixtures/host/host-guard-source.js",
+            "sha256": "be7b473848fa48ec7ca8c20dc3ad7e35906e2226e538f251a04ef70462ec399a",
+            "bytes": 898
+          },
+          {
+            "file": "fixtures/host/empty-standalone.wasm",
+            "sha256": "93a44bbb96c751218e4c00d479e4c14358122a389acca16205b1e4d0dc5f9476",
+            "bytes": 8
+          },
+          {
+            "file": "fixtures/host/provenance.json",
+            "sha256": "7f1becb3854e8e3a80bd546cfe4eff9d22a5d5c05bbd838688b02e767724fefd",
+            "bytes": 2322
+          }
+        ],
+        "hostSource": {
+          "url": "https://nfsu2.xyz/main.js",
+          "savedSourcePath": "work-functions-20261112/host-review/main.js",
+          "sha256": "64700139309ee9d4f46a3f93d5b47c8f5d1b25434726d07e2f47923fdeef3510",
+          "excerptStartUTF16": 711354,
+          "excerptEndUTF16": 712252,
+          "guardName": "wO",
+          "predicateName": "yO",
+          "sourceLine": 679
+        },
+        "harness": "Same VM realm for native constructors and exact guard; string/WASM code generation disabled. The direct-loader fixture is compiled/instantiated outside the VM through unchanged native APIs."
+      },
+      "limitations": [
+        "Synthetic Node VM cases are not a browser session or account record.",
+        "No game module, game memory, network connection, or report delivery is supplied.",
+        "Unrelated settings and module predicates remain false in both cases.",
+        "Startup cases use harmless native callable stand-ins. The direct-loader case loads only a pinned empty standalone module outside the VM.",
+        "A reporter input is not proof of a server decision, account ban, or multiplayer safety."
+      ],
+      "id": "host-clean-native-apis",
+      "label": "Clean synthetic browser APIs",
+      "input": {
+        "synthetic": true,
+        "scenario": "native-api-baseline",
+        "extensionInstalled": false
+      },
+      "observed": {
+        "guardCategories": [],
+        "wrappedApiReported": false,
+        "patchPhase": "absent",
+        "gameBytesSupplied": false,
+        "gameMemorySupplied": false,
+        "moduleBytesObserved": false,
+        "externalCapabilitiesAbsent": true
+      },
+      "interpretation": "The pinned host guard records no category for this clean synthetic API surface."
+    },
+    {
+      "kind": "host-guard",
+      "captures": [],
+      "evidence": {
+        "fixtureId": "nfsu2-60946132-host-guard-extension-0.42.5",
+        "sourceGameRevision": "60946132",
+        "extensionVersion": "0.42.5",
+        "integrityVerified": true,
+        "sourceFiles": [
+          {
+            "file": "fixtures/host/extension-ai.js",
+            "sha256": "f407444e5e723ca9c0235cf981630354554e10aff01faa05fa19042f2f0122e6",
+            "bytes": 96640
+          },
+          {
+            "file": "fixtures/host/extension-current-profile.js",
+            "sha256": "4249fc980c6281cd790121aef68dc25d6ff50b901a1eaeff8c77a4b1c05b836f",
+            "bytes": 32268
+          },
+          {
+            "file": "fixtures/host/host-guard-source.js",
+            "sha256": "be7b473848fa48ec7ca8c20dc3ad7e35906e2226e538f251a04ef70462ec399a",
+            "bytes": 898
+          },
+          {
+            "file": "fixtures/host/empty-standalone.wasm",
+            "sha256": "93a44bbb96c751218e4c00d479e4c14358122a389acca16205b1e4d0dc5f9476",
+            "bytes": 8
+          },
+          {
+            "file": "fixtures/host/provenance.json",
+            "sha256": "7f1becb3854e8e3a80bd546cfe4eff9d22a5d5c05bbd838688b02e767724fefd",
+            "bytes": 2322
+          }
+        ],
+        "hostSource": {
+          "url": "https://nfsu2.xyz/main.js",
+          "savedSourcePath": "work-functions-20261112/host-review/main.js",
+          "sha256": "64700139309ee9d4f46a3f93d5b47c8f5d1b25434726d07e2f47923fdeef3510",
+          "excerptStartUTF16": 711354,
+          "excerptEndUTF16": 712252,
+          "guardName": "wO",
+          "predicateName": "yO",
+          "sourceLine": 679
+        },
+        "harness": "Same VM realm for native constructors and exact guard; string/WASM code generation disabled. The direct-loader fixture is compiled/instantiated outside the VM through unchanged native APIs."
+      },
+      "limitations": [
+        "Synthetic Node VM cases are not a browser session or account record.",
+        "No game module, game memory, network connection, or report delivery is supplied.",
+        "Unrelated settings and module predicates remain false in both cases.",
+        "Startup cases use harmless native callable stand-ins. The direct-loader case loads only a pinned empty standalone module outside the VM.",
+        "A reporter input is not proof of a server decision, account ban, or multiplayer safety."
+      ],
+      "id": "host-extension-wrapper-before-load",
+      "label": "Extension wrapper before a module load",
+      "input": {
+        "synthetic": true,
+        "scenario": "actual-extension-startup",
+        "extensionInstalled": true
+      },
+      "observed": {
+        "guardCategories": [
+          "wrapped-browser-api"
+        ],
+        "wrappedApiReported": true,
+        "patchPhase": "idle",
+        "gameBytesSupplied": false,
+        "gameMemorySupplied": false,
+        "moduleBytesObserved": false,
+        "externalCapabilitiesAbsent": true
+      },
+      "interpretation": "The actual pinned AI.install assignment adds the wrapped-browser-API category while module preparation remains idle."
+    },
+    {
+      "kind": "host-guard",
+      "captures": [],
+      "evidence": {
+        "fixtureId": "nfsu2-60946132-host-guard-extension-0.42.5",
+        "sourceGameRevision": "60946132",
+        "extensionVersion": "0.42.5",
+        "integrityVerified": true,
+        "sourceFiles": [
+          {
+            "file": "fixtures/host/extension-ai.js",
+            "sha256": "f407444e5e723ca9c0235cf981630354554e10aff01faa05fa19042f2f0122e6",
+            "bytes": 96640
+          },
+          {
+            "file": "fixtures/host/extension-current-profile.js",
+            "sha256": "4249fc980c6281cd790121aef68dc25d6ff50b901a1eaeff8c77a4b1c05b836f",
+            "bytes": 32268
+          },
+          {
+            "file": "fixtures/host/host-guard-source.js",
+            "sha256": "be7b473848fa48ec7ca8c20dc3ad7e35906e2226e538f251a04ef70462ec399a",
+            "bytes": 898
+          },
+          {
+            "file": "fixtures/host/empty-standalone.wasm",
+            "sha256": "93a44bbb96c751218e4c00d479e4c14358122a389acca16205b1e4d0dc5f9476",
+            "bytes": 8
+          },
+          {
+            "file": "fixtures/host/provenance.json",
+            "sha256": "7f1becb3854e8e3a80bd546cfe4eff9d22a5d5c05bbd838688b02e767724fefd",
+            "bytes": 2322
+          }
+        ],
+        "hostSource": {
+          "url": "https://nfsu2.xyz/main.js",
+          "savedSourcePath": "work-functions-20261112/host-review/main.js",
+          "sha256": "64700139309ee9d4f46a3f93d5b47c8f5d1b25434726d07e2f47923fdeef3510",
+          "excerptStartUTF16": 711354,
+          "excerptEndUTF16": 712252,
+          "guardName": "wO",
+          "predicateName": "yO",
+          "sourceLine": 679
+        },
+        "harness": "Same VM realm for native constructors and exact guard; string/WASM code generation disabled. The direct-loader fixture is compiled/instantiated outside the VM through unchanged native APIs."
+      },
+      "limitations": [
+        "Synthetic Node VM cases are not a browser session or account record.",
+        "No game module, game memory, network connection, or report delivery is supplied.",
+        "Unrelated settings and module predicates remain false in both cases.",
+        "Startup cases use harmless native callable stand-ins. The direct-loader case loads only a pinned empty standalone module outside the VM.",
+        "A reporter input is not proof of a server decision, account ban, or multiplayer safety.",
+        "Only an empty standalone module was loaded. No game hooks, edited game module, browser site, or online behavior was tested."
+      ],
+      "id": "host-explicit-local-loader",
+      "label": "Explicit local loader with unchanged native APIs",
+      "input": {
+        "synthetic": true,
+        "scenario": "empty-standalone-direct-loader",
+        "extensionInstalled": false,
+        "fixture": "empty-standalone.wasm",
+        "fixtureBytes": 8
+      },
+      "observed": {
+        "guardCategoriesBefore": [],
+        "guardCategoriesAfter": [],
+        "guardCategories": [],
+        "wrappedApiReported": false,
+        "nativeAPIIdentitiesUnchanged": true,
+        "directCompileCompleted": true,
+        "directInstantiationCompleted": true,
+        "standaloneExportCount": 0,
+        "patchPhase": "absent",
+        "gameBytesSupplied": false,
+        "gameMemorySupplied": false,
+        "moduleBytesObserved": false,
+        "externalCapabilitiesAbsent": true
+      },
+      "interpretation": "An explicit local loader compiles and instantiates the pinned empty standalone module without replacing native APIs; the unmodified guard records no category before or after. This is an architecture demonstration, not a patched-game proof or a site fix."
+    }
+  ],
+  "evidence": [
+    {
+      "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+      "revision": "60946132",
+      "fixtureManifestSha256": "6b4905efb513687582e5861a9c81eeafbd53d07cbbd93d16ca90eb41a823bb99",
+      "functions": [
+        {
+          "id": 21267,
+          "originalBodySha256": "343aa521713a377d695dc8745205fd065aa9f00767392951aa483a2fec367d1a",
+          "isolatedWasmSha256": "260998fe8b9a387fc5f4bad06cca2245491534c75350ad8a0911c02662f8ae58"
+        },
+        {
+          "id": 21268,
+          "originalBodySha256": "f6237bdf1ee78ded15124d5a053fcc7311a8520f0d504b26923ec3a42a39a1ef",
+          "isolatedWasmSha256": "0062f9172d09a7bfd81cad09075e64a2259eaa1430314935695b4775cf05a25e"
+        },
+        {
+          "id": 21269,
+          "originalBodySha256": "8e803feda47bbc30548dd146117eb12576e275445afe6199153d7dbea92cbdc8",
+          "isolatedWasmSha256": "747a619e50cf42dd51fe227bf3708ece6d8aa5c45541ccc4909c17b1cbb2af1f"
+        },
+        {
+          "id": 21270,
+          "originalBodySha256": "995459d6c3093ef052b0c579d0a2f4e659ba19a9af4bf32af218f73599a3261b",
+          "isolatedWasmSha256": "40f63af6b3cf67a5c1cc364a34607b3d3dd6e02bc2914fe9ef9902650f5b12a1"
+        },
+        {
+          "id": 21271,
+          "originalBodySha256": "b19d359ea35fc2e3f57dc5a932ff2a2affcf2fd7e4ce932670d01df2e57179d1",
+          "isolatedWasmSha256": "e4d66257f89696ec4ac030086b5e06a456cbfd2d2891715bd33af6ef181c480e"
+        },
+        {
+          "id": 21272,
+          "originalBodySha256": "1bbc54d96c958b1c2e25a9f41daa727c53ee7eee40ff605eb7e3dd749a98fb50",
+          "isolatedWasmSha256": "4afda6ba52365544ed65ddf3552b936c5686a6df498a0f02e56bd3d72e5091e8"
+        },
+        {
+          "id": 22882,
+          "originalBodySha256": "83754053553cd5b23f1a3b16ade2afd06ab1462316351d68872db77a56883f1d",
+          "isolatedWasmSha256": "cf293903a085ac22f219ad1ebf996512f1d25175eaa37a908149c7c490800acf"
+        },
+        {
+          "id": 22883,
+          "originalBodySha256": "211ee8e34b921dd4d2397f3cff9ca2d8c90703d33496aee4813c45211e730c31",
+          "isolatedWasmSha256": "9448928e1e13d8688c81561eeeb1443feac020fd0b4cca96e73fc9e4cb9678b0"
+        }
+      ],
+      "fixtureDirectory": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\native",
+      "method": "Exact selected native function WAT bodies copied from pinned current build. Existing isolated WABT contexts replace direct dependencies with typed imports, retain original globals/types and shared-memory declaration, and contain no game data or live transport implementation.",
+      "memory": {
+        "shared": true,
+        "minimumPages": 11264,
+        "touched": "small fixture regions only"
+      },
+      "importPolicy": "Exact pinned import sets only; no transport, network, process, filesystem or clock access is supplied to native imports.",
+      "loggerInvocations": 0,
+      "encoderCalls": 2
+    },
+    {
+      "originalModuleSha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+      "revision": "60946132",
+      "fixtureManifestSha256": "63c9e1bfcc3c382e881079ac8c0de6ce7cb618dee4c85944b48353c27a3408c9",
+      "fixtureDirectory": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\offline-report-lab\\fixtures\\encoder",
+      "functions": [
+        {
+          "id": 22860,
+          "originalBodySha256": "1ca449e3823a0c93d6f3fc95191b025691a01dccc4f51b214ba469663b42bb01",
+          "isolatedWasmSha256": "5867b53703e6d5e6c2847c47da5447e22eed15b606d75110fd9f3e9dc343f78d"
+        },
+        {
+          "id": 22832,
+          "originalBodySha256": "e862790d6cea3929282b1a09a0e0ba62f46ce376753eaf40eee5bdc501a539c3",
+          "isolatedWasmSha256": "dd49be9bcc4755ea7df5e3dd1ec0671249bbc66363f8e22a958ebece902611d5"
+        },
+        {
+          "id": 22854,
+          "originalBodySha256": "5ece2b036e7b3c1147bfa38c5b383f0a492fd8e3e3b304ab94e76a3e5ba36a16",
+          "isolatedWasmSha256": "019d0a0c93f5df43dff982a9de29d6b4384e9bdaccc8360458d4956c806f4c66"
+        },
+        {
+          "id": 22855,
+          "originalBodySha256": "8f118040db85f2acfc5fcab2da78b54f4d3d2353f8c1a0634a98e54dd246be5d",
+          "isolatedWasmSha256": "aaacc9ed99affd915b26f1c9ade455733f5a055493b8a40ca43517fb84867250"
+        },
+        {
+          "id": 22861,
+          "originalBodySha256": "29d58ce982a834fc53cc52ed63104346b4b376daf6b6a1d6a9931d2bbc4851ae",
+          "isolatedWasmSha256": "d55e27671587de3d2ab16b26451521a43c354dea67808c018b1fba94b08ed4de"
+        },
+        {
+          "id": 22862,
+          "originalBodySha256": "0a8727a7480fd540f030a4aa084cd793ab32c80b83a2eb11a80ead81fb4ea8fe",
+          "isolatedWasmSha256": "16559398dcb31ecdb3a2d72d721a07287263430199855f2be068ca7a0f0d58b4"
+        },
+        {
+          "id": 22863,
+          "originalBodySha256": "d4963ae47a49e17d30997f44790e9095a8377b92e69b244882e622cfb018eefb",
+          "isolatedWasmSha256": "b82c0141f9da6508fb3445467ffbb8d9e99d9844f15e6c9aa0a3d1d318b07825"
+        },
+        {
+          "id": 24560,
+          "originalBodySha256": "4f63b82a4393813d7ea5fc5892a767864cde887745f40e84e4dc9a29ecde0889",
+          "isolatedWasmSha256": "821ad8ecf3190dc0435440a958f341f8c7395c49bfbae1c0b2428a20291c41d6"
+        }
+      ],
+      "method": "Eight exact selected original native WAT bodies in separately compiled isolated contexts. Seven real leaf exports satisfy the original encoder direct calls. Memory is the only external capability. No game instance, data segment, socket or transport implementation is included.",
+      "actualEncoderExecuted": true,
+      "realLeafHelpers": 7,
+      "externalCapabilities": [
+        "shared local fixture memory only"
+      ],
+      "senderImplementations": 0,
+      "globalAPIsChanged": false,
+      "crcCheck": "Independent JavaScript reflected CRC-32; altered-copy negative check."
+    },
+    {
+      "fixtureId": "nfsu2-60946132-host-guard-extension-0.42.5",
+      "sourceGameRevision": "60946132",
+      "extensionVersion": "0.42.5",
+      "integrityVerified": true,
+      "sourceFiles": [
+        {
+          "file": "fixtures/host/extension-ai.js",
+          "sha256": "f407444e5e723ca9c0235cf981630354554e10aff01faa05fa19042f2f0122e6",
+          "bytes": 96640
+        },
+        {
+          "file": "fixtures/host/extension-current-profile.js",
+          "sha256": "4249fc980c6281cd790121aef68dc25d6ff50b901a1eaeff8c77a4b1c05b836f",
+          "bytes": 32268
+        },
+        {
+          "file": "fixtures/host/host-guard-source.js",
+          "sha256": "be7b473848fa48ec7ca8c20dc3ad7e35906e2226e538f251a04ef70462ec399a",
+          "bytes": 898
+        },
+        {
+          "file": "fixtures/host/empty-standalone.wasm",
+          "sha256": "93a44bbb96c751218e4c00d479e4c14358122a389acca16205b1e4d0dc5f9476",
+          "bytes": 8
+        },
+        {
+          "file": "fixtures/host/provenance.json",
+          "sha256": "7f1becb3854e8e3a80bd546cfe4eff9d22a5d5c05bbd838688b02e767724fefd",
+          "bytes": 2322
+        }
+      ],
+      "hostSource": {
+        "url": "https://nfsu2.xyz/main.js",
+        "savedSourcePath": "work-functions-20261112/host-review/main.js",
+        "sha256": "64700139309ee9d4f46a3f93d5b47c8f5d1b25434726d07e2f47923fdeef3510",
+        "excerptStartUTF16": 711354,
+        "excerptEndUTF16": 712252,
+        "guardName": "wO",
+        "predicateName": "yO",
+        "sourceLine": 679
+      },
+      "harness": "Same VM realm for native constructors and exact guard; string/WASM code generation disabled. The direct-loader fixture is compiled/instantiated outside the VM through unchanged native APIs."
+    }
+  ],
+  "limitations": [
+    "Controlled fixture inputs are not observations of your gameplay or account.",
+    "Only selected helpers execute. This is not the complete client or all reporting paths.",
+    "Native envelope captures are before encoding. Optional encoded captures are separately labeled; no server-response equivalence is claimed.",
+    "A clean fixture result does not establish multiplayer safety or absence of enforcement.",
+    "Historical server reports and private ban rules are unavailable here.",
+    "Only eight tiny isolated native helper bodies are instantiated; the full game is never loaded.",
+    "Contexts, session identifiers and one watched-region descriptor are synthetic, not production game state.",
+    "Envelope-builder cases stop before encoding: inputs are captured locally and the replacement returns zero. Optional encoder replay is a separate case.",
+    "Captures are pre-encoding native structures, not wire packets or evidence of server receipt or sanctions.",
+    "These fixtures do not establish extension compatibility, detection thresholds or a complete race-report pipeline.",
+    "The actual bounded encoder runs with seven original leaf helpers linked; individual paths may not invoke every helper. No full game or transport is instantiated.",
+    "Inputs are the two known synthetic native-envelope snapshots from the offline native scenarios.",
+    "These report branches contain inline values, so no original game data, external pointers or passive data segments are supplied.",
+    "Encoded bytes stay in local fixture memory and the generated report. No socket, sender callback or network capability exists.",
+    "Successful encoding and CRC verification do not establish server acceptance, account decisions or compatibility with other message schemas.",
+    "Synthetic Node VM cases are not a browser session or account record.",
+    "No game module, game memory, network connection, or report delivery is supplied.",
+    "Unrelated settings and module predicates remain false in both cases.",
+    "Startup cases use harmless native callable stand-ins. The direct-loader case loads only a pinned empty standalone module outside the VM.",
+    "A reporter input is not proof of a server decision, account ban, or multiplayer safety."
+  ]
+}

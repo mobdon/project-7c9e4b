@@ -1,0 +1,42 @@
+✔ adaptive request is default-off, literal, bounded and road-race only (1.692653ms)
+✔ optional UI starts off despite forged saved adaptive fields and old commands are unchanged (19.20862ms)
+✔ eligible request combines constant ceiling and existing native planner controls without changing saved choices (26.347234ms)
+✔ actual, forced and online Street X retain exact prior effective commands for both assist selections (49.271086ms)
+✔ excluded free roam, Outrun, Drag, Drift, forced variants and unknown modes retain old commands (46.762372ms)
+✔ online gating and supported-build checks cannot be bypassed by new toggle (20.395859ms)
+✔ race transition applies adaptive only outside Street X and restores previous controls without edits (6.469218ms)
+✔ adaptive planner evidence requires current matching pace and both corner and braking observations (10.703043ms)
+✔ manual takeover, stop, pause, race finish and session replacement do not retain active evidence (44.300546ms)
+✔ ceiling input is bounded and rounded, never added to named profiles or restored on load/reload (22.989649ms)
+✔ local adaptive diagnostics accept only bounded fields and fixed state labels (0.806958ms)
+✔ adaptive works with race-only effective request without enabling all-modes AI or changing saved controls (42.338496ms)
+✔ combined Street X modes preserve exact old effective commands for both saved assist selections (54.56616ms)
+✔ race-only and adaptive follow same-object roam/race/Drag/Drift/results transitions independently (14.98528ms)
+✔ combined permission withdrawal and held controls cannot leave adaptive or race-only effective (9.820244ms)
+✔ manual takeover leaves adaptive dormant while Stop and profile Load clear both new session choices (21.039581ms)
+✔ combined acknowledgement requires native pace and planner evidence, then clears immediately on exit (8.485807ms)
+✔ race-only is off by default, keeps existing profiles/schema intact and never enables AI by itself (35.377123ms)
+✔ race-only acquires on active race and releases in roam/results while staying armed between races (25.022513ms)
+✔ race-only eligibility is exact across race type, HUD and phase combinations (21.603237ms)
+✔ race-only preserves Street X and native Drag/Drift requests without substituting road settings (80.501236ms)
+✔ race-only online permission gates every network signal and withdrawal keeps arm but releases request (31.241032ms)
+✔ race-only fails closed for unsupported/unready or missing AI/Drag capability (17.024584ms)
+✔ visibility, focus, dialog and tuner pauses suppress race-only request but do not forget arming (29.519992ms)
+✔ F7 F9 and Stop always disarm race-only while waiting or active (43.181487ms)
+✔ race driving keys disarm in countdown/active race, but free-roam and outrun manual driving preserve arm (86.481389ms)
+✔ held free-roam driving input prevents race acquisition until release without changing manual AI mode (4.919626ms)
+✔ UI range keys do not disarm race-only, but F7 from UI does (4.993164ms)
+✔ selecting either AI mode disables the other and race-only off does not re-enable all-modes AI (7.068971ms)
+✔ race-only HUD and exported pace confirmation use effective request rather than all-modes checkbox (5.501492ms)
+✔ race-only survives game reload within page only as arming, never exports old request on replacement (10.020948ms)
+✔ named profile saves remain old schema and profile load explicitly clears race-only arming (5.411721ms)
+✔ race-only observations reject non-boolean or unknown exported data (0.367641ms)
+✔ race-only active row clears immediately on stop/trap/exit/tuner suspension without losing arm (20.481825ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 527.179306

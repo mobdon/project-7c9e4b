@@ -1,0 +1,11 @@
+✔ v0.23 combined Drag tuner online package includes referenced docs and refuses to overwrite existing archives (172.624469ms)
+✔ combined release retains all existing scripts and consistent version metadata (2.219668ms)
+✔ candidate archive uses canonical metadata and reproduces byte-for-byte (318.392145ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 586.362453

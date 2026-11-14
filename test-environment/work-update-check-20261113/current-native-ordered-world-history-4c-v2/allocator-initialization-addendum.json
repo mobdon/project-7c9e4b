@@ -1,0 +1,207 @@
+{
+  "kind": "SOURCE-ONLY-NORMAL-NATIVE-SESSION-KIND3-ALLOCATOR-INITIALIZATION",
+  "historicalFailure": {
+    "condition": "current-native-legacy-enrollment-4c-v2",
+    "manifestSha256": "eefa7b82d2ec2cd3de7695abad709d9273acf1fd9228a82ef71224958d54f764",
+    "meaning": "Null kind3 owner caused key64decimal/0x40. Earlier error displayed40 in hexadecimal; it was not0x28."
+  },
+  "normalCaller": {
+    "function": 2922,
+    "at": 505,
+    "receiver": 9031496,
+    "callee": 9348,
+    "guestReturn": 5762407
+  },
+  "initializer": {
+    "function": 9348,
+    "guest": 6225456,
+    "ecx": 9031496,
+    "args": [
+      0,
+      0
+    ],
+    "retBytes": 8,
+    "totalEspAdvance": 12,
+    "unusedIncomingWords": true,
+    "chain": "Whole216 allocates215040B through native19280 kind0/17095/5793/5636/5166 and existing exact HeapAlloc boundary.9348 stores the actual backing atsession+96;18971(3,backing,215040,8020112) publishes kind3 owner8553248 and invokes18814.",
+    "nativeOutputs": [
+      "session+96 backing",
+      "8552800 kind3 table pointer",
+      "owner88B metadata/lists/label/size",
+      "owner+64 actual Initialize/Enter/LeaveCriticalSection"
+    ],
+    "nativeOwner": 8553248,
+    "nativeKey": 8553312,
+    "backingBytes": 215040
+  },
+  "provider": "Adds only exact source-backed0x828360 key. Requires native table publication and native session backing; Initialize must come through8124 return7296465 with native constructor self-linked lists. Later operations require native label8020112/initialized flag.0x40 stays disallowed; all real host ownership/depth checks remain.",
+  "reportOrdering": "Same whole23139 availability API moved immediately after admission and before allocator/names; original context64B before/after and void return retained in its own proof even if later setup fails. Later duplicate removed, no body/context/annotation supplied.",
+  "timer": "No21996,21992,2610,8084 or timer/clock/rate/flag write is added. Actual114 may still return0 and enrollment remains naturally unavailable.",
+  "sourceBodies": {
+    "216": {
+      "bytes": 146,
+      "sha256": "f0193f398d60eb3788e08e1cb82f795ae70999a5d998e9fb7d3c296c041e5ace",
+      "rawCandidateExact": true
+    },
+    "2922": {
+      "bytes": 1901,
+      "sha256": "959da188371102ccda8b2f171ba7ce115b914f83fd2ff0fcfb44168f65deda90",
+      "rawCandidateExact": true
+    },
+    "5166": {
+      "bytes": 898,
+      "sha256": "43d533fd4e675e12c6e13b83ff6572e033dd7622143b06f57f8db6036e9a9e33",
+      "rawCandidateExact": true
+    },
+    "5636": {
+      "bytes": 300,
+      "sha256": "28ce49e79bcd1ab0eb3fe4714cd5c2f2aedc4b593352f5c71bc843eb59889a1d",
+      "rawCandidateExact": true
+    },
+    "5793": {
+      "bytes": 142,
+      "sha256": "2c1060b18366ee0ec3d4893dcc1b976161dd4a94d363b5d3e3cb6b68edc507c3",
+      "rawCandidateExact": true
+    },
+    "8124": {
+      "bytes": 178,
+      "sha256": "becac373272dbb2396b5ffcef229d038c3b38bcb9f86c87b34f59b0876571228",
+      "rawCandidateExact": true
+    },
+    "8435": {
+      "bytes": 178,
+      "sha256": "11d40f826eea4ee08577121e3bcaed22b8206ad5a79653147a1176eab1a167ad",
+      "rawCandidateExact": true
+    },
+    "8591": {
+      "bytes": 178,
+      "sha256": "bc20915afbf43cea8bd67f99732d30ea24659e92a360415148a4d8046b8d9583",
+      "rawCandidateExact": true
+    },
+    "9348": {
+      "bytes": 298,
+      "sha256": "d0831cfbab66c2436edb19f36a7f540bd08f9bd0ad689d97161ff60dcc168b59",
+      "rawCandidateExact": true
+    },
+    "16315": {
+      "bytes": 1967,
+      "sha256": "1822726c6abc09f0a3a77e59c59a7739b5093d7ed29a9a8d37519b00d2b62c8c",
+      "rawCandidateExact": true
+    },
+    "17095": {
+      "bytes": 3575,
+      "sha256": "663c00b46e47719ec3a7d598b0c0fcbeebea10b9b31a06aa0ddd0c40fe9ad623",
+      "rawCandidateExact": true
+    },
+    "18814": {
+      "bytes": 444,
+      "sha256": "234752989d78ca0d8708f79e29e95c6af0e42557990385c352f9c704dec69058",
+      "rawCandidateExact": true
+    },
+    "18971": {
+      "bytes": 199,
+      "sha256": "4fba5d657fdea1410f915474866f7cfac64c202e8a17841ae0bb716b29b354c8",
+      "rawCandidateExact": true
+    },
+    "19280": {
+      "bytes": 2373,
+      "sha256": "2287f16d17d38290732c6e3c215b6bda39627b6594fc51951af212ede1649303",
+      "rawCandidateExact": true
+    },
+    "23139": {
+      "bytes": 2633,
+      "sha256": "eb05739abd068da8dc33970100296d7b0701054b64d6440c8993ce6911130a7c",
+      "rawCandidateExact": true
+    }
+  },
+  "evidence": [
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/receiver-failure-review.json",
+      "sha256": "47de0d053818bca24fd24ddcc84ce184156ae90c0ce7079aab93cfc5a5ec5f2a"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/initializer9348-abi-review.json",
+      "sha256": "ef9548ca9cf98b49f2ab2820a07a5aa7a5953834bcca6c3248a6d7a34f6b7daf"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/allocator-api-source-extraction.json",
+      "sha256": "73e134c45145e8fb4b020a0edb396be9dc0ebd9def0e00ac80be2cb8004e0bd2"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/allocator-producer-source-extraction.json",
+      "sha256": "c563edd3fcf546d740675c3e6a017dfc1c3c3fa8a87547acdaec9b270d14fe75"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/allocator-lower-source-extraction.json",
+      "sha256": "6ee9d1d42b6f24bddacabec876d2d2cae17d0c5062836c658a6b27e7d99a2265"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/allocator-normal-parent-source-extraction.json",
+      "sha256": "7d7ecedc1e1926e40cb8d524ccc7173da48bf2d29f06cea47328fa7f055d7837"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/allocator-crt-source-extraction.json",
+      "sha256": "20fc01c4bcd3a902fd91fe6b7b379f3e40d54d75f952a1dab62c46b6b7f58417"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/allocator-table-xrefs.json",
+      "sha256": "ddda3f267e56d723a8cf33afdef189dd851bfe70b783ce870e2ba85b2f2ef370"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/allocator-registration-callers.json",
+      "sha256": "528a06914e895e6a49b551723b91f5a66b16c4568c718c54092f384cafd29291"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/normal-session-timer-callers.json",
+      "sha256": "405e424bc61a29320aaf023f39b899fa6781f2e35e9ef6060730ee954d360911"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/f2922.dcmp",
+      "sha256": "826e4dc6cf4cf5ddcbc95be61767b13ee98a3ac775d8d10c4463026b673a539e"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/f18971.dcmp",
+      "sha256": "c98432086a2446a0abfd55a89a685bca45a816e96b81048cedc3337e8aa53a75"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/f18814.dcmp",
+      "sha256": "76754b08539d67f65e7c476e7ae49812dcb06ad631ade98dab4efc65e76be136"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/f8124.dcmp",
+      "sha256": "a572865133b42a155dc2f0819a677b19802dbdac003b893175113c77008188db"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/f8435.dcmp",
+      "sha256": "07d7ef7da503eb337e03e9336fd6f089d3f0a13e02967cc57cf1201a741655f4"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/f17095.dcmp",
+      "sha256": "0693b6eabf6e43f2582e2c73393b63154bd5392d9e55aa86ab0e5b9115822ce6"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/f16315.dcmp",
+      "sha256": "fdb7388f30136bae0f42a92470bbc9ad7747aa66f374f99232e5597d69efdf7b"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/f5793.dcmp",
+      "sha256": "315238b391ed0be3576e27dbb4e9452e63baf2bef90f91cb54ea5a345a65cbfd"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/f5636.dcmp",
+      "sha256": "a30c6dc08d983e86f274b54d7577f4448b1975e17eaff4e5a9ad477d1d400f49"
+    },
+    {
+      "file": "work-update-check-20261113/native-legacy-allocator-source-4c-v1/f5166.dcmp",
+      "sha256": "90d7891d90512f7cebe984bd80ead1dfffb7fcd0850ab79b2caad3a391bbdbf5"
+    },
+    {
+      "file": "work-update-check-20261113/native-named-observer-report-source-4c-v1/f9348.dcmp",
+      "sha256": "e8c67916f4476c93ef08014b1910d54093bb8ffb951d94529667489ad23c4046"
+    }
+  ],
+  "nativeExecuted": false,
+  "wasmCompiledValidatedOrInstantiated": false,
+  "memoryCreated": false,
+  "frozenFilesEdited": false
+}

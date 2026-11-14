@@ -1,0 +1,272 @@
+(module
+  (type $t0 (func (param i32)))
+  (type $t1 (func (result i32)))
+  (type $t2 (func))
+  (type $t3 (func (param i32 i32) (result i32)))
+  (type $t4 (func (param i32) (result i32)))
+  (type $t5 (func (param i32 i32 i32)))
+  (type $t6 (func (param i32 i32 i32 i32 i32) (result i32)))
+  (type $t7 (func (result f32)))
+  (type $t8 (func (param i32 i32 i32) (result i32)))
+  (type $t9 (func (param i32 i32)))
+  (type $t10 (func (param i32 i32 i32 i32) (result i32)))
+  (type $t11 (func (param f32)))
+  (type $t12 (func (param i32 i32 i32 i32 i32)))
+  (type $t13 (func (param i32 i32 i32 i32)))
+  (type $t14 (func (param i32 i64 i32) (result i64)))
+  (type $t15 (func (result f64)))
+  (type $t16 (func (param i32 i32 i32 i32 i32 i32 i32 i32) (result i32)))
+  (type $t17 (func (param i32 i64 i32) (result i32)))
+  (type $t18 (func (param i32 i64) (result i32)))
+  (type $t19 (func (param i32 i32 i32 i64 i32) (result i32)))
+  (type $t20 (func (param i32 i64 i32 i32) (result i32)))
+  (type $t21 (func (param i32 i32 i32 i32 i32 i64 i64 i32 i32) (result i32)))
+  (type $t22 (func (param i32 i32 i32 i32 i32 i32) (result i32)))
+  (type $t23 (func (param i32 i32 i64) (result i32)))
+  (type $t24 (func (param i32 f64 f64 f64) (result f64)))
+  (type $t25 (func (param f64 f64) (result f64)))
+  (type $t26 (func (param f64 i32) (result f64)))
+  (type $t27 (func (param i32 f64) (result f64)))
+  (type $t28 (func (param i32 f64)))
+  (type $t29 (func (param i64 i32) (result f64)))
+  (type $t30 (func (param f64 f64 i32)))
+  (type $t31 (func (param i32 i32 i32 i32 f64 f64)))
+  (type $t32 (func (param i32 i32) (result f64)))
+  (type $t33 (func (result i64)))
+  (type $t34 (func (param i32) (result f64)))
+  (type $t35 (func (param i32 i32 i32) (result i64)))
+  (type $t36 (func (param i32 i32 f32 i32) (result i32)))
+  (type $t37 (func (param i32 i32 i32 i32 i32 i32 i32) (result i32)))
+  (type $t38 (func (param i32 i32 i32 i32 i32 i32)))
+  (type $t39 (func (param i32 i32 i32 i32 i32 i32 i32 i32 i32)))
+  (type $t40 (func (param i32 i32 i32 i32) (result f32)))
+  (type $t41 (func (param i32 i32 i32 i32 i32 i32 i32 i32)))
+  (type $t42 (func (param i64) (result i32)))
+  (type $t43 (func (param i32 i32 f32 i32)))
+  (type $t44 (func (param i32 i32 f32) (result i32)))
+  (type $t45 (func (param i32 i32 f32)))
+  (type $t46 (func (param i32 i32 i32 i32 i32 i32 i32 i32 i32 i32) (result i32)))
+  (type $t47 (func (param i32 i32 f32 f32)))
+  (type $t48 (func (param i64 i64)))
+  (type $t49 (func (param i32 i32 i32 i32 i32 i32 i32)))
+  (type $t50 (func (param f64 f64) (result i32)))
+  (type $t51 (func (param i32 i32 i32 f32 i32 f64) (result i32)))
+  (type $t52 (func (param i32) (result f32)))
+  (type $t53 (func (param f32 f32 f32 i32)))
+  (type $t54 (func (param f32 f32 f32)))
+  (type $t55 (func (param i32 f64 i32) (result i32)))
+  (type $t56 (func (param f32 f32 i32 i32) (result f32)))
+  (type $t57 (func (param i32 i32 i32 i64) (result i32)))
+  (type $t58 (func (param i32 i32 i64 i64)))
+  (type $t59 (func (param f64 f64)))
+  (type $t60 (func (param i64 i64 i64)))
+  (type $t61 (func (param i32 f32 i32)))
+  (type $t62 (func (param f32 f32)))
+  (type $t63 (func (param i32) (result i64)))
+  (type $t64 (func (param i32 i32 i64)))
+  (type $t65 (func (param i32 f32)))
+  (type $t66 (func (param f64) (result i32)))
+  (type $t67 (func (param i32 i32 i32 i32 i32 f64) (result i32)))
+  (type $t68 (func (param i32 i32 i64 i32 i32)))
+  (type $t69 (func (param i64 i32) (result i32)))
+  (type $t70 (func (param i32 i32 i32 i32 i64) (result i32)))
+  (type $t71 (func (param i32 i64 i32)))
+  (type $t72 (func (param i32 i32 i32 i32 i64 i32 i32)))
+  (type $t73 (func (param i32 f32) (result i32)))
+  (type $t74 (func (param i32 f32) (result f32)))
+  (type $t75 (func (param i32 i32) (result f32)))
+  (type $t76 (func (param i32 i32 i32 f32)))
+  (type $t77 (func (param i32 i32 i32 i32 i32 i64 i32)))
+  (type $t78 (func (param i32 f32 i32 i32 i32 i32) (result i32)))
+  (type $t79 (func (param i32 i32 i32 f32 f32 i32 f32)))
+  (type $t80 (func (param f32 f32 f32 f32 f32 f32 f32 f32) (result i32)))
+  (type $t81 (func (param f64)))
+  (type $t82 (func (param i32 f32 i32 i32 i32)))
+  (type $t83 (func (param f64 f64 f64)))
+  (type $t84 (func (param i64)))
+  (type $t85 (func (param i32 i32 i64 f32) (result f32)))
+  (type $t86 (func (param f32) (result f32)))
+  (type $t87 (func (param f32 f32) (result f32)))
+  (type $t88 (func (param i32 i64 i64 i32) (result i32)))
+  (type $t89 (func (param i32 i64 i64 i64 i64 i32) (result i32)))
+  (type $t90 (func (param i32 i32 i32 i32 i32 i64)))
+  (type $t91 (func (param i32 i32 i32 i64)))
+  (type $t92 (func (param i32 i64)))
+  (type $t93 (func (param i32 f32 f32 i32 i32)))
+  (type $t94 (func (param i32 f32 i32 i32 i32 i32 i32)))
+  (type $t95 (func (param i32 i32 i32 i32 i32 f32 i32)))
+  (type $t96 (func (param i32 i32 i64 i32)))
+  (type $t97 (func (param i32 i64 i32 i32 i32 i32)))
+  (type $t98 (func (param i32 i64 i32 i32 i32 i32 i32)))
+  (type $t99 (func (param i64 i32)))
+  (type $t100 (func (param i32 i32 i32 f32 f32 i32) (result i32)))
+  (type $t101 (func (param i64 i32 i32)))
+  (type $t102 (func (param i64 i32 i32 i32 i32 i32)))
+  (type $t103 (func (param i32 f32 f32) (result f32)))
+  (type $t104 (func (param i32 f32 f32 f32)))
+  (type $t105 (func (param f32 f32 f32) (result i32)))
+  (type $t106 (func (param i32 i32 i32 i32 i32 f32 f32 i32) (result i32)))
+  (type $t107 (func (param i32 i32 f32 f32 f32)))
+  (type $t108 (func (param i32 i64 f64 i64 i32) (result f64)))
+  (type $t109 (func (param i32 i32 i64 i32 i32) (result i64)))
+  (type $t110 (func (param i32 i32 i64 i64) (result i32)))
+  (type $t111 (func (param i32 i32 i32 i32 f32)))
+  (type $t112 (func (param i32 f32 f32 f32 f32 f32)))
+  (type $t113 (func (param i32 f32 i32 i32) (result i32)))
+  (type $t114 (func (param f32 f32 i32 i32 i32) (result i32)))
+  (type $t115 (func (param i32 i64 i64)))
+  (type $t116 (func (param i32 i32 i32 i32 i64)))
+  (type $t117 (func (param i32 i32 i32 i64 i32 i32)))
+  (type $t118 (func (param i32 i32 i64 i32 f32 f32 i32)))
+  (type $t119 (func (param i32 i32 f64 f64)))
+  (type $t120 (func (param i32 i32 f32 f32 i32 i32) (result i32)))
+  (type $t121 (func (param f32 i32 i32) (result i32)))
+  (type $t122 (func (param f64 i32)))
+  (type $t123 (func (param i32 i32 i32 i32 f32 f32)))
+  (type $t124 (func (param i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i64) (result i32)))
+  (type $t125 (func (param i32 f64 f64)))
+  (type $t126 (func (param i32 i32 i32 i32 i32 i32 i32 i32 i32) (result i32)))
+  (type $t127 (func (param i32 i64 f64) (result f64)))
+  (type $t128 (func (param i32 i64 i64 i64 i64 i32)))
+  (type $t129 (func (param i32 i32 i32 i32 i64 i64 i32 i32) (result i32)))
+  (type $t130 (func (param i64 i32) (result i64)))
+  (type $t131 (func (param f64) (result f64)))
+  (type $t132 (func (param f64 i32) (result i32)))
+  (type $t133 (func (param f64 f64 i32) (result f64)))
+  (type $t134 (func (param f64) (result f32)))
+  (type $t135 (func (param f32 i32) (result i32)))
+  (type $t136 (func (param f64 i64 i64) (result f64)))
+  (type $t137 (func (param f32 i32) (result f32)))
+  (type $t138 (func (param f64) (result i64)))
+  (type $t139 (func (param f32) (result i32)))
+  (type $t140 (func (param f32 f32 i32) (result f32)))
+  (type $t141 (func (param f64 i32) (result f32)))
+  (type $t142 (func (param i32 i32 i32 i64) (result i64)))
+  (type $t143 (func (param i32 i32 i32) (result f64)))
+  (type $t144 (func (param i32 i32 i32 i32 i32) (result f64)))
+  (type $t145 (func (param i32 i32) (result i64)))
+  (type $t146 (func (param i32 i64 i64 i64 i64)))
+  (type $t147 (func (param i32 i64 i64 i32)))
+  (import "env" "memory" (memory $env.memory 11264 65536 shared))
+
+  (table $T0 20871 20871 funcref)
+  (global $g0 (mut i32) (i32.const 725389680))
+  (global $g1 (mut i32) (i32.const 0))
+  (global $g2 i32 (i32.const 18408))
+  (global $g3 i32 (i32.const 16))
+  (global $g4 i32 (i32.const 0))
+  (tag $e0 (type $t0) (param i32))
+  (func $f24560 (type $t4) (param $p0 i32) (result i32)
+    (local $l1 i32) (local $l2 i32) (local $l3 i32)
+    local.get $p0
+    local.set $l1
+    block $B0
+      block $B1
+        local.get $p0
+        i32.const 3
+        i32.and
+        i32.eqz
+        br_if $B1
+        block $B2
+          local.get $p0
+          i32.load8_u
+          br_if $B2
+          local.get $p0
+          local.get $p0
+          i32.sub
+          return
+        end
+        local.get $p0
+        i32.const 1
+        i32.add
+        local.tee $l1
+        i32.const 3
+        i32.and
+        i32.eqz
+        br_if $B1
+        local.get $l1
+        i32.load8_u
+        i32.eqz
+        br_if $B0
+        local.get $p0
+        i32.const 2
+        i32.add
+        local.tee $l1
+        i32.const 3
+        i32.and
+        i32.eqz
+        br_if $B1
+        local.get $l1
+        i32.load8_u
+        i32.eqz
+        br_if $B0
+        local.get $p0
+        i32.const 3
+        i32.add
+        local.tee $l1
+        i32.const 3
+        i32.and
+        i32.eqz
+        br_if $B1
+        local.get $l1
+        i32.load8_u
+        i32.eqz
+        br_if $B0
+        local.get $p0
+        i32.const 4
+        i32.add
+        local.tee $l1
+        i32.const 3
+        i32.and
+        br_if $B0
+      end
+      local.get $l1
+      i32.const -4
+      i32.add
+      local.set $l2
+      local.get $l1
+      i32.const -5
+      i32.add
+      local.set $l1
+      loop $L3
+        local.get $l1
+        i32.const 4
+        i32.add
+        local.set $l1
+        i32.const 16843008
+        local.get $l2
+        i32.const 4
+        i32.add
+        local.tee $l2
+        i32.load
+        local.tee $l3
+        i32.sub
+        local.get $l3
+        i32.or
+        i32.const -2139062144
+        i32.and
+        i32.const -2139062144
+        i32.eq
+        br_if $L3
+      end
+      loop $L4
+        local.get $l1
+        i32.const 1
+        i32.add
+        local.set $l1
+        local.get $l2
+        i32.load8_u
+        local.set $l3
+        local.get $l2
+        i32.const 1
+        i32.add
+        local.set $l2
+        local.get $l3
+        br_if $L4
+      end
+    end
+    local.get $l1
+    local.get $p0
+    i32.sub)
+  (export "f24560" (func $f24560))
+)

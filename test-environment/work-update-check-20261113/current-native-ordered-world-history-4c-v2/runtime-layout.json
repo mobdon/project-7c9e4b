@@ -1,0 +1,53 @@
+{
+  "sourcePath": "work-update-check-20261113/4c-private-composed-v2/candidate-composed.wasm",
+  "sourceHash": "6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23",
+  "rawHash": "40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8",
+  "importFunctions": 38,
+  "sourceFunctionCount": 24933,
+  "shadowStackInitial": 734004784,
+  "bitmap": 697848352,
+  "lookup": 680545344,
+  "guestBase": 4198400,
+  "guestCeiling": 671088640,
+  "guestCount": 19458,
+  "passiveSegments": [
+    {
+      "index": 0,
+      "destination": 671088640,
+      "length": 1471308,
+      "sha256": "9edccbd104606332b588ab02334fcb0d728c939e2b739c05ac645bf41bebf766",
+      "proof": "three direct constants",
+      "hydrateInFutureHarness": true
+    },
+    {
+      "index": 1,
+      "destination": 672559952,
+      "length": 1286524,
+      "sha256": "dacbfd99dd64dd882edc77ac0618a063406230db4d2c8fe6734844258e833f01",
+      "proof": "three direct constants",
+      "hydrateInFutureHarness": true
+    },
+    {
+      "index": 2,
+      "destination": 673846480,
+      "length": 18408,
+      "sha256": "9f033837bfb8d0df930e798e00f14483ce431f716168a58df5436a63c9f6354b",
+      "proof": "constant destination duplicated for global1 store",
+      "hydrateInFutureHarness": false
+    }
+  ],
+  "dispatcher": {
+    "index": 21833,
+    "type": 9,
+    "signature": "127,127->",
+    "bodySha256": "85877714b5b734a193e04b89dcbeb5804035507875d0dae52fec5240ac662d10",
+    "aliasIndex": 24933
+  },
+  "callerInputs": {
+    "cpu": 1048576,
+    "stack": 1572864,
+    "tls": 22020096,
+    "disjointCurve": 23068672
+  },
+  "originalInitializer43Available": false
+}

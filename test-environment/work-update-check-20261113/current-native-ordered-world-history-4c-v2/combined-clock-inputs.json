@@ -1,0 +1,992 @@
+{
+  "kind": "PREDECLARED-SHIFTED-MONOTONIC-HOST-REPLAY-INPUTS",
+  "shiftMicroseconds": "200000",
+  "expectedBeforeReplayMicroseconds": "10200000",
+  "requestedFrames": 192,
+  "steps": [
+    {
+      "frameId": 1,
+      "sourceHostMicroseconds": "10016666",
+      "hostMicroseconds": "10216666"
+    },
+    {
+      "frameId": 2,
+      "sourceHostMicroseconds": "10033333",
+      "hostMicroseconds": "10233333"
+    },
+    {
+      "frameId": 3,
+      "sourceHostMicroseconds": "10050000",
+      "hostMicroseconds": "10250000"
+    },
+    {
+      "frameId": 4,
+      "sourceHostMicroseconds": "10066666",
+      "hostMicroseconds": "10266666"
+    },
+    {
+      "frameId": 5,
+      "sourceHostMicroseconds": "10083333",
+      "hostMicroseconds": "10283333"
+    },
+    {
+      "frameId": 6,
+      "sourceHostMicroseconds": "10100000",
+      "hostMicroseconds": "10300000"
+    },
+    {
+      "frameId": 7,
+      "sourceHostMicroseconds": "10116666",
+      "hostMicroseconds": "10316666"
+    },
+    {
+      "frameId": 8,
+      "sourceHostMicroseconds": "10133333",
+      "hostMicroseconds": "10333333"
+    },
+    {
+      "frameId": 9,
+      "sourceHostMicroseconds": "10150000",
+      "hostMicroseconds": "10350000"
+    },
+    {
+      "frameId": 10,
+      "sourceHostMicroseconds": "10166666",
+      "hostMicroseconds": "10366666"
+    },
+    {
+      "frameId": 11,
+      "sourceHostMicroseconds": "10183333",
+      "hostMicroseconds": "10383333"
+    },
+    {
+      "frameId": 12,
+      "sourceHostMicroseconds": "10200000",
+      "hostMicroseconds": "10400000"
+    },
+    {
+      "frameId": 13,
+      "sourceHostMicroseconds": "10216666",
+      "hostMicroseconds": "10416666"
+    },
+    {
+      "frameId": 14,
+      "sourceHostMicroseconds": "10233333",
+      "hostMicroseconds": "10433333"
+    },
+    {
+      "frameId": 15,
+      "sourceHostMicroseconds": "10250000",
+      "hostMicroseconds": "10450000"
+    },
+    {
+      "frameId": 16,
+      "sourceHostMicroseconds": "10266666",
+      "hostMicroseconds": "10466666"
+    },
+    {
+      "frameId": 17,
+      "sourceHostMicroseconds": "10283333",
+      "hostMicroseconds": "10483333"
+    },
+    {
+      "frameId": 18,
+      "sourceHostMicroseconds": "10300000",
+      "hostMicroseconds": "10500000"
+    },
+    {
+      "frameId": 19,
+      "sourceHostMicroseconds": "10316666",
+      "hostMicroseconds": "10516666"
+    },
+    {
+      "frameId": 20,
+      "sourceHostMicroseconds": "10333333",
+      "hostMicroseconds": "10533333"
+    },
+    {
+      "frameId": 21,
+      "sourceHostMicroseconds": "10350000",
+      "hostMicroseconds": "10550000"
+    },
+    {
+      "frameId": 22,
+      "sourceHostMicroseconds": "10366666",
+      "hostMicroseconds": "10566666"
+    },
+    {
+      "frameId": 23,
+      "sourceHostMicroseconds": "10383333",
+      "hostMicroseconds": "10583333"
+    },
+    {
+      "frameId": 24,
+      "sourceHostMicroseconds": "10400000",
+      "hostMicroseconds": "10600000"
+    },
+    {
+      "frameId": 25,
+      "sourceHostMicroseconds": "10416666",
+      "hostMicroseconds": "10616666"
+    },
+    {
+      "frameId": 26,
+      "sourceHostMicroseconds": "10433333",
+      "hostMicroseconds": "10633333"
+    },
+    {
+      "frameId": 27,
+      "sourceHostMicroseconds": "10450000",
+      "hostMicroseconds": "10650000"
+    },
+    {
+      "frameId": 28,
+      "sourceHostMicroseconds": "10466666",
+      "hostMicroseconds": "10666666"
+    },
+    {
+      "frameId": 29,
+      "sourceHostMicroseconds": "10483333",
+      "hostMicroseconds": "10683333"
+    },
+    {
+      "frameId": 30,
+      "sourceHostMicroseconds": "10500000",
+      "hostMicroseconds": "10700000"
+    },
+    {
+      "frameId": 31,
+      "sourceHostMicroseconds": "10516666",
+      "hostMicroseconds": "10716666"
+    },
+    {
+      "frameId": 32,
+      "sourceHostMicroseconds": "10533333",
+      "hostMicroseconds": "10733333"
+    },
+    {
+      "frameId": 33,
+      "sourceHostMicroseconds": "10550000",
+      "hostMicroseconds": "10750000"
+    },
+    {
+      "frameId": 34,
+      "sourceHostMicroseconds": "10566666",
+      "hostMicroseconds": "10766666"
+    },
+    {
+      "frameId": 35,
+      "sourceHostMicroseconds": "10583333",
+      "hostMicroseconds": "10783333"
+    },
+    {
+      "frameId": 36,
+      "sourceHostMicroseconds": "10600000",
+      "hostMicroseconds": "10800000"
+    },
+    {
+      "frameId": 37,
+      "sourceHostMicroseconds": "10616666",
+      "hostMicroseconds": "10816666"
+    },
+    {
+      "frameId": 38,
+      "sourceHostMicroseconds": "10633333",
+      "hostMicroseconds": "10833333"
+    },
+    {
+      "frameId": 39,
+      "sourceHostMicroseconds": "10650000",
+      "hostMicroseconds": "10850000"
+    },
+    {
+      "frameId": 40,
+      "sourceHostMicroseconds": "10666666",
+      "hostMicroseconds": "10866666"
+    },
+    {
+      "frameId": 41,
+      "sourceHostMicroseconds": "10683333",
+      "hostMicroseconds": "10883333"
+    },
+    {
+      "frameId": 42,
+      "sourceHostMicroseconds": "10700000",
+      "hostMicroseconds": "10900000"
+    },
+    {
+      "frameId": 43,
+      "sourceHostMicroseconds": "10716666",
+      "hostMicroseconds": "10916666"
+    },
+    {
+      "frameId": 44,
+      "sourceHostMicroseconds": "10733333",
+      "hostMicroseconds": "10933333"
+    },
+    {
+      "frameId": 45,
+      "sourceHostMicroseconds": "10750000",
+      "hostMicroseconds": "10950000"
+    },
+    {
+      "frameId": 46,
+      "sourceHostMicroseconds": "10766666",
+      "hostMicroseconds": "10966666"
+    },
+    {
+      "frameId": 47,
+      "sourceHostMicroseconds": "10783333",
+      "hostMicroseconds": "10983333"
+    },
+    {
+      "frameId": 48,
+      "sourceHostMicroseconds": "10800000",
+      "hostMicroseconds": "11000000"
+    },
+    {
+      "frameId": 49,
+      "sourceHostMicroseconds": "10816666",
+      "hostMicroseconds": "11016666"
+    },
+    {
+      "frameId": 50,
+      "sourceHostMicroseconds": "10833333",
+      "hostMicroseconds": "11033333"
+    },
+    {
+      "frameId": 51,
+      "sourceHostMicroseconds": "10850000",
+      "hostMicroseconds": "11050000"
+    },
+    {
+      "frameId": 52,
+      "sourceHostMicroseconds": "10866666",
+      "hostMicroseconds": "11066666"
+    },
+    {
+      "frameId": 53,
+      "sourceHostMicroseconds": "10883333",
+      "hostMicroseconds": "11083333"
+    },
+    {
+      "frameId": 54,
+      "sourceHostMicroseconds": "10900000",
+      "hostMicroseconds": "11100000"
+    },
+    {
+      "frameId": 55,
+      "sourceHostMicroseconds": "10916666",
+      "hostMicroseconds": "11116666"
+    },
+    {
+      "frameId": 56,
+      "sourceHostMicroseconds": "10933333",
+      "hostMicroseconds": "11133333"
+    },
+    {
+      "frameId": 57,
+      "sourceHostMicroseconds": "10950000",
+      "hostMicroseconds": "11150000"
+    },
+    {
+      "frameId": 58,
+      "sourceHostMicroseconds": "10966666",
+      "hostMicroseconds": "11166666"
+    },
+    {
+      "frameId": 59,
+      "sourceHostMicroseconds": "10983333",
+      "hostMicroseconds": "11183333"
+    },
+    {
+      "frameId": 60,
+      "sourceHostMicroseconds": "11000000",
+      "hostMicroseconds": "11200000"
+    },
+    {
+      "frameId": 61,
+      "sourceHostMicroseconds": "11016666",
+      "hostMicroseconds": "11216666"
+    },
+    {
+      "frameId": 62,
+      "sourceHostMicroseconds": "11033333",
+      "hostMicroseconds": "11233333"
+    },
+    {
+      "frameId": 63,
+      "sourceHostMicroseconds": "11050000",
+      "hostMicroseconds": "11250000"
+    },
+    {
+      "frameId": 64,
+      "sourceHostMicroseconds": "11066666",
+      "hostMicroseconds": "11266666"
+    },
+    {
+      "frameId": 65,
+      "sourceHostMicroseconds": "11083333",
+      "hostMicroseconds": "11283333"
+    },
+    {
+      "frameId": 66,
+      "sourceHostMicroseconds": "11100000",
+      "hostMicroseconds": "11300000"
+    },
+    {
+      "frameId": 67,
+      "sourceHostMicroseconds": "11116666",
+      "hostMicroseconds": "11316666"
+    },
+    {
+      "frameId": 68,
+      "sourceHostMicroseconds": "11133333",
+      "hostMicroseconds": "11333333"
+    },
+    {
+      "frameId": 69,
+      "sourceHostMicroseconds": "11150000",
+      "hostMicroseconds": "11350000"
+    },
+    {
+      "frameId": 70,
+      "sourceHostMicroseconds": "11166666",
+      "hostMicroseconds": "11366666"
+    },
+    {
+      "frameId": 71,
+      "sourceHostMicroseconds": "11183333",
+      "hostMicroseconds": "11383333"
+    },
+    {
+      "frameId": 72,
+      "sourceHostMicroseconds": "11200000",
+      "hostMicroseconds": "11400000"
+    },
+    {
+      "frameId": 73,
+      "sourceHostMicroseconds": "11216666",
+      "hostMicroseconds": "11416666"
+    },
+    {
+      "frameId": 74,
+      "sourceHostMicroseconds": "11233333",
+      "hostMicroseconds": "11433333"
+    },
+    {
+      "frameId": 75,
+      "sourceHostMicroseconds": "11250000",
+      "hostMicroseconds": "11450000"
+    },
+    {
+      "frameId": 76,
+      "sourceHostMicroseconds": "11266666",
+      "hostMicroseconds": "11466666"
+    },
+    {
+      "frameId": 77,
+      "sourceHostMicroseconds": "11283333",
+      "hostMicroseconds": "11483333"
+    },
+    {
+      "frameId": 78,
+      "sourceHostMicroseconds": "11300000",
+      "hostMicroseconds": "11500000"
+    },
+    {
+      "frameId": 79,
+      "sourceHostMicroseconds": "11316666",
+      "hostMicroseconds": "11516666"
+    },
+    {
+      "frameId": 80,
+      "sourceHostMicroseconds": "11333333",
+      "hostMicroseconds": "11533333"
+    },
+    {
+      "frameId": 81,
+      "sourceHostMicroseconds": "11350000",
+      "hostMicroseconds": "11550000"
+    },
+    {
+      "frameId": 82,
+      "sourceHostMicroseconds": "11366666",
+      "hostMicroseconds": "11566666"
+    },
+    {
+      "frameId": 83,
+      "sourceHostMicroseconds": "11383333",
+      "hostMicroseconds": "11583333"
+    },
+    {
+      "frameId": 84,
+      "sourceHostMicroseconds": "11400000",
+      "hostMicroseconds": "11600000"
+    },
+    {
+      "frameId": 85,
+      "sourceHostMicroseconds": "11416666",
+      "hostMicroseconds": "11616666"
+    },
+    {
+      "frameId": 86,
+      "sourceHostMicroseconds": "11433333",
+      "hostMicroseconds": "11633333"
+    },
+    {
+      "frameId": 87,
+      "sourceHostMicroseconds": "11450000",
+      "hostMicroseconds": "11650000"
+    },
+    {
+      "frameId": 88,
+      "sourceHostMicroseconds": "11466666",
+      "hostMicroseconds": "11666666"
+    },
+    {
+      "frameId": 89,
+      "sourceHostMicroseconds": "11483333",
+      "hostMicroseconds": "11683333"
+    },
+    {
+      "frameId": 90,
+      "sourceHostMicroseconds": "11500000",
+      "hostMicroseconds": "11700000"
+    },
+    {
+      "frameId": 91,
+      "sourceHostMicroseconds": "11516666",
+      "hostMicroseconds": "11716666"
+    },
+    {
+      "frameId": 92,
+      "sourceHostMicroseconds": "11533333",
+      "hostMicroseconds": "11733333"
+    },
+    {
+      "frameId": 93,
+      "sourceHostMicroseconds": "11550000",
+      "hostMicroseconds": "11750000"
+    },
+    {
+      "frameId": 94,
+      "sourceHostMicroseconds": "11566666",
+      "hostMicroseconds": "11766666"
+    },
+    {
+      "frameId": 95,
+      "sourceHostMicroseconds": "11583333",
+      "hostMicroseconds": "11783333"
+    },
+    {
+      "frameId": 96,
+      "sourceHostMicroseconds": "11600000",
+      "hostMicroseconds": "11800000"
+    },
+    {
+      "frameId": 97,
+      "sourceHostMicroseconds": "11616666",
+      "hostMicroseconds": "11816666"
+    },
+    {
+      "frameId": 98,
+      "sourceHostMicroseconds": "11633333",
+      "hostMicroseconds": "11833333"
+    },
+    {
+      "frameId": 99,
+      "sourceHostMicroseconds": "11650000",
+      "hostMicroseconds": "11850000"
+    },
+    {
+      "frameId": 100,
+      "sourceHostMicroseconds": "11666666",
+      "hostMicroseconds": "11866666"
+    },
+    {
+      "frameId": 101,
+      "sourceHostMicroseconds": "11683333",
+      "hostMicroseconds": "11883333"
+    },
+    {
+      "frameId": 102,
+      "sourceHostMicroseconds": "11700000",
+      "hostMicroseconds": "11900000"
+    },
+    {
+      "frameId": 103,
+      "sourceHostMicroseconds": "11716666",
+      "hostMicroseconds": "11916666"
+    },
+    {
+      "frameId": 104,
+      "sourceHostMicroseconds": "11733333",
+      "hostMicroseconds": "11933333"
+    },
+    {
+      "frameId": 105,
+      "sourceHostMicroseconds": "11750000",
+      "hostMicroseconds": "11950000"
+    },
+    {
+      "frameId": 106,
+      "sourceHostMicroseconds": "11766666",
+      "hostMicroseconds": "11966666"
+    },
+    {
+      "frameId": 107,
+      "sourceHostMicroseconds": "11783333",
+      "hostMicroseconds": "11983333"
+    },
+    {
+      "frameId": 108,
+      "sourceHostMicroseconds": "11800000",
+      "hostMicroseconds": "12000000"
+    },
+    {
+      "frameId": 109,
+      "sourceHostMicroseconds": "11816666",
+      "hostMicroseconds": "12016666"
+    },
+    {
+      "frameId": 110,
+      "sourceHostMicroseconds": "11833333",
+      "hostMicroseconds": "12033333"
+    },
+    {
+      "frameId": 111,
+      "sourceHostMicroseconds": "11850000",
+      "hostMicroseconds": "12050000"
+    },
+    {
+      "frameId": 112,
+      "sourceHostMicroseconds": "11866666",
+      "hostMicroseconds": "12066666"
+    },
+    {
+      "frameId": 113,
+      "sourceHostMicroseconds": "11883333",
+      "hostMicroseconds": "12083333"
+    },
+    {
+      "frameId": 114,
+      "sourceHostMicroseconds": "11900000",
+      "hostMicroseconds": "12100000"
+    },
+    {
+      "frameId": 115,
+      "sourceHostMicroseconds": "11916666",
+      "hostMicroseconds": "12116666"
+    },
+    {
+      "frameId": 116,
+      "sourceHostMicroseconds": "11933333",
+      "hostMicroseconds": "12133333"
+    },
+    {
+      "frameId": 117,
+      "sourceHostMicroseconds": "11950000",
+      "hostMicroseconds": "12150000"
+    },
+    {
+      "frameId": 118,
+      "sourceHostMicroseconds": "11966666",
+      "hostMicroseconds": "12166666"
+    },
+    {
+      "frameId": 119,
+      "sourceHostMicroseconds": "11983333",
+      "hostMicroseconds": "12183333"
+    },
+    {
+      "frameId": 120,
+      "sourceHostMicroseconds": "12000000",
+      "hostMicroseconds": "12200000"
+    },
+    {
+      "frameId": 121,
+      "sourceHostMicroseconds": "12016666",
+      "hostMicroseconds": "12216666"
+    },
+    {
+      "frameId": 122,
+      "sourceHostMicroseconds": "12033333",
+      "hostMicroseconds": "12233333"
+    },
+    {
+      "frameId": 123,
+      "sourceHostMicroseconds": "12050000",
+      "hostMicroseconds": "12250000"
+    },
+    {
+      "frameId": 124,
+      "sourceHostMicroseconds": "12066666",
+      "hostMicroseconds": "12266666"
+    },
+    {
+      "frameId": 125,
+      "sourceHostMicroseconds": "12083333",
+      "hostMicroseconds": "12283333"
+    },
+    {
+      "frameId": 126,
+      "sourceHostMicroseconds": "12100000",
+      "hostMicroseconds": "12300000"
+    },
+    {
+      "frameId": 127,
+      "sourceHostMicroseconds": "12116666",
+      "hostMicroseconds": "12316666"
+    },
+    {
+      "frameId": 128,
+      "sourceHostMicroseconds": "12133333",
+      "hostMicroseconds": "12333333"
+    },
+    {
+      "frameId": 129,
+      "sourceHostMicroseconds": "12150000",
+      "hostMicroseconds": "12350000"
+    },
+    {
+      "frameId": 130,
+      "sourceHostMicroseconds": "12166666",
+      "hostMicroseconds": "12366666"
+    },
+    {
+      "frameId": 131,
+      "sourceHostMicroseconds": "12183333",
+      "hostMicroseconds": "12383333"
+    },
+    {
+      "frameId": 132,
+      "sourceHostMicroseconds": "12200000",
+      "hostMicroseconds": "12400000"
+    },
+    {
+      "frameId": 133,
+      "sourceHostMicroseconds": "12216666",
+      "hostMicroseconds": "12416666"
+    },
+    {
+      "frameId": 134,
+      "sourceHostMicroseconds": "12233333",
+      "hostMicroseconds": "12433333"
+    },
+    {
+      "frameId": 135,
+      "sourceHostMicroseconds": "12250000",
+      "hostMicroseconds": "12450000"
+    },
+    {
+      "frameId": 136,
+      "sourceHostMicroseconds": "12266666",
+      "hostMicroseconds": "12466666"
+    },
+    {
+      "frameId": 137,
+      "sourceHostMicroseconds": "12283333",
+      "hostMicroseconds": "12483333"
+    },
+    {
+      "frameId": 138,
+      "sourceHostMicroseconds": "12300000",
+      "hostMicroseconds": "12500000"
+    },
+    {
+      "frameId": 139,
+      "sourceHostMicroseconds": "12316666",
+      "hostMicroseconds": "12516666"
+    },
+    {
+      "frameId": 140,
+      "sourceHostMicroseconds": "12333333",
+      "hostMicroseconds": "12533333"
+    },
+    {
+      "frameId": 141,
+      "sourceHostMicroseconds": "12350000",
+      "hostMicroseconds": "12550000"
+    },
+    {
+      "frameId": 142,
+      "sourceHostMicroseconds": "12366666",
+      "hostMicroseconds": "12566666"
+    },
+    {
+      "frameId": 143,
+      "sourceHostMicroseconds": "12383333",
+      "hostMicroseconds": "12583333"
+    },
+    {
+      "frameId": 144,
+      "sourceHostMicroseconds": "12400000",
+      "hostMicroseconds": "12600000"
+    },
+    {
+      "frameId": 145,
+      "sourceHostMicroseconds": "12416666",
+      "hostMicroseconds": "12616666"
+    },
+    {
+      "frameId": 146,
+      "sourceHostMicroseconds": "12433333",
+      "hostMicroseconds": "12633333"
+    },
+    {
+      "frameId": 147,
+      "sourceHostMicroseconds": "12450000",
+      "hostMicroseconds": "12650000"
+    },
+    {
+      "frameId": 148,
+      "sourceHostMicroseconds": "12466666",
+      "hostMicroseconds": "12666666"
+    },
+    {
+      "frameId": 149,
+      "sourceHostMicroseconds": "12483333",
+      "hostMicroseconds": "12683333"
+    },
+    {
+      "frameId": 150,
+      "sourceHostMicroseconds": "12500000",
+      "hostMicroseconds": "12700000"
+    },
+    {
+      "frameId": 151,
+      "sourceHostMicroseconds": "12516666",
+      "hostMicroseconds": "12716666"
+    },
+    {
+      "frameId": 152,
+      "sourceHostMicroseconds": "12533333",
+      "hostMicroseconds": "12733333"
+    },
+    {
+      "frameId": 153,
+      "sourceHostMicroseconds": "12550000",
+      "hostMicroseconds": "12750000"
+    },
+    {
+      "frameId": 154,
+      "sourceHostMicroseconds": "12566666",
+      "hostMicroseconds": "12766666"
+    },
+    {
+      "frameId": 155,
+      "sourceHostMicroseconds": "12583333",
+      "hostMicroseconds": "12783333"
+    },
+    {
+      "frameId": 156,
+      "sourceHostMicroseconds": "12600000",
+      "hostMicroseconds": "12800000"
+    },
+    {
+      "frameId": 157,
+      "sourceHostMicroseconds": "12616666",
+      "hostMicroseconds": "12816666"
+    },
+    {
+      "frameId": 158,
+      "sourceHostMicroseconds": "12633333",
+      "hostMicroseconds": "12833333"
+    },
+    {
+      "frameId": 159,
+      "sourceHostMicroseconds": "12650000",
+      "hostMicroseconds": "12850000"
+    },
+    {
+      "frameId": 160,
+      "sourceHostMicroseconds": "12666666",
+      "hostMicroseconds": "12866666"
+    },
+    {
+      "frameId": 161,
+      "sourceHostMicroseconds": "12683333",
+      "hostMicroseconds": "12883333"
+    },
+    {
+      "frameId": 162,
+      "sourceHostMicroseconds": "12700000",
+      "hostMicroseconds": "12900000"
+    },
+    {
+      "frameId": 163,
+      "sourceHostMicroseconds": "12716666",
+      "hostMicroseconds": "12916666"
+    },
+    {
+      "frameId": 164,
+      "sourceHostMicroseconds": "12733333",
+      "hostMicroseconds": "12933333"
+    },
+    {
+      "frameId": 165,
+      "sourceHostMicroseconds": "12750000",
+      "hostMicroseconds": "12950000"
+    },
+    {
+      "frameId": 166,
+      "sourceHostMicroseconds": "12766666",
+      "hostMicroseconds": "12966666"
+    },
+    {
+      "frameId": 167,
+      "sourceHostMicroseconds": "12783333",
+      "hostMicroseconds": "12983333"
+    },
+    {
+      "frameId": 168,
+      "sourceHostMicroseconds": "12800000",
+      "hostMicroseconds": "13000000"
+    },
+    {
+      "frameId": 169,
+      "sourceHostMicroseconds": "12816666",
+      "hostMicroseconds": "13016666"
+    },
+    {
+      "frameId": 170,
+      "sourceHostMicroseconds": "12833333",
+      "hostMicroseconds": "13033333"
+    },
+    {
+      "frameId": 171,
+      "sourceHostMicroseconds": "12850000",
+      "hostMicroseconds": "13050000"
+    },
+    {
+      "frameId": 172,
+      "sourceHostMicroseconds": "12866666",
+      "hostMicroseconds": "13066666"
+    },
+    {
+      "frameId": 173,
+      "sourceHostMicroseconds": "12883333",
+      "hostMicroseconds": "13083333"
+    },
+    {
+      "frameId": 174,
+      "sourceHostMicroseconds": "12900000",
+      "hostMicroseconds": "13100000"
+    },
+    {
+      "frameId": 175,
+      "sourceHostMicroseconds": "12916666",
+      "hostMicroseconds": "13116666"
+    },
+    {
+      "frameId": 176,
+      "sourceHostMicroseconds": "12933333",
+      "hostMicroseconds": "13133333"
+    },
+    {
+      "frameId": 177,
+      "sourceHostMicroseconds": "12950000",
+      "hostMicroseconds": "13150000"
+    },
+    {
+      "frameId": 178,
+      "sourceHostMicroseconds": "12966666",
+      "hostMicroseconds": "13166666"
+    },
+    {
+      "frameId": 179,
+      "sourceHostMicroseconds": "12983333",
+      "hostMicroseconds": "13183333"
+    },
+    {
+      "frameId": 180,
+      "sourceHostMicroseconds": "13000000",
+      "hostMicroseconds": "13200000"
+    },
+    {
+      "frameId": 181,
+      "sourceHostMicroseconds": "13016666",
+      "hostMicroseconds": "13216666"
+    },
+    {
+      "frameId": 182,
+      "sourceHostMicroseconds": "13033333",
+      "hostMicroseconds": "13233333"
+    },
+    {
+      "frameId": 183,
+      "sourceHostMicroseconds": "13050000",
+      "hostMicroseconds": "13250000"
+    },
+    {
+      "frameId": 184,
+      "sourceHostMicroseconds": "13066666",
+      "hostMicroseconds": "13266666"
+    },
+    {
+      "frameId": 185,
+      "sourceHostMicroseconds": "13083333",
+      "hostMicroseconds": "13283333"
+    },
+    {
+      "frameId": 186,
+      "sourceHostMicroseconds": "13100000",
+      "hostMicroseconds": "13300000"
+    },
+    {
+      "frameId": 187,
+      "sourceHostMicroseconds": "13116666",
+      "hostMicroseconds": "13316666"
+    },
+    {
+      "frameId": 188,
+      "sourceHostMicroseconds": "13133333",
+      "hostMicroseconds": "13333333"
+    },
+    {
+      "frameId": 189,
+      "sourceHostMicroseconds": "13150000",
+      "hostMicroseconds": "13350000"
+    },
+    {
+      "frameId": 190,
+      "sourceHostMicroseconds": "13166666",
+      "hostMicroseconds": "13366666"
+    },
+    {
+      "frameId": 191,
+      "sourceHostMicroseconds": "13183333",
+      "hostMicroseconds": "13383333"
+    },
+    {
+      "frameId": 192,
+      "sourceHostMicroseconds": "13200000",
+      "hostMicroseconds": "13400000"
+    }
+  ],
+  "provenance": {
+    "frozenMovementJournal": {
+      "file": "work-update-check-20261113/current-native-remote-world-replay-4c-v3/remote-world-replay-observations.jsonl",
+      "sha256": "af8144a271120723f0517ddfae72e38200f821ee19e065c9e3096dc472e5dc12"
+    },
+    "observedWarmupHostEnd": {
+      "file": "work-update-check-20261113/current-native-legacy-enrollment-4c-v4/native-realtime-timing-receipt.json",
+      "sha256": "dcd00351962ed8128590beb71deb4be49207e0c514ab13f9f62daca8fc7b8b64",
+      "hostMicroseconds": "10200000"
+    },
+    "legacyReceipt": {
+      "file": "work-update-check-20261113/current-native-legacy-enrollment-4c-v4/native-legacy-enrollment-receipt.json",
+      "sha256": "15644bcae0eadb01a98860e80e716fa0eb97c407e5fea795cac6140658f7fa39"
+    },
+    "movementFreeze": {
+      "file": "work-update-check-20261113/native-remote-world-replay-output-4c-v3/frozen-output-manifest.json",
+      "sha256": "08ebb1987dc311967c576b37507033cf1cf2a69b5e9a5a53e23e629ceebdb647"
+    },
+    "legacyFreeze": {
+      "file": "work-update-check-20261113/native-legacy-enrollment-output-4c-v4/frozen-output-manifest.json",
+      "sha256": "2b2c59b57b5ce72c8153b6eee52a921a78419668490d3bc5a8927183cdd66b0e"
+    }
+  },
+  "semantics": "Reuse exact frozen sender packet bodies/timestamps. Only declared host delivery/work schedule shifts by200000us after fixed warmup. Require actual fresh warmup host end10200000us and strict increasing delivery times; never rewind, max, clamp or adapt timestamps to an observer result. Preserve native age/interpolation/publication consequences."
+}

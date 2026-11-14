@@ -1,0 +1,44 @@
+{
+  "version": "0.38.11",
+  "result": "passed",
+  "findings": [],
+  "checkedAt": "2026-11-11T05:03:54.308492+00:00",
+  "reviewer": "independent locate_extension agent",
+  "deliveryScriptSha256": "d553df7083bae3cb4bafa540a57107643d39208adce0fdd957722f1c8dea03bd",
+  "supportManifestSha256": "c913b3b4f3f3948ce9da667518fbde363e20ee97e5ca5cb990c627c8bf98ebd7",
+  "canonicalReceiptSha256": "6b692af2d93d60f34fc82c603206900d7360014910e6a418638cbef6933a6c0e",
+  "sourceLockSha256": "12434dfbc61d4a07d0950abc4310e466ac84a20a7e07844dc090e136c7f87cc5",
+  "nativeModuleAuditSha256": "86b25d06134eee73c62f725658c8776de120f5038e5c57e9c7eeec233c556696",
+  "reviewedChecks": [
+    "Complete delivery script reviewed before any main execution; final exact script and support manifest are pinned.",
+    "Independent read-only preflight imported verify_release without calling main; canonical final 2823/2823, no failed/cancelled/skipped/todo tests, 151 selected files and unchanged runtime/test/runner inputs.",
+    "Twelve-build native module audit, exact source lock, 63 native behavior cases and native composition/formula-preservation receipts matched final pins.",
+    "Current production source, Desktop inventory, 1064-file production support baseline and previous archive matched immutable .10 baseline; no destination archive or backup already exists.",
+    "Independent recursive support inventory exactly matched 103 support-plan entries plus delivery script and plan before this receipt; the final peer receipt is the sole additional circular exclusion.",
+    "Three baseline .10 delivery receipts absent from candidate are preserved by support merge. Existing dated artifacts remain unchanged except the explicitly pinned runtime-cpu-v03810.test.cjs fixture, whose prior bytes are backed up.",
+    "Canonical-generated historical corner receipt was retained under a new .11 name; original native/corner-target-tests-v0388-regression.json matches baseline.",
+    "Collected payload contains 57 extension source files and 59 packaged files, exact 58-entry byte/hash checksums, stable Desktop names, and no game binaries.",
+    "Writes are gated by exact old destination bytes; verified full source/Desktop backups and changed support backups precede source/Desktop/support mutation; no delete operation is present.",
+    "Pre-write snapshots, frozen input hashes, final source/Desktop/archive equality, support merge inventory and unchanged prior archive are enforced."
+  ],
+  "counts": {
+    "canonicalPassed": 2823,
+    "canonicalSelectedFiles": 151,
+    "nativeBehaviorPassed": 63,
+    "nativeBuildsAudited": 12,
+    "sourceFiles": 57,
+    "packagedFiles": 59,
+    "packageChecksums": 58,
+    "supportPlanFiles": 103,
+    "supportChangesIncludingPeer": 106
+  },
+  "limits": [
+    "Read-only peer review and offline fixtures; delivery script main was not executed by this reviewer.",
+    "No game startup, browser mutation, live reload, live race, tuner or online-effect verification is claimed."
+  ],
+  "deliveryExecuted": false,
+  "archiveCreated": false,
+  "productionOrDesktopModified": false,
+  "fullGameInstantiated": false,
+  "liveGameTested": false
+}

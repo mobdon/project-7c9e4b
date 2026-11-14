@@ -1,0 +1,162 @@
+{
+  "kind": "STATIC-CURRENT4C-SELECTED-EXPORTER-BACKING-CONTRACT",
+  "rawSha256": "40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8",
+  "gameCodeExecuted": false,
+  "gameCompiled": false,
+  "gameInstantiated": false,
+  "memoryCreated": false,
+  "productionOrFrozenConditionsModified": false,
+  "selectedCarWriteAggregate": {
+    "exporter": 21272,
+    "signature": "(i32 outputPointer)->void",
+    "backingAddress": 674009140,
+    "bytes": 16,
+    "semantics": "One native v128 load from backing and store to calleroutput; exporter does not alter its native backing.",
+    "consumer": 22409,
+    "consumerFields": [
+      {
+        "offset": 4,
+        "type": "i32",
+        "meaning": "consumer applies >=10 aggregate gate then integer power-of-two bucket coding"
+      },
+      {
+        "offset": 12,
+        "type": "u8",
+        "meaning": "consumer includes this native byte in code formatting"
+      }
+    ],
+    "otherFields": "Offsets0 and8 retained as rawbytes; full producer semantics not named by this narrowcontract.",
+    "safeObservation": "Read actual16backing bytes before/after the desired native stages; do not author/reset/call producer or fabricate aggregate outcomes.",
+    "limits": "This is one selected car-write aggregate consumed by Online rank annotation, not exhaustive client-monitor/report coverage."
+  },
+  "careerCreditCorrection": {
+    "classificationExporter": {
+      "function": 22415,
+      "signature": "()->i32",
+      "backingAddress": 698782068,
+      "bytes": 4
+    },
+    "statusExporter": {
+      "function": 22416,
+      "signature": "()->i32",
+      "backingAddress": 698782072,
+      "bytes": 4
+    },
+    "evidence": "22478 initializes classification0 and sets1/2 along credit eligibility branches;22449 runs native22372 credit attempt then stores status1(success) or-1(failure).23139 includesclassification only when status>0.",
+    "classificationMeaning": "Career credit result classification. Older supporting mprace.h defines MPC_NONE0/MPC_WON1/MPC_FRIEND2; current raw assignment/logging paths support that family. These words are not client-monitor flags.",
+    "doNotMislabelAsClientReports": true
+  },
+  "limits": [
+    "Source-only identification; no exporter was executed by this investigation.",
+    "Capturing these backing bytes cannot establish report generation/transport or online clearance.",
+    "Address provenance is pinned current raw4c, which takes priority over older backup C."
+  ],
+  "bodies": [
+    {
+      "index": 21272,
+      "rawBodySha256": "bcc33b5b06dbb7294d962b4e030c825d7dee61366831b0c049ca5ecb9ce67acb",
+      "bodyBytes": 18
+    },
+    {
+      "index": 22415,
+      "rawBodySha256": "eae7d2c20b7f457ab0e79333d45977b632089f7327d435ea77db1428f692756d",
+      "bodyBytes": 11
+    },
+    {
+      "index": 22416,
+      "rawBodySha256": "3748c9022f707d8ac5ee277b239769a2460244aaeea3559ffe2d5c7a5aa2a65c",
+      "bodyBytes": 11
+    },
+    {
+      "index": 22449,
+      "rawBodySha256": "350a20a1feec0984c59d5be592c6b2d29bc26bc3b6580af5dd4a34743ec1c03d",
+      "bodyBytes": 786
+    },
+    {
+      "index": 22478,
+      "rawBodySha256": "12020ffb05c5dda80ee5f597d1131bea88d0714bf676f05b520e54ee29d32821",
+      "bodyBytes": 1413
+    },
+    {
+      "index": 23139,
+      "rawBodySha256": "eb05739abd068da8dc33970100296d7b0701054b64d6440c8993ce6911130a7c",
+      "bodyBytes": 2633
+    }
+  ],
+  "pins": [
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v2/online-builder-source-extraction.json",
+      "sha256": "057ee727a189c5eafd107b6b797fa744217815aa325417fec153d35197edcff0",
+      "bytes": 2305
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v2/f22415.dcmp",
+      "sha256": "effc945f5849656c62a86e7bd91dcc4c4276ae0fd42bf717fa66c20fea441931",
+      "bytes": 3398
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v2/f22416.dcmp",
+      "sha256": "201a48d08f43e9e8b9feb9a7fcd4e028bb5319a5a3d7257caec68140bc860252",
+      "bytes": 3398
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v2/f23139.dcmp",
+      "sha256": "f1fbaf4eb569fb2ddc8f66f89bd4d3930275156934ef0fc1135c04799e6d3fbc",
+      "bytes": 12019
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v2/followup-references.json",
+      "sha256": "20af33fdb30956000f6f4696d5021dafbb83e1924aedb916fe0ad05e2dfc2775",
+      "bytes": 29967
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v2/scan-followup.cjs",
+      "sha256": "3f6f3f38d5998cc11eb97b5ffee4d0b2b1fb7d40a6afff386a2a2932c93ccb3c",
+      "bytes": 1539
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/online-builder-source-extraction.json",
+      "sha256": "40786bc577d36f79f1008e7d33019848a83bed02624aa9232f9e53cdf61d36f4",
+      "bytes": 5606
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/f22449.dcmp",
+      "sha256": "79534e4f3c39ee07287b249bf20d6e3ea2ac4be097e9d705105e9ad3c645ff68",
+      "bytes": 5792
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v3/f22478.dcmp",
+      "sha256": "c3f71ea1258020eb01fb4cf0bef0682509028d19c5bcb96f9d27e5f57bf455f9",
+      "bytes": 7737
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v4/online-builder-source-extraction.json",
+      "sha256": "1b66906777cccb8b80a20eade86d4bac3ec423b556178461c7c6daad6b32f0c8",
+      "bytes": 1107
+    },
+    {
+      "path": "work-update-check-20261113/native-online-rank-builder-source-4c-v4/f21272.dcmp",
+      "sha256": "707e226669cd196f63de0a85760d410b010d92b1f6550e99032e60dc260130a0",
+      "bytes": 3409
+    },
+    {
+      "path": "work-update-check-20261113/native-named-observer-report-source-4c-v1/f22409.dcmp",
+      "sha256": "3830441f29cc67fafb0a6584cb9e11d230fc5a3eba2d700a15525efed88f101f",
+      "bytes": 7921
+    },
+    {
+      "path": "website-backup/source/runtime/mprace.h",
+      "sha256": "eea29cb2206cacfb596668cc3f3c9fb787583eafb99b968e7ac3d6a82d612a02",
+      "bytes": 14209
+    },
+    {
+      "path": "website-backup/source/runtime/mprace.c",
+      "sha256": "9ee8ebff2c8ef2684230df367a1bf8da18ae1af1c8ab6b83123d088c532e04c8",
+      "bytes": 135321
+    },
+    {
+      "path": "work-update-check-20261113/native-selected-exporter-source-4c-v1/publish.cjs",
+      "sha256": "f43f794321e6472eff221bc229160c456f159eca71bf90f2c0895a93ea419621"
+    }
+  ]
+}

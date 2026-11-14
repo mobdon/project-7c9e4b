@@ -50,3 +50,9 @@ Saves and ISOs are excluded. Included game-derived binaries are identified by th
 Offline baseline incomplete; power/limiter/grip freezes unresolved; synthetic NOS award behavior live-unverified. The latest history/enrollment unit passed with **zero movement frames**; an earlier 192-frame completion was later disqualified as a proper native-startup baseline. The next CPP startup correction is reviewed source only, not prepared or executed.
 
 No new package installation, browser reload, live race, complete trajectory clearance, or online acceptance was established for v0.42.8. Read the [test-environment limits](test-environment/README.md) and [current handoff](exports/01-CURRENT-HANDOFF.txt) before continuing. Testers only.
+
+## Review and issue policy
+
+The static-review handoff is [`02-HANDOFF-REVIEW-BUNDLE.md`](02-HANDOFF-REVIEW-BUNDLE.md); the source/log bundle is [`review/FOR-REVIEW-0.42.8.md`](review/FOR-REVIEW-0.42.8.md). Existing output is evidence, not a request to rerun frozen conditions. New test execution waits for the reviewer's concrete run-book.
+
+Issues are for testers. Include the exact build, active feature, timestamps and sanitized observed output. Remove credentials, real session IDs, saves and IP addresses. Describe an unobserved ban as "no ban observed yet." Please do not star this repository. Its neutral name does not make its public contents private.

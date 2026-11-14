@@ -1,0 +1,395 @@
+--- a/extension/page.js
++++ b/extension/page.js
+@@ -3,7 +3,7 @@
+   if (location.origin !== 'https://nfsu2.xyz' || window.top !== window || window.__nfsu2DrivingTools) return;
+   Object.defineProperty(window, '__nfsu2DrivingTools', { value: true });
+   let diagnostics = null;
+-  try { let storage = null; try { storage = sessionStorage; } catch {} diagnostics = globalThis.__NFSU2_DIAGNOSTICS__?.create({storage,version:'0.29.0'}) || null; } catch {}
++  try { let storage = null; try { storage = sessionStorage; } catch {} diagnostics = globalThis.__NFSU2_DIAGNOSTICS__?.create({storage,version:'0.30.0'}) || null; } catch {}
+   let diagnosticState = {}, diagnosticIdentity = null, diagnosticPatch = '';
+   // The log is observational only: no memory writes, upload, raw console capture or error text.
+   const recordDiagnostic = (event, extra = {}) => { try { diagnostics?.record(event,{...diagnosticState,...extra}); } catch {} };
+@@ -26,6 +26,10 @@
+   let lastShift = 0, shiftTimer = 0, lastPulse = 0, lastScan = 0;
+   const held = new Set(), physicallyHeld = new Set();
+   const prefs = { raceCornerAssist: false, raceCornerFactor: 0.8, raceCornerMargin: 15, raceBraking: 0.75, cornerAssist: false, cornerFactor: 0.8, cornerMargin: 15, racePace: false, racePaceFactor: 1, walls: false, cars: false, traffic: false, players: false, online: false, ai: false, aiPace: false, paceFactor: 1, nos: false, dragNoBlowout: false, drag: false, rpm: 6500, tester: false, boost: false, power: 1.5, unlimit: false, grip: false, gripFactor: 1.3, drift: null };
++  // Display-only preference, deliberately outside saved driving-tool profiles.
++  const HUD_KEY='nfsu2-driving-tools-info-hud-v1';
++  let infoHudEnabled=true,infoHudSample=null;
++  try {infoHudEnabled=sessionStorage.getItem(HUD_KEY)!=='0';} catch {}
+   const STORAGE_KEY='nfsu2-driving-tools-v1';
+   try {
+     const saved=JSON.parse(sessionStorage.getItem(STORAGE_KEY)||'null');
+@@ -47,6 +51,70 @@
+   const savePrefs=()=>{try{sessionStorage.setItem(STORAGE_KEY,JSON.stringify(prefs));}catch{}};
+   recordDiagnostic('tools',{tools:diagnosticTools()});
+   const message = text => { if (note) {note.textContent=text;const summary=ui.querySelector('#status-summary');summary.title=text;} };
++  // Pure presentation of existing verified samples. No reads or writes to game
++  // memory occur here; missing/paused telemetry is never replaced with zero.
++  function infoHudView(sample,choices,now) {
++    const fresh=sample && Number.isFinite(sample.at) && now-sample.at>=0 && now-sample.at<=500;
++    const d=fresh?sample.data:{}, c=fresh?sample.context:{};
++    const paused=!fresh?'Waiting for live sample':!d.supported?'Build not verified':!d.ready?'Waiting for car':d.hidden?'Tab hidden':d.focused===false?'Game unfocused':!d.hud?'Waiting for driving HUD':!d.driving?'Waiting for GO':c.menu?'Game menu open':c.suspended||'';
++    const live=!paused;
++    const blocked=paused||(d.network&&!choices.online?'Online tools paused':'');
++    const speed=live && d.nativeTelemetry===true && Number.isFinite(d.speedMps) && d.speedMps>=0 && d.speedMps<=500 ? String(Math.round(d.speedMps*3.6)) : 'Unavailable';
++    const mode=!fresh||!d.supported||!d.ready?'Waiting for game':c.drag?'Drag':c.drift?'Drift':d.raceType===0&&d.hud===2?'Free roam':d.raceType===7?'Outrun':d.raceType===1?'Race':'Driving';
++    const context=d.supported&&d.ready?(d.network?'Online / LAN':'Solo')+' · '+mode:mode;
++    let driver=blocked||'Driver unavailable';
++    if(!blocked) {
++      if(d.handbackPending||c.switching)driver='AI handoff pending';
++      else if(!choices.ai&&d.aiOwned)driver='Releasing native AI';
++      else if(choices.ai&&d.aiActive)driver=c.drag?'Native Drag AI active':'Native AI active';
++      else if(choices.ai)driver=c.aiAvailable===false?'AI unavailable':c.aiStatus==='failed'?'AI handoff failed':c.aiStatus==='retry'?'AI needs off / on':'AI requested · waiting';
++      else if(c.manual||d.driverKind===1)driver='Manual driver';
++      else if(d.aiDriverVerified)driver='Native AI · not tool-owned';
++      else driver='Driver unavailable';
++    }
++    const selected=c.roam?choices.aiPace:c.race?choices.racePace:false;
++    const factor=c.roam?choices.paceFactor:c.race?choices.racePaceFactor:1;
++    let pace=blocked?'Not confirmed':c.paceAvailable===false?'Unavailable on this build':c.drag||c.drift?'Native · custom pace paused':!c.roam&&!c.race?'Unavailable in this mode':!selected?'Native target':Number.isFinite(factor)?factor.toFixed(2)+'× selected':'Unavailable';
++    if(live&&!blocked&&c.paceAvailable!==false&&!c.drag&&!c.drift&&(c.roam||c.race)) {
++      const target=selected?factor:1;
++      if(choices.ai&&Number.isFinite(target)) {
++        // An older acknowledgement must not confirm a newly selected factor.
++        const confirmed=d.paceConfirmed===true && !c.switching && Number.isFinite(d.paceApplied) && d.paceApplied>=.75 && d.paceApplied<=3 && Math.abs(d.paceApplied-target)<.011;
++        pace=target.toFixed(2)+'× req · '+(confirmed?d.paceApplied.toFixed(2)+'× ack':'pending');
++      } else if(selected&&Number.isFinite(factor))pace=factor.toFixed(2)+'× selected · AI off';
++    }
++    const req=choices.boost?choices.power:1;
++    const requested=Number.isFinite(req)?req.toFixed(1)+'× req':'Requested';
++    const states={'network-permission':'online paused',unsupported:'unavailable','not-ready':'waiting',hidden:'paused',unfocused:'paused',hud:'waiting','not-driving':'waiting',menu:'paused','drift-change':'waiting',layout:'unavailable',settling:'settling',suspended:'paused','tuner-busy':'tuner busy',neutral:'neutral',changed:'changed',rejected:'rejected'};
++    let power=!(choices.boost||choices.unlimit)?'Off':requested+' · '+(blocked?'not confirmed':states[d.powerStatus]||'pending');
++    if(!blocked&&d.powerStatus==='applied'&&d.powerActive===true&&Number.isFinite(d.effectivePower)&&d.effectivePower>=1&&d.effectivePower<=3&&Math.abs(d.effectivePower-req)<.011)power=requested+' · '+d.effectivePower.toFixed(1)+'× set';
++    const limiter=!choices.unlimit?'':!blocked&&d.powerStatus==='applied'&&d.limiterRemoved===true?' · governor removed':' · governor requested';
++    return {governor:limiter?limiter.slice(3):'',speed,unit:speed==='Unavailable'?'':'km/h',context,driver,pace,power,powerTitle:power+limiter+'. Set reports guarded power-field writes, not measured speed or horsepower.',state:paused||(d.network&&!choices.online?'Read-only · network tools paused':'Live observations'),speedTitle:speed==='Unavailable'?(paused||'Speed telemetry is unavailable for this build or car.'):'Native speed sample converted from m/s to km/h. Not a GPS or measured tuning gain.'};
++  }
++  function renderInfoHud() {
++    if(!ui)return;
++    const hud=ui.querySelector('#info-hud');
++    hud.hidden=!infoHudEnabled||visible;
++    ui.querySelector('#info-hud-enable').checked=infoHudEnabled;
++    if(hud.hidden)return;
++    const view=infoHudView(infoHudSample,prefs,performance.now());
++    for(const field of ['speed','unit','context','driver','pace','power','governor','state']) {
++      const node=ui.querySelector('#hud-'+field);
++      if(node.textContent!==view[field])node.textContent=view[field];
++      node.title=field==='speed'?view.speedTitle:field==='power'?view.powerTitle:view[field];
++      if(field==='governor')node.hidden=!view.governor;
++    }
++  }
++  function setInfoHud(enabled) {
++    infoHudEnabled=!!enabled;
++    try {sessionStorage.setItem(HUD_KEY,infoHudEnabled?'1':'0');} catch {}
++    renderInfoHud();
++  }
++  function clearInfoHud(reason='Waiting for live sample') {
++    infoHudSample=null;
++    renderInfoHud();
++    if(ui&&infoHudEnabled&&!visible)ui.querySelector('#hud-state').textContent=reason;
++  }
+   function renderPowerStatus(powerStatus,tune={}) {
+     if(!ui)return;
+     const powerText={off:'Off · not a vehicle-speed multiplier',unsupported:'Unavailable · game build not verified','not-ready':'Waiting for the current car','network-permission':'Paused online · enable Allow network tools',hidden:'Paused · tab hidden',unfocused:'Paused · game unfocused',hud:'Waiting for driving HUD','not-driving':'Waiting for active driving',menu:'Paused · game menu open','drift-change':'Waiting for drift handling change',layout:'Unavailable · car performance layout',settling:'Waiting for stable performance values',suspended:'Paused · waiting for driving tools to resume','tuner-busy':'Paused · tuner is busy',applied:`Power fields set to ${Number(tune.power).toFixed(1)}×${tune.unlimit?' · stock governor set to zero':''}`,neutral:'Neutral · 1.0× power',changed:'Waiting · native tuning/state changed',rejected:'Not applied · performance guard rejected'};
+@@ -57,6 +125,7 @@
+     // A stop request can precede native handback. Retain native ownership
+     // diagnostics, but never present an old acknowledgement as a current one.
+     diagnosticState={...diagnosticState,paceConfirmed:false,paceApplied:undefined};
++    clearInfoHud();
+     if(ui){
+       ui.querySelector('#ai-pace-state').textContent=prefs.aiPace?'Waiting for current AI acknowledgement':'Off · free roam only';
+       ui.querySelector('#race-pace-state').textContent=prefs.racePace?'Waiting for current AI acknowledgement':'Off · normal race pace';
+@@ -198,7 +267,8 @@
+   window.addEventListener('keydown', e => {
+     if (!e.isTrusted) return;
+     // Range controls keep their native arrow/Space behavior without taking over the car.
+-    if(host && e.composedPath?.().includes(host) && !['F7','F8','F9','Escape'].includes(e.code)) return;
++    if(host && e.composedPath?.().includes(host) && !['F6','F7','F8','F9','Escape'].includes(e.code)) return;
++    if(e.code==='F6'){e.preventDefault();if(!e.repeat)setInfoHud(!infoHudEnabled);return;}
+     physicallyHeld.add(e.code);
+     if(e.code==='F7') {e.preventDefault();takeControl();}
+     else if(prefs.ai && ['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','KeyW','KeyA','KeyS','KeyD','Space'].includes(e.code)) takeControl();
+@@ -263,7 +333,7 @@
+       if(ui){const status=diagnostics?.status();ui.querySelector('#diagnostic-state').textContent=status?`${status.events} recent events · ${status.persistence==='same-tab'?'kept across reloads in this tab':'memory only; storage unavailable'}`:'Logger unavailable';if(status&&Number.isInteger(patch?.signatureUnique))ui.querySelector('#diagnostic-state').textContent+=` · fingerprints ${patch.signatureUnique}/${patch.signatureTotal}`;}
+     } catch {}
+     updateDynoUI();
+-    if(dyno?.busy) {clearApplicationEvidence('tuner-busy');try{diagnostics?.snapshot({...diagnosticState,dynoBusy:true,tools:diagnosticTools()});}catch{} wall?.stop();cars?.stop();ai?.stop();release();return;}
++    if(dyno?.busy) {clearApplicationEvidence('tuner-busy');clearInfoHud('Tuner busy · driving tools paused');try{diagnostics?.snapshot({...diagnosticState,dynoBusy:true,tools:diagnosticTools()});}catch{} wall?.stop();cars?.stop();ai?.stop();release();return;}
+     if (!engine) { clearApplicationEvidence('not-ready');if (live) live.textContent = 'Waiting for game. Reload after installing, then press Play.'; return; }
+     try {
+       const s = engine.state(), counters = statusPtr ? engine.status(statusPtr) : null;
+@@ -318,6 +388,8 @@
+         }
+       } else {engine.restoreGrip(s);gripGate.reset();}
+       try {diagnosticState={...diagnosticState,...engine.nativeDiagnostics(s,supported&&moduleProfile?.capabilities.driftDiagnostics===true),...engine.dragEngineDiagnostics(s,supported&&moduleProfile?.capabilities.nativeDragOverheat===true),powerStatus,paceConfirmed,paceApplied:paceConfirmed?aiState.paceApplied:undefined,powerActive:!!tune.active,gripActive:!!grip.active,effectivePower:tune.power,effectiveGrip:grip.factor,limiterRemoved:!!tune.unlimit,aiActive:!!aiState.active,aiOwned:!!aiState.owned,handbackPending:!!ai?.handbackPending,pageHeartbeat:ai?.hb,nativeHeartbeatAck:aiState.ready&&typeof ai?.read==='function'?ai.read(44):undefined,aiRequestedMode:aiState.ready&&typeof ai?.read==='function'?ai.read(8):undefined,aiNativeStatus:aiState.ready&&typeof ai?.read==='function'?ai.read(52):undefined,aiStaleTicks:aiState.ready&&typeof ai?.read==='function'?ai.read(48):undefined,aiSkillSaved:aiState.ready&&typeof ai?.read==='function'?!!ai.read(64):undefined,savedNativeSkill:aiState.ready&&typeof ai?.read==='function'&&ai.read(64)?ai.read(68):undefined,requestedPace,cornerRequested:!!aiState.cornerRequested,cornerMemoryBlocked:!!aiState.cornerMemoryBlocked,cornerDriftBlocked:!!aiState.cornerDriftBlocked,cornerMode:aiState.cornerMode,cornerPace:aiState.cornerPace,cornerBraking:aiState.cornerBraking,brakingHits:aiState.brakingHits,cornerHits:aiState.cornerHits,cornerApplied:aiState.cornerApplied,cornerProbeStage:aiState.cornerProbeStage,cornerDriverValid:aiState.cornerDriverValid,cornerRouteOwned:aiState.cornerRouteOwned,cornerRouteNodes:aiState.cornerRouteNodes,cornerPlannerCorners:aiState.cornerPlannerCorners,cornerGuardMask:aiState.cornerGuardMask,wallRequested:!!wallState.requested,wallHits:wallState.hits,onlineTrafficRequested:!!carState.onlineTraffic,onlinePlayersRequested:!!carState.onlinePlayers,onlineRaceCarsRequested:!!carState.onlineRaceCars,trafficHits:carState.trafficHits,playerHits:carState.playerHits,carRequested:typeof carState!=='undefined'?!!carState.requested:false,carHits:typeof carState!=='undefined'?carState.hits:0};diagnostics?.snapshot(diagnosticState);} catch {}
++      infoHudSample={at:performance.now(),data:{...diagnosticState},context:{menu:!!document.querySelector('dialog[open]'),drag:dragRace,drift:nativeDriftPace,roam:roamProfile,race:raceProfile,paceAvailable:moduleProfile?.capabilities.pace===true,aiAvailable:aiState.available,aiStatus:aiState.status,manual:aiState.manual,switching:!!aiState.switching}};
++      renderInfoHud();
+       const manualDriver = s.ready && engine.u32(s.car+0x24)===1 && !aiState.active && (!ai || !aiState.available || (aiState.ready && !aiState.owned));
+       const dragCountdown = dragRace && engine.u32(s.race)===3;
+       const activeDrag = canInput && (s.driving || dragCountdown) && prefs.drag && !dragAIRequested && dragRace && manualDriver && !dragTakenOver;
+@@ -390,6 +462,7 @@
+     ui.querySelector('#tools-panel').hidden=!visible;
+     ui.querySelector('#min').setAttribute('aria-expanded',String(visible));
+     ui.querySelector('#chevron').textContent=visible ? '▴' : '▾';
++    renderInfoHud();
+   }
+   function updateDynoUI() {
+     if(!ui)return;
+@@ -586,13 +659,22 @@
+ .help{margin:3px 0 1px;border-top:1px solid #263737;padding-top:2px}.help>summary{font-size:9px;list-style:none;display:flex;gap:5px;align-items:center;padding:4px 0;color:#839f92}.help>summary::before{content:'+';font:11px ui-monospace,monospace;color:#a4c3b2}.help[open]>summary::before{content:'−'}.help[open]>summary{color:#adcfba}.help p,.fine{font-size:9px;line-height:1.45;color:#90a89c;margin:4px 0}.warn{color:#c3b391}.help .row{font-size:10px}.inline-readout{padding:5px 6px;margin:4px 0;background:#1a2a2b;border-radius:3px;font-size:9px;color:#a6c3b3}.inline-readout strong{font-size:9px;font-weight:500;color:#badbc8}.inline-readout .state{white-space:normal;line-height:1.4}
+ select{max-width:140px;padding:4px 6px;border:1px solid #3c5549;border-radius:3px;background:#1c2e27;color:#c5dfce;font-size:10px}.dyno-buttons{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:6px 0}.dyno-buttons button{padding:5px 6px;border:1px solid #3e5b4c;border-radius:3px;background:#22372a;font-size:10px}.dyno-buttons button:nth-child(n+3){background:#192822;color:#a9c6b4}.dyno-buttons button:disabled{background:#192322}.tune-field{margin:8px 0}.tune-field label{display:flex;justify-content:space-between;gap:4px;font-size:10px}.tune-field input{width:100%}.tune-field output{color:#c5dfce;font-variant-numeric:tabular-nums}#tune-changes{white-space:pre-line;max-height:150px;overflow:auto;font-size:9px;line-height:1.45}#profile-name{width:100%;min-width:0;padding:5px 6px;margin:3px 0 6px;border:1px solid #3c5549;border-radius:3px;background:#1c2e27;color:#c5dfce;font-size:10px}.profile-name-label{font-size:10px;color:#b5cabe}#profile-state{white-space:normal;overflow-wrap:anywhere;font-size:10px;line-height:1.45;color:#b5d8c3}#dyno-state{white-space:normal;overflow-wrap:anywhere;max-height:62px;overflow:auto;font-size:9px;line-height:1.45;color:#a8c9b5}
+ .status{margin:0;padding:0 8px;background:#121b20}.status>summary{display:flex;gap:6px;align-items:center;padding:5px 0;list-style:none;min-height:24px;cursor:pointer}.status>summary::before{content:'';width:4px;height:4px;border-radius:50%;background:#759d86;flex:none}.status>summary::after{content:'ⓘ';font-size:10px;margin-left:auto;color:#708d7b}.status[open]>summary{border-bottom:1px solid #293c32}#live{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:9px;color:#8fafa0;margin:0;flex:1;min-width:0}#note{margin:5px 0;color:#c5b591;font-size:10px;line-height:1.45;overflow-wrap:anywhere}.keys{font-size:9px;color:#708d7c;margin:4px 0 7px}.keys kbd{font:inherit;color:#a1c0ab}#hazards{font-size:9px;line-height:1.4;color:#a8c7b5;background:#1a2a23;padding:6px;border-radius:3px;overflow-wrap:anywhere}
++.info-hud{position:absolute;right:0;top:35px;width:226px;max-width:calc(100vw - 16px);padding:8px 10px;border:1px solid #50645e88;border-radius:5px;background:#101a20d9;color:#c3d5ce;pointer-events:none;font-variant-numeric:tabular-nums;contain:layout style}.hud-heading{display:flex;justify-content:space-between;color:#8ba99b;font-size:9px;letter-spacing:.08em}.hud-heading kbd{font:inherit;letter-spacing:0;color:#789289}.hud-speedline{display:flex;align-items:baseline;gap:5px;padding:2px 0 1px}#hud-speed{color:#dbf2e4;font-size:24px;font-weight:650;line-height:1.2;letter-spacing:-.03em}#hud-unit{font-size:10px;color:#9bb4aa}#hud-context{margin-left:auto;font-size:9px;text-align:right;max-width:110px}.hud-readouts{margin:5px 0 0;padding-top:4px;border-top:1px solid #50645e44;display:grid;grid-template-columns:33px 1fr;gap:3px 5px;font-size:10px;line-height:1.4}.hud-readouts dt{color:#8ba99b}.hud-readouts dd{margin:0;text-align:right;overflow-wrap:anywhere;color:#c7e0d2}.hud-foot{font-size:8px;color:#8ba99b;line-height:1.35;margin:5px 0 0}#hud-state,#hud-governor{display:block;color:#c3b391}.hud-preference{padding:4px 9px;border-bottom:1px solid #263737;font-size:10px}.hud-preference small{font-size:8px}.hud-readouts,.hud-foot{user-select:none}
++@media(max-height:280px){.info-hud{padding:5px 8px}.hud-foot{display:none}.hud-readouts{gap:1px 5px}}
+ @media(prefers-reduced-motion:no-preference){.row input[type=checkbox]::before{transition:transform .12s}.group>summary{transition:background .12s}}
+ `);
+     ui.adoptedStyleSheets = [stylesheet];
+     ui.innerHTML = `<div class="shell">
+ <button id="min" class="launcher" aria-expanded="false" aria-controls="tools-panel" title="Driving tools · F8"><span class="mark" aria-hidden="true"></span><span class="title">Driving tools</span><span id="enabled" class="badge">Ready</span><span id="chevron" class="arrow" aria-hidden="true">▾</span></button>
++<section id="info-hud" class="info-hud" aria-label="Driving information HUD" aria-live="off">
++<div class="hud-heading"><span>INFO HUD</span><kbd>F6 hide</kbd></div>
++<div class="hud-speedline"><strong id="hud-speed">Unavailable</strong><span id="hud-unit"></span><span id="hud-context">Waiting for game</span></div>
++<dl class="hud-readouts"><dt>Driver</dt><dd id="hud-driver">Waiting for live sample</dd><dt>Pace</dt><dd id="hud-pace">Not confirmed</dd><dt>Power</dt><dd id="hud-power">Off</dd></dl>
++<p class="hud-foot">req = requested · ack = native acknowledgement<br>set = power fields, not a measured speed gain<span id="hud-governor" hidden></span><span id="hud-state">Waiting for live sample</span></p>
++</section>
+ <div id="tools-panel" class="panel" hidden>
+-<div class="toolbar"><button id="take-control" title="Return to manual control">Manual <kbd>F7</kbd></button><button id="stop" class="stop" title="Stop driving assists">Stop <kbd>F9</kbd></button><span class="version">0.29.0</span></div>
++<div class="toolbar"><button id="take-control" title="Return to manual control">Manual <kbd>F7</kbd></button><button id="stop" class="stop" title="Stop driving assists">Stop <kbd>F9</kbd></button><span class="version">0.30.0</span></div>
++<label class="row hud-preference"><span>Info HUD <small>F6 · shown when this menu is closed</small></span><input id="info-hud-enable" type="checkbox" aria-label="Show driving information HUD"></label>
+ <details id="group-profiles" class="group"><summary><span class="section-icon" aria-hidden="true"></span>Saved tool profiles</summary><div class="group-body">
+ <label class="row"><span>Saved profile</span><select id="profile-select" aria-label="Saved tool profile"><option value="">Choose a saved profile</option></select></label>
+ <label class="profile-name-label" for="profile-name">Profile name</label><input id="profile-name" type="text" maxlength="48" autocomplete="off" placeholder="e.g. Solo driving">
+@@ -671,10 +753,12 @@
+ <details class="help"><summary>Crash log</summary><p id="diagnostic-state" role="status">Local diagnostics starting</p><div class="dyno-buttons"><button id="diagnostic-export" type="button">Export crash log</button><button id="diagnostic-clear" type="button">Clear log</button></div><p>Recent tool choices, game mode and errors stay in this tab. Nothing is uploaded. Page scripts can access this storage. Browser/tab crashes may leave no final error; also use the game’s Download log. Export before closing this tab.</p></details>
+ <details id="group-session" class="help"><summary>Online / LAN opt-in</summary><label class="row"><span>Allow network tools<small id="online-state">Off · resets on reload</small></span><input id="online" type="checkbox" aria-describedby="online-risk"></label><p id="online-risk" class="fine warn">May affect other racers, trigger integrity checks, invalidate results or lead to a ban. Follow server rules. This does not bypass server restrictions.</p><p>Allows selected NOS, power, limiter, grip, AI/pace, road-race corner/braking assistance and drag tools. Wall pass-through and Car no-clip stay solo-only. Online traffic no-clip stays free-roam-only. Online player / race no-clip is a separate opt-in; current-build race filtering also needs this network permission. Drift stays free-roam-only.</p></details>
+ </div></details>
+-<details class="status" id="status-details"><summary id="status-summary" title="Show full status and notices"><span id="live" role="status">Waiting for game</span></summary><p id="note" role="status">Experimental. Back up progress before testing.</p><p class="keys"><kbd>F8</kbd> menu · <kbd>Esc</kbd> close<br>Drift and tester keep their own switches.</p></details>
++<details class="status" id="status-details"><summary id="status-summary" title="Show full status and notices"><span id="live" role="status">Waiting for game</span></summary><p id="note" role="status">Experimental. Back up progress before testing.</p><p class="keys"><kbd>F6</kbd> HUD · <kbd>F8</kbd> menu · <kbd>Esc</kbd> close<br>Drift and tester keep their own switches.</p></details>
+ </div></div>
+ `;
+     note = ui.querySelector('#note'); live = ui.querySelector('#live');
++    ui.querySelector('#info-hud-enable').addEventListener('change',e=>setInfoHud(e.target.checked));
++    renderInfoHud();
+     ui.querySelector('#profile-select').addEventListener('change',selectProfile);
+     for(const action of ['save','update','load','delete'])ui.querySelector('#profile-'+action).addEventListener('click',()=>profileAction(action));
+     ui.querySelector('#profile-auto').addEventListener('change',()=>profileAction('auto'));
+@@ -745,7 +829,8 @@
+     }
+     if(typeof prefs.drift==='boolean') ui.querySelector('#drift').checked=prefs.drift;
+     ui.querySelector('#hazards').hidden=!prefs.tester;
+-    ui.addEventListener('change',()=>{savePrefs();recordDiagnostic('tools',{tools:diagnosticTools()});});
++    ui.addEventListener('change',event=>{savePrefs();recordDiagnostic('tools',{tools:diagnosticTools()});if(event.target!==ui.querySelector('#info-hud-enable'))clearInfoHud('Settings changed · waiting for fresh sample');});
++    ui.addEventListener('input',event=>{if(event.target?.type==='range')clearInfoHud('Settings changed · waiting for fresh sample');});
+     const parent = document.fullscreenElement || document.body; parent.append(host);
+     document.addEventListener('fullscreenchange', () => { (document.fullscreenElement || document.body).append(host); });
+     // Explicit startup profile is applied only once, after all controls exist.
+--- a/extension/diagnostics.js
++++ b/extension/diagnostics.js
+@@ -90,7 +90,7 @@
+     }
+     return out;
+   }
+-  function create({storage=null,clock=()=>Date.now(),version='0.29.0'}={}) {
++  function create({storage=null,clock=()=>Date.now(),version='0.30.0'}={}) {
+     let events=[],dropped=0,persistence=storage?'same-tab':'memory-only',lastSnapshot='',lastSample=0;
+     const bursts=new Map();
+     const now=()=>{try{const n=clock();return Number.isFinite(n)&&n>=0?Math.floor(n):0;}catch{return 0;}};
+--- a/extension/manifest.json
++++ b/extension/manifest.json
+@@ -1,8 +1,8 @@
+ {
+   "manifest_version": 3,
+   "name": "NFSU2 Driving Tools \u00b7 Combined Test",
+-  "version": "0.29.0",
+-  "description": "Saved tool profiles, verified native tuner storage, guarded driving tools, and corrected online NOS timing.",
++  "version": "0.30.0",
++  "description": "Compact live info HUD, saved profiles, full preset tuner, and guarded driving tools.",
+   "minimum_chrome_version": "111",
+   "action": {
+     "default_title": "NFSU2 Driving Tools \u00b7 Combined Test",
+--- a/extension/popup.html
++++ b/extension/popup.html
+@@ -1,10 +1,10 @@
+ <!doctype html><html lang="en"><meta charset="utf-8"><title>NFSU2 Driving Tools</title>
+-<style>html{color-scheme:dark}body{width:244px;box-sizing:border-box;margin:0;padding:14px;background:#141e24;color:#c9dcd1;font:11px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}header{display:flex;align-items:center;gap:7px}h1{font-size:14px;font-weight:650;margin:0;color:#e2f1e7}.dot{width:7px;height:7px;border-radius:2px;background:#9be8bc}.version{margin-left:auto;color:#86a791;font-size:9px}p{margin:9px 0;color:#93af9f}.shortcuts{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin:12px 0}.shortcuts span{padding:6px;border:1px solid #344f40;border-radius:3px;text-align:center;color:#87a993;font-size:9px}kbd{display:block;font:600 11px ui-monospace,monospace;color:#c5e5cf}.open{display:block;border:1px solid #709e7e;border-radius:4px;background:#233c2c;color:#d7f1df;padding:7px;text-align:center;font-weight:600;text-decoration:none}.open:hover{background:#2c4936}details{border-top:1px solid #2c4436;margin-top:12px;padding-top:7px;font-size:10px;color:#88a492}summary{cursor:pointer;color:#a8c4af}details p{margin:7px 0}a:focus-visible,summary:focus-visible{outline:2px solid #9be8bc;outline-offset:3px}</style>
+-<header><span class="dot" aria-hidden="true"></span><h1>Driving tools</h1><span class="version">v0.29.0</span></header>
+-<p>v0.29 corrects the tuner's S20 rejection for verified native car-record storage while preserving all other safety checks. Retry Load settings after reloading; a live successful capture is not yet verified. It also clarifies power/pace application status. The online NOS fix, Street X, Drift, saved profiles and all prior online/Drag controls remain.</p><p>Handling and nitrous settings are manual, not automatic lap-time tuning. Native grip/downforce scaling is not activated. Live driving and save/reload persistence remain unverified.</p>
++<style>html{color-scheme:dark}body{width:244px;box-sizing:border-box;margin:0;padding:14px;background:#141e24;color:#c9dcd1;font:11px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}header{display:flex;align-items:center;gap:7px}h1{font-size:14px;font-weight:650;margin:0;color:#e2f1e7}.dot{width:7px;height:7px;border-radius:2px;background:#9be8bc}.version{margin-left:auto;color:#86a791;font-size:9px}p{margin:9px 0;color:#93af9f}.shortcuts{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:12px 0}.shortcuts span{padding:6px;border:1px solid #344f40;border-radius:3px;text-align:center;color:#87a993;font-size:9px}kbd{display:block;font:600 11px ui-monospace,monospace;color:#c5e5cf}.open{display:block;border:1px solid #709e7e;border-radius:4px;background:#233c2c;color:#d7f1df;padding:7px;text-align:center;font-weight:600;text-decoration:none}.open:hover{background:#2c4936}details{border-top:1px solid #2c4436;margin-top:12px;padding-top:7px;font-size:10px;color:#88a492}summary{cursor:pointer;color:#a8c4af}details p{margin:7px 0}a:focus-visible,summary:focus-visible{outline:2px solid #9be8bc;outline-offset:3px}</style>
++<header><span class="dot" aria-hidden="true"></span><h1>Driving tools</h1><span class="version">v0.30.0</span></header>
++<p>v0.30 adds a compact, click-through Info HUD: native speed in km/h, driver state, requested/acknowledged AI pace and requested/applied power fields. Missing or paused data is shown as unavailable, not guessed. F6 toggles it; open F8 for its switch.</p><p>All v0.29 tools remain combined, including the full tuner, native car-record fix and online NOS correction. HUD browser appearance, live driving and game-save persistence remain unverified.</p>
+ <p>For online Drag protection, enable both Disable Drag engine blowouts and Allow network tools before the engine blows. Only your current local engine is eligible. It does not revive blown engines or alter NOS/shifting. F9 clears it; live online protection is unverified.</p>
+ <p>Reload the game after installing. Use the small toolbar in the upper-right corner.</p>
+-<div class="shortcuts"><span><kbd>F8</kbd>Menu</span><span><kbd>F7</kbd>Manual</span><span><kbd>F9</kbd>Stop</span></div>
++<div class="shortcuts"><span><kbd>F6</kbd>HUD</span><span><kbd>F8</kbd>Menu</span><span><kbd>F7</kbd>Manual</span><span><kbd>F9</kbd>Stop</span></div>
+ <a class="open" href="https://nfsu2.xyz/" target="_blank" rel="noopener">Open NFSU2</a>
+ <details><summary>Experimental · back up progress</summary><p>A crash was reported with v0.11; its cause is still unresolved. This update has automated checks, not live gameplay verification. Back up your save and test one feature at a time. No guaranteed safe turns, routes or wins.</p><p>Without an explicitly enabled startup profile, AI, race-pace opt-in, both corner assists, walls, solo car no-clip, online traffic no-clip, online player no-clip and Online/LAN opt-in start off after reload. The tuner enable switch and search goal may be saved, but no search, Stage, Restore or game save runs automatically. F7 returns control. F9 clears driving selections and cancels dyno search; an applied tune remains applied. Drift and the diagnostic tester keep their own switches.</p><p>Walls are solo-only and can leave the map or miss checkpoints. Ground, slopes and movable props stay solid. Solo Car no-clip stays separate. Online traffic no-clip is a separate latest-build opt-in for NPC traffic in online free roam only, excluding player cars, races and outruns. The independent Online player / race no-clip switch keeps free-roam player identity and adds current-build race-roster filtering with network permission. Only local contacts are skipped; remote players may still see collisions. Live multiplayer behavior is unverified. Turn off only clear of walls.</p><p>Preview leaves the live tune unchanged. Stage writes only the selected working preset. Restore is guarded by the same car/mode/parts. Run the game’s Test Run to refresh physics, then Save Profile for persistence; the extension does not confirm a disk save.</p><p>Online changes may affect other players, trigger integrity checks or lead to a ban. Follow server rules. Keep the previous extension folder for rollback.</p></details>
+ </html>
+--- a/extension/README.md
++++ b/extension/README.md
+@@ -1,8 +1,21 @@
+-# NFSU2 Driving Tools: experimental v0.29.0
++# NFSU2 Driving Tools: experimental v0.30.0
+ 
+ Unpacked Chrome / Edge / Brave extension for https://nfsu2.xyz/. See `CHANGELOG.md` for this release's changes and verification limits.
+ 
+-## v0.29.0: Accept verified native car records in the tuner
++## v0.30.0: Compact driving information HUD
++
++A small, click-through **Info HUD** appears below the upper-right launcher while the tools menu is closed. **F6** toggles it, or open **F8 → Info HUD**. It starts on and remembers only its display choice in this tab, separately from driving-tool profiles. Opening the menu hides the card until you close it. F7 returns control and F9 still stops driving assists; the HUD itself never enables them.
++
++- **Speed:** existing guarded native speed converted to **km/h**. Zero is shown only when sampled as zero. Unknown builds, invalid car data and paused/missing samples show **Unavailable**, never a guessed or multiplied speed. Older supported builds without verified speed telemetry also show Unavailable.
++- **Driver:** observed native AI/manual state, pending handoff, or the reason tools are waiting/paused. A selected AI switch is not called active by itself.
++- **Pace:** `req` is the current requested AI target factor; `ack` is a matching native acknowledgement, not measured vehicle speed. A newly selected factor does not reuse an old acknowledgement. Selected pace waits for AI; Drag and Drift retain native pace.
++- **Power:** `req` is the selected field multiplier; `set` reports guarded power-field application. It is not measured horsepower or a guaranteed speed increase. Paused, rejected and settling states stay distinct from application.
++
++The HUD is read-only and uses existing observations. Stop, manual takeover, blur, hidden tab, game exit, replacement boot and tuner suspension clear old display evidence. No new physics, AI, speed/power formula, native hook, network permission, tuning, game-save or profile-schema change is included. The complete v0.29 tuner/static-ride fix, online NOS correction, Street X, Drift, Drag and online tools remain together.
++
++**Verification:** 1,788 automated tests pass with no failures/skips/cancellations, including 20 focused HUD tests. A strict-CSP browser fixture is included, but Chromium could not launch because this environment disallowed its local process socket, including the elevated retry. Browser layout/fullscreen behavior and live game appearance remain unverified. No screenshot is presented as actual gameplay.
++
++## Retained v0.29.0: Accept verified native car records in the tuner
+ 
+ The S20 report exposed an incorrect assumption: active car data is not always heap-allocated. The native game also embeds it in its fixed racer-record array. The tuner now accepts those exact native slots **only when the current car, record kind, active record count, race table and ride pointer all agree**. Arbitrary low addresses remain rejected; the existing heap path and all other safety checks remain.
+ 
+--- a/extension/CHANGELOG.md
++++ b/extension/CHANGELOG.md
+@@ -1,3 +1,10 @@
++# v0.30.0 · Compact read-only info HUD
++
++- Adds a compact, click-through HUD below the closed launcher. F6 or the Info HUD switch toggles display; this same-tab choice is separate from saved driving profiles. The full menu temporarily hides the card.
++- Shows guarded native speed in km/h, AI/manual driver state, current pace request versus matching native acknowledgement, and requested power versus observed field application. Missing telemetry is Unavailable, never a fabricated zero. Pace and power factors do not represent a measured speed gain.
++- Clears current evidence on interruption, game/session replacement and control changes. A past acknowledgement cannot confirm a newly selected pace value. No controller, physics, native payload, game-save, permission or tuner behavior changed.
++- Combined suite: **1,788 passed, zero failures/skips/cancellations**, including 20 focused HUD checks and read-only memory assertions. Strict-CSP browser fixture is prepared but blocked before page load by process socket restrictions, including the elevated retry. Live game appearance and driving remain unverified.
++
+ # v0.29.0 · Native static car storage for tuner snapshots
+ 
+ - Corrects S20's blanket heap-only assumption with an exact native racer-record exception: fixed table and stride, bounded active count, exact slot membership and current local car/record/ride ownership. Arbitrary low addresses and existing alias/stale-state violations remain rejected.
+--- a/tools/package-release.py
++++ b/tools/package-release.py
+@@ -4,12 +4,12 @@
+ root = Path(__file__).resolve().parents[1]
+ source = root / 'extension'
+ manifest = json.loads((source / 'manifest.json').read_text())
+-assert manifest['version'] == '0.29.0'
+-folder = 'NFSU2-Driving-Tools-v0.29.0'
++assert manifest['version'] == '0.30.0'
++folder = 'NFSU2-Driving-Tools-v0.30.0'
+ parser = argparse.ArgumentParser()
+ parser.add_argument('--output', type=Path)
+ args = parser.parse_args()
+-out = args.output or root.parent / 'NFSU2-Driving-Tools-v0.29-Combined-Tuner-Static-Ride-Fix.zip'
++out = args.output or root.parent / 'NFSU2-Driving-Tools-v0.30-Combined-Info-HUD.zip'
+ files = ['README.md', 'CHANGELOG.md', 'manifest.json', 'popup.html', *manifest['content_scripts'][0]['js']]
+ assert len(files) == len(set(files))
+ assert sorted(files) == sorted(p.name for p in source.iterdir() if p.is_file())
+--- a/tests/package-release.test.cjs
++++ b/tests/package-release.test.cjs
+@@ -1,10 +1,10 @@
+ 'use strict';
+ const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os'),{spawnSync}=require('node:child_process');
+-test('v0.29 combined Drag tuner online package includes referenced docs and refuses to overwrite existing archives',()=>{
++test('v0.30 combined Drag tuner online package includes referenced docs and refuses to overwrite existing archives',()=>{
+  const root=path.resolve(__dirname,'..'),tmp=fs.mkdtempSync(path.join(os.tmpdir(),'combined-release-')),out=path.join(tmp,'release.zip');
+  try{
+-  const manifest=JSON.parse(fs.readFileSync(path.join(root,'extension/manifest.json'),'utf8'));assert.equal(manifest.version,'0.29.0');
+-  const source=fs.readFileSync(path.join(root,'tools/package-release.py'),'utf8');assert.match(source,/NFSU2-Driving-Tools-v0\.29-Combined-Tuner-Static-Ride-Fix\.zip/);assert.doesNotMatch(source,/v0\.13-Current-Build\.zip/);
++  const manifest=JSON.parse(fs.readFileSync(path.join(root,'extension/manifest.json'),'utf8'));assert.equal(manifest.version,'0.30.0');
++  const source=fs.readFileSync(path.join(root,'tools/package-release.py'),'utf8');assert.match(source,/NFSU2-Driving-Tools-v0\.30-Combined-Info-HUD\.zip/);assert.doesNotMatch(source,/v0\.13-Current-Build\.zip/);
+   const run=()=>spawnSync('python3',[path.join(root,'tools/package-release.py'),'--output',out],{encoding:'utf8'});
+   const first=run();assert.equal(first.status,0,first.stderr);const report=JSON.parse(first.stdout);assert.ok(report.files.includes('CHANGELOG.md'));assert.ok(report.files.includes('README.md'));
+   const bytes=fs.readFileSync(out),second=run();assert.notEqual(second.status,0);assert.deepEqual(fs.readFileSync(out),bytes);
+@@ -16,7 +16,7 @@
+  const root=path.resolve(__dirname,'..'),read=f=>fs.readFileSync(path.join(root,'extension',f),'utf8');
+  const manifest=JSON.parse(read('manifest.json'));
+  assert.deepEqual(manifest.content_scripts[0].js,['diagnostics.js','walls.js','cars.js','current-profile.js','latest-profile.js','next-profile.js','signatures.js','signature-profile.js','signature-profile-latest.js','signature-profile-next.js','dyno-native-profile.js','dyno-native.js','ai.js','core.js','dyno-core.js','dyno.js','dyno-evaluator.js','dyno-full.js','tool-profiles.js','page.js']);
+- assert.equal(manifest.version,'0.29.0');assert.match(read('page.js'),/version:'0\.29\.0'/);assert.match(read('page.js'),/class="version">0\.29\.0</);assert.match(read('popup.html'),/class="version">v0\.29\.0</);assert.match(read('diagnostics.js'),/version='0\.29\.0'/);
++ assert.equal(manifest.version,'0.30.0');assert.match(read('page.js'),/version:'0\.30\.0'/);assert.match(read('page.js'),/class="version">0\.30\.0</);assert.match(read('popup.html'),/class="version">v0\.30\.0</);assert.match(read('diagnostics.js'),/version='0\.30\.0'/);
+  assert.match(read('page.js'),/id="dyno-mode"/);assert.match(read('page.js'),/id="corner-margin"/);assert.match(read('page.js'),/id="diagnostic-export"/);assert.match(read('page.js'),/id="tester"/);
+ });
+ 
+--- /dev/null
++++ b/tests/info-hud.test.cjs
+@@ -0,0 +1,35 @@
++'use strict';
++const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path'),{createRequire}=require('node:module');
++const root=path.resolve(__dirname,'..'),page=fs.readFileSync(path.join(root,'extension/page.js'),'utf8');
++const start=page.indexOf('  function infoHudView('),end=page.indexOf('  function renderInfoHud()',start),model={};
++assert.ok(start>0&&end>start);vm.runInNewContext(page.slice(start,end)+'\nthis.view=infoHudView;',model);
++const choices={ai:true,aiPace:true,paceFactor:1.5,racePace:true,racePaceFactor:2,boost:true,power:1.5,online:false};
++const data={supported:true,ready:true,driving:true,focused:true,hud:2,nativeTelemetry:true,speedMps:20,raceType:0,aiActive:true,aiOwned:true,paceConfirmed:true,paceApplied:1.5,powerStatus:'applied',powerActive:true,effectivePower:1.5};
++const context={roam:true,paceAvailable:true};
++const view=(d={},c={},p={},now=1000,at=1000)=>model.view({at,data:{...data,...d},context:{...context,...c}},{...choices,...p},now);
++test('HUD converts real bounded native speed to km/h and identifies sample-backed observations',()=>{const v=view();assert.equal(v.speed,'72');assert.equal(v.unit,'km/h');assert.equal(v.context,'Solo · Free roam');assert.equal(v.driver,'Native AI active');assert.equal(v.pace,'1.50× req · 1.50× ack');assert.equal(v.power,'1.5× req · 1.5× set');});
++test('HUD distinguishes a measured zero from unavailable speed',()=>{assert.equal(view({speedMps:0}).speed,'0');for(const speedMps of [undefined,null,NaN,Infinity,-1,500.01,'20'])assert.equal(view({speedMps}).speed,'Unavailable');assert.equal(view({nativeTelemetry:false}).speed,'Unavailable');});
++test('HUD never exposes unsupported or stale speed as a current observation',()=>{for(const d of [{supported:false},{ready:false},{driving:false},{hidden:true},{focused:false},{hud:0}]){const v=view(d);assert.equal(v.speed,'Unavailable');assert.equal(v.pace,'Not confirmed');assert.doesNotMatch(v.power,/× set/);}for(const c of [{menu:true},{suspended:'Paused'}])assert.equal(view({},c).speed,'Unavailable');for(const [now,at]of [[1501,1000],[999,1000],[1000,NaN]]){const v=view({}, {}, {},now,at);assert.equal(v.speed,'Unavailable');assert.equal(v.driver,'Waiting for live sample');}});
++test('HUD cannot fabricate a speed from power or pace multipliers',()=>{const v=view({speedMps:undefined},{},{power:3,paceFactor:3});assert.equal(v.speed,'Unavailable');assert.doesNotMatch(v.pace,/ack/);assert.doesNotMatch(v.power,/× set/);});
++test('HUD reports network opt-out while keeping permitted read-only speed',()=>{const v=view({network:true});assert.equal(v.speed,'72');assert.equal(v.driver,'Online tools paused');assert.equal(v.pace,'Not confirmed');assert.doesNotMatch(v.power,/× set/);assert.match(v.state,/Read-only/);assert.equal(view({network:true},{},{online:true}).pace,'1.50× req · 1.50× ack');});
++test('HUD old/missing/out-of-bounds pace acknowledgement cannot confirm a changed request',()=>{for(const paceApplied of [null,undefined,NaN,.74,3.01,1,2])assert.equal(view({paceApplied}).pace,'1.50× req · pending');assert.equal(view({paceConfirmed:false}).pace,'1.50× req · pending');assert.equal(view({}, {switching:true}).pace,'1.50× req · pending');});
++test('HUD separates selected pace from an actual requested/acknowledged AI target',()=>{assert.equal(view({}, {}, {ai:false}).pace,'1.50× selected · AI off');assert.equal(view({}, {}, {ai:false,aiPace:false}).pace,'Native target');assert.equal(view({paceApplied:1},{},{aiPace:false}).pace,'1.00× req · 1.00× ack');assert.equal(view({paceApplied:2}, {roam:false,race:true}).pace,'2.00× req · 2.00× ack');});
++test('HUD mode classification stays within known native mode evidence',()=>{for(const c of [{drag:true},{drift:true}])assert.equal(view({},c).pace,'Native · custom pace paused');assert.equal(view({raceType:1,hud:1},{roam:false,race:true}).context,'Solo · Race');assert.equal(view({raceType:7}).context,'Solo · Outrun');assert.equal(view({raceType:99}).context,'Solo · Driving');assert.equal(view({}, {paceAvailable:false}).pace,'Unavailable on this build');assert.equal(view({}, {roam:false,race:false}).pace,'Unavailable in this mode');});
++test('HUD keeps request, field application and governor evidence separate',()=>{for(const d of [{powerStatus:'settling'},{powerActive:false},{effectivePower:null},{effectivePower:NaN},{effectivePower:3.01},{effectivePower:2}])assert.doesNotMatch(view(d).power,/× set/);assert.equal(view({}, {}, {boost:false}).power,'Off');assert.match(view({limiterRemoved:true},{},{unlimit:true}).powerTitle,/governor removed/);assert.match(view({limiterRemoved:false},{},{unlimit:true}).powerTitle,/governor requested/);assert.equal(view({limiterRemoved:true},{},{unlimit:true}).governor,'governor removed');assert.equal(view().governor,'');assert.match(view().powerTitle,/not measured speed or horsepower/);});
++test('HUD driver does not confuse manual, pending handback, unavailable AI and native ownership',()=>{assert.equal(view({aiOwned:false,aiActive:false,driverKind:1},{},{ai:false}).driver,'Manual driver');assert.equal(view({handbackPending:true}).driver,'AI handoff pending');assert.equal(view({}, {switching:true}).driver,'AI handoff pending');assert.equal(view({}, {}, {ai:false}).driver,'Releasing native AI');assert.equal(view({aiOwned:false,aiActive:false},{aiAvailable:false}).driver,'AI unavailable');assert.equal(view({aiOwned:false,aiActive:false},{aiStatus:'failed'}).driver,'AI handoff failed');assert.equal(view({aiOwned:false,aiActive:false},{aiStatus:'retry'}).driver,'AI needs off / on');assert.equal(view({aiOwned:false,aiActive:false,aiDriverVerified:true},{},{ai:false}).driver,'Native AI · not tool-owned');});
++// Actual production page + real Engine and memory; only worker/DOM/controller doubles.
++const file=path.join(root,'tests/diagnostics-page.test.cjs'),baseRequire=createRequire(file),ctx={require:Object.assign(name=>name==='node:test'?{test(){}}:baseRequire(name),{resolve:baseRequire.resolve}),console,Buffer,WebAssembly,Blob,URL,setImmediate};
++vm.runInNewContext(fs.readFileSync(file,'utf8')+'\nthis.fixture=fixture;',ctx,{filename:file});
++const fixture=ctx.fixture,profile=require('../extension/next-profile.js');
++const actual=()=>fixture(null,true,false,{revision:profile.revision,profile});
++const speed=(f,value)=>f.d.setFloat32(f.car+0x430,value,true),hud=(f,id)=>f.nodes['hud-'+id].textContent;
++test('production HUD defaults on and F6 changes no car memory or driving selections',async()=>{const f=await actual(),before=Buffer.from(f.memory.buffer);f.run(8);assert.equal(f.nodes['info-hud'].hidden,false);const selection=JSON.stringify(f.prefs());f.press('F6');assert.equal(f.nodes['info-hud'].hidden,true);assert.equal(f.sessions.get('nfsu2-driving-tools-info-hud-v1'),'0');f.press('F6');assert.equal(f.nodes['info-hud'].hidden,false);assert.equal(JSON.stringify(f.prefs()),selection);assert.deepEqual(Buffer.from(f.memory.buffer),before);assert.deepEqual(Array.from(f.aiLog.keys),[]);});
++test('production HUD hides under open menu and returns without resetting controls',async()=>{const f=await actual();f.change('ai',true);f.run();f.press('F8');assert.equal(f.nodes['info-hud'].hidden,true);assert.equal(f.nodes['tools-panel'].hidden,false);f.press('Escape');assert.equal(f.nodes['info-hud'].hidden,false);assert.equal(f.nodes.ai.checked,true);f.change('info-hud-enable',false);assert.equal(f.nodes['info-hud'].hidden,true);f.press('F8');f.press('F8');assert.equal(f.nodes['info-hud'].hidden,true);});
++test('production HUD exposes actual native speed read only and fails closed on older modules',async()=>{for(const [opts,expected]of [[{revision:profile.revision,profile},'90'],[{},'Unavailable'],[{revision:profile.revision,profile,verified:false},'Unavailable']]){const f=await fixture(null,true,false,opts);speed(f,25);const before=Buffer.from(f.memory.buffer);f.run(8);assert.equal(hud(f,'speed'),expected);assert.deepEqual(Buffer.from(f.memory.buffer),before);}});
++test('production HUD loses speed when pointer/context becomes invalid rather than keeping previous value',async()=>{const f=await actual();speed(f,25);f.run(8);assert.equal(hud(f,'speed'),'90');f.put(f.player+4,0);f.run();assert.equal(hud(f,'speed'),'Unavailable');assert.equal(hud(f,'pace'),'Not confirmed');});
++test('production HUD clears observations immediately on blur and hide, then resamples on resume',async()=>{for(const pause of [f=>f.focus(false),f=>f.hidden(true)]){const f=await actual();speed(f,25);f.change('boost',true);f.change('ai',true);f.change('ai-pace',true);f.input('pace-factor',1.5);f.aiLog.paceApplied=1.5;f.run(8);assert.match(hud(f,'power'),/× set/);pause(f);assert.equal(hud(f,'speed'),'Unavailable');assert.doesNotMatch(hud(f,'pace'),/ack/);assert.doesNotMatch(hud(f,'power'),/× set/);f.focus(true);f.hidden(false);f.run(8);assert.equal(hud(f,'speed'),'90');assert.match(hud(f,'power'),/× set/);}});
++test('production HUD immediate stop, takeover and checkbox off clear prior acknowledgement',async()=>{for(const action of [f=>f.press('F7'),f=>f.press('F9'),f=>f.change('ai',false)]){const f=await actual();f.change('ai',true);f.change('ai-pace',true);f.input('pace-factor',1.5);f.aiLog.paceApplied=1.5;f.aiLog.owned=true;f.run(8);assert.match(hud(f,'pace'),/ack/);action(f);assert.doesNotMatch(hud(f,'pace'),/ack/);f.run();assert.doesNotMatch(hud(f,'pace'),/ack/);assert.doesNotMatch(hud(f,'driver'),/AI active/);}});
++test('production HUD game exit, trap and replacement boot immediately discard previous car speed',async()=>{for(const replace of [f=>f.worker.emit({t:'exit'}),f=>f.worker.emit({t:'trap',msg:'test'}),f=>f.worker.postMessage({mod:new WebAssembly.Module(Uint8Array.from([0,97,115,109,1,0,0,0])),memory:f.memory,slot:0})]){const f=await actual();speed(f,25);f.run(8);assert.equal(hud(f,'speed'),'90');replace(f);assert.equal(hud(f,'speed'),'Unavailable');}});
++test('production HUD newly selected pace does not reuse the prior native acknowledgement',async()=>{const f=await actual();f.change('ai',true);f.change('ai-pace',true);f.input('pace-factor',1.5);f.aiLog.paceApplied=1.5;f.run(8);assert.match(hud(f,'pace'),/1.50× ack/);f.input('pace-factor',2);f.run();assert.equal(hud(f,'pace'),'2.00× req · pending');f.aiLog.paceApplied=2;f.run();assert.equal(hud(f,'pace'),'2.00× req · 2.00× ack');});
++test('production HUD tuner busy clears speed and confirmations while preserving selection',async()=>{const f=await fixture(null,true,true);f.change('boost',true);f.run(8);assert.match(hud(f,'power'),/× set/);f.change('dyno-enable',true);f.click('dyno-find');await new Promise(r=>setImmediate(r));f.run();assert.equal(hud(f,'speed'),'Unavailable');assert.doesNotMatch(hud(f,'power'),/× set/);assert.equal(hud(f,'state'),'Tuner busy · driving tools paused');assert.equal(f.nodes.boost.checked,true);f.dynoLog.instance.finish();await new Promise(r=>setImmediate(r));});
++test('production HUD has no live-region speech flood and uses click-through scoped CSS',async()=>{const f=await actual();assert.match(f.html(),/id="info-hud"[^>]+aria-live="off"/);assert.match(f.stylesheets()[0].css,/\.info-hud\{[^}]*pointer-events:none/);assert.doesNotMatch(page.slice(start,end),/engine\.|\.set(?:Uint|Float)|\.write\(/);});
+--- /dev/null
++++ b/tests/info-hud.browser.cjs
+@@ -0,0 +1,46 @@
++'use strict';
++// Local strict-CSP visual/keyboard fixture, not live gameplay verification.
++const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
++(async()=>{
++ const root=path.resolve(__dirname,'..'),out=path.join(root,'research/ui');fs.mkdirSync(out,{recursive:true});
++ const browser=await chromium.launch({executablePath:process.env.CHROMIUM_EXECUTABLE_PATH||'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
++ const page=await browser.newPage({viewport:{width:1280,height:800}}),errors=[];page.on('pageerror',e=>errors.push(String(e)));
++ const csp="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; connect-src 'self'; img-src 'self' data: blob:; style-src 'self'; font-src 'self'; object-src 'none'; base-uri 'none'";
++ await page.route('https://nfsu2.xyz/**',route=>{
++  const name=new URL(route.request().url()).pathname;
++  if(name==='/game.json')return route.fulfill({json:{rev:'93af6ccb'}});
++  if(name==='/fixture.css')return route.fulfill({contentType:'text/css',body:'body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 40% 30%,#1d3439,#0c141c 70%);font:14px system-ui;color:#8ca59d}p{padding:30px}button#underlay{position:fixed;inset:0;opacity:0;width:100vw;height:100vh}'});
++  return route.fulfill({contentType:'text/html',headers:{'Content-Security-Policy':csp},body:'<!doctype html><html><head><meta name="viewport" content="width=device-width"><link rel="stylesheet" href="/fixture.css"><title>Info HUD local fixture</title></head><body><button id="underlay">Game canvas stand-in</button><p>INFO HUD · local fixture, not live telemetry</p></body></html>'});
++ });
++ const setup=`(()=>{const attach=Element.prototype.attachShadow;Element.prototype.attachShadow=function(o){return attach.call(this,{...o,mode:'open'});};window.cspViolations=[];document.addEventListener('securitypolicyviolation',e=>window.cspViolations.push(e.effectiveDirective));})();`;
++ let source=fs.readFileSync(path.join(root,'extension/page.js'),'utf8');
++ // Expose only the presentation seam in the fixture. Production has no test API.
++ source=source.replace('  function renderInfoHud() {',`  window.__hudFixture=(sample,choices)=>{if(timer){clearInterval(timer);timer=null;}Object.assign(prefs,choices);infoHudSample={...sample,at:performance.now()};renderInfoHud();};\n  function renderInfoHud() {`);
++ await page.addInitScript({content:setup+'\n'+fs.readFileSync(path.join(root,'extension/core.js'),'utf8')+'\n'+fs.readFileSync(path.join(root,'extension/tool-profiles.js'),'utf8')+'\n'+source});
++ await page.goto('https://nfsu2.xyz/');const ui=page.locator('#nfsu2-driving-tools'),hud=ui.locator('#info-hud');await hud.waitFor({state:'visible'});
++ assert.equal(await hud.evaluate(el=>getComputedStyle(el).pointerEvents),'none');assert.equal(await hud.getAttribute('aria-live'),'off');assert.equal(await ui.locator('#hud-speed').textContent(),'Unavailable');
++ const initial=await hud.boundingBox();assert.equal(initial.width,226);assert.ok(initial.height<190);assert.ok(initial.x>=0&&initial.x+initial.width<=1280);assert.equal(await ui.evaluate(el=>el.shadowRoot.adoptedStyleSheets.length),1);
++ await page.screenshot({path:path.join(out,'hud-waiting.png')});
++ // Click passes through the HUD to the game's surface.
++ await page.evaluate(()=>{document.querySelector('#underlay').addEventListener('click',()=>window.underlayClicks=(window.underlayClicks||0)+1);});
++ await page.mouse.click(initial.x+20,initial.y+35);assert.equal(await page.evaluate(()=>window.underlayClicks),1);
++ await page.keyboard.press('F6');assert.equal(await hud.isVisible(),false);await page.keyboard.press('F6');assert.equal(await hud.isVisible(),true);
++ await page.keyboard.down('F6');await page.keyboard.down('F6');await page.keyboard.up('F6');assert.equal(await hud.isVisible(),false,'held key repeat must not flicker');await page.keyboard.press('F6');
++ await page.keyboard.press('F8');assert.equal(await hud.isVisible(),false);assert.equal(await ui.locator('#tools-panel').isVisible(),true);assert.equal(await ui.locator('#info-hud-enable').isChecked(),true);
++ await ui.locator('#info-hud-enable').uncheck();await page.keyboard.press('Escape');assert.equal(await hud.isVisible(),false);await page.reload();await ui.waitFor();assert.equal(await hud.isVisible(),false,'same-tab HUD preference persists');await page.keyboard.press('F6');assert.equal(await hud.isVisible(),true);
++ const sample={data:{supported:true,ready:true,driving:true,focused:true,hud:2,nativeTelemetry:true,speedMps:36.1,raceType:0,aiActive:true,aiOwned:true,paceConfirmed:true,paceApplied:1.5,powerStatus:'applied',powerActive:true,effectivePower:1.5},context:{roam:true,paceAvailable:true}};
++ await page.evaluate(sample=>window.__hudFixture(sample,{ai:true,aiPace:true,paceFactor:1.5,boost:true,power:1.5}),sample);
++ assert.equal(await ui.locator('#hud-speed').textContent(),'130');assert.equal(await ui.locator('#hud-pace').textContent(),'1.50× req · 1.50× ack');assert.equal(await ui.locator('#hud-power').textContent(),'1.5× req · 1.5× set');
++ await page.screenshot({path:path.join(out,'hud-live-fixture.png')});
++ // Width, overflow and menu interaction at narrow viewports.
++ for(const size of [{width:320,height:480},{width:280,height:240}]){
++  await page.setViewportSize(size);await page.evaluate(sample=>window.__hudFixture(sample,{}),sample);const box=await hud.boundingBox();assert.ok(box.x>=0&&box.y>=0&&box.x+box.width<=size.width&&box.y+box.height<=size.height,JSON.stringify(box));assert.equal(await hud.evaluate(el=>el.scrollWidth<=el.clientWidth),true);await page.screenshot({path:path.join(out,'hud-'+size.width+'x'+size.height+'.png')});
++ }
++ await page.setViewportSize({width:1280,height:800});
++ await page.keyboard.press('F8');const menu=await ui.boundingBox();assert.equal(menu.width,244);assert.ok(menu.height<320);await page.screenshot({path:path.join(out,'hud-menu-toggle.png')});await page.keyboard.press('F9');assert.equal(await ui.locator('#ai').isChecked(),false);assert.equal(await ui.locator('#boost').isChecked(),false);await page.keyboard.press('Escape');assert.doesNotMatch(await ui.locator('#hud-pace').textContent(),/ack/);
++ // Fullscreen DOM migration must keep the single HUD attached to the active element.
++ await page.evaluate(()=>{const el=document.createElement('div');el.id='fullscreen-fixture';document.body.append(el);Object.defineProperty(document,'fullscreenElement',{configurable:true,get:()=>el});document.dispatchEvent(new Event('fullscreenchange'));});
++ assert.equal(await ui.evaluate(el=>el.parentElement.id),'fullscreen-fixture');assert.equal(await page.locator('#nfsu2-driving-tools').count(),1);
++ assert.deepEqual(errors,[]);assert.deepEqual(await page.evaluate(()=>window.cspViolations),[]);
++ console.log(JSON.stringify({passed:true,initial,menu,checks:['strict CSP','click-through','F6 repeat suppression','F8/Escape/F9','same-tab display preference','true/unavailable speed','requested vs acknowledged pace','requested vs set power','320x480 and 280x240 bounds','fullscreen reparent','no page errors'],screenshots:fs.readdirSync(out).filter(x=>x.startsWith('hud-'))},null,2));await browser.close();
++})().catch(e=>{console.error(e);process.exit(1);});

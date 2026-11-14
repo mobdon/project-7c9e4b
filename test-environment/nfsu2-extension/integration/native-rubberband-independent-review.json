@@ -1,0 +1,112 @@
+{
+  "format": 1,
+  "version": "0.38.7",
+  "kind": "independent native rubberband source, scope, protocol and output review",
+  "checkedAt": "2026-11-11 00:22:23 UTC",
+  "result": "passed",
+  "findings": [],
+  "reviewer": "/root/locate_extension",
+  "sourceFilesEditedByThisReview": [],
+  "sealedByThisReview": false,
+  "sourceHashes": {
+    "full-publisher.cjs": "93a6c5ab1cbcf511e72f34de51f8ea6ad68bbd7600233433a5feab21825ab6ab",
+    "profile-config.cjs": "e9ea6049afc703ca762075be9558aecbfadb199e9903691e997f6ff90057d7fc",
+    "protocol.cjs": "79afb3d02359e07832aefaadf65b4f3ac5a09c5497906a604e88c8e36961d602",
+    "native-rubberband.template.js": "1a0fd29a28a7a9dc26653de32efd4a8810e82a01ea119896fb97b639d6d8081a",
+    "build-plans.cjs": "9cfaea3194b2509e83389b2866597a5846b4b7f0cb2419fba9887123aa8c739d",
+    "native-rubberband.js": "5d5b00e3ec33d07761797701bdf287a8b7a7a4e01ff577d9f2c16352ba7768eb",
+    "plans.json": "5d379d03a0122edabecf4733e13da7b6618c4f1da1e85e449ab9225f2a526a9b",
+    "candidate-build.json": "0663d27feeb1d0d7a639d7a7ec6a6c725428af4f8e3d3c1196e366fd723658b0",
+    "browser-patcher.test.cjs": "c02ab0d38473485dd02150e5260ed1dcda767e6beef2ecc99bdf1ed5e2efbeb4",
+    "full-publisher.test.cjs": "9cbced3dc29b94a8d8b9fa2cb7fc98bc5c176ef6b99a419c7a8e223dc8b85fe7",
+    "full-publisher-tests-aa2429fb.json": "96450098f8d3997cf254b0c122b974791a1fbf85683b892a376803c5db97ab10",
+    "full-publisher-tests-15e5958f.json": "328433ac8ae43cb8e27e29500f8de75f490aebf8bb82a63f043ceeaa900309f5",
+    "full-publisher-tests-943ee537.json": "884c24b9bd3933c80022f17600275b381b551e3ca393ecf4000bdb3b4cfff399"
+  },
+  "unsealedProductSha256": "5d5b00e3ec33d07761797701bdf287a8b7a7a4e01ff577d9f2c16352ba7768eb",
+  "maximumPercent": 150,
+  "minimumPercent": 100,
+  "liveVerified": false,
+  "fullGameInstantiated": false,
+  "checks": {
+    "exactThreeV0386CompleteInputs": true,
+    "generatedPatcherRecreatesAllThreeCandidateOutputPins": true,
+    "originalNativeBodyAndBuilderDerivationMatch": true,
+    "onlyOriginalFunction3553Modified": true,
+    "otherBodiesAndNonCodeSectionsPreserved": true,
+    "nativePhysicsClosureExactBodies": 42,
+    "noNativeStubsInPublisherFixtures": true,
+    "pairedSelectedPaceB60B76AndPositiveB80Required": true,
+    "noCar468OrDriver770Writes": true,
+    "simplifiedPhysicsUnchanged": true,
+    "currentGraphAndSourceOneGuardsRetained": true,
+    "ordinaryRoadOnlySpecialModesExcluded": true,
+    "literalOnlinePermissionAndNativeNetworkGuardsRetained": true,
+    "offAcknowledgementRequiresActualCurrentNativePublication": true,
+    "mailboxSixTailWordsOnly": [
+      232,
+      236,
+      240,
+      244,
+      248,
+      252
+    ],
+    "foreignMailboxClaimAndInCallOwnershipPreserved": true,
+    "postLockAckAndStatusUseExpectedValueCompareExchange": true,
+    "publicationSeqlockOddThroughMetadataAndAck": true,
+    "unknownHashInputPassedThroughIdentically": true,
+    "knownUnsealedPlanRejectsInstallation": true,
+    "browserPatcherTestsIndependentlyRerun": 3,
+    "browserPatcherTestsPassed": 3,
+    "actualNativeTireForceCasesWithinRerun": 36,
+    "publisherAndProtocolCasesReviewed": 315
+  },
+  "modules": [
+    {
+      "revision": "aa2429fb",
+      "inputSha256": "6fc3e86184f642d695ceb27af65132da63bb1a9744d760c89a8f48b9bea0e80e",
+      "outputSha256": "8e9dad5c36a8d4e9de19656e37f15ac7a23886f6a4afaf710c010e4441d5c114",
+      "outputBytes": 38682205
+    },
+    {
+      "revision": "15e5958f",
+      "inputSha256": "354df67de5e643a94713a7453619a9fd641d9ecc6e0c6c14934abc25640332c3",
+      "outputSha256": "4fb939201464f2fdcb117bbfa56ce5c9dff88387aa4fb81deb610cd489b3688b",
+      "outputBytes": 38681992
+    },
+    {
+      "revision": "943ee537",
+      "inputSha256": "2cd120e4758f4034b037154ad2b70f3ed8ac2efd2f4d13653916e4a499c43e45",
+      "outputSha256": "6d23a0a62c1d133eaf5b64581a213a136d08c47600ae1d298452712e873f8bc2",
+      "outputBytes": 38681184
+    }
+  ],
+  "publisherFixtureReports": [
+    {
+      "revision": "aa2429fb",
+      "cases": 105,
+      "boundaries": 19,
+      "liveVerified": false
+    },
+    {
+      "revision": "15e5958f",
+      "cases": 105,
+      "boundaries": 19,
+      "liveVerified": false
+    },
+    {
+      "revision": "943ee537",
+      "cases": 105,
+      "boundaries": 19,
+      "liveVerified": false
+    }
+  ],
+  "limits": [
+    "This review binds the unsealed candidate. Sealing changes generated plan metadata and must preserve the reviewed native output pins.",
+    "The 150% ceiling is an authored bounded assist policy, not a universal native rubberband maximum or a measured physical safety limit.",
+    "Native tire consumer checks show finite direction-preserving force capacity at the tested factors and zero output at zero load; they do not establish live handling quality.",
+    "Current graph/committed-page and ownership checks are best-effort snapshots, not allocator lifetime locks.",
+    "Live full-publisher scheduling across pause, manual takeover, car swaps and race transitions remains unverified; the controller must keep reset pending until a fresh current-car acknowledgement.",
+    "Page lifecycle and legacy-setting parking remain separate integration review responsibilities."
+  ]
+}

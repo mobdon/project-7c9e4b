@@ -1,0 +1,16 @@
+[
+  "extension/CHANGELOG.md",
+  "extension/README.md",
+  "extension/core.js",
+  "extension/diagnostics.js",
+  "extension/manifest.json",
+  "extension/page.js",
+  "extension/popup.html",
+  "tools/package-release.py",
+  "tests/adaptive-race.test.cjs",
+  "tests/core.test.cjs",
+  "tests/package-release.test.cjs",
+  "tests/race-braking-native.test.cjs",
+  "tests/race-only-adaptive.test.cjs",
+  "tests/race-only-ai.test.cjs"
+]

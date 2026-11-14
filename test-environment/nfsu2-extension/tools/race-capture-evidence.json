@@ -1,0 +1,191 @@
+{
+  "moduleSha256": "128e2b5816a8eace4b768aec920318a1613da8235801a361e2009e96550be1d6",
+  "moduleBytes": 38205596,
+  "profile": "93af6ccb",
+  "functionIndex": 13186,
+  "nativeFunction": "0x428030",
+  "paramTypes": [
+    "i32"
+  ],
+  "paramCount": 1,
+  "resultTypes": [],
+  "originalTypes": [
+    "i32",
+    "i32",
+    "i32",
+    "i32",
+    "i32",
+    "i32",
+    "i32",
+    "f64",
+    "f64",
+    "f64",
+    "i32",
+    "f32",
+    "f32"
+  ],
+  "originalLength": 4170,
+  "originalHash": "25ffba3ee75920745fcf4bb257797ccc664d4eaa296c753dc113e23eaee24c25",
+  "headerBytes": 9,
+  "localHeaderHex": "04077f037c017f027d",
+  "firstNewLocal": 14,
+  "bodyModuleOffset": 21149353,
+  "bodyModuleOffsetHex": "0x142b6a9",
+  "callOffsets": [
+    2711,
+    3229
+  ],
+  "callInstructionOffsets": [
+    2702,
+    3220
+  ],
+  "callModuleOffsets": [
+    "0x142c140",
+    "0x142c346"
+  ],
+  "postCallOffsets": [
+    2717,
+    3235
+  ],
+  "callBytes": [
+    16,
+    191,
+    133,
+    129,
+    128,
+    0
+  ],
+  "callPrefixBytes": [
+    32,
+    0
+  ],
+  "followingBytes": [
+    32,
+    0,
+    32,
+    0,
+    40,
+    2,
+    24,
+    54,
+    2,
+    4
+  ],
+  "calleeIndex": 17087,
+  "calleeNativeFunction": "0x422780",
+  "nativeCallSite": "0x4281b5",
+  "nativeReturnAddress": "0x4281ba",
+  "cpuLayout": {
+    "eax": 0,
+    "ecx": 4,
+    "edx": 8,
+    "ebx": 12,
+    "esp": 16,
+    "ebp": 20,
+    "esi": 24,
+    "edi": 28,
+    "eip": 32
+  },
+  "preCallInputs": {
+    "cpuPlus4": "route pointer, not driver",
+    "stackPlus0": "native return address0x4281ba",
+    "stackPlus4": "car argument"
+  },
+  "postCallChecks": [
+    "CPU eip+32 equals0x4281ba",
+    "CPU esp+16 equals saved pre-call esp+8 (native ret4)",
+    "Saved route equals owned driver+0x370 and driver+0x6e8",
+    "Saved car equals owned player+4 and driver+4"
+  ],
+  "planner": {
+    "index": 17087,
+    "originalLength": 14389,
+    "originalHash": "6d43165fcf095fd162f06a4e9696c1faeabd72f458a87de8b6dda88f1f5a6b63",
+    "headerBytes": 21,
+    "explicitReturns": 1,
+    "activePassExplicitReturnBodyOffset": 14325,
+    "warning": "Appending only at function end misses active corner passes; the explicit return is the normal nonempty-pass path."
+  },
+  "freshness": {
+    "producerIndex": 12713,
+    "producerNativeFunction": "0x41f8e0",
+    "optimizerIndex": 831,
+    "optimizerNativeFunction": "0x419000",
+    "recordStride": 128,
+    "recordBaseFromRoute": 212,
+    "sampleIndexOffset": 116,
+    "markerOffsets": [
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124
+    ],
+    "markerResetSite": "0x4227f0..0x422809",
+    "negativeSampleWriteSites": "0x41fc8b..0x41fce2",
+    "positiveSampleWriteSites": "0x41fbfc..0x41fc51",
+    "earlyNoSampleReturnSites": "0x41fd44..0x41fd4c",
+    "conservativeRule": "Completed planner pass, sampleIndex between -1 and nodeCount-2 inclusive, all8 marker bytes interpreted signed between0 and nodeCount-1, all5 XY and distance values finite. Otherwise preserve raw record but report unknown/partial, never fresh complete geometry.",
+    "negativeMarkerOffsets": [
+      117,
+      118,
+      121,
+      122
+    ],
+    "positiveMarkerOffsets": [
+      119,
+      120,
+      123,
+      124
+    ],
+    "limitation": "Producer completion alone does not prove every XY was freshly sampled; the source sampler has early no-write returns. Rolling window remains partial event coverage."
+  },
+  "committedPages": {
+    "bitmapBase": 695500640,
+    "bitmapBaseHex": "0x29747f60",
+    "bitmapBytes": 32768,
+    "pageBytes": 16384,
+    "predicate": "(byte[695500640 + (address >>> 17)] >>> ((address >>> 14) & 7)) & 1",
+    "check": "Validate unsigned nonzero bounded span and every covered16KiB page, not only endpoints. No commit calls are needed or permitted for a read-only capture.",
+    "exactPredicateExampleFunction": 22826,
+    "inlinePredicate": true,
+    "commitFunctionIndex": 22068
+  },
+  "mailbox": {
+    "start": 13686784,
+    "startHex": "0xd0d800",
+    "capacity": 2048,
+    "endExclusiveHex": "0xd0e000",
+    "bootFunctionIndex": 23307,
+    "bootProof": "Exact23307 calls22068(0xd00000,0x10000), then memory.fill(0xd00000,0,0x10000); requested interval lies wholly inside this committed/zeroed scratch block.",
+    "nearbyNativeUses": [
+      "0xd0c000..0xd0c5ff minimap temporary copies",
+      "0xd0d000..0xd0d080 minimap test record",
+      "0xd0e000 onwards coop records"
+    ],
+    "sourceAudit": "No declared native owner in requested interval found in runtime sources; all direct integer/memory-offset references in exact module show none in requested interval.",
+    "reservationConditions": [
+      "Pin exact module hash and refuse unsupported builds",
+      "Require whole interval zero before first claim, or exact current module/memory/generation ownership thereafter",
+      "Guard all mailbox writes inside the interval and validate current committed page",
+      "Use a single request/ack publication protocol and stale-generation rejection",
+      "Do not regard absence of direct references as universal proof against arbitrary computed pointer writes; never reuse this gap across other module hashes without audit"
+    ],
+    "memoryGrowWarning": "memory.grow alone does not reserve ownership against runtime sbrk. Do not copy the full-tuner allocation pattern without an allocator reservation proof."
+  },
+  "sources": [
+    "combined-v033-integration/tools/extract-next-functions.cjs (hash-pinned original bytes)",
+    "research/earlier-braking-v017/next-f17087.wat",
+    "research/earlier-braking-v017/route-corner-x86.txt",
+    "research/opponent-handoff-current/SPEED2.EXE (static objdump only)",
+    "research/upstream/runtime/cpu.h:591-595",
+    "research/upstream/runtime/web/main_web.c:85-86",
+    "research/upstream/runtime/splitscreen_mem.h",
+    "research/upstream/runtime/split_minimap.inc",
+    "research/upstream/runtime/coop.c:63-66"
+  ],
+  "verificationScope": "Static exact-module and retail disassembly inspection. No live capture/gameplay, native world execution, production/candidate code edits, or control/GPS changes."
+}

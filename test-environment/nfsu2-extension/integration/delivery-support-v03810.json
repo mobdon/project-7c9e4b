@@ -1,0 +1,33 @@
+{
+  "version": "0.38.10",
+  "files": {
+    "native/build-paced.cjs": "6a7401c972ac0c491a961e1c59fb9170759c0ab7ec215f0bc3e0171ecb772604",
+    "native/catchup-tests-v03810.json": "094f6d2785db79e2e05c968360176416b924c7f06d276ed0d4be3424d24749e8",
+    "native/catchup-tests-v03810.txt": "6476948c027fd37b8487e562361a6d9811536c2ddda6fdec32f7403319ef73aa",
+    "native/paced-build.json": "442ce7e828203bdbdf1c112679ad686187522859e8ea5a8148b1f1fa7d623f72",
+    "native/paced-catchup.js": "17ad31a42365f3d7b668e44a197f3f1fe90c6f77f0c315dd6897fce8e0cea7ca",
+    "native/paced-catchup.template.js": "1b244b0bd495e8a1b543de5ab3fe1d28843416623bd24dedb7b93970b9b49bba",
+    "native/paced-plans.json": "f5971d93d78f2b5275b317c71203ec5f767c167ecd9af21c6d059f907a13d36b",
+    "native/paced-publisher.cjs": "3ac5d3c5a801933201e65d4d282973b8611e47bf47c06c0efb811cbcaf77a895",
+    "native/paced-tests-v03810.json": "7d0f5b08790098be74cf21ac3a525793cfdd7971897090b3cd2771a0d2c61c71",
+    "native/paced.test.cjs": "ae34c76ec85df500f95bd210d14e901c845211df7b452534b510a154f304ecfb",
+    "native/runtime-cpu-v03810.test.cjs": "de75da1f3d233d1ab548de11a18c08b9a2ca488eabe4db794e4e0f6ae3450285",
+    "native/verify-catchup-v03810.cjs": "08f9ea3bc69522db8c8e39888adec2da06176b79e36410e2b72f2d88ac18b325",
+    "tests/catchup-shortcut-loader.test.cjs": "e5a9f3443cb8a7fa037aa443a7eaab9fb6f6ed664a655f7b9a8946c11799774f",
+    "tests/package-release.test.cjs": "c32b83d7ef435f77f539164c51e34ca6a76523bc4e746d1305067f5235319252",
+    "tests/runtime-cpu-v03810.test.cjs": "3abb34772377fc3ef550d6036a0267ef6ab724d2ea0f3271bc013c5466536e03",
+    "tools/run-canonical-v03810.cjs": "70dfcf3c87901b77464137c6c964048b4c42e48a885c20ef3d3aa116604a32d9",
+    "tools/verify-release-modules-v03810.cjs": "a4f9721169c04a9daef2b95153d21a422a814b80ae812d69d20cd510aa81b81e",
+    "verification/baseline-source-desktop-v03810.json": "1aea8fd8004fd32bc2809d9fb88756e0bb702e5b8c00693eb51e222a76fb0876",
+    "verification/baseline-support-v03810.json": "173f0bbc1472619ba9fcfa345223b5ef386d46173c86a4b7c15ee8eda4a0eaab",
+    "verification/canonical-suite-v03810-2026-11-11T04-04-23-429Z.json": "b501a1db3f156bd92d733174d908aa3861f929b6fb80f757da48679c1cbe0fbc",
+    "verification/canonical-suite-v03810-2026-11-11T04-04-23-429Z.txt": "d5d9a3c38104c77d9fcb2fd02fa82eaf05653fd96eec58fb0b0f84cc08c172b7",
+    "verification/canonical-suite-v03810-final-result.json": "b501a1db3f156bd92d733174d908aa3861f929b6fb80f757da48679c1cbe0fbc",
+    "verification/final-suite-v03810-final-files.json": "523d8cee294f5e3ddc9e9ac2812b32fb2a2162af2310a02d88f8c171c2ed2fa1",
+    "verification/final-suite-v03810-final.txt": "d5d9a3c38104c77d9fcb2fd02fa82eaf05653fd96eec58fb0b0f84cc08c172b7",
+    "verification/live-regression-v03810-run34.json": "d92e4b74150ae68709d9c0cca1b8bfa9fe680c3de7758b7ed7e8debff948713e",
+    "verification/live-regression-v03810-run35.json": "539b0749bb039eb835a439bc2340c67737fc5c4735d058d1758c9edec6d45b43",
+    "verification/release-modules-v03810-final.json": "f094c70fe8733a9fcbd1fdeeb64cbcf9b98c4d805305a129c5dad5bfce025bf5",
+    "verification/source-reviewed-v03810-final.json": "0098e21b2e967da489821bd92b35fe159c39da865077db252845b9255fecc97a"
+  }
+}

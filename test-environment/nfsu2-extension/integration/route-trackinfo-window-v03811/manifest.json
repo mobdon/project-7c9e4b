@@ -1,0 +1,165 @@
+{
+  "schema": "nfsu2-trackinfo-window-candidate-v03811",
+  "generatorSha256": "4334a6b8524a77d0b956d1f4fa48177f92463c5eae89d1f331be2de5091ee554",
+  "profiles": [
+    {
+      "file": "8abf9be8.json",
+      "sha256": "1755327afe524f95d5660240c2b2ea1f0e15cb24cc0083202d49a1e8ced44e43",
+      "receipt": {
+        "schema": "nfsu2-trackinfo-guest-window-v03811",
+        "moduleHash": "14074507a84d43365610feae3a8fad80f4637b891e2ed03239460b104f986cbd",
+        "revision": "8abf9be8",
+        "helperIndex": 24222,
+        "helperName": "fwg_context",
+        "helperBytes": 1622,
+        "baselineHelperSha256": "5b8c84ece5f1674f27d852addf7f4097788c6ac479e98747afd38c2843d8bd10",
+        "candidateHelperSha256": "8596837b21fb416bf8db43f3c82b9a01525e12aaac1b56053810e998ceb97ccc",
+        "changedByteOffsets": [
+          1112
+        ],
+        "trackInfoGuestPointerSource": 8928684,
+        "trackInfoBytes": 140,
+        "spanCalleeBefore": 24219,
+        "spanCalleeAfter": 24206,
+        "policyRangeSha256": "c510bd1ae6614fa799166b85629a5cd83c8c79cb31854b324a71b27ce4f7ba90",
+        "windowControl": 695778944,
+        "windowLow": 1342177280,
+        "windowHigh": 2147352576,
+        "originalNativeBodiesChanged": 0,
+        "otherHelperBodiesChanged": 0,
+        "newHelpers": 0,
+        "newGlobals": 0,
+        "newHooks": 0,
+        "liveVerified": false
+      }
+    },
+    {
+      "file": "93cfc6e9.json",
+      "sha256": "14408715b8f83dea30d283beeaa857807f57ea25cc1e6bcbf79162680cf5d33a",
+      "receipt": {
+        "schema": "nfsu2-trackinfo-guest-window-v03811",
+        "moduleHash": "e03eca29aa8cba3ac4a96836ad3d86dd5eb8258704c0e6260ecc5ef955536a03",
+        "revision": "93cfc6e9",
+        "helperIndex": 24251,
+        "helperName": "fwg_context",
+        "helperBytes": 1622,
+        "baselineHelperSha256": "ae6292cbd27a637f870bab4383eb328ec114a7dc484c26a2528834827c20b3ce",
+        "candidateHelperSha256": "7efc1f2d36ef7bc011a6ad68fe7de6b9b0cf97a94462dc7d421ca2d9163c2cba",
+        "changedByteOffsets": [
+          1112
+        ],
+        "trackInfoGuestPointerSource": 8928684,
+        "trackInfoBytes": 140,
+        "spanCalleeBefore": 24248,
+        "spanCalleeAfter": 24235,
+        "policyRangeSha256": "8f7b92d3d1d40cbafd25d1150144ee6cb35446120fcca2f6942685636621fd36",
+        "windowControl": 695784176,
+        "windowLow": 1342177280,
+        "windowHigh": 2147352576,
+        "originalNativeBodiesChanged": 0,
+        "otherHelperBodiesChanged": 0,
+        "newHelpers": 0,
+        "newGlobals": 0,
+        "newHooks": 0,
+        "liveVerified": false
+      }
+    },
+    {
+      "file": "aa2429fb.json",
+      "sha256": "a1d03899007bfc48dfca33d8b8810252e72ab178175713b1a2834151bf203daf",
+      "receipt": {
+        "schema": "nfsu2-trackinfo-guest-window-v03811",
+        "moduleHash": "a220e667d38c0a6509c1507ad3ca9c6fddeb2220b429bf28707d7ca8cbbc42c8",
+        "revision": "aa2429fb",
+        "helperIndex": 24259,
+        "helperName": "fwg_context",
+        "helperBytes": 1625,
+        "baselineHelperSha256": "b77099da356626122838e96ed0338bde5ea83ef2427dbbc1f245951a609f5b0c",
+        "candidateHelperSha256": "d48d243fca3d51b52aff6182dd131a0705e340067ae1329d99bafc7cab6ce073",
+        "changedByteOffsets": [
+          1115
+        ],
+        "trackInfoGuestPointerSource": 8928684,
+        "trackInfoBytes": 140,
+        "spanCalleeBefore": 24256,
+        "spanCalleeAfter": 24243,
+        "policyRangeSha256": "d55463ad80bb5c86b84928794d521c10b7d97c19a3e116edc877564f8b3bffce",
+        "windowControl": 695785168,
+        "windowLow": 1342177280,
+        "windowHigh": 2147352576,
+        "originalNativeBodiesChanged": 0,
+        "otherHelperBodiesChanged": 0,
+        "newHelpers": 0,
+        "newGlobals": 0,
+        "newHooks": 0,
+        "liveVerified": false
+      }
+    },
+    {
+      "file": "15e5958f.json",
+      "sha256": "a73457efc0dcfebf6f31e93474eff937852edd28d61db656843f270aa6208364",
+      "receipt": {
+        "schema": "nfsu2-trackinfo-guest-window-v03811",
+        "moduleHash": "f88fc7a0fe3082e20814f705635410d046fcdfe053eb70d65c49dec7583105b9",
+        "revision": "15e5958f",
+        "helperIndex": 24259,
+        "helperName": "fwg_context",
+        "helperBytes": 1625,
+        "baselineHelperSha256": "b77099da356626122838e96ed0338bde5ea83ef2427dbbc1f245951a609f5b0c",
+        "candidateHelperSha256": "d48d243fca3d51b52aff6182dd131a0705e340067ae1329d99bafc7cab6ce073",
+        "changedByteOffsets": [
+          1115
+        ],
+        "trackInfoGuestPointerSource": 8928684,
+        "trackInfoBytes": 140,
+        "spanCalleeBefore": 24256,
+        "spanCalleeAfter": 24243,
+        "policyRangeSha256": "d55463ad80bb5c86b84928794d521c10b7d97c19a3e116edc877564f8b3bffce",
+        "windowControl": 695785168,
+        "windowLow": 1342177280,
+        "windowHigh": 2147352576,
+        "originalNativeBodiesChanged": 0,
+        "otherHelperBodiesChanged": 0,
+        "newHelpers": 0,
+        "newGlobals": 0,
+        "newHooks": 0,
+        "liveVerified": false
+      }
+    },
+    {
+      "file": "943ee537.json",
+      "sha256": "2c9848ce08a1e10c82e1dde6c3a8a0fe7d80766d8db18bd23bdadb94189d5855",
+      "receipt": {
+        "schema": "nfsu2-trackinfo-guest-window-v03811",
+        "moduleHash": "c000f8f9002762f4274f173c81678772c456b1a696f3b69751fc6e91118fe391",
+        "revision": "943ee537",
+        "helperIndex": 24257,
+        "helperName": "fwg_context",
+        "helperBytes": 1625,
+        "baselineHelperSha256": "438b4cbe982fa89167827518a5fbc23e306ae216d8dffd54473f9bd881a72de9",
+        "candidateHelperSha256": "089207a1157c8bbe3f8962a547daaa051882da71394b802e029c084d3a656199",
+        "changedByteOffsets": [
+          1115
+        ],
+        "trackInfoGuestPointerSource": 8928684,
+        "trackInfoBytes": 140,
+        "spanCalleeBefore": 24254,
+        "spanCalleeAfter": 24241,
+        "policyRangeSha256": "7abcb4c0952c468441758dd3af07100a1b5f3093fd166ee06ba8f64aa4ed2b57",
+        "windowControl": 695785040,
+        "windowLow": 1342177280,
+        "windowHigh": 2147352576,
+        "originalNativeBodiesChanged": 0,
+        "otherHelperBodiesChanged": 0,
+        "newHelpers": 0,
+        "newGlobals": 0,
+        "newHooks": 0,
+        "liveVerified": false
+      }
+    }
+  ],
+  "codebookSha256": "6e0bbd077412dbe2e810861b2c8a36799c98a2ebdee7191b8770a3d1c29888ad",
+  "originalNativeBodiesChanged": 0,
+  "wholeRaceChecked": false,
+  "liveVerified": false
+}

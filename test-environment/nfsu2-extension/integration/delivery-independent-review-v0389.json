@@ -1,0 +1,41 @@
+{
+  "version": "0.38.9",
+  "kind": "independent narrow read-only delivery-script review",
+  "reviewer": "catchup_physics",
+  "checkedAt": "2026-11-11T03:45:45.711548+00:00",
+  "result": "passed",
+  "findings": [],
+  "deliveryScriptSha256": "3047009653db64a428433ea52c43733e8de7ee7526c9085e26c4f4f591b5909a",
+  "supportManifestSha256": "72105d007de06be329569b26761c09ef4cfadf9f4b8028e0d585bbc188c7328f",
+  "receiptBindings": {
+    "nativeBuildSha256": "e15a6ecfc6b7160965d32542f8ce3c36fea2b32ef8ec1aa5c13597c6e4e98347",
+    "nativeBehaviorSha256": "587f0f07de7b96683af8e9c3961ba4f838ae0543ca64c2872afe91d7289b58a2",
+    "twelveModuleAuditSha256": "ec4fbd8f0e2b439d85ee690d435a33db64e708882b1676480baa271e607afdfe"
+  },
+  "checks": {
+    "syntaxParsedWithoutMainExecution": true,
+    "readOnlyVerifyReleasePassed": true,
+    "canonicalReceipt2744Of2744Across142FilesBoundToCurrentInputs": true,
+    "historicalEightTestExclusionsPreserved": true,
+    "native58CaseBehaviorReceiptBoundToCurrentBuildVerifierAndSources": true,
+    "twelveModuleReceiptBoundToCurrent57SourceFilesAndNineAuthoredPlans": true,
+    "stableSource57Desktop59AndSupport1004MatchPinnedBaseline": true,
+    "priorV0388ArchiveAndUnchangedPackerGuidePinsVerified": true,
+    "exact47SupportEntriesPlusScriptManifestAndReviewRequired": true,
+    "noSupportRemovalsOrDatedHistoricalChanges": true,
+    "freshArchiveAndThreeBackupDestinationsRequiredBeforeWrites": true,
+    "nativeInputsFrozenAndRecheckedBeforePackageAndDeliveryPhases": true,
+    "packageChecksumAndDesktopInventoryChecksRetained": true,
+    "stopOwnershipAndProtectedFeatureCoveragePreservedInReceipts": true,
+    "liveReloadRaceAndFullGameClaimsRemainFalse": true
+  },
+  "deliveryExecuted": false,
+  "stableFilesChanged": false,
+  "desktopFilesChanged": false,
+  "testsRerunByReviewer": false,
+  "liveGameTested": false,
+  "limitations": [
+    "This review checks the final delivery program, immutable inputs, and existing offline verification receipts; it does not execute delivery or rerun the test suites.",
+    "No live-game reload, driving, online lobby cycle, handling efficacy, or unattended streaming result is established."
+  ]
+}

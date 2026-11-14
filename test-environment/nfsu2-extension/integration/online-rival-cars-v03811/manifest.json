@@ -1,0 +1,36 @@
+{
+  "schema": "nfsu2-online-rival-contact-candidate-manifest-v03811",
+  "files": [
+    {
+      "file": "aa2429fb.json",
+      "sha256": "0b893eba3f6e3a7a8cd1b95160e3726c4eddf8e881ac20dcb7367d495621487c"
+    },
+    {
+      "file": "15e5958f.json",
+      "sha256": "c9e183a9089fa095e09343d2fe0bb1f630a4fff20fd0ff5441a0993b0f74994e"
+    },
+    {
+      "file": "943ee537.json",
+      "sha256": "06c37c57f1db73966cdfc26127fb5fe7183d29ef02f5c487366e1460ccda0680"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "file": "tools/online-rival-cars-v03811.cjs",
+      "sha256": "5b2375bca898896a19a08a27a871bcdb74cfe5b0337af3f646fd076ac29e1cac"
+    },
+    {
+      "file": "tools/build-online-rival-cars-v03811.cjs",
+      "sha256": "472476d7307e3786b3bffe4bb97d0579d9b5a3fd30ac57fc171add72712f69aa"
+    },
+    {
+      "file": "extension/cars.js",
+      "sha256": "0ea041252d7c9fa69392b847cfca5940f8d2c076203975cdb8a1eaa76f7448d4"
+    },
+    {
+      "file": "tests/online-rival-native-v03811.test.cjs",
+      "sha256": "a6df1b24cae9799d8b5486e95490c1c0af52da75e8af00d74e5839114987809d"
+    }
+  ],
+  "liveVerified": false
+}

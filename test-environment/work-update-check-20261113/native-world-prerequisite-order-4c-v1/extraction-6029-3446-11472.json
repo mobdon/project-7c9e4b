@@ -1,0 +1,93 @@
+{
+  "kind": "STATIC-COMBINED-ALLOCATOR-FAILURE-SOURCE-EXTRACTION",
+  "rawPath": "work-update-check-20261113/live-build-4c35f9f5/game.wasm",
+  "rawSha256": "40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8",
+  "candidatePath": "work-update-check-20261113/4c-private-composed-v2/candidate-composed.wasm",
+  "candidateSha256": "6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23",
+  "rows": [
+    {
+      "index": 6029,
+      "bodyBytes": 1195,
+      "rawBodySha256": "e00c24f82ec850e0c778ecd793fdc997c6a0ca41aa0a33fb4f422cd19948e45f",
+      "rawCandidateExact": true,
+      "sourceType": 0,
+      "directCallees": [
+        16894,
+        17207,
+        17521,
+        17678,
+        17834,
+        17977,
+        21833
+      ],
+      "isolatedSha256": "46b201269b92757f9018a27e0cfab9d2abf33cc9375446c74ec3012ffb39cbfd",
+      "decompilerStatus": 0,
+      "error": null,
+      "diagnostic": null,
+      "pseudocodeSha256": "c31f59fec8165abd43f157d2e7848af00bd803a7270874a2565d024e8fedc132"
+    },
+    {
+      "index": 3446,
+      "bodyBytes": 528,
+      "rawBodySha256": "6e41d3e9f421a5ee3ec1c76dff976f53f4afa93e93f37b5380538d493b2d9955",
+      "rawCandidateExact": true,
+      "sourceType": 0,
+      "directCallees": [
+        3603,
+        17834,
+        17977,
+        21833
+      ],
+      "isolatedSha256": "45037382fec67f84fe79123f377dc57b9ed1837fb3cc5bf8bcb7a1c033c4a872",
+      "decompilerStatus": 0,
+      "error": null,
+      "diagnostic": null,
+      "pseudocodeSha256": "2be8a64c50f99f23ae2a7a08258a8aa1f2d2807e4394afc30205e09c7e513b5e"
+    },
+    {
+      "index": 11472,
+      "bodyBytes": 26340,
+      "rawBodySha256": "4e97e90531e5ff290eb1fb19f8bf3da73c2ab7699535082bbc54cb9fbfcf27eb",
+      "rawCandidateExact": true,
+      "sourceType": 0,
+      "directCallees": [
+        119,
+        836,
+        1670,
+        1984,
+        5867,
+        6029,
+        11156,
+        11314,
+        11457,
+        11683,
+        11840,
+        11939,
+        12097,
+        12255,
+        12410,
+        12566,
+        13816,
+        13973,
+        14127,
+        14129,
+        14439,
+        14648,
+        14806,
+        15137,
+        21832,
+        23281
+      ],
+      "isolatedSha256": "0e56750ab169765056403291589057145b643eb0d1d482e16b7972ecceac0b9e",
+      "decompilerStatus": 1,
+      "error": null,
+      "diagnostic": "wasm://wasm/0018a7ce:1\r\n\r\n\r\nRuntimeError: table index is out of bounds\r\n    at wasm://wasm/0018a7ce:wasm-function[19]:0x167b\r\n    at wasm://wasm/0018a7ce:wasm-function[151]:0xaf42\r\n    at wasm://wasm/0018a7ce:wasm-function[151]:0xa6a2\r\n    at wasm://wasm/0018a7ce:wasm-function[151]:0xa6a2\r\n    at wasm://wasm/0018a7ce:wasm-function[151]:0xa6a2\r\n    at wasm://wasm/0018a7ce:wasm-function[151]:0xa6a2\r\n    at wasm://wasm/0018a7ce:wasm-function[151]:0xa6a2\r\n    at wasm://wasm/0018a7ce:wasm-function[151]:0xa6a2\r\n    at wasm://wasm/0018a7ce:wasm-function[151]:0xa6a2\r\n    at wasm://wasm/0018a7ce:wasm-function[151]:0xa6a2\r\n\r\nNode.js v26.13.0\r\n",
+      "pseudocodeSha256": null
+    }
+  ],
+  "nativeExecuted": false,
+  "wasmCompiledValidatedOrInstantiated": false,
+  "memoryCreated": false,
+  "runtimeHarnessOrProviderImported": false,
+  "extractorSha256": "e52bb20cae56a81fe3b4a28f418caa2c6d88d2516647da3b5f38cb7f0a9984d0"
+}

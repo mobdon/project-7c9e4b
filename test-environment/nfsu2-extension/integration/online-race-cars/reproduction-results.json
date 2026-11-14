@@ -1,0 +1,12 @@
+{
+  "baseline": "combined-v021-integration",
+  "patchWithoutConflicts": true,
+  "guardedProfileBuilderReproduced": true,
+  "changedFilesByteIdentical": 21,
+  "regeneratedCarFixture": true,
+  "fullTunerAndCornerPreserved": true,
+  "archiveByteIdentical": true,
+  "sha256": "bd6b0757620c3b8497555e3648a4ab26bd018536967756c99b04b454240b5248",
+  "size": 201365,
+  "temporaryCopyRemoved": true
+}

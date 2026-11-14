@@ -1,0 +1,2527 @@
+{
+  "kind": "SOURCE-ONLY-FIRST-LOW-MEMORY-WORLD-CORRUPTION-AND-GENUINE-PREREQUISITES",
+  "status": "FIRST-LOW-TRANSITION-SOURCE-CLOSED; FRESH-CONDITION-NOT-PREPARED-OR-EXECUTED",
+  "reviewer": "/root/extension_review/legacy_api_review",
+  "bodies": [
+    {
+      "index": 899,
+      "bytes": 2513,
+      "sha256": "bd13e73a2c72b10719b2146c3308222e9c625444096362004816995ff2cea956",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 602,
+          "function": 3686
+        },
+        {
+          "at": 808,
+          "function": 11691
+        },
+        {
+          "at": 877,
+          "function": 7940
+        },
+        {
+          "at": 979,
+          "function": 2243
+        },
+        {
+          "at": 1111,
+          "function": 11529
+        },
+        {
+          "at": 1360,
+          "function": 3686
+        },
+        {
+          "at": 1519,
+          "function": 8964
+        },
+        {
+          "at": 1830,
+          "function": 2243
+        },
+        {
+          "at": 1949,
+          "function": 11529
+        }
+      ]
+    },
+    {
+      "index": 1209,
+      "bytes": 136,
+      "sha256": "e684cb3dd5c2c0f8a5bdd726978815f42acd7be3a6fe6e41cd52b16f10a677d2",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 70,
+          "function": 13399
+        }
+      ]
+    },
+    {
+      "index": 1530,
+      "bytes": 2581,
+      "sha256": "fe2ad618a4e0f6f3d43c223edf53db1fef0d07523fc69868a792dff9365ab4dc",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 210,
+          "function": 2243
+        },
+        {
+          "at": 307,
+          "function": 8185
+        },
+        {
+          "at": 406,
+          "function": 13829
+        },
+        {
+          "at": 698,
+          "function": 17721
+        },
+        {
+          "at": 766,
+          "function": 8496
+        },
+        {
+          "at": 878,
+          "function": 21215
+        },
+        {
+          "at": 985,
+          "function": 21215
+        },
+        {
+          "at": 1092,
+          "function": 21215
+        },
+        {
+          "at": 1201,
+          "function": 21215
+        },
+        {
+          "at": 1265,
+          "function": 3686
+        },
+        {
+          "at": 1351,
+          "function": 12408
+        },
+        {
+          "at": 1529,
+          "function": 17721
+        },
+        {
+          "at": 1597,
+          "function": 8496
+        },
+        {
+          "at": 1709,
+          "function": 21215
+        },
+        {
+          "at": 1816,
+          "function": 21215
+        },
+        {
+          "at": 1923,
+          "function": 21215
+        },
+        {
+          "at": 2032,
+          "function": 21215
+        },
+        {
+          "at": 2096,
+          "function": 3686
+        },
+        {
+          "at": 2273,
+          "function": 21215
+        },
+        {
+          "at": 2459,
+          "function": 21215
+        }
+      ]
+    },
+    {
+      "index": 1690,
+      "bytes": 4520,
+      "sha256": "eaf39df99095d2eda85a61d26cec328a4333f9094c3476e1de3ec747dad44795",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 299,
+          "function": 3760
+        },
+        {
+          "at": 394,
+          "function": 3760
+        },
+        {
+          "at": 464,
+          "function": 15059
+        },
+        {
+          "at": 534,
+          "function": 15059
+        },
+        {
+          "at": 604,
+          "function": 15059
+        },
+        {
+          "at": 677,
+          "function": 12930
+        },
+        {
+          "at": 720,
+          "function": 18657
+        },
+        {
+          "at": 1414,
+          "function": 21215
+        },
+        {
+          "at": 1461,
+          "function": 9904
+        },
+        {
+          "at": 1498,
+          "function": 21215
+        },
+        {
+          "at": 1535,
+          "function": 21215
+        },
+        {
+          "at": 1572,
+          "function": 21215
+        },
+        {
+          "at": 1611,
+          "function": 5867
+        },
+        {
+          "at": 1703,
+          "function": 16775
+        },
+        {
+          "at": 1783,
+          "function": 14355
+        },
+        {
+          "at": 1820,
+          "function": 7789
+        },
+        {
+          "at": 1857,
+          "function": 19503
+        },
+        {
+          "at": 1941,
+          "function": 14355
+        },
+        {
+          "at": 1978,
+          "function": 7789
+        },
+        {
+          "at": 2015,
+          "function": 19503
+        },
+        {
+          "at": 2084,
+          "function": 19347
+        },
+        {
+          "at": 2109,
+          "function": 21215
+        },
+        {
+          "at": 2146,
+          "function": 13258
+        },
+        {
+          "at": 2183,
+          "function": 14961
+        },
+        {
+          "at": 2220,
+          "function": 15691
+        },
+        {
+          "at": 2257,
+          "function": 1530
+        },
+        {
+          "at": 2304,
+          "function": 8096
+        },
+        {
+          "at": 2384,
+          "function": 19347
+        },
+        {
+          "at": 2409,
+          "function": 21215
+        },
+        {
+          "at": 2446,
+          "function": 13258
+        },
+        {
+          "at": 2483,
+          "function": 14961
+        },
+        {
+          "at": 2520,
+          "function": 15691
+        },
+        {
+          "at": 2557,
+          "function": 1530
+        },
+        {
+          "at": 2604,
+          "function": 8096
+        },
+        {
+          "at": 2793,
+          "function": 23287
+        },
+        {
+          "at": 2885,
+          "function": 12460
+        },
+        {
+          "at": 2922,
+          "function": 10121
+        },
+        {
+          "at": 3255,
+          "function": 7321
+        },
+        {
+          "at": 3387,
+          "function": 7321
+        },
+        {
+          "at": 3428,
+          "function": 12794
+        },
+        {
+          "at": 3465,
+          "function": 4499
+        },
+        {
+          "at": 3504,
+          "function": 5867
+        },
+        {
+          "at": 3590,
+          "function": 10121
+        },
+        {
+          "at": 3923,
+          "function": 7321
+        },
+        {
+          "at": 4055,
+          "function": 7321
+        },
+        {
+          "at": 4096,
+          "function": 12794
+        },
+        {
+          "at": 4133,
+          "function": 4499
+        },
+        {
+          "at": 4172,
+          "function": 5867
+        },
+        {
+          "at": 4322,
+          "function": 13399
+        },
+        {
+          "at": 4403,
+          "function": 21215
+        }
+      ]
+    },
+    {
+      "index": 2256,
+      "bytes": 455,
+      "sha256": "69a120e5dcecddb83ae3d2efd766f412d0c8dbcd8fd1dbd89c15327d5c526ff1",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 2922,
+      "bytes": 1901,
+      "sha256": "959da188371102ccda8b2f171ba7ce115b914f83fd2ff0fcfb44168f65deda90",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 111,
+          "function": 14657
+        },
+        {
+          "at": 148,
+          "function": 16992
+        },
+        {
+          "at": 220,
+          "function": 17157
+        },
+        {
+          "at": 260,
+          "function": 2398
+        },
+        {
+          "at": 285,
+          "function": 21215
+        },
+        {
+          "at": 322,
+          "function": 5111
+        },
+        {
+          "at": 359,
+          "function": 2767
+        },
+        {
+          "at": 396,
+          "function": 17461
+        },
+        {
+          "at": 433,
+          "function": 15445
+        },
+        {
+          "at": 505,
+          "function": 9348
+        },
+        {
+          "at": 542,
+          "function": 4963
+        },
+        {
+          "at": 579,
+          "function": 229
+        },
+        {
+          "at": 616,
+          "function": 21215
+        },
+        {
+          "at": 653,
+          "function": 6323
+        },
+        {
+          "at": 690,
+          "function": 3859
+        },
+        {
+          "at": 727,
+          "function": 23735
+        },
+        {
+          "at": 764,
+          "function": 17736
+        },
+        {
+          "at": 801,
+          "function": 6354
+        },
+        {
+          "at": 838,
+          "function": 3705
+        },
+        {
+          "at": 875,
+          "function": 16036
+        },
+        {
+          "at": 912,
+          "function": 3862
+        },
+        {
+          "at": 949,
+          "function": 1786
+        },
+        {
+          "at": 986,
+          "function": 21215
+        },
+        {
+          "at": 1023,
+          "function": 7634
+        },
+        {
+          "at": 1060,
+          "function": 8103
+        },
+        {
+          "at": 1097,
+          "function": 16982
+        },
+        {
+          "at": 1134,
+          "function": 17640
+        },
+        {
+          "at": 1171,
+          "function": 12461
+        },
+        {
+          "at": 1208,
+          "function": 3096
+        },
+        {
+          "at": 1245,
+          "function": 15219
+        },
+        {
+          "at": 1282,
+          "function": 15061
+        },
+        {
+          "at": 1319,
+          "function": 16000
+        },
+        {
+          "at": 1356,
+          "function": 15687
+        },
+        {
+          "at": 1393,
+          "function": 6000
+        },
+        {
+          "at": 1563,
+          "function": 2455
+        },
+        {
+          "at": 1791,
+          "function": 19439
+        }
+      ]
+    },
+    {
+      "index": 3321,
+      "bytes": 931,
+      "sha256": "3ebf39d41959c76fd2b3dc2cb6a08eb6cc37301681a6e03b40202c77c723e7ad",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 85,
+          "function": 11472
+        },
+        {
+          "at": 252,
+          "function": 3446
+        },
+        {
+          "at": 311,
+          "function": 6029
+        },
+        {
+          "at": 483,
+          "function": 3446
+        },
+        {
+          "at": 542,
+          "function": 6029
+        },
+        {
+          "at": 789,
+          "function": 3446
+        },
+        {
+          "at": 848,
+          "function": 6029
+        }
+      ]
+    },
+    {
+      "index": 3686,
+      "bytes": 43,
+      "sha256": "a2d626270b1b8b88dcff8b126d5da46cb185f3558bf8d623c3f9a530c087739b",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 3760,
+      "bytes": 526,
+      "sha256": "1a0a078a082231b424633ed605a97b2c2b0d9e579eecf99b11fb2fb5dfaa8341",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 57,
+          "function": 17834
+        },
+        {
+          "at": 276,
+          "function": 21833
+        },
+        {
+          "at": 453,
+          "function": 3917
+        },
+        {
+          "at": 490,
+          "function": 17977
+        }
+      ]
+    },
+    {
+      "index": 4032,
+      "bytes": 1359,
+      "sha256": "f4ab42fb2ac015ec50a11612395cfa82387726e224bc46c4bd5491bc2bc5ff3d",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 214,
+          "function": 3760
+        },
+        {
+          "at": 684,
+          "function": 21832
+        },
+        {
+          "at": 856,
+          "function": 8185
+        },
+        {
+          "at": 966,
+          "function": 18829
+        }
+      ]
+    },
+    {
+      "index": 4446,
+      "bytes": 2145,
+      "sha256": "c5e4904e96278fc8030d78a780e8a45eb721b0652371cd10c1cb9389f731cb52",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 185,
+          "function": 16780
+        },
+        {
+          "at": 371,
+          "function": 9292
+        },
+        {
+          "at": 445,
+          "function": 16780
+        },
+        {
+          "at": 531,
+          "function": 16937
+        },
+        {
+          "at": 690,
+          "function": 4420
+        },
+        {
+          "at": 883,
+          "function": 3686
+        },
+        {
+          "at": 1096,
+          "function": 9292
+        },
+        {
+          "at": 1265,
+          "function": 16780
+        },
+        {
+          "at": 1351,
+          "function": 16937
+        },
+        {
+          "at": 1668,
+          "function": 16780
+        },
+        {
+          "at": 1754,
+          "function": 16937
+        },
+        {
+          "at": 1913,
+          "function": 4420
+        },
+        {
+          "at": 2050,
+          "function": 4420
+        }
+      ]
+    },
+    {
+      "index": 4499,
+      "bytes": 443,
+      "sha256": "ad9b8949028fa6052b408e91b1143f7ffe2bfb9e55828b0bea7c388a87240511",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 149,
+          "function": 5867
+        },
+        {
+          "at": 227,
+          "function": 4032
+        }
+      ]
+    },
+    {
+      "index": 4585,
+      "bytes": 568,
+      "sha256": "e1d2cb7eb1421d8fda405a611e8724438fecaac3e20ed9bd6aaa4e3708cb79d6",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 350,
+          "function": 4429
+        }
+      ]
+    },
+    {
+      "index": 4722,
+      "bytes": 1123,
+      "sha256": "d132afcda8e19a52bb44f5ee4badcfc8f7b6021e90d8de2fa03c55d0f59d955b",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 38,
+          "function": 8185
+        },
+        {
+          "at": 114,
+          "function": 8185
+        },
+        {
+          "at": 228,
+          "function": 8185
+        },
+        {
+          "at": 304,
+          "function": 8185
+        },
+        {
+          "at": 418,
+          "function": 8185
+        },
+        {
+          "at": 494,
+          "function": 8185
+        },
+        {
+          "at": 608,
+          "function": 8185
+        },
+        {
+          "at": 684,
+          "function": 8185
+        },
+        {
+          "at": 798,
+          "function": 8185
+        },
+        {
+          "at": 874,
+          "function": 8185
+        },
+        {
+          "at": 988,
+          "function": 8185
+        },
+        {
+          "at": 1064,
+          "function": 8185
+        }
+      ]
+    },
+    {
+      "index": 5214,
+      "bytes": 112,
+      "sha256": "2029972c12ac56b2aeabe8ba6aafb79ff78de875c297e767e7f105c79a99c4e0",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 5349,
+      "bytes": 141,
+      "sha256": "64071c8bca4e16a5887bafa1fec2c87277c0dd36eea2f14cad1a633e4d40d618",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 44,
+          "function": 1209
+        },
+        {
+          "at": 85,
+          "function": 4853
+        }
+      ]
+    },
+    {
+      "index": 5842,
+      "bytes": 192,
+      "sha256": "6facea72b4d3a24a8091116e63de601bfbce93077eab08ae9dd6b965d816dd69",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 115,
+          "function": 5684
+        }
+      ]
+    },
+    {
+      "index": 6000,
+      "bytes": 1307,
+      "sha256": "ef81b9bed462f1ed46c43341d408faae033b1a7fd5cea96f8fe84a7b506b9771",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 165,
+          "function": 5867
+        },
+        {
+          "at": 318,
+          "function": 3760
+        },
+        {
+          "at": 411,
+          "function": 5867
+        },
+        {
+          "at": 538,
+          "function": 5867
+        },
+        {
+          "at": 687,
+          "function": 3760
+        },
+        {
+          "at": 779,
+          "function": 5867
+        },
+        {
+          "at": 919,
+          "function": 5867
+        },
+        {
+          "at": 1068,
+          "function": 3760
+        }
+      ]
+    },
+    {
+      "index": 7321,
+      "bytes": 8534,
+      "sha256": "685db0097d670d121ff31c07b01fe6b63f818f85851ce84f977aa213c70973a3",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 192,
+          "function": 8185
+        },
+        {
+          "at": 245,
+          "function": 23286
+        },
+        {
+          "at": 353,
+          "function": 8185
+        },
+        {
+          "at": 406,
+          "function": 23286
+        },
+        {
+          "at": 882,
+          "function": 7235
+        },
+        {
+          "at": 1027,
+          "function": 7235
+        },
+        {
+          "at": 1172,
+          "function": 7235
+        },
+        {
+          "at": 1333,
+          "function": 7235
+        },
+        {
+          "at": 2249,
+          "function": 18657
+        },
+        {
+          "at": 2347,
+          "function": 18813
+        },
+        {
+          "at": 2516,
+          "function": 7235
+        },
+        {
+          "at": 2706,
+          "function": 7235
+        },
+        {
+          "at": 2846,
+          "function": 7235
+        },
+        {
+          "at": 2965,
+          "function": 18813
+        },
+        {
+          "at": 3134,
+          "function": 7235
+        },
+        {
+          "at": 3312,
+          "function": 7235
+        },
+        {
+          "at": 3452,
+          "function": 7235
+        },
+        {
+          "at": 3568,
+          "function": 18813
+        },
+        {
+          "at": 3748,
+          "function": 7235
+        },
+        {
+          "at": 4150,
+          "function": 18657
+        },
+        {
+          "at": 4248,
+          "function": 18813
+        },
+        {
+          "at": 4417,
+          "function": 7235
+        },
+        {
+          "at": 4601,
+          "function": 7235
+        },
+        {
+          "at": 4741,
+          "function": 7235
+        },
+        {
+          "at": 4860,
+          "function": 18813
+        },
+        {
+          "at": 5029,
+          "function": 7235
+        },
+        {
+          "at": 5207,
+          "function": 7235
+        },
+        {
+          "at": 5347,
+          "function": 7235
+        },
+        {
+          "at": 5463,
+          "function": 18813
+        },
+        {
+          "at": 5643,
+          "function": 7235
+        },
+        {
+          "at": 6011,
+          "function": 18813
+        },
+        {
+          "at": 6247,
+          "function": 7235
+        },
+        {
+          "at": 6379,
+          "function": 7235
+        },
+        {
+          "at": 6489,
+          "function": 18813
+        },
+        {
+          "at": 6713,
+          "function": 7235
+        },
+        {
+          "at": 6839,
+          "function": 7235
+        },
+        {
+          "at": 6943,
+          "function": 18813
+        },
+        {
+          "at": 7127,
+          "function": 7235
+        },
+        {
+          "at": 7293,
+          "function": 18813
+        },
+        {
+          "at": 7517,
+          "function": 7235
+        },
+        {
+          "at": 7643,
+          "function": 7235
+        },
+        {
+          "at": 7746,
+          "function": 18813
+        },
+        {
+          "at": 7970,
+          "function": 7235
+        },
+        {
+          "at": 8096,
+          "function": 7235
+        },
+        {
+          "at": 8193,
+          "function": 18813
+        },
+        {
+          "at": 8377,
+          "function": 7235
+        }
+      ]
+    },
+    {
+      "index": 7718,
+      "bytes": 261,
+      "sha256": "f54237bd5819aa6cad10804f2b89e135e033c0487bafda4dd51263ce43df569c",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 7789,
+      "bytes": 848,
+      "sha256": "f89e087a21ffa2032aefce93017c91e6da7f489d987c42ed6646fe5896fdd586",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 84,
+          "function": 23287
+        },
+        {
+          "at": 186,
+          "function": 8185
+        },
+        {
+          "at": 322,
+          "function": 8185
+        },
+        {
+          "at": 721,
+          "function": 8185
+        },
+        {
+          "at": 774,
+          "function": 23286
+        }
+      ]
+    },
+    {
+      "index": 7875,
+      "bytes": 248,
+      "sha256": "608dc1c91fafadb5d145c49f38a221aace14fb30b1f479ff2760841aa2061768",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 8096,
+      "bytes": 242,
+      "sha256": "a1b86cf63d5098177b2017152b08997d17f92a40d886b240f1d2503d0ec7c63e",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 8185,
+      "bytes": 179,
+      "sha256": "c5798a3fdc4a9873aac14e114bcad27460af5c9cc38c772301d917dea66ed482",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 9262,
+      "bytes": 592,
+      "sha256": "478670d4ba8810fdec6021f0a2935a20b5aaf434d7ff7e5dacebd1aa3935583a",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 170,
+          "function": 9605
+        },
+        {
+          "at": 260,
+          "function": 15536
+        },
+        {
+          "at": 400,
+          "function": 9605
+        },
+        {
+          "at": 490,
+          "function": 15536
+        }
+      ]
+    },
+    {
+      "index": 9434,
+      "bytes": 859,
+      "sha256": "726f635ef8a0d481ce781d485bc30f5f3827a9602562e165a212d8aa2ccbdc6a",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 9436,
+      "bytes": 391,
+      "sha256": "5cb0157079df8d46565802d11c11d79e61aa945956002abc1fcba843ef2b10e1",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 9904,
+      "bytes": 3498,
+      "sha256": "5ac4278c9714bb5d9716df37d5fc2115d6b8887ddee63f99268de1602e2cda0c",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 1305,
+          "function": 4585
+        },
+        {
+          "at": 1390,
+          "function": 9434
+        },
+        {
+          "at": 1987,
+          "function": 4585
+        },
+        {
+          "at": 2072,
+          "function": 9434
+        },
+        {
+          "at": 3190,
+          "function": 23286
+        },
+        {
+          "at": 3286,
+          "function": 23286
+        },
+        {
+          "at": 3382,
+          "function": 23286
+        }
+      ]
+    },
+    {
+      "index": 10121,
+      "bytes": 994,
+      "sha256": "4bfb610534c00afa56d8558a17a6a3c00ad625a9462c187dea3d7d205ec66977",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 102,
+          "function": 3686
+        },
+        {
+          "at": 245,
+          "function": 18829
+        },
+        {
+          "at": 354,
+          "function": 18829
+        },
+        {
+          "at": 469,
+          "function": 23287
+        },
+        {
+          "at": 559,
+          "function": 23287
+        },
+        {
+          "at": 824,
+          "function": 3686
+        },
+        {
+          "at": 907,
+          "function": 899
+        }
+      ]
+    },
+    {
+      "index": 10443,
+      "bytes": 1774,
+      "sha256": "18d96582a6dc518bf78b0a851232e1c2a951274df4ebf364949ebe9163afbecf",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 193,
+          "function": 7615
+        },
+        {
+          "at": 434,
+          "function": 10364
+        },
+        {
+          "at": 563,
+          "function": 8567
+        },
+        {
+          "at": 850,
+          "function": 10366
+        },
+        {
+          "at": 913,
+          "function": 10366
+        },
+        {
+          "at": 1058,
+          "function": 8880
+        },
+        {
+          "at": 1353,
+          "function": 15292
+        },
+        {
+          "at": 1588,
+          "function": 21833
+        }
+      ]
+    },
+    {
+      "index": 10843,
+      "bytes": 183,
+      "sha256": "5d8d0a7dcbf186cbe9bd267bd6bbdb1cd7cdbb28580a030a65b8145d75481c83",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 147,
+          "function": 8031
+        }
+      ]
+    },
+    {
+      "index": 11000,
+      "bytes": 157,
+      "sha256": "ccd01592f1c801b32c86db4cc5c27126f3da14ee571376d8e3a68f6112050b36",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 121,
+          "function": 8031
+        }
+      ]
+    },
+    {
+      "index": 11290,
+      "bytes": 141,
+      "sha256": "4b247df1648a9b9c881264b661d1812ddf51c92d9c438cc8c3492fc5edeb3814",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 44,
+          "function": 9436
+        },
+        {
+          "at": 85,
+          "function": 4853
+        }
+      ]
+    },
+    {
+      "index": 12408,
+      "bytes": 181,
+      "sha256": "1d1d346bcc5cef59f431c23e58d1cd4156cd48163608c7706504dc6ae0a95235",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 12460,
+      "bytes": 196,
+      "sha256": "5f84f84ca055d17a0be857186ff8a5b9167b32232dcd46e1b874a467dafe37c8",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 150,
+          "function": 12396
+        }
+      ]
+    },
+    {
+      "index": 12794,
+      "bytes": 47,
+      "sha256": "fc251f602fd4335af5b0f1c2be6cfef6a953cef37271c7e6d1b3a3117f9378fd",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 12930,
+      "bytes": 114,
+      "sha256": "b0c8bab570f2523f454872205fce427c267f40860ac800e55be7d1efa1fb6613",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 13258,
+      "bytes": 1059,
+      "sha256": "a6d69fd3cb1af54ee78e320a61907d1d397b6213cbbfeedd858ea8efd14a529e",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 168,
+          "function": 23287
+        },
+        {
+          "at": 255,
+          "function": 5867
+        },
+        {
+          "at": 403,
+          "function": 3760
+        },
+        {
+          "at": 538,
+          "function": 8185
+        },
+        {
+          "at": 614,
+          "function": 8185
+        },
+        {
+          "at": 721,
+          "function": 18829
+        },
+        {
+          "at": 786,
+          "function": 8185
+        },
+        {
+          "at": 862,
+          "function": 8185
+        },
+        {
+          "at": 969,
+          "function": 18829
+        }
+      ]
+    },
+    {
+      "index": 13347,
+      "bytes": 192,
+      "sha256": "e35350d9077862c4a44c73b4800920b51b792f7da16a945f372938c8fb6e125f",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 115,
+          "function": 13037
+        }
+      ]
+    },
+    {
+      "index": 13399,
+      "bytes": 73,
+      "sha256": "ca7b47449a8f2474155e1b18dd22108a95f943337b07f7cf2b24442dfcf0cf5b",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 13829,
+      "bytes": 375,
+      "sha256": "450adc8076a27779a9e394cb47e3115fc7853e0a2e9a11aa7e5816eeb46c96f2",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 223,
+          "function": 4446
+        },
+        {
+          "at": 276,
+          "function": 2256
+        }
+      ]
+    },
+    {
+      "index": 14338,
+      "bytes": 550,
+      "sha256": "bfa7243aac0b6ad00b0122cba3b5d31bfd1bd9b8d80df9aa6fb952a240fcb4a5",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 151,
+          "function": 14025
+        },
+        {
+          "at": 407,
+          "function": 14508
+        }
+      ]
+    },
+    {
+      "index": 14355,
+      "bytes": 1389,
+      "sha256": "da4984f891e9952f22ca4fc979593aa088fe0cf3bd9890cf63a943c3e94a0b2a",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 205,
+          "function": 5867
+        },
+        {
+          "at": 356,
+          "function": 3760
+        },
+        {
+          "at": 506,
+          "function": 8185
+        },
+        {
+          "at": 592,
+          "function": 18829
+        },
+        {
+          "at": 776,
+          "function": 8185
+        },
+        {
+          "at": 862,
+          "function": 18829
+        },
+        {
+          "at": 1032,
+          "function": 8185
+        },
+        {
+          "at": 1118,
+          "function": 18829
+        }
+      ]
+    },
+    {
+      "index": 14961,
+      "bytes": 214,
+      "sha256": "4a7837bcca795776019088b9c1a7c0215784e4bfd3d9269bb2c3a393f51018bb",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 15059,
+      "bytes": 344,
+      "sha256": "103ab7e8d8abf2c7f957d4ebe3d598071645cbac233b5f7535ad767d36113b2a",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 275,
+          "function": 8957
+        }
+      ]
+    },
+    {
+      "index": 15691,
+      "bytes": 47,
+      "sha256": "76a9c6b28773530f92bade6b65cd18beed18de3cfb6680b65d3c454033750203",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 16076,
+      "bytes": 2155,
+      "sha256": "19ad9425a63b57b0507d2beace41e1e5ed3439070c244dcefbff48cabaad44b1",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 145,
+          "function": 9503
+        },
+        {
+          "at": 883,
+          "function": 23278
+        },
+        {
+          "at": 1054,
+          "function": 23278
+        },
+        {
+          "at": 1217,
+          "function": 23278
+        },
+        {
+          "at": 1451,
+          "function": 15136
+        },
+        {
+          "at": 1711,
+          "function": 3333
+        },
+        {
+          "at": 2055,
+          "function": 15136
+        }
+      ]
+    },
+    {
+      "index": 16775,
+      "bytes": 1290,
+      "sha256": "80daa2c0641f849fa7a0f9b09a99cca2f2dbaac6d77060934775b388bd1d22b3",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 169,
+          "function": 5867
+        },
+        {
+          "at": 270,
+          "function": 1296
+        },
+        {
+          "at": 1011,
+          "function": 19427
+        },
+        {
+          "at": 1154,
+          "function": 5205
+        }
+      ]
+    },
+    {
+      "index": 17721,
+      "bytes": 159,
+      "sha256": "0c94587de9d5109f265f711cb02cf6351689c78a4ac77c6ae5917f3aa58e1d02",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 117,
+          "function": 16781
+        }
+      ]
+    },
+    {
+      "index": 18657,
+      "bytes": 177,
+      "sha256": "553c982bd1586d6064a2035afa0e6b08d76f99cb2b4a05f29d9d32d30bc29c2f",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 18829,
+      "bytes": 685,
+      "sha256": "0194c631f95f76987af19d9e82dc084f85dfe43f777bb6677325876b8e1937ac",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 188,
+          "function": 3686
+        },
+        {
+          "at": 292,
+          "function": 3686
+        },
+        {
+          "at": 454,
+          "function": 18673
+        }
+      ]
+    },
+    {
+      "index": 19503,
+      "bytes": 176,
+      "sha256": "98a9314feb48023ee1148ced3f223cb658b5eaf1e309b7a2c50c9b599d3f935d",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 98,
+          "function": 23287
+        }
+      ]
+    },
+    {
+      "index": 21991,
+      "bytes": 32,
+      "sha256": "9f26963a423b8d3c971e3da9d5647e77514814e4a430bbc33943cd0e69968858",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 15,
+          "function": 1690
+        }
+      ]
+    },
+    {
+      "index": 23287,
+      "bytes": 66,
+      "sha256": "38b6ed46ffbefad0a390baef3bf97f7b2d4eff3f99a31ac36786fd073c552fac",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 30,
+          "function": 23226
+        },
+        {
+          "at": 36,
+          "function": 22266
+        },
+        {
+          "at": 59,
+          "function": 1931
+        }
+      ]
+    },
+    {
+      "index": 23721,
+      "bytes": 2128,
+      "sha256": "2bdfccb40cb3c84f567d325c8cf12ef41297ffc03c8d852b074357d1b76e5c98",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 90,
+          "function": 23722
+        },
+        {
+          "at": 109,
+          "function": 753
+        },
+        {
+          "at": 164,
+          "function": 24635
+        },
+        {
+          "at": 177,
+          "function": 24816
+        },
+        {
+          "at": 407,
+          "function": 21833
+        },
+        {
+          "at": 491,
+          "function": 21833
+        },
+        {
+          "at": 722,
+          "function": 21833
+        },
+        {
+          "at": 889,
+          "function": 21833
+        },
+        {
+          "at": 1108,
+          "function": 21833
+        },
+        {
+          "at": 1216,
+          "function": 21833
+        },
+        {
+          "at": 1331,
+          "function": 21833
+        },
+        {
+          "at": 1459,
+          "function": 21833
+        },
+        {
+          "at": 1600,
+          "function": 21833
+        },
+        {
+          "at": 1734,
+          "function": 21833
+        },
+        {
+          "at": 1849,
+          "function": 21833
+        },
+        {
+          "at": 2014,
+          "function": 21833
+        },
+        {
+          "at": 2093,
+          "function": 24789
+        }
+      ]
+    }
+  ],
+  "pins": {
+    "work-update-check-20261113/live-build-4c35f9f5/game.wasm": "40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8",
+    "work-update-check-20261113/4c-private-composed-v2/candidate-composed.wasm": "6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23",
+    "research/current-native-image/SPEED2.EXE": "f9dd86c054878ce6276beb07c1fd61874f7a1e4bf1f241b084c65b73e24168a7",
+    "work-online-v0426/native-review/port-core.cjs": "381de0fcd29f2fd7bc257d0b04518b37f8f6575152e0a4d299bd6d832a8e454c",
+    "work-update-check-20261113/raw-d396-4c-source-map-v1/comparison.json": "4d0920a5a7e07a2d93b877c7a6e41832d7c437656d53781fd4d7f2ca2e849dc5",
+    "work-update-check-20261113/native-combined-observer-output-4c-v2/frozen-output-manifest.json": "3e95aa085395a912848274529b4a7c9f36ec6aa32d4ed9ae63bf42dfc8a7da26",
+    "work-update-check-20261113/current-native-combined-observer-4c-v2/replay-context-diagnostics.jsonl": "f6df0be866b41541b78c5185edc5615d6271b005842bd8005804a26cf78371cd",
+    "work-update-check-20261113/current-native-combined-observer-4c-v2/replay-context-diagnostics-raw.bin": "606f8638f142187c376e11d83967b49809a3812aac7e9934fb9872b435823ad3",
+    "work-update-check-20261113/current-native-combined-observer-4c-v2/replay-context-diagnostics-receipt.json": "814c65486dbc3022b56e21d982bb78246b33a5d4225394e42a1dd5ea6580663d",
+    "work-update-check-20261113/current-native-combined-observer-4c-v2/native-pool-allocations.jsonl": "937c3bc0537f69664f8f08331ae0e347b9953e27a75b30135947fb1adbad69ba",
+    "work-update-check-20261113/current-native-combined-observer-4c-v2/native-World-static-CPP-proof.json": "5debe3b2dd4dadc9f5a24c03c43936ae9781858ce148297e41f31d1cf3b064d9",
+    "work-update-check-20261113/current-native-combined-observer-4c-v2/constructor-events.jsonl": "cfc706d64b8b396dfb540008c59176989ae5e3e7539d0d50068017337652ee5a",
+    "work-update-check-20261113/current-native-combined-observer-4c-v2/world-initializer-stages.cjs": "03744fc35c2812a6daf40672055afbb90444ecd6e55f00982e1017c551a17e74",
+    "work-update-check-20261113/native-combined-observer-output-4c-v2/root-diagnostic-summary.json": "7dabe05b759958d4ad694c3c4d033dfca65dc009a98b80c034d36355c44dc77b",
+    "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/contract-v2.json": "5c32caa199b4543cc67fcf6c257be5084b16b69c6c3961ac4cee3ece5804d278",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/build-contract.cjs": "1f7a9c6d3cfd90937ea34a9184c40ee28c0ff0b353f1224368b5ef829d045901",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/callers-v2-6000-4722-5349.json": "4787b5b3b044b4492349206eb0d8b56d14ffcb035065e421536778e0f5a747be",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/callers.cjs": "3778056cffc97137d2614ec2b4e1deb80e78a55992268c67c033f79ab6c6dfeb",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/extract.cjs": "e52bb20cae56a81fe3b4a28f418caa2c6d88d2516647da3b5f38cb7f0a9984d0",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/extraction-11290-1209.json": "10a787d0085e5b0316b25a5da18f10207edef9f4078038a74121cb2d44cd71f6",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/extraction-13829-12408-8185-17721.json": "86348ca09cdb285d5491dc02da6b645549385c9528e1f47cf6b97d3b1485823e",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/extraction-1690-21991-16076-23721-10443.json": "c8e9467937b78e8f13f84731b27841db5c0242233fd8544deb1341fad6a00221",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/extraction-2256-4446.json": "c61c1bde2f95f8cc32cfd12825136900e5d083d6c58f76799475c0f520fb8852",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/extraction-2922.json": "30693f84831c84541901c6bf6cec9d5f1893768d2f77c8cf1f072bfc6c525031",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/extraction-3321-5842-6000-4722-7718-7875-10843-11000-13347-14338.json": "9d1aa69b24e624fcda019a9437c41770c4cb438d13d1597d563b050a7959d817",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/extraction-3760-15059-12930-18657-9904-16775-14355-7789-19503-13258-14961-15691-1530-8096-12460-10121-7321-12794-4499-13399.json": "c1fd531cedcbf7475efdecacdf622c6136a272608c7389ca8d7314b2ee72962f",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/extraction-4032-899-3686-18829-23287.json": "9e0e948671228ba5bb30fe54e35a89242bc1e39a836707eecc6e0e2d04438169",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/extraction-5214.json": "8d998b9a5dd8b4c27f0718d3cf8d2c333b4d955a5b20de8e7df82a13ccb8e976",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/extraction-5349-9262.json": "da4d1bf6b9ad28b63473b176db6c328d057b6a8bcdeab1697865290a24a62616",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/extraction-9436-9434-4585.json": "2a9b36b77d78c2d96f5c48af504d171dd054a55345e82806ff069e54d2eb5b40",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f10121.dcmp": "c58cdf1d66cf46a5355d0997de2789033ca0f53292bc35eaffbe27397567e849",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f10443.dcmp": "fae2f57c4952a544e17977e01fd882ff9d1e2202692b6106b51e31e57c7f2bb6",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f10843.dcmp": "c6bee86ce7026aaaeb495513aec91c16c2d13c67995dde8fae7ae632e92e7004",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f11000.dcmp": "9313ec87082aef4aa7f3005e501bef9b6fe8b8ad2e5b4965e043d4c0638ffeaa",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f11290.dcmp": "1e1a2c09a8e12586bc65b315bf9b0e7be7cd6d367ccec4a2c218f99e7d407e44",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f1209.dcmp": "2bee2f7fc892314564c96cd3888d080a7c67bc7babfdbd7b552d62d9db78b27d",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f12408.dcmp": "4de16669230495f3e4ed30ea8103feb7af830350554a28ca7e93bbe3fb1ed115",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f12460.dcmp": "f771c1643c77786e03bc39cc2612e1b04de1cf1955cbfeed6978e9b34beda47e",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f12794.dcmp": "e03a85cd7ce26961a5a425fc87b0c08f3ec3b9e84643b33ccef7b1876c6a7232",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f12930.dcmp": "ff9cc611ababb229382deea7a01dde6f36d8052f1a84d6fbc21f5f6076c6226c",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f13258.dcmp": "cc856e88aaa07d72333b6b51d5738698014cd24add7f84432dec7940692dfe82",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f13347.dcmp": "6e335931d8e2933090980fd6d5b30aee09d641cbf053ed952cee6a2aa4c99f18",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f13399.dcmp": "8e058bb7d967c14097ddd82b83749af01cafbf36e287edd7d118f386cbefa812",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f13829.dcmp": "f9f55aff173652ba7015999994269efb6e9b686da9dc3cb11c37769f8a2859f9",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f14338.dcmp": "e9be6271553c0e47896ee8cff783a830b6b9d84a88e2a68b0c3872b5390df784",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f14355.dcmp": "cd25c5eb9dc74290bfe78de75d43794e855713592c71126ab22d760010a83af7",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f14961.dcmp": "281f171d143bd3c0ca50769860967c648c4853d9b0a889ffc7e315603d0c6102",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f15059.dcmp": "58df5d71d0d3721576b20de5707d80528fb3a74f0cad22a65c67b6e648e44508",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f1530.dcmp": "c7249419e61e6c87cded2990739e257edadfdc5a7622976e969ffb1549f32f08",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f15691.dcmp": "432b1a6ec1d36f507eb7c183d512a057c774702c496f69340111e88c110aefcb",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f16076.dcmp": "d9922f8db9df2029933dff67e883684da1a6abf59b65c8359a19353ed66bfb8d",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f16775.dcmp": "68ac60614761aca0e1c6290e8bb082449b0ed842ce90ec678c3ae8e9ae76bd90",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f1690.dcmp": "0271ff33a38e1bd97845654e81facca807299932cdcbde3b2528a50d84a93f3c",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f17721.dcmp": "490f089c7c13587c13a76050df2669446ffc4e6bedd1a8ffbb7e910b3924f688",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f18657.dcmp": "c19693fd0ccb3ea802b816692c294dd55f94416ebf6886fc654db869a985e3d2",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f18829.dcmp": "cfb7e6109743b0e8311568494c90d975b56c54aebb3dd2a8294b73ce97654068",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f19503.dcmp": "bb10c043d79b5d03eb67d6a15464d4e758716eef36caf832a9d428eb2df52f9d",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f21991.dcmp": "843f994fa90546fadafc886cebf2bac1c506e2694e2d1a0d7e12193246f55734",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f2256.dcmp": "d95a90dcff97d9dd3fbb3e15f779df8a6fa6f95db39e213a2752dc0ecdbd66db",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f23287.dcmp": "ac0c3af05f03b4a325a70266227c8ce0a3a5414b5c4ea974825312f24c7b9ad6",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f23721.dcmp": "e46050df212e26f7fbf932f4d852c21dd7b6e2daeaa60d0c7791a54a8a9bc0f8",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f2922.dcmp": "826e4dc6cf4cf5ddcbc95be61767b13ee98a3ac775d8d10c4463026b673a539e",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f3321.dcmp": "98781b4c3f46492fe8d5125c48fa539a181566eb4387ba1144b10b9574ea60f5",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f3686.dcmp": "28d97567723e08c35ca795e5cde423ccd6da25dda19958c598e2c39d2754fc7d",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f3760.dcmp": "6755e86ba2b64a68825d452e4df04a5e0afe577adc1106253e8bcb0737164068",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f4032.dcmp": "17af0c21a2c669e6debd3f31558d45b55546ed4978dba739a546059d0050eb58",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f4446.dcmp": "ee83c16205909a9e2f11c94cfa0571526f6d1903949b719d20b68feae58faaf8",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f4499.dcmp": "c33f136dee6ea5f744991b6aa569c394b088356520c6cb86a445af2362d4ae79",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f4585.dcmp": "dbc9368a02a2ed392e15a7a0aa26e69fc8966b6cdf81cbf019614eed2ac91ad0",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f4722.dcmp": "94ea527ee2bc87c2529f5e6db19eeaea3f2fcfd4205dad34c8a5d0553e622980",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f5214.dcmp": "cff8764b0a18507fddc99b39b900c2107b20e74bb620432d4a851676728d0313",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f5349.dcmp": "2b2225739e60aec6ed985b555b59ecf76c5a36a57c3c11dbf4f8c1d0d9f2a006",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f5842.dcmp": "3cf6d7b0576d32d195d3aab30dd88c819079f428c16e5176f9e5a373e12092e1",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f6000.dcmp": "5224e24a4ff115eb497da01367db2bb8c410fe1daab00ff2fb85d4fee7e79af6",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f7321.dcmp": "90a4160ab7c1b77d1ee32bd5389a735c746c61a217cbe6727718dfd694e51978",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f7718.dcmp": "0aefa9d281cefdf8f49bf1998ec828f8da98d6025b3e4ec098f10b38ce610381",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f7789.dcmp": "1c6734f36ed652e1f9a9c206f7533b60e162220880803345f6db6492a2dd7791",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f7875.dcmp": "1f51d14da856723bfd1b34bc6bc4f16a006f85497d02c52ccbbcbbdb47c645ae",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f8096.dcmp": "32de21ed63b6a7d152a16e07bc6fa29f83d0657aca36902e80779aa893f42373",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f8185.dcmp": "e7c643fd82cb5d2ea76d8e4d8a837407e631683c89f0e645173284c79d17d758",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f899.dcmp": "cdd33905714228365b15c2771197b58bec7bc4b66b4b943b1f57617be968f8ab",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f9262.dcmp": "c5ac525426fa90cf2e9ca06ee2afcee826a93df74f8e335e32469798f161083d",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f9434.dcmp": "f5540fe8fde75865213eece18fbe25836428930c5787cd71d2a3678a1909d489",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f9436.dcmp": "7e4306c9a9cf2da045d83f2fdb91e144f52ca7543405c3e81666073e03d1763d",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/f9904.dcmp": "27f03d339b9f4a25117aefe38269f64a8f3118d1563eb1e3385f3bdfd34ba966",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/global-refs-8554352-8307196-8554372.json": "bc51785aa7dbffb3f6e1ee070da7995480a8a88adbf92b8be11861ad3ea755b7",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/global-refs.cjs": "36df9b9f3bb151c891fe2e8046d1a07733ca2b7a8827c94a5c1cd2e53172a5dc",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f10121.wasm": "97253326cdf51a6db4ce914c70e1d42fad4041457b6576b861562524df311975",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f10443.wasm": "40bffbbecfa5de7a75fff6444e8b3b1dae7b2224e3bcd9bd69627faf386cd6f2",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f10843.wasm": "4a1c6dbd4a158f3d7072699ef68c44c0310cc091ef38ea76b6a5f2fe3567c33d",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f11000.wasm": "cc4c4af5b3ce4218b8de3b8e5e1d6eb69d6b9de47e7a1d048e754b279c05c2a3",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f11290.wasm": "927f7eb1b6078c70810200bb37f68fe71c7cdd4ee54791c71af7d41b833111ff",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f1209.wasm": "6b9a5f3e486e39fa6a432b7b890ca495fa42488bbcfa699fe9d3f6787d684d18",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f12408.wasm": "b5adb05f2b0cd6a3b096c362b5ab8cfdb26c4844632e2c1ebabd674e03f35893",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f12460.wasm": "45e05447dc98105861a8629efdec2fca73b903d5be0e409164c86088f8fb58cb",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f12794.wasm": "4a1e1a0d3e1551768695da92b59e731c7345586d61efe77ecddadfd0fcf9c68c",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f12930.wasm": "5bf03ab27ed7c7d09ad269dd6d3371dc1e56d9035d7ee3929b03958db106e7df",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f13258.wasm": "0034c93ae46d46d748484586e715c2ef76ee8668892cc5ec4a0e8fafb7ce8f28",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f13347.wasm": "93f4daa32131cb2f9e08586f78f6c481b25a3d71d6b39faf32bbe7e1399bf931",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f13399.wasm": "c4daf7ca45c5e70a1666e7fedc6e219627add1a4c1ad99e3810accea12f73e30",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f13829.wasm": "fc68df781be6446c3ee7f5e1ed43da97bf81cd4fd0f733e5cfe229e964b55891",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f14338.wasm": "68a2ccc8d46ef3595c830fb93b746435d7d1ed734445dc8a406c19db59206ac6",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f14355.wasm": "1cff79849adb4cd4413183f7c8da9f75e4060de3c0ebb41936f933635e5fc98a",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f14961.wasm": "5a9f3021b4d8bf7203e9c5316d5d9dbb1f4619431b9d5f5425dda7d5c86cb341",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f15059.wasm": "e05e23f2bf1cca89d6313987c801083a66c89045ddb0af926f0a31f8134d447d",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f1530.wasm": "222dbf7ad6bd6c9a49d9c9261915545548bc4dc01bc29210be6f2c596fd25f65",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f15691.wasm": "d2e354297215b206f1400e3e46a74910244cc1f64c05aa390a7a31702592bb56",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f16076.wasm": "c01dcf639d3ca894ac780410d4a61684a09bfd67d84d907c74835e530b748fac",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f16775.wasm": "ef6df1dded0f8f4218c4a024051b16f7eb8573b9a9f3b7f90c7bdf7ed9404768",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f1690.wasm": "e581ab0451b555518404b8bd2614dfde8afc2166e6ae80432bc6717323d02dd3",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f17721.wasm": "67c0e62991d05b0c5454ef4c6391eec9ba3f6aa509db23beeb4a98aa0627d111",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f18657.wasm": "5c0aec5285dfbc7b43798477292ce83cad3d7d4d4bb2a4fe986d97a496a4715f",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f18829.wasm": "c2cfc0fe5fb766f2892e31c14c55400bd2aac15809ac55a7cb6fdea8cba89132",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f19503.wasm": "95e5fcdf262d860f5c4aa3f3bf46dbb48a0e6e45f7e8c43968ee6bb342cea0eb",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f21991.wasm": "deba1afc3b061ec111ebda2852aec5dd716e41bc8e4238f53e54c2fefbaaf367",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f2256.wasm": "64acd755720b87304a14060851981364566afd23d2c3d76137514721239cb4df",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f23287.wasm": "a3a607d6fa0ef378fb6bc37fa28f267bf2eb4853a5ee22d53fa991b1682473a5",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f23721.wasm": "94472f1d2d82b21ced37da797dd8328119c581b836d18c83fcadbcb765bb8ba4",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f2922.wasm": "e7f1122ad63bca6f89ff73827cd8977d147a0890389b4ca349400ba103c342f2",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f3321.wasm": "8e34af6acb070cdf3db70782fe1e333fbb4bd9dbff461d77998e3e0813247c4c",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f3686.wasm": "4112367c1b2b38913c285e146805626d8a898f94fcc2147f1892476bb6f09e2b",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f3760.wasm": "46606d82520963f4336c1855038f82a7d5e79abe52cf9b8d38a052d06209f010",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f4032.wasm": "c6ad7fbd71055406e949742a7e7c2c0cde0cb29ff7a87302e0976942e8983695",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f4446.wasm": "a87ca3ecf63792429f12382d6615e08496fee31e8bbe304195913067ed836e3f",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f4499.wasm": "2f1831c63919d4144bf9517f7e8ec53decffc69ed4e96dae45b0cad07b235104",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f4585.wasm": "06a63575cc83bed0d4060703b7b4c91ce3373985a17859294c0d22d9cfcebede",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f4722.wasm": "72fc9fcf13ae55214616933a8e16dc16c59423afdae4db844628be0f06a24f46",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f5214.wasm": "5bd29c0071f2065fc4a48f0de40980ee7128fe232e8ff6865b2df42b8735b513",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f5349.wasm": "6f67ebd5ad4b23c0a999e70cec5dd9fef81dd44c2f5c58cea9c571cca827d91d",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f5842.wasm": "7d53a6ed582c2f08bb173a6396522a3187a1ae3add2f54cdacabad29d387d8a2",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f6000.wasm": "5ac17067cb016bb65dead953a584fe29f7a530638e158505208cee62ba49f09f",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f7321.wasm": "aaadff2d5ee91be839c9092029c29fb350cc30f907c5abe87fc7032241fb6617",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f7718.wasm": "487a60d1f37f6048e0b911478b8e14f882597e308a1f66769cd7d66e05f3f18a",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f7789.wasm": "d1208d6b5302e0fd0bad2555a19fe7627f7b143078ab66376ec4eece9083f0c7",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f7875.wasm": "67fed4588e0680009997f2186df113bd3fdea20dce5a2d168b0d2ac305faf864",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f8096.wasm": "bdb4873a7bf7d8163e67a56bfd9fe24e84c2825356441fa3ba900d61cb575cab",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f8185.wasm": "509938bec5ab4b062a7d075ebe77b60a92fb6981083ec175b098ff644c8ebd52",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f899.wasm": "0e28d133707ebd0c7cc9866cbdd55eb78ab5aa2d852164c83dfa72dedaba3494",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f9262.wasm": "c91d9493119962a26f8d7234cf50c497ebf7909356fd6810d84a20327642d98e",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f9434.wasm": "6fb4211d2f7729fe5b9088b86e1407347a8796d07dc0546c293659cdb47e7001",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f9436.wasm": "9f16ad11c2814889a37146dc8f023ecd943e08f71377ef4f8e91755cb4d9b892",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/isolated-f9904.wasm": "532b8125aff7300c97bfa080852efcc16794a7091ea4cbb80a1d89af385d2d58",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/pe-context.json": "141d85657895c522d6c8b089968e2234c6582cdccfd1b6f5cdc4a7f6f11f182d",
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/pe-context.py": "b0f35d37cfb19600c0205b89e07b6ce462e8393c27051f4796b7f1b68e8865f4"
+  },
+  "observed": {
+    "frozenManifest": "work-update-check-20261113/native-combined-observer-output-4c-v2/frozen-output-manifest.json",
+    "verifiedFrozenFiles": 138,
+    "snapshots": 166,
+    "verifiedRawSpans": 1162,
+    "rawBytes": 123504,
+    "allFourSingletonsZeroInEverySnapshot": true,
+    "firstTransition": [
+      {
+        "sequence": 72,
+        "label": "current-native-whole-World-constructor21991-1690-before",
+        "globals": {
+          "replay": 0,
+          "checksum": 0,
+          "eventManager": 0,
+          "eventPool": 0
+        },
+        "lowMemoryRaw": {
+          "file": "replay-context-diagnostics-raw.bin",
+          "address": 0,
+          "length": 256,
+          "offset": 52824,
+          "sha256": "5341e6b2646979a70e57653007a1f310169421ec9bdd9f1a5648f75ade005af1",
+          "role": "literal-low-memory-not-a-native-object"
+        },
+        "words": {
+          "0": 0,
+          "4": 0,
+          "8": 0,
+          "12": 0,
+          "16": 0,
+          "20": 0,
+          "24": 0,
+          "28": 0,
+          "32": 0,
+          "36": 0,
+          "40": 0,
+          "44": 0,
+          "48": 0,
+          "52": 0,
+          "56": 0,
+          "60": 0,
+          "64": 0,
+          "68": 0,
+          "72": 0,
+          "76": 0,
+          "80": 0,
+          "84": 0,
+          "88": 0,
+          "92": 0,
+          "96": 0,
+          "100": 0
+        }
+      },
+      {
+        "sequence": 73,
+        "label": "current-native-whole-World-constructor21991-1690-after",
+        "globals": {
+          "replay": 0,
+          "checksum": 0,
+          "eventManager": 0,
+          "eventPool": 0
+        },
+        "lowMemoryRaw": {
+          "file": "replay-context-diagnostics-raw.bin",
+          "address": 0,
+          "length": 256,
+          "offset": 53568,
+          "sha256": "805a684759a8973f61784fc469b1b8020de92025629250f7f261703a29d51c86",
+          "role": "literal-low-memory-not-a-native-object"
+        },
+        "words": {
+          "0": 268749792,
+          "4": 2,
+          "8": 0,
+          "12": 0,
+          "16": 0,
+          "20": 0,
+          "24": 2,
+          "28": 0,
+          "32": 0,
+          "36": 0,
+          "40": 0,
+          "44": 2,
+          "48": 0,
+          "52": 0,
+          "56": 0,
+          "60": 0,
+          "64": 2,
+          "68": 0,
+          "72": 0,
+          "76": 0,
+          "80": 0,
+          "84": 2,
+          "88": 0,
+          "92": 0,
+          "96": 0,
+          "100": 0
+        }
+      }
+    ],
+    "poolEvidence": {
+      "event": 1032,
+      "activeStage": "current-native-whole-World-constructor21991-1690",
+      "pool": 268749744,
+      "entryEsp": 1572716,
+      "returnAddress": 6159712,
+      "poolHeaderHex": "aaaaaaaaaaaaaaaa000000000cd97800e0cb04100b000000000000000000000000000000881300001800000088130000f8cb0410aaaaaaaaaaaaaaaaaaaaaaaa",
+      "returnEvent": 1033,
+      "result": 268749792,
+      "returnedEip": 6159712,
+      "returnedEsp": 1572720,
+      "poolHeaderAfterHex": "aaaaaaaaaaaaaaaa000000000cd97800f8cb04100b00000001000000010000000000000088130000180000008813000000000000000000000000000000000000"
+    },
+    "managerProof": {
+      "initializer": 11290,
+      "beforeNativeHeaderHex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "wholeNativeReturned": true,
+      "eax": 0,
+      "esp": 1572868,
+      "eip": 305419896,
+      "residentStorage": {
+        "address": 8554352,
+        "bytes": 7384,
+        "dataAuthored": false
+      },
+      "beforeOnexit": {
+        "base": 268537920,
+        "end": 268537944
+      },
+      "afterOnexit": {
+        "base": 268537920,
+        "end": 268537948,
+        "registeredCallback": 7871408
+      },
+      "heads": [],
+      "headerHex": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "nativeFieldsOrCallbacksAuthored": false
+    },
+    "listProofs": [
+      {
+        "initializer": 6757,
+        "beforeNativeHeaderHex": "0000000000000000",
+        "wholeNativeReturned": true,
+        "eax": 0,
+        "esp": 1572868,
+        "eip": 305419896,
+        "residentStorage": {
+          "address": 8828328,
+          "bytes": 8,
+          "dataAuthored": false
+        },
+        "beforeOnexit": {
+          "base": 268537920,
+          "end": 268537992
+        },
+        "afterOnexit": {
+          "base": 268537920,
+          "end": 268537996,
+          "registeredCallback": 7873584
+        },
+        "heads": [
+          {
+            "address": 8828328,
+            "next": 8828328,
+            "previous": 8828328
+          }
+        ],
+        "headerHex": "a8b58600a8b58600",
+        "nativeFieldsOrCallbacksAuthored": false
+      },
+      {
+        "initializer": 6914,
+        "beforeNativeHeaderHex": "0000000000000000",
+        "wholeNativeReturned": true,
+        "eax": 0,
+        "esp": 1572868,
+        "eip": 305419896,
+        "residentStorage": {
+          "address": 8828096,
+          "bytes": 8,
+          "dataAuthored": false
+        },
+        "beforeOnexit": {
+          "base": 268537920,
+          "end": 268537996
+        },
+        "afterOnexit": {
+          "base": 268537920,
+          "end": 268538000,
+          "registeredCallback": 7873568
+        },
+        "heads": [
+          {
+            "address": 8828096,
+            "next": 8828096,
+            "previous": 8828096
+          }
+        ],
+        "headerHex": "c0b48600c0b48600",
+        "nativeFieldsOrCallbacksAuthored": false
+      }
+    ]
+  },
+  "firstLow0": {
+    "chain": [
+      21991,
+      1690,
+      1530,
+      2243,
+      13829
+    ],
+    "nativeWorldReceiver": 268913632,
+    "nativeNode": 268749792,
+    "source": "1530 allocates the actual 24B node from pool268749744 through2243 and passes it to13829.13829 reads tail from8575940, writes node to tail[0], sets8575940=node, node.next=8575936 and node.prev=tail. An omitted sentinel initializer leaves tail0, so tail[0] is literal address0.",
+    "inference": "The native journal allocation result exactly equals the first observed low0 value. Stage snapshots bound this to wholeWorld, but do not independently expose the internal store instruction timing.",
+    "missingGenuineProducer": {
+      "initializer": 5349,
+      "guestAddress": 7850592,
+      "storage": [
+        8575936,
+        8
+      ],
+      "wholeChain": [
+        5349,
+        1209,
+        13399
+      ],
+      "effect": "Original circular sentinel constructor sets both8575936 and8575940 to8575936; original wrapper registers cleanup0x781e30 via4853.",
+      "abi": {
+        "stackArguments": [],
+        "retImmediate": 0,
+        "totalEspDelta": 4
+      },
+      "existingAdjacent6288Storage": [
+        8575944,
+        56
+      ],
+      "adjacent6288DoesNotCoverSentinel": true,
+      "originalCppTableAddress": 8291204
+    }
+  },
+  "firstLowStatusWords": {
+    "chain": [
+      21991,
+      1690,
+      9904
+    ],
+    "receiver": 8554352,
+    "arrayPointerAddress": 8554372,
+    "countAddress": 8554384,
+    "source": "9904 appends fixed default rows to manager+20 using count at+32. The unguarded value2 store is body+2917 at array+count*20+4. With pointer0/count0 and the default table also uninitialized, the native loop produces value2 at4,24,44,64,84.13829 subsequently overwrites the record ID at0 with the actual pool node.",
+    "currentCpp11290": "Whole11290→9436 initializes resident7384B manager but leaves the first96B zero. It does not produce the three array allocations.",
+    "missingBackingProducer": {
+      "function": 6000,
+      "guestAddress": 4533952,
+      "entrySource": "0x452ec0 mov ecx,0x828770; jmp0x452c30",
+      "ordinaryCaller": {
+        "function": 2922,
+        "wasmCallBodyOffset": 1393,
+        "callReturnAddress": 5762527
+      },
+      "abi": {
+        "stackArguments": [],
+        "receiverFixedInternally": 8554352,
+        "retImmediate": 0,
+        "totalEspDelta": 4
+      },
+      "directDependencies": [
+        3760,
+        5867
+      ],
+      "allocations": [
+        {
+          "bytes": 5124,
+          "entries": 256,
+          "stride": 20,
+          "publishOffset": 16
+        },
+        {
+          "bytes": 60004,
+          "entries": 3000,
+          "stride": 20,
+          "publishOffset": 24
+        },
+        {
+          "bytes": 2004,
+          "entries": 100,
+          "stride": 20,
+          "publishOffset": 20
+        }
+      ],
+      "entryConstructor": {
+        "function": 5214,
+        "guestAddress": 4533152,
+        "effects": "id0,status3,count0; circular sentinel at entry+12/+16"
+      },
+      "allocationFailure": "Native failure branches publish0; do not replace a failure with host-authored backing.",
+      "resourcesLoaded": false,
+      "repeatCall": "Original startup producer is one-shot; do not invoke repeatedly or leak/replace owned arrays."
+    },
+    "missingTableProducer": {
+      "initializer": 4722,
+      "guestAddress": 7845616,
+      "originalCppTableAddress": 8290676,
+      "ordinarySource": "Original CRT initializer hashes resident strings with8185 and writes the original default hashes/names/function callbacks at8307192..8307311.",
+      "rangeUsedBy9904": [
+        8307196,
+        8307296
+      ],
+      "stackArguments": [],
+      "retImmediate": 0,
+      "totalEspDelta": 4,
+      "registersCleanup": false,
+      "returnValue": "Final original hash in EAX; no eax0 assertion is valid.",
+      "resourcesLoaded": false
+    },
+    "vectorConstants": [
+      {
+        "at": 249,
+        "hex": "fd0c1400000000010000a02b4500c02b4500",
+        "words": [
+          20,
+          256,
+          4533152,
+          4533184
+        ]
+      },
+      {
+        "at": 618,
+        "hex": "fd0c14000000b80b0000a02b4500c02b4500",
+        "words": [
+          20,
+          3000,
+          4533152,
+          4533184
+        ]
+      },
+      {
+        "at": 999,
+        "hex": "fd0c1400000064000000a02b4500c02b4500",
+        "words": [
+          20,
+          100,
+          4533152,
+          4533184
+        ]
+      }
+    ]
+  },
+  "minimalWholeCallProposal": {
+    "purpose": "Restore omitted native prerequisites in a fresh separately reviewed condition only. This is source evidence, not authorization or an execution-ready fixture.",
+    "originalCppRelativeOrder": [
+      4722,
+      11290,
+      5349
+    ],
+    "existing11290MustRemain": "Retain its genuine native initialization and cleanup registration.",
+    "new4722": "Add whole original4722 in original CPP order before11290. It is a data initializer with no onexit registration; preserve its actual EAX.",
+    "new5349": "Add whole original5349 at its original CPP relative location, after valid CRT/onexit prerequisites; observe actual registration, never author sentinel links.",
+    "new6000": "Invoke whole original6000 once after11290 and beforeWorld1690→9904, with genuine native heap/array-constructor support already available. Observe actual arrays/header counts and allocation failure, never author owned state.",
+    "excludes": "No instruction here initializes replay/event singletons, fixes later null controller members, or establishes a runnable complete startup."
+  },
+  "sharedWorldBranchReview": {
+    "scopeCorrection": "10121, the render+20636 stores,7321,12794 and4499 exist in the offline1690 branch already exercised byV2 as well as the network branch. They are not newly reached solely by moving the LAN/session/lifecycle block. Newly enabled network-specific work is parent-reviewed23287→8978732 plus12460.",
+    "f10121": {
+      "directDependencies": [
+        899,
+        3686,
+        18829,
+        23287
+      ],
+      "lists": [
+        {
+          "initializer": 6757,
+          "head": 8828328
+        },
+        {
+          "initializer": 6914,
+          "head": 8828096
+        }
+      ],
+      "emptyListMeaning": "3686 returns ECX sentinel; frozen genuine list heads equal their sentinels, so both object loops naturally skip in this condition. Preserve native producers and re-observe any fresh condition.",
+      "ownedPools": [
+        {
+          "stride": 100,
+          "count": 256,
+          "label": 8005452,
+          "flags": 0,
+          "publish": 8827760
+        },
+        {
+          "stride": 1296,
+          "count": 32,
+          "label": 8005432,
+          "flags": 0,
+          "publish": 8827764
+        }
+      ],
+      "sharedNativePoolSource": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/contract-v2.json",
+      "otherWrites": [
+        8826232,
+        8827776,
+        8826768
+      ],
+      "vectorConstants": [
+        {
+          "at": 417,
+          "hex": "fd0c82425b0064000000000100004c277a00",
+          "words": [
+            5980802,
+            100,
+            256,
+            8005452
+          ]
+        },
+        {
+          "at": 492,
+          "hex": "fd0c100500002000000038277a0000000000",
+          "words": [
+            1296,
+            32,
+            8005432,
+            0
+          ]
+        }
+      ]
+    },
+    "f12794": {
+      "effect": "Whole native flag9051256=1.",
+      "directDependencies": []
+    },
+    "f4499": {
+      "effect": "If8928872 is null, whole native5867 allocates1624B,4032 constructs it,4499 publishes actual result. Existing nonnull singleton is returned.",
+      "f4032": "Constructs203 eight-byte elements through3760, then scans original resident table8392416..8396671 and optional original strings. Original jump table6162152..6162179 must remain mapped; no external asset loading in this body.",
+      "vectorConstants": [
+        {
+          "at": 143,
+          "hex": "fd0c08000000cb00000050875900c0674300",
+          "words": [
+            8,
+            203,
+            5867344,
+            4417472
+          ]
+        }
+      ],
+      "resourcesLoaded": false
+    },
+    "runnableClaim": false
+  },
+  "guestMapping": [
+    {
+      "address": 4489312,
+      "old": {
+        "slot": 1600,
+        "index": 9904
+      },
+      "next": {
+        "slot": 1600,
+        "index": 9904
+      },
+      "sameIndex": true,
+      "exactBody": false,
+      "sameSignature": true,
+      "oldSha256": "6b4aadc2b13c6672f99d1c0728f76953fa11f271c9a091db7d3cc855db06621f",
+      "newSha256": "5ac4278c9714bb5d9716df37d5fc2115d6b8887ddee63f99268de1602e2cda0c"
+    },
+    {
+      "address": 4533152,
+      "old": {
+        "slot": 1698,
+        "index": 5214
+      },
+      "next": {
+        "slot": 1698,
+        "index": 5214
+      },
+      "sameIndex": true,
+      "exactBody": true,
+      "sameSignature": true,
+      "oldSha256": "2029972c12ac56b2aeabe8ba6aafb79ff78de875c297e767e7f105c79a99c4e0",
+      "newSha256": "2029972c12ac56b2aeabe8ba6aafb79ff78de875c297e767e7f105c79a99c4e0"
+    },
+    {
+      "address": 4533952,
+      "old": {
+        "slot": 1703,
+        "index": 6000
+      },
+      "next": {
+        "slot": 1703,
+        "index": 6000
+      },
+      "sameIndex": true,
+      "exactBody": true,
+      "sameSignature": true,
+      "oldSha256": "ef81b9bed462f1ed46c43341d408faae033b1a7fd5cea96f8fe84a7b506b9771",
+      "newSha256": "ef81b9bed462f1ed46c43341d408faae033b1a7fd5cea96f8fe84a7b506b9771"
+    },
+    {
+      "address": 4797952,
+      "old": {
+        "slot": 3161,
+        "index": 13829
+      },
+      "next": {
+        "slot": 3161,
+        "index": 13829
+      },
+      "sameIndex": true,
+      "exactBody": true,
+      "sameSignature": true,
+      "oldSha256": "450adc8076a27779a9e394cb47e3115fc7853e0a2e9a11aa7e5816eeb46c96f2",
+      "newSha256": "450adc8076a27779a9e394cb47e3115fc7853e0a2e9a11aa7e5816eeb46c96f2"
+    },
+    {
+      "address": 5723680,
+      "old": {
+        "slot": 7977,
+        "index": 5867
+      },
+      "next": {
+        "slot": 7977,
+        "index": 5867
+      },
+      "sameIndex": true,
+      "exactBody": true,
+      "sameSignature": true,
+      "oldSha256": "2c1060b18366ee0ec3d4893dcc1b976161dd4a94d363b5d3e3cb6b68edc507c3",
+      "newSha256": "2c1060b18366ee0ec3d4893dcc1b976161dd4a94d363b5d3e3cb6b68edc507c3"
+    },
+    {
+      "address": 6159664,
+      "old": {
+        "slot": 9871,
+        "index": 1530
+      },
+      "next": {
+        "slot": 9871,
+        "index": 1530
+      },
+      "sameIndex": true,
+      "exactBody": true,
+      "sameSignature": true,
+      "oldSha256": "fe2ad618a4e0f6f3d43c223edf53db1fef0d07523fc69868a792dff9365ab4dc",
+      "newSha256": "fe2ad618a4e0f6f3d43c223edf53db1fef0d07523fc69868a792dff9365ab4dc"
+    },
+    {
+      "address": 7717985,
+      "old": {
+        "slot": 15262,
+        "index": 3760
+      },
+      "next": {
+        "slot": 15262,
+        "index": 3760
+      },
+      "sameIndex": true,
+      "exactBody": false,
+      "sameSignature": true,
+      "oldSha256": "44c429312bb2b00d11edecf05d9113b1975a8471437c4a1cd31ca697f29e25cb",
+      "newSha256": "1a0a078a082231b424633ed605a97b2c2b0d9e579eecf99b11fb2fb5dfaa8341"
+    },
+    {
+      "address": 7845616,
+      "old": {
+        "slot": 18470,
+        "index": 4722
+      },
+      "next": {
+        "slot": 18470,
+        "index": 4722
+      },
+      "sameIndex": true,
+      "exactBody": true,
+      "sameSignature": true,
+      "oldSha256": "d132afcda8e19a52bb44f5ee4badcfc8f7b6021e90d8de2fa03c55d0f59d955b",
+      "newSha256": "d132afcda8e19a52bb44f5ee4badcfc8f7b6021e90d8de2fa03c55d0f59d955b"
+    },
+    {
+      "address": 7847296,
+      "old": {
+        "slot": 18512,
+        "index": 11290
+      },
+      "next": {
+        "slot": 18512,
+        "index": 11290
+      },
+      "sameIndex": true,
+      "exactBody": true,
+      "sameSignature": true,
+      "oldSha256": "4b247df1648a9b9c881264b661d1812ddf51c92d9c438cc8c3492fc5edeb3814",
+      "newSha256": "4b247df1648a9b9c881264b661d1812ddf51c92d9c438cc8c3492fc5edeb3814"
+    },
+    {
+      "address": 7850592,
+      "old": {
+        "slot": 18602,
+        "index": 5349
+      },
+      "next": {
+        "slot": 18602,
+        "index": 5349
+      },
+      "sameIndex": true,
+      "exactBody": true,
+      "sameSignature": true,
+      "oldSha256": "64071c8bca4e16a5887bafa1fec2c87277c0dd36eea2f14cad1a633e4d40d618",
+      "newSha256": "64071c8bca4e16a5887bafa1fec2c87277c0dd36eea2f14cad1a633e4d40d618"
+    },
+    {
+      "address": 7871408,
+      "old": {
+        "slot": 19229,
+        "index": 3321
+      },
+      "next": {
+        "slot": 19229,
+        "index": 3321
+      },
+      "sameIndex": true,
+      "exactBody": true,
+      "sameSignature": true,
+      "oldSha256": "3ebf39d41959c76fd2b3dc2cb6a08eb6cc37301681a6e03b40202c77c723e7ad",
+      "newSha256": "3ebf39d41959c76fd2b3dc2cb6a08eb6cc37301681a6e03b40202c77c723e7ad"
+    }
+  ],
+  "peEvidence": {
+    "file": "work-update-check-20261113/native-combined-null-owner-source-4c-v1/pe-context.json",
+    "cppAbsoluteReferences": [
+      {
+        "target": 7845616,
+        "section": ".data",
+        "address": 8290676,
+        "windowAddress": 8290660,
+        "windowHex": "50b6770070b6770090b67700b0b67700f0b6770040b8770050b8770070b8770090b87700",
+        "windowWords": [
+          7845456,
+          7845488,
+          7845520,
+          7845552,
+          7845616,
+          7845952,
+          7845968,
+          7846000,
+          7846032
+        ]
+      },
+      {
+        "target": 7850592,
+        "section": ".data",
+        "address": 8291204,
+        "windowAddress": 8291188,
+        "windowHex": "a0c87700c0c87700e0c8770000c9770060ca770080ca7700a0ca7700c0ca7700e0ca7700",
+        "windowWords": [
+          7850144,
+          7850176,
+          7850208,
+          7850240,
+          7850592,
+          7850624,
+          7850656,
+          7850688,
+          7850720
+        ]
+      },
+      {
+        "target": 7847296,
+        "section": ".data",
+        "address": 8290844,
+        "windowAddress": 8290828,
+        "windowHex": "00bd770020bd770040bd770060bd770080bd7700a0bd7700b0bd7700d0bd7700e0bd7700",
+        "windowWords": [
+          7847168,
+          7847200,
+          7847232,
+          7847264,
+          7847296,
+          7847328,
+          7847344,
+          7847376,
+          7847392
+        ]
+      }
+    ]
+  },
+  "limits": [
+    "No native/game code, WebAssembly APIs, memory instance, runtime, harness or provider was invoked by this analysis.",
+    "Earlier active-replay interpretations do not apply to this condition: replay8802488,checksum8802512,eventManager8978648,eventPool8978652 are zero in all166 snapshots.",
+    "Source attribution is supported by exact bodies and frozen raw transitions; internal store timing is not an additional recorded execution trace.",
+    "This report does not repair later null singletons/controllers or demonstrate online/client-report clearance. Fresh execution remains root-only after complete source review."
+  ],
+  "safety": {
+    "nativeExecuted": false,
+    "wasmCompiledValidatedOrInstantiated": false,
+    "memoryCreated": false,
+    "runtimeHarnessOrProviderImported": false,
+    "frozenFilesEdited": false,
+    "nativeStateAuthored": false
+  }
+}

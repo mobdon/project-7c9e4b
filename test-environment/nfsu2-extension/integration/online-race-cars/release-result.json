@@ -1,0 +1,30 @@
+{
+  "path": "/workspace/scratch/0d6b822176fd/nfsu2-extension/NFSU2-Driving-Tools-v0.22-Combined-Tuner-Online-Race-Candidate.zip",
+  "size": 201365,
+  "sha256": "bd6b0757620c3b8497555e3648a4ab26bd018536967756c99b04b454240b5248",
+  "files": [
+    "README.md",
+    "CHANGELOG.md",
+    "manifest.json",
+    "popup.html",
+    "diagnostics.js",
+    "walls.js",
+    "cars.js",
+    "current-profile.js",
+    "latest-profile.js",
+    "next-profile.js",
+    "signatures.js",
+    "signature-profile.js",
+    "signature-profile-latest.js",
+    "signature-profile-next.js",
+    "dyno-native-profile.js",
+    "dyno-native.js",
+    "ai.js",
+    "core.js",
+    "dyno-core.js",
+    "dyno.js",
+    "dyno-evaluator.js",
+    "dyno-full.js",
+    "page.js"
+  ]
+}

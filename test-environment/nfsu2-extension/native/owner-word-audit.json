@@ -1,0 +1,361 @@
+{
+  "version": "0.38.8",
+  "kind": "exact .7 reserved AI mailbox owner-word literal audit",
+  "auditCompleted": true,
+  "wordAvailable": false,
+  "candidateRejected": true,
+  "word": 13685220,
+  "offset": 228,
+  "insideExistingReservedAIWindow": [
+    13684992,
+    13685248
+  ],
+  "modules": [
+    {
+      "revision": "aa2429fb",
+      "completeModuleSha256": "cc8d3b46da22d6dad1a99de1e1c8c8a28d3782cfcd92d01fe722a7ee4c54baed",
+      "functionsScanned": 24232,
+      "functionsWithReservedWindowConstants": 19,
+      "reservedWindowConstants": 605,
+      "ownerWordLiteralOrNearbyDirectOffsetAccesses": 9,
+      "accesses": [
+        {
+          "index": 21212,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        }
+      ]
+    },
+    {
+      "revision": "15e5958f",
+      "completeModuleSha256": "314b47584891c237f8ce7826c3424f3e2c2610131542fdda6564b6e22288db71",
+      "functionsScanned": 24232,
+      "functionsWithReservedWindowConstants": 19,
+      "reservedWindowConstants": 605,
+      "ownerWordLiteralOrNearbyDirectOffsetAccesses": 9,
+      "accesses": [
+        {
+          "index": 21212,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        }
+      ]
+    },
+    {
+      "revision": "943ee537",
+      "completeModuleSha256": "73581fa5430fae6e6b2d7276b264deed29d0ec90232c4e6d0b6b402069e086fe",
+      "functionsScanned": 24230,
+      "functionsWithReservedWindowConstants": 19,
+      "reservedWindowConstants": 605,
+      "ownerWordLiteralOrNearbyDirectOffsetAccesses": 9,
+      "accesses": [
+        {
+          "index": 21212,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        },
+        {
+          "index": 22957,
+          "kind": "exact-word-address"
+        }
+      ]
+    }
+  ],
+  "runtimeFiles": [
+    {
+      "file": "aa-profile.js",
+      "sha256": "2b2e6a7e6a483a2c43ffa048c5f9716e67e7e246144443e91493c2e11ecadb46"
+    },
+    {
+      "file": "abf-profile.js",
+      "sha256": "4b4ff72bd169ce52230b27f806891a701a227bf10b37756f99036db50bbc584f"
+    },
+    {
+      "file": "ai.js",
+      "sha256": "c29d29578154882c7c7debd85a2c2edc221dd0cd482a08e1dc0c15f6ac77384d"
+    },
+    {
+      "file": "cars.js",
+      "sha256": "883aa3eebacb1c82174a9c5cc5309cb3fb813c8f063f95219a7de6a5c19c2426"
+    },
+    {
+      "file": "cd5-profile.js",
+      "sha256": "cf4b421b44fabfffb3a2d04850d814cd345ae83cf709630d91656e1a692d2336"
+    },
+    {
+      "file": "cf-profile.js",
+      "sha256": "8977c19bf52cc94501b55184aef5ad1e27296cd720e8be89aedd543367c9c53b"
+    },
+    {
+      "file": "city-pacing.js",
+      "sha256": "a43c8bb5d4a8881c402622083672b248726085167694cb63bdc8130068b16104"
+    },
+    {
+      "file": "core.js",
+      "sha256": "a418e603393bbe9d275ed848c8b0b393d31c284e1081b5c21111684cdc856061"
+    },
+    {
+      "file": "current-profile.js",
+      "sha256": "4249fc980c6281cd790121aef68dc25d6ff50b901a1eaeff8c77a4b1c05b836f"
+    },
+    {
+      "file": "d2fa-profile.js",
+      "sha256": "9f61bd1b65113cbabeddda544ddeecd778af1370f866fddf7001f374dce4e107"
+    },
+    {
+      "file": "diagnostics.js",
+      "sha256": "54d070a29d290e20bfb4598872e3e5e775c8ede5963170ceca4178ad67a38a4a"
+    },
+    {
+      "file": "dynamic-pacing.js",
+      "sha256": "d8a423473dc53609fc4ff9f98ebc9e91a485905443f2554dc34771a3288263d0"
+    },
+    {
+      "file": "dyno-core.js",
+      "sha256": "5c09f1c022866d39ee1e82f78eb5c771a656ba4a5770523df694cdf4f360acce"
+    },
+    {
+      "file": "dyno-evaluator.js",
+      "sha256": "7c13a568c3a20e1de51c9c7e0008c8ed1cdfe6e4d73271d85f2f4b6ec63994b2"
+    },
+    {
+      "file": "dyno-full.js",
+      "sha256": "e83ba6883ee06b475573a17c5e39419f0e30c69e7fc3da21376125c860cda5a3"
+    },
+    {
+      "file": "dyno-native-profile.js",
+      "sha256": "da9df4fe6d30b2a3115c7a2992526b39eaa9a110bf85fde8a03c49cb86bd9f4e"
+    },
+    {
+      "file": "dyno-native.js",
+      "sha256": "bc77061d101b3219430459793ce616ccfda0e4694e8de8ea8fd0795f47f69fdf"
+    },
+    {
+      "file": "dyno.js",
+      "sha256": "5fef7f5015f43066a3cfebaaea4452e94d4ea4e6e4f4f234876f5e4cf560a29f"
+    },
+    {
+      "file": "family-profiles.js",
+      "sha256": "1f229f1ef117f0b89a80a8d05cf342c5b60d4168b1997c1c9f96f44ebb60929c"
+    },
+    {
+      "file": "forward-clamp.js",
+      "sha256": "bb47de6ebb28beac987611d9dd3730cfd6340afcac5bd9bdc15f4474efff06cc"
+    },
+    {
+      "file": "forward-driving.js",
+      "sha256": "26e2a3dd010dfec23884259de0a1d40dc7d7746c0344f85de5aecba2ffec09fc"
+    },
+    {
+      "file": "forward-geometry.js",
+      "sha256": "cb1c3ee2e803fff0f0138269c30d935ffd0d41cc197f873418fcc817818d6449"
+    },
+    {
+      "file": "forward-native-config.js",
+      "sha256": "ef86fcf34a03a3e55bdf0535c5729d73cf8d53d888623ea95bb1000bdf514037"
+    },
+    {
+      "file": "forward-native-patcher.js",
+      "sha256": "82ad51c12e24a51a3f51bdf02e112375ff76d33df27059b5874ee057d6bef7ff"
+    },
+    {
+      "file": "forward-pacing.js",
+      "sha256": "96f4a715d91b318857282e643dce509dc1d0b50f74cb68a4431db38afc2f0bb5"
+    },
+    {
+      "file": "hud-layout.js",
+      "sha256": "1444c3763ae40acd5dde1a426e33af81d9f74b82f4808ec53e7530bf2b0b1454"
+    },
+    {
+      "file": "latest-profile.js",
+      "sha256": "aba6d80c976bcdad9617d48e387bca232c6c7db13ab47316eddaa668dd49d429"
+    },
+    {
+      "file": "modern-profile.js",
+      "sha256": "81a2b0343cb5320b722a69a796464d8392493d75769f2b3a5e08a903a7a075fd"
+    },
+    {
+      "file": "native-corner-target.js",
+      "sha256": "b77ad11ed360919ed346c934e6ea37c80bf482da18d2cec853ef78edf803608f"
+    },
+    {
+      "file": "native-rubberband.js",
+      "sha256": "0505326e2b384b9918899efa936d2e2db3b3cc8ea0da2ddd6ee9ead4d1b6f3ca"
+    },
+    {
+      "file": "next-profile.js",
+      "sha256": "f2b0e00fdb742756a475c50c3b5efb0df2ed3328194a76d522aff8a5f5395544"
+    },
+    {
+      "file": "page.js",
+      "sha256": "bf3dcc778d9c2ab65c4f696b2008f2df058ddc35b92590e65d5061242728c2c3"
+    },
+    {
+      "file": "race-capture-config.js",
+      "sha256": "be88e81be873f0405e57817a6c16fd898fad79580fd227c01f420192724371b0"
+    },
+    {
+      "file": "race-capture.js",
+      "sha256": "1f7a0d69f1fc4ed532300b42d8e865bd93c52fccace6c80b7795d4901f1fa8a9"
+    },
+    {
+      "file": "race-catalog.js",
+      "sha256": "1d0419412cb3cf5defb21f40156089d313e58c6df4f4cc5b74a0797e5aae658f"
+    },
+    {
+      "file": "race-hub.js",
+      "sha256": "cfccd02e1a8b8dec01364129adbf3ddc9199870978fd73e232e116118bf10493"
+    },
+    {
+      "file": "race-stats.js",
+      "sha256": "3dacd67ddecb0164c9bb23113d4d8483594a9fe161ef095ff9a22dcf0f4e81f4"
+    },
+    {
+      "file": "race-telemetry.js",
+      "sha256": "1a26dd1887a26b4779857ebafadf561673fe98a348de8637ce78ff8f4bf94718"
+    },
+    {
+      "file": "race-window-geometry.js",
+      "sha256": "606c85593397dfe675783071fda58ddb73fc95a19cabf1412fb135df49455c24"
+    },
+    {
+      "file": "rear-radar.js",
+      "sha256": "f06a89ddcd6bb3608f44302144b5d1dd4f7d3d098d0a6bae93fd25ab8805addd"
+    },
+    {
+      "file": "route-probe.js",
+      "sha256": "139ab3b45e6f45af95cbc0c52afe936bd5be9b62250239794d9dfeeaf1f4656c"
+    },
+    {
+      "file": "rubberband-controller.js",
+      "sha256": "f46d774d2ad63a7d4b40c922491b01eb68d796578ef872af0f96d11a7a57ea0c"
+    },
+    {
+      "file": "shortcut-policy.js",
+      "sha256": "1fcaaec2b420dc7e6a524cd14813c0167338dda6b133c2edda6169413604692d"
+    },
+    {
+      "file": "signature-profile-latest.js",
+      "sha256": "8f0e5f41110ea9198d31b75b7812fb9e897cfb44304de33734bd7a2fafbfeb5b"
+    },
+    {
+      "file": "signature-profile-next.js",
+      "sha256": "3d7efa9d5bfdb3821b35348ab30506cb26800d72b8ec6c239e843bde863a0036"
+    },
+    {
+      "file": "signature-profile.js",
+      "sha256": "40bf9f2f0982511a9ea524851514069085ff1f35a8e935fa1a0ac82b0f545ddb"
+    },
+    {
+      "file": "signatures.js",
+      "sha256": "3077ad123d9b925b9506c13b79ce3ed742e979aeee4e5dc1ea9591701ccfb738"
+    },
+    {
+      "file": "stream-hud.js",
+      "sha256": "e078a20acac2619c3e49e65ebb792196e0862140bf4cc95bde86095dd1711007"
+    },
+    {
+      "file": "tool-profiles.js",
+      "sha256": "f4cee44e8bac9b8bcc74f9e46de1e4e4961d1da412e1110f579c2e86646735f0"
+    },
+    {
+      "file": "walls.js",
+      "sha256": "80aea9873d7775ee7cbae22e548912ce24800f618beb1f4b385e82d2aac99ae2"
+    }
+  ],
+  "selectedAlternative": "shared existing metadata word B+244 stores published AI owner sequence; B+228 preserved",
+  "noDynamicAliasProof": true,
+  "limits": [
+    "Current complete modules and runtime checked for direct owner-word address, nearby constant-base offset and addition access patterns.",
+    "This is not general dynamic guest-alias analysis; B+228 is rejected and never claimed; the active protocol reuses its existing six-word tail and rejects foreign occupancy."
+  ]
+}

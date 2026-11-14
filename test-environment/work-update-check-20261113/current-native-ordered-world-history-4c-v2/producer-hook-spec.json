@@ -1,0 +1,282 @@
+{
+  "kind": "SOURCE-ONLY-MINIMUM-CANONICAL-CAP-PRODUCER-WITNESS-SPEC-V2",
+  "executable": false,
+  "baselineFrozenCondition": "work-update-check-20261113/current-native-ai-world-4c-witness-v1",
+  "sourceModule": {
+    "file": "work-update-check-20261113/4c-private-composed-v2/candidate-composed.wasm",
+    "sha256": "6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23"
+  },
+  "newHookedNativeFunctions": [
+    {
+      "id": 2705,
+      "role": "Native route geometry and interpolation phase",
+      "entry": "0x41a180",
+      "receiver": "Saved entry ECX: actual route descriptor",
+      "arguments": [
+        "start node index, signed i32",
+        "actual car pointer"
+      ],
+      "retImmediateBytes": 8,
+      "espAdvance": 12,
+      "nativeRetSites": [
+        {
+          "address": "0x41aa56",
+          "bytes": "c20800"
+        }
+      ],
+      "scope": "Raw and composed body identical. This phase interpolates node geometry; it is not the sole direct +0x40..+0x50 cap writer.",
+      "sourceBodies": {
+        "raw": {
+          "bytes": 15937,
+          "sha256": "2ffb7650b568c5c15c6b5ffd3fed071abc5354dfb0cfeec723b64fd909c00c00"
+        },
+        "composed": {
+          "bytes": 15937,
+          "sha256": "2ffb7650b568c5c15c6b5ffd3fed071abc5354dfb0cfeec723b64fd909c00c00"
+        },
+        "rawComposedExact": true
+      }
+    },
+    {
+      "id": 13185,
+      "role": "Complete composed route build and post hooks",
+      "entry": "0x428030",
+      "receiver": "Saved entry ECX: actual route descriptor",
+      "arguments": [
+        "actual car pointer",
+        "previous route node index, signed i32",
+        "actual canonical road node pointer",
+        "reverse selector, full word retained and low byte decoded",
+        "horizon or lookahead float bits, units uncalibrated"
+      ],
+      "retImmediateBytes": 20,
+      "espAdvance": 24,
+      "nativeRetSites": [
+        {
+          "address": "0x4281e9",
+          "bytes": "c21400"
+        },
+        {
+          "address": "0x428243",
+          "bytes": "c21400"
+        }
+      ],
+      "scope": "Composed body includes24926 call at33 and24927 calls at4068/4235. After captures the complete composition, including their route/driver effects; not an interior native-only result.",
+      "sourceBodies": {
+        "raw": {
+          "bytes": 4170,
+          "sha256": "416d4d47f1ab36e64ca39946dadc4d3105372167fd5ad9aed0964f8232cf3160"
+        },
+        "composed": {
+          "bytes": 4240,
+          "sha256": "88a34d3a823e688a6b7c8e8bbc0c43eea065bd8f31c83507a246e032c711e979"
+        },
+        "rawComposedExact": false
+      }
+    },
+    {
+      "id": 13653,
+      "role": "Complete composed ordinary action road-target policy",
+      "entry": "0x4204d0 thunk→0x41c5e0",
+      "receiver": "Saved entry ECX: actual action object",
+      "arguments": [
+        "actual progress/work object; expected actual driver+0x54 only when independently verified"
+      ],
+      "retImmediateBytes": 4,
+      "espAdvance": 8,
+      "nativeRetSites": [
+        {
+          "address": "0x41c986",
+          "bytes": "c20400"
+        }
+      ],
+      "scope": "Composed22076B body includes native calculations plus inline authored policy/pacing blocks. No local intermediate value is exposed by entry/return hooks.",
+      "sourceBodies": {
+        "raw": {
+          "bytes": 7144,
+          "sha256": "bd3cc1e3d4f1e896fe0d2a021205bb8f7d8ca0df735489353cf93f1f781b2d9d"
+        },
+        "composed": {
+          "bytes": 22076,
+          "sha256": "aed98bc1d5f11b52bcff59ac535510886550d60f5a881efe8497384e9788e2c7"
+        },
+        "rawComposedExact": false
+      }
+    },
+    {
+      "id": 3485,
+      "role": "Native scalar route-profile consumer",
+      "entry": "0x411dd0",
+      "receiver": "Saved entry ECX: actual route descriptor",
+      "arguments": [
+        "profile selector, signed i32",
+        "progress/distance float bits, units uncalibrated",
+        "actual car pointer"
+      ],
+      "retImmediateBytes": 12,
+      "espAdvance": 16,
+      "nativeRetSites": [
+        {
+          "address": "0x411e06",
+          "bytes": "c20c00"
+        },
+        {
+          "address": "0x411e19",
+          "bytes": "c20c00"
+        },
+        {
+          "address": "0x411e24",
+          "bytes": "c20c00"
+        },
+        {
+          "address": "0x411e2f",
+          "bytes": "c20c00"
+        },
+        {
+          "address": "0x411efd",
+          "bytes": "c20c00"
+        },
+        {
+          "address": "0x411f70",
+          "bytes": "c20c00"
+        },
+        {
+          "address": "0x411f86",
+          "bytes": "c20c00"
+        },
+        {
+          "address": "0x411f94",
+          "bytes": "c20c00"
+        }
+      ],
+      "scope": "Raw and composed body identical. Return scalar is native x87 ST0 in translated CPU storage; EAX is not this scalar.",
+      "sourceBodies": {
+        "raw": {
+          "bytes": 4070,
+          "sha256": "ab972066137900b26fe6f4ec5a4f73328883384ae1edec8fc64096e8ba33d8aa"
+        },
+        "composed": {
+          "bytes": 4070,
+          "sha256": "ab972066137900b26fe6f4ec5a4f73328883384ae1edec8fc64096e8ba33d8aa"
+        },
+        "rawComposedExact": true
+      }
+    },
+    {
+      "id": 17086,
+      "role": "Native route cap adjustment loop",
+      "entry": "0x422780",
+      "receiver": "Saved entry ECX: actual route descriptor",
+      "arguments": [
+        "actual car pointer"
+      ],
+      "retImmediateBytes": 4,
+      "espAdvance": 8,
+      "nativeRetSites": [
+        {
+          "address": "0x422b82",
+          "bytes": "c20400"
+        }
+      ],
+      "scope": "Native cap stores are gated by signed integer route+0xd0>0 at4227af..4227c0. Preserve the raw integer; its semantic name is not proved.",
+      "sourceBodies": {
+        "raw": {
+          "bytes": 14389,
+          "sha256": "94a7ccbbdf8cb48e90effcff9b6ec5dc29c1c48b4aab8b460f80d1cbc246d9b2"
+        },
+        "composed": {
+          "bytes": 14389,
+          "sha256": "94a7ccbbdf8cb48e90effcff9b6ec5dc29c1c48b4aab8b460f80d1cbc246d9b2"
+        },
+        "rawComposedExact": true
+      }
+    },
+    {
+      "id": 6610,
+      "role": "Native canonical asset cap initializer",
+      "entry": "0x40a8c0",
+      "receiver": "Saved entry ECX: actual route descriptor",
+      "arguments": [
+        "actual car pointer"
+      ],
+      "retImmediateBytes": 4,
+      "espAdvance": 8,
+      "nativeRetSites": [
+        {
+          "address": "0x40aa11",
+          "bytes": "c20400"
+        }
+      ],
+      "scope": "Native40a987/40a9b0 read canonical record byte+0x2c+vtable-selected offset, then(byte<<16)*(1/65536) is stored to node+0x40 or+0x44..+0x50. Actual nodevtable0x784aa0 offsets are1 for+0x40 and6..9 forselectors2..5.",
+      "sourceBodies": {
+        "raw": {
+          "bytes": 3652,
+          "sha256": "7c18efb9b3d518dd41a7e7ad4bcfad430c4d5c26f7107fd569ea4d21010004e6"
+        },
+        "composed": {
+          "bytes": 3652,
+          "sha256": "7c18efb9b3d518dd41a7e7ad4bcfad430c4d5c26f7107fd569ea4d21010004e6"
+        },
+        "rawComposedExact": true
+      }
+    }
+  ],
+  "hookPhases": [
+    "before",
+    "after",
+    "tail preserving markers when original tail transfer exists"
+  ],
+  "invariants": [
+    "Retain every old140 hook and every prior native body, call, input, clock and report.",
+    "Exactly one whole World frame; keep8-second bound. Do not execute as part of source preparation.",
+    "All guest/CPU/guest stack/Wasm shadow-stack bytes preserved by host observations.",
+    "Save known outer CPU q.A.cpu. Never dereference mutable parameter0 or mutable ECX as original receiver.",
+    "Use per-function recursive entry stacks and original saved ECX/ESP/RA/argument words.",
+    "Count values, invalid pointers, absent calls, failed or unmatched returns retained; never repair, filter or silently truncate."
+  ],
+  "commonObservations": [
+    "Full344-byte known CPU snapshot at each marker, all argument words and original return address.",
+    "Matching saved return address equals actual CPU+32 and exact expected native ESP advance before claiming native return.",
+    "Actual live driver/car/behavior/action identity and saved entry receiver identity comparisons.",
+    "Actual full driver0x790 snapshot at each new hook, including original work and companion pointer relationships."
+  ],
+  "routeObservations": {
+    "deriveFrom": "2705,13185,3485 saved entry ECX; for13653 use actual verified driver+0x6e8 and retain comparisons with call receivers.",
+    "descriptor": "Retain raw descriptor through0xd4, including count+4, index bytes+0xad/+0xae/+0xaf and signed integer loop gate+0xd0.",
+    "enumeration": "Only enumerate when native count is an integer0..40 and pointer-cell range is valid; otherwise retain explicit unavailable/malformed status.40 is the actual source capacity guard at418a53. Do not clamp count.",
+    "nodePointers": "Read each actual route+8+4*i pointer and preserve its cell address and index; capture104 bytes at each valid actual node pointer.",
+    "nodeFields": [
+      "vtable+0",
+      "profile floats+0x40,+0x44,+0x48,+0x4c,+0x50, with rawbits",
+      "metric+0x54 and companion metric+0x58, rawbits",
+      "source road group/node signed16+0x5c/+0x5e",
+      "word+0x60 and native route backlink+0x64"
+    ],
+    "semantics": "6610 before/after observes canonical-byte initialization of node caps;2705 before/after observes geometry/interpolation;17086 before/after observes cap-loop gate/effects;13185 after includes all native and authored post effects;3485 entry records actual consumed state.",
+    "canonicalInputs": "For each actual route node, retain signed16 source group+0x5c and node index+0x5e. When valid, read actual group table cell0x88a334+4*group, compute canonicalRecord=groupBase+0x8c+56*nodeIndex with safe-integer/memory bounds, and retain all56 actual bytes. Record actual driver+0xc comparison; no pointer or index replacement. Explicit invalid/unavailable states retained."
+  },
+  "policyObservations": {
+    "driver": "Saved actual driver binding, fields+0xc,+0x6f8,+0x750,+0x704,+0x770 and full bytes.",
+    "work": "Saved actual work pointer from13653 argument0, header+4, signed index+0x308 and selector+0x30c.",
+    "companion": "Saved actual driver+0x6f8 pointer; capture words/floats+0x1f0,+0x1f4,+0x1f8; bytes+0x1fc,+0x1fd; words+0x204,+0x210. No invented field meaning beyond native source reads.",
+    "car": "Retain actual car pointer, actual canonical road pointer+0xc, byte+0x10, pointer+0x14, word+0x430 with f32bits.",
+    "authoredState": "Read-only raw AI mailbox0xd0d100..0xd0d3ff and geometry/policy mailbox0xd0d800..0xd0dfff at13653 entry/return. These are observations, not ACK or feature success claims."
+  },
+  "profileScalarReturn": {
+    "function": 3485,
+    "storage": "CPU+136 is translated x87 TOP. ST0 slot address=CPU+72+8*(TOP&7). Read f64bits at that address only after matched native RET12. Capture full64 FPU register bytes and raw TOP/control/status cells as evidence.",
+    "notEax": true,
+    "missingReturn": "If return is not matched, retain raw CPU but mark scalar result unavailable. No helper/local result is inferred."
+  },
+  "limits": [
+    "Does not directly expose inline13653 local values or24927 helper results.",
+    "An omitted canonical speed-byte input is now source-proven for the diagnostic generated asset. This witness condition retains baseline inputs exactly; any separately proposed input correction requires explicit disclosure and source review before root authorizes its fresh run.",
+    "This witness narrows producer, consumer, companion and composition effects; it is not movement or detector clearance."
+  ],
+  "supersedes": {
+    "file": "hook-spec.json",
+    "sha256": "6614743898ac56cb2de4f298dc4a8ad9ec181fb938640bcd7707015b86d2d5bb",
+    "reason": "Correct producer roles, add direct canonical cap initializer6610 and cap adjuster17086; field route+d0 is an integer loop gate, not a proved length."
+  },
+  "expectedTotalHookedNativeFunctions": 146
+}

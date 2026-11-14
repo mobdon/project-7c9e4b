@@ -1,0 +1,31 @@
+{
+  "path": "/workspace/scratch/0d6b822176fd/nfsu2-extension/NFSU2-Driving-Tools-v0.33-Combined-Continuous-Corners.zip",
+  "size": 234522,
+  "sha256": "effa0eeea59f81f978a577018eaf9542f9d5c8c8e10323ad308c46b9aba2785c",
+  "files": [
+    "README.md",
+    "CHANGELOG.md",
+    "manifest.json",
+    "popup.html",
+    "diagnostics.js",
+    "walls.js",
+    "cars.js",
+    "current-profile.js",
+    "latest-profile.js",
+    "next-profile.js",
+    "signatures.js",
+    "signature-profile.js",
+    "signature-profile-latest.js",
+    "signature-profile-next.js",
+    "dyno-native-profile.js",
+    "dyno-native.js",
+    "ai.js",
+    "core.js",
+    "dyno-core.js",
+    "dyno.js",
+    "dyno-evaluator.js",
+    "dyno-full.js",
+    "tool-profiles.js",
+    "page.js"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "baseline": "info-hud-v030-candidate",
+  "patchWithoutConflicts": true,
+  "fiveBuildersReproduced": true,
+  "allChangedFilesMatch": 21,
+  "regeneratedBinaries": [],
+  "archiveByteIdentical": true,
+  "sha256": "349894953587377ff7b45b702f8d77feb7ef219ce1e70a666216720244809ad6",
+  "size": 227784
+}

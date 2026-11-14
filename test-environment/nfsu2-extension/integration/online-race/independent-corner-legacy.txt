@@ -1,0 +1,42 @@
+node:fs:621
+  return binding.open(
+                 ^
+
+Error: ENOENT: no such file or directory, open '/workspace/scratch/0d6b822176fd/nfsu2-extension/combined-v021-integration/tests/ai-legacy-bridge.wasm'
+    at Object.openSync (node:fs:621:18)
+    at Object.readFileSync (node:fs:487:35)
+    at Object.<anonymous> (/workspace/scratch/0d6b822176fd/nfsu2-extension/combined-v021-integration/tests/race-corner-controller.test.cjs:3:40)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/workspace/scratch/0d6b822176fd/nfsu2-extension/combined-v021-integration/tests/ai-legacy-bridge.wasm'
+}
+
+Node.js v24.22.1
+✖ tests/race-corner-controller.test.cjs (89.676058ms)
+✔ opted-in online corner output equals solo output without changing network or foreign state (187.00538ms)
+✔ race corner output compensates post-route pace while preserving native controls and sharpness (6.137164ms)
+✔ race clear straights stay native and high-pace gentle curves are protected (3.563732ms)
+✔ road option rejects all non-road, foreign, special, malformed and network contexts (142.710789ms)
+✔ race hook only changes ST0 and dedicated diagnostic fields, never steering or identity (41.842746ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 579.5345
+
+✖ failing tests:
+
+test at tests/race-corner-controller.test.cjs:1:1
+✖ tests/race-corner-controller.test.cjs (89.676058ms)
+  'test failed'

@@ -1,0 +1,50 @@
+{
+  "builders": [
+    "Corner hook extension bytes: 1687\n",
+    "Braking hook extension bytes: 1041\n"
+  ],
+  "files": [
+    {
+      "file": "extension/ai.js",
+      "source_sha256": "05bd6707f205d5db5c266508554c04b97399d04a084105e20e3eb64c63774ff9",
+      "rebuilt_sha256": "05bd6707f205d5db5c266508554c04b97399d04a084105e20e3eb64c63774ff9",
+      "identical": true
+    },
+    {
+      "file": "tools/build-corner-hook.cjs",
+      "source_sha256": "b41c7376bf5e7f64b5d5d56c4c6a6bacecbdec9cc16f59b9cccc7068a720ba81",
+      "rebuilt_sha256": "b41c7376bf5e7f64b5d5d56c4c6a6bacecbdec9cc16f59b9cccc7068a720ba81",
+      "identical": true
+    },
+    {
+      "file": "tools/build-braking-hook.cjs",
+      "source_sha256": "ce2be57d02a605a4cc050c0b73f030261e8f08b1464596d8d577042e0a8ee18d",
+      "rebuilt_sha256": "ce2be57d02a605a4cc050c0b73f030261e8f08b1464596d8d577042e0a8ee18d",
+      "identical": true
+    },
+    {
+      "file": "tools/corner-hook.json",
+      "source_sha256": "ec2b5a83ac67d9ccaf2ac41b7fb2790bec9221625971cb31b26e5c24cc66f832",
+      "rebuilt_sha256": "ec2b5a83ac67d9ccaf2ac41b7fb2790bec9221625971cb31b26e5c24cc66f832",
+      "identical": true
+    },
+    {
+      "file": "tools/corner-hook.wat",
+      "source_sha256": "9d655e77f2b0ab1bddfec86400e5805a69a7e466859dfb0b69bef8329ded90f3",
+      "rebuilt_sha256": "9d655e77f2b0ab1bddfec86400e5805a69a7e466859dfb0b69bef8329ded90f3",
+      "identical": true
+    },
+    {
+      "file": "tools/braking-hook.json",
+      "source_sha256": "bc9250a08d0f2c2a5d816128ce50dff1d37cc7506953cdde5352aba629ddcd25",
+      "rebuilt_sha256": "bc9250a08d0f2c2a5d816128ce50dff1d37cc7506953cdde5352aba629ddcd25",
+      "identical": true
+    },
+    {
+      "file": "tools/braking-hook.wat",
+      "source_sha256": "7b4ad6ca071b7fe4fd2e0653acba10534e08f7a89c634bf2092045b25934ec02",
+      "rebuilt_sha256": "7b4ad6ca071b7fe4fd2e0653acba10534e08f7a89c634bf2092045b25934ec02",
+      "identical": true
+    }
+  ]
+}

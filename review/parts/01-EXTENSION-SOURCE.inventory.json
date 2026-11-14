@@ -1,0 +1,522 @@
+{
+  "kind": "VERBATIM-SELECTED-CURRENT-EXTENSION-REVIEW-PART",
+  "version": "0.42.8",
+  "sourceRootLabel": "nfsu2-extension/extension",
+  "stagingPublishedRoot": "extension",
+  "attachmentSha256": "00c6053266196460c9c3cbddd50454620bad399947887e17b3ebfded0a8fec14",
+  "output": "review/parts/01-EXTENSION-SOURCE.txt",
+  "outputBytes": 2710397,
+  "outputSha256": "2a2cf476c10c364f9471160ddcfe42e372f30aba6874cc3478fe591e6619d11f",
+  "selectedFiles": 30,
+  "selectedSourceBytes": 2692763,
+  "completeExtensionFileCount": 112,
+  "completeExtensionTree": [
+    "102c-profile.js",
+    "609-profile.js",
+    "aa-profile.js",
+    "abf-profile.js",
+    "ai.js",
+    "autonomy-drive.js",
+    "autonomy-hosted.js",
+    "autonomy-loop.js",
+    "autonomy-road.js",
+    "b1-profile.js",
+    "bdc-profile.js",
+    "cars.js",
+    "cd5-profile.js",
+    "cf-profile.js",
+    "CHANGELOG.md",
+    "city-contact-preview.js",
+    "city-pacing.js",
+    "core.js",
+    "current-profile.js",
+    "d2fa-profile.js",
+    "diagnostics.js",
+    "dynamic-pacing.js",
+    "dyno-core.js",
+    "dyno-evaluator.js",
+    "dyno-full.js",
+    "dyno-native-profile-102c.js",
+    "dyno-native-profile-943.js",
+    "dyno-native-profile-b1.js",
+    "dyno-native-profile-bdc9.js",
+    "dyno-native-profile-ed8.js",
+    "dyno-native-profile.js",
+    "dyno-native.js",
+    "dyno.js",
+    "ecu-recipe-profile-b1.js",
+    "ecu-recipe-profile-bdc9.js",
+    "ecu-recipe-profile-ed8.js",
+    "ecu-recipe-profile.js",
+    "ecu-recipe.js",
+    "ecu-scope-controller.js",
+    "ecu-scope-profile-b1.js",
+    "ecu-scope-profile-bdc9.js",
+    "ecu-scope-profile-ed8.js",
+    "ecu-scope-profile.js",
+    "ecu-scope-ui.js",
+    "ecu-scoped-patcher-b1.js",
+    "ecu-scoped-patcher-bdc9.js",
+    "ecu-scoped-patcher-ed8.js",
+    "ecu-scoped-patcher.js",
+    "ed8-profile.js",
+    "family-profiles.js",
+    "forward-clamp.js",
+    "forward-driving.js",
+    "forward-geometry.js",
+    "forward-native-config.js",
+    "forward-native-patcher.js",
+    "forward-pacing.js",
+    "godly-catchup.js",
+    "hud-layout.js",
+    "latest-profile.js",
+    "manifest.json",
+    "modern-profile.js",
+    "native-city-corner-102c.js",
+    "native-corner-target.js",
+    "native-forward-lease-102c.js",
+    "native-online-102c.js",
+    "native-online-609.js",
+    "native-rubberband.js",
+    "native-synthetic-near-miss-609.js",
+    "native-target-feedback-102c.js",
+    "native-transplant-102c.js",
+    "native-transplant-609.js",
+    "native-tuner-102c.js",
+    "near-miss-control.js",
+    "near-miss-events.js",
+    "near-miss-top-up.js",
+    "next-profile.js",
+    "paced-catchup-controller.js",
+    "paced-catchup.js",
+    "PACKAGE-CHECKSUMS.json",
+    "page.js",
+    "pitwall.js",
+    "popup.html",
+    "race-capture-config.js",
+    "race-capture.js",
+    "RACE-CAPTURE.md",
+    "race-catalog.js",
+    "race-hub.js",
+    "race-showcase.js",
+    "race-stats.js",
+    "race-telemetry.js",
+    "race-window-geometry.js",
+    "README.md",
+    "rear-radar.js",
+    "route-probe.js",
+    "rubberband-controller.js",
+    "shortcut-policy.js",
+    "signature-profile-latest.js",
+    "signature-profile-next.js",
+    "signature-profile.js",
+    "signatures.js",
+    "source-interfaces.js",
+    "stream-hud.js",
+    "target-feedback-state.js",
+    "target-feedback.js",
+    "tool-profiles.js",
+    "tuner-profile-943.js",
+    "tuner-profile-b1.js",
+    "tuner-profile-bdc9.js",
+    "tuner-profile-ed8.js",
+    "UPDATE-WINDOWS.txt",
+    "walls.js",
+    "worker-module-loader.js"
+  ],
+  "integratedBuildCandidates": [
+    {
+      "revision": "6f4f1e4e",
+      "size": 37839055,
+      "sha256": "ee5d281a3109240d5db25dc3921e1044672cf6d650eb58c3baa089b54fe2941f",
+      "declaredIn": "nfsu2-extension/extension/ai.js",
+      "registration": "inline legacy candidate"
+    },
+    {
+      "revision": "2f0ddd3b",
+      "size": 36872934,
+      "sha256": "5e33ad2cb4c4cc6893dee7cbd4d6e9bfb0f59a349d218fddbb5e3331ca69bc34",
+      "declaredIn": "nfsu2-extension/extension/current-profile.js",
+      "declarationFileSha256": "4249fc980c6281cd790121aef68dc25d6ff50b901a1eaeff8c77a4b1c05b836f",
+      "registration": "literal candidate; runtime preparation still required"
+    },
+    {
+      "revision": "78e2bb69",
+      "size": 38170601,
+      "sha256": "df7b930bb293ffdf975f0735d93e0797d51bd137d0cbeabcaff87fc5a693c759",
+      "declaredIn": "nfsu2-extension/extension/latest-profile.js",
+      "declarationFileSha256": "aba6d80c976bcdad9617d48e387bca232c6c7db13ab47316eddaa668dd49d429",
+      "registration": "literal candidate; runtime preparation still required"
+    },
+    {
+      "revision": "93af6ccb",
+      "size": 38205596,
+      "sha256": "128e2b5816a8eace4b768aec920318a1613da8235801a361e2009e96550be1d6",
+      "declaredIn": "nfsu2-extension/extension/next-profile.js",
+      "declarationFileSha256": "f2b0e00fdb742756a475c50c3b5efb0df2ed3328194a76d522aff8a5f5395544",
+      "registration": "literal candidate; runtime preparation still required"
+    },
+    {
+      "revision": "3bdd9959",
+      "size": 38494261,
+      "sha256": "ed47e9bdd94a336d8d6bd52bebcc6f130b40ffb6d692f0fc728b8785db02178c",
+      "declaredIn": "nfsu2-extension/extension/modern-profile.js",
+      "declarationFileSha256": "81a2b0343cb5320b722a69a796464d8392493d75769f2b3a5e08a903a7a075fd",
+      "registration": "literal candidate; runtime preparation still required"
+    },
+    {
+      "revision": "d2fa4f4c",
+      "size": 38508028,
+      "sha256": "e41d71453cecba5ee2cd3cbf70af1c84180020644151f5f9bc2fa828fa5123bb",
+      "declaredIn": "nfsu2-extension/extension/d2fa-profile.js",
+      "declarationFileSha256": "9f61bd1b65113cbabeddda544ddeecd778af1370f866fddf7001f374dce4e107",
+      "registration": "literal candidate; runtime preparation still required"
+    },
+    {
+      "revision": "cd5b74d5",
+      "size": 38555250,
+      "sha256": "32b09c8bfea0c23aff21e5edac8f3b99b4d3fe143e8b479b9bea506091ab2174",
+      "declaredIn": "nfsu2-extension/extension/cd5-profile.js",
+      "declarationFileSha256": "cf4b421b44fabfffb3a2d04850d814cd345ae83cf709630d91656e1a692d2336",
+      "registration": "literal candidate; runtime preparation still required"
+    },
+    {
+      "revision": "8abf9be8",
+      "size": 38566252,
+      "sha256": "14074507a84d43365610feae3a8fad80f4637b891e2ed03239460b104f986cbd",
+      "declaredIn": "nfsu2-extension/extension/abf-profile.js",
+      "declarationFileSha256": "4b4ff72bd169ce52230b27f806891a701a227bf10b37756f99036db50bbc584f",
+      "registration": "literal candidate; runtime preparation still required"
+    },
+    {
+      "revision": "93cfc6e9",
+      "size": 38615704,
+      "sha256": "e03eca29aa8cba3ac4a96836ad3d86dd5eb8258704c0e6260ecc5ef955536a03",
+      "declaredIn": "nfsu2-extension/extension/cf-profile.js",
+      "declarationFileSha256": "8977c19bf52cc94501b55184aef5ad1e27296cd720e8be89aedd543367c9c53b",
+      "registration": "literal candidate; runtime preparation still required"
+    },
+    {
+      "revision": "aa2429fb",
+      "size": 38619724,
+      "sha256": "a220e667d38c0a6509c1507ad3ca9c6fddeb2220b429bf28707d7ca8cbbc42c8",
+      "declaredIn": "nfsu2-extension/extension/aa-profile.js",
+      "declarationFileSha256": "6aa47f9d5eb9a7033cc23636c67a8ad695604521a4c4b63fb3eef1e85491fd07",
+      "registration": "literal candidate; runtime preparation still required"
+    },
+    {
+      "revision": "bdc9cbc2",
+      "size": 38839976,
+      "sha256": "395d7d34809be586e9ec80866914179247e96df7cb5729c7b8c7e4650c6dee3e",
+      "declaredIn": "nfsu2-extension/extension/bdc-profile.js",
+      "declarationFileSha256": "b1279aeeafd80a78e7d3702450ed03dfa87d813553c45b67620df19324f80f5f",
+      "registration": "literal candidate; runtime preparation still required"
+    },
+    {
+      "revision": "b1efa173",
+      "size": 38854040,
+      "sha256": "3152b96dbd39c9aaac00f47cb63afff46969d88cd7470166478c9663c9abb1bb",
+      "declaredIn": "nfsu2-extension/extension/b1-profile.js",
+      "declarationFileSha256": "9646c2f6a8fef3fb7f74a273f4eb33dddc6772d4560812484f4b2515dcee5ada",
+      "registration": "literal candidate; runtime preparation still required"
+    },
+    {
+      "revision": "ed8d3359",
+      "size": 38862537,
+      "sha256": "f9e0002e8a04a88355b3cc62235010e19479e0cf2ab05d8916975d68abf5706b",
+      "declaredIn": "nfsu2-extension/extension/ed8-profile.js",
+      "declarationFileSha256": "6782597b56057b960e7a8b515120a4c47b52fb40d049dd8e47b33811003ac995",
+      "registration": "literal candidate; runtime preparation still required"
+    },
+    {
+      "revision": "102c8d92",
+      "size": 38867137,
+      "sha256": "2ba0b075721d80e75fc3fb9a3b0e4d2acae835d21fcc406d009669b83f81858d",
+      "declaredIn": "nfsu2-extension/extension/102c-profile.js",
+      "declarationFileSha256": "8ab011181703ce7f76986ffad4bb22601fa0c973358b1019364305d6d3c78522",
+      "registration": "literal candidate; runtime preparation still required"
+    },
+    {
+      "revision": "60946132",
+      "size": 38933227,
+      "sha256": "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945",
+      "declaredIn": "nfsu2-extension/extension/609-profile.js",
+      "declarationFileSha256": "0c4820f115d2389078f91deb95d034c62512a0cd8fe84b98c6113a42fa2ce941",
+      "registration": "literal candidate; runtime preparation still required"
+    },
+    {
+      "revision": "15e5958f",
+      "size": 38619511,
+      "sha256": "f88fc7a0fe3082e20814f705635410d046fcdfe053eb70d65c49dec7583105b9",
+      "declaredIn": "nfsu2-extension/extension/family-profiles.js",
+      "registration": "conditional family candidate; source readiness and compose gates apply"
+    },
+    {
+      "revision": "943ee537",
+      "size": 38618703,
+      "sha256": "c000f8f9002762f4274f173c81678772c456b1a696f3b69751fc6e91118fe391",
+      "declaredIn": "nfsu2-extension/extension/family-profiles.js",
+      "registration": "conditional family candidate; source readiness and compose gates apply"
+    }
+  ],
+  "sources": [
+    {
+      "path": "nfsu2-extension/extension/manifest.json",
+      "bytes": 3879,
+      "sha256": "5124ee09395795dafc5b4ee1975741b372c3978953ceae662e1df7db81ebca2e",
+      "reason": "Complete current content-script order, matching scope and extension version.",
+      "sourceByteOffset": 15841,
+      "sourceByteLength": 3879
+    },
+    {
+      "path": "nfsu2-extension/extension/popup.html",
+      "bytes": 4479,
+      "sha256": "a21888051d4e8b78ed77253da2656b2ab7f40d248f0904e858f238e51569985c",
+      "reason": "Complete current user-facing controls, feature availability and stopping rules.",
+      "sourceByteOffset": 19771,
+      "sourceByteLength": 4479
+    },
+    {
+      "path": "nfsu2-extension/extension/core.js",
+      "bytes": 32462,
+      "sha256": "6b469b5c0e754482f42f30b6513c8d0beb1b6c06965652f951504dadeef99e21",
+      "reason": "Complete Engine power/limiter/grip ownership, concurrent-write guards, restore paths, stability gates and NOS telemetry; direct refill remains disabled.",
+      "sourceByteOffset": 24298,
+      "sourceByteLength": 32462
+    },
+    {
+      "path": "nfsu2-extension/extension/page.js",
+      "bytes": 235111,
+      "sha256": "d4a5494e3f0984ba94508bee320a1b42665fd8723f2c9c82d57103ef04b5a047",
+      "reason": "Complete page entrypoint, worker preparation, build discovery, power/grip scheduling and restoration, NOS session-only UI/loop wiring, focus/Stop/manual/profile interactions.",
+      "sourceByteOffset": 56808,
+      "sourceByteLength": 235111
+    },
+    {
+      "path": "nfsu2-extension/extension/dynamic-pacing.js",
+      "bytes": 6069,
+      "sha256": "54b55b44a871b42c2c98ff1f2177012b3883bc0c9946ebd971e9f6912927b2c6",
+      "reason": "Complete adaptive-race pacing controller used by page.js to determine legacy physics parking and power/grip restoration; required interaction closure.",
+      "sourceByteOffset": 291977,
+      "sourceByteLength": 6069
+    },
+    {
+      "path": "nfsu2-extension/extension/tool-profiles.js",
+      "bytes": 9685,
+      "sha256": "f4cee44e8bac9b8bcc74f9e46de1e4e4961d1da412e1110f579c2e86646735f0",
+      "reason": "Complete persisted switch/number schema, profile loading, explicit network consent and Stop/startup markers; allows inspection of NOS-loop separation from saved profiles.",
+      "sourceByteOffset": 298103,
+      "sourceByteLength": 9685
+    },
+    {
+      "path": "nfsu2-extension/extension/near-miss-events.js",
+      "bytes": 11125,
+      "sha256": "a6773a8a13db6370cbe397dcfd3ccc4455034c4268f26f28b4f6ab651ef49059",
+      "reason": "Complete OFFLINE LAB ONLY observer/event-verification context shipped in the current 112 files; production 609 does not call this observer, so its logic is not production-award proof.",
+      "sourceByteOffset": 307848,
+      "sourceByteLength": 11125
+    },
+    {
+      "path": "nfsu2-extension/extension/near-miss-control.js",
+      "bytes": 7451,
+      "sha256": "776c57e7712a557dab477f933fddcad280e964c4cddecc908854de313027b4bc",
+      "reason": "Complete manual award request controller, one outstanding request, polling, cancellation, session/car identity and uncertain outcomes.",
+      "sourceByteOffset": 319034,
+      "sourceByteLength": 7451
+    },
+    {
+      "path": "nfsu2-extension/extension/near-miss-top-up.js",
+      "bytes": 9313,
+      "sha256": "26d3962daf61f581c7001ce9aa85d15fdc8483ea582fa966f93bfea9ac37fa0f",
+      "reason": "Complete session-only top-up state machine, effective-level/full checks, confirmation/interval/timeout rules and one outstanding request.",
+      "sourceByteOffset": 326545,
+      "sourceByteLength": 9313
+    },
+    {
+      "path": "nfsu2-extension/extension/609-profile.js",
+      "bytes": 2141,
+      "sha256": "0c4820f115d2389078f91deb95d034c62512a0cd8fe84b98c6113a42fa2ce941",
+      "reason": "Exact 60946132 source identity, capabilities, native contact/function indices, online address tuple and expected transplant output.",
+      "sourceByteOffset": 335913,
+      "sourceByteLength": 2141
+    },
+    {
+      "path": "nfsu2-extension/extension/native-transplant-609.js",
+      "bytes": 262358,
+      "sha256": "296e1bc2af6dedfc5e962f7c4ebc0df5251f69c608527693342395ccee93ceb8",
+      "reason": "Complete pinned 609 transform, source/output hashes, changed/appended native function maps, hooks and rails map; no external game module included.",
+      "sourceByteOffset": 338119,
+      "sourceByteLength": 262358
+    },
+    {
+      "path": "nfsu2-extension/extension/native-online-609.js",
+      "bytes": 10300,
+      "sha256": "156c6a86fb822d05d9ba0e1ab570f0262e6417007cc8913c54b587f8bf97b64f",
+      "reason": "Complete optional 609 online adaptation/preparation gates, function/address maps, body pins and explicitly empty online car-category capabilities.",
+      "sourceByteOffset": 600538,
+      "sourceByteLength": 10300
+    },
+    {
+      "path": "nfsu2-extension/extension/native-synthetic-near-miss-609.js",
+      "bytes": 43655,
+      "sha256": "6afe5ad7939d62c640ab7e81b89b9981db1ae63ad24998b5f0e8cf32c9d306a3",
+      "reason": "Complete 609 award transform, mailbox/address/function plan, installed-module registration, memory/session ownership, one-request service and cancellation.",
+      "sourceByteOffset": 610912,
+      "sourceByteLength": 43655
+    },
+    {
+      "path": "nfsu2-extension/extension/ai.js",
+      "bytes": 102293,
+      "sha256": "14c07f2e32ad5c0e5854f61c044e0827058d04a2e3215237b3b3d3e8126d2ea3",
+      "reason": "Complete build candidate selector, source hash/interface authorization, compile/preparation stages and fallback reasons, capability publication and award bridge binding.",
+      "sourceByteOffset": 654613,
+      "sourceByteLength": 102293
+    },
+    {
+      "path": "nfsu2-extension/extension/worker-module-loader.js",
+      "bytes": 6656,
+      "sha256": "ab8aae460f980b50ca47b79020f27d1b2ea01a1499f0e88ece517020246731e1",
+      "reason": "Complete worker startup observer, preparation/message ordering, timeout/error and transfer handling used by the page entrypoint.",
+      "sourceByteOffset": 756970,
+      "sourceByteLength": 6656
+    },
+    {
+      "path": "nfsu2-extension/extension/source-interfaces.js",
+      "bytes": 50545,
+      "sha256": "2f95b3b6ff9a751b7ac7130561ee0240ed2e0cad88d0262dbc7ed4dc78b3c8f5",
+      "reason": "Complete pinned import/export eligibility metadata for build detection; metadata only.",
+      "sourceByteOffset": 763687,
+      "sourceByteLength": 50545
+    },
+    {
+      "path": "nfsu2-extension/extension/102c-profile.js",
+      "bytes": 2724,
+      "sha256": "8ab011181703ce7f76986ffad4bb22601fa0c973358b1019364305d6d3c78522",
+      "reason": "Small exact sibling profile directly referenced by core network-state selection and AI transplant/build selection; distinguishes base flags from prepared capabilities.",
+      "sourceByteOffset": 814288,
+      "sourceByteLength": 2724
+    },
+    {
+      "path": "nfsu2-extension/extension/family-profiles.js",
+      "bytes": 1679,
+      "sha256": "ee775dc5504b60b772222ca16a57a1a55153fd0557b566b6bf82237eeb706816",
+      "reason": "Complete conditional metadata-only family candidate registration used by the integrated build selector; unrelated historical profile bodies are not duplicated.",
+      "sourceByteOffset": 817071,
+      "sourceByteLength": 1679
+    },
+    {
+      "path": "nfsu2-extension/extension/forward-native-config.js",
+      "bytes": 474882,
+      "sha256": "b897554f4c3ccdbc14fc35d0dc0dde352e5da6ac83cc53ff110cf568a7a8d0d3",
+      "reason": "Complete shared network/address/runtime configuration directly referenced by core and AI preparation.",
+      "sourceByteOffset": 818815,
+      "sourceByteLength": 474882
+    },
+    {
+      "path": "nfsu2-extension/extension/paced-catchup.js",
+      "bytes": 1103836,
+      "sha256": "58efc2aa9aa3194af30a8d6942626907b46f2338a005a500b7f1af04ec829249",
+      "reason": "Complete current shared paired pace/power/grip native protocol and plans, including native publication/result reads used by the controller.",
+      "sourceByteOffset": 1293754,
+      "sourceByteLength": 1103836
+    },
+    {
+      "path": "nfsu2-extension/extension/paced-catchup-controller.js",
+      "bytes": 14933,
+      "sha256": "336867fcd25b1c8ad3a6b33b93ff6f7db22eaf556ba674526b3fb0956cd3d5cb",
+      "reason": "Complete paired handling controller, native acknowledgements, reset/restoration and interaction guards for race power/grip behavior.",
+      "sourceByteOffset": 2397658,
+      "sourceByteLength": 14933
+    },
+    {
+      "path": "nfsu2-extension/extension/native-rubberband.js",
+      "bytes": 99883,
+      "sha256": "83868faba0174a6b5a3b2c9b66b8f90f7bf51d69ed5f9e23aa3703645d64cc96",
+      "reason": "Complete shared catch-up protocol and patch preparation branch referenced by ai.js and the legacy fallback handling controller.",
+      "sourceByteOffset": 2412652,
+      "sourceByteLength": 99883
+    },
+    {
+      "path": "nfsu2-extension/extension/rubberband-controller.js",
+      "bytes": 10984,
+      "sha256": "3506e60d01128aba78f523e369d125074a034b814605c790413b74cc2a8e6ccd",
+      "reason": "Complete fallback catch-up controller and reset/publication logic referenced by page.js.",
+      "sourceByteOffset": 2512600,
+      "sourceByteLength": 10984
+    },
+    {
+      "path": "nfsu2-extension/extension/native-corner-target.js",
+      "bytes": 7911,
+      "sha256": "02f83a238e94e0a1e4a4446af5bae84e0efc0ee44840d3092d7a542ab03eeed4",
+      "reason": "Complete shared corner-target preparation/protocol referenced by the integrated AI preparation path.",
+      "sourceByteOffset": 2523648,
+      "sourceByteLength": 7911
+    },
+    {
+      "path": "nfsu2-extension/extension/godly-catchup.js",
+      "bytes": 8489,
+      "sha256": "36cfe6cdfc794ad7c628da1a57d0362d4030211345dd44a3f8c9ed96a8035025",
+      "reason": "Complete shared catch-up/handling integration helper and native protocol referenced by AI/page logic.",
+      "sourceByteOffset": 2531616,
+      "sourceByteLength": 8489
+    },
+    {
+      "path": "nfsu2-extension/extension/native-city-corner-102c.js",
+      "bytes": 6567,
+      "sha256": "78eb3ca06334a6a02175bd8e9b7347d8a08f58d331ea4efe6a4c3d35de7aa62e",
+      "reason": "Complete optional city adapter supports gate, showing its exact-build restriction in the 609 preparation branch.",
+      "sourceByteOffset": 2540172,
+      "sourceByteLength": 6567
+    },
+    {
+      "path": "nfsu2-extension/extension/native-tuner-102c.js",
+      "bytes": 32950,
+      "sha256": "ff4e24d2b2b12cd1b4c43cc42535abb2f0b8a7951bf33257cd8b48e9d1938587",
+      "reason": "Complete optional tuner adapter supports/policy-initialization gates; 609 lacks this port. Unrelated private evaluator payloads are not duplicated.",
+      "sourceByteOffset": 2546800,
+      "sourceByteLength": 32950
+    },
+    {
+      "path": "nfsu2-extension/extension/native-forward-lease-102c.js",
+      "bytes": 65135,
+      "sha256": "42ff4f9c4bda06d3b4aa15678a4267738435800735d928ae7815adccfa54f580",
+      "reason": "Complete optional forward-geometry lease adapter and exact-build pins, showing the separate unsupported 609 path.",
+      "sourceByteOffset": 2579819,
+      "sourceByteLength": 65135
+    },
+    {
+      "path": "nfsu2-extension/extension/native-target-feedback-102c.js",
+      "bytes": 10341,
+      "sha256": "98269d3e7c5e2a23dddb20b6bdecd604447ee0c20bc8f5013ddf66333527137e",
+      "reason": "Complete optional target-feedback adapter and exact-build pins; distinct from the supported 609 core corner hooks.",
+      "sourceByteOffset": 2645025,
+      "sourceByteLength": 10341
+    },
+    {
+      "path": "nfsu2-extension/extension/diagnostics.js",
+      "bytes": 54927,
+      "sha256": "5b23c1f37511d47744382ed099b73356f43a11c7ac81ec3ed699a81e3b8fb42b",
+      "reason": "Complete local diagnostics filtering/capture/export implementation consumed by the page and useful for subsequent static log interpretation.",
+      "sourceByteOffset": 2655421,
+      "sourceByteLength": 54927
+    }
+  ],
+  "verification": {
+    "allSourcesMatchCurrentOriginalAndStaging": true,
+    "allEmbeddedByteSpansReverified": true,
+    "sourceModulesImported": false,
+    "extensionOrNativeCodeExecuted": false,
+    "wasmCompiledValidatedInstantiated": false,
+    "originalsModified": false
+  },
+  "limits": [
+    "Static-review selection; unrelated historical profile bodies and unrelated UI feature implementations are not duplicated.",
+    "Complete page/AI entrypoints preserve references to other current112files; the full folder tree/reference locates those files.",
+    "Candidate metadata is not proof of runtime preparation, live behavior, valid startup, report absence or online acceptance."
+  ],
+  "contextLabels": {
+    "near-miss-events.js": "offline observer context, not production 609 award proof",
+    "native-city-corner-102c.js/native-tuner-102c.js/native-forward-lease-102c.js/native-target-feedback-102c.js": "optional support-gate evidence, not required 609 shared implementation",
+    "dynamic-pacing.js": "required power/grip parking/restoration interaction"
+  }
+}

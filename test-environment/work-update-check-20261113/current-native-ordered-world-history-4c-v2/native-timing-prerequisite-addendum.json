@@ -1,0 +1,253 @@
+{
+  "kind": "STATIC-ORDINARY-NATIVE-REALTIME-PREREQUISITE-FOR-LEGACY114",
+  "clockContract": {
+    "file": "work-update-check-20261113/native-realtime-timer-input-contract-4c-v1/contract.json",
+    "sha256": "3f5075b1c76769ea8190e486e10d0d6c2fac1ad456183568215b3bc726d60eca"
+  },
+  "pacerContract": {
+    "file": "work-update-check-20261113/native-frame-pacer-boundary-contract-4c-v1/contract.json",
+    "sha256": "d7fef1532bdf56c9d9c6ea5e8ac1d434ea60d1247047145742bf9b81f2108647"
+  },
+  "sourceBodies": {
+    "2610": {
+      "bytes": 7819,
+      "sha256": "c8c97468c9ec584b9d5c874d0846859967f609775b718e5ac97d7a46dfadae76",
+      "rawCandidateExact": true
+    },
+    "8084": {
+      "bytes": 2914,
+      "sha256": "5579948afbd7d0c159f59915971fb488dac5b403e0d587163c8b988257536205",
+      "rawCandidateExact": true
+    },
+    "16627": {
+      "bytes": 1678,
+      "sha256": "900b80e18a8c2e0b6ed06974ab747910ba3bcd68768251c8cace741660454036",
+      "rawCandidateExact": true
+    },
+    "16780": {
+      "bytes": 351,
+      "sha256": "9775eee17993b6b9d7a23b1856071d398204ba159e6c7616d90b486d571ad4ce",
+      "rawCandidateExact": true
+    },
+    "16937": {
+      "bytes": 757,
+      "sha256": "7121b63caf5bf532fdcd639b729cdaf1646b5c58a922d42c6bc669a34cdc9f11",
+      "rawCandidateExact": true
+    },
+    "21992": {
+      "bytes": 3989,
+      "sha256": "34962c9653c7f4c3fa8e11022e11fdb94bce5cf38b7241cff5408f2b9588056a",
+      "rawCandidateExact": true
+    },
+    "21996": {
+      "bytes": 227,
+      "sha256": "8b92ab6d1c784a56bd748662835df428205a238f967bb1c854b13c952f0f4a7a",
+      "rawCandidateExact": true
+    }
+  },
+  "pacerSourceBodies": {
+    "21969": {
+      "bytes": 1494,
+      "sha256": "b8a57e635b3b88f55607aa12b26aefe827e3dd3ff7155068f0da781a1ee742c3",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "21981": {
+      "bytes": 103,
+      "sha256": "5b3cb59aa72604dedf0a6d19fa82b4a7e5cf6288d51f2fed709ec0f69c80d8c7",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "21994": {
+      "bytes": 730,
+      "sha256": "40445fe38e59e36b2d39ecffaae6bc6bf4d9b79bda42440f048623058a81b6c1",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "22004": {
+      "bytes": 499,
+      "sha256": "384e1ef9be85a4037081236c6383f80d6304a2bd373f88000128b7dbde2dc85e",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24008": {
+      "bytes": 1429,
+      "sha256": "ec16279c2dc9231b680fe37ae8d7942b959918b80c8a838b60c9d6c62d41e710",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24081": {
+      "bytes": 84,
+      "sha256": "b69ddf98dcb5cf4a3c9efe4d75f99b33e7ddb030a521278d995428ee211c4b10",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24285": {
+      "bytes": 420,
+      "sha256": "d860b08d8af7c24b205f7e6e750fad150fd01ddf202c90ddb4d362c4c2d7a623",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24359": {
+      "bytes": 510,
+      "sha256": "49fbc9fe8660262b6d414ab85e7af1b598381dadca9c82301ca2226d8fd3b708",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24364": {
+      "bytes": 322,
+      "sha256": "9bbb5de774d94776fdc034f38ee9a00f64ecb05c53617500ecb2f32392f35fd2",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24371": {
+      "bytes": 4315,
+      "sha256": "ebde0582fee7ffc5f94030327bf9d015a67fb93916b9b65c7eeec9a657c947e5",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24372": {
+      "bytes": 70,
+      "sha256": "8ee9e188c466e099667aa06c6456808a00793268a96dcc6108e2445d802e4733",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24373": {
+      "bytes": 12,
+      "sha256": "73c9080a0ae5cae0b7a5f74e339cc27539f096d8f4699cfe661335e6b0b105ee",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24554": {
+      "bytes": 40,
+      "sha256": "c2930746daf9336a4546ebcf59e7ae395a3d81c840fa252cdcfeb33d6832436c",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24559": {
+      "bytes": 325,
+      "sha256": "0e3af421cb91dead3e6929c152d36633461cfacca27a4fa8b1a7b65a86b9c596",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24560": {
+      "bytes": 58,
+      "sha256": "ccec56e47350527f25041dd4125464cf12983c9ae5c28609dd512aa6564511b2",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24598": {
+      "bytes": 21,
+      "sha256": "13527bc0186bd1959e08129c015ef644e53e9b746f689ba6b18824b3914756b9",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24600": {
+      "bytes": 13,
+      "sha256": "f8cc2f1b807b22c664dca6a6ae381e4adc9720a03f135f94ed2be854e6298d7d",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24639": {
+      "bytes": 225,
+      "sha256": "84cfd3a0fc32be40cbebea9fce35685ba43500c28ef4289986d2bf8dbd6a8903",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24677": {
+      "bytes": 318,
+      "sha256": "128b69506ff323f6fce0fc36a365d24ff9b4bceac7bd9da47216af65d8d6368f",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24678": {
+      "bytes": 24,
+      "sha256": "3591a9c1eb6efbfece2244a41ac0fed7ecc2085a9f29bc65f4450606e6d98d1e",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24679": {
+      "bytes": 39,
+      "sha256": "8a60d4f72c3a2f31735ed15a7456b328a0e72e9a647992c4b37e219c9d31044c",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24680": {
+      "bytes": 181,
+      "sha256": "ad854489453774f3b785ad95a58cf3eab4d631085d38ec7c183280bffe428d6a",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24682": {
+      "bytes": 81,
+      "sha256": "935e13b3de38cb3782aa33c004bfb30d32302f60d87a9c943a4010b8bf83d61c",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24864": {
+      "bytes": 56,
+      "sha256": "2a5b1f547e10008a4120b93e551f8fc8d65cb67ac90c9ddca81eed1a6baaebd5",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24865": {
+      "bytes": 57,
+      "sha256": "c191daae43c83281e1f83f99441019637921cdc8a9764f6461efd9a415617578",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24889": {
+      "bytes": 10,
+      "sha256": "8505a0340651d33440822e14110e4f40777805586cebe2edbffff33057f09f3e",
+      "rawCandidateExact": true,
+      "fixtureRole": "unchanged-inherited-platform-boundary"
+    },
+    "24890": {
+      "bytes": 6246,
+      "sha256": "6c054732ad2c0295b0dc074df81f05192678cfbd236c68e8b6c1a1bedb36da41",
+      "rawCandidateExact": true,
+      "fixtureRole": "unchanged-inherited-platform-boundary"
+    },
+    "24891": {
+      "bytes": 1068,
+      "sha256": "986f8d8a22dcf20d668faf5e88ec348c680d3b179b9e16e89f212b9d84239d59",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24896": {
+      "bytes": 1587,
+      "sha256": "8526a6b198b468b1532d3edc815248fe212b0b0e21ffbda6da3fdd4793b143b2",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24897": {
+      "bytes": 565,
+      "sha256": "31599c8ba6923929fc54a3fae5bec69fd440bf06f6bea867ea293deba92ddebc",
+      "rawCandidateExact": true,
+      "fixtureRole": "whole-native-body"
+    },
+    "24898": {
+      "bytes": 31,
+      "sha256": "a5d1e7b87d58bb0bc8c3cb050b5124b2016d2e52d9de0634ec748aec2143d539",
+      "rawCandidateExact": true,
+      "fixtureRole": "unchanged-inherited-platform-boundary"
+    }
+  },
+  "nativePlan": [
+    "Preserve V3 normal report availability/allocator/names and whole22866 begin.",
+    "Whole16627 owns factor/shift using exact original QPF API with coherent1MHz input.",
+    "Run fixed12 disclosed60Hz host input steps: actual16780 samples,16937 elapsedST0, original finite0x37f6520 FMUL/FSTP argument/TOPpop, complete21992 and21996.",
+    "Observe native plainRET+4 separately before caller argument cleanup8/4. Never reset CPU/FPU across elapsed/conversion/wrapper.",
+    "Then unchanged2456/114 and legacy serializer/decoder/native enrollment; actual zero flags or any platform/native failure remain unavailable."
+  ],
+  "platformInputs": "QPF1MHz, existing microsecond QPC/WASI nanoseconds, typed now_ms and exact native WASI clock subscription waits share one monotonic disclosed host clock. Typed blocked_ms reports actual accumulated fixture waits. Original f64 signatures are preserved by exact unsigned32-us to f64-ms shims; range is asserted, never wrapped. All once/config/pacer/GIL/native callbacks remain native. No mode/FPS/tick/rate/flag/history/report output is supplied.",
+  "limits": [
+    "Timing-only caller subset is not a full6520 or World movement frame.",
+    "Twelve host work inputs provide only their observed timing window; native pacing may advance host time.",
+    "Report context remains natural and unchanged. Online rank path is separate."
+  ],
+  "nativeExecuted": false,
+  "wasmCompiledValidatedOrInstantiated": false,
+  "memoryCreated": false,
+  "frozenFilesEdited": false
+}

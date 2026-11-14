@@ -1,0 +1,17 @@
+[
+  {
+    "file": "extension/ai.js",
+    "matches_authored_patch": true,
+    "patch_output": "patching file extension/ai.js\nHunk #1 succeeded at 204 (offset 2 lines).\nHunk #2 succeeded at 224 (offset 2 lines).\nHunk #3 succeeded at 243 (offset 2 lines).\nHunk #4 succeeded at 252 (offset 2 lines).\nHunk #5 succeeded at 303 (offset 2 lines).\nHunk #6 succeeded at 330 (offset 2 lines).\n"
+  },
+  {
+    "file": "tools/build-corner-hook.cjs",
+    "matches_authored_patch": true,
+    "patch_output": "patching file tools/build-corner-hook.cjs\n"
+  },
+  {
+    "file": "tools/build-braking-hook.cjs",
+    "matches_authored_patch": true,
+    "patch_output": "patching file tools/build-braking-hook.cjs\n"
+  }
+]

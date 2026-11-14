@@ -1,0 +1,20 @@
+{
+  "kind": "READ-ONLY-REPLAY-AND-EVENT-CONTEXT-DIAGNOSTICS",
+  "snapshots": 153,
+  "rawBytes": 118988,
+  "raw": {
+    "file": "replay-context-diagnostics-raw.bin",
+    "sha256": "b8ae7cddcd110dab4ceedaa2fa3a3c0d28e521721d8560550a0cb82ac4a05123"
+  },
+  "journal": {
+    "file": "replay-context-diagnostics.jsonl",
+    "sha256": "4a175b3ab3b7a563f53385b1d48ad37e9fa763b9c9b28bf358ba72f8342efb21"
+  },
+  "nativeFunctionsCalled": false,
+  "nativeMemoryAuthored": false,
+  "limits": [
+    "Zero or invalid pointers are recorded as unavailable objects; low memory is captured separately and is never interpreted as a valid replay object.",
+    "No additional native hook is installed. Stage and caller boundaries do not expose the exact native112 return byte or internal branch execution.",
+    "Read-only diagnostics preserve native mismatches, events, failures and report availability. No client-report or online-clearance conclusion follows."
+  ]
+}

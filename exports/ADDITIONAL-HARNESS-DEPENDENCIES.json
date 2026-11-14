@@ -1,0 +1,133 @@
+{
+  "kind": "ADDITIONAL-NATIVE-HARNESS-DEPENDENCY-MAP",
+  "dependencies": [
+    {
+      "dependencyId": "HD001",
+      "workspaceRelativePath": "work-update-check-20261113/4c-private-composed-v2/candidate-composed.wasm",
+      "repositoryTarget": "test-environment/work-update-check-20261113/4c-private-composed-v2/candidate-composed.wasm",
+      "payloadFile": "binary-payloads/6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23.bin",
+      "binaryId": "BP000048",
+      "bytes": 39536542,
+      "sha256": "6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23",
+      "role": "required-current-harness",
+      "description": "Native game-source composition directly read by current-native-harness.cjs",
+      "originalSuffix": ".wasm",
+      "contentsExecuted": false
+    },
+    {
+      "dependencyId": "HD002",
+      "workspaceRelativePath": "research/current-native-image/SPEED2.EXE",
+      "repositoryTarget": "test-environment/research/current-native-image/SPEED2.EXE",
+      "payloadFile": "binary-payloads/f9dd86c054878ce6276beb07c1fd61874f7a1e4bf1f241b084c65b73e24168a7.bin",
+      "binaryId": "BP000049",
+      "bytes": 4800512,
+      "sha256": "f9dd86c054878ce6276beb07c1fd61874f7a1e4bf1f241b084c65b73e24168a7",
+      "role": "required-current-harness",
+      "description": "Retail native PE image directly read by harness and Retail.seed",
+      "originalSuffix": ".exe",
+      "contentsExecuted": false
+    },
+    {
+      "dependencyId": "HD003",
+      "workspaceRelativePath": "work-update-check-20261113/live-build-4c35f9f5/game.wasm",
+      "repositoryTarget": "test-environment/work-update-check-20261113/live-build-4c35f9f5/game.wasm",
+      "payloadFile": "binary-payloads/40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8.bin",
+      "binaryId": "BP000050",
+      "bytes": 39330573,
+      "sha256": "40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8",
+      "role": "source-and-regeneration-evidence",
+      "description": "Raw live4c source module; separate from the current harness sourcePath",
+      "originalSuffix": ".wasm",
+      "contentsExecuted": false
+    },
+    {
+      "dependencyId": "HD004",
+      "workspaceRelativePath": "research/tuner-fixtures-93cf/retail-stock.bin",
+      "repositoryTarget": "test-environment/research/tuner-fixtures-93cf/retail-stock.bin",
+      "payloadFile": "binary-payloads/41b05da067786848b3e19721a6d0d100aff9462dd09f66fcf8783cd74693036f.bin",
+      "binaryId": "BP000051",
+      "bytes": 100832,
+      "sha256": "41b05da067786848b3e19721a6d0d100aff9462dd09f66fcf8783cd74693036f",
+      "role": "required-retail-seed",
+      "description": "Native retail stock table",
+      "originalSuffix": ".bin",
+      "contentsExecuted": false
+    },
+    {
+      "dependencyId": "HD005",
+      "workspaceRelativePath": "research/tuner-fixtures-93cf/retail-rules.bin",
+      "repositoryTarget": "test-environment/research/tuner-fixtures-93cf/retail-rules.bin",
+      "payloadFile": "binary-payloads/f1d967e618bdbde513db10f95efa1ddc358b1ccaf8fc6659fda2b4e285e9b495.bin",
+      "binaryId": "BP000052",
+      "bytes": 1488,
+      "sha256": "f1d967e618bdbde513db10f95efa1ddc358b1ccaf8fc6659fda2b4e285e9b495",
+      "role": "required-retail-seed",
+      "description": "Native retail rules table",
+      "originalSuffix": ".bin",
+      "contentsExecuted": false
+    },
+    {
+      "dependencyId": "HD006",
+      "workspaceRelativePath": "research/tuner-fixtures-93cf/retail-parts-1.bin",
+      "repositoryTarget": "test-environment/research/tuner-fixtures-93cf/retail-parts-1.bin",
+      "payloadFile": "binary-payloads/6ad3ca9c3f5f199b22f230a13908d019913c64f8901e695d43ae30b1e57196ab.bin",
+      "binaryId": "BP000053",
+      "bytes": 11400,
+      "sha256": "6ad3ca9c3f5f199b22f230a13908d019913c64f8901e695d43ae30b1e57196ab",
+      "role": "required-retail-seed",
+      "description": "Native retail parts catalog used by Retail.seed default catalog1",
+      "originalSuffix": ".bin",
+      "contentsExecuted": false
+    },
+    {
+      "dependencyId": "HD007",
+      "workspaceRelativePath": "work-update-check-20261113/generated-road-speed-input-4c-v1/input-receipt.json",
+      "repositoryTarget": "test-environment/work-update-check-20261113/generated-road-speed-input-4c-v1/input-receipt.json",
+      "payloadFile": "binary-payloads/27f9e5770e17fc38bdce642127ab5e909c12d47e12e7f05859b53570cb3eb2f3.bin",
+      "binaryId": "BP000054",
+      "bytes": 42952,
+      "sha256": "27f9e5770e17fc38bdce642127ab5e909c12d47e12e7f05859b53570cb3eb2f3",
+      "role": "required-generated-input",
+      "description": "Exact pinned receipt for disclosed synthetic road inputs",
+      "originalSuffix": ".json",
+      "contentsExecuted": false
+    },
+    {
+      "dependencyId": "HD008",
+      "workspaceRelativePath": "work-update-check-20261113/generated-road-speed-input-4c-v1/canonical-groups-34121.bin",
+      "repositoryTarget": "test-environment/work-update-check-20261113/generated-road-speed-input-4c-v1/canonical-groups-34121.bin",
+      "payloadFile": "binary-payloads/eb91e5202357229929957b7450651f0acd0174922824a3a6c75102bcb88b4146.bin",
+      "binaryId": "BP000055",
+      "bytes": 3732,
+      "sha256": "eb91e5202357229929957b7450651f0acd0174922824a3a6c75102bcb88b4146",
+      "role": "required-generated-input",
+      "description": "Generated diagnostic road-group input; not an authentic StreetX track",
+      "originalSuffix": ".bin",
+      "contentsExecuted": false
+    },
+    {
+      "dependencyId": "HD009",
+      "workspaceRelativePath": "work-update-check-20261113/generated-road-speed-input-4c-v1/canonical-links-34122.bin",
+      "repositoryTarget": "test-environment/work-update-check-20261113/generated-road-speed-input-4c-v1/canonical-links-34122.bin",
+      "payloadFile": "binary-payloads/69d8fb6cc8592d0aabd0d65e206f139fe06fa8e8f41351ec2743bcc58a6eea24.bin",
+      "binaryId": "BP000056",
+      "bytes": 12,
+      "sha256": "69d8fb6cc8592d0aabd0d65e206f139fe06fa8e8f41351ec2743bcc58a6eea24",
+      "role": "required-generated-input",
+      "description": "Generated diagnostic road-link input; not an authentic StreetX track",
+      "originalSuffix": ".bin",
+      "contentsExecuted": false
+    }
+  ],
+  "files": 9,
+  "binaryPayloadFormat": "Each payload is unchanged original bytes in a flat SHA256-named.bin file. Use the map to restore the exact original filename at repositoryTarget.",
+  "scope": "Adds explicitly identified native runtime/source and disclosed generated input dependencies to the existing public export. No saves or gameISOs are included.",
+  "fullRuntimeClosureClaimed": false,
+  "gameNativeSourceOrFixtureExecuted": false,
+  "secretPatternHits": [],
+  "limits": [
+    "The native fixture was already included as a separate400th binary reference. These9 new dependencies supplement it.",
+    "Raw live4cgame.wasm is source/regeneration evidence; the current harness directly uses candidate-composed.wasm.",
+    "This map supplies exact bytes and intended relative destinations; it does not authorize executing frozen tests or establish a complete runnable environment."
+  ]
+}

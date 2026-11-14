@@ -1,0 +1,27 @@
+{
+  "baseline": "combined-v017",
+  "candidate": "native-diagnostics-candidate",
+  "files": {
+    "extension/core.js": {
+      "baselineSha256": "68829a455737629cf5a4c5e6bcbf608e5e4d7ea77d104ea5da4b14b028a951be",
+      "candidateSha256": "2519ef62e8521a674cb13fdc91e9defa3d4a0521cc88e7d211aa134257deffb1"
+    },
+    "extension/page.js": {
+      "baselineSha256": "f8d5e7cc7da154e3f378eb7d4d5fe589216af6e9363e1835920d6d21aeece269",
+      "candidateSha256": "47c0e35a8eba05b7e2ed116e08aa6b82cdf059b72902d25c526384bf6c6a9ea4"
+    },
+    "extension/diagnostics.js": {
+      "baselineSha256": "b50328d86d4158a0a59d36b0731deb32101775038b1a5026cb63328d126eb86a",
+      "candidateSha256": "01109fda8692077a480989f3a0c18fe2664f13b60557f9503a48da0c1dc22aff"
+    },
+    "tests/diagnostics-page.test.cjs": {
+      "baselineSha256": "28817a51e332fc2285e7ede952a27ae873216cd981454391593aa4450dc4dc62",
+      "candidateSha256": "3439a8f7c152624bb9cdb7e8806f170f7b275bc20764a06f173fb8d73fb3f8bb"
+    },
+    "tests/native-diagnostics.test.cjs": {
+      "baselineSha256": null,
+      "candidateSha256": "7ad04f17b33457b37db79c477fb731fc6bf9fd054ba3fdadf1deedf2e17cf595"
+    }
+  },
+  "patchSha256": "aee64e385a9915fce1bce190b93d4420707ec09034dd4e6c2aadc2e484452d05"
+}

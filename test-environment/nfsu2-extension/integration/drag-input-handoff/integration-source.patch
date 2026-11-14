@@ -1,0 +1,470 @@
+--- a/extension/ai.js
++++ b/extension/ai.js
+@@ -85,6 +85,12 @@
+     // The exact module hash pins the site; preserve every other native instruction.
+     return join(Uint8Array.of(1,config.locals,127),old.subarray(a.end,off),Uint8Array.from(config.expression),old.subarray(off+2));
+   }
++  function patchDragInputBody(old,config) {
++    const a=locals(old),expected=config.originalTypes.map(t=>({i32:127,f32:125}[t]));
++    if(old.length!==config.originalLength || a.types.length!==expected.length || a.types.some((t,i)=>t!==expected[i]))
++      throw Error('Native drag input lifecycle layout changed.');
++    return join(Uint8Array.from(config.header),Uint8Array.from(config.prefix),old.subarray(a.end));
++  }
+   function patchOwnedNosBody(old,config) {
+     const a=locals(old),off=config.offset,expected=config.originalTypes.map(t=>({i32:127,f32:125,f64:124}[t]));
+     if(old.length!==config.originalLength || a.types.length!==expected.length || a.types.some((t,i)=>t!==expected[i]) || old[off-3]!==65 || old[off-2]!==2 || old[off-1]!==71)
+@@ -115,6 +121,8 @@
+             const fn=patchDriftRecoveryBody(bytes.subarray(body,stop),profile.driftRecovery);pieces.push(leb(fn.length),fn);changed++;
+           }else if(nos){
+             const fn=patchOwnedNosBody(bytes.subarray(body,stop),nos);pieces.push(leb(fn.length),fn);changed++;
++          }else if(profile.capabilities.nativeDragInputHandoff && i===profile.dragInputGuard.target){
++            const fn=patchDragInputBody(bytes.subarray(body,stop),profile.dragInputGuard);pieces.push(leb(fn.length),fn);changed++;
+           }else if(profile.capabilities.opponentDrag && i===profile.dragSelector.target){
+             const fn=patchDragSelector(bytes.subarray(body,stop),profile.dragSelector);pieces.push(leb(fn.length),fn);changed++;
+           }else if(i===profile.target){
+@@ -134,7 +142,7 @@
+           }else pieces.push(bytes.subarray(at,stop));
+           p.i=stop;
+         }
+-        if(changed!==1+Number(!!profile.capabilities.nativeDriftRecovery)+(profile.capabilities.ownedNativeNos?profile.ownedNos.length:0)+Number(!!profile.capabilities.opponentDrag)+Number(profile.capabilities.pace)+Number(profile.capabilities.corner)+Number(profile.capabilities.walls)||p.i!==end)throw Error('Current AI hook was not found.');
++        if(changed!==1+Number(!!profile.capabilities.nativeDragInputHandoff)+Number(!!profile.capabilities.nativeDriftRecovery)+(profile.capabilities.ownedNativeNos?profile.ownedNos.length:0)+Number(!!profile.capabilities.opponentDrag)+Number(profile.capabilities.pace)+Number(profile.capabilities.corner)+Number(profile.capabilities.walls)||p.i!==end)throw Error('Current AI hook was not found.');
+         const section=join(...pieces);return join(bytes.subarray(0,start),Uint8Array.of(10),leb(section.length),section,bytes.subarray(end));
+       }
+       p.i=end;
+@@ -261,14 +269,16 @@
+       const driftPhysicsRequired=!!this.capabilities.nativeDriftPhysics&&!drag&&!this.u32(0x890108)&&!!(this.u32(0x890114)||this.view.getUint8(0x89e7d9)||this.u32(0x890104))&&valid(record)&&this.u32(record+4)===1&&this.view.getUint8(record+0x900)===0;
+       const candidateDriver=this.u32(car+44);
+       const driftDriverValid=valid(candidateDriver)&&this.u32(candidateDriver)===0x785370&&this.u32(candidateDriver+4)===car;
+-      const active=(!driftPhysicsRequired||driftDriverValid)&&(!(drag||driftPhysicsRequired) || this.u32(car+0x28)===1) && !!owned && owned===car && this.read(32)===player && this.u32(car+0x24)===3 && code===1;
++      const dragInputOwned=!this.capabilities.nativeDragInputHandoff||!drag||(this.read(92)===1&&this.u32(player+556)===4&&this.u32(player+560)===4);
++      const active=dragInputOwned&&(!driftPhysicsRequired||driftDriverValid)&&(!(drag||driftPhysicsRequired) || this.u32(car+0x28)===1) && !!owned && owned===car && this.read(32)===player && this.u32(car+0x24)===3 && code===1;
+       const driver=active?this.u32(car+0x2c):0;
+       const action=valid(driver)&&this.u32(driver)===0x785370&&this.u32(driver+4)===car?this.u32(driver+0x6fc):0;
+       const actionId=valid(action)?this.u32(action+20):null;
+       const opponentDragSelected=active&&drag&&actionId===2&&this.u32(action)===0x7847d0;
+       const dragConfigUnavailable=active&&drag&&actionId===3&&valid(action)&&this.u32(action)===0x784830&&(!valid(driver)||!valid(this.u32(driver+0x6e0)));
+       const dragSelection=opponentDragSelected?'opponent':!this.capabilities.opponentDrag?'unsupported':actionId===3?'player':actionId===null?'pending':'native-temporary';
+-      const rec=active?this.u32(car+0x14):0,manual=!!car && this.u32(car+0x24)===1;
++      const manualDrag=!!this.capabilities.nativeDragInputHandoff&&this.u32(car+0x24)===2&&this.u32(player+16)===0&&this.u32(player+556)===3&&[2,3].includes(this.u32(player+560))&&valid(record)&&this.u32(record+4)===1&&this.view.getUint8(record+0x900)===0;
++      const rec=active?this.u32(car+0x14):0,manual=!!car && (this.u32(car+0x24)===1 || manualDrag);
+       const cr=off=>this.capabilities.corner?Atomics.load(this.words,(CORNER.commandBase+off)/4)>>>0:0;
+       const cornerMemoryBlocked=!!this.capabilities.corner && cr(0)!==CORNER.commandMagic && Array.from({length:11},(_,i)=>cr(i*4)).some(v=>v!==0);
+       const cornerDriftBlocked=!!this.capabilities.corner && !!(this.view.getUint8(0x89e7d9)||this.u32(0x890104));
+@@ -282,7 +292,7 @@
+       return {available:true,ready:true,active,owned:!!owned,manual,driftPhysicsRequired,actionId,opponentDragSelected,dragSelection,dragConfigUnavailable,cornerRequested,cornerMemoryBlocked,cornerDriftBlocked,cornerFactor,cornerMargin,cornerApplied,cornerHits,dragUnsupported:drag && !dragEnabled,dragExperimental:drag && dragEnabled,level,paceRequested:this.read(60)/100,paceApplied:active && !drag && this.read(80) && this.read(76)>=75 && this.read(76)<=300 ? this.read(76)/100 : null,status:drag && !dragEnabled?'unsupported':active?'active':code===3?'failed':'ready',reason:drag && !this.capabilities.dragAI?'Automatic drag AI is not verified for this build. Use manual control.':drag && !dragEnabled?'Drag AI is not requested. Enable Automatic AI driver; manual drag assist is available.':active && drag?`Experimental drag AI${level===9?' · level 9':' · unusual skill left unchanged'} · ${opponentDragSelected?'opponent drag action confirmed':dragSelection==='unsupported'?'opponent selector unsupported on this build':dragConfigUnavailable?'player drag action; config unavailable, opponent selection pending':actionId===3?'player drag action; opponent selection pending':'native action '+(actionId??'pending')+'; opponent selection pending'}, gameplay unverified.`:active&&driftPhysicsRequired?`Native drift driver and physics 1 confirmed${level===9?' · level 9':''}${this.capabilities.nativeDriftRecovery?' · native recovery guard installed':''}; gameplay unverified.`:active?`Native game AI driving${level===9?' · level 9':' · unusual skill value left unchanged'}.`:code===3?'The game did not hand over the car. Turn AI off before retrying.':drag?'Experimental drag AI waiting for full driving physics after GO.':'Ready for automatic native/drag selection; online needs its separate opt-in.'};
+     }
+   }
+-  const api={Controller,install,patchState,isPatchedModule:module=>patched.has(module),getModuleProfile:module=>patched.get(module)||null,patchBytes,patchCornerBody,patchDragSelector,patchOwnedNosBody,patchDriftRecoveryBody,BASE,MAGIC,CORNER_BASE:CORNER.commandBase,CORNER_MAGIC:CORNER.commandMagic};
++  const api={Controller,install,patchState,isPatchedModule:module=>patched.has(module),getModuleProfile:module=>patched.get(module)||null,patchBytes,patchCornerBody,patchDragSelector,patchDragInputBody,patchOwnedNosBody,patchDriftRecoveryBody,BASE,MAGIC,CORNER_BASE:CORNER.commandBase,CORNER_MAGIC:CORNER.commandMagic};
+   root.__NFSU2_AI__=api;
+   if(typeof module==='object' && module.exports)module.exports=api;
+ })(globalThis);
+--- a/tools/next-build-swap-probe.cjs
++++ b/tools/next-build-swap-probe.cjs
+@@ -4,6 +4,7 @@
+ (async()=>{
+  const wabt=await factory(),root=path.resolve(__dirname,'..');
+  let wat=fs.readFileSync(path.join(root,'tools/ai-current-bridge.wat'),'utf8');
++ wat=require('./add-drag-input-handoff.cjs').transform(require('./add-drift-physics.cjs').transform(wat));
+  const anchor='(local.set $seq (i32.load (i32.const 13684996)))';
+  if(!wat.includes(anchor))throw Error('Heartbeat observation anchor changed');
+  wat=wat.replace('(func (export "step")','(import "env" "probe" (func $probe)) (func (export "step")').replace(anchor,'(call $probe) '+anchor);
+--- a/tools/build-next-profile.cjs
++++ b/tools/build-next-profile.cjs
+@@ -13,7 +13,7 @@
+  const acquisition=read('drag-acquisition.wat').replace('PTR_DRIVER',ptr('(local.get $rec)')).replace('PTR_CONFIG',ptr('(i32.load offset=1760 (local.get $rec))')).replace('PTR_ACTION',ptr('(i32.load offset=1788 (local.get $rec))'));
+  const anchor='(i32.store (i32.const 13685044) (i32.const 1))';
+  const source=require('./add-drift-physics.cjs').transform(read('ai-current-bridge.wat'));assert.equal(source.split(anchor).length,2);
+- const ai=source.replace(anchor,anchor+'\n'+acquisition);
++ const ai=require('./add-drag-input-handoff.cjs').transform(source.replace(anchor,anchor+'\n'+acquisition));
+  fs.writeFileSync(path.join(root,'tests/ai-next-bridge.wasm'),compile(ai));
+  const bridge=body(compile(ai.replace('(import "env" "dispatch"',dummy(0,21727)+'(import "env" "dispatch"').replace('(import "env" "gcall"',dummy(21728,21741)+'(import "env" "gcall"')));
+  const pace=read('ai-pace.wat'),pOrig='(import "env" "original" (func $original (param i32)))',pCatch='(import "env" "catchup" (func $catchup (param i32)))';
+@@ -32,7 +32,8 @@
+  const dragSelector=JSON.parse(read('drag-selector.json'));
+  const ownedNos=JSON.parse(read('owned-nos.json'));
+  const driftRecovery=JSON.parse(read('drift-recovery.json'));
+- const profile={driftRecovery,statusCapacity:64,dragSelector,ownedNos,revision:'93af6ccb',size:38205596,hash:'128e2b5816a8eace4b768aec920318a1613da8235801a361e2009e96550be1d6',target:21213-37,bridge,locals:64,pace:{target:21263-37,bridge:paceBody},wall:{...config,bridge:contactBody},cars,capabilities:{legacy:true,ai:true,pace:true,corner:true,walls:true,cars:true,onlineTraffic:true,onlinePlayers:true,dyno:true,dragAI:true,opponentDrag:true,ownedNativeNos:true,nativeDriftPhysics:true,nativeDriftRecovery:true,driftDiagnostics:true}};
++ const dragInputGuard=JSON.parse(read('drag-input-guard.json'));
++ const profile={dragInputGuard,driftRecovery,statusCapacity:64,dragSelector,ownedNos,revision:'93af6ccb',size:38205596,hash:'128e2b5816a8eace4b768aec920318a1613da8235801a361e2009e96550be1d6',target:21213-37,bridge,locals:64,pace:{target:21263-37,bridge:paceBody},wall:{...config,bridge:contactBody},cars,capabilities:{legacy:true,ai:true,pace:true,corner:true,walls:true,cars:true,onlineTraffic:true,onlinePlayers:true,dyno:true,dragAI:true,opponentDrag:true,nativeDragInputHandoff:true,ownedNativeNos:true,nativeDriftPhysics:true,nativeDriftRecovery:true,driftDiagnostics:true}};
+  fs.writeFileSync(path.join(root,'extension/next-profile.js'),`/* Exact reviewed 93af6ccb profile. Contains authored prefixes only. */\n(function(root){'use strict';const profile=${JSON.stringify(profile)};const freeze=o=>{if(o&&typeof o==='object'){Object.values(o).forEach(freeze);Object.freeze(o);}return o;};freeze(profile);root.__NFSU2_NEXT_PROFILE__=profile;if(typeof module==='object'&&module.exports)module.exports=profile;})(globalThis);\n`);
+  console.log(JSON.stringify({revision:profile.revision,bridge:bridge.length,pace:paceBody.length,contact:contactBody.length}));
+ })().catch(e=>{console.error(e);process.exit(1)});
+--- a/tools/build-drag-input-guard.cjs
++++ b/tools/build-drag-input-guard.cjs
+@@ -0,0 +1,20 @@
++'use strict';
++// Authored guard only. Never copies original native instructions into a release.
++const fs=require('fs'),path=require('path'),assert=require('node:assert/strict');
++const root=path.resolve(__dirname,'..'),B=13684992;
++const c=n=>`(i32.const ${n})`,l=n=>`(local.get ${n})`,load=a=>`(i32.load ${c(a)})`,guard=x=>`(br_if $reject (i32.eqz ${x}))`,eq=(a,b)=>`(i32.eq ${a} ${b})`;
++const ptr=x=>guard(`(i32.and (i32.ge_u ${x} ${c(65536)}) (i32.and (i32.lt_u ${x} ${c(0x27fff000)}) (i64.lt_u (i64.extend_i32_u ${x}) (i64.sub (i64.shl (i64.extend_i32_u (memory.size)) (i64.const 16)) (i64.const 4096)))))`);
++let expr=fs.readFileSync(path.join(__dirname,'drag-selector.wat'),'utf8').split('(block $selected')[1];expr='(block $selected'+expr.slice(0,-2);
++// Native drag update has nine locals. Only appended locals are touched.
++expr=expr.replace('(local.set 7 (i32.load offset=4 (local.get 0)))','(local.set 7 (i32.load offset=44 (local.get 2)))');
++const map={2:14,5:10,6:11,7:12,8:13};expr=expr.replace(/\(local\.(get|set) ([25678])\b/g,(_,op,n)=>`(local.${op} ${map[n]}`);
++const checks=[guard(eq(load(B+52),c(1))),guard(eq(load(B+92),c(1))),guard(eq(`(i32.load offset=4 ${l(0)})`,l(10))),guard(eq(`(i32.load offset=556 ${l(10)})`,c(4))),guard(eq(`(i32.load offset=560 ${l(10)})`,c(4))),`(local.set 15 (i32.load offset=20 ${l(14)}))`,ptr(l(15)),guard(eq(`(i32.load offset=4 ${l(15)})`,c(1))),guard(`(i32.eqz (i32.load8_u offset=2304 ${l(15)}))`),`(local.set 16 (i32.load offset=16 ${l(0)}))`,ptr(l(16)),guard(eq(`(i32.load ${l(16)})`,c(0x602ab4))),guard(eq(l(13),load(B+4)))];
++expr=expr.replace('(br $selected (i32.const 2))) (i32.const 3))',checks.join('\n')+' (br $selected (i32.const 1))) (i32.const 0))');
++const pre=`(local.set 10 ${load(0xd00000)}) (block $outer ${ptr(l(10)).replaceAll('$reject','$outer')} (local.set 14 (i32.load offset=4 ${l(10)}))
++(if ${expr} (then
++ ;; Return exactly as a no-argument native thiscall, without entering its prologue.
++ (i32.store offset=32 ${l(0)} (i32.load ${l(16)}))
++ (i32.store offset=16 ${l(0)} (i32.add ${l(16)} ${c(4)})) (return))))`;
++const types=[...Array(7).fill('i32'),'f32','f32',...Array(7).fill('i32')];
++const wat=`(module (import "env" "memory" (memory 256 65536 shared)) (func (export "run") (param i32) (local ${types.join(' ')}) ${pre}))`;
++(async()=>{const w=await require(path.join(root,'research/compatibility-v011/node_modules/wabt'))();const m=w.parseWat('drag-input-guard.wat',wat,{threads:true});m.validate({threads:true});const b=Buffer.from(m.toBinary({}).buffer);fs.writeFileSync(path.join(__dirname,'drag-input-guard.wat'),wat);let p=8;const u=()=>{let n=0,s=0,x;do{x=b[p++];n|=(x&127)<<s;s+=7;}while(x&128);return n>>>0};while(p<b.length){const id=b[p++],len=u(),end=p+len;if(id===10){u();const n=u(),start=p,groups=u();for(let j=0;j<groups;j++){u();p++;}const cfg={target:19197-37,index:19197,originalLength:1372,originalTypes:types.slice(0,9),header:[...b.subarray(start,p)],prefix:[...b.subarray(p,start+n-1)]};fs.writeFileSync(path.join(__dirname,'drag-input-guard.json'),JSON.stringify(cfg)+'\n');break;}p=end;}})().catch(e=>{console.error(e);process.exit(1)});
+--- a/tools/build-latest-profile.cjs
++++ b/tools/build-latest-profile.cjs
+@@ -13,7 +13,7 @@
+  const acquisition=read('drag-acquisition.wat').replace('PTR_DRIVER',ptr('(local.get $rec)')).replace('PTR_CONFIG',ptr('(i32.load offset=1760 (local.get $rec))')).replace('PTR_ACTION',ptr('(i32.load offset=1788 (local.get $rec))'));
+  const anchor='(i32.store (i32.const 13685044) (i32.const 1))';
+  const source=require('./add-drift-physics.cjs').transform(read('ai-current-bridge.wat'));assert.equal(source.split(anchor).length,2);
+- const ai=source.replace(anchor,anchor+'\n'+acquisition);
++ const ai=require('./add-drag-input-handoff.cjs').transform(source.replace(anchor,anchor+'\n'+acquisition));
+  fs.writeFileSync(path.join(root,'tests/ai-latest-bridge.wasm'),compile(ai));
+  const bridge=body(compile(ai.replace('(import "env" "dispatch"',dummy(0,21726)+'(import "env" "dispatch"').replace('(import "env" "gcall"',dummy(21727,21740)+'(import "env" "gcall"')));
+  const pace=read('ai-pace.wat'),pOrig='(import "env" "original" (func $original (param i32)))',pCatch='(import "env" "catchup" (func $catchup (param i32)))';
+@@ -32,7 +32,8 @@
+  const dragSelector=JSON.parse(read('drag-selector.json'));
+  const ownedNos=JSON.parse(read('owned-nos.json'));
+  const driftRecovery=JSON.parse(read('drift-recovery.json'));
+- const profile={driftRecovery,dragSelector,ownedNos,revision:'78e2bb69',size:38170601,hash:'df7b930bb293ffdf975f0735d93e0797d51bd137d0cbeabcaff87fc5a693c759',target:21213-37,bridge,locals:64,pace:{target:21263-37,bridge:paceBody},wall:{...config,bridge:contactBody},cars,capabilities:{legacy:true,ai:true,pace:true,corner:true,walls:true,cars:true,onlineTraffic:true,onlinePlayers:true,dyno:true,dragAI:true,opponentDrag:true,ownedNativeNos:true,nativeDriftPhysics:true,nativeDriftRecovery:true,driftDiagnostics:true}};
++ const dragInputGuard=JSON.parse(read('drag-input-guard.json'));
++ const profile={dragInputGuard,driftRecovery,dragSelector,ownedNos,revision:'78e2bb69',size:38170601,hash:'df7b930bb293ffdf975f0735d93e0797d51bd137d0cbeabcaff87fc5a693c759',target:21213-37,bridge,locals:64,pace:{target:21263-37,bridge:paceBody},wall:{...config,bridge:contactBody},cars,capabilities:{legacy:true,ai:true,pace:true,corner:true,walls:true,cars:true,onlineTraffic:true,onlinePlayers:true,dyno:true,dragAI:true,opponentDrag:true,nativeDragInputHandoff:true,ownedNativeNos:true,nativeDriftPhysics:true,nativeDriftRecovery:true,driftDiagnostics:true}};
+  fs.writeFileSync(path.join(root,'extension/latest-profile.js'),`/* Exact reviewed 78e2bb69 profile. Contains authored prefixes only. */\n(function(root){'use strict';const profile=${JSON.stringify(profile)};const freeze=o=>{if(o&&typeof o==='object'){Object.values(o).forEach(freeze);Object.freeze(o);}return o;};freeze(profile);root.__NFSU2_LATEST_PROFILE__=profile;if(typeof module==='object'&&module.exports)module.exports=profile;})(globalThis);\n`);
+  console.log(JSON.stringify({revision:profile.revision,bridge:bridge.length,pace:paceBody.length,contact:contactBody.length}));
+ })().catch(e=>{console.error(e);process.exit(1)});
+--- a/tools/latest-build-swap-probe.cjs
++++ b/tools/latest-build-swap-probe.cjs
+@@ -4,6 +4,7 @@
+ (async()=>{
+  const wabt=await factory(),root=path.resolve(__dirname,'..');
+  let wat=fs.readFileSync(path.join(root,'tools/ai-current-bridge.wat'),'utf8');
++ wat=require('./add-drag-input-handoff.cjs').transform(require('./add-drift-physics.cjs').transform(wat));
+  const anchor='(local.set $seq (i32.load (i32.const 13684996)))';
+  if(!wat.includes(anchor))throw Error('Heartbeat observation anchor changed');
+  wat=wat.replace('(func (export "step")','(import "env" "probe" (func $probe)) (func (export "step")').replace(anchor,'(call $probe) '+anchor);
+--- a/tools/add-drag-input-handoff.cjs
++++ b/tools/add-drag-input-handoff.cjs
+@@ -0,0 +1,61 @@
++'use strict';
++// Authored bridge transformation. Applies only to the reviewed modern profiles.
++// Native input mode4 owns its complete On/Off and callback registration lifecycle.
++const assert=require('node:assert/strict');
++const B=13684992,c=n=>`(i32.const ${n})`,g=o=>`(i32.load ${c(B+o)})`,s=(o,v)=>`(i32.store ${c(B+o)} ${v})`,p=o=>`(i32.load offset=${o} (local.get $p))`;
++const drag='(i32.load8_u (i32.const 0x89e7d8))';
++const setMode=`(call $gcall (local.get $cpu) ${c(0x605c70)} (local.get $p) ${c(1)} ${c(B+56)})`;
++const off=`(call $gcall (local.get $cpu) ${c(0x5faf10)} (local.get $p) ${c(0)} ${c(0)})`;
++const on=`(call $gcall (local.get $cpu) ${c(0x5fae20)} (local.get $p) ${c(0)} ${c(0)})`;
++const manual=x=>`(i32.or (i32.eq ${x} ${c(2)}) (i32.eq ${x} ${c(3)}))`;
++function transform(source){
++ let out=source;const replace=(a,b,n=1)=>{assert.equal(out.split(a).length,n+1,a);out=out.split(a).join(b);};
++ const mailbox='(block $mailboxes';
++ replace(mailbox,mailbox+`\n(if (i32.ne ${g(28)} ${c(0x3749414e)}) (then (br_if $mailboxes (i32.or ${g(92)} ${g(96)}))))`);
++ // B+92 is this game's input-mode lease marker; B+96 is the saved request2/3.
++ const before=' (local.set $owned (i32.load (i32.const 13685028)))';
++ replace(before,` ;; Never reacquire after a native mode transition while the page is still ON.
++ (if (i32.and (i32.ne ${g(92)} ${c(0)}) (i32.ne ${g(36)} ${c(0)})) (then
++  (if (i32.and (i32.eq ${g(32)} (local.get $p))
++    (i32.and (i32.ge_u (local.get $p) ${c(65536)}) (i32.and (i32.lt_u (local.get $p) ${c(0x27fff000)}) (i64.lt_u (i64.extend_i32_u (local.get $p)) (i64.sub (i64.shl (i64.extend_i32_u (memory.size)) (i64.const 16)) (i64.const 4096))))))
++   (then (if (i32.or (i32.ne ${p(556)} ${c(4)}) (i32.ne ${p(560)} ${c(4)}))
++    (then (local.set $want ${c(0)}) ${s(72,'(local.get $car)')})))
++   (else (local.set $want ${c(0)})))))\n${before}`);
++ const kind='(i32.eq (local.get $kind) (i32.const 1))';
++ replace(kind,`(i32.or ${kind} (i32.and ${drag} (i32.eq (local.get $kind) ${c(2)})))`);
++ const rec='     (if (i32.and (i32.ge_u (local.get $rec)';
++ const i=out.indexOf(rec);assert(i>0);
++ out=out.slice(0,i)+`     ;; Do not take over scripted/native AI or any non-player record.
++     (if ${drag} (then
++      (br_if $acquire (i32.ne (i32.load offset=4 (local.get $rec)) ${c(1)}))
++      (br_if $acquire (i32.load8_u offset=2304 (local.get $rec)))
++      (br_if $acquire (i32.eqz ${manual(p(556))}))
++      (br_if $acquire (i32.eqz ${manual(p(560))}))))\n`+out.slice(i);
++ replace(on,`(if ${drag} (then
++      ${s(96,p(560))} ${s(92,c(1))}
++      (i32.store offset=560 (local.get $p) ${c(4)})
++      ${s(56,c(4))} ${setMode}
++     ) (else ${on}))`);
++ // Native SetInputMode exits4 by calling Off itself. Do not double-delete a driver.
++ const oldRelease=`(then ${off} ${s(56,c(2))} ${setMode})`;
++ const release=`(then
++  (if (i32.eq ${g(92)} ${c(1)}) (then
++   ;; CAS-style restore: a new native request belongs to the game, not to us.
++   (if (i32.eq ${p(560)} ${c(4)}) (then (i32.store offset=560 (local.get $p) ${g(96)})))
++   ;; A different current mode has already run its own native controller handoff.
++   ;; In particular4->5 tears down our driver and builds a fresh native AI driver3.
++   ;; Do not call Off against that replacement, even though its kind is still3.
++   (if (i32.eq ${p(556)} ${c(4)})
++    (then ${s(56,g(96))} ${setMode}))
++  ) (else ${off} ${s(56,c(2))} ${setMode}))
++  ${s(92,c(0))} ${s(96,c(0))})`;
++ replace(oldRelease,release,2);
++ // Run rollback even when native On rejected its driver or physics construction.
++ const releaseCondition='(if (i32.eq (local.get $kind) (i32.const 3))\n        (then';
++ replace(releaseCondition,`(if (i32.or ${g(92)} (i32.eq (local.get $kind) ${c(3)}))\n        (then`);
++ const failureCondition='(if (i32.eq (i32.load offset=36 (local.get $car)) (i32.const 3))\n        (then';
++ replace(failureCondition,`(if (i32.or ${g(92)} (i32.eq (i32.load offset=36 (local.get $car)) ${c(3)}))\n        (then`);
++ const clear=s(80,c(0));replace(clear,`${clear} ${s(92,c(0))} ${s(96,c(0))}`);
++ return out;
++}
++module.exports={transform};
+--- a/tests/next-profile.test.cjs
++++ b/tests/next-profile.test.cjs
+@@ -7,10 +7,10 @@
+  const memory=new WebAssembly.Memory({initial:256,maximum:65536,shared:true}),d=new DataView(memory.buffer),calls=[];
+  const p=0xe00000,car=0xe01000,race=0xe04000,rec=0xe05000,cpu=0xe08000,stack=0xe09000;
+  const put=(a,v)=>d.setUint32(a,v,true),get=a=>d.getUint32(a,true);
+- put(cpu+16,stack);put(stack,0x581475);put(0x8654a4,6);put(0xd00000,p);put(0xd00030,1);put(p+4,car);put(car+0x24,1);put(car+0x14,rec);put(car+0x28,1);d.setUint8(car+0x5c0,1);put(0x890118,race);put(race,4);d.setUint8(rec+0x901,4);
++ put(cpu+16,stack);put(stack,0x581475);put(0x8654a4,6);put(0xd00000,p);put(0xd00030,1);put(p+4,car);put(p+556,2);put(p+560,2);put(rec+4,1);put(car+0x24,1);put(car+0x14,rec);put(car+0x28,1);d.setUint8(car+0x5c0,1);put(0x890118,race);put(race,4);d.setUint8(rec+0x901,4);
+  if(occupied)put(B+48,0x12345678);if(occupiedAddress!==null)put(occupiedAddress,0x12345678);
+  let fail=false;
+- const inst=new WebAssembly.Instance(bridge,{env:{memory,stack:new WebAssembly.Global({value:'i32',mutable:true},0xf00000),dispatch:()=>{throw Error('Unexpected unarmed dyno call');},gcall:(c,fn,thisP,n,args)=>{calls.push({c,fn,thisP,n,arg:n?get(args):null});if(fn===0x5fae20&&!fail){put(car+0x24,3);put(car+0x28,3);const driver=0xe0a000,action=0xe0c000;put(car+44,driver);put(driver,badDriver?0:0x785370);put(driver+4,car);put(driver+1760,invalidConfig?0:0xe0d000);put(driver+1788,actionId===null?0:action);put(action,actionId===2?0x7847d0:actionId===3?0x784830:0x700000);put(action+20,actionId);}if(fn===0x42c060){const action=get(thisP+1788);put(action,selectorFallback?0x700000:0x7847d0);put(action+20,selectorFallback?1:2);}if(fn===0x5faf10){put(car+0x24,1);put(car+0x28,1);}if(fn===0x5f46a0&&!physicsFail)put(thisP+0x28,get(args));}}});
++ const inst=new WebAssembly.Instance(bridge,{env:{memory,stack:new WebAssembly.Global({value:'i32',mutable:true},0xf00000),dispatch:()=>{throw Error('Unexpected unarmed dyno call');},gcall:(c,fn,thisP,n,args)=>{calls.push({c,fn,thisP,n,arg:n?get(args):null});if(fn===0x605c70){if(get(p+556)===4 && get(args)!==4){put(car+36,1);put(car+40,1);}put(p+556,get(args));}if((fn===0x5fae20 || (fn===0x605c70&&get(args)===4))&&!fail){put(car+0x24,3);put(car+0x28,3);const driver=0xe0a000,action=0xe0c000;put(car+44,driver);put(driver,badDriver?0:0x785370);put(driver+4,car);put(driver+1760,invalidConfig?0:0xe0d000);put(driver+1788,actionId===null?0:action);put(action,actionId===2?0x7847d0:actionId===3?0x784830:0x700000);put(action+20,actionId);}if(fn===0x42c060){const action=get(thisP+1788);put(action,selectorFallback?0x700000:0x7847d0);put(action+20,selectorFallback?1:2);}if(fn===0x5faf10){put(car+0x24,1);put(car+0x28,1);}if(fn===0x5f46a0&&!physicsFail)put(thisP+0x28,get(args));}}});
+  const step=()=>inst.exports.step(cpu);step();
+  const c=new Controller(memory,true,profile.capabilities),s={ready:true,driving:true,network:false,car,race};
+  const on=()=>c.update({enabled:true,safe:true,state:s,mode:2,pace:1.5,cornerAssist:true,allowDragAI:true});
+@@ -21,11 +21,11 @@
+ });
+ test('next AI heartbeat expiration safely hands back',()=>{const f=fixture();f.on();f.step();for(let i=0;i<180;i++)f.step();assert.equal(f.c.status().manual,true);assert.equal(f.c.status().active,false);});
+ test('next full profile publishes its verified options without modifying mailbox gaps',()=>{
+- const f=fixture(),bytes=new Uint8Array(f.memory.buffer),ranges=[[B+92,B+128],[B+168,B+256],[B+292,B+512],[B+1024,B+1040]];
++ const f=fixture(),bytes=new Uint8Array(f.memory.buffer),ranges=[[B+100,B+128],[B+168,B+256],[B+292,B+512],[B+1024,B+1040]];
+  for(const [start,end]of ranges)bytes.fill(0x5a,start,end);const before=ranges.map(([a,b])=>Buffer.from(bytes.subarray(a,b)));f.on();f.step();assert.equal(f.get(B+60),150);assert.equal(f.get(B+88),1);f.c.stop();f.step();ranges.forEach(([a,b],i)=>assert.deepEqual(Buffer.from(bytes.subarray(a,b)),before[i]));
+ });
+ test('initialization refuses an occupied wall, car, corner or dyno command region before any handshake',()=>{
+- for(const address of [0xd0d184,0xd0d1c4,0xd0d204,0xd0d30c]){const f=fixture({occupiedAddress:address});const before=Buffer.from(f.memory.buffer);f.on();f.step();assert.equal(f.get(B+28),0);assert.equal(f.get(0xd0d320),0);assert.equal(f.calls.length,0);assert.deepEqual(Buffer.from(f.memory.buffer),before);}
++ for(const address of [B+92,B+96,0xd0d184,0xd0d1c4,0xd0d204,0xd0d30c]){const f=fixture({occupiedAddress:address});const before=Buffer.from(f.memory.buffer);f.on();f.step();assert.equal(f.get(B+28),0);assert.equal(f.get(0xd0d320),0);assert.equal(f.calls.length,0);assert.deepEqual(Buffer.from(f.memory.buffer),before);}
+ });
+ test('next AI refuses an occupied mailbox instead of overwriting it',()=>{const f=fixture({occupied:true});const before=Buffer.from(f.memory.buffer);f.on();f.step();assert.equal(f.get(B+28),0);assert.equal(f.calls.length,0);assert.deepEqual(Buffer.from(f.memory.buffer),before);});
+ test('next AI still requires exact caller, driving state and solo/explicit network permission',()=>{
+@@ -38,7 +38,7 @@
+ function parse(bytes){let p=8;const u=()=>{let n=0,s=0,x;do{x=bytes[p++];n|=(x&127)<<s;s+=7}while(x&128);return n>>>0;};const sections=[],functions=[];while(p<bytes.length){const id=bytes[p++],len=u(),start=p,end=p+len;sections.push({id,bytes:bytes.subarray(start,end)});if(id===10){const n=u();for(let i=0;i<n;i++){const len=u();functions.push(bytes.subarray(p,p+len));p+=len;}}p=end;}return {sections,functions};}
+ test('next exact module compiles, preserves every other function and section, rejects corruption',async()=>{
+  const bytes=fs.readFileSync(__dirname+'/../research/compatibility-93af6ccb/game.wasm'),before=Buffer.from(bytes),out=await patchBytes(bytes);assert.equal(WebAssembly.validate(out),true);await WebAssembly.compile(out);assert.deepEqual(bytes,before);
+- const a=parse(bytes),b=parse(out);assert.equal(a.functions.length,b.functions.length);const changed=[];for(let i=0;i<a.functions.length;i++)if(!Buffer.from(a.functions[i]).equals(Buffer.from(b.functions[i])))changed.push(i+37);assert.deepEqual(changed,[3174,4653,7395,8871,17404,19277,21213,21263,22508]);
++ const a=parse(bytes),b=parse(out);assert.equal(a.functions.length,b.functions.length);const changed=[];for(let i=0;i<a.functions.length;i++)if(!Buffer.from(a.functions[i]).equals(Buffer.from(b.functions[i])))changed.push(i+37);assert.deepEqual(changed,[3174,4653,7395,8871,17404,19197,19277,21213,21263,22508]);
+  assert.equal(a.sections.length,b.sections.length);for(let i=0;i<a.sections.length;i++){assert.equal(a.sections[i].id,b.sections[i].id);if(a.sections[i].id!==10)assert.deepEqual(Buffer.from(a.sections[i].bytes),Buffer.from(b.sections[i].bytes));}
+  const bad=Buffer.from(bytes);bad[100]^=1;await assert.rejects(patchBytes(bad),/module changed/);assert.equal(bytes.length,profile.size);
+ });
+@@ -55,7 +55,7 @@
+  const f=fixture();f.on();f.step();assert.equal(f.c.status().active,true);f.put(0xd0d184,1);for(let i=0;i<180;i++)f.step();assert.equal(f.c.status().active,false);assert.equal(f.c.status().manual,true);assert.equal(f.d.getUint8(f.rec+0x901),4);
+ });
+ test('an occupied ancillary region after attachment cannot prevent explicit AI stop',()=>{
+- for(const address of [0xd0d184,0xd0d1c4,0xd0d208,0xd0d348]){const f=fixture();f.on();f.step();f.put(address,0x12345678);f.c.stop();f.step();assert.equal(f.c.status().active,false);assert.equal(f.c.status().manual,true);}
++ for(const address of [B+92,B+96,0xd0d184,0xd0d1c4,0xd0d208,0xd0d348]){const f=fixture();f.on();f.step();f.put(address,0x12345678);f.c.stop();f.step();assert.equal(f.c.status().active,false);assert.equal(f.c.status().manual,true);}
+ });
+ 
+ test('foreign dyno ownership after attachment is preserved without blocking AI stop',()=>{
+@@ -69,7 +69,7 @@
+ });
+ 
+ test('one-shot acquired action3 upgrade; NULL, opponent2 and temporary11 are never overwritten',()=>{
+- for(const actionId of [null,2,3,11,6]){const f=fixture({actionId});f.d.setUint8(0x89e7d8,1);f.s.drag=true;f.on();f.step();const calls=f.calls.filter(x=>x.fn===0x42c060);assert.equal(calls.length,actionId===3?1:0);assert.equal(f.c.status().opponentDragSelected,actionId===2||actionId===3);assert.equal(f.get(f.rec+4),0);for(let i=0;i<3;i++){f.on();f.step();}assert.equal(f.calls.filter(x=>x.fn===0x42c060).length,calls.length);f.c.stop();f.step();assert.equal(f.c.status().manual,true);}
++ for(const actionId of [null,2,3,11,6]){const f=fixture({actionId});f.d.setUint8(0x89e7d8,1);f.s.drag=true;f.on();f.step();const calls=f.calls.filter(x=>x.fn===0x42c060);assert.equal(calls.length,actionId===3?1:0);assert.equal(f.c.status().opponentDragSelected,actionId===2||actionId===3);assert.equal(f.get(f.rec+4),1);for(let i=0;i<3;i++){f.on();f.step();}assert.equal(f.calls.filter(x=>x.fn===0x42c060).length,calls.length);f.c.stop();f.step();assert.equal(f.c.status().manual,true);}
+ });
+ test('invalid config is not passed to native initialization and fallback is never reported as opponent selection',()=>{
+  for(const opts of [{invalidConfig:true},{selectorFallback:true}]){const f=fixture({actionId:3,...opts});f.d.setUint8(0x89e7d8,1);f.s.drag=true;f.on();f.step();assert.equal(f.calls.filter(x=>x.fn===0x42c060).length,opts.invalidConfig?0:1);assert.equal(f.c.status().opponentDragSelected,false);assert.match(f.c.status().reason,/pending/);f.c.stop();f.step();assert.equal(f.c.status().manual,true);}
+@@ -96,5 +96,18 @@
+   f.d.setUint8(0x89e7d9,mode==='drift'?1:0);f.d.setUint8(0x89e7d8,mode==='drag'?1:0);f.s.drag=mode==='drag';
+   assert.equal(f.on().switching,true);assert.equal(f.get(B+8),0);f.step();assert.equal(f.c.status().manual,true);assert.equal(f.c.status().owned,false);f.on();f.step();assert.equal(f.c.status().active,true);assert.equal(f.get(f.car+40),mode==='road'?3:1);assert.equal(f.get(f.rec+4),1);
+  }
+- assert.equal(f.calls.filter(x=>x.fn===0x5fae20).length,4);assert.equal(f.calls.filter(x=>x.fn===0x5faf10).length,3);assert.deepEqual(Buffer.from(new Uint8Array(f.memory.buffer,f.cpu,256)),cpu);assert.deepEqual(Buffer.from(new Uint8Array(f.memory.buffer,f.stack,256)),stack);
++ assert.equal(f.calls.filter(x=>x.fn===0x5fae20).length,3);assert.equal(f.calls.filter(x=>x.fn===0x5faf10).length,2);assert.deepEqual(Buffer.from(new Uint8Array(f.memory.buffer,f.cpu,256)),cpu);assert.deepEqual(Buffer.from(new Uint8Array(f.memory.buffer,f.stack,256)),stack);
+ });
++
++ test('manual drag2 handback is recognized across mode flags without accepting foreign/scripted control',()=>{
++  const f=fixture();f.put(f.car+36,2);f.put(f.p+556,3);f.put(f.p+560,3);
++  for(const drag of [0,1]){f.d.setUint8(0x89e7d8,drag);assert.equal(f.c.status().manual,true);}
++  for(const mutate of [()=>f.put(f.rec+4,2),()=>f.put(f.p+560,5),()=>f.put(f.p+556,4)]){
++   f.put(f.rec+4,1);f.put(f.p+560,3);f.put(f.p+556,3);mutate();assert.equal(f.c.status().manual,false);
++  }
++ });
++ test('native input ownership changes are not reported as active before the bridge hands back',()=>{
++  const f=fixture();f.d.setUint8(0x89e7d8,1);f.s.drag=true;f.on();f.step();assert.equal(f.c.status().active,true);
++  f.put(f.p+560,2);assert.equal(f.c.status().active,false);f.step();assert.equal(f.c.status().owned,false);assert.equal(f.d.getUint8(f.rec+0x901),4);
++  for(let i=0;i<3;i++){f.on();f.step();assert.equal(f.c.status().active,false);}f.c.stop();f.step();f.on();f.step();assert.equal(f.c.status().active,true);
++ });
+--- a/tests/latest-profile.test.cjs
++++ b/tests/latest-profile.test.cjs
+@@ -7,10 +7,10 @@
+  const memory=new WebAssembly.Memory({initial:256,maximum:65536,shared:true}),d=new DataView(memory.buffer),calls=[];
+  const p=0xe00000,car=0xe01000,race=0xe04000,rec=0xe05000,cpu=0xe08000,stack=0xe09000;
+  const put=(a,v)=>d.setUint32(a,v,true),get=a=>d.getUint32(a,true);
+- put(cpu+16,stack);put(stack,0x581475);put(0x8654a4,6);put(0xd00000,p);put(0xd00030,1);put(p+4,car);put(car+0x24,1);put(car+0x14,rec);put(car+0x28,1);d.setUint8(car+0x5c0,1);put(0x890118,race);put(race,4);d.setUint8(rec+0x901,4);
++ put(cpu+16,stack);put(stack,0x581475);put(0x8654a4,6);put(0xd00000,p);put(0xd00030,1);put(p+4,car);put(p+556,2);put(p+560,2);put(rec+4,1);put(car+0x24,1);put(car+0x14,rec);put(car+0x28,1);d.setUint8(car+0x5c0,1);put(0x890118,race);put(race,4);d.setUint8(rec+0x901,4);
+  if(occupied)put(B+48,0x12345678);if(occupiedAddress!==null)put(occupiedAddress,0x12345678);
+  let fail=false;
+- const inst=new WebAssembly.Instance(bridge,{env:{memory,stack:new WebAssembly.Global({value:'i32',mutable:true},0xf00000),dispatch:()=>{throw Error('Unexpected unarmed dyno call');},gcall:(c,fn,thisP,n,args)=>{calls.push({c,fn,thisP,n,arg:n?get(args):null});if(fn===0x5fae20&&!fail){put(car+0x24,3);put(car+0x28,3);const driver=0xe0a000,action=0xe0c000;put(car+44,driver);put(driver,badDriver?0:0x785370);put(driver+4,car);put(driver+1760,invalidConfig?0:0xe0d000);put(driver+1788,actionId===null?0:action);put(action,actionId===2?0x7847d0:actionId===3?0x784830:0x700000);put(action+20,actionId);}if(fn===0x42c060){const action=get(thisP+1788);put(action,selectorFallback?0x700000:0x7847d0);put(action+20,selectorFallback?1:2);}if(fn===0x5faf10){put(car+0x24,1);put(car+0x28,1);}if(fn===0x5f46a0&&!physicsFail)put(thisP+0x28,get(args));}}});
++ const inst=new WebAssembly.Instance(bridge,{env:{memory,stack:new WebAssembly.Global({value:'i32',mutable:true},0xf00000),dispatch:()=>{throw Error('Unexpected unarmed dyno call');},gcall:(c,fn,thisP,n,args)=>{calls.push({c,fn,thisP,n,arg:n?get(args):null});if(fn===0x605c70){if(get(p+556)===4 && get(args)!==4){put(car+36,1);put(car+40,1);}put(p+556,get(args));}if((fn===0x5fae20 || (fn===0x605c70&&get(args)===4))&&!fail){put(car+0x24,3);put(car+0x28,3);const driver=0xe0a000,action=0xe0c000;put(car+44,driver);put(driver,badDriver?0:0x785370);put(driver+4,car);put(driver+1760,invalidConfig?0:0xe0d000);put(driver+1788,actionId===null?0:action);put(action,actionId===2?0x7847d0:actionId===3?0x784830:0x700000);put(action+20,actionId);}if(fn===0x42c060){const action=get(thisP+1788);put(action,selectorFallback?0x700000:0x7847d0);put(action+20,selectorFallback?1:2);}if(fn===0x5faf10){put(car+0x24,1);put(car+0x28,1);}if(fn===0x5f46a0&&!physicsFail)put(thisP+0x28,get(args));}}});
+  const step=()=>inst.exports.step(cpu);step();
+  const c=new Controller(memory,true,profile.capabilities),s={ready:true,driving:true,network:false,car,race};
+  const on=()=>c.update({enabled:true,safe:true,state:s,mode:2,pace:1.5,cornerAssist:true,allowDragAI:true});
+@@ -21,11 +21,11 @@
+ });
+ test('latest AI heartbeat expiration safely hands back',()=>{const f=fixture();f.on();f.step();for(let i=0;i<180;i++)f.step();assert.equal(f.c.status().manual,true);assert.equal(f.c.status().active,false);});
+ test('latest full profile publishes its verified options without modifying mailbox gaps',()=>{
+- const f=fixture(),bytes=new Uint8Array(f.memory.buffer),ranges=[[B+92,B+128],[B+168,B+256],[B+292,B+512],[B+1024,B+1040]];
++ const f=fixture(),bytes=new Uint8Array(f.memory.buffer),ranges=[[B+100,B+128],[B+168,B+256],[B+292,B+512],[B+1024,B+1040]];
+  for(const [start,end]of ranges)bytes.fill(0x5a,start,end);const before=ranges.map(([a,b])=>Buffer.from(bytes.subarray(a,b)));f.on();f.step();assert.equal(f.get(B+60),150);assert.equal(f.get(B+88),1);f.c.stop();f.step();ranges.forEach(([a,b],i)=>assert.deepEqual(Buffer.from(bytes.subarray(a,b)),before[i]));
+ });
+ test('initialization refuses an occupied wall, car, corner or dyno command region before any handshake',()=>{
+- for(const address of [0xd0d184,0xd0d1c4,0xd0d204,0xd0d30c]){const f=fixture({occupiedAddress:address});const before=Buffer.from(f.memory.buffer);f.on();f.step();assert.equal(f.get(B+28),0);assert.equal(f.get(0xd0d320),0);assert.equal(f.calls.length,0);assert.deepEqual(Buffer.from(f.memory.buffer),before);}
++ for(const address of [B+92,B+96,0xd0d184,0xd0d1c4,0xd0d204,0xd0d30c]){const f=fixture({occupiedAddress:address});const before=Buffer.from(f.memory.buffer);f.on();f.step();assert.equal(f.get(B+28),0);assert.equal(f.get(0xd0d320),0);assert.equal(f.calls.length,0);assert.deepEqual(Buffer.from(f.memory.buffer),before);}
+ });
+ test('latest AI refuses an occupied mailbox instead of overwriting it',()=>{const f=fixture({occupied:true});const before=Buffer.from(f.memory.buffer);f.on();f.step();assert.equal(f.get(B+28),0);assert.equal(f.calls.length,0);assert.deepEqual(Buffer.from(f.memory.buffer),before);});
+ test('latest AI still requires exact caller, driving state and solo/explicit network permission',()=>{
+@@ -38,7 +38,7 @@
+ function parse(bytes){let p=8;const u=()=>{let n=0,s=0,x;do{x=bytes[p++];n|=(x&127)<<s;s+=7}while(x&128);return n>>>0;};const sections=[],functions=[];while(p<bytes.length){const id=bytes[p++],len=u(),start=p,end=p+len;sections.push({id,bytes:bytes.subarray(start,end)});if(id===10){const n=u();for(let i=0;i<n;i++){const len=u();functions.push(bytes.subarray(p,p+len));p+=len;}}p=end;}return {sections,functions};}
+ test('latest exact module compiles, preserves every other function and section, rejects corruption',async()=>{
+  const bytes=fs.readFileSync(__dirname+'/../research/compatibility-78e2bb69/game.wasm'),before=Buffer.from(bytes),out=await patchBytes(bytes);assert.equal(WebAssembly.validate(out),true);await WebAssembly.compile(out);assert.deepEqual(bytes,before);
+- const a=parse(bytes),b=parse(out);assert.equal(a.functions.length,b.functions.length);const changed=[];for(let i=0;i<a.functions.length;i++)if(!Buffer.from(a.functions[i]).equals(Buffer.from(b.functions[i])))changed.push(i+37);assert.deepEqual(changed,[3174,4653,7395,8871,17404,19277,21213,21263,22470]);
++ const a=parse(bytes),b=parse(out);assert.equal(a.functions.length,b.functions.length);const changed=[];for(let i=0;i<a.functions.length;i++)if(!Buffer.from(a.functions[i]).equals(Buffer.from(b.functions[i])))changed.push(i+37);assert.deepEqual(changed,[3174,4653,7395,8871,17404,19197,19277,21213,21263,22470]);
+  assert.equal(a.sections.length,b.sections.length);for(let i=0;i<a.sections.length;i++){assert.equal(a.sections[i].id,b.sections[i].id);if(a.sections[i].id!==10)assert.deepEqual(Buffer.from(a.sections[i].bytes),Buffer.from(b.sections[i].bytes));}
+  const bad=Buffer.from(bytes);bad[100]^=1;await assert.rejects(patchBytes(bad),/module changed/);assert.equal(bytes.length,profile.size);
+ });
+@@ -55,7 +55,7 @@
+  const f=fixture();f.on();f.step();assert.equal(f.c.status().active,true);f.put(0xd0d184,1);for(let i=0;i<180;i++)f.step();assert.equal(f.c.status().active,false);assert.equal(f.c.status().manual,true);assert.equal(f.d.getUint8(f.rec+0x901),4);
+ });
+ test('an occupied ancillary region after attachment cannot prevent explicit AI stop',()=>{
+- for(const address of [0xd0d184,0xd0d1c4,0xd0d208,0xd0d348]){const f=fixture();f.on();f.step();f.put(address,0x12345678);f.c.stop();f.step();assert.equal(f.c.status().active,false);assert.equal(f.c.status().manual,true);}
++ for(const address of [B+92,B+96,0xd0d184,0xd0d1c4,0xd0d208,0xd0d348]){const f=fixture();f.on();f.step();f.put(address,0x12345678);f.c.stop();f.step();assert.equal(f.c.status().active,false);assert.equal(f.c.status().manual,true);}
+ });
+ 
+ test('foreign dyno ownership after attachment is preserved without blocking AI stop',()=>{
+@@ -69,7 +69,7 @@
+ });
+ 
+ test('one-shot acquired action3 upgrade; NULL, opponent2 and temporary11 are never overwritten',()=>{
+- for(const actionId of [null,2,3,11,6]){const f=fixture({actionId});f.d.setUint8(0x89e7d8,1);f.s.drag=true;f.on();f.step();const calls=f.calls.filter(x=>x.fn===0x42c060);assert.equal(calls.length,actionId===3?1:0);assert.equal(f.c.status().opponentDragSelected,actionId===2||actionId===3);assert.equal(f.get(f.rec+4),0);for(let i=0;i<3;i++){f.on();f.step();}assert.equal(f.calls.filter(x=>x.fn===0x42c060).length,calls.length);f.c.stop();f.step();assert.equal(f.c.status().manual,true);}
++ for(const actionId of [null,2,3,11,6]){const f=fixture({actionId});f.d.setUint8(0x89e7d8,1);f.s.drag=true;f.on();f.step();const calls=f.calls.filter(x=>x.fn===0x42c060);assert.equal(calls.length,actionId===3?1:0);assert.equal(f.c.status().opponentDragSelected,actionId===2||actionId===3);assert.equal(f.get(f.rec+4),1);for(let i=0;i<3;i++){f.on();f.step();}assert.equal(f.calls.filter(x=>x.fn===0x42c060).length,calls.length);f.c.stop();f.step();assert.equal(f.c.status().manual,true);}
+ });
+ test('invalid config is not passed to native initialization and fallback is never reported as opponent selection',()=>{
+  for(const opts of [{invalidConfig:true},{selectorFallback:true}]){const f=fixture({actionId:3,...opts});f.d.setUint8(0x89e7d8,1);f.s.drag=true;f.on();f.step();assert.equal(f.calls.filter(x=>x.fn===0x42c060).length,opts.invalidConfig?0:1);assert.equal(f.c.status().opponentDragSelected,false);assert.match(f.c.status().reason,/pending/);f.c.stop();f.step();assert.equal(f.c.status().manual,true);}
+@@ -96,5 +96,18 @@
+   f.d.setUint8(0x89e7d9,mode==='drift'?1:0);f.d.setUint8(0x89e7d8,mode==='drag'?1:0);f.s.drag=mode==='drag';
+   assert.equal(f.on().switching,true);assert.equal(f.get(B+8),0);f.step();assert.equal(f.c.status().manual,true);assert.equal(f.c.status().owned,false);f.on();f.step();assert.equal(f.c.status().active,true);assert.equal(f.get(f.car+40),mode==='road'?3:1);assert.equal(f.get(f.rec+4),1);
+  }
+- assert.equal(f.calls.filter(x=>x.fn===0x5fae20).length,4);assert.equal(f.calls.filter(x=>x.fn===0x5faf10).length,3);assert.deepEqual(Buffer.from(new Uint8Array(f.memory.buffer,f.cpu,256)),cpu);assert.deepEqual(Buffer.from(new Uint8Array(f.memory.buffer,f.stack,256)),stack);
++ assert.equal(f.calls.filter(x=>x.fn===0x5fae20).length,3);assert.equal(f.calls.filter(x=>x.fn===0x5faf10).length,2);assert.deepEqual(Buffer.from(new Uint8Array(f.memory.buffer,f.cpu,256)),cpu);assert.deepEqual(Buffer.from(new Uint8Array(f.memory.buffer,f.stack,256)),stack);
+ });
++
++ test('manual drag2 handback is recognized across mode flags without accepting foreign/scripted control',()=>{
++  const f=fixture();f.put(f.car+36,2);f.put(f.p+556,3);f.put(f.p+560,3);
++  for(const drag of [0,1]){f.d.setUint8(0x89e7d8,drag);assert.equal(f.c.status().manual,true);}
++  for(const mutate of [()=>f.put(f.rec+4,2),()=>f.put(f.p+560,5),()=>f.put(f.p+556,4)]){
++   f.put(f.rec+4,1);f.put(f.p+560,3);f.put(f.p+556,3);mutate();assert.equal(f.c.status().manual,false);
++  }
++ });
++ test('native input ownership changes are not reported as active before the bridge hands back',()=>{
++  const f=fixture();f.d.setUint8(0x89e7d8,1);f.s.drag=true;f.on();f.step();assert.equal(f.c.status().active,true);
++  f.put(f.p+560,2);assert.equal(f.c.status().active,false);f.step();assert.equal(f.c.status().owned,false);assert.equal(f.d.getUint8(f.rec+0x901),4);
++  for(let i=0;i<3;i++){f.on();f.step();assert.equal(f.c.status().active,false);}f.c.stop();f.step();f.on();f.step();assert.equal(f.c.status().active,true);
++ });
+--- a/tests/drag-input-native.test.cjs
++++ b/tests/drag-input-native.test.cjs
+@@ -0,0 +1,9 @@
++'use strict';
++const {test}=require('node:test'),assert=require('node:assert/strict'),path=require('node:path'),{spawnSync}=require('node:child_process');
++test('production Drag input lease survives exact native Player updates and preserves native mode5 replacement',()=>{
++ const run=spawnSync(process.execPath,[path.resolve(__dirname,'../research/drag-input-handoff-v018/probe-native-input.cjs')],{encoding:'utf8',maxBuffer:1024*1024,env:{...process.env,NFSU2_EXTENSION_ROOT:path.resolve(__dirname,'..')}});
++ assert.equal(run.status,0,run.stderr);const report=JSON.parse(run.stdout);
++ assert.equal(report.retainedPlayerUpdates,180);assert.equal(report.productionBridgeNativeCycles,180);assert(report.rejectedGuardsWithByteExactNativeFallback>=32);
++ const replacement=report.handbackChecks.find(x=>x.name==='actualNative4To5ReplacementPreserved');assert.deepEqual(replacement.state,{driver:3,physics:3,mode:5,requested:5});
++ assert.equal(report.handbackChecks.find(x=>x.name==='interveningSkillPreserved').skill,6);
++});
+--- a/tests/next-replay.test.cjs
++++ b/tests/next-replay.test.cjs
+@@ -22,7 +22,7 @@
+  s=s.replaceAll("__dirname+'/ai-swap-probe.wasm'","__dirname+'/ai-next-swap-probe.wasm'");
+  s=s.replaceAll('/../research/game.wasm','/../research/compatibility-93af6ccb/game.wasm');
+  s=s.replace('original.length,37839055','original.length,38205596');
+- s=s.replace('[4653,21213,21262,22720]','[3174,4653,7395,8871,17404,19277,21213,21263,22508]');
++ s=s.replace('[4653,21213,21262,22720]','[3174,4653,7395,8871,17404,19197,19277,21213,21263,22508]');
+  if(file==='dyno-bridge.test.cjs')s=s.replace('new Controller(memory,true)',"new Controller(memory,true,'93af6ccb')");
+  else s=s.replaceAll('new Controller(memory,true)',"new Controller(memory,true,require('../extension/next-profile.js').capabilities)");
+  const m=new Module(path.join(root,'tests','next-replay-'+file),module);m.filename=path.join(root,'tests','next-replay-'+file);m.paths=Module._nodeModulePaths(path.join(root,'tests'));m._compile(s,m.filename);
+--- a/tests/ai.test.cjs
++++ b/tests/ai.test.cjs
+@@ -5,9 +5,9 @@
+  const memory=new WebAssembly.Memory({initial:256,maximum:65536,shared:true}),d=new DataView(memory.buffer),calls=[];
+  const p=0xe00000,car=0xe01000,race=0xe04000,rec=0xe05000,cpu=0xe08000,stack=0xe09000;
+  const put=(a,v)=>d.setUint32(a,v,true),get=a=>d.getUint32(a,true);
+- put(cpu+16,stack);put(stack,0x581475);put(0x8654a4,6);put(0xd00000,p);put(0xd00030,1);put(p+4,car);put(car+0x24,1);put(car+0x14,rec);put(car+0x28,1);d.setUint8(car+0x5c0,1);put(0x890118,race);put(race,4);d.setUint8(rec+0x901,4);
++ put(cpu+16,stack);put(stack,0x581475);put(0x8654a4,6);put(0xd00000,p);put(0xd00030,1);put(p+4,car);put(p+556,2);put(p+560,2);put(rec+4,1);put(car+0x24,1);put(car+0x14,rec);put(car+0x28,1);d.setUint8(car+0x5c0,1);put(0x890118,race);put(race,4);d.setUint8(rec+0x901,4);
+  let fail=false,failPhysics=false,probe=()=>{};
+- const inst=new WebAssembly.Instance(probeModule||bridge,{env:{memory,stack:new WebAssembly.Global({value:'i32',mutable:true},0xf00000),dispatch:()=>{throw Error('Unexpected dyno call while unarmed');},probe:()=>probe(),gcall:(c,fn,thisP,n,args)=>{calls.push({c,fn,thisP,n,arg:n?get(args):null});if(fn===0x5fae20 && !fail){put(car+0x24,3);put(car+0x28,3);put(car+44,0xe0a000);put(0xe0a000,0x785370);put(0xe0a004,car);}if(fn===0x5faf10){put(car+0x24,1);put(car+0x28,1);}if(fn===0x5f46a0 && !failPhysics)put(thisP+0x28,get(args));}}});
++ const inst=new WebAssembly.Instance(probeModule||bridge,{env:{memory,stack:new WebAssembly.Global({value:'i32',mutable:true},0xf00000),dispatch:()=>{throw Error('Unexpected dyno call while unarmed');},probe:()=>probe(),gcall:(c,fn,thisP,n,args)=>{calls.push({c,fn,thisP,n,arg:n?get(args):null});if(fn===0x605c70){if(get(p+556)===4 && get(args)!==4){put(car+36,1);put(car+40,1);}put(p+556,get(args));}if((fn===0x5fae20 || (fn===0x605c70&&get(args)===4)) && !fail){put(car+0x24,3);put(car+0x28,3);put(car+44,0xe0a000);put(0xe0a000,0x785370);put(0xe0a004,car);}if(fn===0x5faf10){put(car+0x24,1);put(car+0x28,1);}if(fn===0x5f46a0 && !failPhysics)put(thisP+0x28,get(args));}}});
+  const step=()=>inst.exports.step(cpu);step();
+  const c=new Controller(memory,true),s={ready:true,driving:true,network:false,car,race};
+  const on=(mode=1)=>c.update({enabled:true,safe:true,state:s,mode});
+@@ -94,10 +94,10 @@
+ function requestDrag(f,extra={}){f.s.drag=true;f.d.setUint8(0x89e7d8,1);return f.c.update({enabled:true,safe:true,state:f.s,mode:1,allowDragAI:true,...extra});}
+ test('experimental drag handoff uses player On then car physics1 and confirms both',()=>{
+  const f=fixture();requestDrag(f);f.step();
+- assert.deepEqual(f.calls.map(x=>x.fn),[0x5fae20,0x5f46a0]);assert.equal(f.calls[0].thisP,f.p);assert.equal(f.calls[1].thisP,f.car);assert.equal(f.calls[1].n,1);assert.equal(f.calls[1].arg,1);
++ assert.deepEqual(f.calls.map(x=>x.fn),[f.c.capabilities.nativeDragInputHandoff?0x605c70:0x5fae20,0x5f46a0]);assert.equal(f.calls[0].thisP,f.p);assert.equal(f.calls[1].thisP,f.car);assert.equal(f.calls[1].n,1);assert.equal(f.calls[1].arg,1);
+  assert.equal(f.get(f.car+0x24),3);assert.equal(f.get(f.car+0x28),1);assert.equal(f.c.status().active,true);assert.equal(f.c.status().dragExperimental,true);assert.equal(f.c.status().paceApplied,null);
+  for(let i=0;i<10;i++){requestDrag(f);f.step();}assert.equal(f.calls.length,2);
+- f.c.stop();f.step();assert.deepEqual(f.calls.slice(-2).map(x=>x.fn),[0x5faf10,0x605c70]);assert.equal(f.calls.at(-1).arg,2);assert.equal(f.get(f.car+0x24),1);assert.equal(f.get(f.car+0x28),1);assert.equal(f.d.getUint8(f.rec+0x901),4);assert.equal(f.get(B+88),0);
++ f.c.stop();f.step();assert.deepEqual(f.calls.slice(f.c.capabilities.nativeDragInputHandoff?-1:-2).map(x=>x.fn),f.c.capabilities.nativeDragInputHandoff?[0x605c70]:[0x5faf10,0x605c70]);assert.equal(f.calls.at(-1).arg,2);assert.equal(f.get(f.car+0x24),1);assert.equal(f.get(f.car+0x28),1);assert.equal(f.d.getUint8(f.rec+0x901),4);assert.equal(f.get(B+88),0);
+ });
+ test('drag AI requires literal page permission and exact native command flag',()=>{
+  for(const allowDragAI of [false,undefined,1,'true']){const f=fixture();requestDrag(f,{allowDragAI});f.step();assert.equal(f.calls.length,0);assert.equal(f.get(B+88),0);}
+@@ -107,8 +107,8 @@
+  for(const setup of [f=>f.put(f.race,3),f=>f.put(f.race,6),f=>f.put(f.car+0x28,3),f=>f.d.setUint8(f.car+0x5c0,0),f=>f.put(B,0x3549414e)]){const f=fixture();requestDrag(f);setup(f);f.step();assert.equal(f.calls.length,0);}
+ });
+ test('failed drag physics correction immediately returns manual control and restores skill',()=>{
+- const f=fixture();f.failPhysics();requestDrag(f);f.step();assert.deepEqual(f.calls.map(x=>x.fn),[0x5fae20,0x5f46a0,0x5faf10,0x605c70]);assert.equal(f.get(f.car+0x24),1);assert.equal(f.get(f.car+0x28),1);assert.equal(f.c.status().owned,false);assert.equal(f.c.status().active,false);assert.equal(f.c.status().status,'failed');assert.equal(f.d.getUint8(f.rec+0x901),4);
+- for(let i=0;i<5;i++){requestDrag(f);f.step();}assert.equal(f.calls.length,4,'failed correction is not retried each frame');
++ const f=fixture();f.failPhysics();requestDrag(f);f.step();assert.deepEqual(f.calls.map(x=>x.fn),f.c.capabilities.nativeDragInputHandoff?[0x605c70,0x5f46a0,0x605c70]:[0x5fae20,0x5f46a0,0x5faf10,0x605c70]);assert.equal(f.get(f.car+0x24),1);assert.equal(f.get(f.car+0x28),1);assert.equal(f.c.status().owned,false);assert.equal(f.c.status().active,false);assert.equal(f.c.status().status,'failed');assert.equal(f.d.getUint8(f.rec+0x901),4);
++ for(let i=0;i<5;i++){requestDrag(f);f.step();}assert.equal(f.calls.length,f.c.capabilities.nativeDragInputHandoff?3:4,'failed correction is not retried each frame');
+ });
+ test('drag guards release AI on opt-out, pause, physics replacement and expired heartbeat',()=>{
+  for(const stop of ['optout','pause','physics','heartbeat']){
+@@ -156,7 +156,7 @@
+  requestDrag(f);f.step();assert.equal(f.c.status().active,true);assert.equal(f.get(f.car+0x28),1);
+  f.s.drag=false;f.d.setUint8(0x89e7d8,0);result=f.on();assert.equal(result.switching,true);assert.equal(f.get(B+8),0);
+  f.step();f.on();f.step();assert.equal(f.c.status().active,true);assert.equal(f.get(f.car+0x28),3);
+- assert.deepEqual(f.calls.map(x=>x.fn),[0x5fae20,0x5faf10,0x605c70,0x5fae20,0x5f46a0,0x5faf10,0x605c70,0x5fae20]);
++ assert.deepEqual(f.calls.map(x=>x.fn),f.c.capabilities.nativeDragInputHandoff?[0x5fae20,0x5faf10,0x605c70,0x605c70,0x5f46a0,0x605c70,0x5fae20]:[0x5fae20,0x5faf10,0x605c70,0x5fae20,0x5f46a0,0x5faf10,0x605c70,0x5fae20]);
+ });
+ test('race/free-roam HUD mode changes rebuild AI even with identical identity pointers',()=>{
+  const f=fixture();f.on(2);f.step();assert(f.c.status().active);f.on(1);assert.equal(f.get(B+8),0);f.step();f.on(1);f.step();
+@@ -200,7 +200,7 @@
+  f.step();assert(observed);assert.equal(f.get(B+72),0);
+  for(let i=0;i<4;i++){requestDrag(f);f.step();}
+  assert.equal(f.c.status().active,true);assert.equal(f.get(f.car+0x28),1);assert.equal(f.c.handbackPending,false);
+- assert.deepEqual(f.calls.map(x=>x.fn),[0x5fae20,0x5fae20,0x5f46a0]);
++ assert.deepEqual(f.calls.map(x=>x.fn),[0x5fae20,f.c.capabilities.nativeDragInputHandoff?0x605c70:0x5fae20,0x5f46a0]);
+ });
+ 
+ 
+--- a/tests/latest-replay.test.cjs
++++ b/tests/latest-replay.test.cjs
+@@ -22,7 +22,7 @@
+  s=s.replaceAll("__dirname+'/ai-swap-probe.wasm'","__dirname+'/ai-latest-swap-probe.wasm'");
+  s=s.replaceAll('/../research/game.wasm','/../research/compatibility-78e2bb69/game.wasm');
+  s=s.replace('original.length,37839055','original.length,38170601');
+- s=s.replace('[4653,21213,21262,22720]','[3174,4653,7395,8871,17404,19277,21213,21263,22470]');
++ s=s.replace('[4653,21213,21262,22720]','[3174,4653,7395,8871,17404,19197,19277,21213,21263,22470]');
+  if(file==='dyno-bridge.test.cjs')s=s.replace('new Controller(memory,true)',"new Controller(memory,true,'78e2bb69')");
+  else s=s.replaceAll('new Controller(memory,true)',"new Controller(memory,true,require('../extension/latest-profile.js').capabilities)");
+  const m=new Module(path.join(root,'tests','latest-replay-'+file),module);m.filename=path.join(root,'tests','latest-replay-'+file);m.paths=Module._nodeModulePaths(path.join(root,'tests'));m._compile(s,m.filename);
+--- a/tests/drag-input-guard.test.cjs
++++ b/tests/drag-input-guard.test.cjs
+@@ -0,0 +1,15 @@
++'use strict';
++const {test}=require('node:test'),assert=require('node:assert/strict'),crypto=require('node:crypto');
++const {readPinned,bodies}=require('../tools/latest-native-utils.cjs'),AI=require('../extension/ai.js');
++function locals(b){let p=0;const u=()=>{let v=0,s=0,x;do{x=b[p++];v|=(x&127)<<s;s+=7;}while(x&128);return v>>>0};const ts=[];for(let n=u();n--;){const count=u(),type=b[p++];for(let i=0;i<count;i++)ts.push(type);}return {end:p,types:ts};}
++for(const version of ['latest','next'])test(version+' drag input guard preserves all native instructions and original locals',()=>{
++ const config=require('../extension/'+version+'-profile.js').dragInputGuard,raw=bodies(readPinned(version)).get(config.index),patched=Buffer.from(AI.patchDragInputBody(raw,config));
++ const a=locals(raw),b=locals(patched);assert.deepEqual(b.types.slice(0,a.types.length),a.types);assert.equal(b.types.length-a.types.length,7);
++ assert.deepEqual(patched.subarray(b.end+config.prefix.length),raw.subarray(a.end));
++ assert.equal(require('../extension/'+version+'-profile.js').capabilities.nativeDragInputHandoff,true);
++ assert.throws(()=>AI.patchDragInputBody(raw.subarray(1),config),/layout changed/);
++ const invalid=Buffer.from(raw);invalid[2]=126;assert.throws(()=>AI.patchDragInputBody(invalid,config),/layout changed/);
++});
++test('legacy profiles do not claim the reviewed native input-mode repair',()=>{
++ assert.equal(require('../extension/current-profile.js').capabilities.nativeDragInputHandoff,undefined);
++});

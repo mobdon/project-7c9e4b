@@ -1,0 +1,31 @@
+{
+  "path": "/workspace/scratch/0d6b822176fd/nfsu2-extension/NFSU2-Driving-Tools-v0.26-Combined-Drift-Isolation.zip",
+  "size": 215601,
+  "sha256": "fa143dd48c7bf9478aece51768cc6939c6693144ea79f48cbb17cb7adae18a3f",
+  "files": [
+    "README.md",
+    "CHANGELOG.md",
+    "manifest.json",
+    "popup.html",
+    "diagnostics.js",
+    "walls.js",
+    "cars.js",
+    "current-profile.js",
+    "latest-profile.js",
+    "next-profile.js",
+    "signatures.js",
+    "signature-profile.js",
+    "signature-profile-latest.js",
+    "signature-profile-next.js",
+    "dyno-native-profile.js",
+    "dyno-native.js",
+    "ai.js",
+    "core.js",
+    "dyno-core.js",
+    "dyno.js",
+    "dyno-evaluator.js",
+    "dyno-full.js",
+    "tool-profiles.js",
+    "page.js"
+  ]
+}

@@ -1,0 +1,2387 @@
+{
+  "kind": "SOURCE-ONLY-GENUINE-WORLD-PREREQUISITE-ORDER-DERIVATIVE",
+  "status": "SOURCE-CLOSED-MINIMAL-CALL-PROPOSAL; NO-CONDITION-PREPARED-OR-EXECUTED",
+  "reviewer": "/root/extension_review/legacy_api_review",
+  "pins": {
+    "work-update-check-20261113/native-combined-null-owner-source-4c-v1/contract-v1.json": "1ed4e4ce6e116b421a341f1bd2176cf1cd16af2f8a849cb97d4d064f99ce282b",
+    "work-update-check-20261113/live-build-4c35f9f5/game.wasm": "40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8",
+    "work-update-check-20261113/4c-private-composed-v2/candidate-composed.wasm": "6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23",
+    "research/current-native-image/SPEED2.EXE": "f9dd86c054878ce6276beb07c1fd61874f7a1e4bf1f241b084c65b73e24168a7",
+    "work-update-check-20261113/raw-d396-4c-source-map-v1/comparison.json": "4d0920a5a7e07a2d93b877c7a6e41832d7c437656d53781fd4d7f2ca2e849dc5",
+    "work-update-check-20261113/current-native-ordered-world-history-4c-v2/world-initializer-stages.cjs": "0e8e1a49754f9022ac82d8f089819c5ac3850ff3d31cde888523e86b7e17ea65",
+    "work-update-check-20261113/current-native-combined-observer-4c-v2/replay-context-diagnostics.jsonl": "f6df0be866b41541b78c5185edc5615d6271b005842bd8005804a26cf78371cd",
+    "work-update-check-20261113/current-native-combined-observer-4c-v2/replay-context-diagnostics-raw.bin": "606f8638f142187c376e11d83967b49809a3812aac7e9934fb9872b435823ad3",
+    "work-online-v0426/native-review/port-core.cjs": "381de0fcd29f2fd7bc257d0b04518b37f8f6575152e0a4d299bd6d832a8e454c",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/build-contract.cjs": "d42c3aa36b43ee5c65bfe3a113f0f23eaafe8cb07bba7fb2083b3e8f20597a8d",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/callers-v2-2922-9436-1209-5349-4722-6000.json": "b5813af81c85bbc56f8374802c021849bd0b7f9585053040882a7b6802611011",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/callers-v2-5268.json": "5ce760ad80c0da96695a9f0d100344b51e9e0e7550de5053a229ca49c8799f0b",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/callers.cjs": "3778056cffc97137d2614ec2b4e1deb80e78a55992268c67c033f79ab6c6dfeb",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/extract.cjs": "e52bb20cae56a81fe3b4a28f418caa2c6d88d2516647da3b5f38cb7f0a9984d0",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/extraction-15176.json": "227e35e23d14b10a495ab6e808e52564fa96f3a60aa9f667af8284155564dd0a",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/extraction-18768.json": "e354a0aadf4f59b817cc68dc80b743d2acdc91f7e6fa2330e8d06c37ddea876f",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/extraction-5268.json": "d42f6d8c998300cd73467694a24fb664b17a4dbde0b8e05eb22d964eadc8e5b0",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/extraction-6029-3446-11472.json": "09f5f7a308c51435ea208895172a8e65faca3a7ea43c699035c32984f0cd02cb",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/f15176.dcmp": "d61903ac6d1e1d29860e219d45902c079308961a0299a368f26c1d044c516722",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/f18768.dcmp": "92482e42c0b2cf0539b48b67c2dde04c56bd9fd3d9dc9bf9ca8e71b16a776a52",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/f3446.dcmp": "2be8a64c50f99f23ae2a7a08258a8aa1f2d2807e4394afc30205e09c7e513b5e",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/f5268.dcmp": "768510c91d98ddc817fd048a2c35d117a25f10028a5bee5ae0d85c843426bb70",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/f6029.dcmp": "c31f59fec8165abd43f157d2e7848af00bd803a7270874a2565d024e8fedc132",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/isolated-f11472.wasm": "0e56750ab169765056403291589057145b643eb0d1d482e16b7972ecceac0b9e",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/isolated-f15176.wasm": "1ba994320d8f708f52fd3e595ccc37bd2aee8bb03db1f44f7f2254fe4aceb2b5",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/isolated-f18768.wasm": "70d66dfd0a484d1284f36702bc511d492cd2745265dcc73e3510bfe8b78eb304",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/isolated-f3446.wasm": "45037382fec67f84fe79123f377dc57b9ed1837fb3cc5bf8bcb7a1c033c4a872",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/isolated-f5268.wasm": "5989f46a307697a515c3e244f86648f1ede0bc78c70361cadeeec0006929c882",
+    "work-update-check-20261113/native-world-prerequisite-order-4c-v1/isolated-f6029.wasm": "46b201269b92757f9018a27e0cfab9d2abf33cc9375446c74ec3012ffb39cbfd"
+  },
+  "bodies": [
+    {
+      "index": 15176,
+      "bytes": 763,
+      "sha256": "8864bff9d95cdb58278e424ec928a006917eacb3454ca0d5b7d75b958df80a0d",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 123,
+          "function": 21833
+        },
+        {
+          "at": 314,
+          "function": 21833
+        },
+        {
+          "at": 457,
+          "function": 4853
+        },
+        {
+          "at": 638,
+          "function": 21833
+        }
+      ]
+    },
+    {
+      "index": 18768,
+      "bytes": 3335,
+      "sha256": "1870764ceb09ec3c0b9de21a0fbf444e0c4622a525e174e13623523c21101514",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 57,
+          "function": 17834
+        },
+        {
+          "at": 110,
+          "function": 4074
+        },
+        {
+          "at": 280,
+          "function": 21833
+        },
+        {
+          "at": 642,
+          "function": 21833
+        },
+        {
+          "at": 876,
+          "function": 21833
+        },
+        {
+          "at": 1140,
+          "function": 8764
+        },
+        {
+          "at": 1244,
+          "function": 8764
+        },
+        {
+          "at": 1337,
+          "function": 8764
+        },
+        {
+          "at": 1404,
+          "function": 18612
+        },
+        {
+          "at": 1449,
+          "function": 8453
+        },
+        {
+          "at": 1503,
+          "function": 8453
+        },
+        {
+          "at": 1554,
+          "function": 18612
+        },
+        {
+          "at": 1599,
+          "function": 6264
+        },
+        {
+          "at": 1659,
+          "function": 6108
+        },
+        {
+          "at": 1713,
+          "function": 6264
+        },
+        {
+          "at": 1773,
+          "function": 6108
+        },
+        {
+          "at": 1920,
+          "function": 18457
+        },
+        {
+          "at": 2038,
+          "function": 21833
+        },
+        {
+          "at": 2093,
+          "function": 5951
+        },
+        {
+          "at": 2147,
+          "function": 5795
+        },
+        {
+          "at": 2177,
+          "function": 21833
+        },
+        {
+          "at": 2232,
+          "function": 5951
+        },
+        {
+          "at": 2286,
+          "function": 5795
+        },
+        {
+          "at": 2340,
+          "function": 18457
+        },
+        {
+          "at": 2385,
+          "function": 5481
+        },
+        {
+          "at": 2439,
+          "function": 5481
+        },
+        {
+          "at": 2491,
+          "function": 15176
+        },
+        {
+          "at": 2572,
+          "function": 18457
+        },
+        {
+          "at": 2617,
+          "function": 15176
+        },
+        {
+          "at": 2711,
+          "function": 18457
+        },
+        {
+          "at": 2861,
+          "function": 5268
+        },
+        {
+          "at": 3047,
+          "function": 5268
+        },
+        {
+          "at": 3195,
+          "function": 15489
+        },
+        {
+          "at": 3233,
+          "function": 15801
+        },
+        {
+          "at": 3299,
+          "function": 17977
+        }
+      ]
+    },
+    {
+      "index": 5268,
+      "bytes": 1481,
+      "sha256": "1dee524e7b11a4c6c6b8769543493848265c2bff30b5dec5e8448ead59d21eb8",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 57,
+          "function": 15597
+        },
+        {
+          "at": 113,
+          "function": 15645
+        },
+        {
+          "at": 211,
+          "function": 2922
+        },
+        {
+          "at": 248,
+          "function": 4798
+        },
+        {
+          "at": 355,
+          "function": 2922
+        },
+        {
+          "at": 392,
+          "function": 4798
+        },
+        {
+          "at": 442,
+          "function": 12440
+        },
+        {
+          "at": 503,
+          "function": 22025
+        },
+        {
+          "at": 541,
+          "function": 6520
+        },
+        {
+          "at": 578,
+          "function": 10594
+        },
+        {
+          "at": 615,
+          "function": 15645
+        },
+        {
+          "at": 771,
+          "function": 6520
+        },
+        {
+          "at": 808,
+          "function": 10594
+        },
+        {
+          "at": 845,
+          "function": 15645
+        },
+        {
+          "at": 969,
+          "function": 6520
+        },
+        {
+          "at": 1006,
+          "function": 10594
+        },
+        {
+          "at": 1043,
+          "function": 15645
+        },
+        {
+          "at": 1183,
+          "function": 3198
+        },
+        {
+          "at": 1321,
+          "function": 16057
+        },
+        {
+          "at": 1411,
+          "function": 15536
+        }
+      ]
+    },
+    {
+      "index": 2922,
+      "bytes": 1901,
+      "sha256": "959da188371102ccda8b2f171ba7ce115b914f83fd2ff0fcfb44168f65deda90",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 111,
+          "function": 14657
+        },
+        {
+          "at": 148,
+          "function": 16992
+        },
+        {
+          "at": 220,
+          "function": 17157
+        },
+        {
+          "at": 260,
+          "function": 2398
+        },
+        {
+          "at": 285,
+          "function": 21215
+        },
+        {
+          "at": 322,
+          "function": 5111
+        },
+        {
+          "at": 359,
+          "function": 2767
+        },
+        {
+          "at": 396,
+          "function": 17461
+        },
+        {
+          "at": 433,
+          "function": 15445
+        },
+        {
+          "at": 505,
+          "function": 9348
+        },
+        {
+          "at": 542,
+          "function": 4963
+        },
+        {
+          "at": 579,
+          "function": 229
+        },
+        {
+          "at": 616,
+          "function": 21215
+        },
+        {
+          "at": 653,
+          "function": 6323
+        },
+        {
+          "at": 690,
+          "function": 3859
+        },
+        {
+          "at": 727,
+          "function": 23735
+        },
+        {
+          "at": 764,
+          "function": 17736
+        },
+        {
+          "at": 801,
+          "function": 6354
+        },
+        {
+          "at": 838,
+          "function": 3705
+        },
+        {
+          "at": 875,
+          "function": 16036
+        },
+        {
+          "at": 912,
+          "function": 3862
+        },
+        {
+          "at": 949,
+          "function": 1786
+        },
+        {
+          "at": 986,
+          "function": 21215
+        },
+        {
+          "at": 1023,
+          "function": 7634
+        },
+        {
+          "at": 1060,
+          "function": 8103
+        },
+        {
+          "at": 1097,
+          "function": 16982
+        },
+        {
+          "at": 1134,
+          "function": 17640
+        },
+        {
+          "at": 1171,
+          "function": 12461
+        },
+        {
+          "at": 1208,
+          "function": 3096
+        },
+        {
+          "at": 1245,
+          "function": 15219
+        },
+        {
+          "at": 1282,
+          "function": 15061
+        },
+        {
+          "at": 1319,
+          "function": 16000
+        },
+        {
+          "at": 1356,
+          "function": 15687
+        },
+        {
+          "at": 1393,
+          "function": 6000
+        },
+        {
+          "at": 1563,
+          "function": 2455
+        },
+        {
+          "at": 1791,
+          "function": 19439
+        }
+      ]
+    },
+    {
+      "index": 6000,
+      "bytes": 1307,
+      "sha256": "ef81b9bed462f1ed46c43341d408faae033b1a7fd5cea96f8fe84a7b506b9771",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 165,
+          "function": 5867
+        },
+        {
+          "at": 318,
+          "function": 3760
+        },
+        {
+          "at": 411,
+          "function": 5867
+        },
+        {
+          "at": 538,
+          "function": 5867
+        },
+        {
+          "at": 687,
+          "function": 3760
+        },
+        {
+          "at": 779,
+          "function": 5867
+        },
+        {
+          "at": 919,
+          "function": 5867
+        },
+        {
+          "at": 1068,
+          "function": 3760
+        }
+      ]
+    },
+    {
+      "index": 4722,
+      "bytes": 1123,
+      "sha256": "d132afcda8e19a52bb44f5ee4badcfc8f7b6021e90d8de2fa03c55d0f59d955b",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 38,
+          "function": 8185
+        },
+        {
+          "at": 114,
+          "function": 8185
+        },
+        {
+          "at": 228,
+          "function": 8185
+        },
+        {
+          "at": 304,
+          "function": 8185
+        },
+        {
+          "at": 418,
+          "function": 8185
+        },
+        {
+          "at": 494,
+          "function": 8185
+        },
+        {
+          "at": 608,
+          "function": 8185
+        },
+        {
+          "at": 684,
+          "function": 8185
+        },
+        {
+          "at": 798,
+          "function": 8185
+        },
+        {
+          "at": 874,
+          "function": 8185
+        },
+        {
+          "at": 988,
+          "function": 8185
+        },
+        {
+          "at": 1064,
+          "function": 8185
+        }
+      ]
+    },
+    {
+      "index": 11290,
+      "bytes": 141,
+      "sha256": "4b247df1648a9b9c881264b661d1812ddf51c92d9c438cc8c3492fc5edeb3814",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 44,
+          "function": 9436
+        },
+        {
+          "at": 85,
+          "function": 4853
+        }
+      ]
+    },
+    {
+      "index": 9436,
+      "bytes": 391,
+      "sha256": "5cb0157079df8d46565802d11c11d79e61aa945956002abc1fcba843ef2b10e1",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 5349,
+      "bytes": 141,
+      "sha256": "64071c8bca4e16a5887bafa1fec2c87277c0dd36eea2f14cad1a633e4d40d618",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 44,
+          "function": 1209
+        },
+        {
+          "at": 85,
+          "function": 4853
+        }
+      ]
+    },
+    {
+      "index": 1209,
+      "bytes": 136,
+      "sha256": "e684cb3dd5c2c0f8a5bdd726978815f42acd7be3a6fe6e41cd52b16f10a677d2",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 70,
+          "function": 13399
+        }
+      ]
+    },
+    {
+      "index": 13399,
+      "bytes": 73,
+      "sha256": "ca7b47449a8f2474155e1b18dd22108a95f943337b07f7cf2b24442dfcf0cf5b",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 3321,
+      "bytes": 931,
+      "sha256": "3ebf39d41959c76fd2b3dc2cb6a08eb6cc37301681a6e03b40202c77c723e7ad",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 85,
+          "function": 11472
+        },
+        {
+          "at": 252,
+          "function": 3446
+        },
+        {
+          "at": 311,
+          "function": 6029
+        },
+        {
+          "at": 483,
+          "function": 3446
+        },
+        {
+          "at": 542,
+          "function": 6029
+        },
+        {
+          "at": 789,
+          "function": 3446
+        },
+        {
+          "at": 848,
+          "function": 6029
+        }
+      ]
+    },
+    {
+      "index": 5214,
+      "bytes": 112,
+      "sha256": "2029972c12ac56b2aeabe8ba6aafb79ff78de875c297e767e7f105c79a99c4e0",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 3760,
+      "bytes": 526,
+      "sha256": "1a0a078a082231b424633ed605a97b2c2b0d9e579eecf99b11fb2fb5dfaa8341",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 57,
+          "function": 17834
+        },
+        {
+          "at": 276,
+          "function": 21833
+        },
+        {
+          "at": 453,
+          "function": 3917
+        },
+        {
+          "at": 490,
+          "function": 17977
+        }
+      ]
+    },
+    {
+      "index": 5867,
+      "bytes": 142,
+      "sha256": "2c1060b18366ee0ec3d4893dcc1b976161dd4a94d363b5d3e3cb6b68edc507c3",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 85,
+          "function": 5636
+        }
+      ]
+    },
+    {
+      "index": 8185,
+      "bytes": 179,
+      "sha256": "c5798a3fdc4a9873aac14e114bcad27460af5c9cc38c772301d917dea66ed482",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 3446,
+      "bytes": 528,
+      "sha256": "6e41d3e9f421a5ee3ec1c76dff976f53f4afa93e93f37b5380538d493b2d9955",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 57,
+          "function": 17834
+        },
+        {
+          "at": 315,
+          "function": 21833
+        },
+        {
+          "at": 455,
+          "function": 3603
+        },
+        {
+          "at": 492,
+          "function": 17977
+        }
+      ]
+    },
+    {
+      "index": 6029,
+      "bytes": 1195,
+      "sha256": "e00c24f82ec850e0c778ecd793fdc997c6a0ca41aa0a33fb4f422cd19948e45f",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 57,
+          "function": 17834
+        },
+        {
+          "at": 186,
+          "function": 17207
+        },
+        {
+          "at": 277,
+          "function": 17521
+        },
+        {
+          "at": 405,
+          "function": 17678
+        },
+        {
+          "at": 502,
+          "function": 16894
+        },
+        {
+          "at": 652,
+          "function": 16894
+        },
+        {
+          "at": 1041,
+          "function": 21833
+        },
+        {
+          "at": 1084,
+          "function": 21833
+        },
+        {
+          "at": 1159,
+          "function": 17977
+        }
+      ]
+    },
+    {
+      "index": 11472,
+      "bytes": 26340,
+      "sha256": "4e97e90531e5ff290eb1fb19f8bf3da73c2ab7699535082bbc54cb9fbfcf27eb",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 679,
+          "function": 14127
+        },
+        {
+          "at": 716,
+          "function": 836
+        },
+        {
+          "at": 890,
+          "function": 23281
+        },
+        {
+          "at": 977,
+          "function": 11683
+        },
+        {
+          "at": 1017,
+          "function": 5867
+        },
+        {
+          "at": 1098,
+          "function": 5867
+        },
+        {
+          "at": 1179,
+          "function": 5867
+        },
+        {
+          "at": 1332,
+          "function": 119
+        },
+        {
+          "at": 2045,
+          "function": 12566
+        },
+        {
+          "at": 2179,
+          "function": 14806
+        },
+        {
+          "at": 2251,
+          "function": 14806
+        },
+        {
+          "at": 2323,
+          "function": 14806
+        },
+        {
+          "at": 2395,
+          "function": 14806
+        },
+        {
+          "at": 2467,
+          "function": 14806
+        },
+        {
+          "at": 2589,
+          "function": 14806
+        },
+        {
+          "at": 2661,
+          "function": 14806
+        },
+        {
+          "at": 2733,
+          "function": 14806
+        },
+        {
+          "at": 2805,
+          "function": 14806
+        },
+        {
+          "at": 2877,
+          "function": 14806
+        },
+        {
+          "at": 2949,
+          "function": 14806
+        },
+        {
+          "at": 3070,
+          "function": 14806
+        },
+        {
+          "at": 3142,
+          "function": 14806
+        },
+        {
+          "at": 3263,
+          "function": 14806
+        },
+        {
+          "at": 3335,
+          "function": 14806
+        },
+        {
+          "at": 3407,
+          "function": 14806
+        },
+        {
+          "at": 3479,
+          "function": 14806
+        },
+        {
+          "at": 3551,
+          "function": 14806
+        },
+        {
+          "at": 3623,
+          "function": 14806
+        },
+        {
+          "at": 3695,
+          "function": 14806
+        },
+        {
+          "at": 3767,
+          "function": 14806
+        },
+        {
+          "at": 3839,
+          "function": 14806
+        },
+        {
+          "at": 3911,
+          "function": 14806
+        },
+        {
+          "at": 3983,
+          "function": 14806
+        },
+        {
+          "at": 4055,
+          "function": 14806
+        },
+        {
+          "at": 4127,
+          "function": 14806
+        },
+        {
+          "at": 4199,
+          "function": 14806
+        },
+        {
+          "at": 4271,
+          "function": 14806
+        },
+        {
+          "at": 4462,
+          "function": 11939
+        },
+        {
+          "at": 4499,
+          "function": 12255
+        },
+        {
+          "at": 4571,
+          "function": 14806
+        },
+        {
+          "at": 4643,
+          "function": 14806
+        },
+        {
+          "at": 4715,
+          "function": 14806
+        },
+        {
+          "at": 4787,
+          "function": 14806
+        },
+        {
+          "at": 4859,
+          "function": 14806
+        },
+        {
+          "at": 4931,
+          "function": 14806
+        },
+        {
+          "at": 5003,
+          "function": 14806
+        },
+        {
+          "at": 5075,
+          "function": 14806
+        },
+        {
+          "at": 5171,
+          "function": 11939
+        },
+        {
+          "at": 5208,
+          "function": 12255
+        },
+        {
+          "at": 5280,
+          "function": 14806
+        },
+        {
+          "at": 5352,
+          "function": 14806
+        },
+        {
+          "at": 5424,
+          "function": 14806
+        },
+        {
+          "at": 5496,
+          "function": 14806
+        },
+        {
+          "at": 5568,
+          "function": 14806
+        },
+        {
+          "at": 5640,
+          "function": 14806
+        },
+        {
+          "at": 5712,
+          "function": 14806
+        },
+        {
+          "at": 5784,
+          "function": 14806
+        },
+        {
+          "at": 5881,
+          "function": 12097
+        },
+        {
+          "at": 5953,
+          "function": 1984
+        },
+        {
+          "at": 6043,
+          "function": 14806
+        },
+        {
+          "at": 6112,
+          "function": 1984
+        },
+        {
+          "at": 6198,
+          "function": 1984
+        },
+        {
+          "at": 6288,
+          "function": 14806
+        },
+        {
+          "at": 6357,
+          "function": 14806
+        },
+        {
+          "at": 6429,
+          "function": 14806
+        },
+        {
+          "at": 6501,
+          "function": 14806
+        },
+        {
+          "at": 6573,
+          "function": 14806
+        },
+        {
+          "at": 6645,
+          "function": 14806
+        },
+        {
+          "at": 6717,
+          "function": 14806
+        },
+        {
+          "at": 6789,
+          "function": 14806
+        },
+        {
+          "at": 6861,
+          "function": 14806
+        },
+        {
+          "at": 6933,
+          "function": 14806
+        },
+        {
+          "at": 7005,
+          "function": 14806
+        },
+        {
+          "at": 7077,
+          "function": 14806
+        },
+        {
+          "at": 7149,
+          "function": 14806
+        },
+        {
+          "at": 7221,
+          "function": 14806
+        },
+        {
+          "at": 7293,
+          "function": 14806
+        },
+        {
+          "at": 7365,
+          "function": 14806
+        },
+        {
+          "at": 7437,
+          "function": 14806
+        },
+        {
+          "at": 7509,
+          "function": 14806
+        },
+        {
+          "at": 7581,
+          "function": 14806
+        },
+        {
+          "at": 7677,
+          "function": 12097
+        },
+        {
+          "at": 7749,
+          "function": 1984
+        },
+        {
+          "at": 7839,
+          "function": 14806
+        },
+        {
+          "at": 7908,
+          "function": 1984
+        },
+        {
+          "at": 7994,
+          "function": 1984
+        },
+        {
+          "at": 8084,
+          "function": 14806
+        },
+        {
+          "at": 8153,
+          "function": 14806
+        },
+        {
+          "at": 8225,
+          "function": 14806
+        },
+        {
+          "at": 8297,
+          "function": 14806
+        },
+        {
+          "at": 8369,
+          "function": 14806
+        },
+        {
+          "at": 8441,
+          "function": 14806
+        },
+        {
+          "at": 8513,
+          "function": 14806
+        },
+        {
+          "at": 8585,
+          "function": 14806
+        },
+        {
+          "at": 8657,
+          "function": 14806
+        },
+        {
+          "at": 8729,
+          "function": 14806
+        },
+        {
+          "at": 8801,
+          "function": 14806
+        },
+        {
+          "at": 8873,
+          "function": 14806
+        },
+        {
+          "at": 8945,
+          "function": 14806
+        },
+        {
+          "at": 9017,
+          "function": 14806
+        },
+        {
+          "at": 9089,
+          "function": 14806
+        },
+        {
+          "at": 9161,
+          "function": 14806
+        },
+        {
+          "at": 9233,
+          "function": 14806
+        },
+        {
+          "at": 9305,
+          "function": 14806
+        },
+        {
+          "at": 9475,
+          "function": 14806
+        },
+        {
+          "at": 9547,
+          "function": 14806
+        },
+        {
+          "at": 9619,
+          "function": 14806
+        },
+        {
+          "at": 9691,
+          "function": 14806
+        },
+        {
+          "at": 9763,
+          "function": 14806
+        },
+        {
+          "at": 9835,
+          "function": 14806
+        },
+        {
+          "at": 9907,
+          "function": 14806
+        },
+        {
+          "at": 9979,
+          "function": 14806
+        },
+        {
+          "at": 10051,
+          "function": 14806
+        },
+        {
+          "at": 10123,
+          "function": 14806
+        },
+        {
+          "at": 10195,
+          "function": 14806
+        },
+        {
+          "at": 10267,
+          "function": 14806
+        },
+        {
+          "at": 10339,
+          "function": 14806
+        },
+        {
+          "at": 10411,
+          "function": 14806
+        },
+        {
+          "at": 10483,
+          "function": 14806
+        },
+        {
+          "at": 10555,
+          "function": 14806
+        },
+        {
+          "at": 10627,
+          "function": 14806
+        },
+        {
+          "at": 10772,
+          "function": 14806
+        },
+        {
+          "at": 10844,
+          "function": 14806
+        },
+        {
+          "at": 10916,
+          "function": 14806
+        },
+        {
+          "at": 10988,
+          "function": 14806
+        },
+        {
+          "at": 11060,
+          "function": 14806
+        },
+        {
+          "at": 11132,
+          "function": 14806
+        },
+        {
+          "at": 11204,
+          "function": 14806
+        },
+        {
+          "at": 11276,
+          "function": 14806
+        },
+        {
+          "at": 11348,
+          "function": 14806
+        },
+        {
+          "at": 11420,
+          "function": 14806
+        },
+        {
+          "at": 11492,
+          "function": 14806
+        },
+        {
+          "at": 11564,
+          "function": 14806
+        },
+        {
+          "at": 11636,
+          "function": 14806
+        },
+        {
+          "at": 11708,
+          "function": 14806
+        },
+        {
+          "at": 11780,
+          "function": 14806
+        },
+        {
+          "at": 11852,
+          "function": 14806
+        },
+        {
+          "at": 11924,
+          "function": 14806
+        },
+        {
+          "at": 11996,
+          "function": 14806
+        },
+        {
+          "at": 12093,
+          "function": 12410
+        },
+        {
+          "at": 12140,
+          "function": 12566
+        },
+        {
+          "at": 12353,
+          "function": 21832
+        },
+        {
+          "at": 13087,
+          "function": 11457
+        },
+        {
+          "at": 13293,
+          "function": 11457
+        },
+        {
+          "at": 13669,
+          "function": 14648
+        },
+        {
+          "at": 13728,
+          "function": 6029
+        },
+        {
+          "at": 13786,
+          "function": 14439
+        },
+        {
+          "at": 13873,
+          "function": 23281
+        },
+        {
+          "at": 13982,
+          "function": 11840
+        },
+        {
+          "at": 14248,
+          "function": 14439
+        },
+        {
+          "at": 14335,
+          "function": 23281
+        },
+        {
+          "at": 14444,
+          "function": 11840
+        },
+        {
+          "at": 14776,
+          "function": 15137
+        },
+        {
+          "at": 15115,
+          "function": 6029
+        },
+        {
+          "at": 15197,
+          "function": 6029
+        },
+        {
+          "at": 15279,
+          "function": 6029
+        },
+        {
+          "at": 15506,
+          "function": 1670
+        },
+        {
+          "at": 15597,
+          "function": 1670
+        },
+        {
+          "at": 15688,
+          "function": 1670
+        },
+        {
+          "at": 15779,
+          "function": 1670
+        },
+        {
+          "at": 15876,
+          "function": 1670
+        },
+        {
+          "at": 16140,
+          "function": 14648
+        },
+        {
+          "at": 16199,
+          "function": 6029
+        },
+        {
+          "at": 16328,
+          "function": 1670
+        },
+        {
+          "at": 16419,
+          "function": 1670
+        },
+        {
+          "at": 16510,
+          "function": 1670
+        },
+        {
+          "at": 16601,
+          "function": 1670
+        },
+        {
+          "at": 16692,
+          "function": 1670
+        },
+        {
+          "at": 16789,
+          "function": 1670
+        },
+        {
+          "at": 16936,
+          "function": 1670
+        },
+        {
+          "at": 17027,
+          "function": 1670
+        },
+        {
+          "at": 17118,
+          "function": 1670
+        },
+        {
+          "at": 17209,
+          "function": 1670
+        },
+        {
+          "at": 17300,
+          "function": 1670
+        },
+        {
+          "at": 17397,
+          "function": 1670
+        },
+        {
+          "at": 17552,
+          "function": 1670
+        },
+        {
+          "at": 17643,
+          "function": 1670
+        },
+        {
+          "at": 17798,
+          "function": 1670
+        },
+        {
+          "at": 17889,
+          "function": 1670
+        },
+        {
+          "at": 17980,
+          "function": 1670
+        },
+        {
+          "at": 18071,
+          "function": 1670
+        },
+        {
+          "at": 18162,
+          "function": 1670
+        },
+        {
+          "at": 18253,
+          "function": 1670
+        },
+        {
+          "at": 18344,
+          "function": 1670
+        },
+        {
+          "at": 18435,
+          "function": 1670
+        },
+        {
+          "at": 18526,
+          "function": 1670
+        },
+        {
+          "at": 18617,
+          "function": 1670
+        },
+        {
+          "at": 18708,
+          "function": 1670
+        },
+        {
+          "at": 18799,
+          "function": 1670
+        },
+        {
+          "at": 18890,
+          "function": 1670
+        },
+        {
+          "at": 18981,
+          "function": 1670
+        },
+        {
+          "at": 19078,
+          "function": 1670
+        },
+        {
+          "at": 19187,
+          "function": 13973
+        },
+        {
+          "at": 19371,
+          "function": 1670
+        },
+        {
+          "at": 19462,
+          "function": 1670
+        },
+        {
+          "at": 19553,
+          "function": 1670
+        },
+        {
+          "at": 19644,
+          "function": 1670
+        },
+        {
+          "at": 19735,
+          "function": 1670
+        },
+        {
+          "at": 19832,
+          "function": 1670
+        },
+        {
+          "at": 19941,
+          "function": 13816
+        },
+        {
+          "at": 19978,
+          "function": 14129
+        },
+        {
+          "at": 20069,
+          "function": 1670
+        },
+        {
+          "at": 20160,
+          "function": 1670
+        },
+        {
+          "at": 20251,
+          "function": 1670
+        },
+        {
+          "at": 20342,
+          "function": 1670
+        },
+        {
+          "at": 20433,
+          "function": 1670
+        },
+        {
+          "at": 20524,
+          "function": 1670
+        },
+        {
+          "at": 20615,
+          "function": 1670
+        },
+        {
+          "at": 20712,
+          "function": 1670
+        },
+        {
+          "at": 20822,
+          "function": 13816
+        },
+        {
+          "at": 20859,
+          "function": 14129
+        },
+        {
+          "at": 20950,
+          "function": 1670
+        },
+        {
+          "at": 21041,
+          "function": 1670
+        },
+        {
+          "at": 21132,
+          "function": 1670
+        },
+        {
+          "at": 21223,
+          "function": 1670
+        },
+        {
+          "at": 21314,
+          "function": 1670
+        },
+        {
+          "at": 21405,
+          "function": 1670
+        },
+        {
+          "at": 21496,
+          "function": 1670
+        },
+        {
+          "at": 21593,
+          "function": 1670
+        },
+        {
+          "at": 21729,
+          "function": 11156
+        },
+        {
+          "at": 21776,
+          "function": 13973
+        },
+        {
+          "at": 21823,
+          "function": 11314
+        },
+        {
+          "at": 21976,
+          "function": 1670
+        },
+        {
+          "at": 22076,
+          "function": 1670
+        },
+        {
+          "at": 22173,
+          "function": 1670
+        },
+        {
+          "at": 22270,
+          "function": 1670
+        },
+        {
+          "at": 22367,
+          "function": 1670
+        },
+        {
+          "at": 22464,
+          "function": 1670
+        },
+        {
+          "at": 22561,
+          "function": 1670
+        },
+        {
+          "at": 22658,
+          "function": 1670
+        },
+        {
+          "at": 22755,
+          "function": 1670
+        },
+        {
+          "at": 22852,
+          "function": 1670
+        },
+        {
+          "at": 22949,
+          "function": 1670
+        },
+        {
+          "at": 23046,
+          "function": 1670
+        },
+        {
+          "at": 23143,
+          "function": 1670
+        },
+        {
+          "at": 23240,
+          "function": 1670
+        },
+        {
+          "at": 23337,
+          "function": 1670
+        },
+        {
+          "at": 23434,
+          "function": 1670
+        },
+        {
+          "at": 23531,
+          "function": 1670
+        },
+        {
+          "at": 23622,
+          "function": 1670
+        },
+        {
+          "at": 23719,
+          "function": 1670
+        },
+        {
+          "at": 23854,
+          "function": 13973
+        },
+        {
+          "at": 23945,
+          "function": 1670
+        },
+        {
+          "at": 24042,
+          "function": 1670
+        },
+        {
+          "at": 24139,
+          "function": 1670
+        },
+        {
+          "at": 24236,
+          "function": 1670
+        },
+        {
+          "at": 24333,
+          "function": 1670
+        },
+        {
+          "at": 24430,
+          "function": 1670
+        },
+        {
+          "at": 24527,
+          "function": 1670
+        },
+        {
+          "at": 24624,
+          "function": 1670
+        },
+        {
+          "at": 24721,
+          "function": 1670
+        },
+        {
+          "at": 24818,
+          "function": 1670
+        },
+        {
+          "at": 24915,
+          "function": 1670
+        },
+        {
+          "at": 25012,
+          "function": 1670
+        },
+        {
+          "at": 25109,
+          "function": 1670
+        },
+        {
+          "at": 25200,
+          "function": 1670
+        },
+        {
+          "at": 25291,
+          "function": 1670
+        },
+        {
+          "at": 25388,
+          "function": 1670
+        },
+        {
+          "at": 25485,
+          "function": 1670
+        },
+        {
+          "at": 25740,
+          "function": 6029
+        },
+        {
+          "at": 25822,
+          "function": 6029
+        },
+        {
+          "at": 25904,
+          "function": 6029
+        },
+        {
+          "at": 26172,
+          "function": 21832
+        }
+      ]
+    }
+  ],
+  "priorEvidence": {
+    "file": "work-update-check-20261113/native-combined-null-owner-source-4c-v1/contract-v1.json",
+    "sha256": "1ed4e4ce6e116b421a341f1bd2176cf1cd16af2f8a849cb97d4d064f99ce282b",
+    "allPriorPinsVerified": 144,
+    "priorFrozenEvidenceUnchanged": true
+  },
+  "ancestry": {
+    "sourceChain": [
+      18768,
+      5268,
+      2922,
+      6000
+    ],
+    "requiredPredecessor": "18768 calls15176 (ordinary CRT initialization) before5268.15176 first processes C initializer table8293592..8293615 with error-return handling, registers an ordinary cleanup via4853, then processes CPP table8290304..8293587 in ascending address order. Therefore genuine static4722/11290/5349 precede the ordinary6000 setup.",
+    "controlFlow": "Both duplicated5268→2922 callsites are mutually exclusive branches of15597; both duplicated18768→5268 callsites are mutually exclusive success/error-report branches around15176.2922 has one unconditional6000 tail call after its other initialization calls. Do not interpret duplicated static callsites as repeated construction.",
+    "callsites": {
+      "f18768": [
+        {
+          "at": 2491,
+          "function": 15176
+        },
+        {
+          "at": 2617,
+          "function": 15176
+        },
+        {
+          "at": 2861,
+          "function": 5268
+        },
+        {
+          "at": 3047,
+          "function": 5268
+        }
+      ],
+      "f5268": [
+        {
+          "at": 211,
+          "function": 2922
+        },
+        {
+          "at": 355,
+          "function": 2922
+        }
+      ],
+      "f2922": [
+        {
+          "at": 1393,
+          "function": 6000
+        }
+      ]
+    },
+    "ordinary6000ReturnAddress": 5762527,
+    "broadAncestorsMustNotBeCalled": "18768/15176/5268/2922 perform broad CRT/application startup. They supply ordering evidence only; calling them would repeat existing initialization and exceed this minimal proposal."
+  },
+  "originalCppTable": {
+    "start": 8290304,
+    "endExclusive": 8293588,
+    "selectedEntries": [
+      {
+        "id": 13479,
+        "guest": 7842192,
+        "slot": 21,
+        "address": 8290388
+      },
+      {
+        "id": 16761,
+        "guest": 7842800,
+        "slot": 42,
+        "address": 8290472
+      },
+      {
+        "id": 4722,
+        "guest": 7845616,
+        "slot": 93,
+        "address": 8290676
+      },
+      {
+        "id": 11290,
+        "guest": 7847296,
+        "slot": 135,
+        "address": 8290844
+      },
+      {
+        "id": 4879,
+        "guest": 7850176,
+        "slot": 222,
+        "address": 8291192
+      },
+      {
+        "id": 5035,
+        "guest": 7850208,
+        "slot": 223,
+        "address": 8291196
+      },
+      {
+        "id": 5349,
+        "guest": 7850592,
+        "slot": 225,
+        "address": 8291204
+      },
+      {
+        "id": 5662,
+        "guest": 7850656,
+        "slot": 227,
+        "address": 8291212
+      },
+      {
+        "id": 6288,
+        "guest": 7850784,
+        "slot": 231,
+        "address": 8291228
+      },
+      {
+        "id": 7227,
+        "guest": 7850992,
+        "slot": 237,
+        "address": 8291252
+      },
+      {
+        "id": 8477,
+        "guest": 7851264,
+        "slot": 245,
+        "address": 8291284
+      },
+      {
+        "id": 13637,
+        "guest": 7853360,
+        "slot": 278,
+        "address": 8291416
+      },
+      {
+        "id": 17388,
+        "guest": 7854528,
+        "slot": 302,
+        "address": 8291512
+      },
+      {
+        "id": 4568,
+        "guest": 7855840,
+        "slot": 348,
+        "address": 8291696
+      },
+      {
+        "id": 4724,
+        "guest": 7855872,
+        "slot": 349,
+        "address": 8291700
+      },
+      {
+        "id": 4880,
+        "guest": 7855904,
+        "slot": 350,
+        "address": 8291704
+      },
+      {
+        "id": 6757,
+        "guest": 7856464,
+        "slot": 362,
+        "address": 8291752
+      },
+      {
+        "id": 6914,
+        "guest": 7856496,
+        "slot": 363,
+        "address": 8291756
+      },
+      {
+        "id": 11449,
+        "guest": 7857664,
+        "slot": 392,
+        "address": 8291872
+      },
+      {
+        "id": 11762,
+        "guest": 7857728,
+        "slot": 394,
+        "address": 8291880
+      },
+      {
+        "id": 12701,
+        "guest": 7857920,
+        "slot": 400,
+        "address": 8291904
+      },
+      {
+        "id": 16453,
+        "guest": 7858736,
+        "slot": 424,
+        "address": 8292000
+      },
+      {
+        "id": 976,
+        "guest": 7859712,
+        "slot": 453,
+        "address": 8292116
+      },
+      {
+        "id": 4102,
+        "guest": 7860880,
+        "slot": 473,
+        "address": 8292196
+      }
+    ],
+    "existingSelectedOrder": [
+      13479,
+      16761,
+      11290,
+      4879,
+      5035,
+      5662,
+      6288,
+      7227,
+      8477,
+      13637,
+      17388,
+      4568,
+      4724,
+      4880,
+      6757,
+      6914,
+      11449,
+      11762,
+      12701,
+      16453,
+      976,
+      4102
+    ],
+    "proposedSelectedOrder": [
+      13479,
+      16761,
+      4722,
+      11290,
+      4879,
+      5035,
+      5349,
+      5662,
+      6288,
+      7227,
+      8477,
+      13637,
+      17388,
+      4568,
+      4724,
+      4880,
+      6757,
+      6914,
+      11449,
+      11762,
+      12701,
+      16453,
+      976,
+      4102
+    ],
+    "correction": "5349 is slot225, before existing5662 slot227. Existing6288 is slot231 at8291228, not the next table slot after5349."
+  },
+  "native4722": {
+    "role": "Static data initialization, not manager/array construction.",
+    "insertion": {
+      "after": 16761,
+      "before": 11290,
+      "cppSlot": 93,
+      "tableAddress": 8290676,
+      "guestAddress": 7845616
+    },
+    "abi": {
+      "stackArguments": [],
+      "retImmediate": 0,
+      "totalEspDelta": 4,
+      "EAX": "Actual final8185 hash of PowerSlide; preserve and record it. Do not assert0, receiver, or synthetic success.",
+      "expectedEaxFromStaticHash": 2168496029
+    },
+    "directDependency": 8185,
+    "registersOnexit": false,
+    "allocates": false,
+    "invokesPointedConstructors": false,
+    "writes": "First20B row already has name/constructor/destructor in static PE data;4722 computes its generic and short-name hashes. The remaining five20B rows start all-zero in static PE;4722 writes their hashes and original name/constructor/destructor constants. No manager8554352 fields are written.",
+    "rows": [
+      {
+        "address": 8307192,
+        "genericAddress": 7897572,
+        "generic": "GenericNOS",
+        "nameAddress": 7897568,
+        "name": "NOS",
+        "initialPeWords": [
+          0,
+          0,
+          7897568,
+          4463344,
+          4212736
+        ],
+        "expectedNativeWords": [
+          2201834892,
+          51695,
+          7897568,
+          4463344,
+          4212736
+        ]
+      },
+      {
+        "address": 8307212,
+        "genericAddress": 7897556,
+        "generic": "GenericJump",
+        "nameAddress": 7897548,
+        "name": "Jump",
+        "initialPeWords": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "expectedNativeWords": [
+          3940973304,
+          1604539,
+          7897548,
+          4463424,
+          4212736
+        ]
+      },
+      {
+        "address": 8307232,
+        "genericAddress": 7897532,
+        "generic": "GenericSpeed",
+        "nameAddress": 7897524,
+        "name": "Speed",
+        "initialPeWords": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "expectedNativeWords": [
+          1213584781,
+          63434416,
+          7897524,
+          4463600,
+          4212736
+        ]
+      },
+      {
+        "address": 8307252,
+        "genericAddress": 7897508,
+        "generic": "GenericCorner",
+        "nameAddress": 7897500,
+        "name": "Corner",
+        "initialPeWords": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "expectedNativeWords": [
+          766717029,
+          1466460648,
+          7897500,
+          4463744,
+          4463872
+        ]
+      },
+      {
+        "address": 8307272,
+        "genericAddress": 7897484,
+        "generic": "GenericBurnout",
+        "nameAddress": 7897476,
+        "name": "Burnout",
+        "initialPeWords": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "expectedNativeWords": [
+          2770180971,
+          91916622,
+          7897476,
+          4463920,
+          4212736
+        ]
+      },
+      {
+        "address": 8307292,
+        "genericAddress": 7897460,
+        "generic": "GenericSlide",
+        "nameAddress": 7897448,
+        "name": "PowerSlide",
+        "initialPeWords": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "expectedNativeWords": [
+          1213445357,
+          2168496029,
+          7897448,
+          4464272,
+          4464448
+        ]
+      }
+    ],
+    "rowCount": 6,
+    "recordBytes": 20,
+    "tableRange": [
+      8307192,
+      8307312
+    ],
+    "consumedHashAddresses": [
+      8307196,
+      8307216,
+      8307236,
+      8307256,
+      8307276,
+      8307296
+    ],
+    "correctionToPriorWindow": "The prior report inspected literal low memory only through100. Frozen sequence73 also has low104=2.9904 consumes six short-name hashes through8307296 inclusive, not five rows ending before8307296.",
+    "readOnlyPostCheck": "Compare120B of actual post-return native table with these source-derived expectedNativeWords; preserve actual bytes on mismatch. No cleanup-table movement is expected from4722."
+  },
+  "native11290": {
+    "role": "Existing resident manager constructor wrapper and sole original cleanup registration for this manager.",
+    "chain": [
+      11290,
+      9436
+    ],
+    "storage": [
+      8554352,
+      7384
+    ],
+    "cppSlot": 135,
+    "tableAddress": 8290844,
+    "constructorEffects": "9436 clears the manager prefix, including+16/+20/+24 array pointers and+28/+32/+36 used counts, plus other internal fields. It initializes resident state without allocating these arrays. Its range is disjoint from the default table at8307192.",
+    "cleanup": {
+      "function": 3321,
+      "guestAddress": 7871408,
+      "registeredBy": 11290,
+      "additionalRegistrationBy6000": false
+    },
+    "rule": "Retain the existing whole11290 exactly once. Never call9436 separately or repeat11290 after6000; that would discard the native owned array pointers."
+  },
+  "native5349": {
+    "role": "Whole original8B circular list-sentinel initializer wrapper.",
+    "insertion": {
+      "after": 5035,
+      "before": 5662,
+      "cppSlot": 225,
+      "tableAddress": 8291204,
+      "guestAddress": 7850592
+    },
+    "storage": [
+      8575936,
+      8
+    ],
+    "wholeChain": [
+      5349,
+      1209,
+      13399
+    ],
+    "abi": {
+      "stackArguments": [],
+      "retImmediate": 0,
+      "totalEspDelta": 4
+    },
+    "cleanupCallback": 7872048,
+    "readOnlyChecks": "Assert fresh sentinel words are0 before the whole wrapper; after return require both actual links equal8575936 and one genuine onexit insertion with original callback0x781e30. Never call1209/13399 separately and never rerun5349 after1530 starts populating the list.",
+    "disjointFrom6288": "Existing6288 constructs the adjacent object at8575944; it does not own8575936/+4."
+  },
+  "native6000": {
+    "role": "Ordinary native one-time backing allocation for the already-constructed manager.",
+    "concreteInsertion": "Add a separate stage once after the complete existing CPP prefix/query-registry/suffix sequence and before wholeWorld21991→1690; before the existing pre-World query-manager/LAN/session/lifecycle block is a concrete available insertion point. Do not add6000 as a CPP wrapper and do not invoke its broad ancestors.",
+    "after": [
+      4722,
+      11290,
+      5349
+    ],
+    "before": [
+      21991,
+      1690,
+      9904
+    ],
+    "abi": {
+      "stackArguments": [],
+      "receiverFixedInternally": 8554352,
+      "retImmediate": 0,
+      "totalEspDelta": 4,
+      "EAX": "Record actual EAX without assuming a documented result; pointer publications are the source-backed outputs."
+    },
+    "directDependencies": [
+      5867,
+      3760
+    ],
+    "entryConstructor": {
+      "function": 5214,
+      "guest": 4533152,
+      "destructorGuest": 4533184,
+      "fields": "id0,status3,count0; next/prev point to entry+12"
+    },
+    "arrays": [
+      {
+        "publishOffset": 16,
+        "entries": 256,
+        "stride": 20,
+        "requestedBytes": 5124
+      },
+      {
+        "publishOffset": 24,
+        "entries": 3000,
+        "stride": 20,
+        "requestedBytes": 60004
+      },
+      {
+        "publishOffset": 20,
+        "entries": 100,
+        "stride": 20,
+        "requestedBytes": 2004
+      }
+    ],
+    "ownership": "Each5867 result is a raw native CRT allocation.6000 writes entry count at raw[0], constructs from raw+4 with3760, and publishes raw+4. Unlike game allocator19280 pool pointers, these array allocations are from5867; validate rawPointer=arrayPointer-4 against actual live heap provenance and bounds.",
+    "failure": "Each allocation may independently fail and native6000 publishes0 for that array. Earlier successful arrays remain owned by the manager. There is no return-level success flag or rollback. Preserve actual failure and stop before9904; never synthesize pointers, entries, counters or status.",
+    "lifetime": "Existing11290 registers3321 once.3321 first calls broad11472, then destroys each nonnull array using the count at pointer-4,20B stride and original destructor4533184, and frees pointer-4 through6029.6000 neither frees old backing nor registers extra cleanup. It is unsafe to repeat6000 on existing backing; do not call cleanup routines as a diagnostic test.",
+    "preChecks": "Before whole6000 require actual manager+16/+20/+24 pointers and+28/+32/+36 counts all0 after existing11290; require stage not previously completed. If nonzero, preserve state and stop, rather than rerun a constructor.",
+    "postChecks": "Observe three distinct nonnull actual publications; each native count prefix must equal its capacity, raw extent must cover4+capacity*20, and every freshly constructed entry must have id0/status3/count0 and an8B self sentinel at entry+12. Used manager counts remain0 until9904. Observe onexit base/end unchanged across6000.",
+    "afterWorldExpected": "With all six default rows initialized and empty manager backing,9904 appends six actual default records with status2 to manager+20 and count+32=6. No literal low-memory2 pattern is expected from this path.",
+    "resourcesLoaded": false,
+    "constructorDuplicationAvoided": true
+  },
+  "lowMemoryCorrectionEvidence": {
+    "sequence": 73,
+    "span": {
+      "file": "replay-context-diagnostics-raw.bin",
+      "address": 0,
+      "length": 256,
+      "offset": 53568,
+      "sha256": "805a684759a8973f61784fc469b1b8020de92025629250f7f261703a29d51c86",
+      "role": "literal-low-memory-not-a-native-object"
+    },
+    "offsets": [
+      4,
+      24,
+      44,
+      64,
+      84,
+      104
+    ],
+    "values": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "limits": [
+    "No condition was created or run. Root alone reviews and runs any fresh condition.",
+    "No frozen file or prior pinned report was edited. This fresh derivative refines the original table slots and six-row extent.",
+    "11472 body bytes and calls decode exactly, but WABT static decompilation failed internally. Cleanup ancestry proves lifetime ownership; broad cleanup execution is not source-approved here.",
+    "Replay/event singletons and other known startup omissions remain outside this minimal proposal. No complete-startup or client-report claim follows."
+  ],
+  "safety": {
+    "nativeExecuted": false,
+    "wasmCompiledValidatedOrInstantiated": false,
+    "memoryCreated": false,
+    "runtimeHarnessOrProviderImported": false,
+    "nativeStateAuthored": false,
+    "frozenFilesEdited": false
+  }
+}

@@ -1,0 +1,24 @@
+✔ race-only is off by default, keeps existing profiles/schema intact and never enables AI by itself (32.56825ms)
+✔ race-only acquires on active race and releases in roam/results while staying armed between races (19.170249ms)
+✔ race-only eligibility is exact across race type, HUD and phase combinations (18.230768ms)
+✔ race-only preserves Street X and native Drag/Drift requests without substituting road settings (54.150417ms)
+✔ race-only online permission gates every network signal and withdrawal keeps arm but releases request (22.380931ms)
+✔ race-only fails closed for unsupported/unready or missing AI/Drag capability (13.273709ms)
+✔ visibility, focus, dialog and tuner pauses suppress race-only request but do not forget arming (22.518393ms)
+✔ F7 F9 and Stop always disarm race-only while waiting or active (41.04075ms)
+✔ race driving keys disarm in countdown/active race, but free-roam and outrun manual driving preserve arm (75.008047ms)
+✔ held free-roam driving input prevents race acquisition until release without changing manual AI mode (4.531043ms)
+✔ UI range keys do not disarm race-only, but F7 from UI does (4.514629ms)
+✔ selecting either AI mode disables the other and race-only off does not re-enable all-modes AI (6.352812ms)
+✔ race-only HUD and exported pace confirmation use effective request rather than all-modes checkbox (5.01159ms)
+✔ race-only survives game reload within page only as arming, never exports old request on replacement (9.195662ms)
+✔ named profile saves remain old schema and profile load explicitly clears race-only arming (6.389526ms)
+✔ race-only observations reject non-boolean or unknown exported data (0.43526ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 426.327263

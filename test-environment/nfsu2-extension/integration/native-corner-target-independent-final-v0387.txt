@@ -1,0 +1,11 @@
+✔ browser post-sealed patcher pins all three complete modules and changes only the authored command3 expression (1805.4338ms)
+✔ actual native command3 keeps open bends, physical curve targets, pace compensation, margin, Stop and legacy modes (1757.6871ms)
+✔ native calculated setup admits unity policy and keeps actual target, physical publication and final corner cap aligned (2245.8953ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5953.0549

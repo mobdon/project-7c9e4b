@@ -1,0 +1,3177 @@
+{
+  "kind": "SOURCE-ONLY-COMBINED-FAILURE-POOL-AND-NULL-SINGLETON-DERIVATIVE-V2",
+  "status": "SOURCE-CLOSED-STARTUP-NOT-YET-RUNNABLE",
+  "reviewer": "/root/extension_review/legacy_api_review",
+  "bodies": [
+    {
+      "index": 112,
+      "bytes": 390,
+      "sha256": "0d08a5c446371498bed5270ff9252fac6639ae4365ee706626c6d3c99037a5c2",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 178,
+          "function": 3703
+        }
+      ]
+    },
+    {
+      "index": 269,
+      "bytes": 400,
+      "sha256": "d40ad33c35e3887892ff3100a373c0ccfdd04dd26a2036df11e6f841ef4b442a",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 195,
+          "function": 3547
+        }
+      ]
+    },
+    {
+      "index": 285,
+      "bytes": 350,
+      "sha256": "bc1d02abfac2a628bef456ef9cfb6cd7131d1e35143af80045034a76e5a4dbfa",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 101,
+          "function": 2243
+        }
+      ]
+    },
+    {
+      "index": 287,
+      "bytes": 12668,
+      "sha256": "55d9bfc53462b67b81c453a53c2e1f2e75de2071323bdd7a97355d1cfd3dc54b",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 124,
+          "function": 12948
+        },
+        {
+          "at": 179,
+          "function": 15762
+        },
+        {
+          "at": 216,
+          "function": 21215
+        },
+        {
+          "at": 354,
+          "function": 4971
+        },
+        {
+          "at": 492,
+          "function": 4971
+        },
+        {
+          "at": 626,
+          "function": 10993
+        },
+        {
+          "at": 663,
+          "function": 9508
+        },
+        {
+          "at": 2608,
+          "function": 21215
+        },
+        {
+          "at": 2776,
+          "function": 3645
+        },
+        {
+          "at": 2813,
+          "function": 21215
+        },
+        {
+          "at": 2966,
+          "function": 12008
+        },
+        {
+          "at": 3225,
+          "function": 21833
+        },
+        {
+          "at": 3392,
+          "function": 12008
+        },
+        {
+          "at": 3645,
+          "function": 21833
+        },
+        {
+          "at": 3859,
+          "function": 12008
+        },
+        {
+          "at": 4109,
+          "function": 21833
+        },
+        {
+          "at": 4298,
+          "function": 12008
+        },
+        {
+          "at": 4542,
+          "function": 21833
+        },
+        {
+          "at": 4772,
+          "function": 12008
+        },
+        {
+          "at": 5031,
+          "function": 21833
+        },
+        {
+          "at": 5196,
+          "function": 12008
+        },
+        {
+          "at": 5449,
+          "function": 21833
+        },
+        {
+          "at": 5611,
+          "function": 21215
+        },
+        {
+          "at": 5902,
+          "function": 21833
+        },
+        {
+          "at": 6352,
+          "function": 21833
+        },
+        {
+          "at": 6478,
+          "function": 4971
+        },
+        {
+          "at": 6620,
+          "function": 4971
+        },
+        {
+          "at": 6844,
+          "function": 14980
+        },
+        {
+          "at": 7021,
+          "function": 14980
+        },
+        {
+          "at": 7160,
+          "function": 15281
+        },
+        {
+          "at": 7251,
+          "function": 15761
+        },
+        {
+          "at": 7373,
+          "function": 4971
+        },
+        {
+          "at": 7513,
+          "function": 4971
+        },
+        {
+          "at": 7681,
+          "function": 2158
+        },
+        {
+          "at": 7840,
+          "function": 13106
+        },
+        {
+          "at": 8017,
+          "function": 13106
+        },
+        {
+          "at": 8184,
+          "function": 4971
+        },
+        {
+          "at": 8322,
+          "function": 4971
+        },
+        {
+          "at": 8486,
+          "function": 3686
+        },
+        {
+          "at": 8769,
+          "function": 16230
+        },
+        {
+          "at": 9100,
+          "function": 3251
+        },
+        {
+          "at": 9342,
+          "function": 16230
+        },
+        {
+          "at": 9870,
+          "function": 23677
+        },
+        {
+          "at": 10118,
+          "function": 4035
+        },
+        {
+          "at": 10347,
+          "function": 21215
+        },
+        {
+          "at": 10429,
+          "function": 21998
+        },
+        {
+          "at": 10638,
+          "function": 16230
+        },
+        {
+          "at": 10766,
+          "function": 16230
+        },
+        {
+          "at": 11256,
+          "function": 3564
+        },
+        {
+          "at": 11465,
+          "function": 16230
+        },
+        {
+          "at": 11587,
+          "function": 16230
+        },
+        {
+          "at": 11850,
+          "function": 14667
+        },
+        {
+          "at": 11887,
+          "function": 5124
+        },
+        {
+          "at": 11924,
+          "function": 13102
+        },
+        {
+          "at": 11975,
+          "function": 12564
+        },
+        {
+          "at": 12083,
+          "function": 8413
+        },
+        {
+          "at": 12229,
+          "function": 12877
+        },
+        {
+          "at": 12266,
+          "function": 21215
+        },
+        {
+          "at": 12303,
+          "function": 21215
+        },
+        {
+          "at": 12340,
+          "function": 21215
+        },
+        {
+          "at": 12377,
+          "function": 17327
+        },
+        {
+          "at": 12424,
+          "function": 437
+        },
+        {
+          "at": 12554,
+          "function": 17796
+        }
+      ]
+    },
+    {
+      "index": 1152,
+      "bytes": 563,
+      "sha256": "96d0f1cf3c2aad30f50121cef013fa53f056b79ef36d3e726bd12b88d33f34c9",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 177,
+          "function": 19280
+        },
+        {
+          "at": 377,
+          "function": 3178
+        }
+      ]
+    },
+    {
+      "index": 1305,
+      "bytes": 518,
+      "sha256": "296565da5df5541217e09285f0f7f8337727d5fffb3a8a2c1b0f68e2b6548605",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 209,
+          "function": 1152
+        }
+      ]
+    },
+    {
+      "index": 1361,
+      "bytes": 407,
+      "sha256": "fa80ba135b4cacdba86787da88c5948cfef5413d0b06fca7c210ec63b0822ba7",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 171,
+          "function": 1205
+        }
+      ]
+    },
+    {
+      "index": 1378,
+      "bytes": 475,
+      "sha256": "642f6684667c084198aa78bac032c34251e4c876d1a86946859cf3f2475abf2d",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 201,
+          "function": 15536
+        },
+        {
+          "at": 384,
+          "function": 15536
+        }
+      ]
+    },
+    {
+      "index": 1931,
+      "bytes": 338,
+      "sha256": "a2978eec390281de8886312dcb16e0a63a9f2c1e25ac351dadaeb0f9c9400645",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 142,
+          "function": 1152
+        }
+      ]
+    },
+    {
+      "index": 2243,
+      "bytes": 870,
+      "sha256": "c8be660e2cd222be5fd4484858a7075b0dc4280a08dd4c30e66bf323f6c7acea",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 191,
+          "function": 1305
+        }
+      ]
+    },
+    {
+      "index": 3178,
+      "bytes": 869,
+      "sha256": "454c8fa93cf4b716155a66fcaeb1d85fd58e9f0d564d68fb9f89e2703087b9c9",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 3547,
+      "bytes": 1744,
+      "sha256": "e73c5881bf7a55c5b955cc09c47b250b2d56ca8f5b10979221795a8a86f63afb",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 514,
+          "function": 2920
+        },
+        {
+          "at": 707,
+          "function": 2920
+        },
+        {
+          "at": 874,
+          "function": 2920
+        },
+        {
+          "at": 1060,
+          "function": 2920
+        },
+        {
+          "at": 1341,
+          "function": 21215
+        },
+        {
+          "at": 1593,
+          "function": 3389
+        }
+      ]
+    },
+    {
+      "index": 3703,
+      "bytes": 1194,
+      "sha256": "be2a2c9cbbdd485d9f591c4ae43b3b84289e5e5b3d4ed9ac65deb3a4cd2f77ba",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 236,
+          "function": 3076
+        },
+        {
+          "at": 484,
+          "function": 3076
+        },
+        {
+          "at": 720,
+          "function": 3076
+        }
+      ]
+    },
+    {
+      "index": 4659,
+      "bytes": 1323,
+      "sha256": "55b16d9681bab31a50ca1c047112191d4d364f6cad6ae65a31e72387bda6bb92",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 753,
+          "function": 21833
+        },
+        {
+          "at": 806,
+          "function": 21833
+        },
+        {
+          "at": 946,
+          "function": 15536
+        },
+        {
+          "at": 1090,
+          "function": 15536
+        }
+      ]
+    },
+    {
+      "index": 4972,
+      "bytes": 571,
+      "sha256": "b61e0685457434d0d8d1cad8c2093cf7557ad2945fd90effbe1ef7ab02c99316",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 299,
+          "function": 23287
+        }
+      ]
+    },
+    {
+      "index": 5582,
+      "bytes": 861,
+      "sha256": "f912ebb1feb6053b279118f757f19f7abeade2af7ad3a008b7df44a2fcbd2668",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 187,
+          "function": 1216
+        },
+        {
+          "at": 260,
+          "function": 13658
+        },
+        {
+          "at": 314,
+          "function": 2084
+        },
+        {
+          "at": 387,
+          "function": 13815
+        },
+        {
+          "at": 496,
+          "function": 6479
+        },
+        {
+          "at": 535,
+          "function": 5793
+        },
+        {
+          "at": 626,
+          "function": 4972
+        },
+        {
+          "at": 774,
+          "function": 737
+        }
+      ]
+    },
+    {
+      "index": 6988,
+      "bytes": 15915,
+      "sha256": "e01f970cbffa5f883f89e3cca1fd7b369a8e1560e3498663974c7d5bc3a96ae3",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 165,
+          "function": 1216
+        },
+        {
+          "at": 377,
+          "function": 8964
+        },
+        {
+          "at": 508,
+          "function": 1216
+        },
+        {
+          "at": 607,
+          "function": 8964
+        },
+        {
+          "at": 722,
+          "function": 1216
+        },
+        {
+          "at": 821,
+          "function": 8964
+        },
+        {
+          "at": 1160,
+          "function": 6464
+        },
+        {
+          "at": 1207,
+          "function": 6675
+        },
+        {
+          "at": 1336,
+          "function": 6464
+        },
+        {
+          "at": 1383,
+          "function": 6675
+        },
+        {
+          "at": 1463,
+          "function": 17916
+        },
+        {
+          "at": 1522,
+          "function": 22024
+        },
+        {
+          "at": 1673,
+          "function": 9634
+        },
+        {
+          "at": 1775,
+          "function": 1216
+        },
+        {
+          "at": 1862,
+          "function": 8964
+        },
+        {
+          "at": 2006,
+          "function": 21429
+        },
+        {
+          "at": 2081,
+          "function": 1216
+        },
+        {
+          "at": 2168,
+          "function": 8964
+        },
+        {
+          "at": 2365,
+          "function": 5738
+        },
+        {
+          "at": 2546,
+          "function": 1216
+        },
+        {
+          "at": 2619,
+          "function": 13658
+        },
+        {
+          "at": 2673,
+          "function": 2084
+        },
+        {
+          "at": 2746,
+          "function": 13815
+        },
+        {
+          "at": 2855,
+          "function": 6479
+        },
+        {
+          "at": 2894,
+          "function": 5793
+        },
+        {
+          "at": 2981,
+          "function": 4972
+        },
+        {
+          "at": 3077,
+          "function": 737
+        },
+        {
+          "at": 3271,
+          "function": 1216
+        },
+        {
+          "at": 3527,
+          "function": 737
+        },
+        {
+          "at": 3973,
+          "function": 15432
+        },
+        {
+          "at": 4111,
+          "function": 10054
+        },
+        {
+          "at": 4179,
+          "function": 19899
+        },
+        {
+          "at": 4226,
+          "function": 10214
+        },
+        {
+          "at": 4271,
+          "function": 9586
+        },
+        {
+          "at": 4338,
+          "function": 19899
+        },
+        {
+          "at": 4385,
+          "function": 9744
+        },
+        {
+          "at": 4452,
+          "function": 1532
+        },
+        {
+          "at": 4536,
+          "function": 19437
+        },
+        {
+          "at": 4710,
+          "function": 15432
+        },
+        {
+          "at": 4848,
+          "function": 13030
+        },
+        {
+          "at": 4975,
+          "function": 15432
+        },
+        {
+          "at": 5121,
+          "function": 15432
+        },
+        {
+          "at": 5259,
+          "function": 9332
+        },
+        {
+          "at": 5313,
+          "function": 755
+        },
+        {
+          "at": 5368,
+          "function": 907
+        },
+        {
+          "at": 5446,
+          "function": 7243
+        },
+        {
+          "at": 5540,
+          "function": 4031
+        },
+        {
+          "at": 5653,
+          "function": 5675
+        },
+        {
+          "at": 5700,
+          "function": 5832
+        },
+        {
+          "at": 5747,
+          "function": 10125
+        },
+        {
+          "at": 5794,
+          "function": 10054
+        },
+        {
+          "at": 5860,
+          "function": 5675
+        },
+        {
+          "at": 5907,
+          "function": 5832
+        },
+        {
+          "at": 5954,
+          "function": 10125
+        },
+        {
+          "at": 6001,
+          "function": 10054
+        },
+        {
+          "at": 6060,
+          "function": 9586
+        },
+        {
+          "at": 6118,
+          "function": 8182
+        },
+        {
+          "at": 6165,
+          "function": 595
+        },
+        {
+          "at": 6332,
+          "function": 19744
+        },
+        {
+          "at": 6379,
+          "function": 595
+        },
+        {
+          "at": 6625,
+          "function": 3822
+        },
+        {
+          "at": 6797,
+          "function": 14669
+        },
+        {
+          "at": 6871,
+          "function": 15452
+        },
+        {
+          "at": 6939,
+          "function": 8496
+        },
+        {
+          "at": 7050,
+          "function": 17721
+        },
+        {
+          "at": 7119,
+          "function": 3822
+        },
+        {
+          "at": 7288,
+          "function": 14669
+        },
+        {
+          "at": 7390,
+          "function": 16017
+        },
+        {
+          "at": 7499,
+          "function": 16017
+        },
+        {
+          "at": 7632,
+          "function": 14669
+        },
+        {
+          "at": 7699,
+          "function": 15452
+        },
+        {
+          "at": 7767,
+          "function": 8496
+        },
+        {
+          "at": 7994,
+          "function": 17721
+        },
+        {
+          "at": 8075,
+          "function": 16017
+        },
+        {
+          "at": 8153,
+          "function": 14669
+        },
+        {
+          "at": 8218,
+          "function": 15452
+        },
+        {
+          "at": 8286,
+          "function": 8496
+        },
+        {
+          "at": 8430,
+          "function": 17721
+        },
+        {
+          "at": 8546,
+          "function": 17463
+        },
+        {
+          "at": 8657,
+          "function": 8185
+        },
+        {
+          "at": 8790,
+          "function": 8185
+        },
+        {
+          "at": 8923,
+          "function": 8185
+        },
+        {
+          "at": 9047,
+          "function": 8185
+        },
+        {
+          "at": 9180,
+          "function": 8185
+        },
+        {
+          "at": 9369,
+          "function": 19453
+        },
+        {
+          "at": 9548,
+          "function": 19453
+        },
+        {
+          "at": 9742,
+          "function": 19821
+        },
+        {
+          "at": 9780,
+          "function": 3549
+        },
+        {
+          "at": 9859,
+          "function": 3979
+        },
+        {
+          "at": 9975,
+          "function": 3979
+        },
+        {
+          "at": 10132,
+          "function": 14669
+        },
+        {
+          "at": 10206,
+          "function": 15452
+        },
+        {
+          "at": 10274,
+          "function": 8496
+        },
+        {
+          "at": 10385,
+          "function": 17721
+        },
+        {
+          "at": 10454,
+          "function": 3979
+        },
+        {
+          "at": 10623,
+          "function": 14669
+        },
+        {
+          "at": 10755,
+          "function": 909
+        },
+        {
+          "at": 10934,
+          "function": 21767
+        },
+        {
+          "at": 11175,
+          "function": 3883
+        },
+        {
+          "at": 11369,
+          "function": 3883
+        },
+        {
+          "at": 11555,
+          "function": 909
+        },
+        {
+          "at": 11687,
+          "function": 19970
+        },
+        {
+          "at": 11760,
+          "function": 4040
+        },
+        {
+          "at": 12008,
+          "function": 17721
+        },
+        {
+          "at": 12105,
+          "function": 17306
+        },
+        {
+          "at": 12180,
+          "function": 13711
+        },
+        {
+          "at": 12336,
+          "function": 17721
+        },
+        {
+          "at": 12498,
+          "function": 17721
+        },
+        {
+          "at": 12595,
+          "function": 17306
+        },
+        {
+          "at": 12670,
+          "function": 13711
+        },
+        {
+          "at": 12826,
+          "function": 17721
+        },
+        {
+          "at": 12915,
+          "function": 16214
+        },
+        {
+          "at": 13052,
+          "function": 17721
+        },
+        {
+          "at": 13149,
+          "function": 17306
+        },
+        {
+          "at": 13224,
+          "function": 13711
+        },
+        {
+          "at": 13404,
+          "function": 17721
+        },
+        {
+          "at": 13498,
+          "function": 17306
+        },
+        {
+          "at": 13573,
+          "function": 13711
+        },
+        {
+          "at": 13787,
+          "function": 13192
+        },
+        {
+          "at": 13845,
+          "function": 81
+        },
+        {
+          "at": 14018,
+          "function": 17721
+        },
+        {
+          "at": 14086,
+          "function": 16214
+        },
+        {
+          "at": 14199,
+          "function": 17463
+        },
+        {
+          "at": 14411,
+          "function": 17721
+        },
+        {
+          "at": 14524,
+          "function": 17463
+        },
+        {
+          "at": 14707,
+          "function": 16680
+        },
+        {
+          "at": 14844,
+          "function": 4458
+        },
+        {
+          "at": 15009,
+          "function": 17306
+        },
+        {
+          "at": 15101,
+          "function": 13711
+        },
+        {
+          "at": 15415,
+          "function": 17306
+        },
+        {
+          "at": 15497,
+          "function": 13711
+        },
+        {
+          "at": 15720,
+          "function": 17306
+        },
+        {
+          "at": 15802,
+          "function": 13711
+        }
+      ]
+    },
+    {
+      "index": 12948,
+      "bytes": 1899,
+      "sha256": "1a32d674291afe4ea720140c3056ce43454389b3f5fb97351ba90a9e4edfaa81",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 97,
+          "function": 15919
+        },
+        {
+          "at": 220,
+          "function": 1361
+        },
+        {
+          "at": 322,
+          "function": 18836
+        },
+        {
+          "at": 477,
+          "function": 15743
+        },
+        {
+          "at": 697,
+          "function": 269
+        },
+        {
+          "at": 876,
+          "function": 112
+        },
+        {
+          "at": 1026,
+          "function": 285
+        },
+        {
+          "at": 1360,
+          "function": 19491
+        },
+        {
+          "at": 1454,
+          "function": 856
+        },
+        {
+          "at": 1569,
+          "function": 19921
+        },
+        {
+          "at": 1720,
+          "function": 8517
+        }
+      ]
+    },
+    {
+      "index": 13010,
+      "bytes": 521,
+      "sha256": "bfdcf2a5313b3a52590ac83c1f81676665efbee13e13b97f2a05eed0809f9cd9",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 230,
+          "function": 15536
+        },
+        {
+          "at": 415,
+          "function": 15536
+        }
+      ]
+    },
+    {
+      "index": 15536,
+      "bytes": 162,
+      "sha256": "6e54400633045dac459e8651e3366d5007a4077a62284cbbb8b890f3eb251a81",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 15743,
+      "bytes": 97,
+      "sha256": "a7598d6086580c005853c42a5d65db316a6871fdc1bc8e170218b66a72639eed",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 15919,
+      "bytes": 2555,
+      "sha256": "f439ee4f2f0036b60d67e12f0ffa0938d1fa287ec26d9802f8a981cde4c1d26b",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 329,
+          "function": 15836
+        },
+        {
+          "at": 469,
+          "function": 15836
+        },
+        {
+          "at": 737,
+          "function": 15841
+        },
+        {
+          "at": 819,
+          "function": 15843
+        },
+        {
+          "at": 848,
+          "function": 15843
+        },
+        {
+          "at": 1149,
+          "function": 15836
+        },
+        {
+          "at": 1276,
+          "function": 15836
+        },
+        {
+          "at": 1516,
+          "function": 15841
+        },
+        {
+          "at": 1551,
+          "function": 15843
+        },
+        {
+          "at": 1612,
+          "function": 15843
+        },
+        {
+          "at": 1946,
+          "function": 15836
+        },
+        {
+          "at": 2075,
+          "function": 15836
+        },
+        {
+          "at": 2267,
+          "function": 15841
+        },
+        {
+          "at": 2349,
+          "function": 15843
+        },
+        {
+          "at": 2368,
+          "function": 15843
+        }
+      ]
+    },
+    {
+      "index": 18836,
+      "bytes": 202,
+      "sha256": "d5c697ca458f3dbb88106be23399f07dc232a701d1b49de198cc3f9de9de2fd5",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 153,
+          "function": 18713
+        }
+      ]
+    },
+    {
+      "index": 22266,
+      "bytes": 757,
+      "sha256": "9119c533888e4b33c5adac32800c332b382cffdb6ee851e64009d8798286ae84",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 86,
+          "function": 24635
+        },
+        {
+          "at": 122,
+          "function": 24833
+        },
+        {
+          "at": 139,
+          "function": 24833
+        },
+        {
+          "at": 156,
+          "function": 24833
+        },
+        {
+          "at": 188,
+          "function": 24635
+        },
+        {
+          "at": 215,
+          "function": 24635
+        },
+        {
+          "at": 251,
+          "function": 24833
+        },
+        {
+          "at": 268,
+          "function": 24833
+        },
+        {
+          "at": 285,
+          "function": 24833
+        },
+        {
+          "at": 306,
+          "function": 24635
+        },
+        {
+          "at": 354,
+          "function": 24833
+        },
+        {
+          "at": 375,
+          "function": 24833
+        },
+        {
+          "at": 392,
+          "function": 24833
+        },
+        {
+          "at": 442,
+          "function": 24635
+        },
+        {
+          "at": 478,
+          "function": 24833
+        },
+        {
+          "at": 495,
+          "function": 24833
+        },
+        {
+          "at": 516,
+          "function": 24833
+        },
+        {
+          "at": 710,
+          "function": 24789
+        }
+      ]
+    },
+    {
+      "index": 23226,
+      "bytes": 423,
+      "sha256": "f4af5882a80013af4d88d0617b88cdb39370c664940916511ace5e9abeeab66b",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 91,
+          "function": 23259
+        },
+        {
+          "at": 116,
+          "function": 24794
+        },
+        {
+          "at": 193,
+          "function": 23259
+        },
+        {
+          "at": 218,
+          "function": 24794
+        },
+        {
+          "at": 293,
+          "function": 23259
+        },
+        {
+          "at": 318,
+          "function": 24794
+        },
+        {
+          "at": 392,
+          "function": 24789
+        }
+      ]
+    },
+    {
+      "index": 23287,
+      "bytes": 66,
+      "sha256": "38b6ed46ffbefad0a390baef3bf97f7b2d4eff3f99a31ac36786fd073c552fac",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 30,
+          "function": 23226
+        },
+        {
+          "at": 36,
+          "function": 22266
+        },
+        {
+          "at": 59,
+          "function": 1931
+        }
+      ]
+    },
+    {
+      "index": 755,
+      "bytes": 5051,
+      "sha256": "216c890632cfa5a453763db5e1ca80c5b77936029ca8c87d9a00e3e599a436bb",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 173,
+          "function": 1216
+        },
+        {
+          "at": 213,
+          "function": 5867
+        },
+        {
+          "at": 312,
+          "function": 9644
+        },
+        {
+          "at": 392,
+          "function": 4955
+        },
+        {
+          "at": 432,
+          "function": 5867
+        },
+        {
+          "at": 540,
+          "function": 4955
+        },
+        {
+          "at": 580,
+          "function": 5867
+        },
+        {
+          "at": 661,
+          "function": 16698
+        },
+        {
+          "at": 737,
+          "function": 4955
+        },
+        {
+          "at": 777,
+          "function": 5867
+        },
+        {
+          "at": 891,
+          "function": 4955
+        },
+        {
+          "at": 931,
+          "function": 5867
+        },
+        {
+          "at": 1012,
+          "function": 21991
+        },
+        {
+          "at": 1071,
+          "function": 4955
+        },
+        {
+          "at": 1139,
+          "function": 4955
+        },
+        {
+          "at": 1284,
+          "function": 19948
+        },
+        {
+          "at": 1338,
+          "function": 2569
+        },
+        {
+          "at": 1375,
+          "function": 9299
+        },
+        {
+          "at": 1412,
+          "function": 4955
+        },
+        {
+          "at": 1459,
+          "function": 16076
+        },
+        {
+          "at": 1506,
+          "function": 6652
+        },
+        {
+          "at": 1587,
+          "function": 2569
+        },
+        {
+          "at": 1624,
+          "function": 9299
+        },
+        {
+          "at": 1661,
+          "function": 4955
+        },
+        {
+          "at": 1708,
+          "function": 16076
+        },
+        {
+          "at": 1755,
+          "function": 6652
+        },
+        {
+          "at": 1804,
+          "function": 4955
+        },
+        {
+          "at": 1851,
+          "function": 23721
+        },
+        {
+          "at": 1905,
+          "function": 16941
+        },
+        {
+          "at": 1959,
+          "function": 6690
+        },
+        {
+          "at": 2048,
+          "function": 18394
+        },
+        {
+          "at": 2085,
+          "function": 4955
+        },
+        {
+          "at": 2132,
+          "function": 23721
+        },
+        {
+          "at": 2186,
+          "function": 16941
+        },
+        {
+          "at": 2240,
+          "function": 6690
+        },
+        {
+          "at": 2401,
+          "function": 6652
+        },
+        {
+          "at": 2506,
+          "function": 6652
+        },
+        {
+          "at": 2639,
+          "function": 9586
+        },
+        {
+          "at": 2787,
+          "function": 9816
+        },
+        {
+          "at": 2851,
+          "function": 19663
+        },
+        {
+          "at": 2973,
+          "function": 13262
+        },
+        {
+          "at": 3010,
+          "function": 358
+        },
+        {
+          "at": 3086,
+          "function": 4287
+        },
+        {
+          "at": 3273,
+          "function": 13262
+        },
+        {
+          "at": 3310,
+          "function": 358
+        },
+        {
+          "at": 3386,
+          "function": 4287
+        },
+        {
+          "at": 3531,
+          "function": 18091
+        },
+        {
+          "at": 3568,
+          "function": 9659
+        },
+        {
+          "at": 3664,
+          "function": 2243
+        },
+        {
+          "at": 4006,
+          "function": 4659
+        },
+        {
+          "at": 4081,
+          "function": 2243
+        },
+        {
+          "at": 4181,
+          "function": 2243
+        },
+        {
+          "at": 4444,
+          "function": 4659
+        },
+        {
+          "at": 4519,
+          "function": 2243
+        },
+        {
+          "at": 4611,
+          "function": 2243
+        },
+        {
+          "at": 4871,
+          "function": 4659
+        }
+      ]
+    },
+    {
+      "index": 911,
+      "bytes": 1841,
+      "sha256": "5ac3622b4411903192589897ad5fd03b104cc4326dca3f42562497c656b0089c",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 100,
+          "function": 14593
+        },
+        {
+          "at": 147,
+          "function": 14749
+        },
+        {
+          "at": 194,
+          "function": 7083
+        },
+        {
+          "at": 343,
+          "function": 15763
+        },
+        {
+          "at": 468,
+          "function": 12892
+        },
+        {
+          "at": 565,
+          "function": 16853
+        },
+        {
+          "at": 624,
+          "function": 6029
+        },
+        {
+          "at": 743,
+          "function": 1844
+        },
+        {
+          "at": 802,
+          "function": 6029
+        },
+        {
+          "at": 949,
+          "function": 9800
+        },
+        {
+          "at": 1008,
+          "function": 6029
+        },
+        {
+          "at": 1165,
+          "function": 17898
+        },
+        {
+          "at": 1224,
+          "function": 6029
+        },
+        {
+          "at": 1418,
+          "function": 17165
+        },
+        {
+          "at": 1477,
+          "function": 6029
+        },
+        {
+          "at": 1696,
+          "function": 2085
+        },
+        {
+          "at": 1785,
+          "function": 2085
+        }
+      ]
+    },
+    {
+      "index": 5867,
+      "bytes": 142,
+      "sha256": "2c1060b18366ee0ec3d4893dcc1b976161dd4a94d363b5d3e3cb6b68edc507c3",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 85,
+          "function": 5636
+        }
+      ]
+    },
+    {
+      "index": 9644,
+      "bytes": 1002,
+      "sha256": "107f3b8c2a3942950087387699f5cb6acaef464abc1ce507b91f70ff977745b5",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 751,
+          "function": 17406
+        }
+      ]
+    },
+    {
+      "index": 17406,
+      "bytes": 260,
+      "sha256": "e57459d2b03bd9a71a0a1a92ed9d7e972b00f37bace0b5f2f4cd5d8ac5b193d5",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 24639,
+      "bytes": 225,
+      "sha256": "84cfd3a0fc32be40cbebea9fce35685ba43500c28ef4289986d2bf8dbd6a8903",
+      "rawCandidateExact": true,
+      "directCalls": []
+    },
+    {
+      "index": 24641,
+      "bytes": 81,
+      "sha256": "cc6967c4f25bab8e4f220927b0ebc06c50d8fe0d23dcb6e0e0d135c395e2277a",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 30,
+          "function": 24639
+        },
+        {
+          "at": 74,
+          "function": 24702
+        }
+      ]
+    },
+    {
+      "index": 24652,
+      "bytes": 257,
+      "sha256": "ffd14e5667a472611fa9f682acedf173dd701148e013409d795fc066bc1eede8",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 195,
+          "function": 24859
+        }
+      ]
+    },
+    {
+      "index": 24653,
+      "bytes": 31,
+      "sha256": "5ac35adc4cda90d3a1863da923b62bdbf4912cf15e34df44f6bdf2a9f3098414",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 23,
+          "function": 24860
+        }
+      ]
+    },
+    {
+      "index": 24667,
+      "bytes": 84,
+      "sha256": "6425c28dabe8f5f67a22cf1c76e4fe6f7422c057c97352c88416ce7cb9f2df23",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 43,
+          "function": 24639
+        }
+      ]
+    },
+    {
+      "index": 24670,
+      "bytes": 1300,
+      "sha256": "b2103cc28adbf38c7501dee1650844e6ec1fa9bb7b76bdecc632da0116214db9",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 111,
+          "function": 24639
+        },
+        {
+          "at": 164,
+          "function": 24665
+        },
+        {
+          "at": 270,
+          "function": 24652
+        },
+        {
+          "at": 410,
+          "function": 24653
+        },
+        {
+          "at": 419,
+          "function": 24677
+        },
+        {
+          "at": 433,
+          "function": 24667
+        },
+        {
+          "at": 456,
+          "function": 24667
+        },
+        {
+          "at": 477,
+          "function": 24668
+        },
+        {
+          "at": 523,
+          "function": 24668
+        },
+        {
+          "at": 641,
+          "function": 24653
+        },
+        {
+          "at": 707,
+          "function": 24652
+        },
+        {
+          "at": 867,
+          "function": 24653
+        },
+        {
+          "at": 926,
+          "function": 24653
+        },
+        {
+          "at": 978,
+          "function": 24652
+        },
+        {
+          "at": 1000,
+          "function": 24673
+        },
+        {
+          "at": 1153,
+          "function": 24653
+        },
+        {
+          "at": 1223,
+          "function": 24673
+        },
+        {
+          "at": 1238,
+          "function": 24667
+        },
+        {
+          "at": 1259,
+          "function": 24665
+        },
+        {
+          "at": 1278,
+          "function": 24667
+        }
+      ]
+    },
+    {
+      "index": 24674,
+      "bytes": 446,
+      "sha256": "c97c16faabe4981eaaf614a3216d842b7129d56e86ee624634f303a5b14dc00d",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 63,
+          "function": 24676
+        },
+        {
+          "at": 182,
+          "function": 24676
+        },
+        {
+          "at": 284,
+          "function": 24639
+        },
+        {
+          "at": 369,
+          "function": 24669
+        },
+        {
+          "at": 417,
+          "function": 24676
+        }
+      ]
+    },
+    {
+      "index": 24675,
+      "bytes": 438,
+      "sha256": "8acf48564450f12d69c4f55a1e01216e19f2bba91288d6d53f7471216972f2bd",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 41,
+          "function": 24639
+        }
+      ]
+    },
+    {
+      "index": 24677,
+      "bytes": 318,
+      "sha256": "128b69506ff323f6fce0fc36a365d24ff9b4bceac7bd9da47216af65d8d6368f",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 72,
+          "function": 24639
+        },
+        {
+          "at": 308,
+          "function": 24653
+        }
+      ]
+    },
+    {
+      "index": 24678,
+      "bytes": 24,
+      "sha256": "3591a9c1eb6efbfece2244a41ac0fed7ecc2085a9f29bc65f4450606e6d98d1e",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 17,
+          "function": 24864
+        }
+      ]
+    },
+    {
+      "index": 24679,
+      "bytes": 39,
+      "sha256": "8a60d4f72c3a2f31735ed15a7456b328a0e72e9a647992c4b37e219c9d31044c",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 3,
+          "function": 24865
+        }
+      ]
+    },
+    {
+      "index": 24680,
+      "bytes": 181,
+      "sha256": "ad854489453774f3b785ad95a58cf3eab4d631085d38ec7c183280bffe428d6a",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 61,
+          "function": 24678
+        },
+        {
+          "at": 87,
+          "function": 24679
+        },
+        {
+          "at": 129,
+          "function": 24653
+        },
+        {
+          "at": 171,
+          "function": 24652
+        }
+      ]
+    },
+    {
+      "index": 24682,
+      "bytes": 81,
+      "sha256": "935e13b3de38cb3782aa33c004bfb30d32302f60d87a9c943a4010b8bf83d61c",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 59,
+          "function": 24680
+        }
+      ]
+    },
+    {
+      "index": 24864,
+      "bytes": 56,
+      "sha256": "2a5b1f547e10008a4120b93e551f8fc8d65cb67ac90c9ddca81eed1a6baaebd5",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 30,
+          "function": 24639
+        }
+      ]
+    },
+    {
+      "index": 24865,
+      "bytes": 57,
+      "sha256": "c191daae43c83281e1f83f99441019637921cdc8a9764f6461efd9a415617578",
+      "rawCandidateExact": true,
+      "directCalls": [
+        {
+          "at": 41,
+          "function": 24639
+        }
+      ]
+    }
+  ],
+  "pins": [
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/build-contract-v2.cjs",
+      "bytes": 10674,
+      "sha256": "812f7b2855f06492817b88f96b854af024522fdddaed59f2f18cbf6dc5f9ab1e"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/build-contract.cjs",
+      "bytes": 11773,
+      "sha256": "c75e18773a4ca8fca30d1b1724e3a6d5429bd2235b0cfd19b0faeb1a31994840"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/callers-4972-23287-1152-15536.json",
+      "bytes": 223,
+      "sha256": "4af4b706904bcb7916deee9230016161e2a21d669cb2275a5978e080a40e4e9c"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/callers-v2-24639-911.json",
+      "bytes": 4616,
+      "sha256": "d40a1275a6b3b255695ef703242a1935f324380a2cea463f5e61c5f985bf15e1"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/callers-v2-4972-23287-1152-15536.json",
+      "bytes": 82108,
+      "sha256": "e0f3d9f65417cf3d60f54643cd9bd3e66383bac06bd93b00d5d21c817c3ed905"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/callers-v2-5582-6988-12948-4972.json",
+      "bytes": 1546,
+      "sha256": "9e43f7c3fbf3cdef7984015e591bd849807c7aa215819f030721a49ff246faee"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/callers-v2-755-9644-4972.json",
+      "bytes": 2073,
+      "sha256": "69c9b3213c695afec18788c61701e597bdf5fb41104c9f32c39a353ff364fdff"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/callers.cjs",
+      "bytes": 1286,
+      "sha256": "3778056cffc97137d2614ec2b4e1deb80e78a55992268c67c033f79ab6c6dfeb"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/compare-frozen-paths.cjs",
+      "bytes": 3484,
+      "sha256": "a88f0e58e5176e5dc41947f3643b6e1240f2a50341254a0ba01934aa99b6d749"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/contract.json",
+      "bytes": 53170,
+      "sha256": "474a9fa7e0fab7cadfa4ec9fed924ce408b7fb61ee21879825f1286ea2b3eed3"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/extract.cjs",
+      "bytes": 3987,
+      "sha256": "e52bb20cae56a81fe3b4a28f418caa2c6d88d2516647da3b5f38cb7f0a9984d0"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/extraction-12948-285-2243-287.json",
+      "bytes": 3279,
+      "sha256": "19e81ab9bcc9b5f0e80415fe0f0b65398fea051d3d12ac3f5e0a10e5739fb3d0"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/extraction-1305-1378-4659-4972-13010.json",
+      "bytes": 3246,
+      "sha256": "d7663ad8af5efda825977783ae220c055210a9316357fad5e2c4ad5edf3898e4"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/extraction-15919-1361-15743-18836-112-269-856.json",
+      "bytes": 4377,
+      "sha256": "e82e062d753a2a6e1a039b6b375e7d4ab91f75916a89db69b0a57c119d286102"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/extraction-17406-24865.json",
+      "bytes": 1668,
+      "sha256": "2ee49500d6fd141a912c6d5b99bf3916e41d7cfaa1109fad56f366f5a22e6e2c"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/extraction-1931-3178-22266-23226.json",
+      "bytes": 2756,
+      "sha256": "e3fb8265308de5c0f508232c40b7673f00f81bcea0914272a8414759a74829a0"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/extraction-23287-1152-15536.json",
+      "bytes": 2225,
+      "sha256": "b518af1e050fe7e1a43cdf35aedbe32dedc6aa4765da4c00abab4bb35e8686ac"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/extraction-24639.json",
+      "bytes": 1154,
+      "sha256": "138083820c3ccba4795ee4a23bb0f09e3764dc42c64768a057eff404c56d5f98"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/extraction-24652-24653-24678-24679.json",
+      "bytes": 2718,
+      "sha256": "9e947f2c929f5389304d8ac012912410431db1960a13a667176370e3f8f5ff07"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/extraction-24680.json",
+      "bytes": 1220,
+      "sha256": "33b3793e6773e1f201aaa976f2212d54560e1688a0673e6b67c4ceda4f5b825b"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/extraction-24682-24641-24667-24670-24674-24675-24677-24864.json",
+      "bytes": 4942,
+      "sha256": "c58288f56c1f3cfd0531e9e9c9fca5be7773419fa2f1ebdcb2e2bc23c94bdd59"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/extraction-3703-3547.json",
+      "bytes": 1717,
+      "sha256": "0bf4daa7c8b9d98e44078c029c8d1f04c5b947ab36dfc1519400d1d7dae67cf5"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/extraction-5582-6988.json",
+      "bytes": 2633,
+      "sha256": "4a4d005baf252034306971a3a6472febc6094797ad5d14dd06ed3cbb1401b629"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/extraction-755.json",
+      "bytes": 1518,
+      "sha256": "4b61bcf6ab22ff13aa29679bb0ebbd6a525099ba31c50121489ea33f6df758f8"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/extraction-78-234-389-546-891-911-3251-3405-4301-4955-5126-7160-12581-14620-14778-16850.json",
+      "bytes": 9982,
+      "sha256": "6be5c85c2dc6d56080c4fb7626d4b3db46d820fce9778e37a15026add47d8acf"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/extraction-9644-5867.json",
+      "bytes": 1688,
+      "sha256": "89fdfbb9716c644c87e8ffad41d93fcc0dc2afc2da12417dfdb2e37fa59e2334"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f112.dcmp",
+      "bytes": 4256,
+      "sha256": "f6d4edb4a2011eac49011da4bbee16403df5c9e3f8bc2b7a7567781ec0084543"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f1152.dcmp",
+      "bytes": 4842,
+      "sha256": "a3ff3bcfccb1caa5fc7879706c1da913126731c80e83a0660c4fabebbca23c17"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f12581.dcmp",
+      "bytes": 7999,
+      "sha256": "19677969c7f127eb415e9d8be2a1c3c333078841bd85ccc10b16a87fa0f2580e"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f12948.dcmp",
+      "bytes": 8076,
+      "sha256": "fb8593327d5894c79171f79728a52478a6a756cc59ad9bc8140887a9af2f61b3"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f13010.dcmp",
+      "bytes": 4531,
+      "sha256": "557a1d6defd76ab73a7666ae43a566922b6273096a2711aa73c194cc885be43c"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f1305.dcmp",
+      "bytes": 4627,
+      "sha256": "5ba1d592a2899eb70c386ab2527b18d58a6469493aa1e384519f1375e973f3f6"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f1361.dcmp",
+      "bytes": 4310,
+      "sha256": "b64cede1de1e95b1e7eeb0dba838e0ea00e3b455b8115312e632d78b93110d1f"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f1378.dcmp",
+      "bytes": 4424,
+      "sha256": "97c8622ff5beb93121ef1e4838c6c5d9f65026f54498c208239941ad14eaeb9e"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f14620.dcmp",
+      "bytes": 4236,
+      "sha256": "2c4b128758e012b2278ee30d756112e5e59da494b39a2bcde90075cea81e09ea"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f14778.dcmp",
+      "bytes": 4267,
+      "sha256": "b364177c4c7fc8269484c42f94d98e98089b08590d8a45ca62f73a41e5e72efb"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f15536.dcmp",
+      "bytes": 3764,
+      "sha256": "0f324f43616bd2aea1ef268a5ab4f46c649619b382f2c63b5864a289d50cf6bd"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f15743.dcmp",
+      "bytes": 3580,
+      "sha256": "a50d711d79df5bace430b408b33cd44606d537ba0eef50807f4a6aeb36b32e79"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f15919.dcmp",
+      "bytes": 13102,
+      "sha256": "42ba66a57b410c28410ba3439691e957744472b7f8562ae4807052229278b9fa"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f16850.dcmp",
+      "bytes": 7387,
+      "sha256": "8019e50356ab0d6fd5d2af1b67e65762ed7dee993d34a14513d46fe387213991"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f17406.dcmp",
+      "bytes": 4003,
+      "sha256": "f673794f24891b5849f916bf56412adfa661ed72604b08040eb714aa8ff29f6e"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f18836.dcmp",
+      "bytes": 3905,
+      "sha256": "179cafb7e8f6ba3427c1a873f4057cd9eeaa2740846f5b0b02dc729d71d2ad82"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f1931.dcmp",
+      "bytes": 4184,
+      "sha256": "f5f5cbf478c2151d36a272d42b1c0ca5203e7a3ad616cc822d28aa19eae634ee"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f22266.dcmp",
+      "bytes": 5892,
+      "sha256": "20a91e38b5744de9b85e2ba4e8b1d3b77fe7a4f06d9b5ac850a8b772857fad80"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f2243.dcmp",
+      "bytes": 5518,
+      "sha256": "df55d32a385475c9f27e5d292b777eed74c3fa01d3385e0eeccb06e2be8f0938"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f23226.dcmp",
+      "bytes": 4801,
+      "sha256": "0152bea260565f781ab095e168183124bb218e8be2a04fb5720f450dffb01f88"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f23287.dcmp",
+      "bytes": 3769,
+      "sha256": "ac0c3af05f03b4a325a70266227c8ce0a3a5414b5c4ea974825312f24c7b9ad6"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f234.dcmp",
+      "bytes": 11221,
+      "sha256": "d14c029ef71c17164edfa04fc81794f591df04808136b7ca8e89d6281da3a0b7"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f24639.dcmp",
+      "bytes": 3884,
+      "sha256": "57075009fcb1ec2b1b91feff3ba3757bfb2d37b5545ac3d669758670150d50f4"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f24641.dcmp",
+      "bytes": 3742,
+      "sha256": "f9498f9d23c1f2b497e00f5d7948a77dfa4e5ec89cab96951680fe7e13bee426"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f24652.dcmp",
+      "bytes": 4321,
+      "sha256": "9b06234bc1ea0dee9e5922fcbf13cb61153e4160a25bbb44a0a0e7b631e7709a"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f24653.dcmp",
+      "bytes": 3536,
+      "sha256": "fa2bd532c6af62d332fc9c09389cd6281e0cc355ba24335b6fe61c3e59f01258"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f24667.dcmp",
+      "bytes": 3694,
+      "sha256": "ca218484fe7da956b771db4008a51786c99c32701110d1f9f0e40079c75e80a7"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f24670.dcmp",
+      "bytes": 8111,
+      "sha256": "abb8064e8c1ccd04d3d2dbdaea2ba10acd9f61e8ac0dfa26c3ac24d41a3b4839"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f24674.dcmp",
+      "bytes": 5081,
+      "sha256": "96f5a5f462c503f2188d6fec2d4dbb28d179bcdc8f98e00cd13bcc1b86d38e21"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f24675.dcmp",
+      "bytes": 4745,
+      "sha256": "d0693c4cdf481879414a958ff631e0a1a493e20139b57d62a3949e6118ad5014"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f24677.dcmp",
+      "bytes": 4513,
+      "sha256": "43fb80c32707dcf6611a76888c4095ac96f2789a1848abc16e3b120e451cef4b"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f24678.dcmp",
+      "bytes": 3509,
+      "sha256": "a04d3c198ed069e20ebafacf781b825c6a7491cc5252742cd19efc1fd68ff105"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f24679.dcmp",
+      "bytes": 3544,
+      "sha256": "049a8743ebb23459c9c343ecf63ef439745bae7db4047c9c2e91450db259fc8c"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f24680.dcmp",
+      "bytes": 4290,
+      "sha256": "48a8f2aedf2c7aa0b5d19f5f8e69f06be94baf8a364c4843aee6cd3857fdaa5f"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f24682.dcmp",
+      "bytes": 3662,
+      "sha256": "d59f8340f7057ac8fdc8591051a6c5571d9318833e10c3d2c242adf8e5ad0c66"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f24864.dcmp",
+      "bytes": 3573,
+      "sha256": "9e9d06433d730891316a2038da0a94b5747f4ab57bc2d2a64cb0c28b2ee0a278"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f24865.dcmp",
+      "bytes": 3577,
+      "sha256": "95951d8f0cfadea65c50908c7dbf9d23f184820d897a508a6add34df0fddb78e"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f269.dcmp",
+      "bytes": 4367,
+      "sha256": "9c40fb5750d050d90f4dfbc4e6872325c61fa4496dccbad5fbe17a5b0ecb2167"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f285.dcmp",
+      "bytes": 4181,
+      "sha256": "da5b0334d4751576952d934bdb77f22378949e933c9427341555587a2666dba0"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f287.dcmp",
+      "bytes": 36236,
+      "sha256": "95950b5b77b8964d2b34312c8f270005b6756e3aa4931f149e4195abc3f78416"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f3178.dcmp",
+      "bytes": 6067,
+      "sha256": "02163fef4a82e4058815106f2897a25419a0021410ec75ddb40fcf75f31f1db5"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f3251.dcmp",
+      "bytes": 11331,
+      "sha256": "6dd3f4055ca30ab24fb1c33a83d9bdb2bfbe95b4de2978e3b4ed8e3918fd0be3"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f3405.dcmp",
+      "bytes": 15012,
+      "sha256": "ec8e03dfc82071484dd653b40c0fc58a0b9c7f49a3bd9653ca91abf90d362cb8"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f3547.dcmp",
+      "bytes": 7373,
+      "sha256": "4e1004ae0743d1df678d6c9ccf34abbbf909b45bc43a3ef33e40475087469c5d"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f3703.dcmp",
+      "bytes": 6236,
+      "sha256": "b5f57323ca00c2091dd39ba376c5685ebadc9866e3226a3802db5d5ef6f1f817"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f389.dcmp",
+      "bytes": 7589,
+      "sha256": "2f99726827bfbc5b9e5cecfedd57befc23c8068bbbcb80a69a26aee4b64cc285"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f4301.dcmp",
+      "bytes": 15032,
+      "sha256": "1d7d083baf9b550bef8592ae5a3a7a2fc79c7c72c98a01bf30c1064fb5e742a2"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f4659.dcmp",
+      "bytes": 6836,
+      "sha256": "d44993041a59afcd0528a6ab75bb66a74cacfa11430d1d6dde3ad0b2a26f1145"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f4955.dcmp",
+      "bytes": 19844,
+      "sha256": "45412978b3d1697f9b477ed6e75e983176c32f04a6971ba2dae69e0d5f40103a"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f4972.dcmp",
+      "bytes": 4665,
+      "sha256": "9a129268c582b0225857ec952eed0080a9a8865a53806be023789ec5a2174081"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f5126.dcmp",
+      "bytes": 13387,
+      "sha256": "cd2e892a3b5fdfd2107f554a03a56b6d03c6a0b62bb68b409e3f7655bb181568"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f546.dcmp",
+      "bytes": 6844,
+      "sha256": "14202990945094097c06a261e382eaafd498a19c793bc71f63752ade9da3852b"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f5582.dcmp",
+      "bytes": 5575,
+      "sha256": "02dd4f858089c506033d9a9276603406edffc15832390fd2b45ec5fb466d9c76"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f5867.dcmp",
+      "bytes": 3740,
+      "sha256": "b357133e1e15321af2fdce03a95a1e48e575f7455f296a6a70e1b692be568271"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f6988.dcmp",
+      "bytes": 44393,
+      "sha256": "6486c882fae8a58e6af55af678d51d25cc6b17fbab8f9e372766a167e379d14e"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f7160.dcmp",
+      "bytes": 10761,
+      "sha256": "7d75ce506e87062c62290d767fd7a4e135af4ee5a39b49632c9910fcc77f7f9a"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f755.dcmp",
+      "bytes": 16638,
+      "sha256": "09870f4cb915826068ba4225adc8f5ec3a45b81dac486d0a4715da89c0950f85"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f78.dcmp",
+      "bytes": 10412,
+      "sha256": "d10816871a2d078636e6f2962f336305f9681f7af82ce6f7335f090eacd0f491"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f856.dcmp",
+      "bytes": 6930,
+      "sha256": "18c140782442f166fc13bc2e8f732ada6524fc900219f537b19ea3d44daa427e"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f891.dcmp",
+      "bytes": 7389,
+      "sha256": "15390e798751aa5ed13ffd620392170a5d3021f11517bcadea898349bb73dc8a"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f911.dcmp",
+      "bytes": 8403,
+      "sha256": "e7554fd5d4e9e748867056aad3026d04008ee313d414a98a75e60c7e71209ec6"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f9644.dcmp",
+      "bytes": 5700,
+      "sha256": "0d92328626c6b0be97ff8c3332785ec422c1d03960808a47f6cadbb98a74ab30"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/frozen-path-comparison.json",
+      "bytes": 68721,
+      "sha256": "f95e4f1333b66bee789cba07f2a6d696ccdef450bb0d6b761089c0c234bf7ec5"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/global-refs-8802488-8978652.json",
+      "bytes": 747986,
+      "sha256": "0a939206ac59e432479942b4dbf4f2ed298af272280e73cff21ef5677f6fa5a6"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/global-refs.cjs",
+      "bytes": 1351,
+      "sha256": "36df9b9f3bb151c891fe2e8046d1a07733ca2b7a8827c94a5c1cd2e53172a5dc"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/inspect-pe-inputs.cjs",
+      "bytes": 2222,
+      "sha256": "33f8ea6883f3907468cafc486912f25d472b30073fd089c7ff19757ad09b7256"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f112.wasm",
+      "bytes": 3251,
+      "sha256": "cef56909defe3914acb50713d6fdb0c7ddcd08834aa86bae9962b45235d09cb2"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f1152.wasm",
+      "bytes": 3446,
+      "sha256": "c289554231631f1b393a5cfb709c5b520e2300084315082b747e47d017c474b7"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f12581.wasm",
+      "bytes": 4443,
+      "sha256": "fcf7f667560dc8938af3f352f4f3c687668b8856df4dc0ba5e21714f2d5e311e"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f12948.wasm",
+      "bytes": 4963,
+      "sha256": "8913ca7976791e684c65e02747d0e2ccb6cc4e2789ff968159ac39c4b3bf9683"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f13010.wasm",
+      "bytes": 3381,
+      "sha256": "a07ff70837a14e97a865b86ef8ac47caacfded337ecdc269d38666936fa0b84d"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f1305.wasm",
+      "bytes": 3380,
+      "sha256": "eea40829fae5a3c567b47db10a0d1692bb7be2d5f58ff4f432f47435e1142dd6"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f1361.wasm",
+      "bytes": 3269,
+      "sha256": "df9de45ca7e600a36f6bc05cf85ef169431fa2778bd5e5b80d7293f0e151c91e"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f1378.wasm",
+      "bytes": 3334,
+      "sha256": "05a337ef39f1da929df06e7e0278e5ba415b26677f728e776f904a7e90c11d54"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f14620.wasm",
+      "bytes": 3214,
+      "sha256": "00d5ac8f0c8ebcc2b2743722415b73724714ac1adfe4976728fb086b9d049286"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f14778.wasm",
+      "bytes": 3229,
+      "sha256": "05c2ac72d5047d9a9ef490e246ffae0623a12d6618b0966ab2c3915aea0cdd68"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f15536.wasm",
+      "bytes": 3005,
+      "sha256": "9b2326c9b369b51ab34a20ee7255fe977fe6854c136c407666e98cdc7a922fab"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f15743.wasm",
+      "bytes": 2938,
+      "sha256": "1564769cc1c92ba678e2e1ffbcbd3482e1e4ac4f42d7c2e6a27b48de71e6a4e8"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f15919.wasm",
+      "bytes": 5413,
+      "sha256": "86419fcd2cf9ac2a2b63d16517f969be617fafc36bdee4868b1a1b6ba5953bd5"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f16850.wasm",
+      "bytes": 4386,
+      "sha256": "2f629cb7469f2eade77ae9ae3a8a42fa7ca0480ad5b92dd6f3a548e4b5a058fb"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f17406.wasm",
+      "bytes": 3103,
+      "sha256": "cace7428d852d7b03e31c8b5cc722560ef06c7505c416677fbed62c5830dc39b"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f18836.wasm",
+      "bytes": 3066,
+      "sha256": "25a9c64cade7e0c97c22adc6f1ce712dff78b0135529dd288ec09df70d3f154c"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f1931.wasm",
+      "bytes": 3200,
+      "sha256": "0ac377c23b11604b3c5cf5edef07519f87bd88488d8c7969118e01f823477db0"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f22266.wasm",
+      "bytes": 3603,
+      "sha256": "c629df95eb5540eb010b0aaebc3507a6a9ea3c7a3eef1f0bdf6302bb47d2f44e"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f2243.wasm",
+      "bytes": 3732,
+      "sha256": "550308d0aed798164749841e6442bea4e9464c954dac92b3d0339a0b46fd1ee8"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f23226.wasm",
+      "bytes": 3313,
+      "sha256": "2310a74c36f7d6c2a4c53b1981b9682332cd392f2e583a28b2133c505642122e"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f23287.wasm",
+      "bytes": 2969,
+      "sha256": "a3a607d6fa0ef378fb6bc37fa28f267bf2eb4853a5ee22d53fa991b1682473a5"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f234.wasm",
+      "bytes": 5757,
+      "sha256": "b2576016cfea70d6728e8469e263f798d2329faf4acd84373e2f279feae904f6"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f24639.wasm",
+      "bytes": 3068,
+      "sha256": "10342e35b8b5d05f9fca2ced5f902c11b5030290712bda96b24a2f3f3bc83a6d"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f24641.wasm",
+      "bytes": 2964,
+      "sha256": "1818486339742a2d1e673a5b63f0d1ab0076acd6043cd96a2b8fe29c077239dc"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f24652.wasm",
+      "bytes": 3121,
+      "sha256": "d436e47dd4b2013ff9e484e7e1ba3379e9168aca52dc122279c3efc3dbc0d4df"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f24653.wasm",
+      "bytes": 2893,
+      "sha256": "60bec44a4279e1bdc39279449f814ca01b6ddfb1754aee132ab8b426f4934ce7"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f24667.wasm",
+      "bytes": 2946,
+      "sha256": "f39d2e541da9b9dd7408ec67c53f0de4a7377b204acd5a6895de19c6bd4bbd74"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f24670.wasm",
+      "bytes": 4263,
+      "sha256": "88f1079a8d02306131f6618717d8d1060335d118f14f07a59d679bc6222dac25"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f24674.wasm",
+      "bytes": 3344,
+      "sha256": "958dfe6c679da603a0d2905fd6bc334e2f335344f5d114626050dc5f6d1e02a0"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f24675.wasm",
+      "bytes": 3302,
+      "sha256": "763532e46f40c77436be2226a0d1a0141a4589bff1243d853ae72f973ac6b2ae"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f24677.wasm",
+      "bytes": 3203,
+      "sha256": "83bac6df9eaeba10c26e541a816e9f8be4442aab272ef9bdbf64e37553cd6808"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f24678.wasm",
+      "bytes": 2886,
+      "sha256": "fb4023f2e810e67a332a06118a45231c756e53caea74cd55eb25e7badc792e96"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f24679.wasm",
+      "bytes": 2901,
+      "sha256": "e8a1a4e5018a99a4459c2bb52cd7c3ee2f32ca01dd2a269fadb1b0ed03ebc97c"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f24680.wasm",
+      "bytes": 3108,
+      "sha256": "a32930f3dba0183915054dce8904ec3876a2bdaf73f82fe031b762e41819dec5"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f24682.wasm",
+      "bytes": 2943,
+      "sha256": "77a7c363a50c8ccba942293cafb7ca783466e2bb39831f364d61679a8d240b30"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f24864.wasm",
+      "bytes": 2918,
+      "sha256": "6ac87bdba1db6350b59fdfe927bd851623d442e76497559c8110ff6a17a7e1da"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f24865.wasm",
+      "bytes": 2919,
+      "sha256": "6e58003298fa71711505e13744139be68bf87730f2f8a515cee91b69c06351bc"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f269.wasm",
+      "bytes": 3261,
+      "sha256": "019ed19ef32137bb3ab03b27a39ed28dd76e22451ff13790857668a007349b96"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f285.wasm",
+      "bytes": 3211,
+      "sha256": "6bddfb977dbb1198cca8c79f725ce2711bd745498286318888f75eeae586bdbf"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f287.wasm",
+      "bytes": 15995,
+      "sha256": "258c4aee3bcc3bbe15c4d2ed729adabaaa0faadb09bf6bf5442ad58abd8c5cf7"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f3178.wasm",
+      "bytes": 3711,
+      "sha256": "b22119181e2405ebaa508c0399292411dacf97afbfdf42044308d6cffe099af2"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f3251.wasm",
+      "bytes": 5812,
+      "sha256": "1cbfcb4bb6f719204c22e4131eaaf173b47201f00caaf2b7d11b0434d5bd72e9"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f3405.wasm",
+      "bytes": 6870,
+      "sha256": "3b759db15117f76ec8fd744f381f0d88f401996381323ed03262081061c62084"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f3547.wasm",
+      "bytes": 4635,
+      "sha256": "9f140b0a6ebefadeab5ac6329af6b1a7a7b0697dbd37a29f39d4e82a1db7baae"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f3703.wasm",
+      "bytes": 4048,
+      "sha256": "46cfe078f2af2f3670745f30440a7e9c021102a6850eb46c44c257dc00d0d488"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f389.wasm",
+      "bytes": 4615,
+      "sha256": "069e5195a137a2455411055ce70d8a99190e626c4f6b3632aabfbf012159c3e9"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f4301.wasm",
+      "bytes": 7669,
+      "sha256": "b807535126ae95604137d2153cccde7ec666fd25903fd7f6af8a0c855ac83a2a"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f4659.wasm",
+      "bytes": 4199,
+      "sha256": "b0351d495f1fc93a5baa10ce9d48baa9fdfac11060cd89e553542cf95f9415e6"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f4955.wasm",
+      "bytes": 8986,
+      "sha256": "5e1050586762512ea9987e8d0a68bc57dc31acc89d7184dd38a3a289b95b3e84"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f4972.wasm",
+      "bytes": 3434,
+      "sha256": "121092e9836c0ec3201cdb2590403d677377a9a40f0bcb4ef53887fc08b59210"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f5126.wasm",
+      "bytes": 6045,
+      "sha256": "85665aab48eca6315f7bb22b0221eb5129be1710dabf15acdf4836b3b2b1aa81"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f546.wasm",
+      "bytes": 4263,
+      "sha256": "68686cab8e7220210ade5e8dbf918c5db61c876a4adb850f94150991c80957ae"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f5582.wasm",
+      "bytes": 3864,
+      "sha256": "fb1be2230badf88da20b3bba4c3ee8fd364daa6d58f1a173d8e353f1ca16979a"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f5867.wasm",
+      "bytes": 3004,
+      "sha256": "58a3a3259254882fa67f2bf63f0cbe8f2b1da90a80b4da3169299206bb5d80ca"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f6988.wasm",
+      "bytes": 19685,
+      "sha256": "eb11563affa3ce55424f70f05497bcd9ca8c704370cf045d481ac9babcbd3d80"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f7160.wasm",
+      "bytes": 5794,
+      "sha256": "22177ba0db69ef4e1545b96239c2569acfac0fff33ebe15c52e3ca9d90aac543"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f755.wasm",
+      "bytes": 8277,
+      "sha256": "3ce6481bb55886ba9f3f07f0d8a4fceea91884532d33beca2b2ca4757ac28314"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f78.wasm",
+      "bytes": 5350,
+      "sha256": "2552e1c3117ec34d2bc96e833a973a8bbf5a996241bcfcec3d0fde0782f0465b"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f856.wasm",
+      "bytes": 4353,
+      "sha256": "5b40ac559a828a354368ae56568579dae6feb8c894d5ebca5cf5ced9f3fb0c34"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f891.wasm",
+      "bytes": 4641,
+      "sha256": "74b07dfbf36752c0c0df722e069776c3a7bfbcd50200d01cdaed25ddef7a0521"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f911.wasm",
+      "bytes": 4909,
+      "sha256": "7f388582fb0d9ecf7fae1664989fff420cc085b88bac906f237f7a4f45b68eb0"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/isolated-f9644.wasm",
+      "bytes": 3865,
+      "sha256": "9ef065a46b42c545b8e25ee1f597781719831c15cffb63beb5bf0d6aa517753f"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/pe-data.json",
+      "bytes": 749,
+      "sha256": "0d73288d8ab6ae65b65c03442bca85aed5326d1e2af9ceeb388c48b6e71375ec"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/pe-data.py",
+      "bytes": 1651,
+      "sha256": "fd1afbb4ce1e73497f5f723800079a58ed48ae9ccdfe898a2618f6b8a76cc9d6"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/pe-input-globals.json",
+      "bytes": 796,
+      "sha256": "06d4cd910efcea8a1b918616fac7834d565bac2f65bb755eb8e46afb2ad8edc4"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/pe-xrefs.json",
+      "bytes": 145707,
+      "sha256": "09dc0806c24aedf6e423a89c0cd94c1baf79dd561321fec697a7cb4838d40d19"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/pe-xrefs.py",
+      "bytes": 2133,
+      "sha256": "a41f1e3f0d80611e51e1c396cf430e5203bcf203138798a8acb1e571bf83ac23"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/scan.cjs",
+      "bytes": 1606,
+      "sha256": "03b416d2d35c837a8585ec41b23a58fb22fc8633fc5f1ad9d6627a967257fe96"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/scan.json",
+      "bytes": 76441,
+      "sha256": "5acd4c82c5e0336317a5de8d4baf25a71ec780e16c9061c4f766c22739480c9e"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/static-data.cjs",
+      "bytes": 2281,
+      "sha256": "91b94afc169bcda5da7950778afc9a04fe0c53e17760f95a64e07080b36bfb2a"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/static-data.json",
+      "bytes": 1119,
+      "sha256": "7e1f052673075301251e21d2bdbf1a685168a4e0716de76e23244b408c344b37"
+    },
+    {
+      "file": "work-update-check-20261113/live-build-4c35f9f5/game.wasm",
+      "bytes": 39330573,
+      "sha256": "40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8"
+    },
+    {
+      "file": "work-update-check-20261113/4c-private-composed-v2/candidate-composed.wasm",
+      "bytes": 39536542,
+      "sha256": "6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23"
+    },
+    {
+      "file": "research/current-native-image/SPEED2.EXE",
+      "bytes": 4800512,
+      "sha256": "f9dd86c054878ce6276beb07c1fd61874f7a1e4bf1f241b084c65b73e24168a7"
+    },
+    {
+      "file": "work-online-v0426/native-review/port-core.cjs",
+      "bytes": 4705,
+      "sha256": "381de0fcd29f2fd7bc257d0b04518b37f8f6575152e0a4d299bd6d832a8e454c"
+    },
+    {
+      "file": "work-update-check-20261113/native-realtime-timer-source-4c-v1/f21992.dcmp",
+      "bytes": 15937,
+      "sha256": "57ec57d71fd6b21fe2d5e36231b95019d800c1b11e894c248ad92a6f904fdc8d"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-observer-output-4c-v1/frozen-output-manifest.json",
+      "bytes": 20731,
+      "sha256": "c25226b27aa9e65e4349c66dae72304d9395c8e2e223a16c8cdd82efda00975b"
+    },
+    {
+      "file": "work-update-check-20261113/current-native-combined-observer-4c-v1/native-failure-snapshot.json",
+      "bytes": 34294,
+      "sha256": "ff03156845ff15ae4950e9d88b62b1e4abafbcb3fc114ce59fa2a43af85aa753"
+    }
+  ],
+  "failure": {
+    "sourceChain": [
+      287,
+      12948,
+      285,
+      2243
+    ],
+    "missingGlobal": 8978652,
+    "globalMeaning": "Pointer to RCQueuedMessageSlotPool",
+    "nullPoolEffect": "2243 reads freeHead at [pool+16] with no pool-null guard. A null pool therefore reads address16 as a head, then dereferences that value as a node when nonzero. Address16 itself can be in bounds; the indirect free-list-head dereference can trap.",
+    "classification": "Frozen native2243 arg0=0 proves an absent RCQueuedMessageSlotPool at the failing call. Source12948 also has a separate unchecked8802488 singleton prerequisite. Its actual pointer/low memory was not captured in the reviewed snapshot, so a genuine active playback/checksum failure must not be inferred from the branch alone.",
+    "notExhaustion": "An initialized empty pool has a resident header and flags11. Bit1 permits native1305 growth. A missing pool pointer is a different condition from legitimate free-list exhaustion.",
+    "earlierPrerequisite": "If *(8802488)==0,12948 reads address4 and address0 as write/read flags.112 subsequently reads address0/address8. The branch can therefore be influenced by ordinary low-memory bytes when this singleton producer is omitted. This is a source-backed mechanism, not a verified description of the frozen actual pointer.",
+    "attribution": "Neither a native regression, observer bug, local physics fault, valid playback mode nor TLS-caused address0 mutation is established by this source review."
+  },
+  "producer": {
+    "managerGlobal": 8978648,
+    "poolGlobal": 8978652,
+    "constructor": 4972,
+    "ordinaryCallers": [
+      {
+        "function": 5582,
+        "at": 626
+      },
+      {
+        "function": 6988,
+        "at": 2981,
+        "scope": "Inlined equivalent startup branch after8803492 is set to4"
+      }
+    ],
+    "managerAllocation": {
+      "bytes": 80,
+      "allocator": 5793,
+      "ordinaryCaller": 5582,
+      "callerConstantLow32ReturnAddress": 5763712,
+      "callerConstantHigh32Size": 80
+    },
+    "constructorAbi": {
+      "kind": "Guest x86 function represented by (CPU*)->void WASM body",
+      "ecx": "Resident native-allocated80B manager receiver",
+      "arguments": [],
+      "guestRetBytes": 0,
+      "totalEspAdvance": 4,
+      "returnEax": "Same manager receiver",
+      "otherPrerequisites": "Valid ordinary guest stack and FS/SEH chain; native heap19280/5793 and original resident data. Constructor itself initializes manager list and pool metadata."
+    },
+    "poolCreation": {
+      "chain": [
+        4972,
+        23287,
+        1931,
+        1152,
+        19280,
+        3178
+      ],
+      "arguments": [
+        16,
+        8,
+        8021008,
+        0
+      ],
+      "argumentMeaning": [
+        "Element stride bytes",
+        "Initial capacity",
+        "Original resident label pointer RCQueuedMessageSlotPool",
+        "Native allocation flags"
+      ],
+      "sourceArgumentsOwnedBy4972": true,
+      "retCdecl": true,
+      "scope": "23287 applies original typed pool-count override helpers before1931. No environment override is supplied by this review.",
+      "naturalPool": {
+        "initialRequestedBytes": 176,
+        "formula": "48 + 16 * 8, before any existing natural count override",
+        "headerFlags": 11,
+        "headerBytes": 48,
+        "freeHead": "pool+48",
+        "freeChain": "Eight16B nodes at pool+48 throughpool+160, with next pointer in first word, last next0; native3178 owns construction"
+      }
+    },
+    "lifetime": "Manager80B receiver, pool header, all pool blocks and node links must remain resident for enqueue285, dispatch4659, list-clear1378/13010 and free15536. Node frees use global8978652; replacing/reinitializing the pool while old nodes remain is not an equivalent lifecycle. No caller-authored head, counts, links or flags satisfy this producer contract.",
+    "managerInitialFields": {
+      "callbackIndexU32": 0,
+      "word4": 0,
+      "word8": 0,
+      "sentinelHeadU32": {
+        "offset": 12,
+        "value": "receiver+12"
+      },
+      "sentinelTailU32": {
+        "offset": 16,
+        "value": "receiver+12"
+      },
+      "executingU32": {
+        "offset": 20,
+        "value": 0
+      },
+      "word24": 0,
+      "word28": 0,
+      "word32": -1,
+      "word36": 0,
+      "byte40": 0,
+      "byte41": 0,
+      "word44": 0,
+      "word48": 0,
+      "word52": 1,
+      "word56": -1,
+      "byte60": 0,
+      "word64": 0,
+      "byte68": 1,
+      "bytes69to71": 0,
+      "word72": 0
+    }
+  },
+  "poolLayout": {
+    "headerBytes": 48,
+    "fields": {
+      "nextBlockU32": 8,
+      "labelU32": 12,
+      "freeHeadU32": 16,
+      "flagsU32": 20,
+      "allocatedCountI32": 24,
+      "highWaterI32": 28,
+      "allocationFlagsU32": 32,
+      "blockCapacityI32": 36,
+      "elementStrideI32": 40,
+      "totalCapacityI32": 44
+    },
+    "allocate2243": {
+      "arguments": [
+        "poolPointer at guestESP+4"
+      ],
+      "guestRetBytes": 0,
+      "totalEspAdvance": 4,
+      "returnEax": "Allocated node pointer or0 if no free node and no successful growth",
+      "effects": "Pops freeHead, increments allocatedCount, raises highWater when needed, and zeroes elementStride/4 words when flags&2. Growth only when freeHead0 and flags&1, through1305 with blockCapacity/4+1 elements."
+    },
+    "free15536": {
+      "arguments": [
+        "poolPointer at guestESP+4",
+        "nodePointer at guestESP+8"
+      ],
+      "guestRetBytes": 0,
+      "totalEspAdvance": 4,
+      "effects": "Writes node.next=pool.freeHead, pool.freeHead=node, and decrements allocatedCount."
+    }
+  },
+  "enqueue285": {
+    "receiver": "Native manager at *(8978648)",
+    "arguments": [
+      "messageCode at guestESP+4",
+      "payload at guestESP+8"
+    ],
+    "guestRetBytes": 8,
+    "totalEspAdvance": 12,
+    "allocationArgument": "*(8978652)",
+    "nodeLayout": {
+      "nextU32": 0,
+      "previousU32": 4,
+      "messageCodeU32": 8,
+      "payloadU32": 12
+    },
+    "effects": "Copies two caller words into node+8, appends at receiver+12/+16 circular list, and returns the native allocated node. Native285 does not supply a safe null-allocation fallback; its failure branch writes through address0. Both valid pool and list receiver are prerequisites."
+  },
+  "stateBranch12948": {
+    "receiver": "World",
+    "guestRetBytes": 0,
+    "totalEspAdvance": 4,
+    "stage": "287 calls12948 at raw bodyoffset124 before the per-car World update loop.",
+    "hash": "15919 derives a16-bit check from actual WorldTick8802700 and the active World car array/count, including car floats+96/+100.12948 forms expectedByte=(World.byte248 + lowByte(check) + highByte(check))&255. Optional separate16-bit channel handling uses8802512/1361/15743 or18836.",
+    "singletonGlobal": 8802488,
+    "fields": {
+      "readModeI32": 0,
+      "writeModeI32": 4,
+      "readUnavailableOrExhaustedI32": 8,
+      "mismatchI32": 12,
+      "streamPointerU32": 140
+    },
+    "branches": [
+      "If residentSingleton+4 is nonzero, native269 records expectedByte using [value,8,channel2] and the mismatch enqueue branch is skipped.",
+      "If write mode is0 and residentSingleton+0 is0, the mismatch enqueue branch is skipped.",
+      "If read mode is nonzero, native112 reads [8,channel2]. Native112 returns0 without3703 when residentSingleton+8 is already nonzero; otherwise it uses stream at residentSingleton+140 and marks residentSingleton+8 when stream+40 is nonzero.",
+      "12948 compares native112.EAX&255 with expectedByte. On difference it sets residentSingleton+12=1 and calls285 with [messageCode12,payload0]."
+    ],
+    "interpretation": "The source branch enqueues code12 after an8-bit readback comparison differs. It is valid to describe its source as checksum/mismatch handling. It is not valid to call the frozen branch genuine active playback without proving the actual singleton pointer and fields.12948 is not a Car destructor.",
+    "remainingEvidence": "Preserve actual native replay state/checksum/message. A future authorized fresh condition should capture actual8802488, original mode words+0/+4/+8/+12/+140 and low-memory bytes before the branch. Do not force flags, skip the check, author message state, or merely fabricate the pool.",
+    "singletonValidity": "All mode-field semantics are conditional on a valid resident pointer produced by755/9644.12948 does not check the global pointer itself before reading+4/+0. A null pointer aliases low memory."
+  },
+  "comparisonScope": {
+    "artifact": "frozen-path-comparison.json",
+    "parentReported": "Both frozen conditions make34pool calls and construct full local physics during frame1. Only combined frame2 makes the additional null-pool2243 call. The shared first-frame physics transition alone does not distinguish the conditions.",
+    "claim": "No native regression or source correction is inferred from shared first-frame behavior."
+  },
+  "safety": {
+    "nativeExecuted": false,
+    "wasmCompiledValidatedOrInstantiated": false,
+    "webAssemblyMemoryCreated": false,
+    "runtimeHarnessOrProviderImported": false,
+    "frozenConditionsEdited": false,
+    "primaryPinnedAnalysisEdited": false,
+    "manualAllocatorOwnerListsMetadataNamesTimersSchedulerHistoryPoseOrReportsAuthored": false,
+    "futureNameOrderStudyDeferred": true,
+    "provisionalV1ArtifactPreserved": true
+  },
+  "limitations": [
+    "WASM source and PE data are primary static evidence. Runtime event/CPU facts remain frozen-run evidence owned by parent/root.",
+    "Complete instruction caller scans decode all source bodies except unrelated24154 and24326, which contain unsupported opcode1f; their errors are recorded. The earlier canonical-LEB byte-prefilter caller receipt is explicitly superseded.",
+    "Native symbol meanings beyond the original RCQueuedMessageSlotPool label are descriptive interpretations of reads, comparisons and queue writes.",
+    "No fresh fixture, startup action or correction is implemented by this review.",
+    "V2 corrects an initially implicit valid-singleton assumption. Source pointer provenance must be demonstrated independently of flag values at address0.",
+    "Only parent/root may authorize or execute a reviewed fresh condition. This derivative is a static diagnosis and prerequisites contract."
+  ],
+  "supersedes": {
+    "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/contract.json",
+    "sha256": "474a9fa7e0fab7cadfa4ec9fed924ce408b7fb61ee21879825f1286ea2b3eed3",
+    "scope": "V1 pool source facts remain valid. V2 corrects classification of12948 mode reads: a nonzero valid8802488 singleton was not captured/proven and must not be assumed."
+  },
+  "singletonProducer": {
+    "global": 8802488,
+    "nativePublisher": 755,
+    "publisherAbi": {
+      "kind": "Guest x86 method represented by (CPU*)->void WASM body",
+      "receiverEcx": "Genuine queued-message manager *(8978648)",
+      "arguments": [],
+      "guestRetBytes": 0,
+      "totalEspAdvance": 4,
+      "returnEax": "Incidental native result; singleton publication is the pointer written to8802488"
+    },
+    "ordinaryCaller": {
+      "function": 6988,
+      "bodyOffset": 5313,
+      "returnAddress": 5765463,
+      "receiver": "*(8978648)",
+      "arguments": []
+    },
+    "otherDirectCallers": [
+      5891,
+      9176,
+      16525
+    ],
+    "allocation": {
+      "function": 5867,
+      "chain": [
+        5867,
+        5636
+      ],
+      "requestedBytes": 20720,
+      "allocatorContextGlobal": 9144084,
+      "nativeAllocationRequired": true
+    },
+    "constructor": {
+      "function": 9644,
+      "receiverEcx": "Genuine20720B allocation returned by5867",
+      "arguments": [],
+      "guestRetBytes": 0,
+      "totalEspAdvance": 4,
+      "returnEax": "Same20720B receiver",
+      "first16Bytes": "Native zero SIMD at bodyoffset251: read+0, write+4, unavailable/exhausted+8, mismatch+12 all0",
+      "streamPointer": {
+        "offset": 140,
+        "initial": 0,
+        "conditionalHandoff": "When actual8803684 byte is nonzero, takes actual8803724, clears that original global, and moves list8803728 into receiver+152 via17406. No caller supplied synthetic stream or replay mode."
+      },
+      "lists": [
+        {
+          "head": 144,
+          "tail": 148,
+          "sentinel": "receiver+144"
+        },
+        {
+          "head": 152,
+          "tail": 156,
+          "sentinel": "receiver+152"
+        }
+      ],
+      "lastReadyByte": {
+        "offset": 20716,
+        "value": 1
+      },
+      "simdConstants": [
+        {
+          "at": 227,
+          "hex": "fd0c00000000ffffffffffffffff00000000",
+          "words": [
+            0,
+            4294967295,
+            4294967295,
+            0
+          ]
+        },
+        {
+          "at": 251,
+          "hex": "fd0c00000000000000000000000000000000",
+          "words": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "at": 357,
+          "hex": "fd0c000070410000000000000000ffffffff",
+          "words": [
+            1097859072,
+            0,
+            0,
+            4294967295
+          ]
+        }
+      ]
+    },
+    "publication": "Only native755 publishes constructor EAX to8802488; its native allocation-failure branch publishes0. Calling9644 alone would leave global publication incomplete.911 later destroys and clears this singleton.",
+    "otherWhole755Work": "755 invokes1216 using original9037728 context, allocates other native objects, invokes4955, registers native handlers and enqueues/dispatches messages through the native manager/pool. Full producer scope must be retained; bypassing those effects or manually publishing a pointer is not equivalent.",
+    "runnable": false,
+    "unclosedPrerequisites": "Parent independently found whole5582 requires genuine8619184 and track/resource/asset state, with737 loading side effects. This review establishes ownership/ABI/order only; it does not source-close all dependencies of5582/6988/755 as a runnable fresh startup fixture."
+  },
+  "tlsAndAddressZero": {
+    "reviewedChain": [
+      21992,
+      24682,
+      24680,
+      24678,
+      24864,
+      24639,
+      24679,
+      24865
+    ],
+    "source": "21992 calls24682(695697380,20722).24680 places a cleanup node on the native C stack and24864 obtains TLS at g_b+18300; if uninitialized it calls24639 at that address.24639 writes self pointer and TLS fields relative to its argument.24865 uses the same g_b+18300 base to restore the cleanup head.",
+    "initialTlsGlobal": 0,
+    "ordinaryInitialTlsAddress": 18300,
+    "directAddressZeroWriteByReviewedTlsChainProven": false,
+    "reason": "With source initial g_b0, the TLS base is18300.24639 does not inherently receive0, and its self-pointer write therefore does not inherently mutate address0. An actual different/wrapped TLS base or another indirect write would require separate evidence. Scope does not claim no function anywhere can write0.",
+    "separateNullAlias": "The unchecked12948/112 dereferences do establish that a null8802488 pointer reads low-memory flags. The failing2243 null pool similarly reads address16 as a free-list head. These aliases must be separated from an unverified explanation of who changed low memory."
+  },
+  "minimalWholeProducerOrder": {
+    "order": [
+      "Source-close and invoke the ordinary native startup prerequisites, including the genuine asset/resource owner needed by5582.",
+      "Whole native5582/4972 produces/publishes queued manager8978648 and pool8978652. Preserve manager80B, native list, pool176B-or-native-override, all free nodes and lifetime.",
+      "Whole native755 with the genuine manager receiver allocates/constructs/publishes20720B singleton8802488 through9644 and retains all ordinary handler/message effects.",
+      "Only after complete prerequisite review may root prepare a fresh condition; actual replay state/checksum/events remain native and observed."
+    ],
+    "readyForNativeExecution": false
+  }
+}

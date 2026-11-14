@@ -1,0 +1,46 @@
+{
+  "version": "0.38.8",
+  "kind": "actual native split P/S publication, shared owner, target and lease regression fixtures",
+  "passed": true,
+  "checkedAt": "2026-11-11T01:55:28.766Z",
+  "productSha256": "eac924d8447ade2ba0166d10019fda8c4ec9860dfde08bf282dec246b8d8153a",
+  "sourceHashes": {
+    "native/paced.test.cjs": "4bbb99b2bd3766e1e2ac2869ead6f0f7147c9b7a5a378e3186fe4c1169ca760a",
+    "native/paced-fixture.cjs": "06f728c811ae5f50e244f0010e007c2919139610f967305844c672a7d528b702",
+    "native/paced-publisher.cjs": "469d19842298ef472167ac4038cf68e0daaf68091f347227243fc99d860d7e6c",
+    "native/paced-protocol.cjs": "90b6e4ea52d5f21cd8b8b0825fd9c08e833fe1bc7c02c9144fae191fc7a4cd2e",
+    "native/paced-guard.cjs": "2485e752179d2d786773af7ecf9b842617710e09395fdc3f1958a906183a9e08",
+    "native/paced-profile-config.cjs": "146fac1b386fb8598417770800200253e32101f0b9bc62c9029cf9436c5cbaba",
+    "native/build-paced.cjs": "36d4dce41513af6eff57c243cb24510baf837fdf6955cf1199b85ed23ca28d94",
+    "native/paced-catchup.template.js": "09f000a1fe04a6829833b7b637c1e9f50a64fea42cc11c21ee8ba1fce2364568",
+    "native/free-braking.cjs": "748984ba13c5acaf7a232e04bc66787c487be0cbf0b140b8fc6b27ce79eba16b"
+  },
+  "tests": 6,
+  "testNames": [
+    "browser adaptation pins all three .7 inputs, preserves native sources and changes only declared authored paths",
+    "actual native split publication preserves finite M and applies P/S gains with four-wheel acknowledgement and exact reset",
+    "actual target consumers enter at1, unlockP after publication, and revoke immediately on command/source/output changes",
+    "cold command3 cache stays usable as physical gain arrives and actual final cap falls back on withdrawal",
+    "native publication and target guards retain ordinary-only, permission, identity, pause and finite-input boundaries",
+    "actual native tire consumer preserves combined-force direction and gives zero capacity at zero load with high strength"
+  ],
+  "profiles": [
+    "aa2429fb",
+    "15e5958f",
+    "943ee537"
+  ],
+  "physicalMPSCases": 108,
+  "physicalResetCases": 108,
+  "overflowNativeCases": 3,
+  "ordinaryPermissionPauseIdentityCases": 48,
+  "coldReadyWithdrawalBuilds": 3,
+  "separateWasmInstanceSharedPublicationBuilds": 3,
+  "forgedStaleLeaseCases": 36,
+  "actualCombinedTireForceCases": 12,
+  "nativeSourceCachesUnchanged": true,
+  "allNonCodeSectionsPreserved": true,
+  "sharedPublishedOwnerWord": 244,
+  "privateWasmPublicationStateAdded": false,
+  "fullGameInstantiated": false,
+  "liveVerified": false
+}

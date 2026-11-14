@@ -1,0 +1,241 @@
+{
+  "kind": "STATIC-COMBINED-FAILURE-ORDINARY-STARTUP-DEPENDENCY-REVIEW",
+  "status": "SOURCE-CLOSED-STARTUP-NOT-YET-RUNNABLE",
+  "sourceSha256": "40a1813c7d7a64ab5af3259f680b165c291a50b68284ab502853a81379baf7a8",
+  "candidateSha256": "6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23",
+  "bodies": [
+    {
+      "index": 737,
+      "bytes": 2210,
+      "sha256": "92cbc8273bc6bbd81c8b0d2dde9d0eef253a2393ad9c7bb083495b860071f7c4",
+      "rawCandidateExact": true,
+      "directCallees": [
+        216,
+        2881,
+        4458,
+        8807,
+        9176,
+        11522,
+        13711,
+        16193,
+        16953,
+        17306,
+        17721,
+        19802
+      ]
+    },
+    {
+      "index": 1216,
+      "bytes": 228,
+      "sha256": "3cc781c3c2f5b94c654b92fb2b576e20870cf306634473b8e3371f9ee09aa3a2",
+      "rawCandidateExact": true,
+      "directCallees": []
+    },
+    {
+      "index": 2084,
+      "bytes": 50,
+      "sha256": "2c617bc939fbf8bf49a96c21a7e9f35a6e733c0c490f225f9547d595bd5f4833",
+      "rawCandidateExact": true,
+      "directCallees": []
+    },
+    {
+      "index": 6479,
+      "bytes": 268,
+      "sha256": "fde9e31be40fae6639c7b33bb0f4ddb81edfb0bdec8a8f4353fadede4f09abb7",
+      "rawCandidateExact": true,
+      "directCallees": [
+        23287
+      ]
+    },
+    {
+      "index": 13658,
+      "bytes": 578,
+      "sha256": "6d67cfb0b09aa5fb3de5a02687ee6e0eb043684ae203eab1ca2fa38c034bf06c",
+      "rawCandidateExact": true,
+      "directCallees": [
+        8435,
+        8591,
+        21832
+      ]
+    },
+    {
+      "index": 13815,
+      "bytes": 411,
+      "sha256": "90a2459c056b7e965017f78461b687bc8c93de0df785043fad84ab824f20f711",
+      "rawCandidateExact": true,
+      "directCallees": [
+        13502,
+        21832
+      ]
+    },
+    {
+      "index": 4476,
+      "bytes": 1540,
+      "sha256": "fca35408c30016e4cdfe73993d7f132082bc5ff753b5a9bb1a83ec99fb6797f6",
+      "rawCandidateExact": true,
+      "directCallees": [
+        2131,
+        2600,
+        3847,
+        4004,
+        5867,
+        23287
+      ]
+    }
+  ],
+  "ordinaryEventProducer": {
+    "wholeFunction": 5582,
+    "equivalentInlinedFunction": 6988,
+    "arguments": [],
+    "receiver": "Uses fixed global state object8802652 internally; does not accept a substitute manager receiver",
+    "requiredAbi": "Original guest CPU/stack and valid FS/SEH chain; whole calls preserve their original returns",
+    "beforeManagerPublication": [
+      {
+        "function": 1216,
+        "reads": "Native context lookup uses global9037728, array8928672, count8928676 and296B record field+138",
+        "publishes": 8928684
+      },
+      {
+        "function": 13658,
+        "reads": "Resource tables8552788/8552492 for caller index0; populated entries can invoke lock/list helpers or original indirect methods",
+        "publishes": 8800140
+      },
+      {
+        "function": 2084,
+        "reads": "Global8553732",
+        "publishes": 8800148
+      },
+      {
+        "function": 13815,
+        "reads": "Resource tables8552788/8552492 for caller index0; populated entries can invoke13502 or original indirect methods",
+        "publishes": 8800144
+      },
+      {
+        "reads": "Unconditionally reads *(8619184)+24, the existing native pool allocatedCount field",
+        "publishes": 8800156
+      },
+      {
+        "function": 6479,
+        "creates": "Distinct native23287 pool with stride32, capacity300 unless FLOW8803492==3 or8716408==4, then1000; original label7919816; initial allocation flags0",
+        "publishes": 8575544
+      }
+    ],
+    "managerPublication": "Whole5582 allocates80B through5793, calls whole4972 on its native returned storage, then publishes native EAX to8978648;4972 owns creation/publication of8978652.",
+    "afterManagerPublication": {
+      "function": 737,
+      "receiver": 8802652,
+      "initialState": "Whole5582 resets state[0]=0, then737 increments it to1",
+      "actualBranch": "State1 calls4458/19802,216,11522,16193,17306,13711,8807 and publishes state fields. These include original file/resource loading inputs; they are not closed by the event constructor alone."
+    },
+    "implication": "Calling whole5582 as a tiny event initializer would add uncaptured startup/resource prerequisites. Calling4972 and manually publishing8978648 would not reproduce the ordinary whole producer."
+  },
+  "additionalPool8619184": {
+    "producer": 4476,
+    "call": 23287,
+    "arguments": [
+      28,
+      32,
+      7978176,
+      0
+    ],
+    "publication": "4476 publishes native23287 EAX directly to8619184 in either allocation branch",
+    "broaderEffects": "4476 is a constructor with nested allocations through5867 and constructors2600/2131 plus3847/4004 setup; this review does not declare that whole family runnable."
+  },
+  "diagnosisBoundary": {
+    "proven": "Frozen combinedV1 frame2 enters2243 with pool arg0, after12948 takes its native checksum/readback mismatch→event12/payload0 branch. This is a missing event-pool prerequisite, not legitimate initialized-pool exhaustion.",
+    "notEstablished": "The frozen outputs do not directly capture8802488, its flags/stream, or low-memory alias bytes; source evidence alone does not prove the actual singleton pointer or the reason the mismatch branch differs fromV3.",
+    "supportedNextUnit": "A fresh diagnostic-only sibling preserving exactV1 fixture/startup/packets/clock schedule, adding only read-only snapshots of actual globals/pointers/headers/low bytes at existing caller/stage boundaries. Preserve the native trap and any native mismatch. No startup correction is proposed here.",
+    "observationLimit": "Without an actual112-return hook, native112 EAX/check byte must not be described as directly observed merely from a caller-boundary memory snapshot."
+  },
+  "safety": {
+    "nativeExecuted": false,
+    "wasmCompiledValidatedOrInstantiated": false,
+    "webAssemblyMemoryCreated": false,
+    "runtimeHarnessOrProviderImported": false,
+    "frozenConditionsEdited": false,
+    "originalSourceOrPinnedPrimaryAnalysisEdited": false,
+    "syntheticManagerPoolModeStreamOrPublicationAuthored": false
+  },
+  "pins": [
+    {
+      "file": "work-update-check-20261113/native-combined-startup-dependencies-source-4c-v1/f737.dcmp",
+      "bytes": 8726,
+      "sha256": "00814c4578ea0204f3bc2323dcf7817fac3d84285c2c434dca13743b4bdc9868"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-startup-dependencies-source-4c-v1/f1216.dcmp",
+      "bytes": 4017,
+      "sha256": "90d4c7ff0682f7d7477c1c93494acce79531e1d234bc29c3beeb4bac801689d4"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-startup-dependencies-source-4c-v1/f2084.dcmp",
+      "bytes": 3462,
+      "sha256": "34209c60b63a886a75694c27208a9ecfc2f874dc48b79ca42f8ab3c9eaa148c1"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-startup-dependencies-source-4c-v1/f6479.dcmp",
+      "bytes": 4003,
+      "sha256": "268fa5308357f076321458d4b8f9ff2dd34c4ba50a34480bdfc9dc2f64818b85"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-startup-dependencies-source-4c-v1/f13658.dcmp",
+      "bytes": 5049,
+      "sha256": "6fd04928f67742c8f7dd085f909f4c34ac469859349d3039a8d59a0a74a93721"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-startup-dependencies-source-4c-v1/f13815.dcmp",
+      "bytes": 4494,
+      "sha256": "dd87e76b5823523392ccd9df6169368d3cd3b4bff01b49ba4b89fe5988267974"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-startup-dependencies-source-4c-v1/f4476.dcmp",
+      "bytes": 6950,
+      "sha256": "23180943f77de1d20ae16b6fbce85f7fee5b94ac136cc5e762182aa0e7153734"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-startup-dependencies-source-4c-v1/extract.cjs",
+      "bytes": 3987,
+      "sha256": "e52bb20cae56a81fe3b4a28f418caa2c6d88d2516647da3b5f38cb7f0a9984d0"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-startup-dependencies-source-4c-v1/global-refs.cjs",
+      "bytes": 1351,
+      "sha256": "36df9b9f3bb151c891fe2e8046d1a07733ca2b7a8827c94a5c1cd2e53172a5dc"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-startup-dependencies-source-4c-v1/global-refs-8619184.json",
+      "bytes": 92707,
+      "sha256": "2e3790b6cd2d876f3f407a6c89978cd322a58f4c11242e8876e9ee0f8edaa469"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-startup-dependencies-source-4c-v1/extraction-737-1216-2084-6479-13658-13815.json",
+      "bytes": 3905,
+      "sha256": "a87f526b11a9797535b1b45d15f0a9df19267c2ac03af1fe72a6985342c15cde"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-startup-dependencies-source-4c-v1/extraction-4476.json",
+      "bytes": 1245,
+      "sha256": "a6a4de46fa058ee03cbbc5a31da417e8e1c1adb70bc7d04e35e9cec220f4ed55"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-startup-dependencies-source-4c-v1/build-contract.cjs",
+      "bytes": 5575,
+      "sha256": "36557dcccbc804f6d851be4417ddf2d09fe58d2507ff7d877396b7609c0127d7"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f5582.dcmp",
+      "bytes": 5575,
+      "sha256": "02dd4f858089c506033d9a9276603406edffc15832390fd2b45ec5fb466d9c76"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f6988.dcmp",
+      "bytes": 44393,
+      "sha256": "6486c882fae8a58e6af55af678d51d25cc6b17fbab8f9e372766a167e379d14e"
+    },
+    {
+      "file": "work-update-check-20261113/native-combined-allocator-failure-source-4c-v1/f4972.dcmp",
+      "bytes": 4665,
+      "sha256": "9a129268c582b0225857ec952eed0080a9a8865a53806be023789ec5a2174081"
+    }
+  ]
+}

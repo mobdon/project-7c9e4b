@@ -1,0 +1,138 @@
+{
+  "kind": "STATIC-D396-RACE-PARAMETER-CALLER-INPUT-ORDER-REVIEW",
+  "nativeCodeExecuted": false,
+  "wasmCompiled": false,
+  "wasmInstantiated": false,
+  "guestMemoryCreated": false,
+  "productionEdited": false,
+  "sources": [
+    {
+      "path": "work-update-check-20261113/live-build-d396209f/game.wasm",
+      "sha256": "9d7bf57dd30e8eefc8b783c5e1fa7138fd3fed37691452217b718168b486a257"
+    },
+    {
+      "path": "work-update-check-20261113/d396-private-composed-v1/candidate-composed.wasm",
+      "sha256": "6cc53c4e0b78bc7f5a6f5bc972704e528dac4733a607fab4f8e8064afc777782"
+    },
+    {
+      "path": "website-backup/source/runtime/game.h",
+      "sha256": "ec1575d0d231aa05a87cf37bc085f532b2d0f59a3f6b033dde9d82789b476bce"
+    },
+    {
+      "path": "work-update-check-20261113/d396-private-composed-v1/extension/page.js",
+      "sha256": "d4a5494e3f0984ba94508bee320a1b42665fd8723f2c9c82d57103ef04b5a047"
+    },
+    {
+      "path": "work-update-check-20261113/d396-private-composed-v1/extension/core.js",
+      "sha256": "d2d6aff31cd987cf3fd226c701ba94fdc8ac3d14b7fe803702f4390c477c3d79"
+    },
+    {
+      "path": "work-update-check-20261113/current-native-world-d396-v4/probe-current-native-ai.cjs",
+      "sha256": "f50f39389fcdceb5e57e8eb923a50e9388c395f865c9927b83ebfdbb1d8ddb98"
+    },
+    {
+      "path": "work-update-check-20261113/current-native-world-d396-v4/real-ai-takeover-input.cjs",
+      "sha256": "c27ecdfcd807ac8329163ec27badcf46e551b834c383d7af23f0b7459e3406f1"
+    },
+    {
+      "path": "work-update-check-20261113/current-native-world-d396-v4/bounded-receipt.json",
+      "sha256": "2bd9ffad5913002451211d6a4fbae75be601782f407c02af677a60e50f0a5cba"
+    }
+  ],
+  "rows": [
+    {
+      "id": 507,
+      "bytes": 894,
+      "sha256": "7c15faac337e2a294d7c9f6ed66107aafba47f31c9e9373808b00ee272cce71e",
+      "raw609CurrentCandidateByteExact": true,
+      "watSha256": "c24f1d99aae5d482fbdc6ba5757de11a9eba9d38323390fc8b153a634f461b19",
+      "calls": [],
+      "guests": [
+        {
+          "guest": 7859616,
+          "current": 507,
+          "slot": 18827
+        }
+      ]
+    },
+    {
+      "id": 12754,
+      "bytes": 256,
+      "sha256": "f41b4f776ed2d97b856767d5d435be2bf9958d81eef710295298f4ea3082d1c0",
+      "raw609CurrentCandidateByteExact": true,
+      "watSha256": "60e5f80d81cf4cf3af457a6f44bfccf4603ba50bf019de67e9087dcd6d08dd9c",
+      "calls": [],
+      "guests": [
+        {
+          "guest": 5238768,
+          "current": 12754,
+          "slot": 5461
+        }
+      ]
+    },
+    {
+      "id": 19353,
+      "bytes": 1328,
+      "sha256": "23af58247ddf0e7ad51f2ab171c9216a1b33d4b93f11f15b3e62a74ae4d4f294",
+      "raw609CurrentCandidateByteExact": true,
+      "watSha256": "c5e4793022e65659985bf7d5789d6066e0b3be548493a0c0146553a20b8f67c9",
+      "calls": [
+        12285,
+        16075,
+        18264,
+        18346,
+        19439
+      ],
+      "guests": [
+        {
+          "guest": 6284160,
+          "current": 19353,
+          "slot": 10370
+        }
+      ]
+    }
+  ],
+  "parameters": {
+    "config": 9037728,
+    "configHex": "0x89e7a0",
+    "raceType": 9037744,
+    "raceTypeOffset": 16,
+    "track": 9037728,
+    "dragByte": 9037784,
+    "driftByte": 9037785,
+    "role": "Pre-track-load race parameters supplied by the frontend/caller. These cells are distinct from native bridge readiness, driver kind/mode, activation, World membership and ownership outputs."
+  },
+  "initializer507": {
+    "abi": "No native arguments/input receiver; whole native configuration initializer.",
+    "raceTypeStore": {
+      "offsetInBody": 640,
+      "operation": "v128.store at9037744",
+      "words": [
+        0,
+        0,
+        0,
+        2
+      ],
+      "raceTypeProduced": 0
+    },
+    "otherConfigDefaults": "The initializer first clears its configuration block, then installs defaults, including track2000 at9037728, raceType0 at9037744, and drag/drift flags0. The input source had both track0 and raceType1 written before this native initializer.",
+    "causalFinding": "The existing disclosed raceType1 caller input is overwritten by507 beforeWorld/car/AI setup; the later helper demands raceType1. Source proves the initialization-order conflict. V4 did not record a preassertion pageEligibility object, so exact final raceType is inferred from source rather than directly captured at that assertion."
+  },
+  "normalNativeProducers": {
+    "12754": "Whole specific race-preset function writes raceType1 together with another config word1, track4709, dragByte1, other flags and runtime frontend state. Invoking it solely to repair a generic road-race type would introduce a different race context.",
+    "19353": "Whole native frontend race-setup path directly stores1 at9037744 before roster/context operations; it also calls16075/19439/18264/18346/12285 and cannot be treated as an isolated universal type setter.",
+    "scope": "These source bodies establish normal caller/frontend production of the config field. This narrow review does not claim an exhaustive absence of any generic native setter."
+  },
+  "currentPageGuards": {
+    "engine": "FLOW6; aligned valid player/car/race windows; player+0x10=0; finite RPM0..30000 and gear<=10; verified network tuple when profile requires it. driving is native race phase4.",
+    "safe": "Actual page additionally requires verified supported profile, ready state, allowed network mode, a nonzero driving HUD status, visible/focused document with no dialog, and native driving state. Offline fixture safe=true and HUDdrive1 are disclosed caller inputs; no page/DOM/status-buffer execution is claimed.",
+    "roadRace": "Allowed network state, !dragRace, driveStatus1, raceType1, dragByte0, driftByte0, forcedDrag0x890108=0, forcedDrift0x890104=0, driftVariant0x890114=0.",
+    "rails": "nativeRails capability, railsEnabled preference, supported profile, onlineRaceAllowed and roadRaceProfile. The offline helper additionally requires ai capability and nonnetwork state."
+  },
+  "correction": {
+    "required": "Apply the already disclosed raceType1 caller input after whole507 finishes and beforeWorld/track/car construction begins. Remove its ineffective earlier write. Record before/default/after values and preserve all native readiness/ownership and function behavior.",
+    "trackDisclosure": "507 also overwrites the earlier disclosed track0 with its default2000. Either apply the existing disclosed track0 caller input in the same preWorld configuration seam or accurately disclose native default2000; do not claim the earlier track0 persisted.",
+    "diagnostic": "Before asserting railsWanted in any fresh condition, write pageEligibility plus exact special-mode flags, profile capabilities and engine state so a future rejection is observable. A read-only diagnostic does not bypass the assertion.",
+    "scope": "No V4 rerun or mutation, no new native caller, no forced readiness or activation, no movement/flag/feature success claim."
+  }
+}

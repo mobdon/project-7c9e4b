@@ -1,0 +1,267 @@
+{
+  "entry": 21991,
+  "core": 1690,
+  "historyBefore": {
+    "pool": 0,
+    "client": 1,
+    "host": 0,
+    "online": 0,
+    "nativeWorld": 0
+  },
+  "historyPoolProof": {
+    "wholeProducer": 1690,
+    "wrapper": 21991,
+    "receiver": 268913632,
+    "pool": 268980080,
+    "header": {
+      "address": 268980080,
+      "rawHex": "aaaaaaaaaaaaaaaa0000000040637a00a04f08100b00000000000000000000000000000032000000800000003200000020500810aaaaaaaaaaaaaaaaaaaaaaaa",
+      "label": 8020800,
+      "freeHead": 268980128,
+      "flags": 11,
+      "allocated": 0,
+      "highWater": 0,
+      "allocationFlags": 0,
+      "blockCapacity": 50,
+      "stride": 128,
+      "totalCapacity": 50
+    },
+    "allocation": {
+      "target": 2089944532,
+      "iat": 7877212,
+      "requestedHandle": 0,
+      "effectiveFixtureHeap": 1,
+      "flags": 0,
+      "bytes": 102400,
+      "allocationBytes": 102416,
+      "address": 268920000,
+      "alignment": 16,
+      "zeroRequested": false,
+      "returnAddress": 7718538,
+      "phase": "current-native-whole-World-constructor21991-1690",
+      "headerAddress": 268919984,
+      "extentEnd": 269022400,
+      "beforeEsp": 1572584,
+      "afterEsp": 1572600,
+      "returnEip": 7718538,
+      "returnEax": 268920000,
+      "otherCpuBytesPreserved": true,
+      "wasmShadowStackPointerPreserved": true,
+      "zeroBytesVerifiedAtReturn": null,
+      "live": true
+    },
+    "nativeAllocatorInteriorOffset": 60080,
+    "nativeAllocatorPrefixHex": "30f5081080cb04104486000033334444eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "nativePublicationObservedAfterWholeReturn": true,
+    "poolMetadataOrLinksAuthored": false
+  },
+  "wholeNativeReturned": true,
+  "eax": 268913632,
+  "esp": 1572868,
+  "eip": 305419896,
+  "receiver": 268913632,
+  "allocation": {
+    "allocator": 5867,
+    "wholeNativeReturned": true,
+    "eax": 268913632,
+    "esp": 1572868,
+    "eip": 305419896,
+    "receiver": 268913632,
+    "requestedBytes": 5632,
+    "nativeCdeclArgumentBytes": 4,
+    "nativeCalleeEspAdvance": 4,
+    "allocation": {
+      "target": 2089944532,
+      "iat": 7877212,
+      "requestedHandle": 0,
+      "effectiveFixtureHeap": 1,
+      "flags": 0,
+      "bytes": 5632,
+      "allocationBytes": 5648,
+      "address": 268913632,
+      "alignment": 16,
+      "zeroRequested": false,
+      "returnAddress": 7718538,
+      "phase": "current-native-actual-5632-byte-World-allocation5867",
+      "headerAddress": 268913616,
+      "extentEnd": 268919264,
+      "beforeEsp": 1572784,
+      "afterEsp": 1572800,
+      "returnEip": 7718538,
+      "returnEax": 268913632,
+      "otherCpuBytesPreserved": true,
+      "wasmShadowStackPointerPreserved": true,
+      "zeroBytesVerifiedAtReturn": null,
+      "live": true
+    },
+    "receiverOrPayloadAuthored": false
+  },
+  "before": {
+    "owned": [
+      {
+        "address": 8978560,
+        "value": 0
+      },
+      {
+        "address": 8827760,
+        "value": 0
+      },
+      {
+        "address": 8827764,
+        "value": 0
+      },
+      {
+        "address": 8827776,
+        "value": 0
+      },
+      {
+        "address": 8826768,
+        "value": 0
+      },
+      {
+        "address": 8928856,
+        "value": 0
+      },
+      {
+        "address": 8928848,
+        "value": 0
+      },
+      {
+        "address": 9051164,
+        "value": 0
+      },
+      {
+        "address": 8928628,
+        "value": 0
+      },
+      {
+        "address": 8978736,
+        "value": 0
+      },
+      {
+        "address": 8928640,
+        "value": 0
+      }
+    ],
+    "earlierOwnership": [
+      {
+        "address": 8826208,
+        "value": 268466976
+      },
+      {
+        "address": 8827544,
+        "value": 268743040
+      },
+      {
+        "address": 8827580,
+        "value": 268742960
+      },
+      {
+        "address": 8928824,
+        "value": 268664880
+      },
+      {
+        "address": 8928828,
+        "value": 268664320
+      },
+      {
+        "address": 9055396,
+        "value": 9055396
+      },
+      {
+        "address": 9055400,
+        "value": 9055396
+      }
+    ],
+    "dtBits": 0,
+    "tick": 0,
+    "wrapperPreservedTimeBits": 0
+  },
+  "after": {
+    "owned": [
+      {
+        "address": 8978560,
+        "value": 268913632
+      },
+      {
+        "address": 8827760,
+        "value": 268954400
+      },
+      {
+        "address": 8827764,
+        "value": 269083392
+      },
+      {
+        "address": 8827776,
+        "value": 1
+      },
+      {
+        "address": 8826768,
+        "value": 5980592
+      },
+      {
+        "address": 8928856,
+        "value": 268986560
+      },
+      {
+        "address": 8928848,
+        "value": 269022420
+      },
+      {
+        "address": 9051164,
+        "value": 268653232
+      },
+      {
+        "address": 8928628,
+        "value": 268987536
+      },
+      {
+        "address": 8978736,
+        "value": 268919376
+      },
+      {
+        "address": 8928640,
+        "value": 268649952
+      }
+    ],
+    "earlierOwnership": [
+      {
+        "address": 8826208,
+        "value": 268466976
+      },
+      {
+        "address": 8827544,
+        "value": 268743040
+      },
+      {
+        "address": 8827580,
+        "value": 268742960
+      },
+      {
+        "address": 8928824,
+        "value": 268664880
+      },
+      {
+        "address": 8928828,
+        "value": 268664320
+      },
+      {
+        "address": 9055396,
+        "value": 9055396
+      },
+      {
+        "address": 9055400,
+        "value": 9055396
+      }
+    ],
+    "dtBits": 0,
+    "tick": 4000,
+    "wrapperPreservedTimeBits": 0
+  },
+  "actualTailObject": 269126576,
+  "worldHeaderHex": "e04b0710e04b0710e84b0710e84b071000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "worldTailHex": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000b08b0a100000000000000000",
+  "worldGlobalValidatedAfterWholeReturn": true,
+  "worldOrMembershipOrTimingOutputsAuthored": false,
+  "subsystemAllocationSuccessNotInferredFromWorldPointer": true
+}

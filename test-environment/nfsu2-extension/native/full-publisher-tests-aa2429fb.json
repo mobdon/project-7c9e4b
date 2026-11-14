@@ -1,0 +1,1050 @@
+{
+  "checkedAt": "2026-11-11T00:20:59.909Z",
+  "schema": "nfsu2-private-full-publisher-tests-v1",
+  "passed": true,
+  "caseCount": 105,
+  "input": {
+    "file": "C:\\Users\\Admin\\Documents\\ChatGPT\\underground 2\\research\\compatibility-aa2429fb\\game.wasm",
+    "hash": "a220e667d38c0a6509c1507ad3ca9c6fddeb2220b429bf28707d7ca8cbbc42c8",
+    "size": 38619724
+  },
+  "bodySha256": "cda18bdcc3108ad1b0a2f095a7bf946fdc3d8f75cb9aa12e1a77fdde29528502",
+  "experimental": true,
+  "liveVerified": false,
+  "integrationReady": false,
+  "completeModulePin": "6fc3e86184f642d695ceb27af65132da63bb1a9744d760c89a8f48b9bea0e80e",
+  "completePinSealed": false,
+  "modifiedFunctions": [
+    3553
+  ],
+  "simplifiedPublisherUnchanged": true,
+  "nativeOriginalBytesPreservedOutsideLocalsAndAuthoredInsertions": true,
+  "fixtureNativeBodies": 42,
+  "nativeStubs": 0,
+  "authoredMutationBoundaries": 3,
+  "boundaryRecorderStubs": 1,
+  "mailboxTailOnly": [
+    232,
+    236,
+    240,
+    244,
+    248,
+    252
+  ],
+  "cases": [
+    {
+      "name": "bounded full publisher 100",
+      "expected": 1,
+      "ack": {
+        "command": 66404,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 1,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "bounded full publisher 101",
+      "expected": 1.0099999904632568,
+      "ack": {
+        "command": 66405,
+        "percent": 101,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 1,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "bounded full publisher 110",
+      "expected": 1.100000023841858,
+      "ack": {
+        "command": 66414,
+        "percent": 110,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 1,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "bounded full publisher 125",
+      "expected": 1.25,
+      "ack": {
+        "command": 66429,
+        "percent": 125,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 1,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "bounded full publisher 150",
+      "expected": 1.5,
+      "ack": {
+        "command": 66454,
+        "percent": 150,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 1,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "default disabled publication",
+      "expected": 1,
+      "ack": {
+        "command": 66148,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 2,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "unclaimed defaults native",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "native source 1.3 is never overwritten",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "native argument 1.3 remains native",
+      "expected": 1.2999999523162842,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "native global0 branch remains native",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "AI magic",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "AI receipt magic",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "AI sequence zero",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "AI sequence odd",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "AI off",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "AI ownership absent",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "watchdog expired",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "requested player mismatch",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "owned player mismatch",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "requested car mismatch",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "owned car mismatch",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "requested race mismatch",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "owned race mismatch",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "race phase not4",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "manual local player",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "manual control type",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "driver vtable",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "driver backlink",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "not ordinary race",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "native Catch Up off",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "custom port catchup mode",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "mismatched paired pace",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "unapplied paired pace",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "missing target consumption",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "stacking veto",
+      "expected": 1,
+      "ack": {
+        "command": 131453,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "drag",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "drift",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "Street X",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "forced drift",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "native excluded event108",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "native excluded event10c",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "Outrun flag",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "network conventional520",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "network conventional866a14",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "network conventional8669f4",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "network conventionalbyte",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "port network tuple",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "online permission malformed",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "literal online opt-in conventional",
+      "expected": 1.25,
+      "ack": {
+        "command": 66429,
+        "percent": 125,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 1,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "literal online opt-in port",
+      "expected": 1.25,
+      "ack": {
+        "command": 66429,
+        "percent": 125,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 1,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "online state10 veto",
+      "expected": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "paused",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "multiple local players",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "wrong current player",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "car physics kind",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "car physics backlink",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "physics vtable",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "record type",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "record marked",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "uncommitted player",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "uncommitted record",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "uncommitted physics",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "foreign feature magic",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "feature generation zero",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "feature reserved bits",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "feature above cap",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "feature below100",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "disabled non100",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "unexpected native caller",
+      "expected": 1,
+      "ack": null,
+      "carRecordDriverAndSeparateGripPreserved": true
+    },
+    {
+      "name": "Off current manual post-race publication",
+      "before": {
+        "command": 66429,
+        "percent": 125,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 1,
+        "publication": 1
+      },
+      "after": {
+        "command": 131172,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 2,
+        "publication": 2
+      }
+    },
+    {
+      "name": "On becomes guarded-native without forcing native1",
+      "before": {
+        "command": 66429,
+        "percent": 125,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 1,
+        "publication": 1
+      },
+      "after": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 2
+      },
+      "nativePower": 1.2000000476837158
+    },
+    {
+      "name": "foreign mailbox claim rejected",
+      "offset": 232
+    },
+    {
+      "name": "foreign mailbox claim rejected",
+      "offset": 236
+    },
+    {
+      "name": "foreign mailbox claim rejected",
+      "offset": 240
+    },
+    {
+      "name": "foreign mailbox claim rejected",
+      "offset": 244
+    },
+    {
+      "name": "foreign mailbox claim rejected",
+      "offset": 248
+    },
+    {
+      "name": "foreign mailbox claim rejected",
+      "offset": 252
+    },
+    {
+      "name": "foreign post-CAS occupancy preserved and own claim rolled back",
+      "offset": 236
+    },
+    {
+      "name": "foreign post-CAS occupancy preserved and own claim rolled back",
+      "offset": 240
+    },
+    {
+      "name": "foreign post-CAS occupancy preserved and own claim rolled back",
+      "offset": 244
+    },
+    {
+      "name": "foreign post-CAS occupancy preserved and own claim rolled back",
+      "offset": 248
+    },
+    {
+      "name": "foreign post-CAS occupancy preserved and own claim rolled back",
+      "offset": 252
+    },
+    {
+      "name": "foreign concurrent claim magic is never cleared or accepted"
+    },
+    {
+      "name": "cross-page output last page must be committed"
+    },
+    {
+      "name": "generation, publication wrap, strict types and cap, pending seqlock tested"
+    },
+    {
+      "name": "wrong complete module input rejected"
+    }
+  ],
+  "boundaries": [
+    {
+      "site": "beforeConsumed",
+      "name": "Off command",
+      "expectedPower": 1,
+      "ack": null,
+      "sourceCarAndDriverUnchanged": true
+    },
+    {
+      "site": "beforeConsumed",
+      "name": "AI generation changed",
+      "expectedPower": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "sourceCarAndDriverUnchanged": true
+    },
+    {
+      "site": "beforeConsumed",
+      "name": "race phase changed",
+      "expectedPower": 1,
+      "ack": {
+        "command": 66429,
+        "percent": 100,
+        "car": 2162688,
+        "publisher": 1,
+        "reason": 3,
+        "publication": 1
+      },
+      "sourceCarAndDriverUnchanged": true
+    },
+    {
+      "site": "beforeConsumed",
+      "name": "current race changed",
+      "expectedPower": 1,
+      "ack": null,
+      "sourceCarAndDriverUnchanged": true
+    },
+    {
+      "site": "beforeConsumed",
+      "name": "current car graph changed",
+      "expectedPower": 1,
+      "ack": null,
+      "sourceCarAndDriverUnchanged": true
+    },
+    {
+      "site": "afterPublication",
+      "name": "Off command",
+      "expectedPower": 1.25,
+      "ack": null,
+      "sourceCarAndDriverUnchanged": true
+    },
+    {
+      "site": "afterPublication",
+      "name": "AI generation changed",
+      "expectedPower": 1.25,
+      "ack": null,
+      "sourceCarAndDriverUnchanged": true
+    },
+    {
+      "site": "afterPublication",
+      "name": "race phase changed",
+      "expectedPower": 1.25,
+      "ack": null,
+      "sourceCarAndDriverUnchanged": true
+    },
+    {
+      "site": "afterPublication",
+      "name": "current race changed",
+      "expectedPower": 1.25,
+      "ack": null,
+      "sourceCarAndDriverUnchanged": true
+    },
+    {
+      "site": "afterPublication",
+      "name": "current car graph changed",
+      "expectedPower": 1.25,
+      "ack": null,
+      "sourceCarAndDriverUnchanged": true
+    },
+    {
+      "site": "afterPublication",
+      "name": "Off during publication stays pending until next original publication",
+      "nativeRestoreAcknowledgedOnNextCall": true
+    },
+    {
+      "site": "publishingLocked",
+      "name": "Off command",
+      "expectedPower": 1.25,
+      "ack": null,
+      "sourceCarAndDriverUnchanged": true
+    },
+    {
+      "site": "publishingLocked",
+      "name": "AI generation changed",
+      "expectedPower": 1.25,
+      "ack": null,
+      "sourceCarAndDriverUnchanged": true
+    },
+    {
+      "site": "publishingLocked",
+      "name": "race phase changed",
+      "expectedPower": 1.25,
+      "ack": null,
+      "sourceCarAndDriverUnchanged": true
+    },
+    {
+      "site": "publishingLocked",
+      "name": "current race changed",
+      "expectedPower": 1.25,
+      "ack": null,
+      "sourceCarAndDriverUnchanged": true
+    },
+    {
+      "site": "publishingLocked",
+      "name": "current car graph changed",
+      "expectedPower": 1.25,
+      "ack": null,
+      "sourceCarAndDriverUnchanged": true
+    },
+    {
+      "site": "publishingLocked",
+      "name": "foreign feature takeover",
+      "expectedPower": 1.25,
+      "ack": null,
+      "sourceCarAndDriverUnchanged": true
+    },
+    {
+      "site": "publishingLocked",
+      "name": "foreign status takeover",
+      "expectedPower": 1.25,
+      "ack": null,
+      "sourceCarAndDriverUnchanged": true
+    },
+    {
+      "site": "publishingLocked",
+      "name": "Off during publication stays pending until next original publication",
+      "nativeRestoreAcknowledgedOnNextCall": true
+    }
+  ],
+  "limits": [
+    "Synthetic resident object graph and an explicit native call; no complete live game or vehicle world",
+    "Three explicitly authored recorder callbacks model in-call changes using dispatcher21769, which is absent from the original native closure; original native callees are not stubbed, and these instrumented variants are not delivery plans",
+    "No proof current full publisher runs after every stop, pause, car swap or post-race transition; acknowledgement remains pending until a valid publication",
+    "Committed-page and final-identity checks are best effort, not an allocator/lifetime lock",
+    "Acknowledgement counter must advance recently before a client displays active assist; a historical matching command alone is insufficient",
+    "Simplified physics unsupported and unchanged",
+    "Counter/command generations wrap; readers must tolerate wrap and use freshness timeouts",
+    "Provisional complete input hash is not sealed; no production integration or Desktop package changed"
+  ]
+}
