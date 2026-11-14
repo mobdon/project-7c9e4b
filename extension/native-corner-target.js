@@ -1,0 +1,39 @@
+/* Exact post-sealed authored command3 target correction. */
+(function(root){'use strict';
+ const freeze=x=>{if(x&&typeof x==='object'){Object.values(x).forEach(freeze);Object.freeze(x);}return x;};
+ const configs=freeze({"a220e667d38c0a6509c1507ad3ca9c6fddeb2220b429bf28707d7ca8cbbc42c8":{"revision":"aa2429fb","sourceModuleHash":"a220e667d38c0a6509c1507ad3ca9c6fddeb2220b429bf28707d7ca8cbbc42c8","inputModuleHash":"2ecc7cb9515f611221bbd844873fb11d2c7ce4f8757844181d52d0e532cf904a","outputModuleHash":"e71b34af8fd926f58754df7536b44bd122b077e28af528200c24602b63b47a73","index":4653,"originalLength":3412,"originalBodyHash":"b4a50ed5234e1e4d71d8b2f62c0822e2702fca7a5a57e4cace505e2bce7f2860","patchedBodyHash":"cb55d4a4d038f5b6f12071119e98b0ef6d711230104e6a2a4df8e05a33bff467","offset":3116,"needle":"IBe4RAAAAAAAAFlAoyEiIB9EAAAAAAAA8D8gHiAlICWioiAdQbij6QMqAgC7oiAiICKioqOgn6MhIQ==","replacement":"IBe4RAAAAAAAAFlAoyEiIB8gJCAioiAjo6QhIQ=="},"f88fc7a0fe3082e20814f705635410d046fcdfe053eb70d65c49dec7583105b9":{"revision":"15e5958f","sourceModuleHash":"f88fc7a0fe3082e20814f705635410d046fcdfe053eb70d65c49dec7583105b9","inputModuleHash":"acd91ae5e9a8d6cd4b1310467c2b994aa463eafb9292e5a41adf23a80acb09fd","outputModuleHash":"2863cd57dc898efa1bee1dffd83bace6872cf72b355c2e8043d501a8d7ddf7d0","index":4653,"originalLength":3412,"originalBodyHash":"b4a50ed5234e1e4d71d8b2f62c0822e2702fca7a5a57e4cace505e2bce7f2860","patchedBodyHash":"cb55d4a4d038f5b6f12071119e98b0ef6d711230104e6a2a4df8e05a33bff467","offset":3116,"needle":"IBe4RAAAAAAAAFlAoyEiIB9EAAAAAAAA8D8gHiAlICWioiAdQbij6QMqAgC7oiAiICKioqOgn6MhIQ==","replacement":"IBe4RAAAAAAAAFlAoyEiIB8gJCAioiAjo6QhIQ=="},"c000f8f9002762f4274f173c81678772c456b1a696f3b69751fc6e91118fe391":{"revision":"943ee537","sourceModuleHash":"c000f8f9002762f4274f173c81678772c456b1a696f3b69751fc6e91118fe391","inputModuleHash":"b3a8b5e06060f36c75ead5bdff4985ef297b2d6e959a324b72e716897b9f4cf5","outputModuleHash":"9f40dbdfec91b7d3fbdcce712bd6dab5108e67df3e8f98bdb5f3e820ae24a760","index":4653,"originalLength":3412,"originalBodyHash":"b4a50ed5234e1e4d71d8b2f62c0822e2702fca7a5a57e4cace505e2bce7f2860","patchedBodyHash":"cb55d4a4d038f5b6f12071119e98b0ef6d711230104e6a2a4df8e05a33bff467","offset":3116,"needle":"IBe4RAAAAAAAAFlAoyEiIB9EAAAAAAAA8D8gHiAlICWioiAdQbij6QMqAgC7oiAiICKioqOgn6MhIQ==","replacement":"IBe4RAAAAAAAAFlAoyEiIB8gJCAioiAjo6QhIQ=="},"395d7d34809be586e9ec80866914179247e96df7cb5729c7b8c7e4650c6dee3e":{"revision":"bdc9cbc2","sourceModuleHash":"395d7d34809be586e9ec80866914179247e96df7cb5729c7b8c7e4650c6dee3e","inputModuleHash":"18e38e5172a6ef5973b541555748ef9d6ee43e7458a43475b78d6c292568e410","outputModuleHash":"b2a11264de45b8860d001a8b1052f43dc7a8dd9cacc1eabb9d3c8ee20e3cb252","index":4654,"originalLength":3412,"originalBodyHash":"465a87e7664525048298b817652dfd4efe28c36123ea1f68d62ab953293878b5","patchedBodyHash":"80452561e486c7045ab071dfc8c5c97a5906c997f12513b216403a045e6a1c14","offset":3116,"needle":"IBe4RAAAAAAAAFlAoyEiIB9EAAAAAAAA8D8gHiAlICWioiAdQbij6QMqAgC7oiAiICKioqOgn6MhIQ==","replacement":"IBe4RAAAAAAAAFlAoyEiIB8gJCAioiAjo6QhIQ==","importFunctions":38},"3152b96dbd39c9aaac00f47cb63afff46969d88cd7470166478c9663c9abb1bb":{"revision":"b1efa173","sourceModuleHash":"3152b96dbd39c9aaac00f47cb63afff46969d88cd7470166478c9663c9abb1bb","inputModuleHash":"87746f7ae30c4cd49452d40ebffd016dfbd0e1b064eaaaeed8892ee54160bb5e","outputModuleHash":"6b36cd7e8b998ecaa00b7f4ab504bb77932102c0ba025b34d4554a36ed26ebf6","index":4654,"originalLength":3412,"originalBodyHash":"465a87e7664525048298b817652dfd4efe28c36123ea1f68d62ab953293878b5","patchedBodyHash":"80452561e486c7045ab071dfc8c5c97a5906c997f12513b216403a045e6a1c14","offset":3116,"needle":"IBe4RAAAAAAAAFlAoyEiIB9EAAAAAAAA8D8gHiAlICWioiAdQbij6QMqAgC7oiAiICKioqOgn6MhIQ==","replacement":"IBe4RAAAAAAAAFlAoyEiIB8gJCAioiAjo6QhIQ==","importFunctions":38},"f9e0002e8a04a88355b3cc62235010e19479e0cf2ab05d8916975d68abf5706b":{"revision":"ed8d3359","sourceModuleHash":"f9e0002e8a04a88355b3cc62235010e19479e0cf2ab05d8916975d68abf5706b","inputModuleHash":"d8f85c1c2f33966a948a15a3a612cd5586c724124f48e31edd4d43f96b4d50cf","outputModuleHash":"223a15f1607ff962f16f2a1b99d616d28c0da519067955a34e8f5b55383a8118","index":4653,"originalLength":3412,"originalBodyHash":"b4a50ed5234e1e4d71d8b2f62c0822e2702fca7a5a57e4cace505e2bce7f2860","patchedBodyHash":"cb55d4a4d038f5b6f12071119e98b0ef6d711230104e6a2a4df8e05a33bff467","offset":3116,"needle":"IBe4RAAAAAAAAFlAoyEiIB9EAAAAAAAA8D8gHiAlICWioiAdQbij6QMqAgC7oiAiICKioqOgn6MhIQ==","replacement":"IBe4RAAAAAAAAFlAoyEiIB8gJCAioiAjo6QhIQ==","importFunctions":38}});
+ const supports=hash=>typeof hash==='string'&&Object.prototype.hasOwnProperty.call(configs,hash);
+ const select=hash=>supports(hash)?freeze({revision:configs[hash].revision,sourceModuleHash:hash,inputModuleHash:configs[hash].inputModuleHash,outputModuleHash:configs[hash].outputModuleHash,index:configs[hash].index,command:3,onlyAuthoredExpression:true,liveVerified:false}):null;
+ const fail=s=>{throw Error('Native corner target: '+s);};
+ const sha=async bytes=>Array.from(new Uint8Array(await root.crypto.subtle.digest('SHA-256',bytes))).map(x=>x.toString(16).padStart(2,'0')).join('');
+ const decode=s=>Uint8Array.from(root.atob(s),c=>c.charCodeAt(0));
+ const concat=parts=>{const out=new Uint8Array(parts.reduce((n,p)=>n+p.length,0));let at=0;for(const p of parts){out.set(p,at);at+=p.length;}return out;};
+ const leb=n=>{const a=[];do{const x=n&127;n>>>=7;a.push(x|(n?128:0));}while(n);return Uint8Array.from(a);};
+ const read=(bytes,at)=>{let value=0,shift=0,b;do{if(at>=bytes.length||shift>28)fail('invalid unsigned LEB');b=bytes[at++];value+=(b&127)*2**shift;shift+=7;}while(b&128);return{value:value>>>0,end:at};};
+ async function patchModule(input,{verifiedOriginalHash}={}){
+  if(!supports(verifiedOriginalHash))return input;
+  const plan=configs[verifiedOriginalHash],bytes=input instanceof Uint8Array?input:new Uint8Array(input);
+  if(await sha(bytes)!==plan.inputModuleHash)fail('complete input hash mismatch');
+  const sections=[bytes.subarray(0,8)];let at=8,found=false,changed=0;
+  while(at<bytes.length){const start=at,id=bytes[at++],length=read(bytes,at),data=length.end,end=data+length.value;if(end>bytes.length)fail('section bounds');at=end;
+   if(id!==10){sections.push(bytes.subarray(start,end));continue;}
+   if(found)fail('duplicate code section');found=true;
+   const count=read(bytes,data),bodies=[leb(count.value)];let cursor=count.end;
+   for(let n=0;n<count.value;n++){const size=read(bytes,cursor),last=size.end+size.value;if(last>end)fail('body bounds');const body=bytes.subarray(size.end,last);cursor=last;
+    if(n+(plan.importFunctions||37)!==plan.index){bodies.push(leb(body.length),body);continue;}
+    if(body.length!==plan.originalLength||await sha(body)!==plan.originalBodyHash)fail('original body pin');
+    const needle=decode(plan.needle),replacement=decode(plan.replacement),offset=plan.offset;
+    if(!Number.isInteger(offset)||offset<0||offset+needle.length>body.length)fail('expression bounds');
+    if(needle.some((b,i)=>body[offset+i]!==b))fail('expression pin');
+    const patched=concat([body.subarray(0,offset),replacement,body.subarray(offset+needle.length)]);
+    if(await sha(patched)!==plan.patchedBodyHash)fail('patched body pin');
+    bodies.push(leb(patched.length),patched);changed++;
+   }
+   if(cursor!==end)fail('trailing code bytes');const code=concat(bodies);sections.push(Uint8Array.of(10),leb(code.length),code);
+  }
+  if(!found||changed!==1)fail('missing authored corner target');const output=concat(sections);
+  if(await sha(output)!==plan.outputModuleHash)fail('complete output hash mismatch');
+  if(!root.WebAssembly.validate(output))fail('invalid output');return output;
+ }
+ const api=Object.freeze({supports,select,patchModule});root.__NFSU2_NATIVE_CORNER_TARGET__=api;if(typeof module==='object'&&module.exports)module.exports=api;
+})(globalThis);

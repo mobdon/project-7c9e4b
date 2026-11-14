@@ -1,0 +1,910 @@
+{
+  "kind": "COMPLETE-CURRENT-EXTENSION-TEXT-EXPORT",
+  "file": "NFSU2-EXTENSION-0.42.8-COMPLETE.txt",
+  "version": "0.42.8",
+  "files": 112,
+  "textFiles": 112,
+  "binaryFiles": 0,
+  "bytes": 10379565,
+  "sha256": "96c970edc1d437392760c7020b89a1a77aad01f580bbd79647eac56c8edd7256",
+  "all112OriginalFileBytesReconstructAndHashMatch": true,
+  "sourceModified": false,
+  "inventory": [
+    {
+      "source": "nfsu2-extension/extension/102c-profile.js",
+      "bytes": 2724,
+      "sha256": "8ab011181703ce7f76986ffad4bb22601fa0c973358b1019364305d6d3c78522",
+      "encoding": "UTF-8",
+      "contentOffset": 977,
+      "contentBytes": 2724
+    },
+    {
+      "source": "nfsu2-extension/extension/609-profile.js",
+      "bytes": 2141,
+      "sha256": "0c4820f115d2389078f91deb95d034c62512a0cd8fe84b98c6113a42fa2ce941",
+      "encoding": "UTF-8",
+      "contentOffset": 4161,
+      "contentBytes": 2141
+    },
+    {
+      "source": "nfsu2-extension/extension/aa-profile.js",
+      "bytes": 60118,
+      "sha256": "6aa47f9d5eb9a7033cc23636c67a8ad695604521a4c4b63fb3eef1e85491fd07",
+      "encoding": "UTF-8",
+      "contentOffset": 6761,
+      "contentBytes": 60118
+    },
+    {
+      "source": "nfsu2-extension/extension/abf-profile.js",
+      "bytes": 56172,
+      "sha256": "4b4ff72bd169ce52230b27f806891a701a227bf10b37756f99036db50bbc584f",
+      "encoding": "UTF-8",
+      "contentOffset": 67338,
+      "contentBytes": 56172
+    },
+    {
+      "source": "nfsu2-extension/extension/ai.js",
+      "bytes": 102293,
+      "sha256": "14c07f2e32ad5c0e5854f61c044e0827058d04a2e3215237b3b3d3e8126d2ea3",
+      "encoding": "UTF-8",
+      "contentOffset": 123962,
+      "contentBytes": 102293
+    },
+    {
+      "source": "nfsu2-extension/extension/autonomy-drive.js",
+      "bytes": 6056,
+      "sha256": "34b7780d55b7435edc816266b0fa86250df92072af4ba6de037ad02389141aaf",
+      "encoding": "UTF-8",
+      "contentOffset": 226708,
+      "contentBytes": 6056
+    },
+    {
+      "source": "nfsu2-extension/extension/autonomy-hosted.js",
+      "bytes": 10853,
+      "sha256": "2843bb46ba7e2e880da5ada9ebc7d4621b41eed341e8e44b6a0c2e460e919829",
+      "encoding": "UTF-8",
+      "contentOffset": 233231,
+      "contentBytes": 10853
+    },
+    {
+      "source": "nfsu2-extension/extension/autonomy-loop.js",
+      "bytes": 17975,
+      "sha256": "0cc92a9e3e2f2aaa4adabc8e5d93bc971aab9b00a19665cdc0068f417f33626f",
+      "encoding": "UTF-8",
+      "contentOffset": 244550,
+      "contentBytes": 17975
+    },
+    {
+      "source": "nfsu2-extension/extension/autonomy-road.js",
+      "bytes": 10871,
+      "sha256": "8440ab7278931e6c25269cc512bd13c46df4baa62ace11b9ea4c0fe71c42135f",
+      "encoding": "UTF-8",
+      "contentOffset": 262989,
+      "contentBytes": 10871
+    },
+    {
+      "source": "nfsu2-extension/extension/b1-profile.js",
+      "bytes": 60677,
+      "sha256": "9646c2f6a8fef3fb7f74a273f4eb33dddc6772d4560812484f4b2515dcee5ada",
+      "encoding": "UTF-8",
+      "contentOffset": 274321,
+      "contentBytes": 60677
+    },
+    {
+      "source": "nfsu2-extension/extension/bdc-profile.js",
+      "bytes": 60680,
+      "sha256": "b1279aeeafd80a78e7d3702450ed03dfa87d813553c45b67620df19324f80f5f",
+      "encoding": "UTF-8",
+      "contentOffset": 335457,
+      "contentBytes": 60680
+    },
+    {
+      "source": "nfsu2-extension/extension/cars.js",
+      "bytes": 9643,
+      "sha256": "0ea041252d7c9fa69392b847cfca5940f8d2c076203975cdb8a1eaa76f7448d4",
+      "encoding": "UTF-8",
+      "contentOffset": 396589,
+      "contentBytes": 9643
+    },
+    {
+      "source": "nfsu2-extension/extension/cd5-profile.js",
+      "bytes": 56172,
+      "sha256": "cf4b421b44fabfffb3a2d04850d814cd345ae83cf709630d91656e1a692d2336",
+      "encoding": "UTF-8",
+      "contentOffset": 406685,
+      "contentBytes": 56172
+    },
+    {
+      "source": "nfsu2-extension/extension/cf-profile.js",
+      "bytes": 56143,
+      "sha256": "8977c19bf52cc94501b55184aef5ad1e27296cd720e8be89aedd543367c9c53b",
+      "encoding": "UTF-8",
+      "contentOffset": 463316,
+      "contentBytes": 56143
+    },
+    {
+      "source": "nfsu2-extension/extension/CHANGELOG.md",
+      "bytes": 90303,
+      "sha256": "31c382be7cbdb4922bbf53add5e3ff85357015d18d4e8404ef4fd937aa9a78e2",
+      "encoding": "UTF-8",
+      "contentOffset": 519916,
+      "contentBytes": 90303
+    },
+    {
+      "source": "nfsu2-extension/extension/city-contact-preview.js",
+      "bytes": 7254,
+      "sha256": "c6675c41a45cbfdd12269d91b2bade5a0d5bf1d730faa236abf2c7d24c3f8007",
+      "encoding": "UTF-8",
+      "contentOffset": 610685,
+      "contentBytes": 7254
+    },
+    {
+      "source": "nfsu2-extension/extension/city-pacing.js",
+      "bytes": 5018,
+      "sha256": "5f8c0d2150c876d3c3ed97915549bcd3816b42d519b55f403446bb41eb3a7758",
+      "encoding": "UTF-8",
+      "contentOffset": 618407,
+      "contentBytes": 5018
+    },
+    {
+      "source": "nfsu2-extension/extension/core.js",
+      "bytes": 32462,
+      "sha256": "6b469b5c0e754482f42f30b6513c8d0beb1b6c06965652f951504dadeef99e21",
+      "encoding": "UTF-8",
+      "contentOffset": 623878,
+      "contentBytes": 32462
+    },
+    {
+      "source": "nfsu2-extension/extension/current-profile.js",
+      "bytes": 32268,
+      "sha256": "4249fc980c6281cd790121aef68dc25d6ff50b901a1eaeff8c77a4b1c05b836f",
+      "encoding": "UTF-8",
+      "contentOffset": 656797,
+      "contentBytes": 32268
+    },
+    {
+      "source": "nfsu2-extension/extension/d2fa-profile.js",
+      "bytes": 56173,
+      "sha256": "9f61bd1b65113cbabeddda544ddeecd778af1370f866fddf7001f374dce4e107",
+      "encoding": "UTF-8",
+      "contentOffset": 689530,
+      "contentBytes": 56173
+    },
+    {
+      "source": "nfsu2-extension/extension/diagnostics.js",
+      "bytes": 54927,
+      "sha256": "5b23c1f37511d47744382ed099b73356f43a11c7ac81ec3ed699a81e3b8fb42b",
+      "encoding": "UTF-8",
+      "contentOffset": 746164,
+      "contentBytes": 54927
+    },
+    {
+      "source": "nfsu2-extension/extension/dynamic-pacing.js",
+      "bytes": 6069,
+      "sha256": "54b55b44a871b42c2c98ff1f2177012b3883bc0c9946ebd971e9f6912927b2c6",
+      "encoding": "UTF-8",
+      "contentOffset": 801553,
+      "contentBytes": 6069
+    },
+    {
+      "source": "nfsu2-extension/extension/dyno-core.js",
+      "bytes": 10191,
+      "sha256": "98623f2cbd47dde7401ebd8b4c36ecf0421542a26b71ede0cf2475b7c4bcfb68",
+      "encoding": "UTF-8",
+      "contentOffset": 808083,
+      "contentBytes": 10191
+    },
+    {
+      "source": "nfsu2-extension/extension/dyno-evaluator.js",
+      "bytes": 7506,
+      "sha256": "7a820f5dada3754b1adacda7809b4c9eea2b5cb69494c94382ccb4bcf943f5ab",
+      "encoding": "UTF-8",
+      "contentOffset": 818734,
+      "contentBytes": 7506
+    },
+    {
+      "source": "nfsu2-extension/extension/dyno-full.js",
+      "bytes": 27329,
+      "sha256": "4da7edc13ba6792a99618b16d1652c729a859db06c413d0c8f43b125e65806ba",
+      "encoding": "UTF-8",
+      "contentOffset": 826701,
+      "contentBytes": 27329
+    },
+    {
+      "source": "nfsu2-extension/extension/dyno-native-profile-102c.js",
+      "bytes": 926189,
+      "sha256": "e23580f4538da7d9c61cad840261df972382ddec8b76859b304bf08294988863",
+      "encoding": "UTF-8",
+      "contentOffset": 854502,
+      "contentBytes": 926189
+    },
+    {
+      "source": "nfsu2-extension/extension/dyno-native-profile-943.js",
+      "bytes": 924988,
+      "sha256": "bb04062818bb64d9aae0af117178ded906f09950ce94c5aee512eaf4dbb42873",
+      "encoding": "UTF-8",
+      "contentOffset": 1781177,
+      "contentBytes": 924988
+    },
+    {
+      "source": "nfsu2-extension/extension/dyno-native-profile-b1.js",
+      "bytes": 926202,
+      "sha256": "0cd4d313c91f2d339f615c1c1760ef7c9e2ed00c0a11f9ea5206c8ec1763b773",
+      "encoding": "UTF-8",
+      "contentOffset": 2706649,
+      "contentBytes": 926202
+    },
+    {
+      "source": "nfsu2-extension/extension/dyno-native-profile-bdc9.js",
+      "bytes": 926215,
+      "sha256": "b0364da90f1335d8162501132facdca831b84da207ba7554899678433f66c76c",
+      "encoding": "UTF-8",
+      "contentOffset": 3633336,
+      "contentBytes": 926215
+    },
+    {
+      "source": "nfsu2-extension/extension/dyno-native-profile-ed8.js",
+      "bytes": 926203,
+      "sha256": "d7636dde438b6804981f03ca6a039fba31800358037984712737b8370ad534eb",
+      "encoding": "UTF-8",
+      "contentOffset": 4560037,
+      "contentBytes": 926203
+    },
+    {
+      "source": "nfsu2-extension/extension/dyno-native-profile.js",
+      "bytes": 917140,
+      "sha256": "da9df4fe6d30b2a3115c7a2992526b39eaa9a110bf85fde8a03c49cb86bd9f4e",
+      "encoding": "UTF-8",
+      "contentOffset": 5486721,
+      "contentBytes": 917140
+    },
+    {
+      "source": "nfsu2-extension/extension/dyno-native.js",
+      "bytes": 19606,
+      "sha256": "617755acbc599f4e4557222c94b47f2d75121c1304239f76219e7f0bc83b7bc6",
+      "encoding": "UTF-8",
+      "contentOffset": 6404329,
+      "contentBytes": 19606
+    },
+    {
+      "source": "nfsu2-extension/extension/dyno.js",
+      "bytes": 9928,
+      "sha256": "5fef7f5015f43066a3cfebaaea4452e94d4ea4e6e4f4f234876f5e4cf560a29f",
+      "encoding": "UTF-8",
+      "contentOffset": 6424387,
+      "contentBytes": 9928
+    },
+    {
+      "source": "nfsu2-extension/extension/ecu-recipe-profile-b1.js",
+      "bytes": 5647,
+      "sha256": "3ecbe42cf7b41b034f6c9553fb97212f0d80767d8dedab8e3d091705f38fedc2",
+      "encoding": "UTF-8",
+      "contentOffset": 6434777,
+      "contentBytes": 5647
+    },
+    {
+      "source": "nfsu2-extension/extension/ecu-recipe-profile-bdc9.js",
+      "bytes": 5648,
+      "sha256": "3b19861a81f71fdf6c18910c50888c8c548dfb1cead6b4f63b0e47f6b4ca8231",
+      "encoding": "UTF-8",
+      "contentOffset": 6440905,
+      "contentBytes": 5648
+    },
+    {
+      "source": "nfsu2-extension/extension/ecu-recipe-profile-ed8.js",
+      "bytes": 5648,
+      "sha256": "d255bb47a2308b61ef2a75652d4b0f24b9fe007108040872cc60c1c243e42dcd",
+      "encoding": "UTF-8",
+      "contentOffset": 6447035,
+      "contentBytes": 5648
+    },
+    {
+      "source": "nfsu2-extension/extension/ecu-recipe-profile.js",
+      "bytes": 5679,
+      "sha256": "82ddb846588b7ca7943f1bd11aae99a949d5d52cd73e3127f4e4e4ee75ffd608",
+      "encoding": "UTF-8",
+      "contentOffset": 6453160,
+      "contentBytes": 5679
+    },
+    {
+      "source": "nfsu2-extension/extension/ecu-recipe.js",
+      "bytes": 7587,
+      "sha256": "a5260cd374ab6c480193f3be261453442faffb4d2819f9bf9bb8f43188372f07",
+      "encoding": "UTF-8",
+      "contentOffset": 6459304,
+      "contentBytes": 7587
+    },
+    {
+      "source": "nfsu2-extension/extension/ecu-scope-controller.js",
+      "bytes": 16161,
+      "sha256": "d7049dc896ae4ab5cfcd85bafbe14e6377a398e945ac4bb287464dc3f7de81b5",
+      "encoding": "UTF-8",
+      "contentOffset": 6467359,
+      "contentBytes": 16161
+    },
+    {
+      "source": "nfsu2-extension/extension/ecu-scope-profile-b1.js",
+      "bytes": 40283,
+      "sha256": "bb10113498c04c4876ade79af550caedf97d26a6d0be987a6a0a60a5825add0b",
+      "encoding": "UTF-8",
+      "contentOffset": 6483998,
+      "contentBytes": 40283
+    },
+    {
+      "source": "nfsu2-extension/extension/ecu-scope-profile-bdc9.js",
+      "bytes": 40285,
+      "sha256": "682e6dee6d4a4d8f2742c76763d351abc4d8010986a25c5f917ffa65396ed9bd",
+      "encoding": "UTF-8",
+      "contentOffset": 6524761,
+      "contentBytes": 40285
+    },
+    {
+      "source": "nfsu2-extension/extension/ecu-scope-profile-ed8.js",
+      "bytes": 40284,
+      "sha256": "0e6db5122518a1735696389d53c9c387e0239aadebd89c982ea5b3bccdc8e5cd",
+      "encoding": "UTF-8",
+      "contentOffset": 6565527,
+      "contentBytes": 40284
+    },
+    {
+      "source": "nfsu2-extension/extension/ecu-scope-profile.js",
+      "bytes": 32869,
+      "sha256": "09f945befdc88cd1ea77159a65b6b7e81c3e8bf2bb6d03d946c485604729c3d0",
+      "encoding": "UTF-8",
+      "contentOffset": 6606287,
+      "contentBytes": 32869
+    },
+    {
+      "source": "nfsu2-extension/extension/ecu-scope-ui.js",
+      "bytes": 5739,
+      "sha256": "a5fcd2ced3ac7a7202f412ae77a22d01f823ead06788cdcf03464aa6bed6c27a",
+      "encoding": "UTF-8",
+      "contentOffset": 6639622,
+      "contentBytes": 5739
+    },
+    {
+      "source": "nfsu2-extension/extension/ecu-scoped-patcher-b1.js",
+      "bytes": 10652,
+      "sha256": "bfc696eef94cdd46ecfff0761ef6d592c996c568a7a7a4502541ec922ad8b512",
+      "encoding": "UTF-8",
+      "contentOffset": 6645832,
+      "contentBytes": 10652
+    },
+    {
+      "source": "nfsu2-extension/extension/ecu-scoped-patcher-bdc9.js",
+      "bytes": 10656,
+      "sha256": "0097a26bcf008b11a258e238dd50903a165e00112ca5e0eeab649e7a542477c3",
+      "encoding": "UTF-8",
+      "contentOffset": 6656966,
+      "contentBytes": 10656
+    },
+    {
+      "source": "nfsu2-extension/extension/ecu-scoped-patcher-ed8.js",
+      "bytes": 10654,
+      "sha256": "c37b743e8cc548ec62685362615635b089371d46b38e2d768c117c7f0155d0fa",
+      "encoding": "UTF-8",
+      "contentOffset": 6668105,
+      "contentBytes": 10654
+    },
+    {
+      "source": "nfsu2-extension/extension/ecu-scoped-patcher.js",
+      "bytes": 9991,
+      "sha256": "092f71ff58f9824952fa5c77461b1c39410cca40ecf777cf20debbd6613b7991",
+      "encoding": "UTF-8",
+      "contentOffset": 6679236,
+      "contentBytes": 9991
+    },
+    {
+      "source": "nfsu2-extension/extension/ed8-profile.js",
+      "bytes": 60723,
+      "sha256": "6782597b56057b960e7a8b515120a4c47b52fb40d049dd8e47b33811003ac995",
+      "encoding": "UTF-8",
+      "contentOffset": 6689694,
+      "contentBytes": 60723
+    },
+    {
+      "source": "nfsu2-extension/extension/family-profiles.js",
+      "bytes": 1679,
+      "sha256": "ee775dc5504b60b772222ca16a57a1a55153fd0557b566b6bf82237eeb706816",
+      "encoding": "UTF-8",
+      "contentOffset": 6750880,
+      "contentBytes": 1679
+    },
+    {
+      "source": "nfsu2-extension/extension/forward-clamp.js",
+      "bytes": 10001,
+      "sha256": "35ae02a133df46aeeec4860de3170bc30a05e0d05dd07747d3d83647f79d2c61",
+      "encoding": "UTF-8",
+      "contentOffset": 6753025,
+      "contentBytes": 10001
+    },
+    {
+      "source": "nfsu2-extension/extension/forward-driving.js",
+      "bytes": 17693,
+      "sha256": "650a99c970a9d0a7f1eba0762ae7576bbfc6884d0b0a928fe89cfa752a30c186",
+      "encoding": "UTF-8",
+      "contentOffset": 6763492,
+      "contentBytes": 17693
+    },
+    {
+      "source": "nfsu2-extension/extension/forward-geometry.js",
+      "bytes": 16503,
+      "sha256": "01762bbbb899aee843672db4eacb6e7fc9a0e61df09f529f57349587fc59f3ec",
+      "encoding": "UTF-8",
+      "contentOffset": 6781654,
+      "contentBytes": 16503
+    },
+    {
+      "source": "nfsu2-extension/extension/forward-native-config.js",
+      "bytes": 474882,
+      "sha256": "b897554f4c3ccdbc14fc35d0dc0dde352e5da6ac83cc53ff110cf568a7a8d0d3",
+      "encoding": "UTF-8",
+      "contentOffset": 6798633,
+      "contentBytes": 474882
+    },
+    {
+      "source": "nfsu2-extension/extension/forward-native-patcher.js",
+      "bytes": 5947,
+      "sha256": "82ad51c12e24a51a3f51bdf02e112375ff76d33df27059b5874ee057d6bef7ff",
+      "encoding": "UTF-8",
+      "contentOffset": 7273995,
+      "contentBytes": 5947
+    },
+    {
+      "source": "nfsu2-extension/extension/forward-pacing.js",
+      "bytes": 22876,
+      "sha256": "f28697d8c1a51438eec8c1fc9aa09418e9657c58a2c0e480929ba2a4b57ddc9f",
+      "encoding": "UTF-8",
+      "contentOffset": 7280416,
+      "contentBytes": 22876
+    },
+    {
+      "source": "nfsu2-extension/extension/godly-catchup.js",
+      "bytes": 8489,
+      "sha256": "36cfe6cdfc794ad7c628da1a57d0362d4030211345dd44a3f8c9ed96a8035025",
+      "encoding": "UTF-8",
+      "contentOffset": 7303756,
+      "contentBytes": 8489
+    },
+    {
+      "source": "nfsu2-extension/extension/hud-layout.js",
+      "bytes": 10147,
+      "sha256": "18370d915b4d85c7d3df3e9279534f7b80aa59dff614da321ca1473db97d6614",
+      "encoding": "UTF-8",
+      "contentOffset": 7312706,
+      "contentBytes": 10147
+    },
+    {
+      "source": "nfsu2-extension/extension/latest-profile.js",
+      "bytes": 55234,
+      "sha256": "aba6d80c976bcdad9617d48e387bca232c6c7db13ab47316eddaa668dd49d429",
+      "encoding": "UTF-8",
+      "contentOffset": 7323315,
+      "contentBytes": 55234
+    },
+    {
+      "source": "nfsu2-extension/extension/manifest.json",
+      "bytes": 3879,
+      "sha256": "5124ee09395795dafc5b4ee1975741b372c3978953ceae662e1df7db81ebca2e",
+      "encoding": "UTF-8",
+      "contentOffset": 7379010,
+      "contentBytes": 3879
+    },
+    {
+      "source": "nfsu2-extension/extension/modern-profile.js",
+      "bytes": 56084,
+      "sha256": "81a2b0343cb5320b722a69a796464d8392493d75769f2b3a5e08a903a7a075fd",
+      "encoding": "UTF-8",
+      "contentOffset": 7383351,
+      "contentBytes": 56084
+    },
+    {
+      "source": "nfsu2-extension/extension/native-city-corner-102c.js",
+      "bytes": 6567,
+      "sha256": "78eb3ca06334a6a02175bd8e9b7347d8a08f58d331ea4efe6a4c3d35de7aa62e",
+      "encoding": "UTF-8",
+      "contentOffset": 7439909,
+      "contentBytes": 6567
+    },
+    {
+      "source": "nfsu2-extension/extension/native-corner-target.js",
+      "bytes": 7911,
+      "sha256": "02f83a238e94e0a1e4a4446af5bae84e0efc0ee44840d3092d7a542ab03eeed4",
+      "encoding": "UTF-8",
+      "contentOffset": 7446956,
+      "contentBytes": 7911
+    },
+    {
+      "source": "nfsu2-extension/extension/native-forward-lease-102c.js",
+      "bytes": 65135,
+      "sha256": "42ff4f9c4bda06d3b4aa15678a4267738435800735d928ae7815adccfa54f580",
+      "encoding": "UTF-8",
+      "contentOffset": 7455350,
+      "contentBytes": 65135
+    },
+    {
+      "source": "nfsu2-extension/extension/native-online-102c.js",
+      "bytes": 10203,
+      "sha256": "797ba286bfa5254a507c77c6c96399c79440884a1048b49839ca408cf8afceb7",
+      "encoding": "UTF-8",
+      "contentOffset": 7520966,
+      "contentBytes": 10203
+    },
+    {
+      "source": "nfsu2-extension/extension/native-online-609.js",
+      "bytes": 10300,
+      "sha256": "156c6a86fb822d05d9ba0e1ab570f0262e6417007cc8913c54b587f8bf97b64f",
+      "encoding": "UTF-8",
+      "contentOffset": 7531642,
+      "contentBytes": 10300
+    },
+    {
+      "source": "nfsu2-extension/extension/native-rubberband.js",
+      "bytes": 99883,
+      "sha256": "83868faba0174a6b5a3b2c9b66b8f90f7bf51d69ed5f9e23aa3703645d64cc96",
+      "encoding": "UTF-8",
+      "contentOffset": 7542414,
+      "contentBytes": 99883
+    },
+    {
+      "source": "nfsu2-extension/extension/native-synthetic-near-miss-609.js",
+      "bytes": 43655,
+      "sha256": "6afe5ad7939d62c640ab7e81b89b9981db1ae63ad24998b5f0e8cf32c9d306a3",
+      "encoding": "UTF-8",
+      "contentOffset": 7642782,
+      "contentBytes": 43655
+    },
+    {
+      "source": "nfsu2-extension/extension/native-target-feedback-102c.js",
+      "bytes": 10341,
+      "sha256": "98269d3e7c5e2a23dddb20b6bdecd604447ee0c20bc8f5013ddf66333527137e",
+      "encoding": "UTF-8",
+      "contentOffset": 7686932,
+      "contentBytes": 10341
+    },
+    {
+      "source": "nfsu2-extension/extension/native-transplant-102c.js",
+      "bytes": 264668,
+      "sha256": "84724ae1c630b4f72fc137602e4986df8e82b233f31eda71c3a169fcd2ce97ed",
+      "encoding": "UTF-8",
+      "contentOffset": 7697761,
+      "contentBytes": 264668
+    },
+    {
+      "source": "nfsu2-extension/extension/native-transplant-609.js",
+      "bytes": 262358,
+      "sha256": "296e1bc2af6dedfc5e962f7c4ebc0df5251f69c608527693342395ccee93ceb8",
+      "encoding": "UTF-8",
+      "contentOffset": 7962911,
+      "contentBytes": 262358
+    },
+    {
+      "source": "nfsu2-extension/extension/native-tuner-102c.js",
+      "bytes": 32950,
+      "sha256": "ff4e24d2b2b12cd1b4c43cc42535abb2f0b8a7951bf33257cd8b48e9d1938587",
+      "encoding": "UTF-8",
+      "contentOffset": 8225745,
+      "contentBytes": 32950
+    },
+    {
+      "source": "nfsu2-extension/extension/near-miss-control.js",
+      "bytes": 7451,
+      "sha256": "776c57e7712a557dab477f933fddcad280e964c4cddecc908854de313027b4bc",
+      "encoding": "UTF-8",
+      "contentOffset": 8259166,
+      "contentBytes": 7451
+    },
+    {
+      "source": "nfsu2-extension/extension/near-miss-events.js",
+      "bytes": 11125,
+      "sha256": "a6773a8a13db6370cbe397dcfd3ccc4455034c4268f26f28b4f6ab651ef49059",
+      "encoding": "UTF-8",
+      "contentOffset": 8267088,
+      "contentBytes": 11125
+    },
+    {
+      "source": "nfsu2-extension/extension/near-miss-top-up.js",
+      "bytes": 9313,
+      "sha256": "26d3962daf61f581c7001ce9aa85d15fdc8483ea582fa966f93bfea9ac37fa0f",
+      "encoding": "UTF-8",
+      "contentOffset": 8278682,
+      "contentBytes": 9313
+    },
+    {
+      "source": "nfsu2-extension/extension/next-profile.js",
+      "bytes": 112169,
+      "sha256": "f2b0e00fdb742756a475c50c3b5efb0df2ed3328194a76d522aff8a5f5395544",
+      "encoding": "UTF-8",
+      "contentOffset": 8288462,
+      "contentBytes": 112169
+    },
+    {
+      "source": "nfsu2-extension/extension/paced-catchup-controller.js",
+      "bytes": 14933,
+      "sha256": "336867fcd25b1c8ad3a6b33b93ff6f7db22eaf556ba674526b3fb0956cd3d5cb",
+      "encoding": "UTF-8",
+      "contentOffset": 8401105,
+      "contentBytes": 14933
+    },
+    {
+      "source": "nfsu2-extension/extension/paced-catchup.js",
+      "bytes": 1103836,
+      "sha256": "58efc2aa9aa3194af30a8d6942626907b46f2338a005a500b7f1af04ec829249",
+      "encoding": "UTF-8",
+      "contentOffset": 8416515,
+      "contentBytes": 1103836
+    },
+    {
+      "source": "nfsu2-extension/extension/PACKAGE-CHECKSUMS.json",
+      "bytes": 15598,
+      "sha256": "401194240eb0a5430073233036c328818a8f9b05dcb5cbe3c07c5989880f0eec",
+      "encoding": "UTF-8",
+      "contentOffset": 9520821,
+      "contentBytes": 15598
+    },
+    {
+      "source": "nfsu2-extension/extension/page.js",
+      "bytes": 235111,
+      "sha256": "d4a5494e3f0984ba94508bee320a1b42665fd8723f2c9c82d57103ef04b5a047",
+      "encoding": "UTF-8",
+      "contentOffset": 9536881,
+      "contentBytes": 235111
+    },
+    {
+      "source": "nfsu2-extension/extension/pitwall.js",
+      "bytes": 5859,
+      "sha256": "43871e35d92888d2156abce8a22315ac64f567e9f5bc9f29a2b9fafd989cb85e",
+      "encoding": "UTF-8",
+      "contentOffset": 9772440,
+      "contentBytes": 5859
+    },
+    {
+      "source": "nfsu2-extension/extension/popup.html",
+      "bytes": 4479,
+      "sha256": "a21888051d4e8b78ed77253da2656b2ab7f40d248f0904e858f238e51569985c",
+      "encoding": "UTF-8",
+      "contentOffset": 9778750,
+      "contentBytes": 4479
+    },
+    {
+      "source": "nfsu2-extension/extension/race-capture-config.js",
+      "bytes": 18917,
+      "sha256": "be88e81be873f0405e57817a6c16fd898fad79580fd227c01f420192724371b0",
+      "encoding": "UTF-8",
+      "contentOffset": 9783693,
+      "contentBytes": 18917
+    },
+    {
+      "source": "nfsu2-extension/extension/race-capture.js",
+      "bytes": 13637,
+      "sha256": "1f7a0d69f1fc4ed532300b42d8e865bd93c52fccace6c80b7795d4901f1fa8a9",
+      "encoding": "UTF-8",
+      "contentOffset": 9803079,
+      "contentBytes": 13637
+    },
+    {
+      "source": "nfsu2-extension/extension/RACE-CAPTURE.md",
+      "bytes": 5322,
+      "sha256": "f2a59d5fd2146e537635d6b2ff720e8d6fe3ffc6edecd1c35b01ca593a90f01d",
+      "encoding": "UTF-8",
+      "contentOffset": 9817177,
+      "contentBytes": 5322
+    },
+    {
+      "source": "nfsu2-extension/extension/race-catalog.js",
+      "bytes": 39079,
+      "sha256": "da45521b954011ee8ef16e0a01547bb618e539ace674b92b16fa983e2de5ad94",
+      "encoding": "UTF-8",
+      "contentOffset": 9822961,
+      "contentBytes": 39079
+    },
+    {
+      "source": "nfsu2-extension/extension/race-hub.js",
+      "bytes": 11738,
+      "sha256": "f76c99c14437708ce13b45bc41154d6d5f043508fefe21229210deee745dad59",
+      "encoding": "UTF-8",
+      "contentOffset": 9862498,
+      "contentBytes": 11738
+    },
+    {
+      "source": "nfsu2-extension/extension/race-showcase.js",
+      "bytes": 14267,
+      "sha256": "3e2be5d860967697a6fec1d0580a7d068f9fcb71ba879f4d0b69d663cf1851a3",
+      "encoding": "UTF-8",
+      "contentOffset": 9874695,
+      "contentBytes": 14267
+    },
+    {
+      "source": "nfsu2-extension/extension/race-stats.js",
+      "bytes": 8920,
+      "sha256": "3dacd67ddecb0164c9bb23113d4d8483594a9fe161ef095ff9a22dcf0f4e81f4",
+      "encoding": "UTF-8",
+      "contentOffset": 9889422,
+      "contentBytes": 8920
+    },
+    {
+      "source": "nfsu2-extension/extension/race-telemetry.js",
+      "bytes": 5875,
+      "sha256": "1a26dd1887a26b4779857ebafadf561673fe98a348de8637ce78ff8f4bf94718",
+      "encoding": "UTF-8",
+      "contentOffset": 9898803,
+      "contentBytes": 5875
+    },
+    {
+      "source": "nfsu2-extension/extension/race-window-geometry.js",
+      "bytes": 6762,
+      "sha256": "606c85593397dfe675783071fda58ddb73fc95a19cabf1412fb135df49455c24",
+      "encoding": "UTF-8",
+      "contentOffset": 9905149,
+      "contentBytes": 6762
+    },
+    {
+      "source": "nfsu2-extension/extension/README.md",
+      "bytes": 132236,
+      "sha256": "3cbf6e91db982333638357a35e4e66db176d2ad2dcb87529e9196276d964d06a",
+      "encoding": "UTF-8",
+      "contentOffset": 9912376,
+      "contentBytes": 132236
+    },
+    {
+      "source": "nfsu2-extension/extension/rear-radar.js",
+      "bytes": 6635,
+      "sha256": "f06a89ddcd6bb3608f44302144b5d1dd4f7d3d098d0a6bae93fd25ab8805addd",
+      "encoding": "UTF-8",
+      "contentOffset": 10045065,
+      "contentBytes": 6635
+    },
+    {
+      "source": "nfsu2-extension/extension/route-probe.js",
+      "bytes": 18228,
+      "sha256": "922a67eae91678c17ea69328309cfd4b16f3e716cd56dbb0127a99701765ddbe",
+      "encoding": "UTF-8",
+      "contentOffset": 10052159,
+      "contentBytes": 18228
+    },
+    {
+      "source": "nfsu2-extension/extension/rubberband-controller.js",
+      "bytes": 10984,
+      "sha256": "3506e60d01128aba78f523e369d125074a034b814605c790413b74cc2a8e6ccd",
+      "encoding": "UTF-8",
+      "contentOffset": 10070857,
+      "contentBytes": 10984
+    },
+    {
+      "source": "nfsu2-extension/extension/shortcut-policy.js",
+      "bytes": 43597,
+      "sha256": "7c00ef2aff5d4a3ab610279c08442261151a0b05bd2fb9e6e0f2441e6706d5bf",
+      "encoding": "UTF-8",
+      "contentOffset": 10082315,
+      "contentBytes": 43597
+    },
+    {
+      "source": "nfsu2-extension/extension/signature-profile-latest.js",
+      "bytes": 6749,
+      "sha256": "8f0e5f41110ea9198d31b75b7812fb9e897cfb44304de33734bd7a2fafbfeb5b",
+      "encoding": "UTF-8",
+      "contentOffset": 10126388,
+      "contentBytes": 6749
+    },
+    {
+      "source": "nfsu2-extension/extension/signature-profile-next.js",
+      "bytes": 6747,
+      "sha256": "3d7efa9d5bfdb3821b35348ab30506cb26800d72b8ec6c239e843bde863a0036",
+      "encoding": "UTF-8",
+      "contentOffset": 10133620,
+      "contentBytes": 6747
+    },
+    {
+      "source": "nfsu2-extension/extension/signature-profile.js",
+      "bytes": 6742,
+      "sha256": "40bf9f2f0982511a9ea524851514069085ff1f35a8e935fa1a0ac82b0f545ddb",
+      "encoding": "UTF-8",
+      "contentOffset": 10140843,
+      "contentBytes": 6742
+    },
+    {
+      "source": "nfsu2-extension/extension/signatures.js",
+      "bytes": 7121,
+      "sha256": "3077ad123d9b925b9506c13b79ce3ed742e979aeee4e5dc1ea9591701ccfb738",
+      "encoding": "UTF-8",
+      "contentOffset": 10148049,
+      "contentBytes": 7121
+    },
+    {
+      "source": "nfsu2-extension/extension/source-interfaces.js",
+      "bytes": 50545,
+      "sha256": "2f95b3b6ff9a751b7ac7130561ee0240ed2e0cad88d0262dbc7ed4dc78b3c8f5",
+      "encoding": "UTF-8",
+      "contentOffset": 10155635,
+      "contentBytes": 50545
+    },
+    {
+      "source": "nfsu2-extension/extension/stream-hud.js",
+      "bytes": 12605,
+      "sha256": "25ba62e38add604c9029a4d81b567a55adf745605c439152d9f40bf29e6e1b3e",
+      "encoding": "UTF-8",
+      "contentOffset": 10206645,
+      "contentBytes": 12605
+    },
+    {
+      "source": "nfsu2-extension/extension/target-feedback-state.js",
+      "bytes": 4676,
+      "sha256": "6ee335767e5fbc524a0487d9a9f77f66fc10a0c05220e3ef8d6ffba8ea57e364",
+      "encoding": "UTF-8",
+      "contentOffset": 10219718,
+      "contentBytes": 4676
+    },
+    {
+      "source": "nfsu2-extension/extension/target-feedback.js",
+      "bytes": 3006,
+      "sha256": "f6cd8c35a92a2703f52842654bbfe2a13655658603c70ddde15c1864bc2b2b5d",
+      "encoding": "UTF-8",
+      "contentOffset": 10224867,
+      "contentBytes": 3006
+    },
+    {
+      "source": "nfsu2-extension/extension/tool-profiles.js",
+      "bytes": 9685,
+      "sha256": "f4cee44e8bac9b8bcc74f9e46de1e4e4961d1da412e1110f579c2e86646735f0",
+      "encoding": "UTF-8",
+      "contentOffset": 10228338,
+      "contentBytes": 9685
+    },
+    {
+      "source": "nfsu2-extension/extension/tuner-profile-943.js",
+      "bytes": 30749,
+      "sha256": "647000e79a932bbdc25e4c290a2f3402c0af323bb62f08ba2e20896d4586176b",
+      "encoding": "UTF-8",
+      "contentOffset": 10238491,
+      "contentBytes": 30749
+    },
+    {
+      "source": "nfsu2-extension/extension/tuner-profile-b1.js",
+      "bytes": 32022,
+      "sha256": "6dbdf54041c7b3d045ace37362abd539f3557cdfb54fd2c8f1ed6af333477ffa",
+      "encoding": "UTF-8",
+      "contentOffset": 10269711,
+      "contentBytes": 32022
+    },
+    {
+      "source": "nfsu2-extension/extension/tuner-profile-bdc9.js",
+      "bytes": 32025,
+      "sha256": "d4438f47c0eae2cfcc63ea1eb296c177d04fe6db0582b5a08cad15b394410d14",
+      "encoding": "UTF-8",
+      "contentOffset": 10302205,
+      "contentBytes": 32025
+    },
+    {
+      "source": "nfsu2-extension/extension/tuner-profile-ed8.js",
+      "bytes": 32024,
+      "sha256": "05344f0b2b98f67e6e0229c7dba4a62b1682a641fb9773934caf94dca53bf29d",
+      "encoding": "UTF-8",
+      "contentOffset": 10334703,
+      "contentBytes": 32024
+    },
+    {
+      "source": "nfsu2-extension/extension/UPDATE-WINDOWS.txt",
+      "bytes": 1464,
+      "sha256": "f67e73acfee7852c5030b037769cf305438268432c7db023c0679b24fc67e2d1",
+      "encoding": "UTF-8",
+      "contentOffset": 10367196,
+      "contentBytes": 1464
+    },
+    {
+      "source": "nfsu2-extension/extension/walls.js",
+      "bytes": 3188,
+      "sha256": "80aea9873d7775ee7cbae22e548912ce24800f618beb1f4b385e82d2aac99ae2",
+      "encoding": "UTF-8",
+      "contentOffset": 10369117,
+      "contentBytes": 3188
+    },
+    {
+      "source": "nfsu2-extension/extension/worker-module-loader.js",
+      "bytes": 6656,
+      "sha256": "ab8aae460f980b50ca47b79020f27d1b2ea01a1499f0e88ece517020246731e1",
+      "encoding": "UTF-8",
+      "contentOffset": 10372767,
+      "contentBytes": 6656
+    }
+  ]
+}

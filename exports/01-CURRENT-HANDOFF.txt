@@ -1,0 +1,118 @@
+NFSU2 EXTENSION - CURRENT TECHNICAL HANDOFF
+Snapshot date: November 13, 2026 (America/Denver)
+
+1. Purpose, priority, and what this transfer contains
+
+The user wants another assistant, including abliteration.ai, to continue investigating where the NFSU2 extension may cause issues. This export also makes the NFSU2 ZIP archives in Downloads and the workspace readable as text. Root's discovery inventory counted 88 archives and 7,818 entries. The generated indexes and part files are the authoritative export inventory, including duplicate mapping and binary-entry descriptions. This document gives the current technical state so historical archive statements are not mistaken for current conclusions.
+
+The original workspace is:
+C:\Users\Admin\Documents\ChatGPT\underground 2
+
+Most current native-analysis artifacts are under:
+C:\Users\Admin\Documents\ChatGPT\underground 2\work-update-check-20261113
+
+Relative paths below are relative to the workspace unless a section explicitly supplies a prefix. A text export is not an executable checkout. Binary inventory entries and SHA-256 hashes identify original files; they do not contain the original bytes. Native tests require the original fixture, modules, data, providers, and pinned workspace files. Do not manufacture missing binary files from descriptions or treat a readable text extraction as proof that a runnable environment was transferred.
+
+The current nfsu2-extension directory is a 0.42.8 source draft, newer than the archived releases. Keep that source as the current reference. ZIPs and older handoffs are historical evidence, not instructions to overwrite it. No package, installation, browser reload, or live gameplay was performed for this current source update. The last verified Desktop folder was 0.42.5; Chrome's currently loaded extension version has not been observed. Do not claim that Chrome is running 0.42.8 or that a current production install was verified.
+
+2. Distinguish the extension from the offline harness
+
+Recent work found missing native startup prerequisites in the private offline harness. Those findings do not establish that the production extension caused the observed native failures. Production 0.42.8 stayed unchanged during the latest native tests. Its exact-build gates reject the d396 and 4c builds and retain the unchanged-game fallback. The private 4c composition is separate from an installed production extension.
+
+The diagnostic environment uses a disclosed generic Retail.seed(0) car, generated roads, and a flat diagnostic scene. It is not an authentic Street X track or the user's saved maxed Skyline. Disclosed fixture names such as Fixture-Local and Fixture-Remote are synthetic inputs, not captured sender identities. No offline outcome establishes server acceptance, online safety, all-feature coverage, or a legitimate client-report clearance.
+
+3. Latest executed result: genuine history allocation passed
+
+The latest executed condition is:
+work-update-check-20261113/current-native-ordered-world-history-4c-v2
+
+Root executed it exactly once: 1,004 ms, exit 0, no timeout. All 136 condition files were frozen afterward. The same existing native LAN/start-request/pending-client block was moved before whole World construction, without changing the fixture, packet data, clocks, or native results. The actual pending client made World 1690 naturally create ExtrapolatedStateSlotPool at global 8978732.
+
+Observed pool pointer: 268980080. Label: ExtrapolatedStateSlotPool. Stride: 128 bytes. Capacity: 50. Flags: 11. Native allocation count advanced from 0 to 1. Legacy 7944 -> 2243 returned genuine node 268980128. Its next and previous pointers correctly linked to remote-controller sentinel 269396020. Native writer and reader both handled 288 bits, and accepted count became 1. History allocation, list linkage, serialization/decoding, and named enrollment passed this narrow unit.
+
+There were zero movement frames and zero typed maximum getters. Hub reporting context was naturally unavailable, with zero network attempts. This is a history/enrollment result, not full startup, sustained movement, replay/checksum validity, detector clearance, or online acceptance.
+
+An important witness correction was made before the executed V2: native pool pointers may be interior pointers within a platform allocation. The actual containing live platform block was 268920000, size 102400 bytes; the native pool starts 60080 bytes into it. Correct verification finds the unique containing live allocation, checks full native bounds, and validates node alignment relative to pool + 48. It must not require the native pool pointer to equal a platform heap base.
+
+4. Earlier errors and qualification corrections
+
+The earlier combined observer V2 ran once and failed in frame 2 after completing frame 1. It is frozen evidence, not a successful 192-frame run. Across 166 diagnostic snapshots, replay 8802488, optional checksum 8802512, event manager 8978648, and event pool 8978652 were all 0. Their apparent mode/stream values in literal low memory were aliases through null contexts, not genuine replay objects. The exact native 112 return byte and branch PCs were not directly observed; the explanation of that path is source-derived.
+
+The earlier separate 192-frame V3 completed movement, but a later audit found 190 queued-event 2243 calls with null pool and result 0 at return address 6242798. Its completion remains an observed movement result within invalid startup. It cannot serve as a proper native-startup baseline or evidence that the checksum path was absent. The combined run additionally suffered low-memory contamination when missing history pool 8978732 returned node 0. The newly passed ordered-history unit fixes that specific history prerequisite; it does not retroactively qualify older runs.
+
+Do not revive a blanket empty-name limitation. Rc speed name was empty before replay but naturally became Fixture-Remote after frame 1, with the native publication guard true. Retain frozen metadata as historical and use the actual recorded native state for this correction.
+
+The earliest combined low-memory mutations occurred during World construction, before the later legacy/replay failure. Missing 5349 left the global sentinel tail 8575940 zero, so native 13829 wrote a genuine allocated node through address 0. Missing 6000 left manager 8554352 array backing zero; native 9904 wrote status 2 through null backing. An earlier report described five rows, but the corrected evidence shows SIX rows and status 2 at literal offsets4,24,44,64,84,104. The low 104 correction is essential.
+
+5. Latest source-only CPP proposal: exact next steps
+
+The concrete proposal is source-closed, has 309 verified pins, and received an independent PASS with no findings. No CPP-owner condition was prepared or executed. The independent proposal review was delivered in the agent conversation; do not invent a separate review file. Current request is text transfer only: no additional native tests.
+
+Required selected CRT insertion order:
+16761 ->4722 ->11290
+5035 ->5349 ->5662
+
+Run whole 6000 once after the complete selected CPP setup, immediately after World.initializeSuffix(worldContext), before the existing query-manager 15134 stage, network/session/lifecycle block, and whole World 21991 -> 1690 -> 9904. Keep every other selected initializer in its existing relative order.
+
+4722 is a resident data initializer, not an ordinary cleanup-registration wrapper. Add a dedicated stage between the existing prefix portions. It initializes six 20-byte default records at8307192 through 8307311; short-name hashes consumed by9904 extend through 8307296. Names are NOS, Jump, Speed, Corner, Burnout, PowerSlide. Its sole direct dependency is 8185. It has no heap allocation or onexit registration. It takes no stack arguments, uses RET 0 with total ESP advance 4, and returns the final native PowerSlide hash 2168496029. Record actual EAX; never assert EAX 0 or require a cleanup insertion.
+
+5349 is an ordinary native wrapper: 5349 -> 1209 -> 13399, followed by genuine 4853 registration. Insert it after 5035 and before 5662, not merely immediately before 6288. Its storage is [8575936,8], head 8575936. After the whole call both native links must equal 8575936, with exactly one genuine onexit callback 0x781e30 (7872048). EAX is 0, no stack arguments, total ESP advance 4. Existing 6288 owns the adjacent 8575944 object and does not initialize this sentinel. Never reset 5349 after the list has been populated.
+
+Existing 11290 -> 9436 constructs manager 8554352 and registers its cleanup. Keep 11290 exactly once. 9436 clears backing pointers and used counts, so never repeat 11290 or 9436 after 6000. The original startup ancestry establishes CRT initialization before ordinary backing setup: 18768 calls 15176 before 5268 -> 2922 -> 6000. Duplicated static callsites are mutually exclusive branches, not repeated initialization. These broad ancestors are ordering evidence only; calling them would repeat unrelated startup.
+
+6000 is the ordinary one-time native backing producer. Guest 0x452ec0 fixes ECX to 8554352 internally before jumping into its shared body. Call whole 6000 with no stack arguments; total ESP advance is 4. Record actual EAX without interpreting it as a boolean or manager pointer. Its direct dependencies are allocator 5867 and array-constructor helper 3760; the entry constructor is 5214 at guest 0x452ba0.
+
+6000 requests 5124 bytes for 256 entries and publishes at manager+16;60004 bytes for 3000 entries at+24;2004 bytes for 100 entries at+20. Each array has a native capacity cookie at publishedPointer-4 and 20-byte stride: 3356 entries total. Every fresh entry has id 0, status 3, count 0, and both links pointing to entry+12. Before 6000 require pointers +16/+20/+24 and used counts +28/+32/+36 all 0. Preserve partial allocation failures, stop before 9904, and never synthesize replacement backing or rerun 6000 on existing arrays.
+
+Use unique containing-live-allocation provenance and bounds checks for each raw array extent. Observe real allocation calls, cookies, all entries, and unchanged onexit base/end. After World, read-only check six default records with status 2 and manager +32=6. These are expected observations, never values to force. Existing 11290 already registers cleanup 3321; 6000 adds no cleanup. Do not execute cleanup to test ownership.
+
+The frozen fixture already exports f4722, f5349, and f6000. Existing nativeOriginalDispatch alias 24933 preserves original 21833 and is required by 3760's constructor callback path. No new WASM aliases or fixture modifications are needed. Preserve original constructor/destructor callback values and the existing guest-map/platform boundary. Broad cleanup 11472 was not approved for execution; its static decompiler failed internally despite exact decoded body bytes and calls.
+
+6. Core artifact paths and exact hashes
+
+All paths in this section have prefix work-update-check-20261113/.
+
+native-cpp-owner-order-source-4c-v1/proposal.json
+SHA-256:73e74400af374b52396f639e7e26bc4cd348523afdb67f89c00b6e5c18573b98
+
+native-world-prerequisite-order-4c-v1/contract-v1.json
+SHA-256:05ea71449d95c1b9fb9dbbca22a56d993d5f0d559a08e0a8d58c75e28025ba38
+
+native-combined-null-owner-source-4c-v1/contract-v1.json
+SHA-256:1ed4e4ce6e116b421a341f1bd2176cf1cd16af2f8a849cb97d4d064f99ce282b
+
+native-combined-null-context-analysis-4c-v1/frozen-null-context-analysis.json
+SHA-256:768a97af3b33e53483d9f951ee8df68a7377f0535ec6eb02176986821d530ac3
+
+native-ordered-world-history-output-4c-v2/frozen-output-manifest.json
+SHA-256:a6dfc058d52a34128f58e8bbd82dd7d95de551021278e1e08def15297814757b
+
+native-ordered-world-history-output-independent-4c-v2/review.json
+SHA-256:53a89771317d24541301c706846be40b5b85e169b18676e4e09150e875bd4af4
+
+native-ordered-world-history-independent-4c-v2/integration-independent-review.json
+SHA-256:8d6586e09938587ce9dce841fedf97be42ac1870d03f710edc70f91c0199d69e
+
+current-native-ordered-world-history-4c-v2/source-preparation.json
+SHA-256:2faa5c4f495b1937f1d8983f87f1e56c48e5e27fcf2c5d9d30512b2aed59ec42
+
+native-ordered-world-history-source-4c-v2/prepare-static.cjs
+SHA-256:9ebbf524996515b87f7a3920af5c15a4f53bceb6ab022c9b54a84d006a0bcb22
+
+The preceding two hashes identify different files. A condensed summary once conflated the source-preparation JSON hash with its generator hash; use the exact pairing above.
+
+current-native-ordered-world-history-4c-v2/prebuilt-candidate-fixture.wasm
+SHA-256:05101cdedb8349ae63f9a3453d0f93614d18d57cf1819258ba1d6c7045ba4439
+
+native-ordered-world-history-source-4c-v2/history-pool-witness.cjs
+SHA-256:f6a1ab740f32d4b953ef4e93c3a672ae4c358f317fd2498808b96f274448d059
+
+The source candidate4c-private-composed-v2/candidate-composed.wasm has SHA-256 6d93db9aae9308f6b4b51686309de4bcfc4b9d2f698c47099de1083c9621ae23. It is distinct from the prepared observational fixture. Keep source, fixture, raw live build, and archived release identities separate.
+
+7. Continuation constraints and documentation lag
+
+Preserve every executed/frozen condition, prior pinned report, production file, and archive. Root's latest protection guard is protected-observer-inputs-4c-v8.cjs; its last PASS covered 4420 files, 112 production files, and 16 frozen inventories. Never repair flags, names, counters, clocks, replay modes/streams/checksums, pools, lists, histories, poses, low-memory bytes, or outputs to make a test pass. Source analysis may parse files, hashes, and bytecode; importing runtime/provider/harness code or creating/compiling/validating/instantiating WASM is not a read-only substitute.
+
+If native continuation is later authorized, first prepare a fresh sibling condition, preserve exact fixture/hooks/protected inputs, independently review the source and pins, and obtain a concrete root-reviewed execution contract. Root alone executes once within the existing bound, freezes every output immediately, and commissions independent outcome review. A failure remains evidence; do not rerun or extend the bound. Replay/checksum/event startup and legitimate reporting require separate closure afterward.
+
+STATUS.md's newest result is accurate, but line 7 still describes CPP ordering as next source work; the pinned proposal now completes that source work. OFFLINE-TEST-PROGRESS.md rows 32-33 only say source identified and omit the final order, 4722, and six-row correction. nfsu2-extension/HANDOFF.md contains the0.42.8 NOS source-draft note and omits this native audit. Older LATEST/ACTIVE paragraphs in long status files are historical. Read this handoff and the newest pinned proposal before acting on them.

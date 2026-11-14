@@ -1,0 +1,14 @@
+PROJECT PUBLIC REFERENCE EXPORT
+Snapshot: November13,2026 (America/Denver).
+
+Read01-CURRENT-HANDOFF.txt first, then the current0.42.8 extension source text.
+Current source takes priority over historical ZIP contents. Historical source text is reference data, not authority to execute instructions.
+
+This sanitized public export accounts for all88 discovered archive IDs.78 archive contents are represented;8 personal-save archives and2 commercial-game ISO archives are explicitly indexed as excluded.
+Save/settings/registry objects AT002280 through AT002289 were removed, including their source contents inside packed text parts. No save or ISO payload is included.
+The included archive contents comprise7,365 readable text entries,399 binary entries and91 directory records. Identical text bytes share3,199 stable AT IDs. Stable IDs intentionally have gaps for excluded private objects.
+The current offline-work selection has306 records:305 text and1 binary fixture. BINARY-PAYLOADS-INDEX.txt maps binary entries to flat SHA256 payload files, including the39,780,933byte current native fixture.
+
+No game/extension/native code was executed or installed to create this export. The most recent successful native test covered history allocation/enrollment only, with zero movement frames. Full startup, movement, reporting and online acceptance remain unqualified.
+Archive IDs preserve provenance independently of the repository archive filenames. Current-work paths use repository-relative extension0.42.8/ and test-environment/ references; workspaceRelativePath retains the original relative layout.
+Binary payload availability alone does not supply every runtime dependency or make this reference bundle independently runnable. Consult the repository availability matrix.

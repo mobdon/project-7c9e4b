@@ -1,0 +1,9 @@
+*.iso
+*.sav
+*.save
+*.reg
+.env
+.env.*
+node_modules/
+.npm-cache/
+__pycache__/

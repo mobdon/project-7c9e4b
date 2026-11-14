@@ -1,0 +1,25 @@
+NFSU2 Driving Tools 0.42.8
+
+Update the existing loaded extension folder with this folder's complete contents.
+Reload the existing card in chrome://extensions, then refresh the game.
+The panel and popup must show 0.42.8. Keep one enabled copy.
+
+Automatic NOS refill remains disabled.
+Saved settings, restored profiles and online permission cannot enable refill.
+Normal game-earned NOS and its usual use remain available.
+Synthetic near miss has Award once and a separate Keep NOS topped up switch.
+Top-up starts off, waits at full, and resumes when effective NOS drops below full.
+It requires the verified native connection and only runs after you enable it.
+F7/F9, car/session replacement and uncertain outcomes turn top-up off.
+It also changes style points/multipliers. NOS is reported as a whole-tick change.
+
+60946132: scoped core driving/online native support. The tuner, leased geometry,
+per-target feedback, online car-category selectors and travel remain unavailable.
+Online requires its independent opt-in. Stop/manual takeover stays available.
+
+The extension now uses its game-worker startup observer instead of replacing
+WebAssembly.compileStreaming. Other worker observation remains. Current game
+monitoring and reports remain active; this is not proof of multiplayer acceptance.
+
+Keep a complete previous folder outside the loaded directory for rollback.
+See README.md for the exact scope and offline verification limitations.

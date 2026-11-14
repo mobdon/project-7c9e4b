@@ -1,0 +1,24 @@
+NFSU2 DRIVING TOOLS - PROJECT EXPLANATION
+Snapshot: November 13, 2026
+
+We are developing NFSU2 Driving Tools, an experimental Chrome extension for the browser version of Need for Speed Underground 2 at nfsu2.xyz. We want to preserve and improve our existing driving, tuning, racing and streaming tools, keep them compatible with game changes, and understand how their behavior appears in game state, movement observations and client reports.
+
+The extension adds an in-game interface and connects to the game's native WebAssembly runtime through integrations for specific game builds. It goes beyond displaying information: supported tools can influence driving and car behavior. An implementation being present in the source does not mean it is enabled or verified on every build. Unsupported builds or failed preparation leave the affected tools unavailable.
+
+The project includes:
+- Native AI driving, pace and corner controls, Stay on rails, and catch-up assistance.
+- Build-specific power, limiter, grip and drift-assistance options. Reported freezes with power/limiter/grip tools remain unresolved.
+- Drag handoff and engine protection, plus contact controls on supported builds and modes.
+- Solo tuning tools and experimental race-loop and destination-travel features.
+- Telemetry, race statistics, streaming HUD, radar, diagnostics and saved extension settings profiles. These profiles are not game saves or saved car tunes.
+- Synthetic near-miss awards and an optional NOS top-up control in the current draft.
+
+On game build 60946132, the tuner/ECU, leased road geometry, per-target corner feedback, online car-category controls, race capture and destination travel remain unavailable. Their source and earlier build profiles are retained for further work.
+
+Our current source draft is version 0.42.8. Direct automatic NOS refill is disabled. The replacement experiment deliberately requests a synthetic native style award; it does not prove a real traffic near miss happened. It offers Award once and a session-only Keep NOS topped up switch. The loop waits when NOS is full and permits one outstanding request at a time. These awards also affect style points and combo multipliers. Live behavior remains unverified.
+
+We have also built a separate offline test environment to examine game monitoring, report encoding and recipient-side movement observation without sending reports to the live service. That test environment is distinct from the extension. Its startup defects must not automatically be attributed to the extension, and artificial fixtures must be identified as such.
+
+Testing is incomplete. The latest successful native unit established history allocation and remote-car enrollment, with zero movement frames. A complete valid startup and sustained extension-produced movement test remain unfinished. We have not established that every feature avoids reports, that the current draft is installed in Chrome, or that it is accepted online. Successful report encoding only establishes serialization; it does not mean the report contains no observations or that a server accepts the behavior. Game monitoring and reporting remain active.
+
+For continuation, use the separate NFSU2-EXTENSION-0.42.8-COMPLETE.txt as the current extension reference and read 01-CURRENT-HANDOFF.txt for exact findings and remaining work. Historical ZIP contents are comparison material. The immediate engineering task is to finish the valid offline baseline, test supported features individually, record actual results, and fix demonstrated compatibility or behavior problems while preserving the existing work. Text exports index binary files; they are not a runnable copy of the complete game or test environment.
