@@ -1,6 +1,6 @@
 {
-  "extension_version": "0.43.0",
-  "version_name": "0.43.0-d739e631-draft.1",
+  "extension_version": "0.43.1",
+  "version_name": "0.43.1-a3a9a837-draft.1",
   "algorithm": "SHA256",
   "scope": "All extension files except this checksum file",
   "files": {
@@ -12,6 +12,26 @@
       "bytes": 2141,
       "sha256": "0c4820f115d2389078f91deb95d034c62512a0cd8fe84b98c6113a42fa2ce941"
     },
+    "CHANGELOG.md": {
+      "bytes": 92198,
+      "sha256": "ceae426eb18f612dc147acb2fc9457744d650da755bf956193f98f98f871c034"
+    },
+    "RACE-CAPTURE.md": {
+      "bytes": 5322,
+      "sha256": "f2a59d5fd2146e537635d6b2ff720e8d6fe3ffc6edecd1c35b01ca593a90f01d"
+    },
+    "README.md": {
+      "bytes": 135661,
+      "sha256": "3c131939afce1044772ebe3df4305f6f96d4aec055dadcd17c136a68e69f18cc"
+    },
+    "UPDATE-WINDOWS.txt": {
+      "bytes": 1464,
+      "sha256": "f67e73acfee7852c5030b037769cf305438268432c7db023c0679b24fc67e2d1"
+    },
+    "a3a9a837-profile.js": {
+      "bytes": 2192,
+      "sha256": "f77e117ec7491d94209550cd44202115d70e863ba85ecaf5c05d73d9ce0f1eae"
+    },
     "aa-profile.js": {
       "bytes": 60118,
       "sha256": "6aa47f9d5eb9a7033cc23636c67a8ad695604521a4c4b63fb3eef1e85491fd07"
@@ -21,8 +41,8 @@
       "sha256": "4b4ff72bd169ce52230b27f806891a701a227bf10b37756f99036db50bbc584f"
     },
     "ai.js": {
-      "bytes": 102422,
-      "sha256": "63df646395a57241ee3d79d9d67fc34981de9baa9c7ec2326694f004b34fd282"
+      "bytes": 102855,
+      "sha256": "4a62ce9e1a4ce87f84f6e3e3deb62b141967c18e45532c9f5335a39372fc4f31"
     },
     "autonomy-drive.js": {
       "bytes": 6056,
@@ -60,10 +80,6 @@
       "bytes": 56143,
       "sha256": "8977c19bf52cc94501b55184aef5ad1e27296cd720e8be89aedd543367c9c53b"
     },
-    "CHANGELOG.md": {
-      "bytes": 91316,
-      "sha256": "9bcdf04affde03a7eea2e3dc94589af3a840fb82aafca0e425406357492ad594"
-    },
     "city-contact-preview.js": {
       "bytes": 7254,
       "sha256": "c6675c41a45cbfdd12269d91b2bade5a0d5bf1d730faa236abf2c7d24c3f8007"
@@ -73,8 +89,8 @@
       "sha256": "5f8c0d2150c876d3c3ed97915549bcd3816b42d519b55f403446bb41eb3a7758"
     },
     "core.js": {
-      "bytes": 32276,
-      "sha256": "5661a41e8270c58dbe78f6456f663498341c9e385a8c442f4d23ef1170cfaeaa"
+      "bytes": 32406,
+      "sha256": "d2a413cada0e1186d0bc428dff33414b52cb9917c62aae6c847ebe6f48e4b442"
     },
     "current-profile.js": {
       "bytes": 32268,
@@ -225,8 +241,8 @@
       "sha256": "01762bbbb899aee843672db4eacb6e7fc9a0e61df09f529f57349587fc59f3ec"
     },
     "forward-native-config.js": {
-      "bytes": 476342,
-      "sha256": "bcf1f157199b4f0aa63794f2061bd63fb9e1d888157251e24b1ce101c9260552"
+      "bytes": 477072,
+      "sha256": "ae879e49ad10c7da21bbbb2e28ccc16cd44e928348f77c3a6dbca345867ba58c"
     },
     "forward-native-patcher.js": {
       "bytes": 5947,
@@ -249,8 +265,8 @@
       "sha256": "aba6d80c976bcdad9617d48e387bca232c6c7db13ab47316eddaa668dd49d429"
     },
     "manifest.json": {
-      "bytes": 4087,
-      "sha256": "56420c1a095f2229071ef2415bdf8160181b1fd405d606f7eaa2fe8babc23f58"
+      "bytes": 4246,
+      "sha256": "1cfa0d5918b9b50d3cae65281852a5877349e27b9239c82c4cef2ea5cd40aba0"
     },
     "modern-profile.js": {
       "bytes": 56084,
@@ -276,6 +292,10 @@
       "bytes": 10300,
       "sha256": "156c6a86fb822d05d9ba0e1ab570f0262e6417007cc8913c54b587f8bf97b64f"
     },
+    "native-online-a3a9a837.js": {
+      "bytes": 10310,
+      "sha256": "dab20bb4a477913d2f179239d79cc43b84c0247319bda5988c2953f1431a5884"
+    },
     "native-online-d396.js": {
       "bytes": 10302,
       "sha256": "5ad55129004740d4099acd7619e3d6a99bb68e6d156bd8ce3e7428084beb4112"
@@ -291,6 +311,10 @@
     "native-synthetic-near-miss-609.js": {
       "bytes": 43655,
       "sha256": "6afe5ad7939d62c640ab7e81b89b9981db1ae63ad24998b5f0e8cf32c9d306a3"
+    },
+    "native-synthetic-near-miss-a3a9a837.js": {
+      "bytes": 43746,
+      "sha256": "e9c4c1bc17857d511572f05e5871ebc32b309e84c5d25077f1b61d2dc65bf605"
     },
     "native-synthetic-near-miss-d396.js": {
       "bytes": 43656,
@@ -311,6 +335,10 @@
     "native-transplant-609.js": {
       "bytes": 262358,
       "sha256": "296e1bc2af6dedfc5e962f7c4ebc0df5251f69c608527693342395ccee93ceb8"
+    },
+    "native-transplant-a3a9a837.js": {
+      "bytes": 262090,
+      "sha256": "47f9c1c02b08877f618475d2c0070fba7037e7a8a8cf408d15d078fdcc0f2564"
     },
     "native-transplant-d396.js": {
       "bytes": 262082,
@@ -345,12 +373,12 @@
       "sha256": "3e7c82e4cb2e41a6bdca45c0021cc9e3bb2f0aef1105c2c712f8821f61fbb1e4"
     },
     "paced-catchup.js": {
-      "bytes": 1104776,
-      "sha256": "ca354069cfaf73bc32fd38f35e2c6f947a8d30f4a22f536cac2085b14b42571e"
+      "bytes": 1105246,
+      "sha256": "b2d7baaede97685b85024b19b8d7ec366954ec73cc03cd30eb52d5e6fbf8abca"
     },
     "page.js": {
       "bytes": 232399,
-      "sha256": "a0a01a0f10a4037d70bbcb83a00e293f298043ada4e183a4a7846be2fab1ec65"
+      "sha256": "00c593c99f8fbf915ec1b330fc6e2a28fb694d791c7ec59cb647825d0990f894"
     },
     "pitwall.js": {
       "bytes": 5859,
@@ -358,7 +386,7 @@
     },
     "popup.html": {
       "bytes": 4463,
-      "sha256": "73641ffcd68392ab37b4821549ff91e000e57c3187b1b796746f28aa64ee7414"
+      "sha256": "bb3b0afa0c319b216ec30891150ddd0bc9ab27cb3f4f4ebc633eef39a67f4909"
     },
     "race-capture-config.js": {
       "bytes": 18917,
@@ -367,10 +395,6 @@
     "race-capture.js": {
       "bytes": 13637,
       "sha256": "1f7a0d69f1fc4ed532300b42d8e865bd93c52fccace6c80b7795d4901f1fa8a9"
-    },
-    "RACE-CAPTURE.md": {
-      "bytes": 5322,
-      "sha256": "f2a59d5fd2146e537635d6b2ff720e8d6fe3ffc6edecd1c35b01ca593a90f01d"
     },
     "race-catalog.js": {
       "bytes": 39079,
@@ -395,10 +419,6 @@
     "race-window-geometry.js": {
       "bytes": 6762,
       "sha256": "606c85593397dfe675783071fda58ddb73fc95a19cabf1412fb135df49455c24"
-    },
-    "README.md": {
-      "bytes": 134779,
-      "sha256": "b7c436860e3042901082f2191550e66e9b3b824ee85d9cf367700bf3da2fd2ce"
     },
     "rear-radar.js": {
       "bytes": 6635,
@@ -433,8 +453,8 @@
       "sha256": "3077ad123d9b925b9506c13b79ce3ed742e979aeee4e5dc1ea9591701ccfb738"
     },
     "source-interfaces.js": {
-      "bytes": 56519,
-      "sha256": "a7e0758d93e067457f4d2d40f1662de4354f51f857ad38c0b46405c9f6f903a5"
+      "bytes": 59506,
+      "sha256": "ab73f973110566e6959a9c92e5f43619356de85156169ec749d8f0a9242d113d"
     },
     "stream-hud.js": {
       "bytes": 12605,
@@ -467,10 +487,6 @@
     "tuner-profile-ed8.js": {
       "bytes": 32024,
       "sha256": "05344f0b2b98f67e6e0229c7dba4a62b1682a641fb9773934caf94dca53bf29d"
-    },
-    "UPDATE-WINDOWS.txt": {
-      "bytes": 1464,
-      "sha256": "f67e73acfee7852c5030b037769cf305438268432c7db023c0679b24fc67e2d1"
     },
     "walls.js": {
       "bytes": 3188,

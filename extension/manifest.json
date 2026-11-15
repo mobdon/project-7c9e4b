@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "NFSU2 Driving Tools (d739e631 draft)",
-  "version": "0.43.0",
-  "description": "Experimental adapter for revision d739e631. Runtime validation pending.",
+  "name": "NFSU2 Driving Tools (a3a9a837 draft)",
+  "version": "0.43.1",
+  "description": "Experimental adapter for revision a3a9a837. Runtime validation pending.",
   "minimum_chrome_version": "111",
   "action": {
     "default_title": "NFSU2 Driving Tools",
@@ -42,6 +42,7 @@
         "609-profile.js",
         "d396-profile.js",
         "d739e631-profile.js",
+        "a3a9a837-profile.js",
         "signatures.js",
         "signature-profile.js",
         "signature-profile-latest.js",
@@ -90,6 +91,9 @@
         "native-transplant-d739e631.js",
         "native-online-d739e631.js",
         "native-synthetic-near-miss-d739e631.js",
+        "native-transplant-a3a9a837.js",
+        "native-online-a3a9a837.js",
+        "native-synthetic-near-miss-a3a9a837.js",
         "native-online-609.js",
         "native-synthetic-near-miss-609.js",
         "source-interfaces.js",
@@ -133,5 +137,5 @@
       "all_frames": false
     }
   ],
-  "version_name": "0.43.0-d739e631-draft.1"
+  "version_name": "0.43.1-a3a9a837-draft.1"
 }

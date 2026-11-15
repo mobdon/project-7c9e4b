@@ -5,7 +5,7 @@ const EXT=path.resolve(__dirname,'../extension'),RAW='7e383d40180403ce116e0541ad
 const P=require('../extension/d739e631-profile.js'),Paced=require('../extension/paced-catchup.js'),Legacy=require('../extension/native-rubberband.js');
 const BuildMetadata=require('./d739-game-metadata.json');
 test('draft numeric version and visible labels identify the uninstalled draft',()=>{
- const manifest=JSON.parse(fs.readFileSync(path.join(EXT,'manifest.json')));assert.equal(manifest.version,'0.43.0');assert.equal(manifest.version_name,'0.43.0-d739e631-draft.1');
+ const manifest=JSON.parse(fs.readFileSync(path.join(EXT,'manifest.json')));assert.equal(manifest.version,'0.43.1');assert.equal(manifest.version_name,'0.43.1-a3a9a837-draft.1');
  for(const name of ['page.js','popup.html'])assert(fs.readFileSync(path.join(EXT,name),'utf8').includes(manifest.version_name));
 });
 test('d739e631 metadata is exact and unsupported capability categories stay disabled',()=>{
@@ -22,10 +22,10 @@ test('d739e631 selects the composed RBA8/RBA9 protocol without aliasing legacy R
 test('all four d739e631 producers precede AI and source interfaces precede profile resolution',()=>{
  const scripts=JSON.parse(fs.readFileSync(path.join(EXT,'manifest.json'))).content_scripts[0].js,ai=scripts.indexOf('ai.js');
  for(const name of ['d739e631-profile.js','native-transplant-d739e631.js','native-online-d739e631.js','native-synthetic-near-miss-d739e631.js','source-interfaces.js'])assert(scripts.indexOf(name)>=0&&scripts.indexOf(name)<ai);
- assert.equal(scripts.length,113);assert.equal(ai+1,80);
+ assert.equal(scripts.length,117);assert.equal(ai+1,84);
 });
 test('draft package inventory and every extension file match fresh checksums',()=>{
  const p=JSON.parse(fs.readFileSync(path.join(EXT,'PACKAGE-CHECKSUMS.json'))),names=fs.readdirSync(EXT).filter(n=>n!=='PACKAGE-CHECKSUMS.json'&&fs.statSync(path.join(EXT,n)).isFile()).sort();
- assert.equal(p.extension_version,'0.43.0');assert.equal(p.version_name,'0.43.0-d739e631-draft.1');assert.deepEqual(Object.keys(p.files).sort(),names);
+ assert.equal(p.extension_version,'0.43.1');assert.equal(p.version_name,'0.43.1-a3a9a837-draft.1');assert.deepEqual(Object.keys(p.files).sort(),names);
  for(const name of names){const b=fs.readFileSync(path.join(EXT,name));assert.equal(b.length,p.files[name].bytes);assert.equal(crypto.createHash('sha256').update(b).digest('hex'),p.files[name].sha256);}
 });

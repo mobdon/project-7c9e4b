@@ -4,17 +4,17 @@ Experimental Chrome extension for driving-assistance research.
 Private use, experimental status. Not affiliated with any game or platform.
 Some options are cheat-style game modifications. Testers only.
 
-## Versioned candidate: 0.43.0-d739e631-draft.1
+## Versioned candidate: 0.43.1-a3a9a837-draft.1
 
-The extension and [tested ZIP](releases/0.43.0-d739e631-draft.1/nfsu2-driving-tools-0.43.0-d739e631-draft.1.zip) target the captured **d739e631** module. The exact source-to-primary-to-online-to-synthetic adapter chain compiled successfully. All **374 host tests across 16 files** passed with artificial data and no game execution. [Validation record](releases/0.43.0-d739e631-draft.1/VALIDATION.json).
+The extension and [tested ZIP](releases/0.43.1-a3a9a837-draft.1/nfsu2-driving-tools-0.43.1-a3a9a837-draft.1.zip) target the captured **a3a9a837** module. The exact source-to-primary-to-online-to-synthetic adapter chain compiled successfully. All **410 host tests across 18 files** passed with artificial data and no game execution. [Validation record](releases/0.43.1-a3a9a837-draft.1/VALIDATION.json).
 
-A subsequent site update was reported after this package was frozen. Compatibility with that newer update is being rechecked; this record covers d739e631 only. Unknown or failed module preparation keeps memory tools disabled.
+The November 15, 2026 capture identifies **a3a9a837**. The recheck found one changed native traffic-default function; its complete incoming body is preserved in every patched stage. This record covers the captured bytes and does not prove which module a running page uses. Unknown or failed module preparation keeps memory tools disabled.
 
 Synthetic near miss retains **Award once** and **Loop synthetic near misses**. The loop confirms one award at a time, waits at full NOS and resumes after consumption. It starts off for each page; F7/F9 stops it. The separate unused direct-refill control and active preference were removed. Old saved session fields are scrubbed, and named profiles preserve their legacy schema with `nos:false`.
 
 Native award amount remains 1, distinct from the game's combo multiplier. Serial awards retain native combo progression; earlier retail metadata specifies a cap of 5. Immediate or current live ×5 NOS gain is not verified, and the loop can pause at full NOS before reaching that combo.
 
-The d396 profile and earlier exact profiles remain registered with their existing feature guards. Native AI, pace/corner hooks, race rails and scoped Drag/collision tools are retained. Unavailable tuner/ECU, leased forward geometry, per-target corner feedback and online car-category capabilities remain unavailable on this candidate. Online-capable tools still require **Allow network tools** and a verified adapter.
+The d739e631, d396 and earlier exact profiles remain registered with their existing feature guards. Native AI, pace/corner hooks, race rails and scoped Drag/collision tools are retained. Unavailable tuner/ECU, leased forward geometry, per-target corner feedback and online car-category capabilities remain unavailable on this candidate. Online-capable tools still require **Allow network tools** and a verified adapter.
 
 Compilation and host tests do not establish native game startup, live driving, online acceptance or installation. The frozen C4/B0 work and earlier baseline limitations remain separate evidence.
 
@@ -25,14 +25,14 @@ Compilation and host tests do not establish native game startup, live driving, o
 3. Choose **Load unpacked** and select this repository's `extension/` directory.
 4. Refresh the game page. F8 opens the tools, F7 returns manual control, and F9 stops tools.
 
-These are manual tester instructions; this publication did not install or reload Chrome. The ZIP is versioned for d739e631 and must not be treated as clearance for later site revisions.
+These are manual tester instructions; this publication did not install or reload Chrome. The ZIP is versioned for a3a9a837 and must not be treated as clearance for later site revisions.
 
 ## Layout
 
 - [`extension/`](extension/) — current extension source; prefer this over historical packages.
 - [`tests/`](tests/) — exact host-test sources for this candidate.
 - [`test-environment/`](test-environment/) — curated offline monitor/encoding harness, a separate artifact whose defects and artificial fixtures are its own.
-- [`exports/`](exports/) — retained historical 0.42.8 text exports and indexed binaries, not the current 0.43.0 reference. Use [`NFSU2-EXTENSION-0.42.8-COMPLETE.txt`](exports/NFSU2-EXTENSION-0.42.8-COMPLETE.txt) as that version's complete extension reference and [`01-CURRENT-HANDOFF.txt`](exports/01-CURRENT-HANDOFF.txt) for its historical findings and remaining work.
+- [`exports/`](exports/) — retained historical 0.42.8 text exports and indexed binaries, not the current 0.43.1 reference. Use [`NFSU2-EXTENSION-0.42.8-COMPLETE.txt`](exports/NFSU2-EXTENSION-0.42.8-COMPLETE.txt) as that version's complete extension reference and [`01-CURRENT-HANDOFF.txt`](exports/01-CURRENT-HANDOFF.txt) for its historical findings and remaining work.
 - [`archive/`](archive/) — historical ZIPs, for comparison only; do not overwrite current source with them.
 - [`releases/`](releases/) — tested ZIPs only; see its status note. Historical checks do not establish current live clearance.
 
@@ -40,7 +40,7 @@ Saves and ISOs are excluded. Included game-derived binaries are identified by th
 
 ## Verification state
 
-The d739e631 compile and 374/374 host results are recorded above. The following older native-baseline limitations remain unresolved and are not superseded by those host checks.
+The a3a9a837 compile and 410/410 host results are recorded above. The following older native-baseline limitations remain unresolved and are not superseded by those host checks.
 
 Offline baseline incomplete; power/limiter/grip freezes unresolved; synthetic NOS award behavior live-unverified. The latest history/enrollment unit passed with **zero movement frames**; an earlier 192-frame completion was later disqualified as a proper native-startup baseline. The next CPP startup correction is reviewed source only, not prepared or executed.
 

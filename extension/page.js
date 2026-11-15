@@ -3,7 +3,7 @@
   if (location.origin !== 'https://nfsu2.xyz' || window.top !== window || window.__nfsu2DrivingTools) return;
   Object.defineProperty(window, '__nfsu2DrivingTools', { value: true });
   let diagnostics = null;
-  try { let storage = null; try { storage = sessionStorage; } catch {} diagnostics = globalThis.__NFSU2_DIAGNOSTICS__?.create({storage,version:'0.43.0-d739e631-draft.1'}) || null; } catch {}
+  try { let storage = null; try { storage = sessionStorage; } catch {} diagnostics = globalThis.__NFSU2_DIAGNOSTICS__?.create({storage,version:'0.43.1-a3a9a837-draft.1'}) || null; } catch {}
   let diagnosticState = {}, diagnosticIdentity = null, diagnosticPatch = '';
   // The log is observational only: no memory writes, upload, raw console capture or error text.
   const recordDiagnostic = (event, extra = {}) => { try { diagnostics?.record(event,{...diagnosticState,...extra}); } catch {} };
@@ -1457,7 +1457,7 @@ ${StreamHud?.markup()?.replace('</section>',(Pitwall?.markup()||'')+'</section>'
 <p class="hud-foot">req = requested · ack = native acknowledgement<br>set = power fields, not a measured speed gain<span id="hud-governor" hidden></span><span id="hud-state">Waiting for live sample</span></p>
 </section>
 <div id="tools-panel" class="panel" hidden>
-<div class="toolbar"><button id="take-control" title="Return to manual control">Manual <kbd>F7</kbd></button><button id="stop" class="stop" title="Stop driving assists">Stop <kbd>F9</kbd></button><span class="version">0.43.0-d739e631-draft.1</span></div>
+<div class="toolbar"><button id="take-control" title="Return to manual control">Manual <kbd>F7</kbd></button><button id="stop" class="stop" title="Stop driving assists">Stop <kbd>F9</kbd></button><span class="version">0.43.1-a3a9a837-draft.1</span></div>
 <section class="menu-feedback" aria-label="Live tool feedback">
 <div><strong>Driver</strong><span id="ai-state">Waiting for game</span></div>
 <div><strong>Race loop</strong><span id="autonomy-state" role="status">Off; choose race starts in free roam</span></div>

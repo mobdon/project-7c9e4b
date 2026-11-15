@@ -7,6 +7,7 @@
   // distinguish online free roam from solo before any controller writes.
   const Network102c=root.__NFSU2_102C_PROFILE__||(typeof require==='function'?require('./102c-profile.js'):null);
   const Network609=root.__NFSU2_609_PROFILE__||(typeof require==='function'?require('./609-profile.js'):null);
+  const NetworkA3=root.__NFSU2_A3A9A837_PROFILE__||(typeof require==='function'?require('./a3a9a837-profile.js'):null);
   const NetworkD739=root.__NFSU2_D739E631_PROFILE__||(typeof require==='function'?require('./d739e631-profile.js'):null);
   const NetworkD396=root.__NFSU2_D396_PROFILE__||(typeof require==='function'?require('./d396-profile.js'):null);
   const A = Object.freeze({ FLOW: 0x8654a4, MODE: 0x850078, PLAYER: 0xd00000,
@@ -15,7 +16,7 @@
     HOST: 0x866a14, CLIENT: 0x8669f4, ONLINE: 0x89cf69 });
   const automaticNosRefill = Object.freeze({available:false,status:'Refill unavailable · manual near miss is separate'});
   class Engine {
-    constructor(memory, statusCapacity = 48, moduleHash = null) { this.statusCapacity = statusCapacity === 64 ? 64 : 48; this.memory = memory; this.view = null; this.performancePatch = null; this.gripPatch = null; this.words = null; this.floatBits = new Float32Array(1); this.intBits = new Int32Array(this.floatBits.buffer);const networkProfile=[Network102c,Network609,NetworkD396,NetworkD739].find(profile=>profile&&profile.hash===moduleHash);this.requireNetworkTuple=!!networkProfile;this.networkAddresses=null;try{const cells=NetworkProfiles?.select?.(moduleHash)?.runtime?.onlineAddresses||networkProfile?.cars?.onlineAddresses;if(Array.isArray(cells)&&cells.length===3)this.networkAddresses=Object.freeze(cells.slice());}catch{} }
+    constructor(memory, statusCapacity = 48, moduleHash = null) { this.statusCapacity = statusCapacity === 64 ? 64 : 48; this.memory = memory; this.view = null; this.performancePatch = null; this.gripPatch = null; this.words = null; this.floatBits = new Float32Array(1); this.intBits = new Int32Array(this.floatBits.buffer);const networkProfile=[Network102c,Network609,NetworkD396,NetworkD739,NetworkA3].find(profile=>profile&&profile.hash===moduleHash);this.requireNetworkTuple=!!networkProfile;this.networkAddresses=null;try{const cells=NetworkProfiles?.select?.(moduleHash)?.runtime?.onlineAddresses||networkProfile?.cars?.onlineAddresses;if(Array.isArray(cells)&&cells.length===3)this.networkAddresses=Object.freeze(cells.slice());}catch{} }
     refresh() { if (!this.view || this.view.buffer !== this.memory.buffer) { this.view = new DataView(this.memory.buffer); this.words = new Int32Array(this.memory.buffer); } }
     ok(p, n = 4) { return Number.isSafeInteger(p) && p >= 0x10000 && p + n <= Math.min(0x28000000, this.view.byteLength); }
     u32(p) { return this.ok(p) ? this.view.getUint32(p, true) : 0; }

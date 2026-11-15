@@ -1,3 +1,13 @@
+# 0.43.1-a3a9a837-draft.1 candidate
+
+Targets the captured a3a9a837 module. Exact raw and authored adapter chain identities are pinned. Compilation, native gameplay and live-session validation are separate gates.
+
+Award once and Loop synthetic near misses remain available through the verified adapter. The loop confirms one request at a time, waits at full NOS and resumes after consumption; F7/F9 stops it. The removed direct-refill UI remains absent. Legacy session NOS fields are scrubbed and named profile serialization keeps nos:false for schema compatibility. Native amount1 and serial combo progression are retained; immediate/current live x5 NOS gain is not verified.
+
+The d739e631, d396209f and earlier profiles remain registered. Unknown or failed module preparation leaves memory tools disabled. The material below is historical documentation for its named builds.
+
+---
+
 # 0.43.0-d739e631-draft.1 candidate
 
 Targets revision d739e631. Raw module and adapter chain identities are pinned. Native gameplay and live-session validation remain pending.
