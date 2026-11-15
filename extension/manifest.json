@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "NFSU2 Driving Tools",
-  "version": "0.42.8",
-  "description": "Native race AI with online opt-in, Stay on rails, car-contact controls and movable streaming stats.",
+  "name": "NFSU2 Driving Tools (d739e631 draft)",
+  "version": "0.43.0",
+  "description": "Experimental adapter for revision d739e631. Runtime validation pending.",
   "minimum_chrome_version": "111",
   "action": {
     "default_title": "NFSU2 Driving Tools",
@@ -40,6 +40,8 @@
         "ed8-profile.js",
         "102c-profile.js",
         "609-profile.js",
+        "d396-profile.js",
+        "d739e631-profile.js",
         "signatures.js",
         "signature-profile.js",
         "signature-profile-latest.js",
@@ -82,6 +84,12 @@
         "native-forward-lease-102c.js",
         "native-target-feedback-102c.js",
         "native-transplant-609.js",
+        "native-transplant-d396.js",
+        "native-online-d396.js",
+        "native-synthetic-near-miss-d396.js",
+        "native-transplant-d739e631.js",
+        "native-online-d739e631.js",
+        "native-synthetic-near-miss-d739e631.js",
         "native-online-609.js",
         "native-synthetic-near-miss-609.js",
         "source-interfaces.js",
@@ -124,5 +132,6 @@
       "world": "MAIN",
       "all_frames": false
     }
-  ]
+  ],
+  "version_name": "0.43.0-d739e631-draft.1"
 }

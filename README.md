@@ -4,27 +4,19 @@ Experimental Chrome extension for driving-assistance research.
 Private use, experimental status. Not affiliated with any game or platform.
 Some options are cheat-style game modifications. Testers only.
 
-## Current draft: v0.42.8
+## Versioned candidate: 0.43.0-d739e631-draft.1
 
-The source provides build-gated native AI, pace/corner assistance, race rails, supported collision/Drag tools, HUD/radar, saved tool preferences, and experimental tuning/race-loop features. Availability depends on the exact game module and each successfully prepared adapter. Unknown or failed preparation keeps memory tools disabled.
+The extension and [tested ZIP](releases/0.43.0-d739e631-draft.1/nfsu2-driving-tools-0.43.0-d739e631-draft.1.zip) target the captured **d739e631** module. The exact source-to-primary-to-online-to-synthetic adapter chain compiled successfully. All **374 host tests across 16 files** passed with artificial data and no game execution. [Validation record](releases/0.43.0-d739e631-draft.1/VALIDATION.json).
 
-Current scoped availability for game build **60946132**:
+A subsequent site update was reported after this package was frozen. Compatibility with that newer update is being rechecked; this record covers d739e631 only. Unknown or failed module preparation keeps memory tools disabled.
 
-| Feature | Current source status |
-| --- | --- |
-| Native AI, pace/corner hooks, race rails | Scoped support; live driving unverified |
-| Drag handoff/protection and paired catch-up | Scoped support; local-engine/mode guards apply; live behavior unverified |
-| Synthetic near-miss **Award once** | Opt-in source feature; also affects style points/multipliers; live unverified |
-| **Keep NOS topped up** | Optional session-only synthetic-award loop; starts off, waits at full, F7/F9 stops it; live unverified |
-| Direct automatic NOS refill | Disabled |
-| Tuner / ECU | Unavailable on this build |
-| Leased forward road geometry / per-target corner feedback | Unavailable on this build |
-| Online car-category controls | Unavailable on this build |
-| Native race capture / destination travel | Unavailable on this build |
+Synthetic near miss retains **Award once** and **Loop synthetic near misses**. The loop confirms one award at a time, waits at full NOS and resumes after consumption. It starts off for each page; F7/F9 stops it. The separate unused direct-refill control and active preference were removed. Old saved session fields are scrubbed, and named profiles preserve their legacy schema with `nos:false`.
 
-Online-capable tools require the separate **Allow network tools** opt-in and their verified adapter. Game monitoring and reports remain active; no multiplayer acceptance or account-safety claim follows.
+Native award amount remains 1, distinct from the game's combo multiplier. Serial awards retain native combo progression; earlier retail metadata specifies a cap of 5. Immediate or current live ×5 NOS gain is not verified, and the loop can pause at full NOS before reaching that combo.
 
-Earlier exact profiles, including **102c8d92**, retain their separately ported features where their full preparation pipeline succeeds; the 609 limits do not remove those implementations. Live verification remains unestablished. Research builds **4c35f9f5 (4c)** and **d396** are not supported by the extension's production source gate; private offline harness work does not add production support.
+The d396 profile and earlier exact profiles remain registered with their existing feature guards. Native AI, pace/corner hooks, race rails and scoped Drag/collision tools are retained. Unavailable tuner/ECU, leased forward geometry, per-target corner feedback and online car-category capabilities remain unavailable on this candidate. Online-capable tools still require **Allow network tools** and a verified adapter.
+
+Compilation and host tests do not establish native game startup, live driving, online acceptance or installation. The frozen C4/B0 work and earlier baseline limitations remain separate evidence.
 
 ## Install (testers)
 
@@ -33,13 +25,14 @@ Earlier exact profiles, including **102c8d92**, retain their separately ported f
 3. Choose **Load unpacked** and select this repository's `extension/` directory.
 4. Refresh the game page. F8 opens the tools, F7 returns manual control, and F9 stops tools.
 
-These are manual tester instructions, not actions performed by this publication. Chrome's currently loaded version is unknown. This source draft has no tested v0.42.8 release ZIP or release tag.
+These are manual tester instructions; this publication did not install or reload Chrome. The ZIP is versioned for d739e631 and must not be treated as clearance for later site revisions.
 
 ## Layout
 
 - [`extension/`](extension/) — current extension source; prefer this over historical packages.
+- [`tests/`](tests/) — exact host-test sources for this candidate.
 - [`test-environment/`](test-environment/) — curated offline monitor/encoding harness, a separate artifact whose defects and artificial fixtures are its own.
-- [`exports/`](exports/) — readable text exports and the binaries they index. Use [`NFSU2-EXTENSION-0.42.8-COMPLETE.txt`](exports/NFSU2-EXTENSION-0.42.8-COMPLETE.txt) as the complete extension reference and [`01-CURRENT-HANDOFF.txt`](exports/01-CURRENT-HANDOFF.txt) for current findings and remaining work.
+- [`exports/`](exports/) — retained historical 0.42.8 text exports and indexed binaries, not the current 0.43.0 reference. Use [`NFSU2-EXTENSION-0.42.8-COMPLETE.txt`](exports/NFSU2-EXTENSION-0.42.8-COMPLETE.txt) as that version's complete extension reference and [`01-CURRENT-HANDOFF.txt`](exports/01-CURRENT-HANDOFF.txt) for its historical findings and remaining work.
 - [`archive/`](archive/) — historical ZIPs, for comparison only; do not overwrite current source with them.
 - [`releases/`](releases/) — tested ZIPs only; see its status note. Historical checks do not establish current live clearance.
 
@@ -47,12 +40,14 @@ Saves and ISOs are excluded. Included game-derived binaries are identified by th
 
 ## Verification state
 
+The d739e631 compile and 374/374 host results are recorded above. The following older native-baseline limitations remain unresolved and are not superseded by those host checks.
+
 Offline baseline incomplete; power/limiter/grip freezes unresolved; synthetic NOS award behavior live-unverified. The latest history/enrollment unit passed with **zero movement frames**; an earlier 192-frame completion was later disqualified as a proper native-startup baseline. The next CPP startup correction is reviewed source only, not prepared or executed.
 
 No new package installation, browser reload, live race, complete trajectory clearance, or online acceptance was established for v0.42.8. Read the [test-environment limits](test-environment/README.md) and [current handoff](exports/01-CURRENT-HANDOFF.txt) before continuing. Testers only.
 
 ## Review and issue policy
 
-The static-review handoff is [`02-HANDOFF-REVIEW-BUNDLE.md`](02-HANDOFF-REVIEW-BUNDLE.md); the source/log bundle is [`review/FOR-REVIEW-0.42.8.md`](review/FOR-REVIEW-0.42.8.md). Existing output is evidence, not a request to rerun frozen conditions. New test execution waits for the reviewer's concrete run-book.
+The retained historical static-review handoff is [`02-HANDOFF-REVIEW-BUNDLE.md`](02-HANDOFF-REVIEW-BUNDLE.md); the source/log bundle is [`review/FOR-REVIEW-0.42.8.md`](review/FOR-REVIEW-0.42.8.md). Existing output is evidence, not a request to rerun frozen conditions. New test execution waits for the reviewer's concrete run-book.
 
 Issues are for testers. Include the exact build, active feature, timestamps and sanitized observed output. Remove credentials, real session IDs, saves and IP addresses. Describe an unobserved ban as "no ban observed yet." Please do not star this repository. Its neutral name does not make its public contents private.

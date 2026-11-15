@@ -1,3 +1,21 @@
+# 0.43.0-d739e631-draft.1 candidate
+
+Targets revision d739e631. Raw module and adapter chain identities are pinned. Native gameplay and live-session validation remain pending.
+
+Synthetic near miss provides Award once and Loop synthetic near misses. The loop tops up NOS through confirmed synthetic awards, one outstanding request at a time. It waits at full and resumes after consumption. F7/F9 stops the loop. The separate unused direct-refill control and its saved preference are removed; the native award routine, normal game NOS use, earned credit and NOS telemetry are preserved.
+
+The material below is retained historical release documentation. Its feature and validation statements apply to the named older builds.
+
+---
+
+# 0.42.9-d396-draft.1
+
+- Adds the exact V10 adapter chain and d396 profile to an uninstalled draft.
+- Preserves unknown-build, byte-hash, module-identity and worker guards.
+- Separates compiled adapter availability from pending feature/runtime qualification.
+
+## Historical changelog
+
 # Changelog
 
 ## 0.42.8 draft — synthetic near-miss requests and optional NOS top-up

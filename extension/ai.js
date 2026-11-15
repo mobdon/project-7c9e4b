@@ -32,7 +32,11 @@
   const TRANSPLANT_102C=root.__NFSU2_NATIVE_TRANSPLANT_102C__ || (typeof require==='function'?require('./native-transplant-102c.js'):null);
   const P609=root.__NFSU2_609_PROFILE__ || (typeof require==='function'?require('./609-profile.js'):null);
   const TRANSPLANT_609=root.__NFSU2_NATIVE_TRANSPLANT_609__ || (typeof require==='function'?require('./native-transplant-609.js'):null);
-  const onlineAdapterFor=hash=>P609&&hash===P609.hash?root.__NFSU2_NATIVE_ONLINE_609__:root.__NFSU2_NATIVE_ONLINE_102C__;
+  const PD396=root.__NFSU2_D396_PROFILE__ || (typeof require==='function'?require('./d396-profile.js'):null);
+  const TRANSPLANT_D396=root.__NFSU2_NATIVE_TRANSPLANT_D396__ || (typeof require==='function'?require('./native-transplant-d396.js'):null);
+  const PD739=root.__NFSU2_D739E631_PROFILE__ || (typeof require==='function'?require('./d739e631-profile.js'):null);
+  const TRANSPLANT_D739=root.__NFSU2_NATIVE_TRANSPLANT_D739E631__ || (typeof require==='function'?require('./native-transplant-d739e631.js'):null);
+  const onlineAdapterFor=hash=>PD739&&hash===PD739.hash?root.__NFSU2_NATIVE_ONLINE_D739E631__:PD396&&hash===PD396.hash?root.__NFSU2_NATIVE_ONLINE_D396__:P609&&hash===P609.hash?root.__NFSU2_NATIVE_ONLINE_609__:root.__NFSU2_NATIVE_ONLINE_102C__;
   // "RAIL": page opt-in word at BASE+104 for the Car::SetPhysicsMode guard; the guard counts its holds at BASE+108.
   const RAILS_MAGIC=0x4c494152;
   const ECU_PATCHER=root.__NFSU2_ECU_SCOPED_PATCHER__||(typeof require==='function'?require('./ecu-scoped-patcher.js'):null);
@@ -44,7 +48,7 @@
   const ECU_PATCHER_ED8=root.__NFSU2_ECU_SCOPED_PATCHER_ED8__||(typeof require==='function'?require('./ecu-scoped-patcher-ed8.js'):null);
   const ECU_CHAIN_INPUT_ED8='5a920b0530eb8c4113f1adb9af4ca6e529d0b6df6484e73fa2a2399b21358214';
   const FORWARD_CONFIG=root.__NFSU2_FORWARD_NATIVE_CONFIG__ || (typeof require==='function'?require('./forward-native-config.js'):null);
-  const profileForSize=size=>[LEGACY,CURRENT,LATEST,NEXT,MODERN,D2FA,CD5,ABF,CF,AA,...(FAMILY?.profiles||[]),BDC,B1,ED8,P102C,P609].find(p=>p&&p.size===size)||null;
+  const profileForSize=size=>[LEGACY,CURRENT,LATEST,NEXT,MODERN,D2FA,CD5,ABF,CF,AA,...(FAMILY?.profiles||[]),BDC,B1,ED8,P102C,P609,PD396,PD739].find(p=>p&&p.size===size)||null;
   function getSourceProfile(info) {
     if(!info||info.game!==undefined&&info.game!=='ug2')return null;
     const profile=profileForSize(info.size);
@@ -88,7 +92,7 @@
     if(hash!==profile.hash)throw Object.assign(Error('Game module changed. Native AI disabled.'),{patchCode:'module-hash',moduleHash:hash});
     if(profile.transplant){
       // Fail closed. The exact original bytes were hashed just above; the transform pins its input and output again.
-      const transplant=profile===P102C?TRANSPLANT_102C:profile===P609?TRANSPLANT_609:null;
+      const transplant=profile===P102C?TRANSPLANT_102C:profile===P609?TRANSPLANT_609:profile===PD396?TRANSPLANT_D396:profile===PD739?TRANSPLANT_D739:null;
       if(typeof transplant?.patchModule!=='function'||transplant.supports?.(hash)!==true||transplant.outputModuleHash!==profile.transplant.outputModuleHash)throw Error('Native patch set for this game build is unavailable.');
       return transplant.patchModule(bytes,{verifiedOriginalHash:hash});
     }
@@ -344,8 +348,8 @@
           }catch(e){state.nativeTunerUnavailable=true;state.nativeTunerReason=String(e?.message||'Current native tuner could not be prepared.');}
           // The synthetic award adapter is optional and specific to the complete
           // 609 online candidate. Compile/register it before granting capability.
-          const synthetic=root.__NFSU2_NATIVE_SYNTHETIC_NEAR_MISS_609__;
-          if(profile===P609&&nativeOnlineInstalled&&synthetic?.supports?.(profile.hash)===true){
+          const synthetic=profile===PD739?root.__NFSU2_NATIVE_SYNTHETIC_NEAR_MISS_D739E631__:profile===PD396?root.__NFSU2_NATIVE_SYNTHETIC_NEAR_MISS_D396__:root.__NFSU2_NATIVE_SYNTHETIC_NEAR_MISS_609__;
+          if((profile===P609||profile===PD396||profile===PD739)&&nativeOnlineInstalled&&synthetic?.supports?.(profile.hash)===true){
             try{
               const awardBytes=await synthetic.patchModule(Uint8Array.from(nativeTunerInput),{verifiedOriginalHash:profile.hash});
               if(!WebAssembly.validate(awardBytes))throw Error('Synthetic near-miss module validation failed.');

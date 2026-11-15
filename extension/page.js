@@ -3,7 +3,7 @@
   if (location.origin !== 'https://nfsu2.xyz' || window.top !== window || window.__nfsu2DrivingTools) return;
   Object.defineProperty(window, '__nfsu2DrivingTools', { value: true });
   let diagnostics = null;
-  try { let storage = null; try { storage = sessionStorage; } catch {} diagnostics = globalThis.__NFSU2_DIAGNOSTICS__?.create({storage,version:'0.42.8'}) || null; } catch {}
+  try { let storage = null; try { storage = sessionStorage; } catch {} diagnostics = globalThis.__NFSU2_DIAGNOSTICS__?.create({storage,version:'0.43.0-d739e631-draft.1'}) || null; } catch {}
   let diagnosticState = {}, diagnosticIdentity = null, diagnosticPatch = '';
   // The log is observational only: no memory writes, upload, raw console capture or error text.
   const recordDiagnostic = (event, extra = {}) => { try { diagnostics?.record(event,{...diagnosticState,...extra}); } catch {} };
@@ -80,7 +80,7 @@
     recordDiagnostic(event,{ecuAction:result.action,ecuBeforeKw:result.before?.peakPowerKw,ecuAfterKw:(result.afterRebuild||result.after)?.peakPowerKw,ecuGainPercent:result.measuredPrivateGainPercent,ecuScopeHits:result.scopeHits,ecuActions:result.actions,ecuClicks:result.clicks,ecuUndoAvailable:result.undoAvailable,ecuRestored:result.restored,ecuLiveVerified:false,ecuPersistenceVerified:false});
   }
   let ai = null, dragTakenOver = false, dragRace = false;
-  const { Engine, StableGate, adaptiveRaceSettings, supportedRevision, createCameraDirector, automaticNosRefill } = globalThis.__NFSU2_DRIVING_CORE__;
+  const { Engine, StableGate, adaptiveRaceSettings, supportedRevision, createCameraDirector } = globalThis.__NFSU2_DRIVING_CORE__;
   delete globalThis.__NFSU2_DRIVING_CORE__;
   let engine = null, statusPtr = 0, inputPtr = 0, supported = false, revision = '', visible = false, moduleProfile = null, activeModule = null, activeWorker = null, sessionGeneration = 0;
   const refreshCompatibility=()=>{supported=!aiInstallFailed && !!moduleProfile?.capabilities.legacy && moduleProfile.revision===revision;};
@@ -88,17 +88,7 @@
   const powerGate=new StableGate(), gripGate=new StableGate();
   let lastShift = 0, shiftTimer = 0, lastPulse = 0, lastScan = 0;
   const held = new Set(), physicallyHeld = new Set();
-  const prefs = { raceCornerAssist: false, raceCornerFactor: 0.8, raceCornerMargin: 15, raceBraking: 0.75, cornerAssist: false, cornerFactor: 0.8, cornerMargin: 15, racePace: false, racePaceFactor: 1, walls: false, cars: false, traffic: false, players: false, online: false, ai: false, aiPace: false, paceFactor: 1, nos: false, dragNoBlowout: false, drag: false, rpm: 6500, tester: false, boost: false, power: 1.5, unlimit: false, grip: false, gripFactor: 1.3, drift: null };
-  const nosRefillAvailable=automaticNosRefill?.available===true;
-  const nosRefillStatus=automaticNosRefill?.status||'Refill unavailable · manual near miss is separate';
-  function renderNosRefill(){
-    if(!ui)return;
-    const control=ui.querySelector('#nos'),status=ui.querySelector('#nos-state');
-    // Saved profile values remain dormant; only the available capability can
-    // make a selection effective. There is no refill dispatch in this page.
-    control.checked=nosRefillAvailable&&prefs.nos;control.disabled=!nosRefillAvailable;
-    if(status)status.textContent=nosRefillStatus;
-  }
+  const prefs = { raceCornerAssist: false, raceCornerFactor: 0.8, raceCornerMargin: 15, raceBraking: 0.75, cornerAssist: false, cornerFactor: 0.8, cornerMargin: 15, racePace: false, racePaceFactor: 1, walls: false, cars: false, traffic: false, players: false, online: false, ai: false, aiPace: false, paceFactor: 1, dragNoBlowout: false, drag: false, rpm: 6500, tester: false, boost: false, power: 1.5, unlimit: false, grip: false, gripFactor: 1.3, drift: null };
   const NearMissControl=globalThis.__NFSU2_NEAR_MISS_CONTROL__;
   function nearMissContext(){
     const state=engine?.state(),counters=engine&&statusPtr?engine.status(statusPtr):null;
@@ -244,7 +234,11 @@
   try {
     const saved=JSON.parse(sessionStorage.getItem(STORAGE_KEY)||'null');
     if(saved && typeof saved==='object') {
-      for(const name of ['nos','drag','tester','dragNoBlowout']) if(typeof saved[name]==='boolean') prefs[name]=saved[name];
+      if(Object.prototype.hasOwnProperty.call(saved,'nos')){
+        delete saved.nos;
+        try{sessionStorage.setItem(STORAGE_KEY,JSON.stringify(saved));}catch{}
+      }
+      for(const name of ['drag','tester','dragNoBlowout']) if(typeof saved[name]==='boolean') prefs[name]=saved[name];
       for(const [name,min,max] of [['raceCornerFactor',0.6,0.95],['raceCornerMargin',0,25],['raceBraking',0.5,1],['racePaceFactor',0.75,3],['cornerFactor',0.6,0.95],['cornerMargin',0,25],['paceFactor',0.75,3],['rpm',3000,10000],['power',1,3],['gripFactor',1,2]]) if(Number.isFinite(saved[name])) prefs[name]=Math.max(min,Math.min(max,saved[name]));
       if(typeof saved.drift==='boolean') prefs.drift=saved.drift;
     }
@@ -256,7 +250,7 @@
   try {profileSessionStopped=sessionStorage.getItem(PROFILE_SESSION_STOP)==='1';}catch{}
   if(ToolProfiles){let storage=null;try{storage=localStorage;}catch{}profileStore=ToolProfiles.create(storage);profileStartup=profileSessionStopped?null:profileStore.startup();}
   // A durable Stop suppresses legacy same-tab driving reapplication as well.
-  if(profileSessionStopped||profileStore?.snapshot().paused||(profileStore&&!profileStore.snapshot().available)){for(const k of ['raceCornerAssist','cornerAssist','racePace','walls','cars','traffic','players','online','ai','aiPace','nos','dragNoBlowout','drag','boost','unlimit','grip'])prefs[k]=false;}
+  if(profileSessionStopped||profileStore?.snapshot().paused||(profileStore&&!profileStore.snapshot().available)){for(const k of ['raceCornerAssist','cornerAssist','racePace','walls','cars','traffic','players','online','ai','aiPace','dragNoBlowout','drag','boost','unlimit','grip'])prefs[k]=false;}
   // Intentionally outside saved profiles and legacy session preference storage.
   let adaptiveRaceEnabled=false,adaptiveRaceCeiling=1.3;
   const dynamicPacer=globalThis.__NFSU2_DYNAMIC_PACING__?new globalThis.__NFSU2_DYNAMIC_PACING__.Pacing():null;
@@ -415,7 +409,7 @@
     renderForwardStatus();
   }
   let pacingEvidence=null;
-  const diagnosticTools = () => ({...prefs,nos:nosRefillAvailable&&prefs.nos,raceOnlyAI,dynoEnabled,adaptiveRace:adaptiveRaceEnabled,adaptiveRaceCeiling,rubberband:rubberbandEnabled,rubberbandPercent,rubberbandStrength,rails:railsEnabled});
+  const diagnosticTools = () => ({...prefs,raceOnlyAI,dynoEnabled,adaptiveRace:adaptiveRaceEnabled,adaptiveRaceCeiling,rubberband:rubberbandEnabled,rubberbandPercent,rubberbandStrength,rails:railsEnabled});
   const coarseDiagnostic = () => Object.fromEntries(['generation','supported','ready','driving','network','safe','hidden','focused','hud','flow','raceType','racePhase','driverKind','physicsKind','gameTicks','dynoBusy','dynoFullTuner','dynoSecondWindowCapture','dynoCurrentClamp'].filter(key=>diagnosticState[key]!==undefined).map(key=>[key,diagnosticState[key]]));
   function traceDiagnostic(data,failureCode=0,producerStage=0) {
     const sample={...data,revision:moduleProfile?.revision||revision,moduleHash:moduleProfile?.hash,tools:diagnosticTools(),traceStatus:failureCode?'unavailable':'captured',producerFailureCode:failureCode,producerStage};
@@ -815,8 +809,8 @@
     clearRaceOnlyAI();
     dynoEnabled=false;dyno?.setEnabled(false);if(ui)ui.querySelector('#dyno-enable').checked=false;
     adaptiveRaceEnabled=false;if(ui)ui.querySelector('#adaptive-race').checked=false;clearCityPace();clearRivalNoClip();stopRubberband(true);
-    prefs.raceCornerAssist=false;prefs.cornerAssist=false;prefs.racePace=false;prefs.walls=false;prefs.cars=false;prefs.traffic=false;prefs.players=false;prefs.online=false;prefs.ai=false;prefs.aiPace=false;prefs.nos=false;prefs.dragNoBlowout=false;prefs.drag=false;prefs.boost=false;prefs.unlimit=false;prefs.grip=false;savePrefs();suspend();
-    if(ui) for(const id of ['race-corner-assist','corner-assist','race-pace','walls','cars','traffic','players','online','ai','ai-pace','nos','drag-no-blowout','drag','boost','unlimit','grip']) ui.querySelector('#'+id).checked=false;
+    prefs.raceCornerAssist=false;prefs.cornerAssist=false;prefs.racePace=false;prefs.walls=false;prefs.cars=false;prefs.traffic=false;prefs.players=false;prefs.online=false;prefs.ai=false;prefs.aiPace=false;prefs.dragNoBlowout=false;prefs.drag=false;prefs.boost=false;prefs.unlimit=false;prefs.grip=false;savePrefs();suspend();
+    if(ui) for(const id of ['race-corner-assist','corner-assist','race-pace','walls','cars','traffic','players','online','ai','ai-pace','drag-no-blowout','drag','boost','unlimit','grip']) ui.querySelector('#'+id).checked=false;
     message(profileNotice&&persistProfilePause ? why+' '+profileNotice : why);
   }
   function clearRaceOnlyAI() {
@@ -1130,14 +1124,14 @@
         if (now - lastPulse > 500) { lastPulse = now; for (const code of held) if (code !== 'ShiftLeft') key(code, true); }
       } else release();
       updateCameraRotation(s,driveStatus,now,!!(counters?.photo||counters?.drone||counters?.pause));
-      if (live) live.textContent = !supported ? `Game build ${revision || '(checking)'} is not verified. Memory tools disabled.` : !s.ready ? s.reason : s.network && !prefs.online ? (soloOnlyBuild() ? 'Online session · driving tools are solo/offline only on this game build.' : 'Online/LAN tools paused. Enable Allow Online/LAN tools in Session mode.') : !driveStatus ? 'Waiting for driving HUD.' : `${s.network ? 'Online/LAN opt-in' : 'Game linked'} · ${Math.round(s.rpm)} RPM${prefs.nos ? ' · Refill unavailable' : ''}${tune.active ? ` · Power ${tune.power.toFixed(1)}×${tune.unlimit ? ' · Governor off' : ''}` : (prefs.boost || prefs.unlimit) ? ' · Power controls waiting/unavailable' : ''}${grip.active ? ` · Grip ${grip.factor.toFixed(1)}×` : prefs.grip ? ' · Grip paused/unavailable' : ''}${prefs.drag ? activeDrag ? dragCountdown ? ' · Drag countdown throttle' : ' · Drag throttle/shifting · you steer' : dragTakenOver ? ' · Drag paused for manual control' : dragRace && !manualDriver ? ' · Drag waiting for native handback' : ' · Drag assist paused/waiting' : ''}`;
+      if (live) live.textContent = !supported ? `Game build ${revision || '(checking)'} is not verified. Memory tools disabled.` : !s.ready ? s.reason : s.network && !prefs.online ? (soloOnlyBuild() ? 'Online session · driving tools are solo/offline only on this game build.' : 'Online/LAN tools paused. Enable Allow Online/LAN tools in Session mode.') : !driveStatus ? 'Waiting for driving HUD.' : `${s.network ? 'Online/LAN opt-in' : 'Game linked'} · ${Math.round(s.rpm)} RPM${tune.active ? ` · Power ${tune.power.toFixed(1)}×${tune.unlimit ? ' · Governor off' : ''}` : (prefs.boost || prefs.unlimit) ? ' · Power controls waiting/unavailable' : ''}${grip.active ? ` · Grip ${grip.factor.toFixed(1)}×` : prefs.grip ? ' · Grip paused/unavailable' : ''}${prefs.drag ? activeDrag ? dragCountdown ? ' · Drag countdown throttle' : ' · Drag throttle/shifting · you steer' : dragTakenOver ? ' · Drag paused for manual control' : dragRace && !manualDriver ? ' · Drag waiting for native handback' : ' · Drag assist paused/waiting' : ''}`;
       if (ui) {
-        renderNosRefill();
+        
         const caps=moduleProfile?.capabilities;
         for(const [id,feature] of [['ai-pace','pace'],['pace-factor','pace'],['race-pace','pace'],['race-pace-factor','pace'],['race-corner-assist','corner'],['race-corner-factor','corner'],['race-corner-margin','corner'],['race-braking','corner'],['corner-assist','corner'],['corner-factor','corner'],['corner-margin','corner'],['walls','walls'],['cars','cars'],['traffic','onlineTraffic'],['players','onlinePlayers'],['rivals','onlineRivals'],['dyno-enable','dyno']]){const control=ui.querySelector('#'+id);if(control)control.disabled=(feature==='onlineTraffic'||feature==='onlinePlayers'||feature==='onlineRivals')?caps?.[feature]!==true:!!caps&&!caps[feature];}
         if(live)live.title=live.textContent;
         renderPowerStatus(powerStatus,tune);
-        const enabled=[onlineRivalsEnabled,cityPacingEnabled,adaptiveRaceEnabled,prefs.raceCornerAssist,prefs.cornerAssist,prefs.racePace,prefs.walls,prefs.cars,prefs.traffic,prefs.players,prefs.ai,raceOnlyAI,prefs.aiPace,nosRefillAvailable&&prefs.nos,prefs.boost,prefs.unlimit,prefs.grip,prefs.dragNoBlowout,prefs.drag,prefs.tester,!!(counters?.drift & 1)].filter(Boolean).length;
+        const enabled=[onlineRivalsEnabled,cityPacingEnabled,adaptiveRaceEnabled,prefs.raceCornerAssist,prefs.cornerAssist,prefs.racePace,prefs.walls,prefs.cars,prefs.traffic,prefs.players,prefs.ai,raceOnlyAI,prefs.aiPace,prefs.boost,prefs.unlimit,prefs.grip,prefs.dragNoBlowout,prefs.drag,prefs.tester,!!(counters?.drift & 1)].filter(Boolean).length;
         ui.querySelector('#enabled').textContent=enabled ? `${enabled} selected` : 'Ready';
         ui.querySelector('#cars-state').textContent=caps&&!caps.cars?'Not verified for this build':prefs.cars?(carState.soloReason||carState.reason):'OFF · other cars only · solo';
         ui.querySelector('#traffic-state').textContent=caps?.onlineTraffic!==true?'Not verified for this build':prefs.traffic?(carState.trafficReason||carState.reason):'OFF · traffic only · online free roam';
@@ -1297,12 +1291,12 @@
     } catch(error) {recordDiagnostic('engine-error',{error});message('Diagnostic download failed. Try again, or use the game’s Download log.');}
     finally {link?.remove();if(url)setTimeout(()=>URL.revokeObjectURL(url),1000);}
   }
-  const profileToggleIds={raceCornerAssist:'race-corner-assist',cornerAssist:'corner-assist',racePace:'race-pace',walls:'walls',cars:'cars',traffic:'traffic',players:'players',online:'online',ai:'ai',aiPace:'ai-pace',nos:'nos',dragNoBlowout:'drag-no-blowout',drag:'drag',tester:'tester',boost:'boost',unlimit:'unlimit',grip:'grip'};
+  const profileToggleIds={raceCornerAssist:'race-corner-assist',cornerAssist:'corner-assist',racePace:'race-pace',walls:'walls',cars:'cars',traffic:'traffic',players:'players',online:'online',ai:'ai',aiPace:'ai-pace',dragNoBlowout:'drag-no-blowout',drag:'drag',tester:'tester',boost:'boost',unlimit:'unlimit',grip:'grip'};
   const profileNumericBindings=[['race-corner-factor','raceCornerFactor','race-corner-value',2,'×'],['race-corner-margin','raceCornerMargin','race-corner-margin-value',0,'%'],['race-braking','raceBraking','race-braking-value',2,'×'],['race-pace-factor','racePaceFactor','race-pace-value',2,'×'],['corner-factor','cornerFactor','corner-value',2,'×'],['corner-margin','cornerMargin','corner-margin-value',0,'%'],['pace-factor','paceFactor','pace-value',2,'×'],['rpm','rpm','rpm-value',0,''],['power','power','power-value',1,'×'],['grip-factor','gripFactor','grip-value',1,'×']];
   function syncProfileControls(){
     if(!ui)return;
     for(const [key,id]of Object.entries(profileToggleIds))ui.querySelector('#'+id).checked=prefs[key];
-    renderNosRefill();
+    
     for(const [id,key,out,digits,suffix]of profileNumericBindings){const el=ui.querySelector('#'+id);el.value=prefs[key];ui.querySelector('#'+out).textContent=prefs[key].toFixed(digits)+suffix;el.setAttribute('aria-valuetext',prefs[key].toFixed(digits)+(suffix==='%'?' percent':suffix?' times':' RPM'));}
     ui.querySelector('#dyno-enable').checked=dynoEnabled;
     ui.querySelector('#drift').checked=!!prefs.drift;
@@ -1351,7 +1345,7 @@
   }
   function profileAction(action){
     if(profileActionPending)return;
-    const request={stopToken:profileStore?.snapshot().stopToken,selection:profileSelection?{...profileSelection}:null,name:ui.querySelector('#profile-name').value,networkConsent:ui.querySelector('#profile-network').checked===true,auto:ui.querySelector('#profile-auto').checked,settings:{...prefs,dynoEnabled,dynoGoal:ui.querySelector('#dyno-goal').value}};
+    const request={stopToken:profileStore?.snapshot().stopToken,selection:profileSelection?{...profileSelection}:null,name:ui.querySelector('#profile-name').value,networkConsent:ui.querySelector('#profile-network').checked===true,auto:ui.querySelector('#profile-auto').checked,settings:{...prefs,nos:false,dynoEnabled,dynoGoal:ui.querySelector('#dyno-goal').value}};
     const epoch=profileActionEpoch;
     // localStorage has no atomic compare-and-swap. Serialize named-profile
     // writes across tabs with a browser-managed lock; Stop remains immediate
@@ -1463,7 +1457,7 @@ ${StreamHud?.markup()?.replace('</section>',(Pitwall?.markup()||'')+'</section>'
 <p class="hud-foot">req = requested · ack = native acknowledgement<br>set = power fields, not a measured speed gain<span id="hud-governor" hidden></span><span id="hud-state">Waiting for live sample</span></p>
 </section>
 <div id="tools-panel" class="panel" hidden>
-<div class="toolbar"><button id="take-control" title="Return to manual control">Manual <kbd>F7</kbd></button><button id="stop" class="stop" title="Stop driving assists">Stop <kbd>F9</kbd></button><span class="version">0.42.8</span></div>
+<div class="toolbar"><button id="take-control" title="Return to manual control">Manual <kbd>F7</kbd></button><button id="stop" class="stop" title="Stop driving assists">Stop <kbd>F9</kbd></button><span class="version">0.43.0-d739e631-draft.1</span></div>
 <section class="menu-feedback" aria-label="Live tool feedback">
 <div><strong>Driver</strong><span id="ai-state">Waiting for game</span></div>
 <div><strong>Race loop</strong><span id="autonomy-state" role="status">Off; choose race starts in free roam</span></div>
@@ -1563,14 +1557,13 @@ ${Array.from({length:9},(_,i)=>`<div id="tune-row-${i}" class="tune-field" hidde
 <details class="help"><summary>Profile storage &amp; safety</summary><p id="profile-help">Stores only these extension switches, numbers and tuner enable/search preference in this browser for nfsu2.xyz. No game setups, drafts, car data or diagnostic logs. Profiles do not Stage, Restore or Save game presets. Page scripts can access this local storage; it is not a private backup or browser sync. Up to 16 profiles, 48 characters per name.</p><p>Load stops old controllers and releases assisted input first. Saved choices still wait for the exact supported module, current car and each tool’s mode checks. Startup loading is optional and applies once per reload, never when another tab edits a profile. Updating an automatic profile disables its startup loading until selected again.</p><p>F9 stops driving tools, clears profile-requested drift reapplication and pauses startup loading; saved profiles stay intact. A drift toggle already sent to the game cannot be recalled, and native drift handling already on is not forcibly changed. Load manually to resume now, or select a profile and enable Load on startup to resume after reload. F7 takes manual control without deleting profiles.</p><p>Blowout protection is a saved user choice for the local current engine only. It does not repair an already blown engine or restore a lost race. Network use still requires this profile’s explicit network permission. Unless startup loading is enabled, normal per-tool reload defaults shown elsewhere still apply.</p></details>
 </div></details>
 <details id="group-power" class="group"><summary><span class="section-icon" aria-hidden="true"></span>Power &amp; speed</summary><div class="group-body">
-<label class="row"><span>Automatic NOS refill<small id="nos-state">Refill unavailable · manual near miss is separate</small></span><input id="nos" type="checkbox" disabled aria-describedby="nos-state"></label>
 <div class="row"><span>Synthetic near miss<small id="near-miss-state" role="status">Synthetic near miss unavailable on this game build</small></span><button id="near-miss-request" type="button" disabled aria-describedby="near-miss-state near-miss-help">Award once</button></div>
-<label class="row"><span>Keep NOS topped up<small id="near-miss-top-up-state" role="status">Off · synthetic awards only below full NOS</small></span><input id="near-miss-top-up" type="checkbox" disabled aria-describedby="near-miss-top-up-state near-miss-help"></label>
-<p id="near-miss-help" class="fine">Uses synthetic near-miss awards without a speed threshold. Top-up checks current NOS before each request, waits for confirmation and stops requesting at full. Awards also change style points and multipliers. Session only; F7/F9 turns top-up off. Online also requires Allow network tools.</p>
+<label class="row"><span>Loop synthetic near misses<small id="near-miss-top-up-state" role="status">Off · one confirmed award at a time</small></span><input id="near-miss-top-up" type="checkbox" disabled aria-describedby="near-miss-top-up-state near-miss-help"></label>
+<p id="near-miss-help" class="fine">Award once requests one synthetic near miss. Loop synthetic near misses repeats requests to top up NOS, confirming one award at a time. It waits while NOS is full and resumes after consumption. Awards also change style points and multipliers. The loop starts off for this page; F7/F9 stops it. Online also requires Allow network tools.</p>
 <label class="row"><span>Engine power boost<small id="power-state">Off · not a vehicle-speed multiplier</small></span><input id="boost" type="checkbox"></label>
 <label class="slider"><span>Power multiplier <output id="power-value" for="power">1.5×</output></span><input id="power" aria-label="Power multiplier" type="range" value="1.5" min="1" max="3" step="0.1"></label>
 <label class="row"><span>Remove stock limiter</span><input id="unlimit" type="checkbox"></label>
-<details class="help"><summary>Limits</summary><p>Power, limiter and grip reset off after reload. Their concurrent-write guards reduce known races but do not resolve the reported freezes. Test one at a time. More power may worsen wheelspin and handling. Gearing, drag and redline still limit speed. The power status reports field writes, not a measured speed increase. AI pace changes only its target speed and requires Automatic driver; it is separate from engine power. Online use requires Allow network tools. Automatic NOS refill is unavailable. Normal game NOS use and earned near-miss credit are unchanged.</p></details>
+<details class="help"><summary>Limits</summary><p>Power, limiter and grip reset off after reload. Their concurrent-write guards reduce known races but do not resolve the reported freezes. Test one at a time. More power may worsen wheelspin and handling. Gearing, drag and redline still limit speed. The power status reports field writes, not a measured speed increase. AI pace changes only its target speed and requires Automatic driver; it is separate from engine power. Online use requires Allow network tools. Normal game NOS use and earned near-miss credit are unchanged.</p></details>
 </div></details>
 <details id="group-handling" class="group"><summary><span class="section-icon" aria-hidden="true"></span>Handling &amp; collisions</summary><div class="group-body">
 <label class="row"><span>Extra grip<small id="grip-state">Start at 1.3×</small></span><input id="grip" type="checkbox"></label>
@@ -1705,7 +1698,6 @@ ${Array.from({length:9},(_,i)=>`<div id="tune-row-${i}" class="tune-field" hidde
     ui.querySelector('#traffic').addEventListener('change', e => {prefs.traffic=e.target.checked===true&&moduleProfile?.capabilities?.onlineTraffic===true;e.target.checked=prefs.traffic;if(!prefs.traffic)cars?.stop();message(prefs.traffic?'Online traffic no-clip requested for NPC traffic in online free roam only. Player cars need the separate player switch; AI racers keep native collisions. Follow server rules; turn off only when clear of traffic.':'Online traffic no-clip off. Normal traffic collisions resume.');});
     ui.querySelector('#walls').addEventListener('change', e => {prefs.walls=e.target.checked;if(!prefs.walls)wall?.stop();message(prefs.walls?'Wall pass-through requested. Solo only: turn Free roam with others off, or use a solo race. Near-vertical static walls only; keep a save backup.':'Wall pass-through off. Normal wall collisions resume.');});
     ui.querySelector('#drag-no-blowout').addEventListener('change',e=>{prefs.dragNoBlowout=e.target.checked===true&&moduleProfile?.capabilities.nativeDragOverheat===true;e.target.checked=prefs.dragNoBlowout;savePrefs();message(prefs.dragNoBlowout?'Drag engine blowout protection requested for your current car. Online/LAN also needs Allow network tools. Driving and NOS decisions are unchanged.':'Normal Drag engine overheating restored.');});
-    ui.querySelector('#nos').addEventListener('change', e => { prefs.nos=e.target.checked===true;renderNosRefill(); });
     ui.querySelector('#near-miss-request').addEventListener('click',()=>{const loop=nearMissTopUp?.status();if(loop?.enabled||loop?.pending)return;nearMiss?.request();renderNearMiss();message(nearMiss?.status().text||'Synthetic near miss unavailable on this game build');});
     ui.querySelector('#near-miss-top-up').addEventListener('change',e=>{nearMissTopUp?.setEnabled(e.target.checked);renderNearMiss();message(nearMissTopUp?.status().text||'NOS top-up unavailable');});
     ui.querySelector('#grip').addEventListener('change', e => { prefs.grip=e.target.checked; message(prefs.grip ? 'Extra grip enabled. Start at 1.3×; it pauses during drift. Too much grip can cause abrupt handling or rollover.' : 'Extra grip off. Original wheel factors are restored.'); });
@@ -1720,8 +1712,8 @@ ${Array.from({length:9},(_,i)=>`<div id="tune-row-${i}" class="tune-field" hidde
     for(const id of groupIds) ui.querySelector('#'+id).addEventListener('toggle',()=>{
       if(ui.querySelector('#'+id).open) for(const other of groupIds) if(other!==id) ui.querySelector('#'+other).open=false;
     });
-    for(const id of ['nos','drag','tester','boost','unlimit','grip']) ui.querySelector('#'+id).checked=prefs[id];
-    renderNosRefill();
+    for(const id of ['drag','tester','boost','unlimit','grip']) ui.querySelector('#'+id).checked=prefs[id];
+    
     renderNearMiss();
     ui.querySelector('#drag-no-blowout').checked=prefs.dragNoBlowout;
     ui.querySelector('#ai-pace').checked=prefs.aiPace;

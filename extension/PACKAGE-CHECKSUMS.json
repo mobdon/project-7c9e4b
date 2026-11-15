@@ -1,5 +1,8 @@
 {
-  "extension_version": "0.42.8",
+  "extension_version": "0.43.0",
+  "version_name": "0.43.0-d739e631-draft.1",
+  "algorithm": "SHA256",
+  "scope": "All extension files except this checksum file",
   "files": {
     "102c-profile.js": {
       "bytes": 2724,
@@ -18,8 +21,8 @@
       "sha256": "4b4ff72bd169ce52230b27f806891a701a227bf10b37756f99036db50bbc584f"
     },
     "ai.js": {
-      "bytes": 102293,
-      "sha256": "14c07f2e32ad5c0e5854f61c044e0827058d04a2e3215237b3b3d3e8126d2ea3"
+      "bytes": 102422,
+      "sha256": "63df646395a57241ee3d79d9d67fc34981de9baa9c7ec2326694f004b34fd282"
     },
     "autonomy-drive.js": {
       "bytes": 6056,
@@ -58,8 +61,8 @@
       "sha256": "8977c19bf52cc94501b55184aef5ad1e27296cd720e8be89aedd543367c9c53b"
     },
     "CHANGELOG.md": {
-      "bytes": 90303,
-      "sha256": "31c382be7cbdb4922bbf53add5e3ff85357015d18d4e8404ef4fd937aa9a78e2"
+      "bytes": 91316,
+      "sha256": "9bcdf04affde03a7eea2e3dc94589af3a840fb82aafca0e425406357492ad594"
     },
     "city-contact-preview.js": {
       "bytes": 7254,
@@ -70,8 +73,8 @@
       "sha256": "5f8c0d2150c876d3c3ed97915549bcd3816b42d519b55f403446bb41eb3a7758"
     },
     "core.js": {
-      "bytes": 32462,
-      "sha256": "6b469b5c0e754482f42f30b6513c8d0beb1b6c06965652f951504dadeef99e21"
+      "bytes": 32276,
+      "sha256": "5661a41e8270c58dbe78f6456f663498341c9e385a8c442f4d23ef1170cfaeaa"
     },
     "current-profile.js": {
       "bytes": 32268,
@@ -80,6 +83,14 @@
     "d2fa-profile.js": {
       "bytes": 56173,
       "sha256": "9f61bd1b65113cbabeddda544ddeecd778af1370f866fddf7001f374dce4e107"
+    },
+    "d396-profile.js": {
+      "bytes": 2181,
+      "sha256": "373b1ed4f96678647497b3a2ca5934da2602a70e31782036331f807edd934e82"
+    },
+    "d739e631-profile.js": {
+      "bytes": 2192,
+      "sha256": "e25c0a3ddca3c758af436bd7b9d4fb889e543852980bd560a8a0269abc1c43af"
     },
     "diagnostics.js": {
       "bytes": 54927,
@@ -214,8 +225,8 @@
       "sha256": "01762bbbb899aee843672db4eacb6e7fc9a0e61df09f529f57349587fc59f3ec"
     },
     "forward-native-config.js": {
-      "bytes": 474882,
-      "sha256": "b897554f4c3ccdbc14fc35d0dc0dde352e5da6ac83cc53ff110cf568a7a8d0d3"
+      "bytes": 476342,
+      "sha256": "bcf1f157199b4f0aa63794f2061bd63fb9e1d888157251e24b1ce101c9260552"
     },
     "forward-native-patcher.js": {
       "bytes": 5947,
@@ -238,8 +249,8 @@
       "sha256": "aba6d80c976bcdad9617d48e387bca232c6c7db13ab47316eddaa668dd49d429"
     },
     "manifest.json": {
-      "bytes": 3879,
-      "sha256": "5124ee09395795dafc5b4ee1975741b372c3978953ceae662e1df7db81ebca2e"
+      "bytes": 4087,
+      "sha256": "56420c1a095f2229071ef2415bdf8160181b1fd405d606f7eaa2fe8babc23f58"
     },
     "modern-profile.js": {
       "bytes": 56084,
@@ -265,6 +276,14 @@
       "bytes": 10300,
       "sha256": "156c6a86fb822d05d9ba0e1ab570f0262e6417007cc8913c54b587f8bf97b64f"
     },
+    "native-online-d396.js": {
+      "bytes": 10302,
+      "sha256": "5ad55129004740d4099acd7619e3d6a99bb68e6d156bd8ce3e7428084beb4112"
+    },
+    "native-online-d739e631.js": {
+      "bytes": 10310,
+      "sha256": "46450f8ac2c908b6bf2007ab74a6950ce4e3e04fa5c78f274f65e8dd79f5703b"
+    },
     "native-rubberband.js": {
       "bytes": 99883,
       "sha256": "83868faba0174a6b5a3b2c9b66b8f90f7bf51d69ed5f9e23aa3703645d64cc96"
@@ -272,6 +291,14 @@
     "native-synthetic-near-miss-609.js": {
       "bytes": 43655,
       "sha256": "6afe5ad7939d62c640ab7e81b89b9981db1ae63ad24998b5f0e8cf32c9d306a3"
+    },
+    "native-synthetic-near-miss-d396.js": {
+      "bytes": 43656,
+      "sha256": "8548b8d9e30471e0fd3d3e511fe0d0f52428ae2f6b88dbb2dcdf5a6db1c0ad6b"
+    },
+    "native-synthetic-near-miss-d739e631.js": {
+      "bytes": 43746,
+      "sha256": "6f522e81ff6c5d9fbd9399f48042c81fab0b823d8dcb571d2d935f2ee670ce2b"
     },
     "native-target-feedback-102c.js": {
       "bytes": 10341,
@@ -284,6 +311,14 @@
     "native-transplant-609.js": {
       "bytes": 262358,
       "sha256": "296e1bc2af6dedfc5e962f7c4ebc0df5251f69c608527693342395ccee93ceb8"
+    },
+    "native-transplant-d396.js": {
+      "bytes": 262082,
+      "sha256": "a7e1933059e3c89b957c69fb13bc8a079c1ef814d1477c281155d44bd58835be"
+    },
+    "native-transplant-d739e631.js": {
+      "bytes": 262090,
+      "sha256": "84eddc6e15099922182f5550185e6a6fc7dbfbd03256d72876cccbabbc2efb52"
     },
     "native-tuner-102c.js": {
       "bytes": 32950,
@@ -306,24 +341,24 @@
       "sha256": "f2b0e00fdb742756a475c50c3b5efb0df2ed3328194a76d522aff8a5f5395544"
     },
     "paced-catchup-controller.js": {
-      "bytes": 14933,
-      "sha256": "336867fcd25b1c8ad3a6b33b93ff6f7db22eaf556ba674526b3fb0956cd3d5cb"
+      "bytes": 20585,
+      "sha256": "3e7c82e4cb2e41a6bdca45c0021cc9e3bb2f0aef1105c2c712f8821f61fbb1e4"
     },
     "paced-catchup.js": {
-      "bytes": 1103836,
-      "sha256": "58efc2aa9aa3194af30a8d6942626907b46f2338a005a500b7f1af04ec829249"
+      "bytes": 1104776,
+      "sha256": "ca354069cfaf73bc32fd38f35e2c6f947a8d30f4a22f536cac2085b14b42571e"
     },
     "page.js": {
-      "bytes": 235111,
-      "sha256": "d4a5494e3f0984ba94508bee320a1b42665fd8723f2c9c82d57103ef04b5a047"
+      "bytes": 232399,
+      "sha256": "a0a01a0f10a4037d70bbcb83a00e293f298043ada4e183a4a7846be2fab1ec65"
     },
     "pitwall.js": {
       "bytes": 5859,
       "sha256": "43871e35d92888d2156abce8a22315ac64f567e9f5bc9f29a2b9fafd989cb85e"
     },
     "popup.html": {
-      "bytes": 4479,
-      "sha256": "a21888051d4e8b78ed77253da2656b2ab7f40d248f0904e858f238e51569985c"
+      "bytes": 4463,
+      "sha256": "73641ffcd68392ab37b4821549ff91e000e57c3187b1b796746f28aa64ee7414"
     },
     "race-capture-config.js": {
       "bytes": 18917,
@@ -362,8 +397,8 @@
       "sha256": "606c85593397dfe675783071fda58ddb73fc95a19cabf1412fb135df49455c24"
     },
     "README.md": {
-      "bytes": 132236,
-      "sha256": "3cbf6e91db982333638357a35e4e66db176d2ad2dcb87529e9196276d964d06a"
+      "bytes": 134779,
+      "sha256": "b7c436860e3042901082f2191550e66e9b3b824ee85d9cf367700bf3da2fd2ce"
     },
     "rear-radar.js": {
       "bytes": 6635,
@@ -398,8 +433,8 @@
       "sha256": "3077ad123d9b925b9506c13b79ce3ed742e979aeee4e5dc1ea9591701ccfb738"
     },
     "source-interfaces.js": {
-      "bytes": 50545,
-      "sha256": "2f95b3b6ff9a751b7ac7130561ee0240ed2e0cad88d0262dbc7ed4dc78b3c8f5"
+      "bytes": 56519,
+      "sha256": "a7e0758d93e067457f4d2d40f1662de4354f51f857ad38c0b46405c9f6f903a5"
     },
     "stream-hud.js": {
       "bytes": 12605,

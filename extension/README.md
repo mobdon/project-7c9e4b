@@ -1,3 +1,46 @@
+# 0.43.0-d739e631-draft.1 candidate
+
+Targets revision d739e631. Raw module and adapter chain identities are pinned. Native gameplay and live-session validation remain pending.
+
+Synthetic near miss provides Award once and Loop synthetic near misses. The loop tops up NOS through confirmed synthetic awards, one outstanding request at a time. It waits at full and resumes after consumption. F7/F9 stops the loop. The separate unused direct-refill control and its saved preference are removed; the native award routine, normal game NOS use, earned credit and NOS telemetry are preserved.
+
+The material below is retained historical release documentation. Its feature and validation statements apply to the named older builds.
+
+---
+
+# NFSU2 Driving Tools 0.42.9-d396-draft.1
+
+Uninstalled release draft for exact d396209f. Experimental game modification;
+not affiliated with the game or its browser platform. No live acceptance is claimed.
+
+The adapter chain is the immutable V10-proven composition:
+raw 9d7bf57d -> primary 33a63dbe -> online 90e4084e -> composed 6cc53c4e.
+The real manifest has 109 scripts, including the 76-script prefix through ai.js.
+
+V10 completed 192/192 World frames with Controller takeover. Its authored scene,
+synthetic road/marker inputs, modeled 60 Hz time and 50 ms publications remain
+disclosed. Full startup, recipient observer, client-report and online qualifications
+remain open. A compiled capability identifies an installed adapter; it is not a
+per-feature runtime verdict.
+
+| d396 feature | Draft availability | Evidence state |
+| --- | --- | --- |
+| Native AI takeover | Adapter available | V10 sustained offline movement |
+| Native pace | Adapter available | Controlled OFF/ON pair pending |
+| Stay on rails | Adapter available | Controlled OFF/ON pair pending |
+| Paced catch-up | RBA8/RBA9 host registration available | Controlled pair pending |
+| Synthetic near-miss NOS top-up | Adapter and host loop included | Native loop pair pending |
+| Full tuner / power / limiter / grip tools | Unavailable on this build | Separate native policy work required |
+| Online car categories, forward lease, target feedback | Unavailable | No d396 adapter capability granted |
+
+The release validation receipt is written under ../verification after the focused
+suite. This folder is a review artifact and has not been installed. Chrome's
+numeric version is 0.42.9; version_name and the UI identify the draft.
+
+## Historical 0.42.8 reference
+
+The retained notes below describe their original version, not new verification.
+
 # NFSU2 Driving Tools: experimental v0.42.8 draft
 
 ## 0.42.8 — synthetic near-miss awards and optional NOS top-up

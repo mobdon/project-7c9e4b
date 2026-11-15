@@ -1,0 +1,26 @@
+{
+  "baseline": "synthetic-near-miss-bridge.test.cjs",
+  "derived": "synthetic-near-miss-bridge-d396.test.cjs",
+  "replacements": {
+    "native-synthetic-near-miss-609.js": "native-synthetic-near-miss-d396.js",
+    "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945": "9d7bf57dd30e8eefc8b783c5e1fa7138fd3fed37691452217b718168b486a257",
+    "704993496": "705933760",
+    "707422704": "708986016",
+    "707407324": "708970628",
+    "Exact609": "Exactd396",
+    "raw609": "rawd396",
+    "exact609": "exactd396"
+  },
+  "counts": {
+    "native-synthetic-near-miss-609.js": 1,
+    "81d2e32d7ee67bb93a8fafee4dbc17570f8d4980be238d7434e15c791904b945": 1,
+    "704993496": 1,
+    "707422704": 1,
+    "707407324": 1,
+    "Exact609": 1,
+    "raw609": 1,
+    "exact609": 1
+  },
+  "artificialHostFixtureOnly": true,
+  "nativeAwardEvidence": false
+}
